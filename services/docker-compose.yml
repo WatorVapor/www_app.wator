@@ -4,7 +4,9 @@ services:
     build: nginx-wator
     ports:
       - "8080:80"
+    restart: always
   wator-laravel:
     build: laravel-wator
     ports:
       - "127.0.0.1:28080:80"
+    restart: always
