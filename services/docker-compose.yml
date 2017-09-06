@@ -9,4 +9,6 @@ services:
     build: laravel-wator
     ports:
       - "127.0.0.1:28080:80"
+    volumes:
+      - /watorvapor/app_www/wator:/opt/laravel
     restart: always
