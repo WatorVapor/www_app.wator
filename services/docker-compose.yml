@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nginx:
+    image: wator-nginx
+    ports:
+      - "8080:80"
+    environment:
+  postgres:
+    image: wator-laravel
+    ports:
+      - "127.0.0.1:28080:80"
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
