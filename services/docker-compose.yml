@@ -1,10 +1,10 @@
 version: '3'
 services:
   wator-nginx:
-    build: wator-nginx
+    build: nginx-wator
     ports:
       - "8080:80"
   wator-laravel:
-    build: wator-laravel
+    build: laravel-wator
     ports:
       - "127.0.0.1:28080:80"
