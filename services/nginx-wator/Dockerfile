@@ -1,2 +1,2 @@
 FROM ubuntu
-RUN apt update && apt install -y nginx
+RUN apt-get update && apt-get install -y nginx
