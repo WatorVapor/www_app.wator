@@ -36,6 +36,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,6 +58,7 @@
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+  </div>
   </div>
 </nav>
 
