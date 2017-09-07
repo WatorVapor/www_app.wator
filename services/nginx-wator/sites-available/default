@@ -1,40 +1,5 @@
 upstream home.watorvapor.com {
-  server 127.0.0.1:10080;
-}
-upstream account.watorvapor.com {
-  server 127.0.0.1:10081;
-}
-upstream xuniverse.watorvapor.com {
-  server 127.0.0.1:10082;
-}
-upstream story.watorvapor.com {
-  server 127.0.0.1:10083;
-}
-upstream aibot.watorvapor.com {
-  server 127.0.0.1:10084;
-}
-upstream wai.watorvapor.com {
-  server 127.0.0.1:10085;
-}
-upstream scope.watorvapor.com {
-  server 127.0.0.1:10086;
-}
-
-
-
-
-upstream p2pio.watorvapor.com {
-  server 127.0.0.1:28080;
-}
-upstream a.wss.p2pio.watorvapor.com {
-  server 127.0.0.1:28081;
-}
-upstream b.wss.p2pio.watorvapor.com {
-  server 127.0.0.1:28082;
-}
-
-upstream jenkins.watorvapor.com {
-  server 127.0.0.1:8080;
+  server 127.0.0.1:18080;
 }
 
 
@@ -49,93 +14,9 @@ server {
   ssl_certificate_key  /etc/certs/www.wator.xyz/privkey.pem;
   ssl_session_timeout  30m;
 
-  #ssl_protocols  TLSv1;
-  #ssl_prefer_server_ciphers   on;
-  #ssl_ciphers  AESGCM:HIGH:!aNULL:!MD5;
-
-
-  client_max_body_size 500M;
-
   location / {
     proxy_pass       http://home.watorvapor.com;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Host $host;
-  }
-  location ^~ /xuniverse/ {
-    rewrite ^/xuniverse/(.+) $1 break;
-    proxy_pass       http://xuniverse.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /account/ {
-    rewrite ^/account/(.+) $1 break;
-    proxy_pass       http://account.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /story/ {
-    rewrite ^/story/(.+) $1 break;
-    proxy_pass       http://story.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /aibot/ {
-    rewrite ^/aibot/(.+) $1 break;
-    proxy_pass       http://aibot.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /wai/ {
-    rewrite ^/wai/(.+) $1 break;
-    proxy_pass       http://wai.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /scope/ {
-    rewrite ^/scope/(.+) $1 break;
-    proxy_pass       http://scope.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-
-
-
-  location ^~ /p2pio/ {
-    rewrite ^/p2pio/(.+) $1 break;
-    proxy_pass       http://p2pio.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /p2pio/wss/a {
-    proxy_pass       http://a.wss.p2pio.watorvapor.com;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /p2pio/wss/b {
-    proxy_pass       http://b.wss.p2pio.watorvapor.com;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-
-  location ^~ /bower_components/ {
-    alias /opt/watorvapor/lb.wator/www/bower_components/;
-  }
-  location ^~ /img/ {
-    alias /opt/watorvapor/lb.wator/www/img/;
-  }
-  location ^~ /flags/ {
-    alias /opt/watorvapor/lb.wator/www/flags/;
-  }
-  location ^~ /repository/ {
-    alias /opt/watorvapor/lb.wator/www/repository/;
-  }
-  location ^~ /wator/ {
-    alias /opt/watorvapor/lb.wator/www/wator/;
   }
 }
