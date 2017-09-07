@@ -1,6 +1,7 @@
 @extends('wator.app')
 
 @section('navbar')
+@include('wator.navbar')	
 @endsection
 
 @section('content')
