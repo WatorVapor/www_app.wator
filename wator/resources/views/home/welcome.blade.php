@@ -1,16 +1,9 @@
 @extends('wator.app')
 
-@section('navbar')
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
-  <div class="container">
-    @include('wator.navbar')
-    @include('home.navbar')
-  </div>
-  <script>
-    $('[data-toggle="popover"]').popover();
-  </script>
-</nav>
+@section('appnavbar')
+  @include('home.navbar')
 @endsection
+
 
 @section('content')
 <div class="container">
