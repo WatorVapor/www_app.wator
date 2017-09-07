@@ -39,12 +39,18 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarNav">
-      <a class="btn btn-lg btn-primary" href="/" role="button">
-        <i class="material-icons md-48">home</i>
-      </a>
-      <a class="btn btn-lg btn-primary" href="/about" role="button">
-        <i class="material-icons md-48">info</i>
-      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="btn btn-lg btn-primary" href="/" role="button">
+            <i class="material-icons md-48">home</i>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-lg btn-primary" href="/about" role="button">
+            <i class="material-icons md-48">info</i>
+          </a>
+        </li>
+     </ul>
     </div>	
   </div>
 </nav>
