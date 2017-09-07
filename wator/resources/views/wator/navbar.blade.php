@@ -44,8 +44,7 @@
       <a class="btn btn-lg btn-primary" href="/about" role="button">
         <i class="material-icons md-48">info</i>
       </a>
-    </div>
-    @include(' {{ $watorapp }}.navbar')		
+    </div>	
     <div class="nav navbar-nav navbar-right collapse navbar-collapse">
       <a tabindex="0" href="#" class="btn btn-lg btn-success" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
         <i class="material-icons md-48">language</i>
