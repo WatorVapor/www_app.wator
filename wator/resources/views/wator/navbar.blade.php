@@ -36,10 +36,10 @@
 
 
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify-content-between">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="btn btn-lg btn-primary" href="/" role="button">
             <i class="material-icons md-48">home</i>
