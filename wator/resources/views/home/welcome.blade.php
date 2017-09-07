@@ -1,4 +1,8 @@
 @extends('wator.app')
+
+@section('navbar')
+@endsection
+
 @section('content')
 <div class="container">
   <div class="row" >
