@@ -36,11 +36,17 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-    Bootstrap
-  </a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="nav navbar-nav navbar-left collapse navbar-collapse">
+      <a class="btn btn-lg btn-primary" href="/" role="button">
+        <i class="material-icons md-48">home</i>
+      </a>
+      <a class="btn btn-lg btn-primary" href="/about" role="button">
+        <i class="material-icons md-48">info</i>
+      </a>
+    </div>	
+  </div>
 </nav>
 
 <!--
