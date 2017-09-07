@@ -35,6 +35,12 @@
 ?>
 
 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+</nav>
+
+<!--
+
 <nav class="navbar fixed-top navbar-toggleable navbar-light bg-faded" role="navigation">
   <div class="container">
     <div class="nav navbar-nav navbar-left collapse navbar-collapse">
@@ -68,3 +74,5 @@
     $('[data-toggle="popover"]').popover();
   </script>
 </nav>
+-->
+
