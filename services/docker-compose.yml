@@ -3,7 +3,7 @@ services:
   wator-nginx:
     build: nginx-wator
     ports:
-      - "18081:80"
+      - "18443:443"
     volumes:
       - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
       - /etc/certs/www.wator.xyz:/etc/certs/www.wator.xyz
