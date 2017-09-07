@@ -7,7 +7,7 @@ services:
     volumes:
       - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
       - /etc/certs/www.wator.xyz:/etc/certs/www.wator.xyz
-    command: nginx
+    command: nginx -T
     #restart: always
   wator-laravel:
     build: laravel-wator
