@@ -9,8 +9,9 @@ services:
     build: laravel-wator
     ports:
       - "127.0.0.1:18080:8000"
-    command: pwd
-    #command: cd /opt/laravel && php artisan serve
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
+    working_dir: "/opt/laravel"
+    #command: pwd
+    command: php artisan serve
     restart: always
