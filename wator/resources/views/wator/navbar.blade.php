@@ -34,40 +34,15 @@
   $apps .= '</a>';
 ?>
 
-<!--
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto d-lg-table-cell">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-  </div>
-</nav>
--->
-
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <ul class="navbar-nav justify-content-start">
-      <li class="nav-item active">
+      <li class="nav-item active ml-lg-10">
         <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
           <i class="material-icons md-48">home</i>
         </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active ml-lg-10">
         <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
           <i class="material-icons md-48">info</i>
         </a>
