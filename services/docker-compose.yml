@@ -13,5 +13,5 @@ services:
       - /watorvapor/app_www/wator:/opt/laravel
     working_dir: "/opt/laravel"
     #command: pwd
-    command: php artisan serve
+    command: php artisan serve --host=0.0.0.0
     restart: always
