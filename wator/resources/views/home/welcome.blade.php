@@ -10,7 +10,6 @@
     $('[data-toggle="popover"]').popover();
   </script>
 </nav>
-
 @endsection
 
 @section('content')
