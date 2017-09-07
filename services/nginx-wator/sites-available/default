@@ -39,11 +39,6 @@ upstream jenkins.watorvapor.com {
 
 
 
-
-upstream swc.watorvapor.com {
-  server 192.168.0.190;
-}
-
 # HTTPS server
 server {
   listen       443 default_server ssl http2;
