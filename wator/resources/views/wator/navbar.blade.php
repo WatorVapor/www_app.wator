@@ -61,20 +61,32 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
-    <div class="collapse navbar-collapse navbar-left" id="navbarNav">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
-            <i class="material-icons md-48">home</i>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
-            <i class="material-icons md-48">info</i>
-          </a>
-        </li>
-     </ul>
-    </div>	
+    <ul class="navbar-nav justify-content-start">
+      <li class="nav-item active">
+        <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
+          <i class="material-icons md-48">home</i>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
+          <i class="material-icons md-48">info</i>
+        </a>
+      </li>
+   </ul>
+
+    <ul class="navbar-nav justify-content-end">
+      <li class="nav-item active">
+        <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
+          <i class="material-icons md-48">home</i>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
+          <i class="material-icons md-48">info</i>
+        </a>
+      </li>
+   </ul>
+
 
     <div class="collapse navbar-collapse navbar-right">
       <a tabindex="0" href="#" class="btn btn-lg btn-success" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
