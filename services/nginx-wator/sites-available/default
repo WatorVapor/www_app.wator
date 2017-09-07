@@ -123,30 +123,6 @@ server {
     proxy_set_header Host $host;
   }
 
-
-
-  location ^~ /swc/ {
-    rewrite ^/swc/(.+) $1 break;
-    proxy_pass       http://swc.watorvapor.com/$1;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-  location ^~ /swc/video/ {
-    auth_basic "Restricted";
-    auth_basic_user_file /etc/nginx/.htpasswd;
-    proxy_pass       http://swc.watorvapor.com;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-  }
-
-  location ^~ /jenkins/ {
-    proxy_redirect http:// https://;
-    proxy_pass       http://jenkins.watorvapor.com;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $host;
-    proxy_set_header X-Forwarded-Proto $scheme;
-  }
-
   location ^~ /bower_components/ {
     alias /opt/watorvapor/lb.wator/www/bower_components/;
   }
