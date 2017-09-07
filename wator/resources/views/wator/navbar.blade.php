@@ -37,12 +37,12 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <ul class="navbar-nav justify-content-start">
-      <li class="nav-item active ml-lg-5">
+      <li class="nav-item active ml-lg-1">
         <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
           <i class="material-icons md-48">home</i>
         </a>
       </li>
-      <li class="nav-item active ml-lg-5">
+      <li class="nav-item active ml-lg-1">
         <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
           <i class="material-icons md-48">info</i>
         </a>
