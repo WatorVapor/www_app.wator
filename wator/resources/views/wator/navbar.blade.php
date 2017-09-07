@@ -38,7 +38,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <div class="nav navbar-nav navbar-left collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <a class="btn btn-lg btn-primary" href="/" role="button">
         <i class="material-icons md-48">home</i>
       </a>
