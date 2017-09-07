@@ -34,7 +34,7 @@
   $apps .= '</a>';
 ?>
 
-
+<!--
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
   <div class="collapse navbar-collapse">
@@ -56,13 +56,13 @@
   </div>
   </div>
 </nav>
+-->
 
-<!--
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <div class="collapse navbar-collapse navbar-left" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
           <a class="btn btn-lg btn-primary" href="/" role="button">
             <i class="material-icons md-48">home</i>
@@ -97,7 +97,7 @@
 
   </div>
 </nav>
--->
+
 
 <!--
 
