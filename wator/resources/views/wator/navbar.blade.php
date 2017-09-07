@@ -36,7 +36,7 @@
 
 
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify-content-between">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
