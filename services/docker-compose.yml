@@ -7,5 +7,5 @@ services:
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
     working_dir: "/opt/laravel"
-    command: php artisan serve --host=0.0.0.0
+    command: php artisan serve -vvv --host=0.0.0.0
     restart: always
