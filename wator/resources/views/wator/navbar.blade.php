@@ -64,12 +64,12 @@
     <div class="collapse navbar-collapse navbar-left" id="navbarNav">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="btn btn-lg btn-primary" href="/" role="button">
+          <a class="btn btn-lg btn-primary nav-link" href="/" role="button">
             <i class="material-icons md-48">home</i>
           </a>
         </li>
         <li class="nav-item active">
-          <a class="btn btn-lg btn-primary" href="/about" role="button">
+          <a class="btn btn-lg btn-primary nav-link" href="/about" role="button">
             <i class="material-icons md-48">info</i>
           </a>
         </li>
