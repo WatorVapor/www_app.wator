@@ -34,6 +34,34 @@
   $apps .= '</a>';
 ?>
 
+<ul class="navbar-nav justify-content-start">
+  <li class="nav-item active">
+    <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
+      <i class="material-icons md-48">home</i>
+    </a>
+  </li>
+  <li class="nav-item active ml-lg-3">
+    <a class="btn btn-lg btn-primary nav-btn" href="/about" role="button">
+      <i class="material-icons md-48">info</i>
+    </a>
+  </li>
+</ul>
+
+<ul class="navbar-nav justify-content-end">
+  <li class="nav-item active mr-lg-3">
+    <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
+      <i class="material-icons md-48">language</i>
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a tabindex="1" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $apps }}">
+      <i class="material-icons md-48">apps</i>
+    </a>
+  </li>
+</ul>
+
+
+<!--
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <ul class="navbar-nav justify-content-start">
@@ -66,7 +94,7 @@
     $('[data-toggle="popover"]').popover();
   </script>
 </nav>
-
+-->
 
 <!--
 
