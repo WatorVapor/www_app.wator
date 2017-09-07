@@ -19,8 +19,9 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
       <div class="container">
-        @include('wator.navbar')
+        @include('wator.navbar_l')
         @yield('appnavbar')
+        @include('wator.navbar_r')
       </div>
       <script>
         $('[data-toggle="popover"]').popover();
