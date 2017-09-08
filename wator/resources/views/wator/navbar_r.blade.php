@@ -6,11 +6,11 @@
   $langs .= '<a class="btn btn-success mr-lg-3" onclick="onClickLanguage(\'ja\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-jp"></span>';
   $langs .= '</a>';
-  $langs .= '<hr/>';
-  $langs .= '<a class="btn btn-success mr-lg-3" onclick="onClickLanguage(\'en\')" role="button">';
+  $langs .= '<br/>';
+  $langs .= '<a class="btn btn-success mr-lg-3 mt-lg-3" onclick="onClickLanguage(\'en\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-us"></span>';
   $langs .= '</a>';
-  $langs .= '<a class="btn btn-success mr-lg-3" onclick="onClickLanguage(\'ru\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-3 mt-lg-3" onclick="onClickLanguage(\'ru\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-ru"></span>';
   $langs .= '</a>';
 ?>
