@@ -8,10 +8,8 @@
 @section('content')
 <div class="row" >
   <div class="col"></div>
-  <div class="col-10">
-    <div class="col-text text-left">
-      <pre class="bg-danger text-nowrap"> {{trans('about.content')}}</pre>
-    </div>
+  <div class="col-10 bg-danger text-nowrap">
+      {{trans('about.content')}}
   </div>
   <div class="col"></div>
 </div>
