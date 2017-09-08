@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         @include('wator.navbar_l')
         @yield('appnavbar')
@@ -29,6 +29,8 @@
         $('[data-toggle="popover"]').popover();
       </script>
     </nav>
-    @yield('content')
+    <div class="container-fluid mt-5">
+      @yield('content')
+    </div>
   </body>
 </html>
