@@ -9,7 +9,7 @@
 @section('content')
 <div class="row" >
   <div class="col"></div>
-  <div class="col-10 bg-secondary text-left text-justify">
+  <div class="col-10 bg-secondary text-left text-nowrap">
     {{trans('about.content')}}
   </div>
   <div class="col"></div>
