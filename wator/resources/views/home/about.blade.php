@@ -8,12 +8,12 @@
 
 @section('content')
 <div class="row" >
-  <div class="col-md-10 col-md-offset-1">
-  <div class="col-text text-left">
-    <pre class="bg-danger">
-     {{trans('about.content')}}
-    </pre>
+  <div class="col"></div>
+  <div class="col-10">
+    <div class="col-text text-left">
+      <pre class="bg-danger">{{trans('about.content')}}</pre>
+    </div>
   </div>
-  </div>
+  <div class="col"></div>
 </div>
 @endsection
