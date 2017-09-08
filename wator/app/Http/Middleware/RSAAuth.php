@@ -16,10 +16,10 @@ class RSAAuth
     public function handle($request, Closure $next)
     {
         $status = $request->session()->get('account.rsa.login.status');
-        if (isset($status) {
+        if (isset($status)) {
             if ( $status === 'success') {
                 $name = $request->session()->get('account.rsa.login.name');
-                if (isset($name) {
+                if (isset($name)) {
                     view()->share('nav_login_show_name', $name);
                 } else {
                     view()->share('nav_login_show_name', 'navbar.profile');
