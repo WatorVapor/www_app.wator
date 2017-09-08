@@ -10,7 +10,7 @@
 <div class="row" >
   <div class="col"></div>
   <div class="col-10 bg-secondary text-left text-justify">
-    <pre>{{trans('about.content')}}</pre>
+    <p>{{trans('about.content')}}</p>
   </div>
   <div class="col"></div>
 </div>
