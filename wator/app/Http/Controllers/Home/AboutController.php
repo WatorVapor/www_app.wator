@@ -3,6 +3,7 @@
 namespace Wator\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
+use Wator\Http\Controllers\Controller;
 
 class AboutController extends Controller
 {
