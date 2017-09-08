@@ -29,7 +29,7 @@
         $('[data-toggle="popover"]').popover();
       </script>
     </nav>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid">
       @yield('content')
     </div>
   </body>
