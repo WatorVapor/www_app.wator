@@ -1,6 +1,6 @@
 <?php
 
-namespace Wator\Http\Controllers;
+namespace Wator\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 
