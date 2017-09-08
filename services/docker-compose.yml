@@ -9,3 +9,12 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=0.0.0.0
     restart: always
+  wator-laravel-ghost:
+    build: laravel-wator
+    ports:
+      - "127.0.0.1:18081:8000"
+    volumes:
+      - /watorvapor/app_www/wator:/opt/laravel
+    working_dir: "/opt/laravel"
+    command: php artisan serve -vvv --host=0.0.0.0
+    restart: always
