@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/about', 'AboutController@index');
-Route::get('/welcome', 'WelcomeController@index');
-Route::get('/', 'WelcomeController@index');
+Route::get('/about', 'Home\AboutController@index');
+Route::get('/welcome', 'Home\WelcomeController@index');
+Route::get('/', 'Home\WelcomeController@index');
