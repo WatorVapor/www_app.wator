@@ -20,7 +20,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
-      <div class="container">
+      <div class="container-fluid">
         @include('wator.navbar_l')
         @yield('appnavbar')
         @include('wator.navbar_r')
