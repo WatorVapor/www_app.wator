@@ -1,3 +1,4 @@
+<!--
 <ul class="navbar-nav justify-content-center">
   <li class="nav-item active">
     <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
@@ -10,3 +11,4 @@
     </a>
   </li>
 </ul>
+-->
