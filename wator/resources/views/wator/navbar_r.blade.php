@@ -34,6 +34,17 @@
   $apps .= '</a>';
 ?>
 
+<?php
+  $user_title= 'guest';
+  if( isset($nav_login_show_name)) {
+    $user_title = $nav_login_show_name;
+  }
+  $user = '';
+  $user .= '<a class="btn btn-lg btn-success" href="/account/profile" role="button">';
+  $user .= '<i class="material-icons md-48">account_box</i>';
+  $user .= '</a>';
+?>
+
 
 <ul class="navbar-nav justify-content-end">
   <li class="nav-item active mr-lg-5">
@@ -46,6 +57,20 @@
       <i class="material-icons md-48">apps</i>
     </a>
   </li>
+  @if(isset($RSAAuth_Passed))
+  <li class="nav-item active">
+    <a tabindex="2" href="#" role="button" class="btn btn-lg btn-success" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="{{ $user_title }}" data-content="{{ $user }}">
+      <i class="material-icons md-48">person</i>
+      <span class="icon-bar">{{ mb_substr($nav_login_show_name,0,2,'UTF-8') }}</span>
+    </a>
+  </li>
+  @else
+  <li class="nav-item active">
+    <a role="button" class="btn btn-success btn-lg" href="/account/signup" role="button">
+      <i class="material-icons md-48">person_add</i>
+    </a>
+  </li>
+  @endif
 </ul>
 
 
