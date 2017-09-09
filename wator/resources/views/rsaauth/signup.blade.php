@@ -9,7 +9,7 @@
 
 <div class="row justify-content-md-center mt-md-5">
   <div class="col-md-8">
-      <a href="{{ url('/rsaauth/import',[], TRUE) }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('rsaauth_signup.import')}}</a>
+      <a href="{{ route('/rsaauth/import') }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('rsaauth_signup.import')}}</a>
    </div>
 </div>
 <br/>
@@ -47,7 +47,7 @@
       <!--
       <button id="sendmail" type="button" class="btn btn-info">{{trans('rsaauth_signup.key_send_mail')}}</button>
       -->
-      <a href="{{ url('/rsaauth/profile',[], TRUE) }}" id="next_step" class="btn btn-info" role="button">{{trans('rsaauth_signup.key_next')}}</a>
+      <a href="{{ route('/rsaauth/profile')}}" id="next_step" class="btn btn-info" role="button">{{trans('rsaauth_signup.key_next')}}</a>
     </div>
   </div>
 </div>
