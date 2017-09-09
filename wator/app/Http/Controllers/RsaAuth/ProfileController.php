@@ -4,15 +4,14 @@ namespace Wator\Http\Controllers\RsaAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Log;
 use File;
 
 class ProfileController extends Controller
 {
     protected $keyRoot_;
     public function __construct() {
-        $this->keyRoot_ = storage_path() . '/pubKeys/';
-        File::makeDirectory($this->keyRoot_, 0775, true, true);
+          $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
+          File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     /**
     * Display a listing of the resource.
@@ -27,7 +26,7 @@ class ProfileController extends Controller
         $data['user_icon'] = 'https://';
         $data['user_type'] = 'meat';
         $data['user_free'] = 'I am a good man!';
-        return view('profile',$data);
+        return view('rsaauth.profile',$data);
     }
 
     /**
@@ -50,7 +49,6 @@ class ProfileController extends Controller
     {
         //
         $bodyContent = $request->getContent();
-        //Log::info('$bodyContent=<' . $bodyContent . '>');
         $bodyJson = json_decode($bodyContent);
         $keyPath = $this->keyRoot_ . $bodyJson->token . '/pubKey.pem';
         $fp = fopen($keyPath, 'r');
@@ -64,7 +62,6 @@ class ProfileController extends Controller
         openssl_free_key($pubkeyid);
         if ($ok == 1) {
             $profilePath = $this->keyRoot_ . $bodyJson->token . '/profile';
-            //Log::info('$bodyJson->payload=<' . json_encode($bodyJson->payload) . '>');
             file_put_contents($profilePath, json_encode($bodyJson->payload));
             return response()->json(['status' => 'success']);
         } else {
