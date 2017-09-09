@@ -38,7 +38,9 @@ class LanguageController extends Controller
         //
         $bodyContent = $request->getContent();
         //Log::info($bodyContent);
+        var_dump($bodyContent);
         $bodyJson = json_decode($bodyContent);
+        var_dump($bodyJson);
         if(!isset($bodyJson->lang)) {
             return response()->json(['status'=>'failure']);
         } else {
