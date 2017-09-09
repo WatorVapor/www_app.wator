@@ -65,8 +65,8 @@
 </div>
 
 
-<script src="/wator/js/rsaauth/create.js" type="text/javascript"></script>
-<script src="/wator/js/rsaauth/upload.js" type="text/javascript"></script>
+<script src="/wator/rsaauth/js/create.js" type="text/javascript"></script>
+<script src="/wator/js/rsaauth/js/upload.js" type="text/javascript"></script>
 <script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
