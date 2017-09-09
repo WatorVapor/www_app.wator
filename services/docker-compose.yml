@@ -6,6 +6,7 @@ services:
       - "127.0.0.1:18080:8000"
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
+      - /watorvapor/rsaauth/wator:/opt/rsaauth
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=0.0.0.0
     restart: always
@@ -15,6 +16,7 @@ services:
       - "127.0.0.1:18081:8000"
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
+      - /watorvapor/rsaauth/wator:/opt/rsaauth
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=0.0.0.0
     restart: always
