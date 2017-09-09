@@ -24,10 +24,10 @@ class RSAAuth
                 } else {
                     view()->share('nav_login_show_name', 'navbar.profile');
                 }
-                view()->share('nav_login_url', '/account/profile');
+                view()->share('nav_login_url', '/rsaauth/profile');
             } else {
                 view()->share('nav_login_show_name', 'navbar.fix');
-                view()->share('nav_login_url', '/account/fix');
+                view()->share('nav_login_url', '/rsaauth/fix');
             }
         }
         return $next($request);
