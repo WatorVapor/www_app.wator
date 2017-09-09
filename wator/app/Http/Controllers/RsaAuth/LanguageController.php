@@ -4,7 +4,7 @@ namespace Wator\Http\Controllers\RsaAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Log;
+
 class LanguageController extends Controller
 {
     /**
@@ -37,14 +37,13 @@ class LanguageController extends Controller
     {
         //
         $bodyContent = $request->getContent();
-        //Log::info($bodyContent);
         var_dump($bodyContent);
         $bodyJson = json_decode($bodyContent);
         var_dump($bodyJson);
         if(!isset($bodyJson->lang)) {
             return response()->json(['status'=>'failure']);
         } else {
-            //$request->session()->put('user.operation.lang', $bodyJson->lang);
+            $request->session()->put('user.operation.lang', $bodyJson->lang);
         }
         return response()->json(['status'=>'success']);
     }
