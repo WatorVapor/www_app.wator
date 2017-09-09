@@ -17,19 +17,15 @@
     });
   });
 </script>
-<style>
-.wv-mainbox {
-  width:61.8%;
-  overflow-y: scroll;
-}
-</style>
 
-<div class="wv-mainbox center-block well well-lg">
-  <div class="input-group">
-     <span class="input-group-btn">
-       <button id="apply-name" type="button" class="btn btn-default">{{trans('profile.apply_name')}}</button>
-     </span>
-     <input type="text" id = "user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
+<div class="row justify-content-md-center">
+  <div class="col-md-6 bg-primary">
+    <div class="input-group">
+       <span class="input-group-btn">
+         <button id="apply-name" type="button" class="btn btn-default">{{trans('profile.apply_name')}}</button>
+       </span>
+       <input type="text" id = "user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
+    </div>
   </div>
 </div>
 
