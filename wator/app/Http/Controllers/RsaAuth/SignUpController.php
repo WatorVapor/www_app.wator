@@ -22,7 +22,7 @@ class SignUpController extends Controller
     public function index()
     {
         //
-        return view('signup');
+        return view('rsaauth.signup');
     }
 
     /**
