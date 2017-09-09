@@ -7,8 +7,8 @@
 
 @section('content')
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
+<div class="row justify-content-md-center">
+  <div class="col-md-8">
       <a href="{{ url('/rsaauth/import',[], TRUE) }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('signup.import')}}</a>
    </div>
 </div>
