@@ -7,15 +7,15 @@
 
 @section('content')
 
-<div class="row justify-content-md-center">
+<div class="row justify-content-md-center mt-md-5">
   <div class="col-md-8">
       <a href="{{ url('/rsaauth/import',[], TRUE) }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('signup.import')}}</a>
    </div>
 </div>
 <br/>
 <br/>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 bg-primary">
+<div class="row justify-content-md-center">
+  <div class="col-md-8 bg-primary">
     <h2 class="text-left ">1.{{trans('signup.agree_robot')}}</h2>
     <h2 class="text-left">2.{{trans('signup.agree_friend')}}</h2>
     <br/>
@@ -36,8 +36,8 @@
 <br/>
 <br/>
 
-<div class="row " id="operate_key">
-  <div class="col-md-8 col-md-offset-2 bg-warning">
+<div class="row  justify-content-md-center" id="operate_key">
+  <div class="col-md-8 bg-warning">
     <pre id="noticeBox" class="text-left text-danger ">
       {{trans('signup.key_important')}}
     </pre>
@@ -54,8 +54,8 @@
 <br/>
 <br/>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 bg-info">
+<div class="row justify-content-md-center">
+  <div class="col-md-8 bg-info">
     <pre id="privateKey" class="text-left small" rows="40">
       -----BEGIN PRIVATE KEY-----
 
