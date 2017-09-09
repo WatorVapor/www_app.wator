@@ -40,7 +40,7 @@
     $user_title = $nav_login_show_name;
   }
   $user = '';
-  $user .= '<a class="btn btn-lg btn-success" href="/account/profile" role="button">';
+  $user .= '<a class="btn btn-lg btn-success" href="/rsaauth/profile" role="button">';
   $user .= '<i class="material-icons md-48">account_box</i>';
   $user .= '</a>';
 ?>
@@ -66,7 +66,7 @@
   </li>
   @else
   <li class="nav-item active">
-    <a role="button" class="btn btn-success btn-lg" href="/account/signup" role="button">
+    <a role="button" class="btn btn-success btn-lg" href="/rsaauth/signup" role="button">
       <i class="material-icons md-48">person_add</i>
     </a>
   </li>
