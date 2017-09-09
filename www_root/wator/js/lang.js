@@ -9,6 +9,13 @@ $(function () {
   });
 });
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+
 function onClickLanguage(lang) {
   console.log('lang=<' + lang + '>');
   if(lang) {
