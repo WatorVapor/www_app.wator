@@ -33,7 +33,7 @@ RSAAuth.reLogin_ = function() {
 
 RSAAuth.uniAccess_ = function() {
   let JSONdata ={};
-  let url = '/account/access';
+  let url = '/rsaauth/access';
   $.ajax({
     type : 'post',
     url : url,
@@ -47,7 +47,7 @@ RSAAuth.uniAccess_ = function() {
     },
     error : function(e) {
       console.error(e);
-      window.location.href = '/account/error';
+      window.location.href = '/rsaauth/error';
     }
   });
 }
@@ -62,7 +62,7 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
   JSONdata.auth = {};
   JSONdata.auth.access = access;
   JSONdata.auth.sign = signature;
-  let url = '/account/login';
+  let url = '/rsaauth/login';
   $.ajax({
     type : 'post',
     url : url,
@@ -80,14 +80,14 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
       // Error
       console.log(data);
       sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
-      window.location.href = '/account/error';
+      window.location.href = '/rsaauth/error';
     }
   });
 }
 
 RSAAuth.clear = function() {
   let JSONdata ={};
-  let url = '/account/login';
+  let url = '/rsaauth/login';
   $.ajax({
     type : 'post',
     url : url,
@@ -105,7 +105,7 @@ RSAAuth.clear = function() {
       // Error
       console.log(data);
       sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
-      window.location.href = '/account/error';
+      window.location.href = '/rsaauth/error';
     }
   });
 }
