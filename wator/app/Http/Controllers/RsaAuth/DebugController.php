@@ -15,7 +15,6 @@ class DebugController extends Controller
     public function index()
     {
         //
-        session_destroy();
         return view('debug');
     }
 
