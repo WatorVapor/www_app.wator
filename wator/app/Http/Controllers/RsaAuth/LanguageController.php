@@ -37,12 +37,12 @@ class LanguageController extends Controller
     {
         //
         $bodyContent = $request->getContent();
-        Log::info($bodyContent);
+        //Log::info($bodyContent);
         $bodyJson = json_decode($bodyContent);
         if(!isset($bodyJson->lang)) {
             return response()->json(['status'=>'failure']);
         } else {
-            $_SESSION['user.operation.lang'] = $bodyJson->lang;
+            $request->session()->put('user.operation.lang', $bodyJson->lang);
         }
         return response()->json(['status'=>'success']);
     }
