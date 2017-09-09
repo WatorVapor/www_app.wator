@@ -1,4 +1,4 @@
-@extends('wator.app')
+@extends('rsaauth.signup.app')
 
 @section('appnavbar')
   @include('rsaauth.navbar')
