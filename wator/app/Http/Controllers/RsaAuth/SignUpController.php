@@ -11,7 +11,7 @@ class SignUpController extends Controller
 {
      protected $keyRoot_;
      public function __construct() {
-          $this->keyRoot_ = storage_path() . '/pubKeys/';
+          $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
           File::makeDirectory($this->keyRoot_, 0775, true, true);
      }
     /**
@@ -22,6 +22,7 @@ class SignUpController extends Controller
     public function index()
     {
         //
+        var_dump($this->keyRoot_);
         return view('rsaauth.signup');
     }
 
