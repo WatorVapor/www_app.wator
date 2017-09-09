@@ -42,7 +42,7 @@
       {{trans('rsaauth_signup.key_important')}}
     </pre>
     <div class="mainbox center-block text-center">
-      <a id="savefile" href="#" type="button" download="watorvapor.account.key" class="btn btn-primary">{{trans('rsaauth_signup.key_save_file')}}</a>
+      <a id="savefile" href="#" type="button" download="wator.rsaauth.key" class="btn btn-primary">{{trans('rsaauth_signup.key_save_file')}}</a>
       <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{trans('rsaauth_signup.key_copy')}}</button>
       <!--
       <button id="sendmail" type="button" class="btn btn-info">{{trans('rsaauth_signup.key_send_mail')}}</button>
