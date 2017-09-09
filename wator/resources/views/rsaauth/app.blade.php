@@ -20,7 +20,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
     <script src="/wator/js/ga.js" type="text/javascript"></script>
-    <script src="/wator/js/login.js" type="text/javascript"></script>
     <script src="/wator/js/lang.js" type="text/javascript"></script>
 
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
