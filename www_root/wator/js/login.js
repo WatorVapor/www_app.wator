@@ -62,9 +62,9 @@ RSAAuth.uniAccess_ = function() {
 
 RSAAuth.signLogin_ = function(privateKey,token,access) {
   let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
-  //console.log(rsaKey);
+  console.log('rsaKey=<',rsaKey,'>');
   let signature = rsaKey.signString(access,"sha256");
-  //console.log(signature);
+  console.log('signature=<',signature,'>');
   let JSONdata ={};
   JSONdata.token = token;
   JSONdata.auth = {};
