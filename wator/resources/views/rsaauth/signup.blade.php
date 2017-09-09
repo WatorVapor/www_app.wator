@@ -1,4 +1,4 @@
-@extends('rsaauth.signup.app')
+@extends('rsaauth.signup_app')
 
 @section('appnavbar')
   @include('rsaauth.navbar')
