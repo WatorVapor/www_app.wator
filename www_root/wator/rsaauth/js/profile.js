@@ -13,7 +13,7 @@ RSAAuth.getToken = function() {
 RSAAuth.sign = function(privateKey,token,payload) {
     var rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
     //console.log(rsaKey);
-    var signature = rsaKey.signString(token,"sha256");
+    var signature = rsaKey.sign(token,"sha256");
     //console.log(signature);
     var JSONdata ={};
     JSONdata.token = token;
