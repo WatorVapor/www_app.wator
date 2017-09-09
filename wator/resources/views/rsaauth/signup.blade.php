@@ -87,7 +87,7 @@
         $("#savefile").show();
         $("#sendmail").show();
         $("#next_step").show();
-        //RSAAuth.upPubKey();
+        RSAAuth.upPubKey();
       });
     });
     $("#btn_no").click(function(){
