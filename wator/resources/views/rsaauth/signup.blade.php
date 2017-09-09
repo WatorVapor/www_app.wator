@@ -9,25 +9,25 @@
 
 <div class="row justify-content-md-center mt-md-5">
   <div class="col-md-8">
-      <a href="{{ url('/rsaauth/import',[], TRUE) }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('signup.import')}}</a>
+      <a href="{{ url('/rsaauth/import',[], TRUE) }}" class="btn btn-danger btn-lg btn-block" role="button">{{trans('rsaauth.signup.import')}}</a>
    </div>
 </div>
 <br/>
 <br/>
 <div class="row justify-content-md-center">
   <div class="col-md-8 bg-primary">
-    <h2 class="text-left ">1.{{trans('signup.agree_robot')}}</h2>
-    <h2 class="text-left">2.{{trans('signup.agree_friend')}}</h2>
+    <h2 class="text-left ">1.{{trans('rsaauth.signup.agree_robot')}}</h2>
+    <h2 class="text-left">2.{{trans('rsaauth.signup.agree_friend')}}</h2>
     <br/>
     <div class="mainbox center-block text-center">
-      <button id="btn_yes" type="button" class="btn btn-success">{{trans('signup.agree_yes')}}</button>
-      <button id="btn_no" type="button" class="btn btn-danger">{{trans('signup.agree_no')}}</button>
+      <button id="btn_yes" type="button" class="btn btn-success">{{trans('rsaauth.signup.agree_yes')}}</button>
+      <button id="btn_no" type="button" class="btn btn-danger">{{trans('rsaauth.signup.agree_no')}}</button>
     </div>
     <br/>
     <div id="progressBox" class="mainbox center-block text-left">
       <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-          {{trans('signup.key_waiting')}}
+          {{trans('rsaauth.signup.key_waiting')}}
         </div>
       </div>
     </div>
@@ -39,15 +39,15 @@
 <div class="row  justify-content-md-center" id="operate_key">
   <div class="col-md-8 bg-warning">
     <pre id="noticeBox" class="text-left text-danger ">
-      {{trans('signup.key_important')}}
+      {{trans('rsaauth.signup.key_important')}}
     </pre>
     <div class="mainbox center-block text-center">
-      <a id="savefile" href="#" type="button" download="watorvapor.account.key" class="btn btn-primary">{{trans('signup.key_save_file')}}</a>
-      <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{trans('signup.key_copy')}}</button>
+      <a id="savefile" href="#" type="button" download="watorvapor.account.key" class="btn btn-primary">{{rsaauth.trans('signup.key_save_file')}}</a>
+      <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{rsaauth.trans('signup.key_copy')}}</button>
       <!--
-      <button id="sendmail" type="button" class="btn btn-info">{{trans('signup.key_send_mail')}}</button>
+      <button id="sendmail" type="button" class="btn btn-info">{{trans('rsaauth.signup.key_send_mail')}}</button>
       -->
-      <a href="{{ url('/rsaauth/profile',[], TRUE) }}" id="next_step" class="btn btn-info" role="button">{{trans('signup.key_next')}}</a>
+      <a href="{{ url('/rsaauth/profile',[], TRUE) }}" id="next_step" class="btn btn-info" role="button">{{trans('rsaauth.signup.key_next')}}</a>
     </div>
   </div>
 </div>
