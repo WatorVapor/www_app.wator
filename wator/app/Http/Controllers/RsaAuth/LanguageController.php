@@ -41,6 +41,7 @@ class LanguageController extends Controller
         $bodyJson = json_decode($bodyContent);
         //var_dump($bodyJson);
         if(!isset($bodyJson->lang)) {
+            App::setLocale($bodyJson->lang);
             return response()->json(['status'=>'failure']);
         } else {
             $request->session()->put('user.operation.lang', $bodyJson->lang);
