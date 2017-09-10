@@ -53,13 +53,10 @@ $(document).ready(function(){
   console.log('token=<',token,'>');
   let elemToken = document.getElementById("rsa.login.accessToken");
   console.log('elemToken=<',elemToken,'>');
-  console.log('elemToken.value=<',elemToken.value,'>');
-  elemToken.value = token;
-  $(function() {
-    console.log('rsa.login.accessToken.val()=<',$('#rsa.login.accessToken').val(),'>');
-    $('#rsa.login.accessToken').val(token);
-    console.log('rsa.login.accessToken.val=<',$('#rsa.login.accessToken'),'>');
-  });
+  if(elemToken) {
+    elemToken.value = token;
+    console.log('elemToken.value=<',elemToken.value,'>');
+  }
 });
 
 </script>
