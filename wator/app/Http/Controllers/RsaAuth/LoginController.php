@@ -21,6 +21,9 @@ class LoginController extends Controller
     public function index(Request $request)
     {
         //
+        $request->session()->forget('account.rsa.login.status');
+        $request->session()->forget('account.rsa.login.name');
+        $request->session()->forget('account.rsa.login.token');
         return view('rsaauth.login');
     }
 
