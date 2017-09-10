@@ -32,6 +32,6 @@ $(document).ready(function(){
   let run = RSAAuth_.isLoginRun_();
   console.log('run=<',run,'>');
   if(!run) {
-    RSAAuth.login_();
+    RSAAuth_.login_();
   }
 });
