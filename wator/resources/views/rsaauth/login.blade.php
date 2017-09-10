@@ -52,7 +52,7 @@ $(document).ready(function(){
   let token = RSAAuth.getToken();
   console.log('token=<',token,'>');
   $("#rsa.login.accessToken").val(token);
-  console.log('rsa.login.accessToken=<',$("#rsa.login.accessToken"),'>');
+  console.log('rsa.login.accessToken.val=<',$("#rsa.login.accessToken").val(),'>');
 });
 
 </script>
