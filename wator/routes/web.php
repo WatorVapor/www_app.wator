@@ -22,7 +22,7 @@ Route::get('/rsaauth/import', 'RsaAuth\ImportController@index');
 Route::post('/rsaauth/import', 'RsaAuth\ImportController@store');
 Route::get('/rsaauth/profile', 'RsaAuth\ProfileController@index');
 Route::post('/rsaauth/profile', 'RsaAuth\ProfileController@store');
-Route::get('/rsaauth/login/{auto?}' 'RsaAuth\LoginController@index');
+Route::get('/rsaauth/login/{auto?}', 'RsaAuth\LoginController@index');
 Route::post('/rsaauth/login', 'RsaAuth\LoginController@store');
 Route::get('/rsaauth/fix', 'RsaAuth\FixController@index');
 Route::post('/rsaauth/fix', 'RsaAuth\FixController@store');
