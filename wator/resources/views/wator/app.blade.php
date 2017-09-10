@@ -38,5 +38,6 @@
     <div class="container-fluid">
       @yield('content')
     </div>
+    <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
   </body>
 </html>
