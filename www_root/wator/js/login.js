@@ -29,7 +29,7 @@ RSAAuth_.login_ = function() {
 }
 
 $(document).ready(function(){
-  let run = RSAAuth.isLoginRun_();
+  let run = RSAAuth_.isLoginRun_();
   console.log('run=<',run,'>');
   if(!run) {
     RSAAuth.login_();
