@@ -4,7 +4,6 @@ namespace Wator\Http\Controllers\RsaAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Log;
 use File;
 
 class LoginController extends Controller
