@@ -50,14 +50,24 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $accessToken = $request->input('accessToken');
-        var_dump($accessToken);
-        $access = $request->input('access');
-        var_dump($access);
-        $signature = $request->input('signature');
-        var_dump($signature);
-        $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
-        var_dump($keyPath);
+        try {
+            $accessToken = $request->input('accessToken');
+            var_dump($accessToken);
+            $access = $request->input('access');
+            var_dump($access);
+            $signature = $request->input('signature');
+            var_dump($signature);
+            $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
+            var_dump($keyPath);
+            $fp = fopen($keyPath, 'r');
+            $pubKeyMem = fread($fp, 8192);
+            fclose($fp);
+            $pubkeyid = openssl_pkey_get_public($pubKeyMem);
+            var_dump($pubkeyid);
+        } catch (\Exception $e) {
+            var_dump($e);
+        }
+        //Log::info('$pubkeyid=' . $pubkeyid);
         /*
         //
        $bodyContent = $request->getContent();
