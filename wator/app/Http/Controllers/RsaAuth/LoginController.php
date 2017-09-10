@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     protected $keyRoot_;
     public function __construct() {
-        $this->keyRoot_ = storage_path() . '/pubKeys/';
+        $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
         File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     /**
