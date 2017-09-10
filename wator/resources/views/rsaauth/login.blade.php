@@ -24,7 +24,7 @@
           </div>
           <div class="form-group">
              <label for="rsa.login.signature">signature</label>
-             <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1">
+             <pre id="rsa.login.signature" name="signature"></pre>
           </div>
           <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
         </form>
