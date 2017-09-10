@@ -48,6 +48,12 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+        $accessToken = $request->input('accessToken');
+        var_dump($accessToken);
+        $access = $request->input('access');
+        var_dump($access);
+        $signature = $request->input('signature');
+        var_dump($signature);
         /*
         //
        $bodyContent = $request->getContent();
