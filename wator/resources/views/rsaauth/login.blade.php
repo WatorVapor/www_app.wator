@@ -77,7 +77,7 @@ $(document).ready(function(){
     console.log('signature=<',signature,'>');
     let elemSign = document.getElementById("rsa.login.signature");
     if(elemSign) {
-      elemSign.value = signature;
+      elemSign.textContent = signature;
     }
   }
 
