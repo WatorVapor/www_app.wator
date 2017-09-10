@@ -26,7 +26,7 @@ class LoginController extends Controller
         $request->session()->forget('account.rsa.login.token');
         $request->session()->forget('account.rsa.login.access');
         $strRequest = uniqid();
-        var_dump($strRequest);
+        //var_dump($strRequest);
         $id  = hash('sha512',$strRequest);
         $request->session()->put('account.rsa.login.access',$id);
        return view('rsaauth.login',['RsaLoginAccessKey'=>$id]);
@@ -52,20 +52,20 @@ class LoginController extends Controller
     {
         try {
             $accessToken = $request->input('accessToken');
-            var_dump($accessToken);
+            //var_dump($accessToken);
             $access = $request->input('access');
-            var_dump($access);
+            //var_dump($access);
             $signature = $request->input('signature');
-            var_dump($signature);
+            //var_dump($signature);
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
-            var_dump($keyPath);
+            //var_dump($keyPath);
             $fp = fopen($keyPath, 'r');
             $pubKeyMem = fread($fp, 8192);
             fclose($fp);
             $pubkeyid = openssl_pkey_get_public($pubKeyMem);
-            var_dump($pubkeyid);
+            //var_dump($pubkeyid);
             $ok = openssl_verify($access,hex2bin($signature) , $pubkeyid,"sha256");
-            var_dump($ok);
+            //var_dump($ok);
             if ($ok == 1) {
                 $request->session()->put('account.rsa.login.status','success');
                 $request->session()->put('account.rsa.login.token',$accessToken);
