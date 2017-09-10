@@ -45,8 +45,9 @@ class LoginController extends Controller
     {
         //
        $bodyContent = $request->getContent();
-        //Log::info($bodyContent);
-        $bodyJson = json_decode($bodyContent);
+       var_dump($bodyContent):
+       $bodyJson = json_decode($bodyContent);
+       var_dump($bodyJson):
         if(!isset($bodyJson->token)) {
             unset($_SESSION['account.rsa.login.status']);
             return response()->json(['status'=>'success']);
