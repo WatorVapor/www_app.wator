@@ -48,6 +48,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+        /*
         //
        $bodyContent = $request->getContent();
        var_dump($bodyContent);
@@ -101,6 +102,7 @@ class LoginController extends Controller
         //Log::info($bodyJson->token);
         //Log::info($bodyJson->sign);
         return response()->json(['status'=>'success']);
+        */
     }
 
     /**
