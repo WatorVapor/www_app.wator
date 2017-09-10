@@ -20,7 +20,7 @@ class LoginController extends Controller
      */
     public function index(Request $request,$auto = null)
     {
-        var_dump($auto);
+        //var_dump($auto);
         //
         $request->session()->forget('account.rsa.login.status');
         $request->session()->forget('account.rsa.login.name');
@@ -30,7 +30,7 @@ class LoginController extends Controller
         //var_dump($strRequest);
         $id  = hash('sha512',$strRequest);
         $request->session()->put('account.rsa.login.access',$id);
-       return view('rsaauth.login',['RsaLoginAccessKey'=>$id]);
+       return view('rsaauth.login',['RsaLoginAccessKey'=>$id,'auto'=> $auto == 'auto']);
     }
 
     /**
