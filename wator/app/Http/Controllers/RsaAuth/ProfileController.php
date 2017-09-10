@@ -47,10 +47,10 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
+        $_rsaAccess = $request->input('_rsaAccess');
+        var_dump($_rsaAccess);
         $user_name = $request->input('user-name');
         var_dump($user_name);
-        $token = $request->input('token');
-        var_dump($token);
         /*
         //
         $bodyContent = $request->getContent();
