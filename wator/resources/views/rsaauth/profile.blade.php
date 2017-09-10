@@ -19,7 +19,7 @@
 </script>
 
 <div class="row justify-content-md-center">
-  <div class="col-md-6">
+  <div class="col-lg-8">
     <div class="card mt-5">
       <div class="card-header">
         {{trans('profile.title')}}
