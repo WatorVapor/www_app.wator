@@ -66,7 +66,7 @@
   </li>
   @else
   <li class="nav-item active">
-    <a role="button" class="btn btn-success btn-lg" href="/rsaauth/login" role="button">
+    <a role="button" class="btn btn-success btn-lg mr-lg-4" href="/rsaauth/login" role="button">
       <i class="material-icons md-48">person</i>
     </a>
   </li>
