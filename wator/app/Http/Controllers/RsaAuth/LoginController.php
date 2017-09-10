@@ -66,66 +66,39 @@ class LoginController extends Controller
             var_dump($pubkeyid);
             $ok = openssl_verify($access,hex2bin($signature) , $pubkeyid,"sha256");
             var_dump($ok);
-        } catch (\Exception $e) {
-            var_dump($e);
-        }
-        //Log::info('$pubkeyid=' . $pubkeyid);
-        /*
-        //
-       $bodyContent = $request->getContent();
-       var_dump($bodyContent);
-       $bodyJson = json_decode($bodyContent);
-       var_dump($bodyJson);
-        if(!isset($bodyJson->token)) {
-            unset($_SESSION['account.rsa.login.status']);
-            return response()->json(['status'=>'success']);
-        }
-        //Log::info('$bodyJson->token=<' . $bodyJson->token . '>');
-        $keyPath = $this->keyRoot_ . $bodyJson->token . ''. '/pubKey.pem';
-        //Log::info('$keyPath=' . $keyPath);
-        $fp = fopen($keyPath, 'r');
-        $pubKeyMem = fread($fp, 8192);
-        fclose($fp);
-        $pubkeyid = openssl_pkey_get_public($pubKeyMem);
-        //Log::info('$pubkeyid=' . $pubkeyid);
-        try {
-            $access = $bodyJson->auth->access;
-            $sign = $bodyJson->auth->sign;
-            $ok = openssl_verify($access,hex2bin($sign) , $pubkeyid,"sha256");
-            openssl_free_key($pubkeyid);
             if ($ok == 1) {
-                $_SESSION['account.rsa.login.status'] = 'success';
-                $profilePath = $this->keyRoot_ . $bodyJson->token . ''. '/profile';
+                $request->session()->put('account.rsa.login.status','success');
+                $request->session()->put('account.rsa.login.token',$accessToken);
+                $request->session()->put('account.rsa.login.access',$access);
+
+                $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
                 if (file_exists($profilePath)) {
                     $profileStr = file_get_contents($profilePath);
                     $profileJson = json_decode($profileStr, true);
-                    $_SESSION['account.rsa.login.name'] = $profileJson['user'];
-                    Log::info('$profileJson->user=<' . $profileJson['user'] . '>');
-                    return response()->json(['status' => 'success']);
+                    if(isset($profileJson['user'])) {
+                        $request->session()->put('account.rsa.login.name',$profileJson['user']);
+                    } else {
+                        $request->session()->forget('account.rsa.login.name');
+                    }
                 } else {
-                    $_SESSION['account.rsa.login.name'] = 'unknow';
-                    Log::info('unknow');
-                    return response()->json(['status' => 'success']);
+                    $request->session()->forget('account.rsa.login.name');
                 }                    
-            } elseif ($ok == 0) {
-                $_SESSION['account.rsa.login.status'] = 'failure';
-                Log::info('failure>');
-                return response()->json(['status' => 'failure']);
             } else {
-                $_SESSION['account.rsa.login.status'] = 'failure';
-                Log::info('failure>');
-                return response()->json(['status' => 'failure']);
+                $request->session()->put('account.rsa.login.status','failure');
+                $request->session()->put('account.rsa.login.token',$accessToken);
+                $request->session()->put('account.rsa.login.access',$access);
+                return response()->json(['status'=>'failure']);
             }
-        } catch (Exception $e) {
-            $_SESSION['account.rsa.login.status'] = 'failure';
-            Log::info($e);
+        } catch (\Exception $e) {
+            var_dump($e);
+            $request->session()->put('account.rsa.login.status','failure');
+            $request->session()->forget('account.rsa.login.token');
+            $request->session()->forget('account.rsa.login.access');
+            $request->session()->forget('account.rsa.login.name');
             return response()->json(['status'=>'failure']);
-        }
-        //Log::info($bodyJson->token);
-        //Log::info($bodyJson->sign);
-        return response()->json(['status'=>'success']);
-        */
-    }
+       }
+       return response()->json(['status'=>'success']);
+     }
 
     /**
      * Display the specified resource.
