@@ -19,7 +19,7 @@
                <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
              </span>
              <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
-             <input type="text" id="rsa.login.access" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
+             <input type="text" id="rsa.login.access" name="access" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
              <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
         </form>
@@ -64,8 +64,17 @@ $(document).ready(function(){
   
   let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
   console.log('rsaKey=<',rsaKey,'>');
-  let signature = rsaKey.sign(access,"sha256");
-  console.log('signature=<',signature,'>');
+  let elemAccess = document.getElementById("rsa.login.access");
+  if(elemAccess) {
+    let access = elemAccess.value;
+    let signature = rsaKey.sign(access,"sha256");
+    console.log('access=<',access,'>');
+    console.log('signature=<',signature,'>');
+    let elemSign = document.getElementById("rsa.login.signature");
+    if(elemSign) {
+      elemSign.value = signature;
+    }
+  }
 
 });
 
