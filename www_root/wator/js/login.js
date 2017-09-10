@@ -72,7 +72,7 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
   $.ajax({
     type : 'post',
     url : url,
-    data : JSONdata,
+    data : JSON.stringify(JSONdata),
     contentType: 'application/JSON',
     dataType : 'JSON',
     scriptCharset: 'utf-8',
