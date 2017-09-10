@@ -10,7 +10,22 @@ RSAAuth_.isLoginRun_ = function() {
 }
 
 RSAAuth_.login_ = function() {
-
+  var url = '/rsaauth/login/auto';
+  $.ajax({
+    type : 'get',
+    url : url,
+    scriptCharset: 'utf-8',
+    success : function(data) {
+      // Success
+      console.log(data);
+      sessionStorage.setItem('auth.rsa.run',data);
+      location.reload(true);
+    },
+    error : function(data) {
+      // Error
+      console.log(data);
+    }
+  });
 }
 
 $(document).ready(function(){
