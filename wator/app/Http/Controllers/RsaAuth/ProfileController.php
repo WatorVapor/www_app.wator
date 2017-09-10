@@ -47,6 +47,11 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
+        $user_name = $request->input('user-name');
+        var_dump($user_name);
+        $token = $request->input('token');
+        var_dump($token);
+        /*
         //
         $bodyContent = $request->getContent();
         $bodyJson = json_decode($bodyContent);
@@ -68,6 +73,7 @@ class ProfileController extends Controller
         } else {
             return response()->json(['status' => 'failure']);
         }
+        */
     }
 
     /**
