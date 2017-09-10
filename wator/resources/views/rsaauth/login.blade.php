@@ -7,6 +7,8 @@
 
 @section('content')
 
+<div id="rsa.login.auto" class="hidden"> {{ $auto}} </div>
+
 <div class="row justify-content-md-center">
   <div class="col-lg-8">
     <div class="card mt-5">
