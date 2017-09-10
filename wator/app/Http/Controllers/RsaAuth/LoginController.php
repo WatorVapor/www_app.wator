@@ -64,6 +64,8 @@ class LoginController extends Controller
             fclose($fp);
             $pubkeyid = openssl_pkey_get_public($pubKeyMem);
             var_dump($pubkeyid);
+            $ok = openssl_verify($access,hex2bin($signature) , $pubkeyid,"sha256");
+            var_dump($ok);
         } catch (\Exception $e) {
             var_dump($e);
         }
