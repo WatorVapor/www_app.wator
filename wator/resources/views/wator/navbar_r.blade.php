@@ -59,19 +59,19 @@
   </li>
   @if(isset($RSAAuth_Passed))
   <li class="nav-item active">
-    <a tabindex="2" href="#" role="button" class="btn btn-lg btn-success" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="{{ $user_title }}" data-content="{{ $user }}">
+    <a tabindex="2" href="#" role="button" class="btn btn-lg btn-warning" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="{{ $user_title }}" data-content="{{ $user }}">
       <i class="material-icons md-48">person</i>
       <span class="icon-bar">{{ mb_substr($nav_login_show_name,0,2,'UTF-8') }}</span>
     </a>
   </li>
   @else
   <li class="nav-item active">
-    <a role="button" class="btn btn-success btn-lg mr-lg-4" href="/rsaauth/login" role="button">
+    <a role="button" class="btn btn-warning btn-lg mr-lg-4" href="/rsaauth/login" role="button">
       <i class="material-icons md-48">person</i>
     </a>
   </li>
   <li class="nav-item active">
-    <a role="button" class="btn btn-success btn-lg" href="/rsaauth/signup" role="button">
+    <a role="button" class="btn btn-warning btn-lg" href="/rsaauth/signup" role="button">
       <i class="material-icons md-48">person_add</i>
     </a>
   </li>
