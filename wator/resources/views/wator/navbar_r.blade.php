@@ -66,6 +66,11 @@
   </li>
   @else
   <li class="nav-item active">
+    <a role="button" class="btn btn-success btn-lg" href="/rsaauth/login" role="button">
+      <i class="material-icons md-48">person</i>
+    </a>
+  </li>
+  <li class="nav-item active">
     <a role="button" class="btn btn-success btn-lg" href="/rsaauth/signup" role="button">
       <i class="material-icons md-48">person_add</i>
     </a>
