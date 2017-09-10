@@ -31,10 +31,10 @@ class RSAAuth
                 view()->share('nav_login_url', '/rsaauth/fix');
                 view()->share('RSAAuth_Passed', false);
             }
-            view()->share('RSAAuth_AutoLogin', false);
+            view()->share('RSAAuth_AutoLogin', 'false');
         } else {
             view()->share('RSAAuth_Passed', false);
-            view()->share('RSAAuth_AutoLogin', true);
+            view()->share('RSAAuth_AutoLogin', 'true');
         }
         return $next($request);
     }
