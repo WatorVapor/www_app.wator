@@ -37,8 +37,8 @@ function updateLanguage() {
       scriptCharset: 'utf-8',
       success : function(data) {
         // Success
-        console.log(data);
-        sessionStorage.setItem('operation.lang.run',data);
+        console.log('data=<',data,'>');
+        sessionStorage.setItem('operation.lang.run',JSON.stringify(data));
         location.reload(true);
       },
       error : function(data) {
