@@ -18,7 +18,7 @@
              <span class="input-group-btn">
                <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
              </span>
-             <input type="text" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
+             <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
         </form>
       </div>
@@ -51,6 +51,7 @@ $(document).ready(function(){
   let privateKey = RSAAuth.getPriKey();
   let token = RSAAuth.getToken();
   console.log('token=<',token,'>');
+  $("#rsa.login.accessToken").val(token); 
 });
 
 </script>
