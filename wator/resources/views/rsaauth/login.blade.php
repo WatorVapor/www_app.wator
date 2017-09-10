@@ -27,4 +27,32 @@
 </div>
 
 
+<script type="text/javascript">
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+var RSAAuth = RSAAuth || {};
+
+RSAAuth.getPubKey = function() {
+  return localStorage.getItem('auth.rsa.key.public');
+}
+RSAAuth.getPriKey = function() {
+  return localStorage.getItem('auth.rsa.key.private');
+}
+RSAAuth.getToken = function() {
+  return localStorage.getItem('auth.rsa.token');
+}
+
+$(document).ready(function(){
+  let privateKey = RSAAuth.getPriKey();
+  let token = RSAAuth.getToken();
+  console.log('token=<',token,'>');
+});
+
+</script>
+
 @endsection
