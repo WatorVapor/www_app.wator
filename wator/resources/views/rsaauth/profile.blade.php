@@ -18,9 +18,9 @@
   });
 </script>
 
-<div class="row justify-content-md-center mt-5">
+<div class="row justify-content-md-center">
   <div class="col-md-6 bg-primary">
-    <form>
+    <form  class="mt-5">
       <div class="input-group">
          <span class="input-group-btn">
            <button id="apply-name" type="button" class="btn btn-default">{{trans('profile.apply_name')}}</button>
