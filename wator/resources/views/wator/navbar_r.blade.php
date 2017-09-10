@@ -57,11 +57,11 @@
       <i class="material-icons md-48">apps</i>
     </a>
   </li>
-  @if(isset($RSAAuth_Passed))
+  @if($RSAAuth_Passed)
   <li class="nav-item active">
     <a tabindex="2" href="#" role="button" class="btn btn-lg btn-warning" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="{{ $user_title }}" data-content="{{ $user }}">
       <i class="material-icons md-48">person</i>
-      <span class="icon-bar">{{ mb_substr($nav_login_show_name,0,2,'UTF-8') }}</span>
+      <span class="icon-bar">{{ mb_substr($user_title,0,2,'UTF-8') }}</span>
     </a>
   </li>
   @else
