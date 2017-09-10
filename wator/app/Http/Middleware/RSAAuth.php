@@ -25,10 +25,14 @@ class RSAAuth
                     view()->share('nav_login_show_name', 'navbar.profile');
                 }
                 view()->share('nav_login_url', '/rsaauth/profile');
+                view()->share('RSAAuth_Passed', true);
             } else {
                 view()->share('nav_login_show_name', 'navbar.fix');
                 view()->share('nav_login_url', '/rsaauth/fix');
+                view()->share('RSAAuth_Passed', false);
             }
+        } else {
+            view()->share('RSAAuth_Passed', false);
         }
         return $next($request);
     }
