@@ -24,9 +24,11 @@ class LoginController extends Controller
         $request->session()->forget('account.rsa.login.status');
         $request->session()->forget('account.rsa.login.name');
         $request->session()->forget('account.rsa.login.token');
+        $request->session()->forget('account.rsa.login.access');
         $strRequest = uniqid();
         var_dump($strRequest);
         $id  = hash('sha512',$strRequest);
+        $request->session()->put('account.rsa.login.access',$id);
        return view('rsaauth.login',['RsaLoginAccessKey'=>$id]);
     }
 
