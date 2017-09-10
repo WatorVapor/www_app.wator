@@ -57,11 +57,18 @@ class LoginController extends Controller
     {
         try {
             $accessToken = $request->input('accessToken');
-            var_dump($accessToken);
+            //var_dump($accessToken);
             $access = $request->input('access');
-            var_dump($access);
+            //var_dump($access);
             $signature = $request->input('signature');
-            var_dump($signature);
+            //var_dump($signature);
+            if(!isset($accessToken) || !isset($access) || !isset($signature)) {
+                $bodyContent = $request->getContent();
+                $bodyJson = json_decode($bodyContent);
+                $accessToken = $bodyJson->accessToken;
+                $access = $bodyJson->access;
+                $signature = $bodyJson->signature;
+            }
             
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
             //var_dump($keyPath);
