@@ -50,6 +50,7 @@ class ProfileController extends Controller
         //
         $bodyContent = $request->getContent();
         $bodyJson = json_decode($bodyContent);
+        var_dump($bodyJson);
         $keyPath = $this->keyRoot_ . $bodyJson->token . '/pubKey.pem';
         $fp = fopen($keyPath, 'r');
         $pubKeyMem = fread($fp, 8192);
