@@ -51,6 +51,10 @@ $(document).ready(function(){
   let privateKey = RSAAuth.getPriKey();
   let token = RSAAuth.getToken();
   console.log('token=<',token,'>');
+  let elemToken = document.getElementById("rsa.login.accessToken");
+  console.log('elemToken=<',elemToken,'>');
+  console.log('elemToken.value=<',elemToken.value,'>');
+  elemToken.value = token;
   $(function() {
     console.log('rsa.login.accessToken.val()=<',$('#rsa.login.accessToken').val(),'>');
     $('#rsa.login.accessToken').val(token);
