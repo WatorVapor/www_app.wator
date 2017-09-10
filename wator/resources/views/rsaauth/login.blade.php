@@ -24,7 +24,7 @@
           </div>
           <div class="form-group">
              <label for="rsa.login.signature">signature</label>
-             <pre id="rsa.login.signature" name="signature"></pre>
+             <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
           </div>
           <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
         </form>
@@ -77,7 +77,7 @@ $(document).ready(function(){
     console.log('signature=<',signature,'>');
     let elemSign = document.getElementById("rsa.login.signature");
     if(elemSign) {
-      elemSign.textContent = signature;
+      elemSign.value = signature;
     }
   }
 
