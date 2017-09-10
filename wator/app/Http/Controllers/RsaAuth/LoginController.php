@@ -18,7 +18,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$auto)
+    public function index(Request $request,$auto = null)
     {
         var_dump($auto);
         //
