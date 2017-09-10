@@ -30,7 +30,11 @@ class LoginController extends Controller
         //var_dump($strRequest);
         $id  = hash('sha512',$strRequest);
         $request->session()->put('account.rsa.login.access',$id);
-       return view('rsaauth.login',['RsaLoginAccessKey'=>$id,'auto'=> $auto == 'auto']);
+        $autoFlags = 'false';
+        if($auto == 'auto') {
+            $autoFlags = 'true';
+        }
+        return view('rsaauth.login',['RsaLoginAccessKey'=>$id,'auto'=> $autoFlags]);
     }
 
     /**
