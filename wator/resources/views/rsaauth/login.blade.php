@@ -80,10 +80,18 @@ $(document).ready(function(){
     let elemSign = document.getElementById("rsa.login.signature");
     if(elemSign) {
       elemSign.value = signature;
+      let elemAuto = document.getElementById("rsa.login.auto");
+      if(elemAuto) {
+        if(elemAuto.value === 'true') {
+          doAutoLogin();
+        }
+      }
     }
   }
 
 });
+function doAutoLogin() {
+}
 
 </script>
 
