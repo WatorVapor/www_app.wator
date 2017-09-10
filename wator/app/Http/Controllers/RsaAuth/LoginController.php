@@ -56,6 +56,8 @@ class LoginController extends Controller
         var_dump($access);
         $signature = $request->input('signature');
         var_dump($signature);
+        $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
+        var_dump($keyPath);
         /*
         //
        $bodyContent = $request->getContent();
