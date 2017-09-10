@@ -19,6 +19,8 @@
                <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
              </span>
              <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
+             <input type="text" id="rsa.login.access" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
+             <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
         </form>
       </div>
@@ -47,6 +49,8 @@ RSAAuth.getToken = function() {
   return localStorage.getItem('auth.rsa.token');
 }
 
+
+
 $(document).ready(function(){
   let privateKey = RSAAuth.getPriKey();
   let token = RSAAuth.getToken();
@@ -57,6 +61,12 @@ $(document).ready(function(){
     elemToken.value = token;
     console.log('elemToken.value=<',elemToken.value,'>');
   }
+  
+  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
+  console.log('rsaKey=<',rsaKey,'>');
+  let signature = rsaKey.sign(access,"sha256");
+  console.log('signature=<',signature,'>');
+
 });
 
 </script>
