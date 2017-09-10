@@ -16,7 +16,7 @@
           {{ csrf_field() }}
           <div class="input-group">
              <span class="input-group-btn">
-               <button id="apply-name" type="button" class="btn btn-default">{{trans('profile.apply_name')}}</button>
+               <button type="submit" class="btn btn-default">{{trans('profile.apply_name')}}</button>
              </span>
              <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
           </div>
