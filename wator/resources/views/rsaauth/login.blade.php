@@ -14,14 +14,19 @@
       <div class="card-body">
         <form  class="mt-2 mb-2" method="POST" action="/rsaauth/login">
           {{ csrf_field() }}
-          <div class="input-group">
-             <span class="input-group-btn">
-               <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
-             </span>
+          <div class="form-group">
+             <label for="rsa.login.accessToken">accessToken</label>
              <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
+          </div>
+          <div class="form-group">
+             <label for="rsa.login.access">access</label>
              <input type="text" id="rsa.login.access" name="access" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
+          </div>
+          <div class="form-group">
+             <label for="rsa.login.signature">signature</label>
              <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
+          <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
         </form>
       </div>
     </div>
