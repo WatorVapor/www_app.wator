@@ -14,7 +14,7 @@
     <div class="card mt-5">
       <div class="card-header">{{trans('rsaauth_login.title')}}</div>
       <div class="card-body">
-        <form  class="mt-2 mb-2" method="POST" action="/rsaauth/login">
+        <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/rsaauth/login">
           {{ csrf_field() }}
           <div class="form-group">
              <label for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
@@ -91,6 +91,7 @@ $(document).ready(function(){
 
 });
 function doAutoLogin() {
+  document.forms['rsaauth_login_form'].submit();
 }
 
 </script>
