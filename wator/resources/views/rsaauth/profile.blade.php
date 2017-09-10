@@ -19,7 +19,7 @@
 </script>
 
 <div class="row justify-content-md-center">
-  <div class="card" style="width: 20rem;">
+  <div class="card mt-5" style="width: 20rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">Card title</h4>
