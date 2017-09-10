@@ -61,6 +61,9 @@ class LoginController extends Controller
             $access = $request->input('access');
             //var_dump($access);
             $signature = $request->input('signature');
+            
+            //if($accessToken )
+            
             //var_dump($signature);
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
             //var_dump($keyPath);
