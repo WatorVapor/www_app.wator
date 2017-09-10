@@ -135,7 +135,7 @@ RSAAuth.login = function() {
 
 $(document).ready(function(){
   let run = RSAAuth.isLoginRun_();
-  console.log(run);
+  console.log('run=<',run,'>');
   if(!run) {
     RSAAuth.login();
   }
