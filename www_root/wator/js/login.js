@@ -80,13 +80,13 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
       // Success
       console.log('data=<',data,'>');
       sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
-      //window.location.href = window.location.href;
+      window.location.href = window.location.href;
     },
     error : function(data) {
       // Error
       console.log('data=<',data,'>');
       sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
-      //window.location.href = '/rsaauth/error';
+      window.location.href = '/rsaauth/error';
     }
   });
 }
