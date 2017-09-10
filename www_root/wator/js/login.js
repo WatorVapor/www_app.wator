@@ -65,15 +65,14 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
   let signature = rsaKey.sign(access,"sha256");
   //console.log(signature);
   let JSONdata ={};
-  JSONdata.token = token;
-  JSONdata.auth = {};
-  JSONdata.auth.access = access;
-  JSONdata.auth.sign = signature;
+  JSONdata.accessToken = token;
+  JSONdata.access = access;
+  JSONdata.signature = signature;
   let url = '/rsaauth/login';
   $.ajax({
     type : 'post',
     url : url,
-    data : JSON.stringify(JSONdata),
+    data : JSONdata,
     contentType: 'application/JSON',
     dataType : 'JSON',
     scriptCharset: 'utf-8',
