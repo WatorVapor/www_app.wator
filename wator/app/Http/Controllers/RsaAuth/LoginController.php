@@ -18,8 +18,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request,$auto)
     {
+        var_dump($auto);
         //
         $request->session()->forget('account.rsa.login.status');
         $request->session()->forget('account.rsa.login.name');
