@@ -12,23 +12,23 @@
 <div class="row justify-content-md-center">
   <div class="col-lg-8">
     <div class="card mt-5">
-      <div class="card-header">{{trans('login.title')}}</div>
+      <div class="card-header">{{trans('rsaauth_login.title')}}</div>
       <div class="card-body">
         <form  class="mt-2 mb-2" method="POST" action="/rsaauth/login">
           {{ csrf_field() }}
           <div class="form-group">
-             <label for="rsa.login.accessToken">accessToken</label>
+             <label for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
              <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
           <div class="form-group">
-             <label for="rsa.login.access">access</label>
+             <label for="rsa.login.access">{{trans('rsaauth_login.access')}}</label>
              <input type="text" id="rsa.login.access" name="access" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
           </div>
           <div class="form-group">
-             <label for="rsa.login.signature">signature</label>
+             <label for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</label>
              <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
           </div>
-          <button type="submit" class="btn btn-default">{{trans('profile.login')}}</button>
+          <button type="submit" class="btn btn-default">{{trans('rsaauth_login.login')}}</button>
         </form>
       </div>
     </div>
