@@ -19,7 +19,10 @@
 </script>
 
 <div class="row justify-content-md-center">
-  <div class="card mt-5" style="width: 20rem;">
+  <div class="card mt-5">
+    <div class="card-header">
+      {{trans('profile.title')}}
+    </div>
     <div class="card-body">
       <form  class="mt-2 mb-2">
         <div class="input-group">
