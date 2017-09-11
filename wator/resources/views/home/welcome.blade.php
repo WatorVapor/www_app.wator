@@ -10,7 +10,7 @@
 }
 .carousel-inner{
   width:100%;
-  max-height: 200px !important;
+  max-height: 600px !important;
 }
 </style>
 
