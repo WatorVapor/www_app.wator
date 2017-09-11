@@ -23,7 +23,8 @@ RSAAuth.isLoginRun_ = function() {
   console.log('autoElem=<',autoElem,'>');
   if(autoElem) {
     console.log('autoElem.textContent=<',autoElem.textContent,'>');
-    if(autoElem.textContent === 'true') {
+    let flag = autoElem.textContent.replace(/ /g,'');
+    if(flag === 'true') {
       return true;
     }
     console.log('autoElem.textContent=<',autoElem.textContent,'>');
@@ -33,9 +34,9 @@ RSAAuth.isLoginRun_ = function() {
 
 
 RSAAuth.getAccess_ = function() {
-  let autoElem = document.getElementById('rsa.login.session.access');
-  if(autoElem) {
-    return autoElem.textContent;
+  let accessElem = document.getElementById('rsa.login.session.access');
+  if(accessElem) {
+    return accessElem.textContent.replace(/ /g,'');
   }
   return '';
 }
