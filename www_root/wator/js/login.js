@@ -60,7 +60,7 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
       // Success
       console.log('data=<',data,'>');
       sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
-      window.location.href = window.location.href;
+      location.reload(true);
     },
     error : function(data) {
       // Error
