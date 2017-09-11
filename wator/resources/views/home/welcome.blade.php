@@ -25,19 +25,19 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://www.wator.xyz/img/brain.orig.png" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
+          <img src="/wator/images/brain.orig.png" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
           <div class="carousel-caption d-none d-md-block">
             <h3>{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://www.wator.xyz/img/brain.header.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
+          <img src="/wator/images/brain.header.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
           <div class="carousel-caption d-none d-md-block">
             <h3>{{trans('welcome.ThirtyYearStrongAI')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://www.wator.xyz/img/digital.brain.reading.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
+          <img src="/wator/images/digital.brain.reading.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
           <div class="carousel-caption d-none d-md-block">
             <h3>{{trans('welcome.FortyYearBrainRead')}}</h3>
           </div>
