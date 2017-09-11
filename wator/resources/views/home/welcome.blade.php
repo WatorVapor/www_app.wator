@@ -34,7 +34,7 @@
           <img src="/wator/images/digital.brain.reading.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
           <img src="/wator/images//brain.skelton.jpg" alt="{{trans('welcome.ThirtyYearBrainResearch')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
+            <h3 class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
@@ -43,7 +43,7 @@
           <img src="/wator/images/ai.dream.jpg" alt="{{trans('welcome.ThirtyYearStrongAI')}}">
           <img src="/wator/images/i.am.robot.png" alt="{{trans('welcome.ThirtyYearStrongAI')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.ThirtyYearStrongAI')}}</h3>
+            <h3 class="text-success">{{trans('welcome.ThirtyYearStrongAI')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
@@ -53,7 +53,7 @@
           <img src="/wator/images/digital.Consciousness.binary.jpg" alt="{{trans('welcome.FortyYearBrainRead')}}">
           <img src="/wator/images/digital.brain.block.3d.jpg" alt="{{trans('welcome.FortyYearBrainRead')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.FortyYearBrainRead')}}</h3>
+            <h3 class="text-success">{{trans('welcome.FortyYearBrainRead')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
@@ -62,7 +62,7 @@
           <img src="/wator/images/robot.brain.white.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
           <img src="/wator/images/robot.thinking.pose.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.FortyYearBrain2Robot')}}</h3>
+            <h3 class="text-success">{{trans('welcome.FortyYearBrain2Robot')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
@@ -71,7 +71,7 @@
           <img src="/wator/images/space.travel.jpg" alt="{{trans('welcome.FiftyYearRobot2Universe')}}">
           <img src="/wator/images/space.travel.land.jpg" alt="{{trans('welcome.FiftyYearRobot2Universe')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.FiftyYearRobot2Universe')}}</h3>
+            <h3 class="text-success">{{trans('welcome.FiftyYearRobot2Universe')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
@@ -80,13 +80,13 @@
           <img src="/wator/images/kepler.daison.jpg" alt="{{trans('welcome.HundredYearDason')}}">
           <img src="/wator/images/kepler.daison.black.jpg" alt="{{trans('welcome.HundredYearDason')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.HundredYearDason')}}</h3>
+            <h3 class="text-success">{{trans('welcome.HundredYearDason')}}</h3>
           </div>
         </div>
         <div class="carousel-item">
           <img src="/wator/images/human.robot.jpg" alt="{{trans('welcome.TwoHundredYearHuman')}}">
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{trans('welcome.TwoHundredYearHuman')}}</h3>
+            <h3 class="text-success">{{trans('welcome.TwoHundredYearHuman')}}</h3>
           </div>
         </div>
       </div>
