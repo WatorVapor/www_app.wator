@@ -29,12 +29,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item justify-content-center active">
-          <img src="/wator/images/brain.orig.png" alt="">
-          <img src="/wator/images/brain.header.jpg" alt="">
-          <img src="/wator/images/digital.brain.reading.jpg" alt="">
-          <img src="/wator/images//brain.skelton.jpg" alt="">
-          <div class="carousel-caption d-none d-md-block">
+          <img src="/wator/images/brain.orig.png" style="width:25%;" alt="">
+          <img src="/wator/images/brain.header.jpg" style="width:25%;" alt="">
+          <img src="/wator/images/digital.brain.reading.jpg" style="width:25%;" alt="">
+          <img src="/wator/images//brain.skelton.jpg" style="width:25%;" alt="">
+          <div class="carousel-caption">
             <h3 class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
+            <p class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</p>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
