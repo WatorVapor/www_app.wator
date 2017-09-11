@@ -88,8 +88,8 @@ class LoginController extends Controller
                 if (file_exists($profilePath)) {
                     $profileStr = file_get_contents($profilePath);
                     $profileJson = json_decode($profileStr, true);
-                    if(isset($profileJson['user'])) {
-                        $request->session()->put('account.rsa.login.name',$profileJson['user']);
+                    if(isset($profileJson['user_name'])) {
+                        $request->session()->put('account.rsa.login.name',$profileJson['user_name']);
                     } else {
                         $request->session()->forget('account.rsa.login.name');
                     }
