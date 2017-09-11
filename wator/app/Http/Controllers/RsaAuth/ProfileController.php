@@ -63,7 +63,8 @@ class ProfileController extends Controller
         var_dump($user_name);
         $profilePath = $this->keyRoot_ . $accessToken . '/profile';
         file_put_contents($profilePath, json_encode(['user_name'=>$user_name]));
-        return redirect()->action('RsaAuth\ProfileController@index');
+        return redirect('/rsaauth/profile');
+        //return redirect()->action('RsaAuth\ProfileController@index');
     }
 
     /**
