@@ -57,11 +57,10 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="/wator/images/digital.Consciousness.reading.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
-          <img src="/wator/images/digital.brain.block.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
-          <img src="/wator/images/digital.soul.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
-          <img src="/wator/images/digital.Consciousness.binary.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
-          <img src="/wator/images/digital.brain.block.3d.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
+          <img src="/wator/images/human.robot.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
+          <img src="/wator/images/robot.brain.why.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
+          <img src="/wator/images/robot.brain.white.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
+          <img src="/wator/images/robot.thinking.pose.jpg" alt="{{trans('welcome.FortyYearBrain2Robot')}}">
           <div class="carousel-caption d-none d-md-block">
             <h3>{{trans('welcome.FortyYearBrain2Robot')}}</h3>
           </div>
