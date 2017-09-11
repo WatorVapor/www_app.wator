@@ -39,5 +39,6 @@
       @yield('content')
     </div>
     <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
+    <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>
   </body>
 </html>
