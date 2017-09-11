@@ -18,7 +18,7 @@
              <span class="input-group-btn">
                <button type="submit" class="btn btn-default">{{trans('rsaauth_profile.apply_name')}}</button>
              </span>
-             <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
+             <input type="text" name="user-name" class="form-control" placeholder="{{ $nav_login_show_name }}" aria-describedby="basic-addon1">
           </div>
         </form>
       </div>
