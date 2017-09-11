@@ -18,7 +18,7 @@ class ProfileController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function index()
+    public function index(Request $request)
     {
         //
         $data = array();
@@ -26,6 +26,16 @@ class ProfileController extends Controller
         $data['user_icon'] = 'https://';
         $data['user_type'] = 'meat';
         $data['user_free'] = 'I am a good man!';
+        
+        $accessToken = $request->session()->get('account.rsa.login.token');
+        $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
+        var_dump($profilePath);
+        if (file_exists($profilePath)) {
+            $profileStr = file_get_contents($profilePath);
+            $profileJson = json_decode($profileStr, true);
+            var_dump($profileJson);
+            return view('rsaauth.profile',$profileJson);
+        }
         return view('rsaauth.profile',$data);
     }
 
