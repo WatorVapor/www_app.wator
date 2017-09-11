@@ -30,34 +30,14 @@ RSAAuth.isLoginRun_ = function() {
 
 
 RSAAuth.getAccess_ = function() {
-  let access = sessionStorage.getItem('auth.rsa.access') || RSAAuth.uniAccess_();
-  return access;
+  let autoElem = document.getElementById('rsa.login.session.access');
+  if(autoElem) {
+    return autoElem.textContent;
+  }
+  return '';
 }
 
-RSAAuth.reLogin_ = function() {
-  RSAAuth.login();
-}
 
-RSAAuth.uniAccess_ = function() {
-  let JSONdata ={};
-  let url = '/rsaauth/access';
-  $.ajax({
-    type : 'post',
-    url : url,
-    success : function(data) {
-      // Success
-      console.log(data);
-      //window.location.href = '/';
-      sessionStorage.setItem('auth.rsa.access',data);
-      // reload in
-      setTimeout(RSAAuth.reLogin_,0);
-    },
-    error : function(e) {
-      console.error(e);
-      window.location.href = '/rsaauth/error';
-    }
-  });
-}
 
 RSAAuth.signLogin_ = function(privateKey,token,access) {
   let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
