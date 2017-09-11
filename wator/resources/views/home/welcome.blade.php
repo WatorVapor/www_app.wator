@@ -35,10 +35,10 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item justify-content-center active">
-          <img src="/wator/images/brain.orig.png" style="width:20%;" alt="">
-          <img src="/wator/images/brain.header.jpg" style="width:20%;" alt="">
-          <img src="/wator/images/digital.brain.reading.jpg" style="width:20%;" alt="">
-          <img src="/wator/images//brain.skelton.jpg" style="width:20%;" alt="">
+          <img src="/wator/images/brain.orig.png" style="width:24%;" alt="">
+          <img src="/wator/images/brain.header.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/digital.brain.reading.jpg" style="width:24%;" alt="">
+          <img src="/wator/images//brain.skelton.jpg" style="width:24%;" alt="">
           <div class="carousel-caption">
             <h3 class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
             <p class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</p>
