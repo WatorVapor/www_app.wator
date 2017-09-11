@@ -10,7 +10,7 @@
 }
 .carousel-inner{
   width:100%;
-  height:400px !important;
+  height:300px !important;
   max-height: 600px !important;
 }
 /*
@@ -41,7 +41,6 @@
           <img src="/wator/images//brain.skelton.jpg" style="width:24%;" alt="">
           <div class="carousel-caption">
             <h3 class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
-            <p class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</p>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
