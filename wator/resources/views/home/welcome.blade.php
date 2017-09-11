@@ -72,10 +72,12 @@
           </div>
         </div>
         <div class="carousel-item justify-content-center">
+          <!--
           <img src="/wator/images/robot.rocket.block.jpg" style="width:24%;transform: rotate(90deg);" alt="">
-          <img src="/wator/images/robot.star.space.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/space.travel.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/space.travel.land.jpg" style="width:24%;" alt="">
+          -->
+          <img src="/wator/images/robot.star.space.jpg" style="width:32%;" alt="">
+          <img src="/wator/images/space.travel.jpg" style="width:32%;" alt="">
+          <img src="/wator/images/space.travel.land.jpg" style="width:32%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-success">{{trans('welcome.FiftyYearRobot2Universe')}}</h3>
           </div>
