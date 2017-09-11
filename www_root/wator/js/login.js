@@ -20,10 +20,13 @@ RSAAuth.getToken = function() {
 
 RSAAuth.isLoginRun_ = function() {
   let autoElem = document.getElementById('rsa.login.session.auto');
+  console.log('autoElem=<',autoElem,'>');
   if(autoElem) {
+    console.log('autoElem.textContent=<',autoElem.textContent,'>');
     if(autoElem.textContent === 'true') {
       return true;
     }
+    console.log('autoElem.textContent=<',autoElem.textContent,'>');
   }
   return false;
 }
