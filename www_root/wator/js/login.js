@@ -19,13 +19,13 @@ RSAAuth.getToken = function() {
 
 
 RSAAuth.isLoginRun_ = function() {
-  let run = sessionStorage.getItem('auth.rsa.run');
-  console.log('run=<',run,'>');
-  if (run) {
-    return true;
-  } else {
-    return false;
+  let autoElem = document.getElementById('rsa.login.session.auto');
+  if(autoElem) {
+    if(autoElem.textContent === 'true') {
+      return true;
+    }
   }
+  return false;
 }
 
 
