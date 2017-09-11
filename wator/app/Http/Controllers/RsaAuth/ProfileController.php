@@ -29,11 +29,11 @@ class ProfileController extends Controller
         
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
-        var_dump($profilePath);
+        //var_dump($profilePath);
         if (file_exists($profilePath)) {
             $profileStr = file_get_contents($profilePath);
             $profileJson = json_decode($profileStr, true);
-            var_dump($profileJson);
+            //var_dump($profileJson);
             return view('rsaauth.profile',$profileJson);
         }
         return view('rsaauth.profile',$data);
@@ -58,9 +58,9 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $accessToken = $request->session()->get('account.rsa.login.token');
-        var_dump($accessToken);
+        //var_dump($accessToken);
         $user_name = $request->input('user-name');
-        var_dump($user_name);
+        //var_dump($user_name);
         $profilePath = $this->keyRoot_ . $accessToken . '/profile';
         file_put_contents($profilePath, json_encode(['user_name'=>$user_name]));
         $request->session()->put('account.rsa.login.name',$user_name);
