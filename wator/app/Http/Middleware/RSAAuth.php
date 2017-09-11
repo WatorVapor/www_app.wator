@@ -36,6 +36,9 @@ class RSAAuth
             view()->share('RSAAuth_Passed', false);
             view()->share('RSAAuth_AutoLogin', 'true');
         }
+        $strRequest = uniqid();
+        $accessID  = hash('sha512',$strRequest);
+        view()->share('RSAAuth_Access', $accessID);
         return $next($request);
     }
 }
