@@ -54,11 +54,11 @@
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/digital.Consciousness.reading.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/digital.brain.block.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/digital.soul.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/digital.Consciousness.binary.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/digital.brain.block.3d.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/digital.Consciousness.reading.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/digital.brain.block.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/digital.soul.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/digital.Consciousness.binary.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/digital.brain.block.3d.jpg" style="width:19%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-success">{{trans('welcome.FortyYearBrainRead')}}</h3>
           </div>
