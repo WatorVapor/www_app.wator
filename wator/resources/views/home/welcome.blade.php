@@ -16,7 +16,7 @@
 
 @section('content')
 <div class="row justify-content-center" >
-  <div class="col-10">
+  <div class="col-10 bg-light">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
