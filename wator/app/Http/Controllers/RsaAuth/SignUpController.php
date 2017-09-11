@@ -21,7 +21,7 @@ class SignUpController extends Controller
     public function index()
     {
         //
-        var_dump($this->keyRoot_);
+        //var_dump($this->keyRoot_);
         return view('rsaauth.signup');
     }
 
