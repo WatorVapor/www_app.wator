@@ -8,8 +8,7 @@
 @section('content')
 <div class="row justify-content-center" >
   <div class="col-10">
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -32,7 +31,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
   </div>
 </div>
 @endsection
