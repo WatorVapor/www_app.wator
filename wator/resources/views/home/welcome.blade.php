@@ -4,6 +4,15 @@
   @include('home.navbar')
 @endsection
 
+<style type="text/css">
+.tales {
+  width: 100%;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 200px !important;
+}
+</style>
 
 @section('content')
 <div class="row justify-content-center" >
