@@ -49,7 +49,7 @@
           <img src="/wator/images/ai.dream.jpg" style="width:24%;" alt="">
           <img src="/wator/images/i.am.robot.png" style="width:24%;" alt="">
           <div class="carousel-caption d-none d-md-block">
-            <h3 class="text-primary align-text-bottom">{{trans('welcome.ThirtyYearStrongAI')}}</h3>
+            <h3 class="text-primary bg-light">{{trans('welcome.ThirtyYearStrongAI')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
