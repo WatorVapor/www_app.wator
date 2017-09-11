@@ -28,7 +28,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item justify-content-center active">
           <img src="/wator/images/brain.orig.png" alt="">
           <img src="/wator/images/brain.header.jpg" alt="">
           <img src="/wator/images/digital.brain.reading.jpg" alt="">
@@ -37,7 +37,7 @@
             <h3 class="text-success">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/ai.nl.jpg" alt="">
           <img src="/wator/images/ai.dnn.jpg" alt="">
           <img src="/wator/images/ai.dream.jpg" alt="">
@@ -46,7 +46,7 @@
             <h3 class="text-success">{{trans('welcome.ThirtyYearStrongAI')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/digital.Consciousness.reading.jpg" alt="">
           <img src="/wator/images/digital.brain.block.jpg" alt="">
           <img src="/wator/images/digital.soul.jpg" alt="">
@@ -56,7 +56,7 @@
             <h3 class="text-success">{{trans('welcome.FortyYearBrainRead')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/human.robot.jpg" alt="">
           <img src="/wator/images/robot.brain.why.jpg" alt="">
           <img src="/wator/images/robot.brain.white.jpg" alt="">
@@ -65,7 +65,7 @@
             <h3 class="text-success">{{trans('welcome.FortyYearBrain2Robot')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/robot.rocket.block.jpg" alt="">
           <img src="/wator/images/robot.star.space.jpg" alt="">
           <img src="/wator/images/space.travel.jpg" alt="">
@@ -74,7 +74,7 @@
             <h3 class="text-success">{{trans('welcome.FiftyYearRobot2Universe')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/earth.kepler-20.jpg" alt="">
           <img src="/wator/images/earth.kepler-20.glaxy.jpg" alt="">
           <img src="/wator/images/kepler.daison.jpg" alt="">
@@ -83,7 +83,7 @@
             <h3 class="text-success">{{trans('welcome.HundredYearDason')}}</h3>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item justify-content-center">
           <img src="/wator/images/human.robot.jpg" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-success">{{trans('welcome.TwoHundredYearHuman')}}</h3>
