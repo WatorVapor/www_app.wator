@@ -57,33 +57,13 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
-        $_rsaAccess = $request->input('_rsaAccess');
-        var_dump($_rsaAccess);
+        $accessToken = $request->session()->get('account.rsa.login.token');
+        var_dump($accessToken);
         $user_name = $request->input('user-name');
         var_dump($user_name);
-        /*
-        //
-        $bodyContent = $request->getContent();
-        $bodyJson = json_decode($bodyContent);
-        var_dump($bodyJson);
-        $keyPath = $this->keyRoot_ . $bodyJson->token . '/pubKey.pem';
-        $fp = fopen($keyPath, 'r');
-        $pubKeyMem = fread($fp, 8192);
-        fclose($fp);
-        $pubkeyid = openssl_pkey_get_public($pubKeyMem);
-
-        $token = $bodyJson->token;
-        $sign = $bodyJson->sign;
-        $ok = openssl_verify($token,hex2bin($sign) , $pubkeyid,"sha256");
-        openssl_free_key($pubkeyid);
-        if ($ok == 1) {
-            $profilePath = $this->keyRoot_ . $bodyJson->token . '/profile';
-            file_put_contents($profilePath, json_encode($bodyJson->payload));
-            return response()->json(['status' => 'success']);
-        } else {
-            return response()->json(['status' => 'failure']);
-        }
-        */
+        $profilePath = $this->keyRoot_ . $accessToken . '/profile';
+        file_put_contents($profilePath, json_encode(['user_name'=>$user_name]));
+        return redirect()->action('RsaAuth\ProfileController@index');
     }
 
     /**
