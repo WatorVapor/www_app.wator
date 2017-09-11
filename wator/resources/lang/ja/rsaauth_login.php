@@ -10,7 +10,7 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-    'title' => 'Log in',
+    'title' => 'Login by RSA key Saved on Your Machine localstorage.',
     'accessToken' => 'Access Token',
     'access' => 'Access',
     'signature' => 'Signature',
