@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="row  justify-content-center">
-  <div class="col-lg-10">
+  <div class="col-lg-9">
     <h4> {{ trans('wai_about.stage1') }} </h4>
   </div>
 </div>
