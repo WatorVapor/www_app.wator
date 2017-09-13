@@ -1,6 +1,7 @@
 <?php
 
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\Wai;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
