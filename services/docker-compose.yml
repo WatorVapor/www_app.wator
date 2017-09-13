@@ -7,6 +7,7 @@ services:
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/wai.storage/conf:/nativeapi
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=0.0.0.0
     restart: always
@@ -17,6 +18,7 @@ services:
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/wai.storage/conf:/nativeapi
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=0.0.0.0
     restart: always
