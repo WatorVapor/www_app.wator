@@ -7,8 +7,8 @@
 
 @section('content')
 
-<div class="row">
-  <div class="col-lg-10 col-lg-offset-1">
+<div class="row justify-content-center">
+  <div class="col-lg-10 ">
     <div class="panel panel-default">
       <div class="panel-body">
         <form class="form-horizontal" method="POST" action="#" accept-charset="utf-8">
@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="form-group">        
-            <div class="col-lg-offset-4 col-lg-2">
+            <div class="col-lg-2">
               <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary"> {{ trans('wai_participle.chinese') }} </button>
             </div>
             <div class="col-lg-2">
@@ -32,8 +32,8 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-10 col-lg-offset-1">
+<div class="row justify-content-center">
+  <div class="col-lg-10">
     <div class="panel panel-default">
       <div class="panel-body">
         <pre style="white-space: pre-wrap ;">{{ $result }}</pre>
