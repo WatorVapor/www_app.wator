@@ -113,7 +113,7 @@ class OstrichTrainController extends Controller
     public function summary() {
         //
         try {
-            $apiStr = file_get_contents('/nativeapi/train.fetch.api.json');
+            $apiStr = file_get_contents('/nativeapi/train.ostrich.fetch.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
