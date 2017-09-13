@@ -1,5 +1,5 @@
 <?php
 return [
-    'chinese' => '中文',
-    'japanese' => '日文',
+    'chinese' => '中国語',
+    'japanese' => '日本語',
 ];
