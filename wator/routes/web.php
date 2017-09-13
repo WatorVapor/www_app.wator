@@ -33,3 +33,22 @@ Route::post('/rsaauth/language', 'RsaAuth\LanguageController@store');
 Route::get('/rsaauth/debug', 'RsaAuth\DebugController@index');
 Route::get('/rsaauth/error', 'RsaAuth\DebugController@index');
 Route::get('/rsaauth', 'RsaAuth\LoginController@index');
+
+
+
+Route::get('/wai/', 'WelcomeController@index');
+Route::get('/wai/audio/share', 'AudioShareController@index');
+Route::get('/wai/text/participle', 'ParticipleController@index');
+Route::post('/wai/text/participle', 'ParticipleController@store');
+Route::get('/wai/text/train/crawler/summary', 'CrawlerTrainController@summary');
+Route::get('/wai/text/train/crawler', 'CrawlerTrainController@fetch');
+Route::post('/wai/text/train/crawler', 'CrawlerTrainController@update');
+Route::get('/wai/text/train/ostrich/summary', 'OstrichTrainController@summary');
+Route::get('/wai/text/train/ostrich/{task}', 'OstrichTrainController@fetch');
+Route::post('/wai/text/train/ostrich/{task}', 'OstrichTrainController@update');
+Route::get('/wai/text/train/parrot/summary', 'ParrotTrainController@summary');
+Route::get('/wai/text/train/parrot/{task}', 'ParrotTrainController@fetch');
+Route::post('/wai/text/train/parrot/{task}', 'ParrotTrainController@update');
+Route::get('/wai/text/train/phoenix/summary', 'PhoenixTrainController@summary');
+Route::get('/wai/text/train/phoenix/{task}', 'PhoenixTrainController@fetch');
+Route::post('/wai/text/train/phoenix/{task}', 'PhoenixTrainController@update');
