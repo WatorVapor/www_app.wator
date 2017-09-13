@@ -13,12 +13,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-10 col-lg-offset-1">
+  <div class="col-lg-10 justify-content-center">
     <h4> {{ trans('wai_about.stage1') }} </h4>
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 bg-warning">
+<div class="row justify-content-center">
+  <div class="col-lg-8 bg-warning">
     <code>蜗鸢</code>是在沼泽地群居和游牧的<code>鸟类</code>。
     在干旱期间要离开<code>自己的</code>巢区去寻找适合<code>自己的</code>生活方式和<code>栖息地</code>的水产品产区。
     有时在<code>栖息地</code>和觅食地来往要飞行相当大的距离。
@@ -30,19 +30,19 @@
 
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 bg-warning">
+<div class="row justify-content-center">
+  <div class="col-lg-8 bg-warning">
     <small>http://baike.baidu.com/item/蜗鸢<small>
   </div>
 </div>
 <hr/>
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
+<div class="row justify-content-center">
+  <div class="col-lg-8">
     <table class="table table-striped">
       <thead><tr><th> {{ trans('wai_about.rank_word') }} </th><th>{{ trans('wai_about.rank_times') }}</th></tr></thead>
       <tbody>
         <tr><td>鸟类</td><td>3</td></tr>
-        <tr><td>--以下捨て--</td><td>----</td></tr>
+        <tr><td>--{{ trans('wai_about.rank_ignore') }}--</td><td>----</td></tr>
         <tr><td>自己的</td><td>2</td></tr>
         <tr><td>栖息地</td><td>2</td></tr>
         <tr><td>在此</td><td>2</td></tr>
