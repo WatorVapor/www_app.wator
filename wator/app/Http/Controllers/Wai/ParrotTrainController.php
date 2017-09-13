@@ -1,6 +1,7 @@
 <?php
 
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\Wai;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -10,7 +11,7 @@ class ParrotTrainController extends Controller
     public function fetchTask($msgJson) {
         //
         try {
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/train.parrot.fetch.api.json');
+            $apiStr = file_get_contents('/nativeapi/train.parrot.fetch.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
@@ -87,7 +88,7 @@ class ParrotTrainController extends Controller
             $strURL = file_get_contents($path);
             //var_dump($strURL);
             
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/train.parrot.save.api.json');
+            $apiStr = file_get_contents('/nativeapi/train.parrot.save.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
@@ -112,7 +113,7 @@ class ParrotTrainController extends Controller
     public function summary() {
         //
         try {
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/train.parrot.fetch.api.json');
+            $apiStr = file_get_contents('/nativeapi/train.parrot.fetch.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
@@ -132,10 +133,10 @@ class ParrotTrainController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $task = ['summary' => $buf];
-            return view('text.summary',$task);
+            return view('wai.summary',$task);
         } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
-        return view('text.summary',['summary' => '']);
+        return view('wai.summary',['summary' => '']);
     }
 }
