@@ -18,14 +18,16 @@
               <textarea class="form-control inputfield text" cols="50" rows ="5" placeholder="Enter sentence" name="sentence">{{ $text }}</textarea>
             </div>
           </div>
-          <div class="form-group">        
-            <div class="col-lg-2">
-              <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary"> {{ trans('wai_participle.chinese') }} </button>
+          <div class="form-group">
+            <div class="row justify-content-center">
+              <div class="col-lg-2">
+                <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary"> {{ trans('wai_participle.chinese') }} </button>
+              </div>
+              <div class="col-lg-2">
+                <button type="submit" value="jp" name="lang" class="btn btn-block btn-success"> {{ trans('wai_participle.japanese') }} </button>
+              </div>
             </div>
-            <div class="col-lg-2">
-              <button type="submit" value="jp" name="lang" class="btn btn-block btn-success"> {{ trans('wai_participle.japanese') }} </button>
-            </div>
-          </div>
+         </div>
         </form>
       </div>
     </div>
