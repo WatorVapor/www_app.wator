@@ -9,12 +9,12 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12 text-center">
-    <h1> {{ trans('about_text.title') }} </h1>
+    <h1> {{ trans('wai_about.title') }} </h1>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-10 col-lg-offset-1">
-    <h4> {{ trans('about_text.stage1') }} </h4>
+    <h4> {{ trans('wai_about.stage1') }} </h4>
   </div>
 </div>
 <div class="row">
@@ -39,7 +39,7 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
     <table class="table table-striped">
-      <thead><tr><th> {{ trans('about_text.rank_word') }} </th><th>{{ trans('about_text.rank_times') }}</th></tr></thead>
+      <thead><tr><th> {{ trans('wai_about.rank_word') }} </th><th>{{ trans('wai_about.rank_times') }}</th></tr></thead>
       <tbody>
         <tr><td>鸟类</td><td>3</td></tr>
         <tr><td>--以下捨て--</td><td>----</td></tr>
