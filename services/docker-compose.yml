@@ -1,5 +1,13 @@
 version: '3'
 services:
+  wator-nginx:
+    build: nginx-wator
+    network_mode: "host"
+    volumes:
+      - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
+      - /etc/certs/www.wator.xyz:/etc/certs/www.wator.xyz
+    command: nginx
+    restart: always
   wator-laravel:
     build: laravel-wator
     network_mode: "host"
