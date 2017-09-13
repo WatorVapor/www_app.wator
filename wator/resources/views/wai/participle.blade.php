@@ -20,10 +20,10 @@
           </div>
           <div class="form-group">        
             <div class="col-lg-offset-4 col-lg-2">
-              <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary"> {{ trans('participle.chinese') }} </button>
+              <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary"> {{ trans('wai_participle.chinese') }} </button>
             </div>
             <div class="col-lg-2">
-              <button type="submit" value="jp" name="lang" class="btn btn-block btn-success"> {{ trans('participle.japanese') }} </button>
+              <button type="submit" value="jp" name="lang" class="btn btn-block btn-success"> {{ trans('wai_participle.japanese') }} </button>
             </div>
           </div>
         </form>
