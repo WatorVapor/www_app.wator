@@ -2,6 +2,7 @@ version: '3'
 services:
   wator-laravel:
     build: laravel-wator
+    net: "host"
     ports:
       - "127.0.0.1:18080:8000"
     volumes:
@@ -13,6 +14,7 @@ services:
     restart: always
   wator-laravel-ghost:
     build: laravel-wator
+    net: "host"
     ports:
       - "127.0.0.1:18081:8000"
     volumes:
