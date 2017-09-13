@@ -11,7 +11,7 @@ class CrawlerTrainController extends Controller
     public function fetchTask($msgJson) {
         //
         try {
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/url.fetch.api.json');
+            $apiStr = file_get_contents('/nativeapi/url.fetch.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
@@ -86,7 +86,7 @@ class CrawlerTrainController extends Controller
             $strURL = file_get_contents($path);
             //var_dump($strURL);
             
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/url.save.api.json');
+            $apiStr = file_get_contents('/nativeapi/url.save.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
@@ -112,7 +112,7 @@ class CrawlerTrainController extends Controller
     public function summary() {
         //
         try {
-            $apiStr = file_get_contents('/watorvapor/wai.storage/conf/url.fetch.api.json');
+            $apiStr = file_get_contents('/nativeapi/url.fetch.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
