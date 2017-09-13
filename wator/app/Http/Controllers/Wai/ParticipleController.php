@@ -48,7 +48,7 @@ class ParticipleController extends Controller
             $msg = json_encode($msgJson);
             $request->session()->put('wai_participle_cut_text', $sentence);
             //var_dump($sentence);
-            $apiStr = file_get_contents('/opt/watorvapor/wai.wator/.conf.api.json');
+            $apiStr = file_get_contents('/opt/watorvapor/wai.wator/wai.conf.api.json');
             //var_dump($apiStr);
             $apiJson = json_decode($apiStr,true);
             //var_dump($apiJson);
