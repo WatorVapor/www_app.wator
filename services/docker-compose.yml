@@ -3,24 +3,20 @@ services:
   wator-laravel:
     build: laravel-wator
     network_mode: "host"
-    ports:
-      - "127.0.0.1:18080:8000"
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
     working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=0.0.0.0
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18080
     restart: always
   wator-laravel-ghost:
     build: laravel-wator
     network_mode: "host"
-    ports:
-      - "127.0.0.1:18081:8000"
     volumes:
       - /watorvapor/app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
     working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=0.0.0.0
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18081
     restart: always
