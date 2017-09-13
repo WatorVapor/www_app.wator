@@ -36,19 +36,22 @@ Route::get('/rsaauth', 'RsaAuth\LoginController@index');
 
 
 
-Route::get('/wai/', 'WelcomeController@index');
-Route::get('/wai/audio/share', 'AudioShareController@index');
-Route::get('/wai/text/participle', 'ParticipleController@index');
-Route::post('/wai/text/participle', 'ParticipleController@store');
-Route::get('/wai/text/train/crawler/summary', 'CrawlerTrainController@summary');
-Route::get('/wai/text/train/crawler', 'CrawlerTrainController@fetch');
-Route::post('/wai/text/train/crawler', 'CrawlerTrainController@update');
-Route::get('/wai/text/train/ostrich/summary', 'OstrichTrainController@summary');
-Route::get('/wai/text/train/ostrich/{task}', 'OstrichTrainController@fetch');
-Route::post('/wai/text/train/ostrich/{task}', 'OstrichTrainController@update');
-Route::get('/wai/text/train/parrot/summary', 'ParrotTrainController@summary');
-Route::get('/wai/text/train/parrot/{task}', 'ParrotTrainController@fetch');
-Route::post('/wai/text/train/parrot/{task}', 'ParrotTrainController@update');
-Route::get('/wai/text/train/phoenix/summary', 'PhoenixTrainController@summary');
-Route::get('/wai/text/train/phoenix/{task}', 'PhoenixTrainController@fetch');
-Route::post('/wai/text/train/phoenix/{task}', 'PhoenixTrainController@update');
+Route::get('/wai/', 'Wai\WelcomeController@index');
+Route::get('/wai/audio/share', 'Wai\AudioShareController@index');
+Route::get('/wai/text/participle', 'Wai\ParticipleController@index');
+Route::post('/wai/text/participle', 'Wai\ParticipleController@store');
+Route::get('/wai/text/train/crawler/summary', 'Wai\CrawlerTrainController@summary');
+Route::get('/wai/text/train/crawler', 'Wai\CrawlerTrainController@fetch');
+Route::post('/wai/text/train/crawler', 'Wai\CrawlerTrainController@update');
+Route::get('/wai/text/train/ostrich/summary', 'Wai\OstrichTrainController@summary');
+Route::get('/wai/text/train/ostrich/{task}', 'Wai\OstrichTrainController@fetch');
+Route::post('/wai/text/train/ostrich/{task}', 'Wai\OstrichTrainController@update');
+Route::get('/wai/text/train/parrot/summary', 'Wai\ParrotTrainController@summary');
+Route::get('/wai/text/train/parrot/{task}', 'Wai\ParrotTrainController@fetch');
+Route::post('/wai/text/train/parrot/{task}', 'Wai\ParrotTrainController@update');
+Route::get('/wai/text/train/phoenix/summary', 'Wai\PhoenixTrainController@summary');
+Route::get('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@fetch');
+Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update');
+
+
+
