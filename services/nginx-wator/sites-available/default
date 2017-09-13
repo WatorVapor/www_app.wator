@@ -1,5 +1,6 @@
 upstream home.watorvapor.com {
   server 127.0.0.1:18080;
+  server 127.0.0.1:18081;
 }
 
 
@@ -8,7 +9,7 @@ upstream home.watorvapor.com {
 server {
   listen       443 default_server ssl http2;
   listen       [::]:443 default_server ssl http2;
-  server_name  watorvapor.com;
+  server_name  www.watorvapor.com;
 
   ssl_certificate      /etc/certs/www.wator.xyz/fullchain.pem;
   ssl_certificate_key  /etc/certs/www.wator.xyz/privkey.pem;
