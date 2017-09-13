@@ -15,7 +15,7 @@
           {{ csrf_field() }}
           <div class="form-group">
             <div class="col-lg-12">
-              <textarea class="form-control inputfield text" cols="50" rows ="5" placeholder="Enter sentence" name="sentence">{{ $text }}</textarea>
+              <textarea class="form-control inputfield text" cols="50" rows ="5" placeholder="{{ trans('wai_participle.inputsentence') }}" name="sentence">{{ $text }}</textarea>
             </div>
           </div>
           <div class="form-group">
