@@ -1,4 +1,4 @@
-upstream home.watorvapor.com {
+upstream wwwapp.wator.xyz {
   server 127.0.0.1:18080;
   server 127.0.0.1:18081;
 }
@@ -16,8 +16,11 @@ server {
   ssl_session_timeout  30m;
 
   location / {
-    proxy_pass       http://home.watorvapor.com;
+    proxy_pass       http://wwwapp.wator.xyz;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Host $host;
+  }
+  location ^~ /wator/ {
+    alias /watorvapor/app_www/www_root/wator/;
   }
 }
