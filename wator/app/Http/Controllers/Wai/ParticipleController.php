@@ -1,5 +1,7 @@
 <?php
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\Wai;
+use Wator\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 class ParticipleController extends Controller
 {
@@ -24,7 +26,7 @@ class ParticipleController extends Controller
         } else {
             $data['text'] = '';
         }
-        return view('text.participle',$data);
+        return view('wai.participle',$data);
     }
     /**
      * Store a newly created resource in storage.
