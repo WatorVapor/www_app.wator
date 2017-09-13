@@ -132,7 +132,7 @@ class CrawlerTrainController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $task = ['summary' => $buf];
-            return view('text.summary',$task);
+            return view('wai.summary',$task);
         } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
