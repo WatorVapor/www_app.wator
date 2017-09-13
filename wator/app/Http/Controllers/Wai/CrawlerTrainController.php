@@ -136,6 +136,6 @@ class CrawlerTrainController extends Controller
         } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
-        return view('text.summary',['summary' => '']);
+        return view('wai.summary',['summary' => '']);
     }
 }
