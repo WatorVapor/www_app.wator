@@ -103,7 +103,7 @@ class LoginController extends Controller
                 return response()->json(['status'=>'failure']);
             }
         } catch (\Exception $e) {
-            var_dump($e);
+            //var_dump($e);
             $request->session()->put('account.rsa.login.status','failure');
             $request->session()->forget('account.rsa.login.token');
             $request->session()->forget('account.rsa.login.access');
