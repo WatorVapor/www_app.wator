@@ -30,8 +30,6 @@ Route::get('/rsaauth/access', 'RsaAuth\AccessController@index');
 Route::post('/rsaauth/access', 'RsaAuth\AccessController@store');
 Route::get('/rsaauth/language', 'RsaAuth\LanguageController@index');
 Route::post('/rsaauth/language', 'RsaAuth\LanguageController@store');
-Route::get('/rsaauth/debug', 'RsaAuth\DebugController@index');
-Route::get('/rsaauth/error', 'RsaAuth\DebugController@index');
 Route::get('/rsaauth', 'RsaAuth\LoginController@index');
 
 
