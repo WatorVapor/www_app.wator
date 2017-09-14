@@ -1,4 +1,4 @@
-<ul class="navbar-nav nav justify-content-start">
+<ul class="navbar-nav nav">
   <li class="nav-item active">
     <a class="btn btn-lg btn-primary nav-btn" href="/" role="button">
       <i class="material-icons md-48">home</i>
