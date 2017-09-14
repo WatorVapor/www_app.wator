@@ -60,8 +60,14 @@ RSAAuth.getToken = function() {
 
 $(document).ready(function(){
   let privateKey = RSAAuth.getPriKey();
+  if(!privateKey) {
+    return;
+  }
   let token = RSAAuth.getToken();
   console.log('token=<',token,'>');
+  if(!token) {
+    return;
+  }
   let elemToken = document.getElementById("rsa.login.accessToken");
   console.log('elemToken=<',elemToken,'>');
   if(elemToken) {
