@@ -19,7 +19,7 @@ RSAAuth.sign = function(privateKey,token,payload) {
     JSONdata.token = token;
     JSONdata.sign = signature;
     JSONdata.payload = payload;
-    var url = '/account/profile';
+    var url = '/rsaauth/profile';
     $.ajax({
       type : 'post',
       url : url,
