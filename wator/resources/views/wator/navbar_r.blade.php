@@ -46,7 +46,7 @@
 ?>
 
 
-<ul class="navbar-nav justify-content-end">
+<ul class="navbar-nav nav justify-content-end">
   <li class="nav-item active mr-lg-4">
     <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
       <i class="material-icons md-48">language</i>
