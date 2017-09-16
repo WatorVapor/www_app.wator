@@ -10,8 +10,8 @@
 }
 .carousel-inner{
   width:100%;
-  height:200px !important;
-  max-height: 300px !important;
+  height:300px !important;
+  max-height: 400px !important;
 }
 /*
 .carousel-item.img {
