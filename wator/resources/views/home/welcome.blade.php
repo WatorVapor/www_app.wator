@@ -22,7 +22,7 @@
 
 @section('content')
 <div class="row justify-content-center" >
-  <div class="col-12 bg-secondary">
+  <div class="col-11 bg-secondary">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
