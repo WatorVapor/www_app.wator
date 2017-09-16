@@ -49,13 +49,13 @@
 
 <ul class="navbar-nav nav justify-content-end">
   <li class="nav-item active mr-lg-5">
-    <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
-      <i class="material-icons md-48">language</i>
+    <a tabindex="1" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $apps }}">
+      <i class="material-icons md-48">apps</i>
     </a>
   </li>
   <li class="nav-item active mr-lg-5">
-    <a tabindex="1" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $apps }}">
-      <i class="material-icons md-48">apps</i>
+    <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
+      <i class="material-icons md-48">language</i>
     </a>
   </li>
   @if($RSAAuth_Passed)
