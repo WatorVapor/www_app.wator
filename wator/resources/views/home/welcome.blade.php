@@ -35,64 +35,64 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item justify-content-center active">
-          <img src="/wator/images/brain.orig.png" style="width:24%;" alt="">
-          <img src="/wator/images/brain.header.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/digital.brain.reading.jpg" style="width:24%;" alt="">
-          <img src="/wator/images//brain.skelton.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/brain.orig.png" style="width:24%;" alt="">
+          <img src="/wator/images/home/brain.header.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/digital.brain.reading.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/brain.skelton.jpg" style="width:24%;" alt="">
           <div class="carousel-caption">
             <h3 class="text-danger">{{trans('welcome.ThirtyYearBrainResearch')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/ai.nl.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/ai.dnn.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/ai.dream.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/i.am.robot.png" style="width:24%;" alt="">
+          <img src="/wator/images/home/ai.nl.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/ai.dnn.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/ai.dream.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/i.am.robot.png" style="width:24%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.ThirtyYearStrongAI')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/digital.Consciousness.reading.jpg" style="width:19%;" alt="">
-          <img src="/wator/images/digital.brain.block.jpg" style="width:19%;" alt="">
-          <img src="/wator/images/digital.soul.jpg" style="width:19%;" alt="">
-          <img src="/wator/images/digital.Consciousness.binary.jpg" style="width:19%;" alt="">
-          <img src="/wator/images/digital.brain.block.3d.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/home/digital.Consciousness.reading.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/home/digital.brain.block.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/home/digital.soul.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/home/digital.Consciousness.binary.jpg" style="width:19%;" alt="">
+          <img src="/wator/images/home/digital.brain.block.3d.jpg" style="width:19%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.FortyYearBrainRead')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/human.robot.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/robot.brain.why.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/robot.brain.white.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/robot.thinking.pose.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/human.robot.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/robot.brain.why.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/robot.brain.white.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/robot.thinking.pose.jpg" style="width:24%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.FortyYearBrain2Robot')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
           <!--
-          <img src="/wator/images/robot.rocket.block.jpg" style="width:24%;transform: rotate(90deg);" alt="">
+          <img src="/wator/images/home/robot.rocket.block.jpg" style="width:24%;transform: rotate(90deg);" alt="">
           -->
-          <img src="/wator/images/robot.star.space.jpg" style="width:32%;" alt="">
-          <img src="/wator/images/space.travel.jpg" style="width:32%;" alt="">
-          <img src="/wator/images/space.travel.land.jpg" style="width:32%;" alt="">
+          <img src="/wator/images/home/robot.star.space.jpg" style="width:32%;" alt="">
+          <img src="/wator/images/home/space.travel.jpg" style="width:32%;" alt="">
+          <img src="/wator/images/home/space.travel.land.jpg" style="width:32%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.FiftyYearRobot2Universe')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/earth.kepler-20.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/earth.kepler-20.glaxy.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/kepler.daison.jpg" style="width:24%;" alt="">
-          <img src="/wator/images/kepler.daison.black.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/earth.kepler-20.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/earth.kepler-20.glaxy.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/kepler.daison.jpg" style="width:24%;" alt="">
+          <img src="/wator/images/home/kepler.daison.black.jpg" style="width:24%;" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.HundredYearDason')}}</h3>
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/images/human.robot.jpg" alt="">
+          <img src="/wator/home/images/human.robot.jpg" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.TwoHundredYearHuman')}}</h3>
           </div>
