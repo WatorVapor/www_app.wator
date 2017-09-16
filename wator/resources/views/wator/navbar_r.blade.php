@@ -22,13 +22,14 @@
   $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/p2pio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
+  $apps .= '<hr/>';
   $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/story" role="button">';
   $apps .= '<i class="material-icons md-48">book</i>';
   $apps .= '</a>';
-  $apps .= '<hr/>';
   $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
+  $apps .= '<hr/>';
   $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/scope" role="button">';
   $apps .= '<i class="material-icons md-48">photo</i>';
   $apps .= '</a>';
