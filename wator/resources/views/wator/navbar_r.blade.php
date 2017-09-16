@@ -8,8 +8,7 @@
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-jp"></span>';
   $langs .= '</a>';
   $langs .= '</div>';
-  
-  $langs .= '<div class="row justify-content-around mt-lg-3 ml-lg-3 mr-lg-3">';
+  $langs .= '<div class="row justify-content-around mt-lg-5 ml-lg-3 mr-lg-3">';
   $langs .= '<a class="btn btn-success mr-lg-5" onclick="onClickLanguage(\'en\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-us"></span>';
   $langs .= '</a>';
