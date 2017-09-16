@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="carousel-item justify-content-center">
-          <img src="/wator/home/images/human.robot.jpg" alt="">
+          <img src="/wator/images/home/human.robot.jpg" alt="">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="text-danger">{{trans('welcome.TwoHundredYearHuman')}}</h3>
           </div>
