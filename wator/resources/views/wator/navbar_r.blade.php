@@ -28,12 +28,14 @@
   $apps .= '</a>';
   $apps .= '</div>';
   $apps .= '<hr/>';
-  $apps .= '<a class="btn btn-lg btn-success mb-lg-3 mt-lg-5 mr-lg-3" href="/wai" role="button">';
+  $apps .= '<div class="row justify-content-around mt-lg-5 ml-lg-4 mr-lg-4">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 " href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 mt-lg-5 mr-lg-3" href="/scope" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/scope" role="button">';
   $apps .= '<i class="material-icons md-48">photo</i>';
   $apps .= '</a>';
+  $apps .= '</div>';
 ?>
 
 <?php
