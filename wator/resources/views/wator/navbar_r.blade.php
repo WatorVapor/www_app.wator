@@ -17,13 +17,13 @@
 <?php
   $apps = '';
   $apps .= '<div class="row justify-content-around mt-lg-3">';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-4 ml-lg-1" href="/xuniverse" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 ml-lg-3" href="/xuniverse" role="button">';
   $apps .= '<i class="material-icons md-48">filter_vintage</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/p2pio" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/p2pio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-1" href="/story" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/story" role="button">';
   $apps .= '<i class="material-icons md-48">book</i>';
   $apps .= '</a>';
   $apps .= '</div>';
