@@ -1,35 +1,35 @@
 <?php
   $langs = '';
-  $langs .= '<a class="btn btn-success mr-lg-3" onclick="onClickLanguage(\'zh\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-4" onclick="onClickLanguage(\'zh\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-cn"></span>';
   $langs .= '</a>';
-  $langs .= '<a class="btn btn-success mr-lg-3" onclick="onClickLanguage(\'ja\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-4" onclick="onClickLanguage(\'ja\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-jp"></span>';
   $langs .= '</a>';
   $langs .= '<br/>';
-  $langs .= '<a class="btn btn-success mr-lg-3 mt-lg-3" onclick="onClickLanguage(\'en\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-4 mt-lg-4" onclick="onClickLanguage(\'en\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-us"></span>';
   $langs .= '</a>';
-  $langs .= '<a class="btn btn-success mr-lg-3 mt-lg-3" onclick="onClickLanguage(\'ru\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-4 mt-lg-4" onclick="onClickLanguage(\'ru\')" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-ru"></span>';
   $langs .= '</a>';
 ?>
 <?php
   $apps = '';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/xuniverse" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/xuniverse" role="button">';
   $apps .= '<i class="material-icons md-48">filter_vintage</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/p2pio" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/p2pio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/story" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/story" role="button">';
   $apps .= '<i class="material-icons md-48">book</i>';
   $apps .= '</a>';
   $apps .= '<hr/>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/wai" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-3" href="/scope" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-4" href="/scope" role="button">';
   $apps .= '<i class="material-icons md-48">photo</i>';
   $apps .= '</a>';
 ?>
@@ -47,12 +47,12 @@
 
 
 <ul class="navbar-nav nav justify-content-end">
-  <li class="nav-item active mr-lg-4">
+  <li class="nav-item active mr-lg-5">
     <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $langs }}">
       <i class="material-icons md-48">language</i>
     </a>
   </li>
-  <li class="nav-item active mr-lg-4">
+  <li class="nav-item active mr-lg-5">
     <a tabindex="1" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $apps }}">
       <i class="material-icons md-48">apps</i>
     </a>
@@ -66,7 +66,7 @@
   </li>
   @else
   <li class="nav-item active">
-    <a role="button" class="btn btn-warning btn-lg mr-lg-4" href="/rsaauth/login" role="button">
+    <a role="button" class="btn btn-warning btn-lg mr-lg-5" href="/rsaauth/login" role="button">
       <i class="material-icons md-48">person</i>
     </a>
   </li>
