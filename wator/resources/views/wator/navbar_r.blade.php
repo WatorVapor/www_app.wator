@@ -19,18 +19,17 @@
   $apps .= '<a class="btn btn-lg btn-success ml-lg-3 mr-lg-5 mt-lg-3" href="/xuniverse" role="button">';
   $apps .= '<i class="material-icons md-48">filter_vintage</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mt-lg-3 mr-lg-3" href="/p2pio" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 mr-lg-3" href="/p2pio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
-  $apps .= '<hr/>';
-  $apps .= '<a class="btn btn-lg btn-success ml-lg-3 mr-lg-5 mt-lg-5 mb-lg-3" href="/story" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mt-lg-3 mr-lg-3" href="/story" role="button">';
   $apps .= '<i class="material-icons md-48">book</i>';
   $apps .= '</a>';
+  $apps .= '<hr/>';
   $apps .= '<a class="btn btn-lg btn-success mb-lg-3 mt-lg-5 mr-lg-3" href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
-  $apps .= '<hr/>';
-  $apps .= '<a class="btn btn-lg btn-success ml-lg-3 mr-lg-5 mt-lg-5 mb-lg-3" href="/scope" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 mr-lg-3" href="/scope" role="button">';
   $apps .= '<i class="material-icons md-48">photo</i>';
   $apps .= '</a>';
 ?>
