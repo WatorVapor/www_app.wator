@@ -42,8 +42,8 @@ class ParticipleController extends Controller
             $msgJson = ['lang' => 'cn'];
             $lang = $request->input('lang');
             //var_dump($lang);
-            if(isset($lang) && $lang == 'jp') {
-                $msgJson['lang'] = 'jp';
+            if(isset($lang) && $lang == 'ja') {
+                $msgJson['lang'] = 'ja';
             }
             $msg = json_encode($msgJson);
             $request->session()->put('wai_participle_cut_text', $sentence);
