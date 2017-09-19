@@ -23,4 +23,7 @@ server {
   location ^~ /wator/ {
     alias /www_root/wator/;
   }
+  location ^~ /autogen/ {
+    alias /autogen/;
+  }
 }
