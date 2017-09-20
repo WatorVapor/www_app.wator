@@ -62,7 +62,7 @@ class ParticipleController extends Controller
             //var_dump($waiPort);
             $sock = socket_create(AF_INET6, SOCK_DGRAM, SOL_UDP);
             //var_dump($sock);
-            socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>30,"usec"=>0));
+            socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>5,"usec"=>0));
             $result = socket_connect($sock, '::1', $waiPort);
             socket_write($sock, $msg, strlen($msg));
             socket_write($sock, $sentence, strlen($sentence));
