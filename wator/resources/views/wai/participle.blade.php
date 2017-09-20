@@ -41,7 +41,7 @@
       <div class="card-body">
         <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
       </div>
-      <img class="card-img-bottom" src="$sentence['graph'] }" alt="Card image cap">
+      <img class="card-img-bottom" src="{{ $sentence['graph'] }}" alt="Card image cap">
     </div>
     @endforeach
   </div>
