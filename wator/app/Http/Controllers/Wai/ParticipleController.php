@@ -18,7 +18,12 @@ class ParticipleController extends Controller
         //var_dump($response);
         $data = ['result'=>''];
         if($response) {
-            $data = ['result'=>$response];
+            try {
+                $jsonRes = json_decode($response,true);
+                $data = ['result'=>$jsonRes];
+            } catch (\Exception $e) {
+                var_dump($e->getMessage());
+            }
         }
         $text = session('wai_participle_cut_text');
         if($text) {
