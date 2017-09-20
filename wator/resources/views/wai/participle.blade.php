@@ -40,7 +40,7 @@
       <div class="panel-body">
         <pre style="white-space: pre-wrap ;">
           @foreach ($result as $sentence)
-            {{ $sentence }}
+            {{ $sentence['sentence'] }} {{ $sentence['graph'] }}
           @endforeach
         </pre>
       </div>
