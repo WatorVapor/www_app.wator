@@ -21,7 +21,7 @@ class ParticipleController extends Controller
             try {
                 $jsonRes = json_decode($response,true);
                 //var_dump($jsonRes);
-                $data = ['result'=>$jsonRes];
+                $data = ['result'=>$jsonRes['wai']];
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
