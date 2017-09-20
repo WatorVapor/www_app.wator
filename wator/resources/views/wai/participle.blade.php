@@ -39,7 +39,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <pre style="white-space: pre-wrap ;">
-          @foreach ($result as $sentence)
+          @foreach ($result as $key =>$sentence)
             
           @endforeach
         </pre>
