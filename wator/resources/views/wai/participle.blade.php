@@ -9,8 +9,8 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <div class="card card-default">
+      <div class="card-body">
         <form class="form-horizontal" method="POST" action="#" accept-charset="utf-8">
           {{ csrf_field() }}
           <div class="form-group">
@@ -36,8 +36,8 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <div class="card card-default">
+      <div class="card-body">
         <pre style="white-space: pre-wrap ;">
           @foreach ($result as $sentence)
             {{ $sentence['sentence'] }} {{ $sentence['graph'] }}
