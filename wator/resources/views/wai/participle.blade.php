@@ -40,7 +40,7 @@
       <div class="panel-body">
         <pre style="white-space: pre-wrap ;">
           @foreach ($result as $sentence)
-            {{ $sentence }}
+            
           @endforeach
         </pre>
       </div>
