@@ -38,7 +38,11 @@
   <div class="col-lg-10">
     <div class="panel panel-default">
       <div class="panel-body">
-        <pre style="white-space: pre-wrap ;">{{ $result }}</pre>
+        <pre style="white-space: pre-wrap ;">
+          @foreach ($result as $sentence)
+            {{ $sentence }}
+          @endforeach
+        </pre>
       </div>
     </div>
   </div>
