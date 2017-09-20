@@ -36,15 +36,14 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
+    @foreach ($result as $sentence)
     <div class="card card-default">
       <div class="card-body">
-        <pre style="white-space: pre-wrap ;">
-          @foreach ($result as $sentence)
-            {{ $sentence['sentence'] }} {{ $sentence['graph'] }}
-          @endforeach
-        </pre>
+        <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
       </div>
+      <img class="card-img-bottom" src="$sentence['graph'] }" alt="Card image cap">
     </div>
+    @endforeach
   </div>
 </div>
 
