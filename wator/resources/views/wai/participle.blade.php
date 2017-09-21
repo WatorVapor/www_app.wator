@@ -37,7 +37,7 @@
 <div class="row justify-content-center">
   <div class="col-lg-10">
     @foreach ($result as $sentence)
-    <div class="card card-default">
+    <div class="card card-default text-center border border-danger">
       <div class="card-body">
         <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
       </div>
