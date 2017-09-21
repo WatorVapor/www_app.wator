@@ -41,6 +41,7 @@
       <div class="card-body">
         <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
       </div>
+      <a href="{{ $sentence['graph'] }}" target="_blank" class="btn btn-primary">{{ trans('wai_participle.open_graph') }}</a>
       <img class="card-img-bottom" src="{{ $sentence['graph'] }}" alt="Card image cap">
     </div>
     @endforeach
