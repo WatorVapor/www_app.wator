@@ -3,6 +3,9 @@ upstream wwwapp.wator.xyz {
   server 127.0.0.1:18081;
 }
 
+upstream trainapp.wator.xyz {
+  server 127.0.0.1:18081;
+}
 
 
 # HTTPS server
@@ -17,6 +20,11 @@ server {
 
   location / {
     proxy_pass       http://wwwapp.wator.xyz;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Host $host;
+  }
+  location ^~ /wai/text/train/ {
+    proxy_pass       http://trainapp.wator.xyz;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Host $host;
   }
