@@ -32,6 +32,9 @@ class ParticipleController extends Controller
         } else {
             $data['text'] = '';
         }
+        $staticHTML = view('wai.participle',$data)->__toString();
+        $htmlFileName = hash($staticHTML,"sha256") . '.html';
+        file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
         return view('wai.participle',$data);
     }
     /**
