@@ -21,14 +21,14 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18080
     restart: always
-  wator-laravel-ghost:
-    build: laravel-wator
-    network_mode: "host"
-    volumes:
-      - /watorvapor/app_www/wator:/opt/laravel
-      - /watorvapor/rsaauth/wator:/opt/rsaauth
-      - /watorvapor/wai.storage/conf:/nativeapi
-      - /watorvapor/autogen:/autogen
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18081
-    restart: always
+  #wator-laravel-ghost:
+  #  build: laravel-wator
+  #  network_mode: "host"
+  #  volumes:
+  #    - /watorvapor/app_www/wator:/opt/laravel
+  #    - /watorvapor/rsaauth/wator:/opt/rsaauth
+  #    - /watorvapor/wai.storage/conf:/nativeapi
+  #    - /watorvapor/autogen:/autogen
+  #  working_dir: "/opt/laravel"
+  #  command: php artisan serve -vvv --host=127.0.0.1 --port=18081
+  #  restart: always
