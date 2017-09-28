@@ -13,9 +13,6 @@ services:
     limits:
       cpus: '0.4'
       memory: 100M
-    reservations:
-      cpus: '0.3'
-      memory: 50M
   wator-laravel:
     build: laravel-wator
     network_mode: "host"
@@ -30,9 +27,6 @@ services:
     limits:
       cpus: '0.2'
       memory: 50M
-    reservations:
-      cpus: '0.1'
-      memory: 20M
   wator-laravel-shadow:
     build: laravel-wator
     network_mode: "host"
@@ -47,9 +41,6 @@ services:
     limits:
       cpus: '0.2'
       memory: 50M
-    reservations:
-      cpus: '0.1'
-      memory: 20M
   wator-laravel-ghost:
     build: laravel-wator
     network_mode: "host"
@@ -64,6 +55,3 @@ services:
     limits:
       cpus: '0.2'
       memory: 50M
-    reservations:
-      cpus: '0.1'
-      memory: 20M
