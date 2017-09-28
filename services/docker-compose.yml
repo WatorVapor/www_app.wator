@@ -10,6 +10,14 @@ services:
       - /watorvapor/autogen:/autogen
     command: nginx
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 100M
+        reservations:
+          cpus: '0.3'
+          memory: 50M
   wator-laravel:
     build: laravel-wator
     network_mode: "host"
@@ -24,10 +32,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.2'
           memory: 50M
         reservations:
-          cpus: '0.2'
+          cpus: '0.1'
           memory: 20M
   wator-laravel-shadow:
     build: laravel-wator
@@ -43,10 +51,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.2'
           memory: 50M
         reservations:
-          cpus: '0.2'
+          cpus: '0.1'
           memory: 20M
   wator-laravel-ghost:
     build: laravel-wator
@@ -62,8 +70,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.2'
           memory: 50M
         reservations:
-          cpus: '0.2'
+          cpus: '0.1'
           memory: 20M
