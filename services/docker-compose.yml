@@ -11,6 +11,7 @@ services:
     command: nginx
     restart: always
     resources:
+      cpu_count: 4
       limits:
         cpus: '0.4'
         memory: 100M
