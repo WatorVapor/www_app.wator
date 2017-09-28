@@ -21,6 +21,14 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18080
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 50M
+        reservations:
+          cpus: '0.2'
+          memory: 20M
   wator-laravel-shadow:
     build: laravel-wator
     network_mode: "host"
@@ -32,6 +40,14 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18081
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 50M
+        reservations:
+          cpus: '0.2'
+          memory: 20M
   wator-laravel-ghost:
     build: laravel-wator
     network_mode: "host"
@@ -43,3 +59,11 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18082
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 50M
+        reservations:
+          cpus: '0.2'
+          memory: 20M
