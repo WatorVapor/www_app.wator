@@ -42,7 +42,7 @@ class OstrichTrainController extends Controller
             $num = rand(1,100);
             //var_dump($num);
             //var_dump($tag);
-            if($num %10 == 0) {
+            if($num %2 == 0) {
                 $task = [
                     'url'=>'https://zh.wikipedia.org/zh-cn/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD',
                     'lang'=>'cn',
