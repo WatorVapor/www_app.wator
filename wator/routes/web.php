@@ -52,4 +52,5 @@ Route::get('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@fetch')
 Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update');
 
 
+Route::get('/aibot/twitter', 'AIBot\TwitterController@index');
 
