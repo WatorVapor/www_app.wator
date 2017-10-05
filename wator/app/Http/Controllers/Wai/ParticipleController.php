@@ -77,7 +77,6 @@ class ParticipleController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $request->session()->put('wai_participle_cut_reponse', $buf);
-            Twitter::postTweet(array('status' => '面倒くさそうにしてるキャラを格好良いと思ってたのが間違いだったんだと思う', 'format' => 'json'));
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_reponse', $e->getMessage());
         }
