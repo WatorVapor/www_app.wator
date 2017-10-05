@@ -1,5 +1,7 @@
 <?php
 namespace Wator\Http\Controllers\AIBot;
+
+use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Thujohn\Twitter\Twitter;
