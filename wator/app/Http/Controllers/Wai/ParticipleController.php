@@ -3,6 +3,8 @@ namespace Wator\Http\Controllers\Wai;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Thujohn\Twitter\Twitter;
+
 class ParticipleController extends Controller
 {
     /**
