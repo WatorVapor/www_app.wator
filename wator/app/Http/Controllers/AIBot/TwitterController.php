@@ -18,6 +18,7 @@ class TwitterController extends Controller
         //
         //$tw = new Twitter();
         //return $tw->postTweet(array('status' => '面倒くさそうにしてるキャラを格好良いと思ってたのが間違いだったんだと思う', 'format' => 'json'));
-        return Twitter::getHomeTimeline(['count' => 2, 'format' => 'json']);
+        //return Twitter::getHomeTimeline(['count' => 2, 'format' => 'json']);
+        return Twitter::getUserTimeline(['count' => 20, 'format' => 'array']);
     }
 }
