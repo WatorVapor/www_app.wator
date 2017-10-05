@@ -176,6 +176,7 @@ return [
         // Wator\Providers\BroadcastServiceProvider::class,
         Wator\Providers\EventServiceProvider::class,
         Wator\Providers\RouteServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
 
     ],
 
@@ -225,6 +226,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
 
     ],
 
