@@ -2,6 +2,8 @@
 namespace Wator\Http\Controllers\AIBot;
 use Illuminate\Http\Request;
 
+use Thujohn\Twitter\Twitter;
+
 class TwitterController extends Controller
 {
     /**
