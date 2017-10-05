@@ -1,5 +1,5 @@
 <?php
-namespace Wator\Http\Controllers;
+namespace Wator\Http\Controllers\AIBot;
 use Illuminate\Http\Request;
 
 class TwitterController extends Controller
