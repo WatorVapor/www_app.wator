@@ -49,14 +49,16 @@ class TwitterParticipleNotification extends Notification
             $post .= "\n" ;
             $post .= '分词结果：' ;
             $post .= "\n" ;
-            #$post .=  $response;
-            $post .= "\n" ;
+            foreach( $jsonRes['wai'] as $phase ) {
+                $post .=  $phase['sentence'];
+                $post .= "\n" ;
+            }
             $post .= '你也想试试吗?点击下面链接：' ;
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
             return new TwitterStatusUpdate($post);
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
+            return new TwitterStatusUpdate($e->getMessage());
         }
         
     }
