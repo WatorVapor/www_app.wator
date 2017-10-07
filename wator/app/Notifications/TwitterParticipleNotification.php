@@ -56,7 +56,7 @@ class TwitterParticipleNotification extends Notification
             foreach( $jsonRes['wai'] as $phase ) {
                 $post .=  $phase['sentence'];
                 $post .= "\n" ;
-                $post .=  'https://www.wator.xyz' . $phase['graph'];
+                $post .=  '详解图  https://www.wator.xyz' . $phase['graph'];
                 $post .= "\n" ;
                 $post .= "\n" ;
             }
