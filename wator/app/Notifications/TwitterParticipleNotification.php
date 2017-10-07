@@ -41,7 +41,7 @@ class TwitterParticipleNotification extends Notification
         $text = session('wai_participle_cut_text');
         try {
             $jsonRes = json_decode($response,true);
-            $post = '#人工智能#中文分词' ;
+            $post = '#人工智能 #中文分词' ;
             $post .= "\n" ;
             $post .= "\n" ;
             $post .= '原文' ;
