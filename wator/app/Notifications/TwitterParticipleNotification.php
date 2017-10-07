@@ -39,18 +39,25 @@ class TwitterParticipleNotification extends Notification
     {
         $response = session('wai_participle_cut_reponse');
         $text = session('wai_participle_cut_text');
-        $post = '我分析了短语，你看对吗？' ;
-        $post .= "\n" ;
-        $post .= '原文如下：' ;
-        $post .= "\n" ;
-        $post .= $text;
-        $post .= '分词结果：' ;
-        $post .= "\n" ;
-        #$post .=  $response;
-        $post .= "\n" ;
-        $post .= '你也想试试吗?点击下面链接：' ;
-        $post .= "\n" ;
-        $post .= 'https://www.wator.xyz/wai/text/participle';
-        return new TwitterStatusUpdate($post);
+        try {
+            $jsonRes = json_decode($response,true);
+            $post = '我分析了短语，你看对吗？' ;
+            $post .= "\n" ;
+            $post .= '原文如下：' ;
+            $post .= "\n" ;
+            $post .= $text;
+            $post .= "\n" ;
+            $post .= '分词结果：' ;
+            $post .= "\n" ;
+            #$post .=  $response;
+            $post .= "\n" ;
+            $post .= '你也想试试吗?点击下面链接：' ;
+            $post .= "\n" ;
+            $post .= 'https://www.wator.xyz/wai/text/participle';
+            return new TwitterStatusUpdate($post);
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+        }
+        
     }
 }
