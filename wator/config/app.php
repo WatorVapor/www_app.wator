@@ -176,7 +176,8 @@ return [
         // Wator\Providers\BroadcastServiceProvider::class,
         Wator\Providers\EventServiceProvider::class,
         Wator\Providers\RouteServiceProvider::class,
-        Thujohn\Twitter\TwitterServiceProvider::class,
+        //Thujohn\Twitter\TwitterServiceProvider::class,
+        NotificationChannels\Twitter\TwitterServiceProvider::class,
 
     ],
 
