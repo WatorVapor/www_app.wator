@@ -40,16 +40,16 @@ class TwitterParticipleNotification extends Notification
         $response = session('wai_participle_cut_reponse');
         $text = session('wai_participle_cut_text');
         $post = '我分析了短语，你看对吗？' ;
-        $post = "\n" ;
+        $post .= "\n" ;
         $post .= '原文如下：' ;
-        $post = "\n" ;
+        $post .= "\n" ;
         $post .= $text;
         $post .= '分词结果：' ;
-        $post = "\n" ;
+        $post .= "\n" ;
         #$post .=  $response;
-        $post = "\n" ;
+        $post .= "\n" ;
         $post .= '你也想试试吗?点击下面链接：' ;
-        $post = "\n" ;
+        $post .= "\n" ;
         $post .= 'https://www.wator.xyz/wai/text/participle';
         return new TwitterStatusUpdate($post);
     }
