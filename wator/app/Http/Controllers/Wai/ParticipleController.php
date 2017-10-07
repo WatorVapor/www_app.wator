@@ -3,9 +3,13 @@ namespace Wator\Http\Controllers\Wai;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
+
+use Wator\Notifications\TwitterParticipleNotification;
 
 class ParticipleController extends Controller
 {
+    use Notifiable;
     /**
      * Display a listing of the resource.
      *
@@ -76,6 +80,7 @@ class ParticipleController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $request->session()->put('wai_participle_cut_reponse', $buf);
+            notify(new TwitterParticipleNotification());
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_reponse', $e->getMessage());
         }
