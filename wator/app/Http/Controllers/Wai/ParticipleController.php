@@ -86,6 +86,7 @@ class ParticipleController extends Controller
             var_dump($notify);
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_reponse', $e->getMessage());
+            var_dump($e->getMessage());
         }
         //return redirect()->back();
     }
