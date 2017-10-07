@@ -41,22 +41,22 @@ class TwitterParticipleNotification extends Notification
         $text = session('wai_participle_cut_text');
         try {
             $jsonRes = json_decode($response,true);
-            $post = '我分析了短语，你看对吗？' ;
+            $post = '短语分析' ;
             $post .= "\n" ;
             $post .= "\n" ;
-            $post .= '原文如下：' ;
+            $post .= '原文' ;
             $post .= "\n" ;
             $post .= "\n" ;
             $post .= $text;
             $post .= "\n" ;
             $post .= "\n" ;
-            $post .= '分词结果：' ;
+            $post .= '分词' ;
             $post .= "\n" ;
             $post .= "\n" ;
             foreach( $jsonRes['wai'] as $phase ) {
                 $post .=  $phase['sentence'];
                 $post .= "\n" ;
-                $post .=  '详解图  https://www.wator.xyz' . $phase['graph'];
+                $post .=  '详图  https://www.wator.xyz' . $phase['graph'];
                 $post .= "\n" ;
                 $post .= "\n" ;
             }
