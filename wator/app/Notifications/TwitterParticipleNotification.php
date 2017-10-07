@@ -41,7 +41,7 @@ class TwitterParticipleNotification extends Notification
         $text = session('wai_participle_cut_text');
         try {
             $jsonRes = json_decode($response,true);
-            $post = '人工智能 短语分析' ;
+            $post = '#人工智能 短语分析' ;
             $post .= "\n" ;
             $post .= "\n" ;
             $post .= '原文' ;
@@ -62,7 +62,7 @@ class TwitterParticipleNotification extends Notification
             }
             $post .= "\n" ;
             $post .= "\n" ;
-            $post .= '快来试试中文分词吧' ;
+            $post .= '快来试试 #中文分词 吧' ;
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
             return new TwitterStatusUpdate($post);
