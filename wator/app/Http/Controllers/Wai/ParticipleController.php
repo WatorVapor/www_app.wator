@@ -3,8 +3,10 @@ namespace Wator\Http\Controllers\Wai;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notifiable;
 
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
 use Wator\Notifications\TwitterParticipleNotification;
 
 class ParticipleController extends Controller
