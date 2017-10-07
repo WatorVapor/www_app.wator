@@ -44,6 +44,7 @@ class TwitterParticipleNotification extends Notification
         $post .= $text;
         $post .= '分词结果：' ;
         $post .=  $response;
+        $post .= '你也想试试吗?点击下面链接：' ;
         $post .= 'https://www.wator.xyz/wai/text/participle';
         return new TwitterStatusUpdate($post);
     }
