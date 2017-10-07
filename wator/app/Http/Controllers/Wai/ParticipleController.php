@@ -87,6 +87,6 @@ class ParticipleController extends Controller
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_reponse', $e->getMessage());
         }
-        return redirect()->back();
+        //return redirect()->back();
     }
 }
