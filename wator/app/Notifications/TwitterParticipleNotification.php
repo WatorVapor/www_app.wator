@@ -37,6 +37,8 @@ class TwitterParticipleNotification extends Notification
     }
     public function toTwitter($notifiable)
     {
-        return new TwitterStatusUpdate('Laravel notifications are awesome!');
+        $response = session('wai_participle_cut_reponse');
+        $text = session('wai_participle_cut_text');
+        return new TwitterStatusUpdate($text);
     }
 }
