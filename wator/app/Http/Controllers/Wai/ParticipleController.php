@@ -82,7 +82,8 @@ class ParticipleController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $request->session()->put('wai_participle_cut_reponse', $buf);
-            $this->notify(new TwitterParticipleNotification());
+            $notify = $this->notify(new TwitterParticipleNotification());
+            var_dump($notify);
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_reponse', $e->getMessage());
         }
