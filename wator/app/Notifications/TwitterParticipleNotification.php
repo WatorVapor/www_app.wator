@@ -67,8 +67,8 @@ class TwitterParticipleNotification extends Notification
             $post .= '你快来试试吧' ;
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
-            //return (new TwitterStatusUpdate($post));
-            return (new TwitterStatusUpdate(''))->withImage([$pathImage]);
+            return (new TwitterStatusUpdate($post));
+            //return (new TwitterStatusUpdate(''))->withImage([$pathImage]);
         } catch (\Exception $e) {
             return new TwitterStatusUpdate($e->getMessage());
         }
