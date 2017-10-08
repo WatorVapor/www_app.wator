@@ -22,7 +22,7 @@ class ParticipleController extends Controller
         //
         $response = session('wai_participle_cut_reponse');
         session()->forget('wai_participle_cut_reponse');
-        //var_dump($response);
+        var_dump($response);
         $data = ['result'=>[]];
         if($response) {
             try {
