@@ -40,10 +40,10 @@
     <div class="card card-default text-center border border-danger">
       <div class="card-body">
         <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
-        <img class="card-img-bottom" src="{{ $sentence['graph'] }}" alt="Card image cap">
+        <img class="card-img-bottom" src="{{ $sentence['graph'] }}.svg" alt="Card image cap">
       </div>
       <div class="card-footer">
-        <a href="{{ $sentence['graph'] }}" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
+        <a href="{{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
       </div>
     </div>
     @endforeach
