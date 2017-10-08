@@ -39,7 +39,7 @@ class ParticipleController extends Controller
         } else {
             $data['text'] = '';
         }
-        $staticHTML = view('snsbot.participle',$data)->__toString();
+        $staticHTML = view('wai.snsbot',$data)->__toString();
         $htmlFileName = hash('sha256',$staticHTML) . '.html';
         file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
         //var_dump($data);
