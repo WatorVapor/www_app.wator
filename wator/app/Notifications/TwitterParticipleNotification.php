@@ -53,10 +53,12 @@ class TwitterParticipleNotification extends Notification
             $post .= '分词' ;
             $post .= "\n" ;
             $post .= "\n" ;
+            $pathImage = '';
             foreach( $jsonRes['wai'] as $phase ) {
                 $post .=  $phase['sentence'];
                 $post .= "\n" ;
                 $post .=  '详图  https://www.wator.xyz' . $phase['graph'];
+                $pathImage = '/ '. $phase['graph'];
                 $post .= "\n" ;
                 $post .= "\n" ;
             }
@@ -65,7 +67,9 @@ class TwitterParticipleNotification extends Notification
             $post .= '你快来试试吧' ;
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
-            return new TwitterStatusUpdate($post);
+            return new TwitterStatusUpdate($post) ->withImage([
+                $pathImage
+            ]);
         } catch (\Exception $e) {
             return new TwitterStatusUpdate($e->getMessage());
         }
