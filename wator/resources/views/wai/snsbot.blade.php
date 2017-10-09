@@ -1,10 +1,14 @@
 <!doctype html>
 <?php
    $img_url= '';
+   $result_text= '';
    foreach ($result as $sentence) {
     if(isset($sentence['graph'])) {
       $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
       break;
+    }
+    if(isset($sentence['sentence'])) {
+      $result_text .= $sentence['sentence'];
     }
    }
 ?>
@@ -18,8 +22,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@username" />
     <meta name="twitter:creator" content="@username" />
-    <meta property="og:title" content="Wator" />
-    <meta property="og:description" content="中文分词" />
+    <meta property="og:title" content="中文分词" />
+    <meta property="og:description" content="{{ $result_text }}" />
     <meta property="og:url" content="https://www.wator.xyz/wai/text/participle" />
     <meta property="og:image" content="{{ $img_url }}"/> 
 
