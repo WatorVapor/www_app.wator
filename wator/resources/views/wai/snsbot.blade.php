@@ -53,7 +53,7 @@
               <img class="card-img-bottom" src="{{ $sentence['graph'] }}.png" alt="Card image cap">
             </div>
             <div class="card-footer">
-              <a href="{{ $sentence['graph'] }}.png" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
+              <a href="{{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
             </div>
           </div>
           @endforeach
