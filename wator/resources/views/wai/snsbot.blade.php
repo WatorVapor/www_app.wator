@@ -4,10 +4,10 @@
    $result_text= '';
    foreach ($result as $sentence) {
     if(isset($sentence['graph'])) {
-      $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
-      break;
-    }
-    
+      if(!$img_url) {
+         $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
+      }
+    } 
     if(isset($sentence['sentence'])) {
       $result_text .= $sentence['sentence'];
     }
