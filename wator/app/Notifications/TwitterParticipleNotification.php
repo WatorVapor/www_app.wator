@@ -88,9 +88,6 @@ class TwitterParticipleNotification extends Notification
             $post = '#人工智能 #中文分词' ;
             $post .= "\n" ;
             $post .= "\n" ;
-            $post .= '原文' ;
-            $post .= "\n" ;
-            $post .= "\n" ;
             $post .= $this->url_;
             $post .= "\n" ;
             $post .= "\n" ;
