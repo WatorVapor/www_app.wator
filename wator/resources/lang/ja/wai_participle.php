@@ -4,6 +4,7 @@ return [
     'chinese' => '中国語',
     'japanese' => '日本語',
     'opengraph' => 'グラフを開く',
+    'opencleargraph' => 'クリアグラフを開く',
     'card_result' => '出力',
     'card_input' => '入力',
 ];
