@@ -29,6 +29,9 @@ class ParticipleController extends Controller
                 $jsonRes = json_decode($response,true);
                 //var_dump($jsonRes);
                 $data = ['result'=>$jsonRes['wai']];
+                $staticHTML = view('wai.snsbot',$data)->__toString();
+                $htmlFileName = hash('sha256',$staticHTML) . '.html';
+                file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
@@ -39,9 +42,6 @@ class ParticipleController extends Controller
         } else {
             $data['text'] = '';
         }
-        $staticHTML = view('wai.snsbot',$data)->__toString();
-        $htmlFileName = hash('sha256',$staticHTML) . '.html';
-        file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
         //var_dump($data);
         return view('wai.participle',$data);
     }
