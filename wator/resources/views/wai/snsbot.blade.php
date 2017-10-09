@@ -6,7 +6,7 @@
    foreach ($result as $sentence) {
     if(isset($sentence['graph'])) {
       if(!$img_url) {
-         $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
+         $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.svg';
       }
     } 
     if(isset($sentence['input'])) {
