@@ -14,7 +14,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=0.35, maximum-scale=0.35,minimum-scale=0.35">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="twitter:image" content="{{ $img_url }}"/> 
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@username" />
+    <meta name="twitter:creator" content="@username" />
+    <meta property="og:title" content="Wator" />
+    <meta property="og:description" content="中文分词" />
+    <meta property="og:url" content="https://www.wator.xyz/wai/text/participle" />
+    <meta property="og:image" content="{{ $img_url }}"/> 
+
     <title>Wator</title>
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
