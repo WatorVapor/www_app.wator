@@ -32,7 +32,7 @@ class ParticipleController extends Controller
                 $staticHTML = view('wai.snsbot',$data)->__toString();
                 $htmlFileName = hash('sha256',$staticHTML) . '.html';
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
-                $url_sns = 'https://www.wator.xyz//autogen/wai/graph/' . $htmlFileName;
+                $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
                 $notify = $this->notify(new TwitterParticipleNotification($url_sns));
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
