@@ -14,15 +14,17 @@ use NotificationChannels\Twitter\TwitterStatusUpdate;
 class TwitterParticipleNotification extends Notification
 {
     use Queueable;
+    public $url_;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($url)
     {
         //
+        $this->url_ = $url;
     }
 
     /**
@@ -35,6 +37,7 @@ class TwitterParticipleNotification extends Notification
     {
         return [TwitterChannel::class];
     }
+    /*
     public function toTwitter($notifiable)
     {
         $response = session('wai_participle_cut_reponse');
@@ -74,4 +77,35 @@ class TwitterParticipleNotification extends Notification
         }
         
     }
+    */
+
+    public function toTwitter($notifiable)
+    {
+        $response = session('wai_participle_cut_reponse');
+        $text = session('wai_participle_cut_text');
+        try {
+            $jsonRes = json_decode($response,true);
+            $post = '#人工智能 #中文分词' ;
+            $post .= "\n" ;
+            $post .= "\n" ;
+            $post .= '原文' ;
+            $post .= "\n" ;
+            $post .= "\n" ;
+            $post .= $this->url_;
+            $post .= "\n" ;
+            $post .= "\n" ;
+
+            $post .= "\n" ;
+            $post .= "\n" ;
+            $post .= '你快来试试吧' ;
+            $post .= "\n" ;
+            $post .= 'https://www.wator.xyz/wai/text/participle';
+            return (new TwitterStatusUpdate($post));
+        } catch (\Exception $e) {
+            return new TwitterStatusUpdate($e->getMessage());
+        }
+        
+    }
+    
+    
 }
