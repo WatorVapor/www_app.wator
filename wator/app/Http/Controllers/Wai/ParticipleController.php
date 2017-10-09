@@ -32,6 +32,7 @@ class ParticipleController extends Controller
                 $staticHTML = view('wai.snsbot',$data)->__toString();
                 $htmlFileName = hash('sha256',$staticHTML) . '.html';
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
+                $notify = $this->notify(new TwitterParticipleNotification($htmlFileName));
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
@@ -83,7 +84,6 @@ class ParticipleController extends Controller
             //var_dump($buf);
             socket_close($sock);
             $request->session()->put('wai_participle_cut_reponse', $buf);
-            $notify = $this->notify(new TwitterParticipleNotification());
             //var_dump($notify);
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_error', $e->getMessage());
