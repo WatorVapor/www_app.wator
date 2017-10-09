@@ -1,12 +1,12 @@
 <!doctype html>
 <?php
-   $img_url= '';
-   $input_text= '';
-   $result_text= '';
-   foreach ($result as $sentence) {
+  $img_url= '';
+  $input_text= '';
+  $result_text= '';
+  foreach ($result as $sentence) {
     if(isset($sentence['graph'])) {
       if(!$img_url) {
-         $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
+      $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
       }
     } 
     if(isset($sentence['input'])) {
@@ -15,7 +15,7 @@
     if(isset($sentence['sentence'])) {
       $result_text .= $sentence['sentence'];
     }
-   }
+  }
 ?>
 <html lang="{{ app()->getLocale() }}">
   <head>
@@ -23,12 +23,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=0.35, maximum-scale=0.35,minimum-scale=0.35">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@username" />
     <meta name="twitter:creator" content="@username" />
-    <meta property="og:title" content="{{ trans('wai_participle.card_result') }}:{{ $result_text }}" />
-    <meta property="og:description" content="{{ trans('wai_participle.card_input') }}:{{ $input_text }}" />
+    <meta property="og:title" content="{{ trans('wai_participle.card_result') }}:  {{ $result_text }}" />
+    <meta property="og:description" content="{{ trans('wai_participle.card_input') }}:  {{ $input_text }}" />
     <meta property="og:url" content="https://www.wator.xyz/wai/text/participle" />
     <meta property="og:image" content="{{ $img_url }}"/> 
 
