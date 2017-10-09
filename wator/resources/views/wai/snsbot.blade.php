@@ -28,7 +28,7 @@
     <meta name="twitter:site" content="@username" />
     <meta name="twitter:creator" content="@username" />
     <meta property="og:title" content="分词结果：{{ $result_text }}" />
-    <meta property="og:description" content="原文：{{ $result_text }}" />
+    <meta property="og:description" content="原文：{{ $input_text }}" />
     <meta property="og:url" content="https://www.wator.xyz/wai/text/participle" />
     <meta property="og:image" content="{{ $img_url }}"/> 
 
