@@ -86,6 +86,8 @@ class TwitterParticipleNotification extends Notification
         try {
             $jsonRes = json_decode($response,true);
             $post = '#人工智能 #中文分词' ;
+            $post .= "\n" ;
+            $post .= "\n" ;
             $post .= '你快来试试吧' ;
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
