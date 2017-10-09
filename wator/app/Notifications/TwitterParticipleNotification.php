@@ -37,47 +37,6 @@ class TwitterParticipleNotification extends Notification
     {
         return [TwitterChannel::class];
     }
-    /*
-    public function toTwitter($notifiable)
-    {
-        $response = session('wai_participle_cut_reponse');
-        $text = session('wai_participle_cut_text');
-        try {
-            $jsonRes = json_decode($response,true);
-            $post = '#人工智能 #中文分词' ;
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $post .= '原文' ;
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $post .= $text;
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $post .= '分词' ;
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $pathImage = '';
-            foreach( $jsonRes['wai'] as $phase ) {
-                $post .=  $phase['sentence'];
-                $post .= "\n" ;
-                $post .=  '详图  https://www.wator.xyz' . $phase['graph'];
-                $pathImage = '/ '. $phase['graph'];
-                $post .= "\n" ;
-                $post .= "\n" ;
-            }
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $post .= '你快来试试吧' ;
-            $post .= "\n" ;
-            $post .= 'https://www.wator.xyz/wai/text/participle';
-            return (new TwitterStatusUpdate($post));
-            //return (new TwitterStatusUpdate(''))->withImage([$pathImage]);
-        } catch (\Exception $e) {
-            return new TwitterStatusUpdate($e->getMessage());
-        }
-        
-    }
-    */
 
     public function toTwitter($notifiable)
     {
@@ -88,7 +47,7 @@ class TwitterParticipleNotification extends Notification
             $post = '#人工智能 #AI #中文分词' ;
             $post .= "\n" ;
             $post .= "\n" ;
-            $post = '#人工知能 #形態素解析' ;
+            $post .= '#人工知能 #形態素解析' ;
             $post .= "\n" ;
             $post .= "\n" ;
             $post .= '你快来试试吧' ;
