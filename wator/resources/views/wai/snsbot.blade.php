@@ -17,5 +17,21 @@
     
   </head>
   <body>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          @foreach ($result as $sentence)
+          <div class="card card-default text-center border border-danger">
+            <div class="card-body">
+              <img class="card-img-bottom" src="{{ $sentence['graph'] }}.png" alt="Card image cap">
+            </div>
+            <div class="card-footer">
+              <a href="{{ $sentence['graph'] }}.png" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
   </body>
 </html>
