@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
    $img_url= '';
+   $input_text= '';
    $result_text= '';
    foreach ($result as $sentence) {
     if(isset($sentence['graph'])) {
@@ -8,6 +9,9 @@
          $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
       }
     } 
+    if(isset($sentence['input'])) {
+      $input_text .= $sentence['input'];
+    }
     if(isset($sentence['sentence'])) {
       $result_text .= $sentence['sentence'];
     }
@@ -23,8 +27,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@username" />
     <meta name="twitter:creator" content="@username" />
-    <meta property="og:title" content="中文分词" />
-    <meta property="og:description" content="{{ $result_text }}" />
+    <meta property="og:title" content="分词结果：{{ $result_text }}" />
+    <meta property="og:description" content="原文：{{ $result_text }}" />
     <meta property="og:url" content="https://www.wator.xyz/wai/text/participle" />
     <meta property="og:image" content="{{ $img_url }}"/> 
 
