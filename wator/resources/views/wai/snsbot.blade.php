@@ -7,6 +7,7 @@
       $img_url= 'https://www.wator.xyz/' . $sentence['graph'] . '.png';
       break;
     }
+    
     if(isset($sentence['sentence'])) {
       $result_text .= $sentence['sentence'];
     }
