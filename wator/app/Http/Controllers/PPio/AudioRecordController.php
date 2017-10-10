@@ -1,6 +1,7 @@
 <?php
 
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\PPio;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -16,6 +17,6 @@ class AudioRecordController extends Controller
     public function index()
     {
         //
-         return view('audiorecord');
+         return view('ppio.audiorecord');
    }
 }
