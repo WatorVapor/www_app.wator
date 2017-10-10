@@ -23,7 +23,7 @@
   $apps .= '<a class="btn btn-lg btn-success mr-lg-5 " href="/xuniverse" role="button">';
   $apps .= '<i class="material-icons md-48">filter_vintage</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/p2pio" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/ppio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
   $apps .= '<a class="btn btn-lg btn-success " href="/story" role="button">';
