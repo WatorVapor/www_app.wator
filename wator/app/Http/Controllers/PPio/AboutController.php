@@ -1,6 +1,7 @@
 <?php
 
 namespace Wator\Http\Controllers\PPio;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
