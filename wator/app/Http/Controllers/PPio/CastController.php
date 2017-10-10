@@ -1,6 +1,7 @@
 <?php
 
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\PPio;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CastController extends Controller
     public function index()
     {
         //
-        return view('cast');
+        return view('ppio.cast');
     }
 
     /**
