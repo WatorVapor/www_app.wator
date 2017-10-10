@@ -44,13 +44,19 @@ class TwitterParticipleNotification extends Notification
         $text = session('wai_participle_cut_text');
         try {
             $jsonRes = json_decode($response,true);
-            $post = '#人工智能 #AI #中文分词' ;
+            $post = '' ;
+            if (App::isLocale('ja')) {
+                $post .= '#人工知能 #形態素解析' ;
+            } else {
+                $post .= '#人工智能 #AI #中文分词' ;
+            }
             $post .= "\n" ;
             $post .= "\n" ;
-            $post .= '#人工知能 #形態素解析' ;
-            $post .= "\n" ;
-            $post .= "\n" ;
-            $post .= '你快来试试吧' ;
+            if (App::isLocale('ja')) {
+                $post .= '你快来试试吧' ;
+            } else {
+                $post .= 'お試すリンク' ;
+            }
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
             $post .= "\n" ;
