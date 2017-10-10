@@ -10,6 +10,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Twitter\TwitterChannel;
 use NotificationChannels\Twitter\TwitterStatusUpdate;
 
+use App;
+use Config;
+
 
 class TwitterParticipleNotification extends Notification
 {
