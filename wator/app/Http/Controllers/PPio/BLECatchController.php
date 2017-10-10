@@ -1,6 +1,8 @@
 <?php
 
-namespace WatorVapor\Http\Controllers;
+namespace Wator\Http\Controllers\PPio;
+use Wator\Http\Controllers\Controller;
+
 
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class BLECatchController extends Controller
     public function index()
     {
         //
-        return view('ble_catch');
+        return view('ppio.ble_catch');
     }
 
     /**
