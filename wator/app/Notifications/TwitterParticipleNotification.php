@@ -56,9 +56,9 @@ class TwitterParticipleNotification extends Notification
             $post .= "\n" ;
             $post .= "\n" ;
             if (App::isLocale('ja')) {
-                $post .= '你快来试试吧' ;
-            } else {
                 $post .= 'お試すリンク' ;
+            } else {
+                $post .= '你快来试试吧' ;
             }
             $post .= "\n" ;
             $post .= 'https://www.wator.xyz/wai/text/participle';
