@@ -27,7 +27,7 @@
   <div class="row mt-lg-5 justify-content-center">
     <div class="col-6">
       <div class="row align-items-start justify-content-center">
-        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
+        <button type="submit" class="btn btn-xl btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
       </div>
       <div class="row align-items-center justify-content-center">
         <button type="submit" class="btn btn-lg btn-success"><i class="material-icons md-48">keyboard_arrow_left</i></button>
