@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-2">
+  <div class="col-2 mt-lg-5">
     <button type="button" class="btn btn-success btn-lg btn-block" onclick="onBLESearch(this)">Search</button>
   </div>
 </div>
