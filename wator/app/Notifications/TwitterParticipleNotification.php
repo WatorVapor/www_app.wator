@@ -71,8 +71,5 @@ class TwitterParticipleNotification extends Notification
         } catch (\Exception $e) {
             return new TwitterStatusUpdate($e->getMessage());
         }
-        
     }
-    
-    
 }
