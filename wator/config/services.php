@@ -40,4 +40,7 @@ return [
         'access_token'    => env('TWITTER_ACCESS_TOKEN'),
         'access_secret'   => env('TWITTER_ACCESS_SECRET')
     ],
+    'facebook' => [
+        'page-token' => env('FACEBOOK_PAGE_TOKEN')
+    ],
 ];
