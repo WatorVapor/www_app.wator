@@ -2,7 +2,7 @@
 namespace Wator\Http\Controllers\PPio;
 use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-class BLESearchController extends Controller
+class BLEDualBoxCarController extends Controller
 {
     /**
      * Display a listing of the resource.
