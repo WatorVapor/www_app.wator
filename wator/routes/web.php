@@ -57,14 +57,17 @@ Route::get('/aibot/twitter', 'AIBot\TwitterController@index');
 
 Route::get('/ppio/', 'PPio\AboutController@index');
 Route::get('/ppio/about', 'PPio\AboutController@index');
+
 Route::get('/ppio/keys', 'PPio\KeysController@index');
 Route::get('/ppio/cast', 'PPio\CastController@index');
 Route::get('/ppio/catch', 'PPio\CatchController@index');
-Route::get('/ppio/ble/dbc', 'PPio\BLEDualBoxCarController@index');
+
 Route::get('/ppio/ble/search', 'PPio\BLESearchController@index');
+Route::get('/ppio/ble/dbc', 'PPio\BLEDualBoxCarController@index');
 Route::get('/ppio/ble/chart', 'PPio\BLEChartController@index');
-Route::get('/ppio/ble/cast', 'PPio\BLECastController@index');
-Route::get('/ppio/ble/catch', 'PPio\BLECatchController@index');
+
+Route::get('/ppio/cloud/gofuro', 'PPio\CloudGoFuroController@index');
+
 Route::get('/ppio/msgchain/entry', 'PPio\WorldEntryController@index');
 Route::post('/ppio/msgchain/entry', 'PPio\WorldEntryController@store');
 Route::delete('/ppio/msgchain/entry/{node}', 'PPio\WorldEntryController@destroy');
