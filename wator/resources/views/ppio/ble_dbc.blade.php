@@ -5,7 +5,9 @@
 
 @section('content')
 <div class="row">
-  <button type="button" class="btn btn-success btn-lg btn-block" onclick="onBLESearch(this)">Search</button>
+  <div class="col-1">
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onBLESearch(this)">Search</button>
+  </div>
 </div>
 
 <script src="/wator/ppio/js/ble.web.js" type="text/javascript"></script>
