@@ -33,7 +33,7 @@
 
 <div class="container mt-lg-5">
   <div class="row mt-lg-5 justify-content-center">
-    <div class="col-6">
+    <div class="col-8">
       <div class="row align-items-start justify-content-center">
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
       </div>
