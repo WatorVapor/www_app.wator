@@ -60,6 +60,7 @@ Route::get('/ppio/about', 'PPio\AboutController@index');
 Route::get('/ppio/keys', 'PPio\KeysController@index');
 Route::get('/ppio/cast', 'PPio\CastController@index');
 Route::get('/ppio/catch', 'PPio\CatchController@index');
+Route::get('/ppio/ble/dbc', 'PPio\BLEDualBoxCarController@index');
 Route::get('/ppio/ble/search', 'PPio\BLESearchController@index');
 Route::get('/ppio/ble/chart', 'PPio\BLEChartController@index');
 Route::get('/ppio/ble/cast', 'PPio\BLECastController@index');
