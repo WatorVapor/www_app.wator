@@ -41,18 +41,18 @@
 <div class="row">
   <div class="col">
     <div class="card card-default text-center">
-       <img class="card-img-top" src="/wator/images/ppio/eCCob.png" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">RSA</h4>
       </div>
+      <img class="card-img-top" src="/wator/images/ppio/eCCob.png" alt="Card image cap">
     </div>
   </div>
   <div class="col">
     <div class="card card-default text-center">
-       <img class="card-img-top" src="/wator/images/ppio/Web-Bluetooth-1-768x454.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">Web Bluetooth</h4>
       </div>
+      <img class="card-img-top" src="/wator/images/ppio/Web-Bluetooth-1-768x454.jpg" alt="Card image cap">
     </div>
   </div>
 </div>
