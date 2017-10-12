@@ -27,12 +27,12 @@
   <div class="row mt-lg-5 justify-content-center">
     <div class="col-6">
       <div class="row align-items-start justify-content-center">
-        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons">keyboard_arrow_up</i></button>
+        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
       </div>
       <div class="row align-items-center justify-content-center">
-        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons">keyboard_arrow_left</i></button>
-        <button type="submit" class="btn btn-lg btn-danger"><i class="material-icons">stop</i></button>
-        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons">keyboard_arrow_right</i></button>
+        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons md-48">keyboard_arrow_left</i></button>
+        <button type="submit" class="btn btn-lg btn-danger"><i class="material-icons md-48">stop</i></button>
+        <button type="submit" class="btn btn-lg btn-success"><i class="material-icons md-48">keyboard_arrow_right</i></button>
       </div>
       <div class="row align-items-end justify-content-center">
         <button type="submit" class="btn btn-lg btn-success"><i class="material-icons">keyboard_arrow_down</i></button>
