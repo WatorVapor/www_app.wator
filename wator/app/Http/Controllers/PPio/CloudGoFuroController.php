@@ -2,7 +2,7 @@
 namespace Wator\Http\Controllers\PPio;
 use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-class BLEDualBoxCarController extends Controller
+class CloudGoFuroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,6 +12,6 @@ class BLEDualBoxCarController extends Controller
     public function index()
     {
         //
-        return view('ppio.ble_dbc');
+        return view('ppio.gofuro');
     }
 }
