@@ -39,7 +39,7 @@
       </div>
       <div class="row mt-lg-5 align-items-center justify-content-center">
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_left</i></button>
-        <button type="submit" class="btn btn-lg btn-remote-controller btn-danger"><i class="material-icons md-48">stop</i></button>
+        <button type="submit" class="btn btn-lg ml-lg-5 mr-lg-5 btn-remote-controller btn-danger"><i class="material-icons md-48">stop</i></button>
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_right</i></button>
       </div>
       <div class="row mt-lg-5 align-items-end justify-content-center">
