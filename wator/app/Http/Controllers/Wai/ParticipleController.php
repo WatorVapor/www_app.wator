@@ -34,6 +34,7 @@ class ParticipleController extends Controller
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
                 $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
                 $notify = $this->notify(new TwitterParticipleNotification($url_sns));
+                $notify2 = $this->notify(new FacebookParticipleNotification($url_sns));
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
