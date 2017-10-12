@@ -6,13 +6,13 @@
   </li>
   <li class="nav-item active ml-lg-3">
     <a class="btn btn-lg btn-danger nav-btn" href="/ppio/ble/dbc" role="button">
-      <i class="material-icons md-48">ic_bluetooth</i>
-      <i class="material-icons md-48">ic_directions_car</i>
+      <i class="material-icons md-48">bluetooth</i>
+      <i class="material-icons md-48">directions_car</i>
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
     <a class="btn btn-lg btn-danger nav-btn" href="/ppio/ble/chart" role="button">
-      <i class="material-icons md-48">ic_bluetooth</i>
+      <i class="material-icons md-48">bluetooth</i>
     </a>
   </li>
 </ul>
