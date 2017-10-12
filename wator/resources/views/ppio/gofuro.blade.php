@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<script src="/p2pio/js/ppio.web.js" type="text/javascript"></script>
+<script src="/wator/ppio/js/ppio.web.js" type="text/javascript"></script>
 <script type="text/javascript">
   function onStartGoFuro(element) {
   }
