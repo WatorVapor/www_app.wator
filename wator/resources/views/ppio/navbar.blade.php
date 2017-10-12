@@ -13,8 +13,8 @@
   $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/ppio/ble/search" role="button">';
   $bluetooths .= '<i class="material-icons md-48">bluetooth_searching</i>';
   $bluetooths .= '</a>';
-  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5" href="/ppio/ble/raw" role="button" disabled>';
-  $bluetooths .= '<i class="material-icons md-48">bug_report</i>';
+  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/ppio/ble/raw" role="button">';
+  $bluetooths .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $bluetooths .= '</a>';
   $bluetooths .= '</div>';
 ?>
@@ -25,17 +25,17 @@
   $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/ppio/cloud/gofuro" role="button">';
   $clouds .= '<i class="material-icons md-48">hot_tub</i>';
   $clouds .= '</a>';
-  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5" href="/ppio/cloud/chart" role="button" disabled>';
-  $clouds .= '<i class="material-icons md-48">timeline</i>';
+  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/ppio/cloud/chart" role="button">';
+  $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
   $clouds .= '</div>';
   $clouds .= '<hr/>';
   $clouds .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/ppio/cloud/search" role="button" disabled >';
-  $clouds .= '<i class="material-icons md-48">bluetooth_searching</i>';
+  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/ppio/cloud/search" role="button">';
+  $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
-  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5" href="/ppio/cloud/raw" role="button" disabled>';
-  $clouds .= '<i class="material-icons md-48">bug_report</i>';
+  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/ppio/cloud/raw" role="button">';
+  $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
   $clouds .= '</div>';
 ?>
