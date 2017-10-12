@@ -35,6 +35,7 @@
       </div>
     </div>
   </div>
+<div class="row">
   <div class="col">
     <div class="card card-default">
       <div class="card-heading">
@@ -46,7 +47,6 @@
     </div>
   </div>
 </div>
-<div class="row">
   <div class="col">
     <div class="card card-default">
       <div class="card-heading">
