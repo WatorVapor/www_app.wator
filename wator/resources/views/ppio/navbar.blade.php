@@ -1,10 +1,10 @@
 <?php
   $bluetooths = '';
   $bluetooths .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $bluetooths .= '<a class="btn btn-lg btn-success mr-lg-5 " href="/ppio/ble/dbc" role="button">';
+  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/ppio/ble/dbc" role="button">';
   $bluetooths .= '<i class="material-icons md-48">directions_car</i>';
   $bluetooths .= '</a>';
-  $bluetooths .= '<a class="btn btn-lg btn-success mr-lg-5" href="/ppio/ble/chart" role="button">';
+  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5" href="/ppio/ble/chart" role="button">';
   $bluetooths .= '<i class="material-icons md-48">timeline</i>';
   $bluetooths .= '</a>';
   $bluetooths .= '</div>';
@@ -18,7 +18,7 @@
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
-    <a tabindex="0" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $bluetooths }}">
+    <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $bluetooths }}">
       <i class="material-icons md-48">bluetooth</i>
     </a>
   </li>
