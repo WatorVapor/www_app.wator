@@ -53,7 +53,7 @@
         <h6>Web Bluetooth</h6>
       </div>
       <div class="card-body">
-        <img src="/img/ddstar/Web-Bluetooth-1-768x454.jpg" class="img-thumbnail" alt="Web Bluetooth API" width="100%">
+        <img src="/images/ppio/Web-Bluetooth-1-768x454.jpg" class="img-thumbnail" alt="Web Bluetooth API" width="100%">
       </div>
     </div>
   </div>
