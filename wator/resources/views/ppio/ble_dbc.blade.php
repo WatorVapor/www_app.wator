@@ -25,7 +25,7 @@
 
 <style>
   .btn-remote-controller {
-    height: 50px !important;
+    height: 80px !important;
     margin-buttom: 40px !important;
   } 
 </style>
