@@ -1,4 +1,8 @@
 @extends('wator.app')
+@section('appnavbar')
+  @include('ppio.navbar')
+@endsection
+
 @section('content')
 <style>
   .ble-chart-canvas {
