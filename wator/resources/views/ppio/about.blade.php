@@ -11,7 +11,7 @@
         <h6>Devices</h6>
       </div>
       <div class="panel-body">
-        <img src="/img/ddstar/SmartHome-WebRTC-IoT-Hub.png" class="img-thumbnail" alt="rsa gif" width="100%">
+        <img src="/images/ppio/SmartHome-WebRTC-IoT-Hub.png" class="img-thumbnail" alt="rsa gif" width="100%">
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
         <h6>Webrtc</h6>
       </div>
       <div class="panel-body">
-        <img src="/img/ddstar/webrtc-sample-image.png" class="img-thumbnail" alt="webrtc over rsa peer" width="100%">
+        <img src="/images/ppio/webrtc-sample-image.png" class="img-thumbnail" alt="webrtc over rsa peer" width="100%">
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
         <h6>Webrtc Signal</h6>
       </div>
       <div class="panel-body">
-        <img src="/img/ddstar/webrtc-another-web-3-638.jpg" class="img-thumbnail" alt="signal" width="100%">
+        <img src="/images/ppio/webrtc-another-web-3-638.jpg" class="img-thumbnail" alt="signal" width="100%">
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
         <h6>RSA</h6>
       </div>
       <div class="panel-body">
-        <img src="/img/ddstar/eCCob.png" class="img-thumbnail" alt="rsa gif" width="100%">
+        <img src="/images/ppio/eCCob.png" class="img-thumbnail" alt="rsa gif" width="100%">
       </div>
     </div>
   </div>
