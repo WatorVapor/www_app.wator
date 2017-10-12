@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Wator\Notifications\TwitterParticipleNotification;
+use Wator\Notifications\FacebookParticipleNotification;
 
 class ParticipleController extends Controller
 {
