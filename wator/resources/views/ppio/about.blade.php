@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+<!--
 <div class="row">
   <div class="col">
     <div class="card card-default">
@@ -36,6 +37,7 @@
     </div>
   </div>
 </div>
+-->
 <div class="row">
   <div class="col">
     <div class="card card-default">
