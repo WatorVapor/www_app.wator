@@ -8,6 +8,15 @@
   $bluetooths .= '<i class="material-icons md-48">timeline</i>';
   $bluetooths .= '</a>';
   $bluetooths .= '</div>';
+  $bluetooths .= '<hr/>';
+  $bluetooths .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
+  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/ppio/ble/search" role="button">';
+  $bluetooths .= '<i class="material-icons md-48">bluetooth_searching</i>';
+  $bluetooths .= '</a>';
+  $bluetooths .= '<a class="btn btn-lg btn-danger mr-lg-5" href="/ppio/ble/raw" role="button">';
+  $bluetooths .= '<i class="material-icons md-48">bug_report</i>';
+  $bluetooths .= '</a>';
+  $bluetooths .= '</div>';
 ?>
 
 
