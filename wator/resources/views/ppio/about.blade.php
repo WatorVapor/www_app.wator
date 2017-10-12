@@ -1,6 +1,6 @@
 @extends('wator.app')
 @section('appnavbar')
-  @include('wai.navbar')
+  @include('ppio.navbar')
 @endsection
 
 @section('content')
