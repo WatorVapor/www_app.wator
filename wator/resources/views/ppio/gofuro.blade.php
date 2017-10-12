@@ -4,8 +4,10 @@
 @endsection
 
 @section('content')
-<div class="row">
-  <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartGoFuro(this)">Search</button>
+<div class="row mt-lg-5 justify-content-center">
+  <div class="col-6">
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartGoFuro(this)">!!!HotUp!!!</button>
+  </div>
 </div>
 
 <script src="/p2pio/js/ppio.web.js" type="text/javascript"></script>
