@@ -178,6 +178,7 @@ return [
         Wator\Providers\RouteServiceProvider::class,
         //Thujohn\Twitter\TwitterServiceProvider::class,
         NotificationChannels\Twitter\TwitterServiceProvider::class,
+        NotificationChannels\Facebook\FacebookServiceProvider::class,
 
     ],
 
