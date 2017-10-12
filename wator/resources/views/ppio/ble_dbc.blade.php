@@ -25,8 +25,8 @@
 
 <style>
   .btn-remote-controller {
-    height: 200px !important;
-    width: 200px !important;
+    height: 160px !important;
+    width: 160px !important;
   } 
 </style>
 
@@ -37,12 +37,12 @@
       <div class="row align-items-start justify-content-center">
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
       </div>
-      <div class="row mt-lg-5 align-items-center justify-content-center">
+      <div class="row mt-lg-3 align-items-center justify-content-center">
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_left</i></button>
-        <button type="submit" class="btn btn-lg ml-lg-5 mr-lg-5 btn-remote-controller btn-danger"><i class="material-icons md-48">stop</i></button>
+        <button type="submit" class="btn btn-lg ml-lg-3 mr-lg-3 btn-remote-controller btn-danger"><i class="material-icons md-48">stop</i></button>
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_right</i></button>
       </div>
-      <div class="row mt-lg-5 align-items-end justify-content-center">
+      <div class="row mt-lg-3 align-items-end justify-content-center">
         <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_down</i></button>
       </div>
     </div>
