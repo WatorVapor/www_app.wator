@@ -40,13 +40,13 @@ class SlipController extends Controller
             $title = '???';
         }
         $cmd = 'find ' . $this->txtRoot_ . '/' . $this->locale_ . '/'. $chapter . '/s.*.txt' . ' -type f | sort -t / -k 8 -n';
-        Log::info($cmd);
+        //Log::info($cmd);
         $output = shell_exec($cmd);
-        Log::info('$output=<' . $output . '>');
+        //Log::info('$output=<' . $output . '>');
         $sections = explode("\n",$output);
         $contentAll ='';
         foreach ($sections as $value) {
-            Log::info('$value=<' . $value . '>');
+            //Log::info('$value=<' . $value . '>');
             if( file_exists($value) ) {
                 $sectionText = file_get_contents($value);
                 $contentAll .= $sectionText;
@@ -54,13 +54,13 @@ class SlipController extends Controller
         }
 
         $cmd = 'find ' . $this->txtRoot_ . '/' . $this->locale_ . '/'. $chapter . '/a' . ' -type f ';
-        Log::info($cmd);
+        //Log::info($cmd);
         $output = shell_exec($cmd);
-        Log::info('$output=<' . $output . '>');
+        //Log::info('$output=<' . $output . '>');
         $sections = explode("\n",$output);
         $anim = array();
         foreach ($sections as $file) {
-            Log::info('$file=<' . $file . '>');
+            //Log::info('$file=<' . $file . '>');
             if( file_exists($file) ) {
                 $name = basename($file);
                 $anim[] = $name;
