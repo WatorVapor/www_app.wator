@@ -13,7 +13,7 @@ class HomeController extends Controller
     protected $chapterOnce_;
     protected $animateNames_ = array();
     public function __construct() {
-        $this->txtRoot_= '/opt/watorvapor/repository.wator/story';
+        $this->txtRoot_= '/repository/story';
         $this->locale_='zh';
         $this->chapterOnce_=45;
         $this->animateNames_[]= 'type';
