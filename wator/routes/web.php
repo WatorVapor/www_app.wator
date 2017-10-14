@@ -73,3 +73,7 @@ Route::post('/ppio/msgchain/entry', 'PPio\WorldEntryController@store');
 Route::delete('/ppio/msgchain/entry/{node}', 'PPio\WorldEntryController@destroy');
 
 
+Route::get('/story/slip/{chapter?}', 'Story\SlipController@index');
+Route::get('/story/home/{position?}', 'Story\HomeController@index');
+Route::get('/story/', 'Story\HomeController@index');
+
