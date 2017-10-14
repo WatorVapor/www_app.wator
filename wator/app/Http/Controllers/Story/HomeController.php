@@ -63,7 +63,7 @@ class HomeController extends Controller
         $chaptersInfo = array();
         $chaptersCounter = 0;
         foreach ($folders_ordered as $value) {
-            $titlePath = $this->txtRoot_ . '/' . (string)$value . '/title';
+            $titlePath = $this->txtRoot_ . '/'. $this->locale_ . (string)$value . '/title';
             var_dump($titlePath);
             if( file_exists($titlePath) ) {
                 //$chapter = str_replace($this->txtRoot_ ,'',$value);
@@ -80,71 +80,5 @@ class HomeController extends Controller
         }
         $data['chapters'] = $chaptersInfo;
         return view('story.home',$data);
-    }
-
-    /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
-    public function create()
-    {
-        //
-    }
-
-    /**
-    * Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-    * Display the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-    * Show the form for editing the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-    * Update the specified resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-    public function destroy($id)
-    {
-        //
     }
 }
