@@ -1,14 +1,10 @@
 <?php
 
-namespace StoryWator\Http\Controllers;
-
+namespace Wator\Http\Controllers\story;
+use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use StoryWator\Http\Requests;
-
 use App;
 
-use Log;
 
 class HomeController extends Controller
 {
@@ -50,37 +46,27 @@ class HomeController extends Controller
         $animate = $this->animateNames_[$index];
         $data = ['animate'=>$animate];
         $cmd = 'find ' . $this->txtRoot_ . ' -mindepth 2 -maxdepth 2 -type d | sort -t / -k 7 -n';
-        //Log::info($cmd);
         $output = shell_exec($cmd);
-        //Log::info($output);
         $folders = explode("\n",$output);
-        //Log::info($folders);
         $chaptersInfo = array();
         $chaptersCounter = 0;
         foreach ($folders as $value) {
-            //Log::info('$value=<' . $value . '>');
             $titlePath = $value . '/title';
-            //Log::info('$value=<' . $titlePath . '>');
             if( file_exists($titlePath) ) {
-                //Log::info($value);
                 $chapter = str_replace($this->txtRoot_ ,'',$value);
                 $pieces = explode("/",$chapter);
-                //Log::info($pieces);
                 if($pieces[1] == $this->locale_) {
                     if($chaptersCounter >= $this->chapterOnce_) {
                         break;
                     }
                     $title = file_get_contents($titlePath);
-                    //Log::info($title);
-                    //Log::info($pieces[2]);
                     $chaptersInfo[$pieces[2]] = $title;
                     $chaptersCounter++;
                 }
             }
         }
-        //Log::info($chaptersInfo);
         $data['chapters'] = $chaptersInfo;
-        return view('home',$data);
+        return view('story.home',$data);
     }
 
     /**
