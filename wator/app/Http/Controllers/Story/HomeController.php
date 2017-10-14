@@ -1,6 +1,6 @@
 <?php
 
-namespace Wator\Http\Controllers\story;
+namespace Wator\Http\Controllers\Story;
 use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App;
