@@ -18,7 +18,7 @@ services:
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
-      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18080
     restart: always
@@ -30,7 +30,7 @@ services:
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
-      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18081
   wator-laravel-ghost:
@@ -41,7 +41,7 @@ services:
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
-      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18082
     restart: always
