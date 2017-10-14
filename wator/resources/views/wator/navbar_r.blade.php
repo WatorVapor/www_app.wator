@@ -23,7 +23,7 @@
   $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/ppio" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/scope" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success" href="/scope" role="button">';
   $apps .= '<i class="material-icons md-48">photo</i>';
   $apps .= '</a>';
   $apps .= '</div>';
