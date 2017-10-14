@@ -10,6 +10,7 @@ services:
       - /watorvapor/autogen:/autogen
     command: nginx
     restart: always
+  
   wator-laravel:
     build: laravel-wator
     network_mode: "host"
@@ -22,6 +23,7 @@ services:
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18080
     restart: always
+  
   wator-laravel-shadow:
     build: laravel-wator
     network_mode: "host"
@@ -33,6 +35,7 @@ services:
       - /watorvapor/story.storage/repository.wator:/repository
    working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18081
+
   wator-laravel-ghost:
     build: laravel-wator
     network_mode: "host"
