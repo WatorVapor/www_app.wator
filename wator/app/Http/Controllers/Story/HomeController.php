@@ -64,17 +64,18 @@ class HomeController extends Controller
         $chaptersCounter = 0;
         foreach ($folders_ordered as $value) {
             $titlePath = $this->txtRoot_ . '/' . (string)$value . '/title';
+            var_dump($titlePath);
             if( file_exists($titlePath) ) {
                 //$chapter = str_replace($this->txtRoot_ ,'',$value);
-                $pieces = explode("/",(string)$value);
-                if($pieces[1] == $this->locale_) {
+                //$pieces = explode("/",(string)$value);
+                //if($pieces[1] == $this->locale_) {
                     if($chaptersCounter >= $this->chapterOnce_) {
                         break;
                     }
                     $title = file_get_contents($titlePath);
-                    $chaptersInfo[$pieces[2]] = $title;
+                    $chaptersInfo[$value] = $title;
                     $chaptersCounter++;
-                }
+                //}
             }
         }
         $data['chapters'] = $chaptersInfo;
