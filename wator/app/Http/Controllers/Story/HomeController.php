@@ -48,13 +48,13 @@ class HomeController extends Controller
         $cmd = 'find ' . $this->txtRoot_ . ' -mindepth 2 -maxdepth 2 -type d | sort -t / -k 7 -n';
         $output = shell_exec($cmd);
         $folders = explode("\n",$output);
-        var_dump($folders);
+        //var_dump($folders);
         $folders_ordered = [];
         foreach ($folders as $value) {
            $folders_ordered[] = (int)str_replace('/repository/story/zh/', '', $value);
         }
         sort($folders_ordered);
-        var_dump($folders_ordered);
+        //var_dump($folders_ordered);
         /*
         foreach ($folders_ordered as $value) {
            $folders_ordered[] = (int)str_replace('/repository/story/zh/', '', $value);
@@ -64,18 +64,14 @@ class HomeController extends Controller
         $chaptersCounter = 0;
         foreach ($folders_ordered as $value) {
             $titlePath = $this->txtRoot_ . '/'. $this->locale_ . '/'. (string)$value . '/title';
-            var_dump($titlePath);
+            //var_dump($titlePath);
             if( file_exists($titlePath) ) {
-                //$chapter = str_replace($this->txtRoot_ ,'',$value);
-                //$pieces = explode("/",(string)$value);
-                //if($pieces[1] == $this->locale_) {
-                    if($chaptersCounter >= $this->chapterOnce_) {
-                        break;
-                    }
-                    $title = file_get_contents($titlePath);
-                    $chaptersInfo[$value] = $title;
-                    $chaptersCounter++;
-                //}
+                if($chaptersCounter >= $this->chapterOnce_) {
+                    break;
+                }
+                $title = file_get_contents($titlePath);
+                $chaptersInfo[$value] = $title;
+                $chaptersCounter++;
             }
         }
         $data['chapters'] = $chaptersInfo;
