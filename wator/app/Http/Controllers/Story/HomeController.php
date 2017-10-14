@@ -63,7 +63,7 @@ class HomeController extends Controller
         $chaptersInfo = array();
         $chaptersCounter = 0;
         foreach ($folders_ordered as $value) {
-            $titlePath = $this->txtRoot_ . '/'. $this->locale_ . (string)$value . '/title';
+            $titlePath = $this->txtRoot_ . '/'. $this->locale_ . '/'. (string)$value . '/title';
             var_dump($titlePath);
             if( file_exists($titlePath) ) {
                 //$chapter = str_replace($this->txtRoot_ ,'',$value);
