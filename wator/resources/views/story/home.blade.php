@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
       <a href="/img/story/ai.story.{{ $animate }}.jpg" >
-        <img height="120" src="/img/story/ai.story.{{ $animate }}.jpg">
+        <img height="120" src="/wator/images/story/ai.story.{{ $animate }}.jpg">
       <a>
    </div>
 </div>
