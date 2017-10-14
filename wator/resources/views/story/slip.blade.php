@@ -1,4 +1,8 @@
 @extends('wator.app')
+@section('appnavbar')
+  @include('story.navbar')
+@endsection
+
 @section('content')
 <style>
 pre {
@@ -20,57 +24,47 @@ pre {
 
 </style>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-    </div>
+<div class="row">
+<div class="col-4">
+</div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-11">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="table-col"><a href="/story/slip/top"> |<< </a></th>
+          <th class="table-col"><a href="/story/slip/{{ $prev }}"> < </a></th>
+          <th class="table-col"><h3 class="text-danger">{{ $chapter }}.{{ $title }}</h3></th>
+          <th class="table-col"><a href="/story/slip/{{ $next }}"> > </a></th>
+          <th class="table-col"><a href="/story/slip/last"> >>| </a></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-11">
+    <button type="button" class="btn btn-primary btn-lg" id="btn-plus-zoom">+</button>
+    <button type="button" class="btn btn-warning btn-lg pull-right" id="btn-minus-zoom">-</button>
+    <pre class="text-story text-left bg-info">{{ $content }}</pre>
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-11 col-md-offset-1">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="table-col"><a href="/story/slip/top"> |<< </a></th>
-            <th class="table-col"><a href="/story/slip/{{ $prev }}"> < </a></th>
-            <th class="table-col"><h3 class="text-danger">{{ $chapter }}.{{ $title }}</h3></th>
-            <th class="table-col"><a href="/story/slip/{{ $next }}"> > </a></th>
-            <th class="table-col"><a href="/story/slip/last"> >>| </a></th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-11 col-md-offset-1">
-      <button type="button" class="btn btn-primary btn-lg" id="btn-plus-zoom">+</button>
-      <button type="button" class="btn btn-warning btn-lg pull-right" id="btn-minus-zoom">-</button>
-      <pre class="text-story text-left bg-info">{{ $content }}</pre>
-    </div>
-  </div>
-</div>
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-11 col-md-offset-1">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="table-col"><a href="/story/slip/top"> |<< </a></th>
-            <th class="table-col"><a href="/story/slip/{{ $prev }}"> < </a></th>
-            <th class="table-col"></th>
-            <th class="table-col"><a href="/story/slip/{{ $next }}"> > </a></th>
-            <th class="table-col"><a href="/story/slip/last"> >>| </a></th>
-          </tr>
-        </thead>
-      </table>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-11">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="table-col"><a href="/story/slip/top"> |<< </a></th>
+          <th class="table-col"><a href="/story/slip/{{ $prev }}"> < </a></th>
+          <th class="table-col"></th>
+          <th class="table-col"><a href="/story/slip/{{ $next }}"> > </a></th>
+          <th class="table-col"><a href="/story/slip/last"> >>| </a></th>
+        </tr>
+      </thead>
+    </table>
   </div>
 </div>
 
