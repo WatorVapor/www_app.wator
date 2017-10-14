@@ -6,9 +6,7 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-6">
-      <a href="/img/story/ai.story.{{ $animate }}.jpg" >
-        <img height="120" src="/wator/images/story/ai.story.{{ $animate }}.jpg">
-      <a>
+     <img height="120" src="/wator/images/story/ai.story.{{ $animate }}.jpg">
    </div>
 </div>
 <div class="row justify-content-center">
