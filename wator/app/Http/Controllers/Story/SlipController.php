@@ -1,13 +1,10 @@
 <?php
 
-namespace StoryWator\Http\Controllers;
+namespace Wator\Http\Controllers\Story;
+use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use StoryWator\Http\Requests;
-
-use App;
-use Log;
 
 class SlipController extends Controller
 {
@@ -16,7 +13,7 @@ class SlipController extends Controller
     protected $chapterOnce_;
     
     public function __construct() {
-        $this->txtRoot_= '/opt/watorvapor/repository.wator/story';
+        $this->txtRoot_= '/repository/story';
         $this->locale_='zh';
         $this->chapterOnce_=5;
     }
@@ -73,72 +70,7 @@ class SlipController extends Controller
         $data = ['prev' => $prev,'chapter' => $chapter,
                  'next' => $chapter +1,'title'=>$title,
                  'content'=>$contentAll,'anim'=>$anim];
-        return view('slip',$data);
+        return view('story.slip',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
