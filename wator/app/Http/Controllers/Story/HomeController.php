@@ -55,13 +55,18 @@ class HomeController extends Controller
         }
         sort($folders_ordered);
         var_dump($folders_ordered);
+        /*
+        foreach ($folders_ordered as $value) {
+           $folders_ordered[] = (int)str_replace('/repository/story/zh/', '', $value);
+        }*/
+        
         $chaptersInfo = array();
         $chaptersCounter = 0;
-        foreach ($folders as $value) {
-            $titlePath = $value . '/title';
+        foreach ($folders_ordered as $value) {
+            $titlePath = $this->txtRoot_ . '/' . $value . '/title';
             if( file_exists($titlePath) ) {
-                $chapter = str_replace($this->txtRoot_ ,'',$value);
-                $pieces = explode("/",$chapter);
+                //$chapter = str_replace($this->txtRoot_ ,'',$value);
+                $pieces = explode("/",$value);
                 if($pieces[1] == $this->locale_) {
                     if($chaptersCounter >= $this->chapterOnce_) {
                         break;
