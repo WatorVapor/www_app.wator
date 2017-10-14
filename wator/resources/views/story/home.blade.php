@@ -11,15 +11,15 @@
       <a>
    </div>
 </div>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
+<div class="row justify-content-center">
+  <div class="col-10 ">
     <pre class="bg-success text-danger" >
       {{trans('home.summary')}}
     </pre>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
+<div class="row justify-content-center">
+  <div class="col-10">
     <table class="table table-striped">
       <thead>
         <tr>
