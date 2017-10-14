@@ -53,6 +53,7 @@ class HomeController extends Controller
         foreach ($folders as $value) {
            $folders_ordered[] = (int)str_replace('/repository/story/zh/', '', $value);
         }
+        sort($folders_ordered);
         var_dump($folders_ordered);
         $chaptersInfo = array();
         $chaptersCounter = 0;
