@@ -48,6 +48,7 @@ class HomeController extends Controller
         $cmd = 'find ' . $this->txtRoot_ . ' -mindepth 2 -maxdepth 2 -type d | sort -t / -k 7 -n';
         $output = shell_exec($cmd);
         $folders = explode("\n",$output);
+        var_dump($folders);
         $chaptersInfo = array();
         $chaptersCounter = 0;
         foreach ($folders as $value) {
