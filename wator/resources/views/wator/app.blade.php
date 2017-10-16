@@ -40,8 +40,9 @@
     <script src="/wator/js/login.js" type="text/javascript"></script>
     <script src="/wator/js/lang.js" type="text/javascript"></script>
     
+    <!--
     <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-    
+    -->
 
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
