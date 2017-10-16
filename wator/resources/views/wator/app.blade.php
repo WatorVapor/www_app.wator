@@ -28,17 +28,6 @@
         max-width: 400px !important;
       }
     </style>
-    <style type="text/css">
-      .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        /* Set the fixed height of the footer here */
-        height: 60px;
-        line-height: 60px; /* Vertically center the text there */
-        background-color: #f5f5f5;
-      }
-    </style>
     
   </head>
   <body>
@@ -72,6 +61,18 @@
     <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>
     
     <footer class="footer">
+      <style type="text/css">
+        .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 30px;
+          line-height: 30px; /* Vertically center the text there */
+          background-color: #f5f5f5;
+        }
+      </style>
+    
       <div class="container">
         <wb:like appkey="6LaDWs"></wb:like>
       </div>
