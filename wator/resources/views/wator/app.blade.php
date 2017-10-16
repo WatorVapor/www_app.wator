@@ -6,15 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=0.35, maximum-scale=0.35,minimum-scale=0.35">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <meta property="og:type" content="webpage" />
-    <meta property="og:url" content="https://www.wator.xyz/" />
-    <meta property="og:title" content="Wator" />
-    <meta property="og:description" content="Wator Vapor native" />
-    <meta property="og:image" content="https://www.wator.xyz/wator/images/home/brain.orig.png" />
-    <meta name="weibo:webpage:create_at" content="Mon Oct 16 20:56:50 JST 2016" />
-    <meta name="weibo:webpage:update_at" content="Mon Oct 16 20:56:50 JST 2017" />
-
-    
     <title>Wator</title>
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -40,8 +31,6 @@
     <script src="/wator/js/login.js" type="text/javascript"></script>
     <script src="/wator/js/lang.js" type="text/javascript"></script>
     
-    <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         @include('wator.navbar_l')
@@ -71,9 +60,7 @@
           background-color: #f5f5f5;
         }
       </style>
-    
       <div class="container-fluid">
-        <wb:like appkey="6LaDWs"></wb:like>
       </div>
     </footer>
   </body>
