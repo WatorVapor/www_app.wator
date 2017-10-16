@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=0.35, maximum-scale=0.35,minimum-scale=0.35">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <meta property="og:type" content="webpage" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="weibo:webpage:create_at" content="" />
+    <meta name="weibo:webpage:update_at" content="" />
+    
+    
     <title>Wator</title>
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
