@@ -1,9 +1,9 @@
 @extends('wator.app')
-
 @section('appnavbar')
   @include('home.navbar')
 @endsection
 
+@section('content')
 <style type="text/css">
 .tales {
   width: 100%;
@@ -20,7 +20,6 @@
 */
 </style>
 
-@section('content')
 <div class="row justify-content-center" >
   <div class="col-11 bg-secondary">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
