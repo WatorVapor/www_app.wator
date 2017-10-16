@@ -75,7 +75,9 @@
       </style>
     
       <div class="container-fluid">
+      <!--
         <wb:like appkey="6LaDWs"></wb:like>
+      -->
       </div>
     </footer>
   </body>
