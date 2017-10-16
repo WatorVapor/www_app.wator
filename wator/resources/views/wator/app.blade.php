@@ -60,8 +60,10 @@
     <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
     <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>
     
-    
-      <wb:like appkey="6LaDWs"></wb:like>
-    
+    <footer class="footer">
+      <div class="container">
+        <wb:like appkey="6LaDWs"></wb:like>
+      </div>
+    </footer>    
   </body>
 </html>
