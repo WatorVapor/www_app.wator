@@ -1,4 +1,4 @@
-@extends('wator.app')
+@extends('wator.app_sns')
 @section('appnavbar')
   @include('home.navbar')
 @endsection
