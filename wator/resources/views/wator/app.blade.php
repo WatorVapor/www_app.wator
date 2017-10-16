@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}"  xmlns:wb="http://open.weibo.com/wb">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +39,9 @@
     <script src="/wator/js/ga.js" type="text/javascript"></script>
     <script src="/wator/js/login.js" type="text/javascript"></script>
     <script src="/wator/js/lang.js" type="text/javascript"></script>
+    
+    <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    
 
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -56,5 +59,9 @@
     </div>
     <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
     <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>
+    
+    
+      <wb:like appkey="6LaDWs"></wb:like>
+    
   </body>
 </html>
