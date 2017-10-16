@@ -7,13 +7,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <meta property="og:type" content="webpage" />
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
-    <meta name="weibo:webpage:create_at" content="" />
-    <meta name="weibo:webpage:update_at" content="" />
-    
+    <meta property="og:url" content="https://www.wator.xyz/" />
+    <meta property="og:title" content="Wator" />
+    <meta property="og:description" content="Wator Vapor native" />
+    <meta property="og:image" content="https://www.wator.xyz/wator/images/home/brain.orig.png" />
+    <meta name="weibo:webpage:create_at" content="Mon Oct 16 20:56:50 JST 2016" />
+    <meta name="weibo:webpage:update_at" content="Mon Oct 16 20:56:50 JST 2017" />
+
     
     <title>Wator</title>
     <!-- Fonts -->
