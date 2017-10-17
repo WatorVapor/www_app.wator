@@ -10,7 +10,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravel-notification-channels/twitter": "*",
-        "laravel-notification-channels/facebook": "*"
+        "laravel-notification-channels/facebook": "*",
+        "socialiteproviders/weibo": "*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
