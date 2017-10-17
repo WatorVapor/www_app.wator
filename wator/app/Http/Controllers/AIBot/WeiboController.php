@@ -15,11 +15,11 @@ class WeiboController extends Controller
     public function index()
     {
         //
-        return view('aibot.webo');
+        return view('aibot.weibo');
     }
     public function cancel()
     {
         //
-        return view('aibot.webo_cancel');
+        return view('aibot.weibo_cancel');
     }
 }
