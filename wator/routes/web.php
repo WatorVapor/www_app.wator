@@ -53,6 +53,8 @@ Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update
 
 
 Route::get('/aibot/twitter', 'AIBot\TwitterController@index');
+Route::get('/aibot/weibo', 'AIBot\WeiboController@index');
+Route::get('/aibot/weibo/cancel', 'AIBot\WeiboController@cancel');
 
 
 Route::get('/ppio/', 'PPio\AboutController@index');
