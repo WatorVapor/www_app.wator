@@ -179,6 +179,7 @@ return [
         //Thujohn\Twitter\TwitterServiceProvider::class,
         NotificationChannels\Twitter\TwitterServiceProvider::class,
         NotificationChannels\Facebook\FacebookServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         
         //'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
