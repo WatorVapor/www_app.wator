@@ -43,4 +43,9 @@ return [
     'facebook' => [
         'page-token' => env('FACEBOOK_PAGE_TOKEN')
     ],
+    'weibo' => [
+        'client_id' => env('WEIBO_KEY'),
+        'client_secret' => env('WEIBO_SECRET'),
+        'redirect' => env('WEIBO_REDIRECT_URI'),  
+    ],    
 ];
