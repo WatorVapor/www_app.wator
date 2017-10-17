@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'Wator\Events\Event' => [
             'Wator\Listeners\EventListener',
         ],
+        'SocialiteProviders\Manager\SocialiteWasCalled' => [
+            'SocialiteProviders\Weibo\WeiboExtendSocialite@handle',
+        ],        
     ];
 
     /**
