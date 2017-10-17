@@ -15,11 +15,17 @@ class WeiboController extends Controller
     public function index()
     {
         //
-        return view('aibot.weibo');
+        return \Socialite::with('weibo')->redirect();
     }
     public function cancel()
     {
         //
+        $oauthUser = \Socialite::with('weibo')->user();
+        var_dump($oauthUser->getId());
+        var_dump($oauthUser->getNickname());
+        var_dump($oauthUser->getName());
+        var_dump($oauthUser->getEmail());
+        var_dump($oauthUser->getAvatar());        
         return view('aibot.weibo_cancel');
     }
 }
