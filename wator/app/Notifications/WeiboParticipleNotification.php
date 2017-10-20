@@ -67,7 +67,8 @@ class WeiboParticipleNotification extends Notification
             $content = json_encode($weiboJson, $options);
             $opts['http'] = [
               'method' =>'POST',
-              'header' => 'Content-type: application/json',
+              #'header' => 'Content-type: application/json',
+              'header' => 'Content-type: multipart/form-data',
               'content' => $content
             ];
             $context = stream_context_create($opts);
