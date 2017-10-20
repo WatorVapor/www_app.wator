@@ -4,6 +4,7 @@ namespace Wator\Http\Controllers\AIBot;
 use Wator\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use File;
 
 class WeiboController extends Controller
 {
