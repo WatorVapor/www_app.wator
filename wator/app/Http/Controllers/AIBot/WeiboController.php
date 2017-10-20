@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class WeiboController extends Controller
 {
+     protected $tokenRoot_;
+     public function __construct() {
+          $this->tokenRoot_ = '/opt/weibo';
+          File::makeDirectory($this->tokenRoot_, 0775, true, true);
+     }
     public function auth()
     {
         //
@@ -19,6 +24,10 @@ class WeiboController extends Controller
             $oauthUser = \Socialite::with('weibo')->user();
             $token = $oauthUser->token;
             var_dump($token);
+            if(isset($token)) {
+                $tokenPath = $this->tokenRoot_ . '/access_token';
+                file_put_contents($tokenPath, $token);
+            }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
