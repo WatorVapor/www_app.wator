@@ -25,7 +25,7 @@ class WeiboController extends Controller
             $oauthUser = \Socialite::with('weibo')->user();
             $token = $oauthUser->token;
             var_dump($token);
-            if(isset($token)) {
+            if($token) {
                 $tokenPath = $this->tokenRoot_ . '/access_token';
                 file_put_contents($tokenPath, $token);
             }
