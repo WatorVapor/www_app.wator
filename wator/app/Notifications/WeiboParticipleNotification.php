@@ -23,7 +23,7 @@ class WeiboParticipleNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($url)
     {
         //
         $this->url_ = $url;
