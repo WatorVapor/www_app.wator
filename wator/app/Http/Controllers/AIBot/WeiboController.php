@@ -17,6 +17,7 @@ class WeiboController extends Controller
         //
         try {
             $oauthUser = \Socialite::with('weibo')->user();
+            var_dump($oauthUser);
             var_dump($oauthUser->getId());
             var_dump($oauthUser->getNickname());
             var_dump($oauthUser->getName());
