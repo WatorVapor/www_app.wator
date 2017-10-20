@@ -13,6 +13,8 @@ use Wator\Channels\WeiboChannel;
 class WeiboParticipleNotification extends Notification
 {
     use Queueable;
+    
+    public $url_;
 
     /**
      * Create a new notification instance.
@@ -22,6 +24,7 @@ class WeiboParticipleNotification extends Notification
     public function __construct()
     {
         //
+        $this->url_ = $url;
     }
 
     /**
