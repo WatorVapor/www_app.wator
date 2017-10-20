@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Wator\Notifications\TwitterParticipleNotification;
 use Wator\Notifications\FacebookParticipleNotification;
+use Wator\Notifications\WeiboParticipleNotification;
 
 class ParticipleController extends Controller
 {
@@ -36,6 +37,7 @@ class ParticipleController extends Controller
                 $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
                 $notify = $this->notify(new TwitterParticipleNotification($url_sns));
                 //$notify2 = $this->notify(new FacebookParticipleNotification($url_sns));
+                $notify3 = $this->notify(new WeiboParticipleNotification($url_sns));
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
