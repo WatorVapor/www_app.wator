@@ -27,7 +27,7 @@ class WeiboController extends Controller
             var_dump($token);
             if($token) {
                 $tokenPath = $this->tokenRoot_ . '/access_token';
-                 var_dump($token);
+                 var_dump($tokenPath);
                 file_put_contents($tokenPath, $token);
             }
         } catch( \Exception $e ) {
