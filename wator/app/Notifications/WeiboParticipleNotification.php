@@ -7,6 +7,9 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
+use Wator\Channels\WeiboChannel;
+
+
 class WeiboParticipleNotification extends Notification
 {
     use Queueable;
