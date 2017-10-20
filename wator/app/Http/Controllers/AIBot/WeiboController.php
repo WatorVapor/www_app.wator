@@ -25,7 +25,7 @@ class WeiboController extends Controller
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
-        return view('aibot.weibo_cancel');
+        return view('aibot.weibo');
     }
     public function cancel()
     {
