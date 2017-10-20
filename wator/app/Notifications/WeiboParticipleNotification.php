@@ -56,13 +56,13 @@ class WeiboParticipleNotification extends Notification
         $this->postWeibo($this->url_);
     }
 
-    public function postWeibo(text)
+    public function postWeibo($text)
     {
         if($this->token_) {
             $options = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_PRETTY_PRINT;
             $weiboJson = [
                 'access_token' => $this->token_,
-                'status' => text
+                'status' => $text
             ];
             $content = json_encode($weiboJson, $options);
             $opts['http'] = [
