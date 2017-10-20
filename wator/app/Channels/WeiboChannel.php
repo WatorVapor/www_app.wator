@@ -15,7 +15,7 @@ class WeiboChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        $message = $notification->toVoice($notifiable);
+        $message = $notification->toWeibo($notifiable);
 
         // Send notification to the $notifiable instance...
     }
