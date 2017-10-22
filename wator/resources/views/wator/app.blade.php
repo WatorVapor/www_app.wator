@@ -46,22 +46,6 @@
       @yield('content')
     </div>
     <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
-    <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>
-    
-    <footer class="footer">
-      <style type="text/css">
-        .footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          /* Set the fixed height of the footer here */
-          height: 30px;
-          line-height: 30px; /* Vertically center the text there */
-          background-color: #f5f5f5;
-        }
-      </style>
-      <div class="container-fluid">
-      </div>
-    </footer>
+    <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>    
   </body>
 </html>
