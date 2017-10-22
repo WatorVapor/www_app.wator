@@ -5,6 +5,7 @@ services:
     network_mode: "host"
     volumes:
       - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
+      - /watorvapor/app_www/services/nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
       - /etc/certs/www.wator.xyz:/etc/certs/www.wator.xyz
       - /watorvapor/app_www/www_root:/www_root
       - /watorvapor/autogen:/autogen
