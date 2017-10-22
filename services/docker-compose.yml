@@ -8,6 +8,7 @@ services:
       - /etc/certs/www.wator.xyz:/etc/certs/www.wator.xyz
       - /watorvapor/app_www/www_root:/www_root
       - /watorvapor/autogen:/autogen
+      - /watorvapor/log:/log
     command: nginx
     restart: always
   wator-laravel:
