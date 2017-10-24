@@ -8,6 +8,9 @@ ws.onerror = onError;
 
 function onOpen(event) {
   console.log('event =<',event,'>');
+  setTimeout(function() {
+    ws.send('!!go go!!');
+  },10);
 }
 function onMessage(event) {
   console.log('event =<',event,'>');
