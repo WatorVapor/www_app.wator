@@ -7,6 +7,10 @@ upstream trainapp.wator.xyz {
   server 127.0.0.1:18082;
 }
 
+upstream starbian.wator.xyz {
+  server 127.0.0.1:19080;
+}
+
 
 # HTTPS server
 server {
@@ -23,6 +27,15 @@ server {
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header Host $host;
   }
+  location /ws/starbian {
+    proxy_pass http://starbian.wator.xyz;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Host $host;
+  }
+  
   location ^~ /wai/text/train/ {
     proxy_pass       http://trainapp.wator.xyz;
     proxy_set_header X-Real-IP $remote_addr;
