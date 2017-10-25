@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<script src="/wator/starbian/js/ppio.web.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/starbian.web.js" type="text/javascript"></script>
 <script type="text/javascript">
   function onStartGoFuro(element) {
   }
