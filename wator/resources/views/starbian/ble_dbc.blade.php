@@ -50,7 +50,7 @@
 </div>
 
 
-<script src="/wator/ppio/js/ble.web.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/ble.web.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   function onBLESearch(element) {
