@@ -16,7 +16,7 @@ class CatchController extends Controller
     public function index()
     {
         //
-        return view('ppio.catch');
+        return view('starbian.catch');
     }
 
     /**
