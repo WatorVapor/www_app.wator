@@ -20,7 +20,7 @@
 <?php
   $apps = '';
   $apps .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/ppio" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5" href="/starbian" role="button">';
   $apps .= '<i class="material-icons md-48">device_hub</i>';
   $apps .= '</a>';
   $apps .= '<a class="btn btn-lg btn-success disabled" href="/scope" role="button">';
