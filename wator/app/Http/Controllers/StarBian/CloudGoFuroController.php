@@ -12,6 +12,6 @@ class CloudGoFuroController extends Controller
     public function index()
     {
         //
-        return view('ppio.gofuro');
+        return view('starbian.gofuro');
     }
 }
