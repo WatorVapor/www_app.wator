@@ -17,7 +17,7 @@ class TopController extends Controller
     public function index()
     {
         //
-        return view('ppio.top');
+        return view('starbian.top');
     }
 
     /**
