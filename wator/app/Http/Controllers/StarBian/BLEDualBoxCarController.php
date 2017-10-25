@@ -12,6 +12,6 @@ class BLEDualBoxCarController extends Controller
     public function index()
     {
         //
-        return view('ppio.ble_dbc');
+        return view('starbian.ble_dbc');
     }
 }
