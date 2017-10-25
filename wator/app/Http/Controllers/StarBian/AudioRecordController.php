@@ -17,6 +17,6 @@ class AudioRecordController extends Controller
     public function index()
     {
         //
-         return view('ppio.audiorecord');
+         return view('starbian.audiorecord');
    }
 }
