@@ -58,22 +58,22 @@ Route::get('/aibot/weibo/auth', 'AIBot\WeiboController@auth');
 Route::get('/aibot/weibo/cancel', 'AIBot\WeiboController@cancel');
 
 
-Route::get('/ppio/', 'PPio\AboutController@index');
-Route::get('/ppio/about', 'PPio\AboutController@index');
+Route::get('/starbian/', 'StarBian\AboutController@index');
+Route::get('/starbian/about', 'StarBian\AboutController@index');
 
-Route::get('/ppio/keys', 'PPio\KeysController@index');
-Route::get('/ppio/cast', 'PPio\CastController@index');
-Route::get('/ppio/catch', 'PPio\CatchController@index');
+Route::get('/starbian/keys', 'StarBian\KeysController@index');
+Route::get('/starbian/cast', 'StarBian\CastController@index');
+Route::get('/starbian/catch', 'StarBian\CatchController@index');
 
-Route::get('/ppio/ble/search', 'PPio\BLESearchController@index');
-Route::get('/ppio/ble/dbc', 'PPio\BLEDualBoxCarController@index');
-Route::get('/ppio/ble/chart', 'PPio\BLEChartController@index');
+Route::get('/starbian/ble/search', 'StarBian\BLESearchController@index');
+Route::get('/starbian/ble/dbc', 'StarBian\BLEDualBoxCarController@index');
+Route::get('/starbian/ble/chart', 'StarBian\BLEChartController@index');
 
-Route::get('/ppio/cloud/gofuro', 'PPio\CloudGoFuroController@index');
+Route::get('/starbian/cloud/gofuro', 'StarBian\CloudGoFuroController@index');
 
-Route::get('/ppio/msgchain/entry', 'PPio\WorldEntryController@index');
-Route::post('/ppio/msgchain/entry', 'PPio\WorldEntryController@store');
-Route::delete('/ppio/msgchain/entry/{node}', 'PPio\WorldEntryController@destroy');
+Route::get('/starbian/msgchain/entry', 'StarBian\WorldEntryController@index');
+Route::post('/starbian/msgchain/entry', 'StarBian\WorldEntryController@store');
+Route::delete('/starbian/msgchain/entry/{node}', 'StarBian\WorldEntryController@destroy');
 
 
 Route::get('/story/slip/{chapter?}', 'Story\SlipController@index');
