@@ -8,7 +8,7 @@
   <button type="button" class="btn btn-success btn-lg btn-block" onclick="onBLESearch(this)">Search</button>
 </div>
 
-<script src="/p2pio/js/ble.web.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/ble.web.js" type="text/javascript"></script>
 <script type="text/javascript">
   function onBLESearch(element) {
     runBLESource();
