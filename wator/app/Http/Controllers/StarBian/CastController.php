@@ -17,7 +17,7 @@ class CastController extends Controller
     public function index()
     {
         //
-        return view('ppio.cast');
+        return view('starbian.cast');
     }
 
     /**
