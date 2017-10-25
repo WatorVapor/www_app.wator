@@ -1,6 +1,6 @@
 @extends('wator.app')
 @section('appnavbar')
-  @include('ppio.navbar')
+  @include('starbian.navbar')
 @endsection
 
 @section('content')
