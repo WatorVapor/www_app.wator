@@ -116,27 +116,29 @@ class StarBian {
 }
 
 
-var uri = 'wss://' + location.host + '/ws/starbian';
-console.log('uri =<',uri,'>');
-var ws = new WebSocket(uri);
-ws.onopen = onOpen;
-ws.onmessage = onMessage;
-ws.onclose = onClose;
-ws.onerror = onError;
+function createWSS_() {
+  var uri = 'wss://' + location.host + '/ws/starbian';
+  console.log('uri =<',uri,'>');
+  var ws = new WebSocket(uri);
+  ws.onopen = onOpen;
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+  ws.onerror = onError;
+}
 
-function onOpen(event) {
+function onOpen_(event) {
   console.log('event =<',event,'>');
   setTimeout(function() {
     ws.send('!!go go!!');
   },10);
 }
-function onMessage(event) {
+function onMessage_(event) {
   console.log('event =<',event,'>');
 }
-function onError(event) {
+function onError_(event) {
   console.log('event =<',event,'>');
 }
-function onClose(event) {
+function onClose_(event) {
   console.log('event =<',event,'>');
 }
 
