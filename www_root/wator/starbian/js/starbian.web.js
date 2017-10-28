@@ -28,6 +28,7 @@ class StarBian {
       this.pubObj = KEYUTIL.getKey(this.pubKeyStr);
       //console.log('this.pubObj=<',this.pubObj,'>');
     }
+    this.createWSS_();
   }
   /**
    * get private key.
