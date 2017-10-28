@@ -28,6 +28,7 @@
         Go Furo Public key
       </div>
       <div class="card-body">
+        <button type="button" class="btn btn-success btn-sm" id="btn-add-key">+</button>
         <textarea class="form-control input-sm" rows="15"></textarea>
       </div>
     </div>
@@ -36,6 +37,12 @@
 
 
 <script src="/wator/starbian/js/starbian.web.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  new Clipboard('.btn-clipboard');
+</script>
+
+
 <script type="text/javascript">
   var star = new StarBian();
   function onStartGoFuro(element) {
