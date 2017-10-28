@@ -14,6 +14,8 @@
 <script type="text/javascript">
   var star = new StarBian();
   function onStartGoFuro(element) {
+    console.log('element=<',element,'>');
+    star.publish('gofuro hot');
   }
 </script>
 @endsection
