@@ -12,6 +12,7 @@
 
 <script src="/wator/starbian/js/starbian.web.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var star = new StarBian();
   function onStartGoFuro(element) {
   }
 </script>
