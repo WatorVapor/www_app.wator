@@ -28,7 +28,7 @@
         Go Furo Public key
       </div>
       <div class="card-body">
-        <button type="button" class="btn btn-success btn-sm" id="btn-add-key">+</button>
+        <button type="button" class="btn btn-success btn-sm" id="btn-add-key">+ Key for remote for GoFuRo</button>
         <textarea class="form-control input-sm" rows="10"></textarea>
       </div>
     </div>
