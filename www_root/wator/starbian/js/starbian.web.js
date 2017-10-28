@@ -233,7 +233,7 @@ class StarBian {
     console.log('event =<',event,'>');
     setTimeout(function() {
       this.ws.send('!!go go!!');
-    },10);
+    },10).bind(this);
   }
   onWSMessage_(event) {
     console.log('event =<',event,'>');
