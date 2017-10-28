@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <pre id="text-this-device-key" class="text-danger small" rows="20"></pre>
+        <pre id="text-this-device-key" class="card-text text-danger small" rows="20"></pre>
       </div>
     </div>
   </div>
