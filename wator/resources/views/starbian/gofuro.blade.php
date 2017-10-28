@@ -48,10 +48,16 @@
     var star = new StarBian();
     function onStartGoFuro(element) {
       console.log('element=<',element,'>');
-      star.publish('gofuro hot');
+      star.publish('gofuro','gofuro hot');
     }
     var pubKeyStr = star.getPublic();
     $('#text-this-device-key').text(pubKeyStr);
+
+    $('#btn-add-key').click(function(){
+      var key = $('#text-remote-device-key').val();
+      console.log('key=<',key,'>');
+      star.addRemoteKey('gofuro',key);
+    });
   });
 </script>
 @endsection
