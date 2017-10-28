@@ -231,9 +231,10 @@ class StarBian {
 
   onWSOpen_(event) {
     console.log('event =<',event,'>');
+    var self = this;
     setTimeout(function() {
-      this.ws.send('!!go go!!');
-    },10).bind(this);
+      self.ws.send('!!go go!!');
+    },10);
   }
   onWSMessage_(event) {
     console.log('event =<',event,'>');
