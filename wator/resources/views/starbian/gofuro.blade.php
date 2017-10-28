@@ -53,6 +53,9 @@
     var pubKeyStr = star.getPublic();
     $('#text-this-device-key').text(pubKeyStr);
 
+    var remoteKeyStr = star.getRemoteKey('gofuro');
+    $('#text-remote-device-key').text(remoteKeyStr);
+
     $('#btn-add-key').click(function(){
       var key = $('#text-remote-device-key').val();
       console.log('key=<',key,'>');
