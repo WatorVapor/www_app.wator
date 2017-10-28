@@ -10,6 +10,18 @@
   </div>
 </div>
 
+<div class="row mt-lg-5 justify-content-center">
+  <div class="col-6">
+    <div class="card card-default">
+      <div class="card-body">
+        <h4 class="card-title">my public key</h4>
+        <pre></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script src="/wator/starbian/js/starbian.web.js" type="text/javascript"></script>
 <script type="text/javascript">
   var star = new StarBian();
