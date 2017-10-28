@@ -12,10 +12,12 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-6">
-    <div class="card card-default">
+    <div class="card card-default text-center">
+      <div class="card-header">
+        my public key
+      </div>
       <div class="card-body">
-        <h4 class="card-title">my public key</h4>
-        <pre></pre>
+        <pre class="card-text"></pre>
       </div>
     </div>
   </div>
