@@ -15,17 +15,20 @@ class StarBian {
       } else {
         this.reCreatePubKey();
       }
-    } else {
+     } else {
       this.createKeyPair();
     }
-    this.priObj = KEYUTIL.getKey(this.prvKeyStr);
-    this.pubObj = KEYUTIL.getKey(this.pubKeyStr);
-    //console.log('this.priObj=<',this.priObj,'>');
-    //console.log('this.pubObj=<',this.pubObj,'>');
-    
-    this.decryptObj = KJUR.crypto.Cipher(this.priObj);
-    console.log('this.decryptObj=<',this.decryptObj,'>');
+    if(this.prvKeyStr) {
+      this.priObj = KEYUTIL.getKey(this.prvKeyStr);
+      //console.log('this.priObj=<',this.priObj,'>');
+      this.decryptObj = KJUR.crypto.Cipher(this.priObj);
+      console.log('this.decryptObj=<',this.decryptObj,'>');
     }
+    if(this.pubKeyStr) {
+      this.pubObj = KEYUTIL.getKey(this.pubKeyStr);
+      //console.log('this.pubObj=<',this.pubObj,'>');
+    }
+  }
   /**
    * get private key.
    *
@@ -87,7 +90,7 @@ class StarBian {
    * @private
    */
   createKeyPair() {
-    createKeyPair_(function(msg){
+    this.createKeyPair_(function(msg){
       console.log('msg =<',msg,'>');
     });
   }
@@ -113,41 +116,14 @@ class StarBian {
     console.log('decrypt::plainMsg=<',plainMsg,'>');
     return plainMsg;
   }
-}
-
-
-function createWSS_() {
-  var uri = 'wss://' + location.host + '/ws/starbian';
-  console.log('uri =<',uri,'>');
-  var ws = new WebSocket(uri);
-  ws.onopen = onOpen;
-  ws.onmessage = onMessage;
-  ws.onclose = onClose;
-  ws.onerror = onError;
-}
-
-function onOpen_(event) {
-  console.log('event =<',event,'>');
-  setTimeout(function() {
-    ws.send('!!go go!!');
-  },10);
-}
-function onMessage_(event) {
-  console.log('event =<',event,'>');
-}
-function onError_(event) {
-  console.log('event =<',event,'>');
-}
-function onClose_(event) {
-  console.log('event =<',event,'>');
-}
 
 
 /*
 * inner function
 */
-function createKeyPair_(cb) {
+ createKeyPair_(cb) {
   console.log(window.crypto.subtle);
+  var self = this;
   window.crypto.subtle.generateKey(
   {
     name: "RSASSA-PKCS1-v1_5",
@@ -183,6 +159,8 @@ function createKeyPair_(cb) {
         console.log(pem);
       }
       localStorage.setItem('wator/starbian/keys/pub.pem',pem);
+      self.pubObj = KEYUTIL.getKey(pem);
+
       if (RSAAuth.debug) {
         console.log( typeof cb);
       }
@@ -217,6 +195,8 @@ function createKeyPair_(cb) {
         console.log(pem);
       }
       localStorage.setItem('wator/starbian/keys/prv.pem',pem);
+      self.priObj = KEYUTIL.getKey(pem);
+      self.decryptObj = KJUR.crypto.Cipher(self.priObj);
       if (typeof cb == 'function') {
         cb('success');
       }
@@ -237,4 +217,36 @@ function createKeyPair_(cb) {
     }
   });
 }
+
+  createWSS_() {
+    this.uri = 'wss://' + location.host + '/ws/starbian';
+    console.log('this.uri =<',this.uri,'>');
+    this.ws = new WebSocket(this.uri);
+    this.ws.onopen = this.onWSOpen_.bind(this);
+    this.ws.onmessage = this.onWSMessage_.bind(this);
+    this.ws.onclose = this.onWSClose_.bind(this);
+    this.ws.onerror = this.onWSError_.bind(this);
+  }
+
+  onWSOpen_(event) {
+    console.log('event =<',event,'>');
+    setTimeout(function() {
+      this.ws.send('!!go go!!');
+    },10);
+  }
+  onWSMessage_(event) {
+    console.log('event =<',event,'>');
+  }
+  onWSError_(event) {
+    console.log('event =<',event,'>');
+  }
+  onWSClose_(event) {
+    console.log('event =<',event,'>');
+  }
+}
+
+
+
+
+
 
