@@ -17,7 +17,8 @@
         My Public key
       </div>
       <div class="card-body">
-        <pre class="card-text"></pre>
+        <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
+        <pre id="text-this-device-key" class="text-danger small" rows="20"></pre>
       </div>
     </div>
   </div>
@@ -27,7 +28,7 @@
         Go Furo Public key
       </div>
       <div class="card-body">
-        <pre class="card-text"></pre>
+        <textarea class="form-control input-sm" rows="15"></textarea>
       </div>
     </div>
   </div>
