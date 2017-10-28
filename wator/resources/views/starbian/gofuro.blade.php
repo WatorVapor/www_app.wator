@@ -44,10 +44,14 @@
 
 
 <script type="text/javascript">
-  var star = new StarBian();
-  function onStartGoFuro(element) {
-    console.log('element=<',element,'>');
-    star.publish('gofuro hot');
-  }
+  $(document).ready(function() {
+    var star = new StarBian();
+    function onStartGoFuro(element) {
+      console.log('element=<',element,'>');
+      star.publish('gofuro hot');
+    }
+    var pubKeyStr = star.getPublic();
+    $('#text-this-device-key').text(pubKeyStr);
+  });
 </script>
 @endsection
