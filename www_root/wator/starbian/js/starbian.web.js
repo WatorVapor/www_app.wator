@@ -59,13 +59,13 @@ class StarBian {
   publish(msg) {
     console.log('msg =<',msg,'>');
     var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.pubObj);
-    console.log('msgEnc =<',msgEnc,'>');
     var sign = this.priObj.sign(msgEnc, 'sha256');
     var pubObj = {
       enc:msgEnc,
       sign:sign
     };
-    this.clientPub.publish(this.channel,JSON.stringify(pubObj));
+    console.log('pubObj =<',pubObj,'>');
+    this.ws.send(JSON.stringify(pubObj));
   }
   /**
    * subscribe.
