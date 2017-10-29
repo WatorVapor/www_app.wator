@@ -51,9 +51,9 @@
   }
   function onAddRemoteKey(element) {
     console.log('element=<',element,'>');
-      var key = $('#text-remote-device-key').val();
-      console.log('key=<',key,'>');
-      star.addRemoteKey('gofuro',key);
+    var key = $('#text-remote-device-key').val();
+    console.log('key=<',key,'>');
+    star.addRemoteKey('gofuro',key);
   }
   $(document).ready(function() {
     var pubKeyStr = star.getPublic();
