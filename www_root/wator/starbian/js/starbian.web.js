@@ -52,6 +52,28 @@ class StarBian {
     return [''];
   }
   /**
+   * get remote paired public key.
+   *
+   * @param {String} tag 
+   */
+  getRemoteKey(tag) {
+    if(typeof tag === 'String') {
+      return localStorage.getItem('wator/starbian/keys/' + tag);
+    }
+    return null;
+  }
+  /**
+   * add remote paired public key.
+   *
+   * @param {String} tag 
+   * @param {String} key 
+   */
+  addRemoteKey(tag,key) {
+    if(typeof tag === 'String') {
+      localStorage.setItem('wator/starbian/keys/' + tag,key);
+    }
+  }
+  /**
    * publish a messege.
    *
    * @param {String} msg 
