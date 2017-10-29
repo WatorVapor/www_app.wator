@@ -73,7 +73,7 @@ class StarBian {
       let channel = KJUR.crypto.Util.sha256(this.pubKeyStr);
       let keyPath = 'wator/starbian/keys/' + tag + '/' + channel;
       console.log('keyPath =<',keyPath,'>');
-      localStorage.setItem(,key);
+      localStorage.setItem(keyPath,key);
     }
   }
   /**
