@@ -28,7 +28,7 @@
         Go Furo Public key
       </div>
       <div class="card-body">
-        <button type="button" class="btn btn-success btn-sm" id="btn-add-key">+ Key for remote for GoFuRo</button>
+        <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for GoFuRo</button>
         <textarea class="form-control input-sm" rows="10"></textarea>
       </div>
     </div>
@@ -44,23 +44,22 @@
 
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    var star = new StarBian();
-    function onStartGoFuro(element) {
-      console.log('element=<',element,'>');
-      star.publish('gofuro','gofuro hot');
-    }
-    var pubKeyStr = star.getPublic();
-    $('#text-this-device-key').text(pubKeyStr);
-
-    var remoteKeyStr = star.getRemoteKey('gofuro');
-    $('#text-remote-device-key').text(remoteKeyStr);
-
-    $('#btn-add-key').click(function(){
+  var star = new StarBian();
+  function onStartGoFuro(element) {
+    console.log('element=<',element,'>');
+    star.publish('gofuro','gofuro hot');
+  }
+  function onAddRemoteKey(element) {
+    console.log('element=<',element,'>');
       var key = $('#text-remote-device-key').val();
       console.log('key=<',key,'>');
       star.addRemoteKey('gofuro',key);
-    });
+  }
+  $(document).ready(function() {
+    var pubKeyStr = star.getPublic();
+    $('#text-this-device-key').text(pubKeyStr);
+    var remoteKeyStr = star.getRemoteKey('gofuro');
+    $('#text-remote-device-key').text(remoteKeyStr);
   });
 </script>
 @endsection
