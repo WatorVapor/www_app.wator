@@ -29,7 +29,7 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for GoFuRo</button>
-        <textarea class="form-control input-sm" rows="10"></textarea>
+        <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" ></textarea>
       </div>
     </div>
   </div>
