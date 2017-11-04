@@ -121,7 +121,7 @@ class ParrotTrainController extends Controller
             //var_dump($waiPort);
             $sock = socket_create(AF_INET6, SOCK_DGRAM, SOL_UDP);
             //var_dump($sock);
-            socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>5,"usec"=>0));
+            socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>30,"usec"=>0));
             $result = socket_connect($sock, '::1', $waiPort);
             
             $msgJson = ['type'=>'parrot','summary' => 'get' ];
