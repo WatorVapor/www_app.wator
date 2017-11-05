@@ -91,8 +91,8 @@ class StarBian {
   addRemoteKey(tag,key) {
     if(typeof tag === 'string') {
       let keyStr = key.trim();
-      let keyStrOne = keyStr.replace("\n","");
-      keyStrOne = keyStrOne.replace("\r","");
+      let keyStrOne = keyStr.replace(/\n/g,"");
+      keyStrOne = keyStrOne.replace(/\r/g,"");
       let channel = KJUR.crypto.Util.sha256(keyStrOne);
       let keyPath = 'wator/starbian/remote/' + tag + '/' + channel;
       console.log('keyPath =<',keyPath,'>');
