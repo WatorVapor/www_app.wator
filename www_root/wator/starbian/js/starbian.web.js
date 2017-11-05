@@ -28,6 +28,7 @@ class StarBian {
       this.pubObj = KEYUTIL.getKey(this.pubKeyStr);
       //console.log('this.pubObj=<',this.pubObj,'>');
     }
+    this.createRemoteChannels_();
     this.createWSS_();
   }
   /**
@@ -61,7 +62,7 @@ class StarBian {
     if(typeof tag === 'string') {
       for (var keyIn in localStorage){
         console.log('keyIn =<',keyIn,'>');
-        let filter = 'wator/starbian/keys/' + tag;
+        let filter = 'wator/starbian/remote/' + tag;
         console.log('filter =<',filter,'>');
         if(keyIn.startsWith(filter)) {
           remotKeys.push(localStorage.getItem(keyIn));
@@ -79,7 +80,7 @@ class StarBian {
   addRemoteKey(tag,key) {
     if(typeof tag === 'string') {
       let channel = KJUR.crypto.Util.sha256(this.pubKeyStr);
-      let keyPath = 'wator/starbian/keys/' + tag + '/' + channel;
+      let keyPath = 'wator/starbian/remote/' + tag + '/' + channel;
       console.log('keyPath =<',keyPath,'>');
       localStorage.setItem(keyPath,key);
     }
@@ -89,9 +90,9 @@ class StarBian {
    *
    * @param {String} msg 
    */
-  publish(msg) {
+  publish(channel,msg) {
     console.log('msg =<',msg,'>');
-    var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.pubObj);
+    var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.pubObj[channel]);
     var sign = this.priObj.sign(msgEnc, 'sha256');
     var pubObj = {
       enc:msgEnc,
@@ -149,6 +150,23 @@ class StarBian {
     var plainMsg = KJUR.crypto.Cipher.decrypt(msgJson.enc,this.priObj);
     console.log('decrypt::plainMsg=<',plainMsg,'>');
     return plainMsg;
+  }
+  
+  /**
+   * decrypt public key.
+   *
+   * @param {String} msg 
+   * @private
+   */
+  createRemoteChannels_() {
+    for (var keyIn in localStorage){
+      console.log('keyIn =<',keyIn,'>');
+      let filter = 'wator/starbian/remote';
+      if(keyIn.startsWith(filter)) {
+        console.log('filter =<',filter,'>');
+        console.log('keyIn =<',keyIn,'>');
+      }
+    }
   }
 
 
