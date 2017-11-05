@@ -93,15 +93,19 @@ class StarBian {
    */
   publish(channel,msg) {
     console.log('msg =<',msg,'>');
-    var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.remoteChannelObj[channel]);
-    var sign = this.priObj.sign(msgEnc, 'sha256');
-    var pubObj = {
-      enc:msgEnc,
-      sign:sign,
-      channel:channel
-    };
-    console.log('pubObj =<',pubObj,'>');
-    this.ws.send(JSON.stringify(pubObj));
+    let remoteChannel = this.remoteChannelObj[channel];
+    console.log('remoteChannel =<',remoteChannel,'>');
+    if(remoteChannel) {
+      let msgEnc = KJUR.crypto.Cipher.encrypt(msg, );
+      let sign = this.priObj.sign(msgEnc, 'sha256');
+      let pubObj = {
+        enc:msgEnc,
+        sign:sign,
+        channel:channel
+      };
+      console.log('pubObj =<',pubObj,'>');
+      this.ws.send(JSON.stringify(pubObj));
+    }
   }
   /**
    * subscribe.
