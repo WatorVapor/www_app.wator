@@ -78,7 +78,9 @@ class StarBian {
    */
   getRemoteChannel(key) {
     let keyStr = key.trim();
-    return KJUR.crypto.Util.sha256(keyStr);;
+     let keyStrOne = keyStr.replace("\n","");
+     keyStrOne = keyStrOne.replace("\r","");
+     return KJUR.crypto.Util.sha256(keyStrOne);;
   }
   /**
    * add remote paired public key.
@@ -89,7 +91,9 @@ class StarBian {
   addRemoteKey(tag,key) {
     if(typeof tag === 'string') {
       let keyStr = key.trim();
-      let channel = KJUR.crypto.Util.sha256(keyStr);
+      let keyStrOne = keyStr.replace("\n","");
+      keyStrOne = keyStrOne.replace("\r","");
+      let channel = KJUR.crypto.Util.sha256(keyStrOne);
       let keyPath = 'wator/starbian/remote/' + tag + '/' + channel;
       console.log('keyPath =<',keyPath,'>');
       localStorage.setItem(keyPath,keyStr);
