@@ -72,6 +72,14 @@ class StarBian {
     return remotKeys;
   }
   /**
+   * get remote paired public key.
+   *
+   * @param {String} tag 
+   */
+  getRemoteChannel(keyStr) {
+    return KJUR.crypto.Util.sha256(keyStr);;
+  }
+  /**
    * add remote paired public key.
    *
    * @param {String} tag 
