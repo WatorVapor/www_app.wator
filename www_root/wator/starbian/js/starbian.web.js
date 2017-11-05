@@ -58,7 +58,13 @@ class StarBian {
    */
   getRemoteKey(tag) {
     if(typeof tag === 'String') {
-      return localStorage.getItem('wator/starbian/keys/' + tag);
+      for (var keyIn in localStorage){
+        console.log('keyIn =<',keyIn,'>');
+        let filter = 'wator/starbian/keys/' + 'tag';
+        if(keyIn.startsWith(filter)) {
+          return localStorage.getItem();
+        }
+      }
     }
     return null;
   }
