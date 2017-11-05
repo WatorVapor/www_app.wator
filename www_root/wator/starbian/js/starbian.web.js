@@ -188,7 +188,10 @@ class StarBian {
         //this.remoteChannelObj
         let remoteKeyStr = localStorage.getItem(keyIn);
         console.log('remoteKeyStr =<',remoteKeyStr,'>');
-        let channel = KJUR.crypto.Util.sha256(remoteKeyStr);
+        let keyStr = remoteKeyStr.trim();
+        let keyStrOne = keyStr.replace(/\n/g,"");
+        keyStrOne = keyStrOne.replace(/\r/g,"");
+        let channel = KJUR.crypto.Util.sha256(keyStrOne);
         this.remoteChannelObj[channel] = KEYUTIL.getKey(remoteKeyStr);
       }
     }
