@@ -167,9 +167,14 @@ class StarBian {
       if(keyIn.startsWith(filter)) {
         console.log('filter =<',filter,'>');
         console.log('keyIn =<',keyIn,'>');
-        //this.remoteChannelObj 
+        //this.remoteChannelObj
+        let remoteKeyStr = localStorage.getItem(keyIn);
+        console.log('remoteKeyStr =<',remoteKeyStr,'>');
+        let channel = KJUR.crypto.Util.sha256(remoteKeyStr);
+        this.remoteChannelObj[channel] = KEYUTIL.getKey(remoteKeyStr);
       }
     }
+    console.log('this.remoteChannelObj =<',this.remoteChannelObj,'>');
   }
 
 
