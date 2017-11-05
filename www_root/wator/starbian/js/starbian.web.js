@@ -57,7 +57,7 @@ class StarBian {
    * @param {String} tag 
    */
   getRemoteKey(tag) {
-    if(typeof tag === 'String') {
+    if(typeof tag === 'string') {
       for (var keyIn in localStorage){
         console.log('keyIn =<',keyIn,'>');
         let filter = 'wator/starbian/keys/' + 'tag';
