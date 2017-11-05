@@ -45,9 +45,12 @@
 
 <script type="text/javascript">
   var star = new StarBian();
+  var channel = false;
   function onStartGoFuro(element) {
     console.log('element=<',element,'>');
-    star.publish('gofuro','gofuro hot');
+    if(channel) {
+      star.publish(channel,'gofuro hot');
+    }
   }
   function onAddRemoteKey(element) {
     console.log('element=<',element,'>');
@@ -62,6 +65,7 @@
     console.log('remoteKey=<',remoteKey,'>');
     if(remoteKey.length > 0) {
       $('#text-remote-device-key').text(remoteKey[0]);
+      channel = star.getRemoteChannel(remoteKey[0]);
     }
   });
 </script>
