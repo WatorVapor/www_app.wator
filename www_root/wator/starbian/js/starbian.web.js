@@ -57,17 +57,18 @@ class StarBian {
    * @param {String} tag 
    */
   getRemoteKey(tag) {
+    var remotKeys = [];
     if(typeof tag === 'string') {
       for (var keyIn in localStorage){
         console.log('keyIn =<',keyIn,'>');
         let filter = 'wator/starbian/keys/' + tag;
         console.log('filter =<',filter,'>');
         if(keyIn.startsWith(filter)) {
-          return localStorage.getItem(keyIn);
+          remotKeys.push(localStorage.getItem(keyIn));
         }
       }
     }
-    return null;
+    return remotKeys;
   }
   /**
    * add remote paired public key.
