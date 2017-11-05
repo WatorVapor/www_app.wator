@@ -63,7 +63,7 @@ class StarBian {
         let filter = 'wator/starbian/keys/' + tag;
         console.log('filter =<',filter,'>');
         if(keyIn.startsWith(filter)) {
-          return localStorage.getItem();
+          return localStorage.getItem(keyIn);
         }
       }
     }
