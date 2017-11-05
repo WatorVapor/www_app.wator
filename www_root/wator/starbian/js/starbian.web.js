@@ -78,8 +78,8 @@ class StarBian {
    */
   getRemoteChannel(key) {
     let keyStr = key.trim();
-     let keyStrOne = keyStr.replace("\n","");
-     keyStrOne = keyStrOne.replace("\r","");
+     let keyStrOne = keyStr.replace(/\n/g,"");
+     keyStrOne = keyStrOne.replace(/\r/g,"");
      return KJUR.crypto.Util.sha256(keyStrOne);;
   }
   /**
