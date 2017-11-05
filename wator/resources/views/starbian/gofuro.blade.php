@@ -58,7 +58,8 @@
   $(document).ready(function() {
     var pubKeyStr = star.getPublic();
     $('#text-this-device-key').text(pubKeyStr);
-    var remoteKeyStr = star.getRemoteKey('gofuro');
+    let remoteKeyStr = star.getRemoteKey('gofuro');
+    console.log('remoteKeyStr=<',remoteKeyStr,'>');
     $('#text-remote-device-key').text(remoteKeyStr);
   });
 </script>
