@@ -76,7 +76,8 @@ class StarBian {
    *
    * @param {String} tag 
    */
-  getRemoteChannel(keyStr) {
+  getRemoteChannel(key) {
+    let keyStr = key.trim();
     return KJUR.crypto.Util.sha256(keyStr);;
   }
   /**
