@@ -79,10 +79,11 @@ class StarBian {
    */
   addRemoteKey(tag,key) {
     if(typeof tag === 'string') {
-      let channel = KJUR.crypto.Util.sha256(this.pubKeyStr);
+      let keyStr = key.trim();
+      let channel = KJUR.crypto.Util.sha256(keyStr);
       let keyPath = 'wator/starbian/remote/' + tag + '/' + channel;
       console.log('keyPath =<',keyPath,'>');
-      localStorage.setItem(keyPath,key);
+      localStorage.setItem(keyPath,keyStr);
     }
   }
   /**
