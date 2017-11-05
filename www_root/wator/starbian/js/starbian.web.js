@@ -93,11 +93,12 @@ class StarBian {
    */
   publish(channel,msg) {
     console.log('msg =<',msg,'>');
-    var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.pubObj[channel]);
+    var msgEnc = KJUR.crypto.Cipher.encrypt(msg, this.remoteChannelObj[channel]);
     var sign = this.priObj.sign(msgEnc, 'sha256');
     var pubObj = {
       enc:msgEnc,
-      sign:sign
+      sign:sign,
+      channel:channel
     };
     console.log('pubObj =<',pubObj,'>');
     this.ws.send(JSON.stringify(pubObj));
@@ -160,12 +161,14 @@ class StarBian {
    * @private
    */
   createRemoteChannels_() {
+    this.remoteChannelObj = {};
     for (var keyIn in localStorage){
       console.log('keyIn =<',keyIn,'>');
       let filter = 'wator/starbian/remote';
       if(keyIn.startsWith(filter)) {
         console.log('filter =<',filter,'>');
         console.log('keyIn =<',keyIn,'>');
+        //this.remoteChannelObj 
       }
     }
   }
