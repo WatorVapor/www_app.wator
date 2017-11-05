@@ -78,9 +78,9 @@ class StarBian {
    */
   getRemoteChannel(key) {
     let keyStr = key.trim();
-     let keyStrOne = keyStr.replace(/\n/g,"");
-     keyStrOne = keyStrOne.replace(/\r/g,"");
-     return KJUR.crypto.Util.sha256(keyStrOne);;
+    let keyStrOne = keyStr.replace(/\n/g,"");
+    keyStrOne = keyStrOne.replace(/\r/g,"");
+    return KJUR.crypto.Util.sha256(keyStrOne);;
   }
   /**
    * add remote paired public key.
@@ -105,9 +105,7 @@ class StarBian {
    * @param {String} msg 
    */
   publish(channel,msg) {
-    var testSha = KJUR.crypto.Util.sha256('abc');
-    console.log('testSha=<',testSha,'>');
-
+    console.log('channel =<',channel,'>');
     console.log('msg =<',msg,'>');
     let remoteChannel = this.remoteChannelObj[channel];
     console.log('remoteChannel =<',remoteChannel,'>');
