@@ -101,6 +101,9 @@ class StarBian {
    * @param {String} msg 
    */
   publish(channel,msg) {
+    var testSha = KJUR.crypto.Util.sha256('abc');
+    console.log('testSha=<',testSha,'>');
+
     console.log('msg =<',msg,'>');
     let remoteChannel = this.remoteChannelObj[channel];
     console.log('remoteChannel =<',remoteChannel,'>');
