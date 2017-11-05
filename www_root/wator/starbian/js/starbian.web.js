@@ -61,10 +61,10 @@ class StarBian {
     var remotKeys = [];
     if(typeof tag === 'string') {
       for (var keyIn in localStorage){
-        console.log('keyIn =<',keyIn,'>');
         let filter = 'wator/starbian/remote/' + tag;
-        console.log('filter =<',filter,'>');
         if(keyIn.startsWith(filter)) {
+          console.log('keyIn =<',keyIn,'>');
+          console.log('filter =<',filter,'>');
           remotKeys.push(localStorage.getItem(keyIn));
         }
       }
@@ -163,7 +163,6 @@ class StarBian {
   createRemoteChannels_() {
     this.remoteChannelObj = {};
     for (var keyIn in localStorage){
-      console.log('keyIn =<',keyIn,'>');
       let filter = 'wator/starbian/remote';
       if(keyIn.startsWith(filter)) {
         console.log('filter =<',filter,'>');
