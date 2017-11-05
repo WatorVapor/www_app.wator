@@ -104,7 +104,7 @@ class StarBian {
     let remoteChannel = this.remoteChannelObj[channel];
     console.log('remoteChannel =<',remoteChannel,'>');
     if(remoteChannel) {
-      let msgEnc = KJUR.crypto.Cipher.encrypt(msg, );
+      let msgEnc = KJUR.crypto.Cipher.encrypt(msg,remoteChannel );
       let sign = this.priObj.sign(msgEnc, 'sha256');
       let pubObj = {
         enc:msgEnc,
