@@ -49,7 +49,6 @@
         @include('wator.navbar_r')
       </div>
       <script>
-        //$('[data-toggle="popover"]').popover();
         $('[data-toggle="popover"]').popover({container: 'body' });
       </script>
     </nav>
