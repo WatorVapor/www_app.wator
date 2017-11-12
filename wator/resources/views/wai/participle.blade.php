@@ -36,7 +36,7 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
-    <pre>
+    <pre class="d-inline">
       @foreach ($result as $sentence)
           {{ $sentence['sentence'] }} %
       @endforeach
