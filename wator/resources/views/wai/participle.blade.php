@@ -35,7 +35,7 @@
 </div>
 
 @php
-$resultAll = ""
+$resultAll = "";
 foreach ($result as $sentence) {
   $resultAll .= $sentence['sentence'];
 }
