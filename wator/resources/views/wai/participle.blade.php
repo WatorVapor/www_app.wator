@@ -36,6 +36,16 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
+    <pre>
+      @foreach ($result as $sentence)
+          {{ $sentence['sentence'] }}
+      @endforeach
+    </pre>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-lg-10">
     @foreach ($result as $sentence)
     <div class="card card-default text-center border border-danger">
       <div class="card-body">
