@@ -42,9 +42,11 @@ foreach ($result as $sentence) {
 @endphp
 <div class="row justify-content-center">
   <div class="col-lg-10">
-    <h1 class="text-justify text-nowrap bg-warning">
-       {{ $resultAll }}
-    </h1>
+    <pre>
+      <h1 class="text-justify text-nowrap bg-warning">
+        {{ $resultAll }}
+      </h1>
+    </pre>
   </div>
 </div>
 
