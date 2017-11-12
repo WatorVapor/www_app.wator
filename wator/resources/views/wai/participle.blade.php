@@ -38,7 +38,7 @@
   <div class="col-lg-10">
     <pre>
       @foreach ($result as $sentence)
-          {{ $sentence['sentence'] }}
+          {{ $sentence['sentence'] }} %
       @endforeach
     </pre>
   </div>
