@@ -38,14 +38,15 @@
 $resultAll = "";
 foreach ($result as $sentence) {
   $resultAll .= $sentence['sentence'];
+  $resultAll .= '%';
 }
 @endphp
 <div class="row justify-content-center">
   <div class="col-lg-10">
     <pre>
-      <h1 class="text-justify text-nowrap bg-warning">
+      <h3 class="text-justify text-nowrap bg-warning">
         {{ $resultAll }}
-      </h1>
+      </h3>
     </pre>
   </div>
 </div>
