@@ -123,7 +123,7 @@ class PhoenixTrainController extends Controller
             socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>30,"usec"=>0));
             $result = socket_connect($sock, '::1', $waiPort);
             
-            $msgJson = ['type'=>'parrot','summary' => 'get' ];
+            $msgJson = ['type'=>'phoenix','summary' => 'get' ];
             $msg = json_encode($msgJson);
             socket_write($sock, $msg, strlen($msg));
             $buf = '...';
