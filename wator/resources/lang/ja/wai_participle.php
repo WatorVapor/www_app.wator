@@ -7,4 +7,5 @@ return [
     'opencleargraph' => 'クリアグラフを開く',
     'card_result' => '出力',
     'card_input' => '入力',
+    'facebook' => 'シェアfacebook',
 ];
