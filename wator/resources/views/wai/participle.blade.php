@@ -59,7 +59,7 @@ foreach ($result as $sentence) {
       </div>
       <div class="card-footer">
         <a href="{{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">{{ trans('wai_participle.opengraph') }}</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">{{ trans('wai_participle.facebook') }}</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/{{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">{{ trans('wai_participle.facebook') }}</a>
       </div>
     </div>
     @endforeach
