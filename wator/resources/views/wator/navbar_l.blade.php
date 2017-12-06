@@ -9,4 +9,9 @@
       <i class="material-icons md-48">info</i>
     </a>
   </li>
+  <li class="nav-item active ml-lg-4">
+    <a class="btn btn-lg btn-primary nav-btn" href="/ethereum" role="button">
+      <i class="material-icons md-48">info</i>
+    </a>
+  </li>
 </ul>
