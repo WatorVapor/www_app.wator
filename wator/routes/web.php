@@ -80,3 +80,7 @@ Route::get('/story/slip/{chapter?}', 'Story\SlipController@index');
 Route::get('/story/home/{position?}', 'Story\HomeController@index');
 Route::get('/story/', 'Story\HomeController@index');
 
+Route::get('/ethereum/', 'Ethereum\EthereumController@index');
+
+ 
+
