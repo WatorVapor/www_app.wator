@@ -11,7 +11,7 @@
   </li>
   <li class="nav-item active ml-lg-4">
     <a class="btn btn-lg btn-default nav-btn" href="/ethereum" role="button">
-      <img src="/wator/images/ethereum/ethereum_icon.png"  height="48" />
+      <img src="/wator/images/ethereum/ethereum_icon.png"  height="40" />
     </a>
   </li>
 </ul>
