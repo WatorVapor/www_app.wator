@@ -29,8 +29,8 @@ class StarBian {
       //console.log('this.pubObj=<',this.pubObj,'>');
     }
     this.createRemoteChannels_();
-    //this.createWSS_();
-    this.createIPFSPubSub_();
+    this.createWSS_();
+    //this.createIPFSPubSub_();
   }
   /**
    * get private key.
@@ -119,7 +119,8 @@ class StarBian {
         channel:channel
       };
       console.log('pubObj =<',pubObj,'>');
-      //this.ws.send(JSON.stringify(pubObj));
+      this.ws.send(JSON.stringify(pubObj));
+      /*
       const topic = 'fruit-of-the-day-wator';
       //const msgSent = new Buffer(JSON.stringify(pubObj));
       const msgSent = JSON.stringify(pubObj);
@@ -129,6 +130,7 @@ class StarBian {
         }
         console.log('sented msgSent=<',msgSent,'>');
       });
+      */
     }
   }
   /**
