@@ -38,7 +38,7 @@
 <!--
 <script src="///unpkg.com/ipfs-api/dist/index.js"></script>
 -->
-<script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+<script src="//unpkg.com/ipfs/dist/index.js"></script>
 <script src="/wator/starbian/js/starbian.web.js" type="text/javascript"></script>
 
 <script type="text/javascript">
