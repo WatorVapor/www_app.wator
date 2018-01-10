@@ -119,7 +119,15 @@ class StarBian {
         channel:channel
       };
       console.log('pubObj =<',pubObj,'>');
-      this.ws.send(JSON.stringify(pubObj));
+      //this.ws.send(JSON.stringify(pubObj));
+      const topic = 'fruit-of-the-day-wator';
+      const msg = new Buffer(JSON.stringify(pubObj));
+      this.ipfs.pubsub.publish(topic, msg, (err) => {
+        if (err) {
+          throw err
+        }
+        console.log('sented msg=<',msg,'>');
+      });
     }
   }
   /**
