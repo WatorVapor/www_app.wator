@@ -348,6 +348,10 @@ class StarBian {
       }
     });
     console.log('createIPFSPubSub_:this.ipfs =<',this.ipfs,'>');
+    this.ipfs.once('ready', () => {
+      // node is ready
+      console.log('ready!!!!');
+    });
   }
 }
 
