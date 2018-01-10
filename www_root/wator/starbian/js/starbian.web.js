@@ -29,7 +29,8 @@ class StarBian {
       //console.log('this.pubObj=<',this.pubObj,'>');
     }
     this.createRemoteChannels_();
-    this.createWSS_();
+    //this.createWSS_();
+    this.createIPFSPubSub_();
   }
   /**
    * get private key.
@@ -324,6 +325,12 @@ class StarBian {
   }
   onWSClose_(event) {
     console.log('event =<',event,'>');
+  }
+  
+  
+  
+  createIPFSPubSub_() {
+    
   }
 }
 
