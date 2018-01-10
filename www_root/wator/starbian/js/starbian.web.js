@@ -331,7 +331,7 @@ class StarBian {
   
   createIPFSPubSub_() {
     this.ipfs = window.IpfsApi('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
-    console.log('ipfs =<',ipfs,'>');
+    console.log('createIPFSPubSub_:this.ipfs =<',this.ipfs,'>');
   }
 }
 
