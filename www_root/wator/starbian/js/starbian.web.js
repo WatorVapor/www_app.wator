@@ -29,8 +29,8 @@ class StarBian {
       //console.log('this.pubObj=<',this.pubObj,'>');
     }
     this.createRemoteChannels_();
-    this.createWSS_();
-    //this.createIPFSPubSub_();
+    //this.createWSS_();
+    this.createIPFSPubSub_();
   }
   /**
    * get private key.
@@ -341,7 +341,12 @@ class StarBian {
   
   
   createIPFSPubSub_() {
-    this.ipfs = window.IpfsApi('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
+    //this.ipfs = window.IpfsApi('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
+    this.ipfs = new IPFS({
+      EXPERIMENTAL: {
+        pubsub: true // required, enables pubsub
+      }
+    });
     console.log('createIPFSPubSub_:this.ipfs =<',this.ipfs,'>');
   }
 }
