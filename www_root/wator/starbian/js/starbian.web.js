@@ -1,5 +1,7 @@
 'use strict';
 
+const Buffer = window.IpfsApi().Buffer;
+
 class StarBian {
   /**
    * Create a new `StarBian`.
