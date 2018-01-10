@@ -121,12 +121,12 @@ class StarBian {
       console.log('pubObj =<',pubObj,'>');
       //this.ws.send(JSON.stringify(pubObj));
       const topic = 'fruit-of-the-day-wator';
-      const msg = new Buffer(JSON.stringify(pubObj));
-      this.ipfs.pubsub.publish(topic, msg, (err) => {
+      const msgSent = new Buffer(JSON.stringify(pubObj));
+      this.ipfs.pubsub.publish(topic, msgSent, (err) => {
         if (err) {
           throw err
         }
-        console.log('sented msg=<',msg,'>');
+        console.log('sented msgSent=<',msgSent,'>');
       });
     }
   }
