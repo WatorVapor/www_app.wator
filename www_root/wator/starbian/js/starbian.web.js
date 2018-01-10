@@ -342,7 +342,7 @@ class StarBian {
   
   createIPFSPubSub_() {
     //this.ipfs = window.IpfsApi('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
-    this.ipfs = new IPFS({
+    this.ipfs = new Ipfs({
       EXPERIMENTAL: {
         pubsub: true // required, enables pubsub
       }
