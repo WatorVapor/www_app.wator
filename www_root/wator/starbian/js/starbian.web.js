@@ -123,7 +123,7 @@ class StarBian {
       
       const topic = 'fruit-of-the-day-wator';
       //const msgSent = new Buffer(JSON.stringify(pubObj));
-      const msgSent = Ipfs.Buffer(JSON.stringify(pubObj));
+      const msgSent = IPFS.Buffer(JSON.stringify(pubObj));
       //const msgSent = JSON.stringify(pubObj);
       this.ipfs.pubsub.publish(topic, msgSent, (err) => {
         if (err) {
