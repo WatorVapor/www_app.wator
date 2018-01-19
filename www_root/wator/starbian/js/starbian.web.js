@@ -32,7 +32,7 @@ class StarBian {
     }
     this.createRemoteChannels_();
     this.createWSS_();
-    //this.createIPFSPubSub_();
+    this.createIPFSPubSub_();
   }
   /**
    * get private key.
