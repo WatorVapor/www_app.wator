@@ -355,6 +355,11 @@ class StarBian {
       // node is ready
       console.log('ready!!!!');
     });
+    ipfs.pubsub.subscribe('topic-name-here', (message) => {
+      console.log('got message from ' + message.from)
+      const data = message.data.toString()
+      console.log('containing data: ' + data)
+    });      
   }
 }
 
