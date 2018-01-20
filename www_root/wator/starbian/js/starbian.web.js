@@ -124,7 +124,7 @@ class StarBian {
       //this.ws.send(JSON.stringify(pubObj));
       
       
-      const topic = 'topic-name-here';
+      const topic = 'fruit-of-the-day';
       //const msgSent = new Buffer(JSON.stringify(pubObj));
       const msgSent = Buffer(JSON.stringify(pubObj));
       //const msgSent = JSON.stringify(pubObj);
@@ -361,10 +361,10 @@ class StarBian {
         }
         console.log('ipfs.id res =<',res,'>');
       });
-      self.ipfs.pubsub.subscribe('topic-name-here', (message) => {
-        console.log('got message from ' + message.from)
+      self.ipfs.pubsub.subscribe('fruit-of-the-day', (message) => {
+        console.log('got message from message',message,'>')
         const data = message.data.toString()
-        console.log('containing data: ' + data)
+        console.log('containing data: ',data)
       });      
    });
   }
