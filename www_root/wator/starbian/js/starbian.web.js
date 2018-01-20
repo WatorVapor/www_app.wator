@@ -351,15 +351,22 @@ class StarBian {
       }
     });
     console.log('createIPFSPubSub_:this.ipfs =<',this.ipfs,'>');
+    let self = this;
     this.ipfs.once('ready', () => {
       // node is ready
       console.log('ready!!!!');
-    });
-    this.ipfs.pubsub.subscribe('topic-name-here', (message) => {
-      console.log('got message from ' + message.from)
-      const data = message.data.toString()
-      console.log('containing data: ' + data)
-    });      
+      self.ipfs.id((err, res) => {
+         if (err) {
+          throw err;
+        }
+        console.log('ipfs.id res =<',res,'>');
+      });
+      self.ipfs.pubsub.subscribe('topic-name-here', (message) => {
+        console.log('got message from ' + message.from)
+        const data = message.data.toString()
+        console.log('containing data: ' + data)
+      });      
+   });
   }
 }
 
