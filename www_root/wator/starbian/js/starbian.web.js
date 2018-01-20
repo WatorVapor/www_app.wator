@@ -121,7 +121,7 @@ class StarBian {
         channel:channel
       };
       console.log('pubObj =<',pubObj,'>');
-      this.ws.send(JSON.stringify(pubObj));
+      //this.ws.send(JSON.stringify(pubObj));
       
       
       const topic = 'fruit-of-the-day';
