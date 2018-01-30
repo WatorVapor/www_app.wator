@@ -51,7 +51,7 @@ services:
     command: php artisan serve -vvv --host=127.0.0.1 --port=18082
     restart: always
    
-   wator-laravel-clone:
+  wator-laravel-clone:
     build: laravel-wator
     network_mode: "host"
     volumes:
