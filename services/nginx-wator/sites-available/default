@@ -5,6 +5,7 @@ upstream wwwapp.wator.xyz {
 
 upstream trainapp.wator.xyz {
   server 127.0.0.1:18082;
+  server 127.0.0.1:18083;
 }
 
 upstream starbian.wator.xyz {
