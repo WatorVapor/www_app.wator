@@ -9,10 +9,10 @@
     @include('wator.app_css')
   </head>
   <body>
-    @include('wator.app_css')
+    @include('wator.app_js')
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        @include('wator.app_js')
+        @include('wator.navbar_l')
         @yield('appnavbar')
         @include('wator.navbar_r')
       </div>
