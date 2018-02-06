@@ -87,9 +87,14 @@ class ParticipleController extends Controller
             $result = socket_connect($sock, '::1', $waiPort);
             
             
-            $msgJson['sentence'] = $sentence;
             Redis::publish('wai.train',$msg);
             Redis::publish('wai.train',$sentence);
+
+            $msgJson['sentence'] = $sentence;
+            $msgRedisJson = json_encode($msgJson,JSON_UNESCAPED_UNICODE);
+            Redis::publish('wai.train',$msgRedisJson);
+            
+            
 
             
             socket_write($sock, $msg, strlen($msg));
