@@ -11,6 +11,9 @@ use Wator\Notifications\TwitterParticipleNotification;
 use Wator\Notifications\FacebookParticipleNotification;
 use Wator\Notifications\WeiboParticipleNotification;
 
+use Illuminate\Support\Facades\Redis;
+
+
 class ParticipleController extends Controller
 {
     use Notifiable;
@@ -36,6 +39,7 @@ class ParticipleController extends Controller
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
                 $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
                 $notify = $this->notify(new TwitterParticipleNotification($url_sns));
+                $data['url_sns'] = $url_sns;
                 //$notify2 = $this->notify(new FacebookParticipleNotification($url_sns));
                 //$notify3 = $this->notify(new WeiboParticipleNotification($url_sns));
             } catch (\Exception $e) {
@@ -81,10 +85,18 @@ class ParticipleController extends Controller
             //var_dump($sock);
             socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>30,"usec"=>0));
             $result = socket_connect($sock, '::1', $waiPort);
+            
+            
+            $msgJson['sentence'] = $sentence;
+            Redis::publish('wai.train', json_encode($msgJson));
+
+            
             socket_write($sock, $msg, strlen($msg));
             socket_write($sock, $sentence, strlen($sentence));
             $buf = '...';
             $bytes = socket_recv($sock, $buf, 1024*1024, MSG_WAITALL);
+            
+            
             //var_dump($bytes);
             //var_dump($buf);
             socket_close($sock);
