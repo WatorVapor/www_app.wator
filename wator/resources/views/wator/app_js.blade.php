@@ -15,3 +15,4 @@
 <script src="/wator/js/ga.js" type="text/javascript"></script>
 <script src="/wator/js/login.js" type="text/javascript"></script>
 <script src="/wator/js/lang.js" type="text/javascript"></script>
+<script src="/wator/js/notify.js" type="text/javascript"></script>
