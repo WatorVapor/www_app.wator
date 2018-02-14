@@ -1,4 +1,4 @@
-let uri = "ws://" + location.host + "/wss/notify";
+let uri = "wss://" + location.host + "/wator/notify";
 let ws = new WebSocket(uri);
 ws.onopen = onNotifyOpen_;
 ws.onmessage = onNotifyMessage_;
