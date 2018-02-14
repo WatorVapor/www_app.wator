@@ -52,9 +52,9 @@ server {
     alias /autogen/wator/;
   }
 
-  location /ws/ {
-      proxy_pass http://notify.wator.xyz/;
-      proxy_http_version 2;
+  location /wator/notify {
+      proxy_pass http://notify.wator.xyz;
+      proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
   }
