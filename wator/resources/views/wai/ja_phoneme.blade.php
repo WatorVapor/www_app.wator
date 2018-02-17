@@ -1,4 +1,4 @@
-<div class="card card-default text-center border border-danger">
+<div class="card card-default text-center">
   <div class="card-body">
     <div class="row">
       <div class="col-sm  m-0 p-0">
