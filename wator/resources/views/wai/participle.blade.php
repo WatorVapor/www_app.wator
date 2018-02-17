@@ -46,22 +46,10 @@
 </div>
 
 
-@php
-$resultAll = "";
-foreach ($result as $sentence) {
-  $resultAll .= $sentence['sentence'];
-  $resultAll .= '%';
-}
-@endphp
-
-@if ($result)
-<div class="row justify-content-center ui-update-toggle">
-@else
 <div class="row justify-content-center ui-update-toggle d-none">
-@endif
   <div class="col-lg-10">
     <pre class="text-justify text-nowrap bg-warning">
-      <h3>{{ $resultAll }}</h3>
+      <h3 id="ui-update-all-words"></h3>
     </pre>
   </div>
 </div>
@@ -89,6 +77,13 @@ foreach ($result as $sentence) {
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
     $( ".ui-update-toggle" ).toggleClass('d-none');
+    if(msg.wai && typeof msg.wai === 'object') {
+      msg.wai.forEach(function(val,index,ar){
+        console.log('onUpdateData:val=<',val,'>');
+        console.log('onUpdateData:index=<',index,'>');
+        console.log('onUpdateData:ar=<',ar,'>');
+      }
+    }
   }
 </script>
 
