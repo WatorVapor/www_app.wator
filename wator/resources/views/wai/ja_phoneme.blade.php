@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <div class="col">{{ $phoneme }}</div>
+  <div class="col justify-content-center">{{ $phoneme }}</div>
 </div>
 
 <div class="row">
