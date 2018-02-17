@@ -84,7 +84,7 @@
         //console.log('onUpdateData:index=<',index,'>');
         //console.log('onUpdateData:ar=<',ar,'>');
         if(wai.sentence){
-          let oldText = $( "#ui-update-all-words" )..text();
+          let oldText = $( "#ui-update-all-words" ).text();
           $( "#ui-update-all-words" ).text(oldText + wai.sentence);
         }
       });
