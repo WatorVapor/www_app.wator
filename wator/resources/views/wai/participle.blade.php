@@ -55,7 +55,7 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-lg-10">
+  <div class="col-lg-10" id="ui-update-graph">
     @foreach ($result as $sentence)
     <div class="card card-default text-center border border-danger">
       <div class="card-body">
@@ -83,9 +83,16 @@
         console.log('onUpdateData:wai=<',wai,'>');
         //console.log('onUpdateData:index=<',index,'>');
         //console.log('onUpdateData:ar=<',ar,'>');
-        if(wai.sentence){
-          let oldText = $( "#ui-update-all-words" ).text() + ' ';
+        if(wai.sentence) {
+          let oldText = $( "#ui-update-all-words" ).text();
           $( "#ui-update-all-words" ).text(oldText + wai.sentence);
+        } else {
+          if(wai.input) {
+            let oldText = $( "#ui-update-all-words" ).text();
+            $( "#ui-update-all-words" ).text(oldText + wai.input);
+          }
+        }
+        if(wai.graph){
         }
       });
     }
