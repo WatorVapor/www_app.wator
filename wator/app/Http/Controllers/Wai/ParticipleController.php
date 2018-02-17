@@ -80,23 +80,10 @@ class ParticipleController extends Controller
             if(isset($lang) && $lang == 'ja') {
                 $msgJson['lang'] = 'ja';
             }
-            $msg = json_encode($msgJson);
-            Redis::publish('wai.train',$msg);
-
             $request->session()->put('wai_participle_cut_text', $sentence);
-            //var_dump($sentence);
-            Redis::publish('wai.train',$sentence);
             $msgJson['sentence'] = $sentence;
             $msgRedisJson = json_encode($msgJson,JSON_UNESCAPED_UNICODE);
             Redis::publish('wai.train',$msgRedisJson);
-
-            /*
-            Redis::subscribe(['wai.train.response'], function ($message) {
-                $request->session()->put('wai_participle_cut_reponse', $buf);
-                //var_dump($notify);
-                Redis::publish('wator/wai/webapp/notify','{"update":true}');
-            });
-            */
             $request->session()->put('wai_participle_cut_process', True);
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_error', $e->getMessage());
