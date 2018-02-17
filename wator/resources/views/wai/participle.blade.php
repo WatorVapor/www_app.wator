@@ -37,7 +37,7 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
-    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+    <i class="fa fa-spinner fa-spin" style="font-size:128px;color:red"></i>
   </div>
 </div>
 
