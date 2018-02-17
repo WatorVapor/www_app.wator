@@ -36,8 +36,14 @@ Route::get('/rsaauth', 'RsaAuth\LoginController@index');
 
 Route::get('/wai/', 'Wai\WelcomeController@index');
 Route::get('/wai/audio/share', 'Wai\AudioShareController@index');
+
 Route::get('/wai/text/participle', 'Wai\ParticipleController@index');
 Route::post('/wai/text/participle', 'Wai\ParticipleController@store');
+
+Route::get('/wai/text/record_voice', 'Wai\RecordVoiceController@index');
+Route::post('/wai/text/record_voice', 'Wai\RecordVoiceController@store');
+
+
 Route::get('/wai/text/train/crawler/summary', 'Wai\CrawlerTrainController@summary');
 Route::get('/wai/text/train/crawler', 'Wai\CrawlerTrainController@fetch');
 Route::post('/wai/text/train/crawler', 'Wai\CrawlerTrainController@update');
