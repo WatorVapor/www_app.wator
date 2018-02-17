@@ -74,6 +74,19 @@
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+
+  const graph_card = '<div class="card card-default text-center border border-danger">
+    <div class="card-body">
+      <h4 class="card-title">{{sentence}}</h4>
+      <img class="card-img-bottom" src="{{graph}}.svg" alt="Card image cap">
+    </div>
+    <div class="card-footer">
+      <a href="{{graph}}.svg" target="_blank" class="btn btn-primary">{{wai_participle.opengraph}}</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/{{graph}}.png" target="_blank" class="btn btn-primary">{{wai_participle.facebook}}</a>
+    </div>
+  </div>'
+    
+
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
     $( ".ui-update-toggle" ).toggleClass('d-none');
@@ -93,6 +106,13 @@
           }
         }
         if(wai.graph){
+          let new_graph_card = '';
+          if(wai.sentence) {
+            new_graph_card = graph_card.replace('{{sentence}}',wai.sentence);
+          }
+          new_graph_card = new_graph_card.replace('{{graph}}',wai.graph);
+          
+          $( "#ui-update-graph" ).append(new_graph_card);
         }
       });
     }
