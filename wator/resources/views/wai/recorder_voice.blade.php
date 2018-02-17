@@ -15,6 +15,11 @@
         {{ trans('wai_record_voice.pinyin') }}
       </div>
       <div class="card-body">
+        <div class="row justify-content-center">
+          <div class="col">
+            <div>あ</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
