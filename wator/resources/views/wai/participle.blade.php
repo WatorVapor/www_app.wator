@@ -68,4 +68,6 @@ foreach ($result as $sentence) {
 
 
 
+<script src="/wator/wai/notify.js" type="text/javascript"></script>
+
 @endsection
