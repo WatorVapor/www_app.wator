@@ -108,9 +108,9 @@
         if(wai.graph){
           let new_graph_card = '';
           if(wai.sentence) {
-            new_graph_card = graph_card.replace('{{sentence}}',wai.sentence);
+            new_graph_card = graph_card.replace('##sentence##',wai.sentence);
           }
-          new_graph_card = new_graph_card.replace('{{graph}}',wai.graph);
+          new_graph_card = new_graph_card.replace('##graph##',wai.graph);
           
           $( "#ui-update-graph" ).append(new_graph_card);
         }
