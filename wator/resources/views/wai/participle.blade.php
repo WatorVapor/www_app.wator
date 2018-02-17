@@ -82,7 +82,7 @@
         console.log('onUpdateData:val=<',val,'>');
         console.log('onUpdateData:index=<',index,'>');
         console.log('onUpdateData:ar=<',ar,'>');
-      }
+      });
     }
   }
 </script>
