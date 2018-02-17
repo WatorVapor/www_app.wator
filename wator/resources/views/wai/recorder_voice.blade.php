@@ -24,19 +24,19 @@ $phonemeIndex = 0;
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            @include('wai.ja_phoneme')
+            @include('wai.ja_phoneme',['phoneme' => 'あ'])
           </div>
           <div class="col">
-            @include('wai.ja_phoneme')
+            @include('wai.ja_phoneme',['phoneme' => 'い'])
           </div>
           <div class="col">
-            @include('wai.ja_phoneme')
+            @include('wai.ja_phoneme',['phoneme' => 'う'])
           </div>
           <div class="col">
-            @include('wai.ja_phoneme')
+            @include('wai.ja_phoneme',['phoneme' => 'え'])
           </div>
           <div class="col">
-            @include('wai.ja_phoneme')
+            @include('wai.ja_phoneme',['phoneme' => 'お'])
           </div>
         </div>
       </div>
