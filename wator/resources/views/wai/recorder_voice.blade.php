@@ -8,6 +8,13 @@
 @section('content')
 
 
+@php
+$phonemeTable = [
+'あ','い','う','え','お',
+]
+$phonemeIndex = 0;
+@endphp
+
 <div class="row justify-content-center">
   <div class="col-lg-5 ">
     <div class="card card-default">
