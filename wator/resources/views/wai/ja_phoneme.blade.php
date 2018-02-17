@@ -1,6 +1,6 @@
 <div class="card card-default text-center border border-danger">
   <div class="card-body">
-    <h2 class="card-title">{{ $phoneme }}</h2>
+    <h6 class="card-title">{{ $phoneme }}</h6>
     <div class="row">
       <div class="col">
         <button type="submit" class="btn btn-dark">
