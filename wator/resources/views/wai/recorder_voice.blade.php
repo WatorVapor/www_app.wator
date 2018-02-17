@@ -11,15 +11,19 @@
 <div class="row justify-content-center">
   <div class="col-lg-5 ">
     <div class="card card-default">
+      <div class="card-header">
+        {{ trans('wai_record_voice.pinyin') }}
+      </div>
       <div class="card-body">
-        <h4 class="card-title">{{ trans('wai_record_voice.pinyin') }}</h4>
       </div>
     </div>
   </div>
   <div class="col-lg-5 ">
     <div class="card card-default">
+      <div class="card-header">
+        {{ trans('wai_record_voice.hirakana') }}
+      </div>
       <div class="card-body">
-        <h4 class="card-title">{{ trans('wai_record_voice.hirakana') }}</h4>
       </div>
     </div>
   </div>
