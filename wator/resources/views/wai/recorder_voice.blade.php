@@ -11,7 +11,7 @@
 @php
 $phonemeTable = [
 'あ','い','う','え','お',
-]
+];
 $phonemeIndex = 0;
 @endphp
 
