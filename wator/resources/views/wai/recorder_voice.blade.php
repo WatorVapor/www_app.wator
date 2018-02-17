@@ -98,6 +98,9 @@
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
   }
+  function onClickRecordBtn(elem) {
+    console.log('onClickRecordBtn:elem=<',elem,'>');
+  }
 </script>
 
 @endsection
