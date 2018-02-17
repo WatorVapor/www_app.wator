@@ -7,7 +7,7 @@
         </button>
       </div>
       <div class="col-sm  m-0 p-0">
-        <h6 class="rounded-circle">{{ $phoneme }}</h6>
+        <h4 class="rounded-circle">{{ $phoneme }}</h4>
       </div>
       <div class="col-sm  m-0 p-0">
         <button type="submit" class="btn btn-sm btn-dark rounded-circle">
