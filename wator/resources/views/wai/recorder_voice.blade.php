@@ -102,8 +102,8 @@
     console.log('onClickRecordBtn:elem=<',elem,'>');
     let root = elem.parentElement.parentElement;
     console.log('onClickRecordBtn:root=<',root,'>');
-    let phonemeElem = root.getElementsByTagName('h4')[0];
-    console.log('onClickRecordBtn:phonemeElem=<',phonemeElem,'>');
+    let phoneme = root.getElementsByTagName('h4')[0].textContent;
+    console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   }
 </script>
 
