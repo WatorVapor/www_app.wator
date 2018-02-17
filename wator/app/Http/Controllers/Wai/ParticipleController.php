@@ -108,6 +108,7 @@ class ParticipleController extends Controller
             socket_close($sock);
             $request->session()->put('wai_participle_cut_reponse', $buf);
             //var_dump($notify);
+            Redis::publish('wator/wai/webapp/notify','{"update":true}');
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_error', $e->getMessage());
             //var_dump($e->getMessage());
