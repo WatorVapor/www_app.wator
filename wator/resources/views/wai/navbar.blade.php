@@ -10,7 +10,7 @@
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
-    <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/tts" role="button">
+    <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/record_voice" role="button">
       <i class="material-icons md-48">record_voice_over</i>
     </a>
   </li>
