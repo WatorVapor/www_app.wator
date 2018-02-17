@@ -100,6 +100,8 @@
   }
   function onClickRecordBtn(elem) {
     console.log('onClickRecordBtn:elem=<',elem,'>');
+    let root = elem.parentElement;
+    console.log('onClickRecordBtn:root=<',root,'>');
   }
 </script>
 
