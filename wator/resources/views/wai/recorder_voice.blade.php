@@ -17,19 +17,7 @@
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            <div class="row">
-              <div class="col">あ</div>
-              <div class="col">
-                <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary">
-                  <i class="material-icons md-48">hearing</i>
-                </button>
-              </div>
-              <div class="col">
-                <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary">
-                  <i class="material-icons md-48">mic</i>
-                </button>
-              </div>
-            </div>
+            @include('wai.recorder_phoneme')
           </div>
         </div>
       </div>
