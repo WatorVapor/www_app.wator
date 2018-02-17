@@ -1,5 +1,6 @@
 @php
-$phoneme = $phonemeTable[$phonemeIndex++];
+$phoneme = $phonemeTable[$phonemeIndex];
+$phonemeIndex++;
 @endphp
 <div class="row">
   <div class="col">{{ $phoneme }}</div>
