@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
@@ -33,6 +34,13 @@
     </div>
   </div>
 </div>
+
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+  </div>
+</div>
+
 
 @php
 $resultAll = "";
