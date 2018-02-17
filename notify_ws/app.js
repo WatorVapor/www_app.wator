@@ -34,7 +34,7 @@ sub.on('message', function(channel, message) {
     }
   })
 });
-sub.subscribe('wator/wai/webapp/notify');
+sub.subscribe('wai.train.response');
 
 
 const pub  = redis.createClient(redisOption);
