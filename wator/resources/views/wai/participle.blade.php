@@ -54,7 +54,11 @@ foreach ($result as $sentence) {
 }
 @endphp
 
+@if ($result)
 <div class="row justify-content-center">
+@else
+<div class="row justify-content-center d-none">
+@endif
   <div class="col-lg-10">
     <pre class="text-justify text-nowrap bg-warning">
       <h3>{{ $resultAll }}</h3>
