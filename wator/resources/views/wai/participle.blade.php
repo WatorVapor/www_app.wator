@@ -71,6 +71,10 @@
   </div>
 </div>
 
+<div class="d-none" id="ui-update-opengraph">{{ trans('wai_participle.opengraph') }}</>
+<div class="d-none" id="ui-update-facebook">{{ trans('wai_participle.facebook') }}</>
+
+
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -108,9 +112,9 @@
         if(wai.graph){
           let new_graph_card = '';
           if(wai.sentence) {
-            new_graph_card = graph_card.replace('##sentence##',wai.sentence);
+            new_graph_card = graph_card.replace(/##sentence##/g,wai.sentence);
           }
-          new_graph_card = new_graph_card.replace('##graph##',wai.graph);
+          new_graph_card = new_graph_card.replace(/##graph##/g,wai.graph);
           
           $( "#ui-update-graph" ).append(new_graph_card);
         }
