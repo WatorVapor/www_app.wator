@@ -7,9 +7,8 @@
 
 @section('content')
 
-
 <div class="row justify-content-center">
-  <div class="col-lg-5 ">
+  <div class="col-lg-10 ">
     <div class="card card-default">
       <div class="card-header text-center">
         {{ trans('wai_record_voice.pinyin') }}
@@ -18,7 +17,10 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-5 ">
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-lg-10 ">
     <div class="card card-default">
       <div class="card-header text-center">
         {{ trans('wai_record_voice.hirakana') }}
