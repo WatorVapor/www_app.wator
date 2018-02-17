@@ -1,8 +1,4 @@
 @php
-$phonemeTable = [
-'あ','い','う','え','お',
-]
-static $phonemeIndex = 0;
 $phoneme = $phonemeTable[$phonemeIndex++];
 @endphp
 <div class="row">
