@@ -20,7 +20,7 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-lg-6 ">
+  <div class="col-lg-8 ">
     <div class="card card-default">
       <div class="card-header text-center">
         {{ trans('wai_record_voice.hirakana') }}
