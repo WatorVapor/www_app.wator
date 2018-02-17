@@ -73,42 +73,21 @@ class ParticipleController extends Controller
                 $msgJson['lang'] = 'ja';
             }
             $msg = json_encode($msgJson);
+            Redis::publish('wai.train',$msg);
+
             $request->session()->put('wai_participle_cut_text', $sentence);
             //var_dump($sentence);
-            $apiStr = file_get_contents('/nativeapi/wai.conf.api.json');
-            //var_dump($apiStr);
-            $apiJson = json_decode($apiStr,true);
-            //var_dump($apiJson);
-            $waiPort = intval($apiJson['port']);;
-            //var_dump($waiPort);
-            $sock = socket_create(AF_INET6, SOCK_DGRAM, SOL_UDP);
-            //var_dump($sock);
-            socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>30,"usec"=>0));
-            $result = socket_connect($sock, '::1', $waiPort);
-            
-            
-            Redis::publish('wai.train',$msg);
             Redis::publish('wai.train',$sentence);
-
             $msgJson['sentence'] = $sentence;
             $msgRedisJson = json_encode($msgJson,JSON_UNESCAPED_UNICODE);
             Redis::publish('wai.train',$msgRedisJson);
-            
-            
 
-            
-            socket_write($sock, $msg, strlen($msg));
-            socket_write($sock, $sentence, strlen($sentence));
-            $buf = '...';
-            $bytes = socket_recv($sock, $buf, 1024*1024, MSG_WAITALL);
-            
-            
-            //var_dump($bytes);
-            //var_dump($buf);
-            socket_close($sock);
-            $request->session()->put('wai_participle_cut_reponse', $buf);
-            //var_dump($notify);
-            Redis::publish('wator/wai/webapp/notify','{"update":true}');
+            Redis::subscribe(['wai.train.response'], function ($message) {
+                $request->session()->put('wai_participle_cut_reponse', $buf);
+                //var_dump($notify);
+                Redis::publish('wator/wai/webapp/notify','{"update":true}');
+            });
+            $request->session()->put('wai_participle_cut_process', True);
         } catch (\Exception $e) {
             $request->session()->put('wai_participle_cut_error', $e->getMessage());
             //var_dump($e->getMessage());
