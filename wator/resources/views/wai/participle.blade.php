@@ -77,11 +77,16 @@
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
     $( ".ui-update-toggle" ).toggleClass('d-none');
+    $( "#ui-update-all-words" ).text('');
     if(msg.wai && typeof msg.wai === 'object') {
-      msg.wai.forEach(function(val,index,ar){
-        console.log('onUpdateData:val=<',val,'>');
-        console.log('onUpdateData:index=<',index,'>');
-        console.log('onUpdateData:ar=<',ar,'>');
+      msg.wai.forEach(function(wai,index,ar){
+        console.log('onUpdateData:wai=<',wai,'>');
+        //console.log('onUpdateData:index=<',index,'>');
+        //console.log('onUpdateData:ar=<',ar,'>');
+        if(wai.sentence){
+          let oldText = $( "#ui-update-all-words" )..text();
+          $( "#ui-update-all-words" ).text(oldText + wai.sentence);
+        }
       });
     }
   }
