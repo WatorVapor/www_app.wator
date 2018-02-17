@@ -99,9 +99,9 @@
     console.log('onUpdateData:msg=<',msg,'>');
   }
   function onClickRecordBtn(elem) {
-    console.log('onClickRecordBtn:elem=<',elem,'>');
+    //console.log('onClickRecordBtn:elem=<',elem,'>');
     let root = elem.parentElement.parentElement;
-    console.log('onClickRecordBtn:root=<',root,'>');
+    //console.log('onClickRecordBtn:root=<',root,'>');
     let phoneme = root.getElementsByTagName('h4')[0].textContent;
     console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   }
