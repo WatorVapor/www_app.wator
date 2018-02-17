@@ -1,9 +1,6 @@
-@php
-$phoneme = $phonemeTable[$phonemeIndex];
-$phonemeIndex = $phonemeIndex + 1;
-@endphp
 <div class="row">
-  <div class="col">{{ $phoneme }}.{{ $phonemeIndex }}</div>
+  <?php?>
+  <div class="col">{{ $phoneme }}</div>
   <div class="col">
     <button type="submit" value="cn" name="lang" class="btn btn-primary">
       <i class="material-icons">hearing</i>
