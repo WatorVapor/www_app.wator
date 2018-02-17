@@ -36,9 +36,9 @@
 </div>
 
 @if ($process)
-<div class="row justify-content-center">
+<div class="row justify-content-center ui-update-toggle">
 @else
-<div class="row justify-content-center d-none">
+<div class="row justify-content-center ui-update-toggle d-none">
 @endif
   <div class="col-lg-10">
     <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
@@ -55,9 +55,9 @@ foreach ($result as $sentence) {
 @endphp
 
 @if ($result)
-<div class="row justify-content-center">
+<div class="row justify-content-center ui-update-toggle">
 @else
-<div class="row justify-content-center d-none">
+<div class="row justify-content-center ui-update-toggle d-none">
 @endif
   <div class="col-lg-10">
     <pre class="text-justify text-nowrap bg-warning">
@@ -88,6 +88,7 @@ foreach ($result as $sentence) {
 <script type="text/javascript">
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
+    $( ".ui-update-toggle" ).toggleClass('d-none');
   }
 </script>
 
