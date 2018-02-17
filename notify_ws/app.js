@@ -18,7 +18,12 @@ wss.on('connection', function connection(ws) {
 });
 
 const redis = require("redis");
-const sub = redis.createClient();
+const redisOption = {
+  port:6379,
+  host:'master.redis.wator.xyz',
+  family:'IPv6'
+};
+const sub = redis.createClient(redisOption);
 sub.on('message', function(channel, message) {
   console.log('sub::channel=<',channel,'>');
   console.log('sub::message=<',message,'>');
@@ -32,4 +37,4 @@ sub.on('message', function(channel, message) {
 sub.subscribe("wator/wai/webapp/notify");
 
 
-const pub  = redis.createClient();
+const pub  = redis.createClient(redisOption);
