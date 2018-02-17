@@ -43,6 +43,26 @@
             @include('wai.ja_phoneme',['phoneme' => 'お'])
           </div>
         </div>
+
+        <div class="row justify-content-center">
+          <div class="col">
+            @include('wai.ja_phoneme',['phoneme' => 'か'])
+          </div>
+          <div class="col">
+            @include('wai.ja_phoneme',['phoneme' => 'き'])
+          </div>
+          <div class="col">
+            @include('wai.ja_phoneme',['phoneme' => 'く'])
+          </div>
+          <div class="col">
+            @include('wai.ja_phoneme',['phoneme' => 'け'])
+          </div>
+          <div class="col">
+            @include('wai.ja_phoneme',['phoneme' => 'こ'])
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
