@@ -49,7 +49,11 @@ foreach ($result as $sentence) {
   $resultAll .= '%';
 }
 @endphp
+@if ($process)
 <div class="row justify-content-center">
+@else
+<div class="row justify-content-center d-none">
+@endif
   <div class="col-lg-10">
     <pre class="text-justify text-nowrap bg-warning">
       <h3>{{ $resultAll }}</h3>
