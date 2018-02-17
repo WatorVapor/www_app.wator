@@ -52,6 +52,14 @@ class ParticipleController extends Controller
         } else {
             $data['text'] = '';
         }
+        $process = session('wai_participle_cut_process');
+        session()->forget('wai_participle_cut_process');
+        if($process) {
+            $data['process'] = True;
+        } else {
+            $data['process'] = False;
+        }
+        
         //var_dump($data);
         return view('wai.participle',$data);
     }
