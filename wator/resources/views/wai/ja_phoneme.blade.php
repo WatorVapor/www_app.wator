@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col">
         <button type="submit" value="cn" name="lang" class="btn btn-primary">
-          <i class="material-icons" style="font-size:8px;">hearing</i>
+          <i class="material-icons" style="font-size:18px;">hearing</i>
         </button>
       </div>
       <div class="col">
         <button type="submit" value="cn" name="lang" class="btn btn-primary">
-          <i class="material-icons" style="font-size:8px;">mic</i>
+          <i class="material-icons" style="font-size:18px;color:red;">mic</i>
         </button>
       </div>
     </div>
