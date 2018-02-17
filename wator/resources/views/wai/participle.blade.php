@@ -35,7 +35,11 @@
   </div>
 </div>
 
+@if ($process)
 <div class="row justify-content-center">
+@else
+<div class="row justify-content-center d-none">
+@endif
   <div class="col-lg-10">
     <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
   </div>
@@ -49,11 +53,8 @@ foreach ($result as $sentence) {
   $resultAll .= '%';
 }
 @endphp
-@if ($process)
+
 <div class="row justify-content-center">
-@else
-<div class="row justify-content-center d-none">
-@endif
   <div class="col-lg-10">
     <pre class="text-justify text-nowrap bg-warning">
       <h3>{{ $resultAll }}</h3>
