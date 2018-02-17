@@ -32,6 +32,12 @@ $phonemeIndex = 0;
           <div class="col">
             @include('wai.ja_phoneme')
           </div>
+          <div class="col">
+            @include('wai.ja_phoneme')
+          </div>
+          <div class="col">
+            @include('wai.ja_phoneme')
+          </div>
         </div>
       </div>
     </div>
