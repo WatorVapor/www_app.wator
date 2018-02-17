@@ -115,7 +115,10 @@
             new_graph_card = graph_card.replace(/##sentence##/g,wai.sentence);
           }
           new_graph_card = new_graph_card.replace(/##graph##/g,wai.graph);
-          
+          let btn_text_opengraph = $( "#ui-update-opengraph" ).text();
+          new_graph_card = new_graph_card.replace(/##wai_participle.opengraph##/g,btn_text_opengraph);
+          let btn_text_facebook = $( "#ui-update-facebook" ).text();
+          new_graph_card = new_graph_card.replace(/##wai_participle.opengraph##/g,btn_text_facebook);
           $( "#ui-update-graph" ).append(new_graph_card);
         }
       });
