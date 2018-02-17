@@ -8,18 +8,20 @@
 @section('content')
 
 
-@php
-$phonemeTable = [
-'あ','い','う','え','お',
-];
-$phonemeIndex = 0;
-@endphp
-
 <div class="row justify-content-center">
   <div class="col-lg-5 ">
     <div class="card card-default">
       <div class="card-header text-center">
         {{ trans('wai_record_voice.pinyin') }}
+      </div>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5 ">
+    <div class="card card-default">
+      <div class="card-header text-center">
+        {{ trans('wai_record_voice.hirakana') }}
       </div>
       <div class="card-body">
         <div class="row justify-content-center">
@@ -39,15 +41,6 @@ $phonemeIndex = 0;
             @include('wai.ja_phoneme',['phoneme' => 'お'])
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-5 ">
-    <div class="card card-default">
-      <div class="card-header text-center">
-        {{ trans('wai_record_voice.hirakana') }}
-      </div>
-      <div class="card-body">
       </div>
     </div>
   </div>
