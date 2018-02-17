@@ -1,8 +1,9 @@
 <div class="card card-default text-center border border-danger">
   <div class="card-body">
-    <h1 class="card-title">{{ $phoneme }}</h1>
+    <h2 class="card-title">{{ $phoneme }}</h2>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-
 </div>
 
 <div class="row justify-content-center">
