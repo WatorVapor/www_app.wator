@@ -9,7 +9,9 @@ function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
 }
 function onNotifyMessage_(evt) {
-  console.log('onNotifyMessage_:evt=<',evt,'>');
+  console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
+  let jsonMsg = JSON.parse(evt.data);
+  console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
 }
 function onNotifyClose_(evt) {
   console.log('onNotifyClose_:evt=<',evt,'>');
