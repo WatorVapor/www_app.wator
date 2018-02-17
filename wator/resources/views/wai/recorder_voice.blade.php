@@ -17,7 +17,7 @@
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            @include('wai.recorder_phoneme')
+            @include('wai.ja_phoneme')
           </div>
         </div>
       </div>
