@@ -18,6 +18,12 @@
         <div class="row justify-content-center">
           <div class="col">
             <div>あ</div>
+            <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary">
+              <i class="material-icons md-48">hearing</i>
+            </button>
+            <button type="submit" value="cn" name="lang" class="btn btn-block btn-primary">
+              <i class="material-icons md-48">mic</i>
+            </button>
           </div>
         </div>
       </div>
