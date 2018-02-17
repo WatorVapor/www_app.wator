@@ -75,7 +75,7 @@
 
 <script type="text/javascript">
 
-  const graph_card = '<div class="card card-default text-center border border-danger">
+  let graph_card = '<div class="card card-default text-center border border-danger">
     <div class="card-body">
       <h4 class="card-title">##sentence##</h4>
       <img class="card-img-bottom" src="##graph##.svg" alt="Card image cap">
@@ -84,7 +84,7 @@
       <a href="##graph##.svg" target="_blank" class="btn btn-primary">##wai_participle.opengraph##</a>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/##graph##.png" target="_blank" class="btn btn-primary">##wai_participle.facebook##</a>
     </div>
-  </div>'
+  </div>';
     
 
   function onUpdateData(msg) {
