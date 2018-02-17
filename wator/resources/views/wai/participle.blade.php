@@ -39,7 +39,7 @@
 @else
 <div class="row justify-content-center ui-update-toggle d-none">
 @endif
-  <div class="col-lg-10">
+  <div class="col-lg-2">
     <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
   </div>
 </div>
