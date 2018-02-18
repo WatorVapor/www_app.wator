@@ -32,7 +32,7 @@ function uploadSlice(chunks,phoneme) {
   console.log('uploadSlice:urlBlob=<',urlBlob,'>');
   let phonemeElem = document.getElementById('upload-form-phoneme');
   console.log('uploadSlice:phonemeElem=<',phonemeElem,'>');
-  phonemeElem.textContent = phoneme;
+  phonemeElem.value = phoneme;
   let audioElem = document.getElementById('upload-form-audio');
   console.log('uploadSlice:audioElem=<',audioElem,'>');
 }
