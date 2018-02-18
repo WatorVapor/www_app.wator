@@ -1,8 +1,10 @@
 
-function uploadSlice(data,phoneme) {
+function uploadSlice(audio,phoneme) {
+  console.log('uploadSlice:audio=<',audio,'>');
   let formData = new FormData();
   formData.append('filename', phoneme + '.webm');
-  formData.append('audioBlob', data);
+  formData.append('audio', audio);
+  console.log('uploadSlice:formData=<',formData,'>');
   var url = window.location.href;
   $.ajax({
     type : 'post',
