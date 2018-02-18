@@ -48,7 +48,7 @@ function uploadSlice(chunks,phoneme) {
   console.log('uploadSlice:audioElem=<',audioElem,'>');
   */
   if(ipfs) {
-    ipfs.files.add(blob,{},function(err, result){
+    ipfs.files.add(blob,function(err, result){
       if (err) {
         throw err;
       }
