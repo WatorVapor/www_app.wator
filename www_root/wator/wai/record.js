@@ -29,7 +29,7 @@ function onMediaSuccess(stream,phoneme) {
     const blob = new Blob(chunks, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     console.log('ondataavailable:urlBlob=<',urlBlob,'>');
-    saveToFile(urlBlob,phoneme);
+    //saveToFile(urlBlob,phoneme);
   }
   mr.start();
   setTimeout(function(){
