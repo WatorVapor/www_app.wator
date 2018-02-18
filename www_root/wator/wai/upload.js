@@ -63,7 +63,7 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.cat('QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb',function(err, file){
+ipfs.files.cat('QmXGRP7raJbftByoz1dPvb1Yn57XYjzWUX6Mw4y5v3DvVy',function(err, file){
   if (err) {
     throw err;
   }
@@ -87,7 +87,7 @@ ipfs.files.cat('QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb',function(err, fi
     document.body.appendChild(a);
     a.style = 'display: none';
     a.href = urlBlob;
-    a.download = 'QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb.test.webm';
+    a.download = 'QmXGRP7raJbftByoz1dPvb1Yn57XYjzWUX6Mw4y5v3DvVy.test.webm';
     a.click();
     window.URL.revokeObjectURL(urlBlob);
   });
