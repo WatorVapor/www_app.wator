@@ -104,7 +104,27 @@
     //console.log('onClickRecordBtn:root=<',root,'>');
     let phoneme = root.getElementsByTagName('h4')[0].textContent;
     console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
+    doAudioRecord(phoneme);
   }
+  
+  function doAudioRecord(phoneme) {
+    console.log('doAudioRecord:phoneme=<',phoneme,'>');
+    let mediaConstraints = { audio: true};
+    navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+  }
+  function onMediaSuccess(stream) {
+    let mediaRecorder = new MediaStreamRecorder(stream);
+    mediaRecorder.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
+    mediaRecorder.ondataavailable = function (blob) {
+      let blobURL = URL.createObjectURL(blob);
+      console.log('ondataavailable:blobURL=<',blobURL,'>');
+    }
+    mediaRecorder.start(3000);
+  }
+  function onMediaError(e) {
+    console.error('media error e=<', e,'>');
+  }
+  
 </script>
 
 @endsection
