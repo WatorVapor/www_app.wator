@@ -36,7 +36,7 @@ class RecordVoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        var_dump($request);
         $bodyContent = $request->getContent();
         var_dump($bodyContent);
         $bodyJson = json_decode($bodyContent);
