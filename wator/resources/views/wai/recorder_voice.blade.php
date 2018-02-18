@@ -7,7 +7,6 @@
 
 @section('content')
 
-<!--
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
     <form action="#" method="post" enctype="multipart/form-data">
@@ -19,7 +18,6 @@
     </form>
   </div>
 </div>
--->
 
 
 <div class="row justify-content-center">
