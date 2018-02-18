@@ -48,9 +48,9 @@ function uploadSlice(chunks,phoneme) {
   let audioElem = document.getElementById('upload-form-audio');
   console.log('uploadSlice:audioElem=<',audioElem,'>');
   */
-  let bufText = Buffer.from(chunks, 'utf8');
+  let bufText = Buffer.from(chunks, 'binary');
   if(ipfs) {
-    ipfs.files.add(blob,function(bufText, result){
+    ipfs.files.add(bufText,function(err, result){
       if (err) {
         throw err;
       }
