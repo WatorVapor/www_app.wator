@@ -38,18 +38,24 @@ ipfs.id(function (err, identity) {
 });
 
 function uploadSlice(chunks,phoneme) {
-  let bufText = Buffer.from(chunks, 'binary');
-  if(ipfs) {
-    ipfs.files.add(bufText,function(err, result){
-      if (err) {
-        throw err;
-      }
-      console.log('uploadSlice::result=<',result,'>');
-      setTimeout(function () { 
-        tryReadFromIpfs(result);
-      },1);
-    });
-  }
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  const reader = new FileReader();  
+  reader.addEventListener('loadend', (e) => {
+    const text = e.srcElement.result;
+    let bufText = Buffer.from(text, 'binary');
+    if(ipfs) {
+      ipfs.files.add(bufText,function(err, result){
+        if (err) {
+          throw err;
+        }
+        console.log('uploadSlice::result=<',result,'>');
+        setTimeout(function () { 
+          tryReadFromIpfs(result);
+        },1);
+      });
+    }
+  }); 
+  reader.readAsText(blob);
 }
 
 function tryReadFromIpfs(result) {
