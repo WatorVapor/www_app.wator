@@ -118,15 +118,13 @@
     let mr = new MediaRecorder(stream);
     mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
     mr.ondataavailable = function (blob) {
-      setTimeout(function(){
-        mr.stop();      
-      },1);
+      mr.stop(); 
       console.log('ondataavailable:blob=<',blob,'>');
       let blobURL = window.URL.createObjectURL(blob);
       console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
-    mr.start(3000);
+    mr.start(5000);
   }
   function onMediaError(e) {
     console.error('media error e=<', e,'>');
