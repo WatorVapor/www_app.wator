@@ -38,6 +38,7 @@ ipfs.id(function (err, identity) {
 
 function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
+  /*
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('uploadSlice:urlBlob=<',urlBlob,'>');
   let phonemeElem = document.getElementById('upload-form-phoneme');
@@ -45,6 +46,15 @@ function uploadSlice(chunks,phoneme) {
   phonemeElem.value = phoneme;
   let audioElem = document.getElementById('upload-form-audio');
   console.log('uploadSlice:audioElem=<',audioElem,'>');
+  */
+  if(ipfs) {
+    ipfs.files.add(blob,{},function(err, result){
+      if (err) {
+        throw err;
+      }
+      console.log('uploadSlice::result=<',result,'>');
+    });
+  }
 }
 
 
