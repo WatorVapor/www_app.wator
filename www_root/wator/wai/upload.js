@@ -1,4 +1,4 @@
-
+/*
 function uploadSlice(chunks,phoneme) {
   let blob = new Blob(chunks, {type:"application/octet-stream"});
   console.log('uploadSlice:blob=<',blob,'>');
@@ -24,7 +24,7 @@ function uploadSlice(chunks,phoneme) {
     }
   });
 }
-
+*/
 
 /*
 const Buffer = window.IpfsApi().Buffer;
@@ -36,8 +36,6 @@ ipfs.id(function (err, identity) {
   }
   console.log('ipfs.id:identity=<',identity,'>');
 });
-
-
 
 function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -51,7 +49,18 @@ function uploadSlice(chunks,phoneme) {
     });
   }
 }
+
 */
+
+function uploadSlice(chunks,phoneme) {
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  let urlBlob = window.URL.createObjectURL(blob);
+  console.log('uploadSlice:urlBlob=<',urlBlob,'>');
+  window.URL.revokeObjectURL(urlBlob);
+}
+
+
+
 
 function saveToFile(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
