@@ -38,8 +38,8 @@ class RecordVoiceController extends Controller
     {
         $filename = $request->input('filename');
         var_dump($filename);
-        $data = $request->input('data');
-        var_dump($data);
+        $audioBlob = $request->input('audioBlob');
+        var_dump($audioBlob);
         return response()->json(['status'=>'success']);
     }
 }
