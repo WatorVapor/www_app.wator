@@ -121,8 +121,10 @@
       setTimeout(function(){
         mr.stop();      
       },1);
-      console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:blob=<',blob,'>');
+      let blobURL = window.URL.createObjectURL(blob);
+      console.log('ondataavailable:phoneme=<',phoneme,'>');
+      console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
     mr.start(3000);
   }
