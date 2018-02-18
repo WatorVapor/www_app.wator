@@ -117,10 +117,11 @@
   function onMediaSuccess(stream,phoneme) {
     let mr = new MediaRecorder(stream);
     mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
-    mr.ondataavailable = function (blob) {
-      console.log('ondataavailable:blob=<',blob,'>');
+    mr.ondataavailable = function (e) {
+      console.log('ondataavailable:e=<',e,'>');
       console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:window.URL=<',window.URL,'>');
+      const blob = new Blob(e.data, { type: 'audio/webm' });
       let urlBlob = window.URL.createObjectURL(blob);
       console.log('ondataavailable:urlBlob=<',urlBlob,'>');
     }
