@@ -9,6 +9,17 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
+    <form action="#" method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+  </div>
+</div>
+
+
+<div class="row justify-content-center">
+  <div class="col-lg-10 ">
     <div class="card card-default">
       <div class="card-header text-center">
         {{ trans('wai_record_voice.pinyin') }}
