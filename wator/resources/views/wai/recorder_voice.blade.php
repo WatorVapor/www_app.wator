@@ -120,7 +120,7 @@
     mr.ondataavailable = function (blob) {
       console.log('ondataavailable:blob=<',blob,'>');
       console.log('ondataavailable:phoneme=<',phoneme,'>');
-      console.log('ondataavailable:window.URL.createObjectURL=<',window.URL.createObjectURL,'>');
+      console.log('ondataavailable:window.URL=<',window.URL,'>');
       let urlBlob = window.URL.createObjectURL(blob);
       console.log('ondataavailable:urlBlob=<',urlBlob,'>');
     }
