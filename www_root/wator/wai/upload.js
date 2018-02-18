@@ -56,7 +56,7 @@ function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('uploadSlice:urlBlob=<',urlBlob,'>');
-  let file = document.getElementById("upload-form-audio").files[0];
+  let file = document.getElementById('upload-form-audio');
   console.log('uploadSlice:file=<',file,'>');
   window.URL.revokeObjectURL(urlBlob);
 }
