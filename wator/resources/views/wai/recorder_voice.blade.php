@@ -10,8 +10,9 @@
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
     <form action="#" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="text" name="phoneme" id="upload-form-phoneme">
+        <input type="text" name="token" id="upload-form-token">
+        <input type="file" name="audio" id="upload-form-audio">
         <input type="submit" value="Upload Image" name="submit">
     </form>
   </div>
