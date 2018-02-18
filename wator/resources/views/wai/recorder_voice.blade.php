@@ -124,7 +124,7 @@
       console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
     mr.start();
-    setTimout(function(){
+    setTimeout(function(){
       mr.stop();
     },5000);
   }
