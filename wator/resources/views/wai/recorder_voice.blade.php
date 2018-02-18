@@ -118,9 +118,9 @@
     let mr = new MediaRecorder(stream);
     mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
     mr.ondataavailable = function (blob) {
-      let blobURL = URL.createObjectURL(blob);
+      mr.stop();
       console.log('ondataavailable:phoneme=<',phoneme,'>');
-      console.log('ondataavailable:blobURL=<',blobURL,'>');
+      console.log('ondataavailable:blob=<',blob,'>');
     }
     mr.start(3000);
   }
