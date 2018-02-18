@@ -57,11 +57,15 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.get('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, result){
+ipfs.files.get('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, files){
   if (err) {
     throw err;
   }
-  console.log('uploadSlice::result=<',result,'>');
+  files.forEach((file) => {
+    console.log(file.path);
+    console.log('ipfs.files.get::file.path=<',file.path,'>');
+    console.log('ipfs.files.get::file.content=<',file.content,'>');
+  })
 });
 
 /*
