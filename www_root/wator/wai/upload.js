@@ -61,6 +61,17 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   if (err) {
     throw err;
   }
+  var res = '';
+  stream.on('data', function (chunk) {
+    res += chunk.toString()
+  })
+  stream.on('error', function (err) {
+    console.error('Oh nooo', err)    
+  })
+  stream.on('end', function () {
+    console.log('Got:', res)
+  });
+  
   console.log('ipfs.files.cat::file=<',file,'>');
   console.log('ipfs.files.cat::file.toString=<',file.toString('binary'),'>');
   var blob = new Blob(file, { type: 'audio/webm' })
