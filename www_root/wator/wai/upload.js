@@ -60,6 +60,7 @@ function uploadSlice(chunks,phoneme) {
   console.log('uploadSlice:urlBlob=<',urlBlob,'>');
   let pack = {blob:blob};
   console.log('uploadSlice:pack=<',pack,'>');
+  console.log('uploadSlice:pack=<',JSON.stringify(pack),'>');
   let file = document.getElementById('upload-form-audio').files;
   console.log('uploadSlice:file=<',file,'>');
   window.URL.revokeObjectURL(urlBlob);
