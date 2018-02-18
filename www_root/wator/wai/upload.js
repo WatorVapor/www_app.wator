@@ -20,3 +20,15 @@ function uploadSlice(data,phoneme) {
     }
   });
 }
+
+
+function saveToFile(url,phoneme) {
+  let a = document.createElement('a');
+  document.body.appendChild(a);
+  a.style = 'display: none';
+  a.href = url;
+  a.download = phoneme + '.test.webm';
+  a.click();
+  window.URL.revokeObjectURL(url);
+}
+
