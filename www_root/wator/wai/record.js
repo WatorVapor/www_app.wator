@@ -29,12 +29,12 @@ function onMediaSuccess(stream,phoneme) {
     const blob = new Blob(chunks, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     console.log('ondataavailable:urlBlob=<',urlBlob,'>');
-    saveToFile(urlBlob);
+    //saveToFile(urlBlob);
   }
   mr.start();
   setTimeout(function(){
     mr.stop();
-  },5000);
+  },1000);
 }
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
