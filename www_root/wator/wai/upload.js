@@ -2,7 +2,7 @@
 function uploadSlice(data,phoneme) {
   let formData = new FormData();
   formData.append('filename', phoneme + '.webm');
-  formData.append('data', data);
+  formData.append('audioBlob', data);
   var url = window.location.href;
   $.ajax({
     type : 'post',
