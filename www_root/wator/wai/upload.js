@@ -1,5 +1,6 @@
+
 function uploadSlice(data,phoneme) {
-  var formData = new FormData();
+  let formData = new FormData();
   formData.append('filename', phoneme + '.webm');
   formData.append('data', data);
   var url = window.location.href;
@@ -7,7 +8,7 @@ function uploadSlice(data,phoneme) {
     type : 'post',
     url : url,
     data : formData,
-    contentType: false
+    contentType: false,
     processData: false,
     success : function(data) {
       // Success
