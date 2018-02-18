@@ -61,21 +61,20 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   if (err) {
     throw err;
   }
-  var res = '';
+  console.log('ipfs.files.cat::file=<',file,'>');
+  var res = [];
   file.on('data', function (chunk) {
-    res += chunk.toString()
+    res.push(chunk);
   })
   file.on('error', function (err) {
     console.error('Oh nooo', err)    
   })
   file.on('end', function () {
     console.log('Got:', res)
+    var blob = new Blob(res, { type: 'audio/webm' })
+    console.log('ipfs.files.cat::blob=<',blob,'>');
   });
   
-  console.log('ipfs.files.cat::file=<',file,'>');
-  console.log('ipfs.files.cat::file.toString=<',file.toString('binary'),'>');
-  var blob = new Blob(file, { type: 'audio/webm' })
-  console.log('ipfs.files.cat::blob=<',blob,'>');
 });
 
 
