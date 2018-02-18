@@ -36,10 +36,8 @@ class RecordVoiceController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('file');
-        var_dump($file);
-        $path = $file->path();
-        var_dump($path);
+        $filename = $request->input('filename');
+        var_dump($filename);
         return response()->json(['status'=>'success']);
     }
 }
