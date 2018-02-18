@@ -59,6 +59,14 @@ function uploadSlice(chunks,phoneme) {
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('uploadSlice:urlBlob=<',urlBlob,'>');
   let pack = {blob:blob};
+  const reader = new FileReader();
+  
+  reader.addEventListener('loadend', (e) => {
+    const text = e.srcElement.result;
+    console.log('uploadSlice:text=<',text,'>');
+  }); 
+  reader.readAsText(blob);
+  
   console.log('uploadSlice:pack=<',pack,'>');
   console.log('uploadSlice:pack=<',JSON.stringify(pack),'>');
   let file = document.getElementById('upload-form-audio').files;
