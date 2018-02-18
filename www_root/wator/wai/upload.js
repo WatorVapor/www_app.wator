@@ -25,6 +25,7 @@ function uploadSlice(chunks,phoneme) {
   });
 }
 */
+const Buffer = window.IpfsApi().Buffer;
 
 let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
 ipfs.id(function (err, identity) {
