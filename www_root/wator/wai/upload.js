@@ -87,7 +87,7 @@ ipfs.files.cat('QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb',function(err, fi
     document.body.appendChild(a);
     a.style = 'display: none';
     a.href = urlBlob;
-    a.download = phoneme + '.test.webm';
+    a.download = 'QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb.test.webm';
     a.click();
     window.URL.revokeObjectURL(urlBlob);
   });
