@@ -57,24 +57,15 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.get('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, files){
+ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, file){
   if (err) {
     throw err;
   }
-  console.log('ipfs.files.get::files=<',files,'>');
-  files.forEach((file) => {
-    console.log(file.path);
-    console.log('ipfs.files.get::file.path=<',file.path,'>');
-    console.log('ipfs.files.get::file.content=<',file.content,'>');
-  })
+  console.log('ipfs.files.get::file=<',file,'>');
+  console.log('ipfs.files.get::file.toString=<',file.toString('utf8'),'>');
 });
 
-const stream = ipfs.files.getReadableStream('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ')
-stream.on('data', (file) => {
-  // write the file's path and contents to standard out
-  console.log('ipfs.files.get::file.path=<',file.path,'>');
-  console.log('ipfs.files.get::file.content=<',file.content,'>');
-})
+
 
 
 /*
