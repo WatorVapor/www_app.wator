@@ -1,4 +1,4 @@
-/*
+
 function uploadSlice(chunks,phoneme) {
   let blob = new Blob(chunks, {type:"application/octet-stream"});
   console.log('uploadSlice:blob=<',blob,'>');
@@ -24,7 +24,9 @@ function uploadSlice(chunks,phoneme) {
     }
   });
 }
-*/
+
+
+/*
 const Buffer = window.IpfsApi().Buffer;
 
 let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
@@ -39,15 +41,6 @@ ipfs.id(function (err, identity) {
 
 function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
-  /*
-  let urlBlob = window.URL.createObjectURL(blob);
-  console.log('uploadSlice:urlBlob=<',urlBlob,'>');
-  let phonemeElem = document.getElementById('upload-form-phoneme');
-  console.log('uploadSlice:phonemeElem=<',phonemeElem,'>');
-  phonemeElem.value = phoneme;
-  let audioElem = document.getElementById('upload-form-audio');
-  console.log('uploadSlice:audioElem=<',audioElem,'>');
-  */
   let bufText = Buffer.from(chunks, 'binary');
   if(ipfs) {
     ipfs.files.add(bufText,function(err, result){
@@ -58,8 +51,7 @@ function uploadSlice(chunks,phoneme) {
     });
   }
 }
-
-
+*/
 
 function saveToFile(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
