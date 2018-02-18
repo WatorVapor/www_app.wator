@@ -121,7 +121,9 @@
       console.log('ondataavailable:e=<',e,'>');
       console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:window.URL=<',window.URL,'>');
-      const blob = new Blob(e.data, { type: 'audio/webm' });
+      const chunks = [];
+      chunks.push(e.data);
+      const blob = new Blob(chunks, { type: 'audio/webm' });
       let urlBlob = window.URL.createObjectURL(blob);
       console.log('ondataavailable:urlBlob=<',urlBlob,'>');
     }
