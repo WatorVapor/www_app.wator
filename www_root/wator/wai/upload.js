@@ -26,6 +26,16 @@ function uploadSlice(chunks,phoneme) {
 }
 */
 
+let ipfs = window.IpfsApi('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
+ipfs.id(function (err, identity) {
+  if (err) {
+    throw err
+  }
+  console.log('ipfs.id:identity=<',identity,'>');
+});
+
+
+
 function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   let urlBlob = window.URL.createObjectURL(blob);
