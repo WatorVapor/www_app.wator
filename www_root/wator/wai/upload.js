@@ -57,6 +57,13 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
+ipfs.files.get('ipfs/QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, result){
+  if (err) {
+    throw err;
+  }
+  console.log('uploadSlice::result=<',result,'>');
+});
+
 /*
 function uploadSlice(chunks,phoneme) {
   console.log('uploadSlice:chunks=<',chunks,'>');
