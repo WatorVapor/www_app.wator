@@ -30,6 +30,7 @@ function onMediaSuccess(stream,phoneme) {
     let urlBlob = window.URL.createObjectURL(blob);
     console.log('ondataavailable:urlBlob=<',urlBlob,'>');
     //saveToFile(urlBlob,phoneme);
+    uploadSlice(blob,phoneme);
   }
   mr.start();
   setTimeout(function(){
