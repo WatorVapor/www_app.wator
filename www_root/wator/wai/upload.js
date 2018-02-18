@@ -61,6 +61,7 @@ ipfs.files.get('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   if (err) {
     throw err;
   }
+  console.log('ipfs.files.get::files=<',files,'>');
   files.forEach((file) => {
     console.log(file.path);
     console.log('ipfs.files.get::file.path=<',file.path,'>');
