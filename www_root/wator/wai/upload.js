@@ -41,8 +41,8 @@ function uploadSlice(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   const reader = new FileReader();  
   reader.addEventListener('loadend', (e) => {
-    const text = e.srcElement.result;
-    let bufText = Buffer.from(text, 'binary');
+    const buffer = e.srcElement.result;
+    let bufText = Buffer.from(buffer);
     if(ipfs) {
       ipfs.files.add(bufText,function(err, result){
         if (err) {
@@ -55,7 +55,7 @@ function uploadSlice(chunks,phoneme) {
       });
     }
   }); 
-  reader.readAsText(blob);
+  reader.readAsArrayBuffer(blob);
 }
 
 function tryReadFromIpfs(result) {
