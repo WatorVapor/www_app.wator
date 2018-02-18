@@ -69,6 +69,14 @@ ipfs.files.get('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   })
 });
 
+const stream = ipfs.files.getReadableStream('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ')
+stream.on('data', (file) => {
+  // write the file's path and contents to standard out
+  console.log('ipfs.files.get::file.path=<',file.path,'>');
+  console.log('ipfs.files.get::file.content=<',file.content,'>');
+})
+
+
 /*
 function uploadSlice(chunks,phoneme) {
   console.log('uploadSlice:chunks=<',chunks,'>');
