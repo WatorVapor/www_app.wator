@@ -36,7 +36,7 @@ function uploadSlice(chunks,phoneme) {
   a.href = urlBlob;
   a.download = phoneme + '.test.webm';
   a.click();
-  window.URL.revokeObjectURL(url);
+  window.URL.revokeObjectURL(urlBlob);
 }
 
 
@@ -51,6 +51,6 @@ function saveToFile(chunks,phoneme) {
   a.href = urlBlob;
   a.download = phoneme + '.test.webm';
   a.click();
-  window.URL.revokeObjectURL(url);
+  window.URL.revokeObjectURL(urlBlob);
 }
 
