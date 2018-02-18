@@ -62,13 +62,13 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
     throw err;
   }
   var res = '';
-  stream.on('data', function (chunk) {
+  file.on('data', function (chunk) {
     res += chunk.toString()
   })
-  stream.on('error', function (err) {
+  file.on('error', function (err) {
     console.error('Oh nooo', err)    
   })
-  stream.on('end', function () {
+  file.on('end', function () {
     console.log('Got:', res)
   });
   
