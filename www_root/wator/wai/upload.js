@@ -1,7 +1,7 @@
 
 function uploadSlice(chunks,phoneme) {
-  console.log('uploadSlice:audio=<',audio,'>');
   let blob = new Blob(chunks, {type:"application/octet-stream"});
+  console.log('uploadSlice:blob=<',blob,'>');
   let formData = new FormData();
   formData.append('filename', phoneme + '.webm');
   formData.append('audio', blob);
