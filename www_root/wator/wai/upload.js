@@ -57,12 +57,12 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, file){
+ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',{ buffer: true },function(err, file){
   if (err) {
     throw err;
   }
   console.log('ipfs.files.cat::file=<',file,'>');
-  var res = [];
+  let res = [];
   file.on('data', function (chunk) {
     res.push(chunk);
   })
