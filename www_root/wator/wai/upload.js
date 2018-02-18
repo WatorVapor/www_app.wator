@@ -63,7 +63,7 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, file){
+ipfs.files.cat('QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb',function(err, file){
   if (err) {
     throw err;
   }
