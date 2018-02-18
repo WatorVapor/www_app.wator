@@ -26,7 +26,7 @@ function uploadSlice(chunks,phoneme) {
 }
 */
 
-let ipfs = window.IpfsApi('master.ipfs.wator.xyz', '', {protocol: 'https'});
+let ipfs = window.IpfsApi('master.ipfs.wator.xyz', '443', {protocol: 'https'});
 ipfs.id(function (err, identity) {
   if (err) {
     throw err
