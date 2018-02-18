@@ -12,6 +12,7 @@ function uploadSlice(audio,phoneme) {
     data : formData,
     contentType: false,
     processData: false,
+    dataType: "script",
     success : function(data) {
       // Success
       console.log(data);
