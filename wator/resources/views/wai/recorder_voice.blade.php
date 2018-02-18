@@ -110,13 +110,16 @@
   function doAudioRecord(phoneme) {
     console.log('doAudioRecord:phoneme=<',phoneme,'>');
     let mediaConstraints = { audio: true};
-    navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+    navigator.getUserMedia(mediaConstraints, function(stream) {
+        onMediaSuccess(stream,phoneme);
+      }, onMediaError);
   }
-  function onMediaSuccess(stream) {
+  function onMediaSuccess(stream,phoneme) {
     let mediaRecorder = new MediaStreamRecorder(stream);
     mediaRecorder.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
     mediaRecorder.ondataavailable = function (blob) {
       let blobURL = URL.createObjectURL(blob);
+      console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
     mediaRecorder.start(3000);
