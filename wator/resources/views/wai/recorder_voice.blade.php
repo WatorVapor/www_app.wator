@@ -93,61 +93,6 @@
 
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-  function onUpdateData(msg) {
-    console.log('onUpdateData:msg=<',msg,'>');
-  }
-  function onClickRecordBtn(elem) {
-    //console.log('onClickRecordBtn:elem=<',elem,'>');
-    let root = elem.parentElement.parentElement;
-    //console.log('onClickRecordBtn:root=<',root,'>');
-    let phoneme = root.getElementsByTagName('h4')[0].textContent;
-    console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
-    doAudioRecord(phoneme);
-  }
-  
-  function doAudioRecord(phoneme) {
-    console.log('doAudioRecord:phoneme=<',phoneme,'>');
-    let mediaConstraints = { audio: true};
-    navigator.getUserMedia(mediaConstraints, function(stream) {
-        onMediaSuccess(stream,phoneme);
-      }, onMediaError);
-  }
-  function onMediaSuccess(stream,phoneme) {
-    let mr = new MediaRecorder(stream);
-    mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
-    mr.ondataavailable = function (e) {
-      console.log('ondataavailable:e=<',e,'>');
-      console.log('ondataavailable:phoneme=<',phoneme,'>');
-      console.log('ondataavailable:window.URL=<',window.URL,'>');
-      const chunks = [];
-      chunks.push(e.data);
-      const blob = new Blob(chunks, { type: 'audio/webm' });
-      let urlBlob = window.URL.createObjectURL(blob);
-      console.log('ondataavailable:urlBlob=<',urlBlob,'>');
-      saveToFile(urlBlob);
-    }
-    mr.start();
-    setTimeout(function(){
-      mr.stop();
-    },5000);
-  }
-  function onMediaError(e) {
-    console.error('media error e=<', e,'>');
-  }
-  
-  function saveToFile(url) {
-    let a = document.createElement('a');
-    document.body.appendChild(a);
-    a.style = 'display: none';
-    a.href = url;
-    a.download = 'test.webm';
-    a.click();
-    window.URL.revokeObjectURL(url);
-  }
-  
-  
-</script>
+<script src="/wator/wai/record.js" type="text/javascript"></script>
 
 @endsection
