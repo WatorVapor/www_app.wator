@@ -115,14 +115,14 @@
       }, onMediaError);
   }
   function onMediaSuccess(stream,phoneme) {
-    let mediaRecorder = new navigator.MediaStreamRecorder(stream);
-    mediaRecorder.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
-    mediaRecorder.ondataavailable = function (blob) {
+    let mr = new MediaRecorder(stream);
+    mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
+    mr.ondataavailable = function (blob) {
       let blobURL = URL.createObjectURL(blob);
       console.log('ondataavailable:phoneme=<',phoneme,'>');
       console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
-    mediaRecorder.start(3000);
+    mr.start(3000);
   }
   function onMediaError(e) {
     console.error('media error e=<', e,'>');
