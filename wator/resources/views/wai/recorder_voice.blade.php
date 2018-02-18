@@ -115,7 +115,7 @@
       }, onMediaError);
   }
   function onMediaSuccess(stream,phoneme) {
-    let mediaRecorder = new MediaStreamRecorder(stream);
+    let mediaRecorder = new navigator.MediaStreamRecorder(stream);
     mediaRecorder.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
     mediaRecorder.ondataavailable = function (blob) {
       let blobURL = URL.createObjectURL(blob);
