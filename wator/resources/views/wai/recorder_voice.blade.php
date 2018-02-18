@@ -126,6 +126,7 @@
       const blob = new Blob(chunks, { type: 'audio/webm' });
       let urlBlob = window.URL.createObjectURL(blob);
       console.log('ondataavailable:urlBlob=<',urlBlob,'>');
+      saveToFile(urlBlob);
     }
     mr.start();
     setTimeout(function(){
@@ -135,6 +136,17 @@
   function onMediaError(e) {
     console.error('media error e=<', e,'>');
   }
+  
+  function saveToFile(url) {
+    let a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    a.href = url;
+    a.download = 'test.webm';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  }
+  
   
 </script>
 
