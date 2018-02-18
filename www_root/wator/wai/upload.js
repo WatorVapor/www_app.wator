@@ -64,6 +64,7 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   console.log('ipfs.files.cat::file=<',file,'>');
   let res = [];
   file.on('data', function (chunk) {
+    console.log('chunk:', chunk)
     res.push(chunk);
   })
   file.on('error', function (err) {
@@ -74,8 +75,9 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
     var blob = new Blob(res, { type: 'audio/webm' })
     console.log('ipfs.files.cat::blob=<',blob,'>');
   });
+  file.read();
   
-},{ buffer: true });
+});
 
 
 
