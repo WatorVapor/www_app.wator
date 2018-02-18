@@ -1,12 +1,14 @@
-function uploadSlice(data) {
+function uploadSlice(data,phoneme) {
+  var formData = new FormData();
+  formData.append('filename', phoneme + '.webm');
+  formData.append('data', data);
   var url = window.location.href;
   $.ajax({
     type : 'post',
     url : url,
-    data : JSON.stringify(JSONdata),
-    contentType: 'application/JSON',
-    dataType : 'JSON',
-    scriptCharset: 'utf-8',
+    data : formData,
+    contentType: false
+    processData: false,
     success : function(data) {
       // Success
       console.log(data);
