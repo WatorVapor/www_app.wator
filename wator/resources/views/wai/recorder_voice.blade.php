@@ -105,9 +105,7 @@
 
 
 
-<!--
 <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous"></script>
--->
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
 <script src="/wator/wai/upload.js" type="text/javascript"></script>
