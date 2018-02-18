@@ -80,6 +80,16 @@ ipfs.files.cat('QmY8zTyqiXtC5kN2GP3mZ8SKUo5n1KBGYSjPEKFgJ18ggb',function(err, fi
     console.log('Got:', res)
     var blob = new Blob(res, { type: 'audio/webm' })
     console.log('ipfs.files.cat::blob=<',blob,'>');
+    
+    let urlBlob = window.URL.createObjectURL(blob);
+    console.log('saveToFile:urlBlob=<',urlBlob,'>');
+    let a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    a.href = urlBlob;
+    a.download = phoneme + '.test.webm';
+    a.click();
+    window.URL.revokeObjectURL(urlBlob);
   });
   file.read();
   
