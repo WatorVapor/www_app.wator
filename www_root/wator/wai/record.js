@@ -26,11 +26,8 @@ function onMediaSuccess(stream,phoneme) {
     console.log('ondataavailable:window.URL=<',window.URL,'>');
     const chunks = [];
     chunks.push(e.data);
-    const blob = new Blob(chunks, { type: 'audio/webm' });
-    let urlBlob = window.URL.createObjectURL(blob);
-    console.log('ondataavailable:urlBlob=<',urlBlob,'>');
-    //saveToFile(urlBlob,phoneme);
-    uploadSlice(blob,phoneme);
+   //saveToFile(chunks,phoneme);
+    uploadSlice(chunks,phoneme);
   }
   mr.start();
   setTimeout(function(){
