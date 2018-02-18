@@ -37,9 +37,10 @@ class RecordVoiceController extends Controller
     public function store(Request $request)
     {
         //
-        try {
-        } catch (\Exception $e) {
-        }
-        return redirect()->back();
+        $bodyContent = $request->getContent();
+        var_dump($bodyContent);
+        $bodyJson = json_decode($bodyContent);
+        var_dump($bodyJson);
+        return response()->json(['status'=>'success']);
     }
 }
