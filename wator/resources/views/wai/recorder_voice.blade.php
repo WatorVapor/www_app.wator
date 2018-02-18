@@ -119,9 +119,7 @@
     mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
     mr.ondataavailable = function (blob) {
       console.log('ondataavailable:blob=<',blob,'>');
-      let blobURL = window.URL.createObjectURL(blob);
       console.log('ondataavailable:phoneme=<',phoneme,'>');
-      console.log('ondataavailable:blobURL=<',blobURL,'>');
     }
     mr.start();
     setTimeout(function(){
