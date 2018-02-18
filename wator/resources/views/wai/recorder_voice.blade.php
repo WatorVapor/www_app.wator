@@ -120,6 +120,8 @@
     mr.ondataavailable = function (blob) {
       console.log('ondataavailable:blob=<',blob,'>');
       console.log('ondataavailable:phoneme=<',phoneme,'>');
+      let urlBlob = window.webkitURL.createObjectURL(blob);
+      console.log('ondataavailable:urlBlob=<',urlBlob,'>');
     }
     mr.start();
     setTimeout(function(){
