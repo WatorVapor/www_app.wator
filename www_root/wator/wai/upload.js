@@ -61,8 +61,8 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, fi
   if (err) {
     throw err;
   }
-  console.log('ipfs.files.get::file=<',file,'>');
-  console.log('ipfs.files.get::file.toString=<',file.toString('utf8'),'>');
+  console.log('ipfs.files.cat::file=<',file,'>');
+  console.log('ipfs.files.cat::file.toString=<',file.toString('binary'),'>');
 });
 
 
