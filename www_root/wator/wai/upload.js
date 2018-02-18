@@ -1,32 +1,3 @@
-/*
-function uploadSlice(chunks,phoneme) {
-  let blob = new Blob(chunks, {type:"application/octet-stream"});
-  console.log('uploadSlice:blob=<',blob,'>');
-  let formData = new FormData();
-  formData.append('filename', phoneme + '.webm');
-  formData.append('audio', blob);
-  console.log('uploadSlice:formData=<',formData,'>');
-  var url = window.location.href;
-  $.ajax({
-    type : 'post',
-    url : url,
-    data : formData,
-    cache : false,
-    contentType: false,
-    processData: false,
-    success : function(data) {
-      // Success
-      console.log(data);
-    },
-    error : function(data) {
-      // Error
-      console.log(data);
-    }
-  });
-}
-*/
-
-
 const Buffer = window.IpfsApi().Buffer;
 
 let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
@@ -63,6 +34,7 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
+/*
 ipfs.files.cat('QmXGRP7raJbftByoz1dPvb1Yn57XYjzWUX6Mw4y5v3DvVy',function(err, file){
   if (err) {
     throw err;
@@ -94,7 +66,7 @@ ipfs.files.cat('QmXGRP7raJbftByoz1dPvb1Yn57XYjzWUX6Mw4y5v3DvVy',function(err, fi
   file.read();
   
 });
-
+*/
 
 
 
@@ -121,8 +93,6 @@ function uploadSlice(chunks,phoneme) {
   window.URL.revokeObjectURL(urlBlob);
 }
 */
-
-
 
 function saveToFile(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
