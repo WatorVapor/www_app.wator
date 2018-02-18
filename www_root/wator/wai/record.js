@@ -29,7 +29,7 @@ function onMediaSuccess(stream,phoneme) {
     const blob = new Blob(chunks, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     console.log('ondataavailable:urlBlob=<',urlBlob,'>');
-    //saveToFile(urlBlob);
+    saveToFile(urlBlob,phoneme);
   }
   mr.start();
   setTimeout(function(){
@@ -40,12 +40,12 @@ function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
 
-function saveToFile(url) {
+function saveToFile(url,phoneme) {
   let a = document.createElement('a');
   document.body.appendChild(a);
   a.style = 'display: none';
   a.href = url;
-  a.download = 'test.webm';
+  a.download = phoneme + '.test.webm';
   a.click();
   window.URL.revokeObjectURL(url);
 }
