@@ -57,7 +57,7 @@ function tryReadFromIpfs(result) {
   //const blob = new Blob(chunks, { type: 'audio/webm' });
 }
 
-ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',{ buffer: true },function(err, file){
+ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',function(err, file){
   if (err) {
     throw err;
   }
@@ -75,7 +75,7 @@ ipfs.files.cat('QmS9JArPwa55ePgDnyg6TzX24mYTS1b1vLqWNebyVotKxQ',{ buffer: true }
     console.log('ipfs.files.cat::blob=<',blob,'>');
   });
   
-});
+},{ buffer: true });
 
 
 
