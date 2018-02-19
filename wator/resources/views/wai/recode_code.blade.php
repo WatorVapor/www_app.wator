@@ -71,6 +71,7 @@ function analyzeBlobWebm(chunks) {
   let times = new Uint8Array(analyser.frequencyBinCount);
   console.log('analyzeBlobWebm times=<',times,'>');
   source.connect(analyser);
+  source.start(0);
   analyser.getByteTimeDomainData(times);
   console.log('analyzeBlobWebm times=<',times,'>');
 }
