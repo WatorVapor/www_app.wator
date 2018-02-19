@@ -15,5 +15,19 @@
         </button>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm  m-0 p-0">
+        <audio controls="controls" id="wai-recoder-standard">
+          <source src="" type="audio/webm">
+        </audio>
+      </div>
+      <div class="col-sm  m-0 p-0">
+        <audio controls="controls" id="wai-recoder-train">
+          <source src="" type="audio/webm">
+        </audio>
+      </div>
+    </div>
   </div>
 </div>
+
