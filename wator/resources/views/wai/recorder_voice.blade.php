@@ -22,6 +22,7 @@
 -->
 
 
+<!--
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
     <div class="card card-default">
@@ -33,6 +34,7 @@
     </div>
   </div>
 </div>
+-->
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
