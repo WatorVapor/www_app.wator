@@ -140,6 +140,7 @@
 <script src="/wator/wai/record.js" type="text/javascript"></script>
 -->
 
+@include('wai.recode_code')
 <script type="text/javascript">
 
 function onUpdateData(msg) {
