@@ -55,6 +55,9 @@ function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
 
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = new AudioContext();
+
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -62,6 +65,8 @@ function analyzeBlobWebm(chunks) {
   let audioElem = document.getElementById('wai-recoder-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
+  let source = audioCtx.createMediaElementSource(audioElem);
+  console.log('analyzeBlobWebm source=<',source,'>');
 }
 
 
