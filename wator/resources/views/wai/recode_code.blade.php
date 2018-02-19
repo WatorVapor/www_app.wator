@@ -44,6 +44,7 @@ function onMediaSuccess(stream,phoneme) {
     console.log('onstop:e=<',e,'>');
     console.log('onstop:chunks4clip=<',chunks4clip,'>');
     console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
+    analyzeBlobWebm(chunks4analyze);
   }
   mr.start(50);
   setTimeout(function(){
@@ -53,5 +54,10 @@ function onMediaSuccess(stream,phoneme) {
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
+
+function analyzeBlobWebm(blobs) {
+  console.error('analyzeBlobWebm blobs=<',blobs,'>');
+}
+
 
 </script>
