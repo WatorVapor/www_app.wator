@@ -20,16 +20,26 @@ function doAudioRecord(phoneme) {
 function onMediaSuccess(stream,phoneme) {
   let mr = new MediaRecorder(stream);
   mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
+  let chunks = {};
+  let clipIndex = 0;
   mr.ondataavailable = function (e) {
-    console.log('ondataavailable:e=<',e,'>');
-    console.log('ondataavailable:phoneme=<',phoneme,'>');
-    console.log('ondataavailable:window.URL=<',window.URL,'>');
-    const chunks = [];
-    chunks.push(e.data);
+    //console.log('ondataavailable:e=<',e,'>');
+    //console.log('ondataavailable:phoneme=<',phoneme,'>');
+    //console.log('ondataavailable:window.URL=<',window.URL,'>');
+    chunks[clipIndex++] = e.data;
    //saveToFile(chunks,phoneme);
-    uploadSlice(chunks,phoneme);
+   //uploadSlice(chunks,phoneme);
   }
-  mr.start();
+  mr.onerror = function (e) {
+    console.log('error:e=<',e,'>');
+  }
+  mr.onstart = function (e) {
+    console.log('onstart:e=<',e,'>');
+  }
+  mr.onstop = function (e) {
+    console.log('onstop:e=<',e,'>');
+  }
+  mr.start(20);
   setTimeout(function(){
     mr.stop();
   },1000);
