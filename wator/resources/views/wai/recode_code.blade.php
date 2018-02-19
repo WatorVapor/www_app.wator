@@ -72,7 +72,7 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm times=<',times,'>');
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
-  //source.start(0);
+  audioElem.play();
   analyser.getByteTimeDomainData(times);
   console.log('analyzeBlobWebm times=<',times,'>');
 }
