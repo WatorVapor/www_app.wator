@@ -68,11 +68,10 @@ function analyzeBlobWebm(chunks) {
   let source = audioCtx.createMediaElementSource(audioElem);
   console.log('analyzeBlobWebm source=<',source,'>');
   let analyser = audioCtx.createAnalyser();
-  let times = new Uint8Array(analyser.frequencyBinCount);
-  console.log('analyzeBlobWebm times=<',times,'>');
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
   audioElem.play();
+  let times = new Uint8Array(analyser.fftSize);
   analyser.getByteTimeDomainData(times);
   console.log('analyzeBlobWebm times=<',times,'>');
 }
