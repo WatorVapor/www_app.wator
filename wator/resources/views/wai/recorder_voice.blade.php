@@ -164,13 +164,15 @@ function doAudioRecord(phoneme) {
 function onMediaSuccess(stream,phoneme) {
   let mr = new MediaRecorder(stream);
   mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
-  let chunks = {};
+  let chunks4clip = {};
+  let chunks4analyze = [];
   let clipIndex = 0;
   mr.ondataavailable = function (e) {
     //console.log('ondataavailable:e=<',e,'>');
     //console.log('ondataavailable:phoneme=<',phoneme,'>');
     //console.log('ondataavailable:window.URL=<',window.URL,'>');
-    chunks[clipIndex++] = e.data;
+    chunks4clip[clipIndex++] = e.data;
+    chunks4analyze.push(e.data);
    //saveToFile(chunks,phoneme);
    //uploadSlice(chunks,phoneme);
   }
@@ -182,7 +184,8 @@ function onMediaSuccess(stream,phoneme) {
   }
   mr.onstop = function (e) {
     console.log('onstop:e=<',e,'>');
-    console.log('onstop:chunks=<',chunks,'>');
+    console.log('onstop:chunks4clip=<',chunks4clip,'>');
+    console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
   }
   mr.start(50);
   setTimeout(function(){
