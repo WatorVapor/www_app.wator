@@ -184,7 +184,7 @@ function onMediaSuccess(stream,phoneme) {
     console.log('onstop:e=<',e,'>');
     console.log('onstop:chunks=<',chunks,'>');
   }
-  mr.start(20);
+  mr.start(50);
   setTimeout(function(){
     mr.stop();
   },1000);
