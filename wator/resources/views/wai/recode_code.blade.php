@@ -67,6 +67,10 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
   let source = audioCtx.createMediaElementSource(audioElem);
   console.log('analyzeBlobWebm source=<',source,'>');
+  let analyser = audioCtx.createAnalyser();
+  let times = new Uint8Array(analyser.frequencyBinCount);
+  source.connect(analyser);
+  console.log('analyzeBlobWebm times=<',times,'>');
 }
 
 
