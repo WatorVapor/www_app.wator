@@ -184,10 +184,10 @@ function onMediaSuccess(stream,phoneme) {
     console.log('onstop:e=<',e,'>');
     console.log('onstop:chunks=<',chunks,'>');
   }
-  mr.start(50);
+  mr.start(100);
   setTimeout(function(){
     mr.stop();
-  },1000);
+  },3000);
 }
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
