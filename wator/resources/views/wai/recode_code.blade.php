@@ -56,7 +56,7 @@ function onMediaError(e) {
 }
 
 function analyzeBlobWebm(blobs) {
-  console.error('analyzeBlobWebm blobs=<',blobs,'>');
+  console.log('analyzeBlobWebm blobs=<',blobs,'>');
 }
 
 
