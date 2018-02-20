@@ -82,21 +82,22 @@ function analyzeBlobWebm(chunks) {
 }
 
 let chartConfig = {
-    type: 'line',
-    data: {
-      labels: [],
-      datasets: [{
-        label: "X",
-        backgroundColor: 'red',
-        borderColor: 'red',
-        data: [],
-        fill: false,
-        pointRadius: 1,
-        borderWidth:1
-       }
-     ]
-    }
-    options: {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: "X",
+      backgroundColor: 'red',
+      borderColor: 'red',
+      data: [],
+      fill: false,
+      pointRadius: 1,
+      borderWidth:1
+     }
+   ]
+  },
+  options: {
+  }
 }
 
 
