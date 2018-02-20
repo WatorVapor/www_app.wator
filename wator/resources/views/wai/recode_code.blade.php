@@ -89,6 +89,10 @@ function analyzeBlobWebm(chunks) {
   reader.onload = function() {
     audioCtx.decodeAudioData(reader.result, function(decodedData) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
+      for( let i = 0;i < decodedData.numberOfChannels;i++) {
+        let data = decodedData.getChannelData(i);
+        console.log('analyzeBlobWebm data=<',data,'>');
+      }
     });
   };
   reader.readAsArrayBuffer(blob);
