@@ -32,6 +32,7 @@
     </div>
 
     <hr/>
+<!--    
     <div class="row">
       <div class="col  m-0 p-0">
       </div>
@@ -40,6 +41,8 @@
       </div>
     </div>
     <br/>
+-->    
+    
     <div class="row">
       <div class="col  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
