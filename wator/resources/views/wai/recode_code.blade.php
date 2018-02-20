@@ -116,6 +116,11 @@ let chartConfig = {
       }
     }],
     yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: -1.0,
+        max: 1.0
+      },
       display: false,
       gridLines: {
         display: false,
@@ -140,7 +145,13 @@ function showWaveChart(data,idCanvas) {
     chartConfig.data.datasets[0].data.push(data[i]);  
   }
   //chartConfig.data.datasets[0].data.push(-1.0);
-  console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
+  let maxY = Math.max.apply(null, chartConfig.data.datasets[0].data);
+  let minY = Math.min.apply(null, chartConfig.data.datasets[0].data);
+  //console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
+  console.log('showWaveChart maxY=<',maxY,'>');
+  console.log('showWaveChart minY=<',minY,'>');
+  chartConfig.options.scales.yAxes[0].ticks.max = maxY;
+  chartConfig.options.scales.yAxes[0].ticks.min = minY;
   let wavchar = new Chart(ctx,chartConfig);
 }
 
