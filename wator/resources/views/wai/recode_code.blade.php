@@ -136,7 +136,7 @@ let chartConfig = {
   }
 }
 
-#stepSize: 1
+//stepSize: 1
 
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
