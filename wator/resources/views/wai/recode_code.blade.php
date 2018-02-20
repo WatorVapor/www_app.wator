@@ -156,7 +156,7 @@ function showWaveChart(data,idCanvas) {
 
 
   chartConfig.data.datasets[0].data = [];
-  /*
+
   chartConfig.data.datasets[0].data.push(adjustFactor*maxY);
   for(let i = 0;i < data.length;i++) {
     if(data[i] > 0.0) {
@@ -168,8 +168,8 @@ function showWaveChart(data,idCanvas) {
     }
   }
   chartConfig.data.datasets[0].data.push(adjustFactor*minY);
-  */
-  sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
+
+  //sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
 
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
