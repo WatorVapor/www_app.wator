@@ -151,11 +151,17 @@ function showWaveChart(data,idCanvas) {
 chartConfig.data.datasets[0].data = [];
   //chartConfig.data.datasets[0].data.push(1.0);
   for(let i = 0;i < data.length;i++) {
-    chartConfig.data.datasets[0].data.push(data[i]);  
+    if(data[i] > 0.0) {
+      let dataAdjust = ( 1000.0* data[i] )/maxY
+      chartConfig.data.datasets[0].data.push(dataAdjust);
+    } else {
+      let dataAdjust = ( 1000.0* data[i] )/minY
+      chartConfig.data.datasets[0].data.push(dataAdjust);
+    }
   }
   //chartConfig.data.datasets[0].data.push(-1.0);
-  chartConfig.options.scales.yAxes[0].ticks.max = maxY;
-  chartConfig.options.scales.yAxes[0].ticks.min = minY;
+  chartConfig.options.scales.yAxes[0].ticks.max = 1000.0*maxY;
+  chartConfig.options.scales.yAxes[0].ticks.min = 1000.0*minY;
   let wavchar = new Chart(ctx,chartConfig);
 }
 
