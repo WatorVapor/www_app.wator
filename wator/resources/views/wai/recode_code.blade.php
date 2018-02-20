@@ -12,7 +12,7 @@ function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
   
   let timerCounterMax = RECORD_TIME_MS/300 -1; 
-  let timerCounter = RECORD_TIME_MS/300 -1; 
+  let timerCounter = RECORD_TIME_MS/300 -2; 
 
   let parent = root = elem.parentElement;
   console.log('onClickRecordBtn:parent=<',parent,'>');
@@ -22,7 +22,7 @@ function onClickRecordBtn(elem) {
   let timer = setInterval( function() {
     let percentage = 100*timerCounter/timerCounterMax;
     progress.style.cssText ='width: ' + percentage + '%;'; 
-    if(timerCounter-- <= 1) {
+    if(timerCounter-- <= 0) {
       clearInterval(timer);
     }
   },300);
