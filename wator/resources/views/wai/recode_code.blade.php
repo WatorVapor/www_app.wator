@@ -143,17 +143,17 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let ctx = document.getElementById(idCanvas).getContext('2d');
   
-  chartConfig.data.datasets[0].data = [];
+  let maxY = Math.max.apply(null, data);
+  let minY = Math.min.apply(null, data);
+  console.log('showWaveChart maxY=<',maxY,'>');
+  console.log('showWaveChart minY=<',minY,'>');
+
+chartConfig.data.datasets[0].data = [];
   //chartConfig.data.datasets[0].data.push(1.0);
   for(let i = 0;i < data.length;i++) {
     chartConfig.data.datasets[0].data.push(data[i]);  
   }
   //chartConfig.data.datasets[0].data.push(-1.0);
-  let maxY = Math.max.apply(null, chartConfig.data.datasets[0].data);
-  let minY = Math.min.apply(null, chartConfig.data.datasets[0].data);
-  //console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
-  console.log('showWaveChart maxY=<',maxY,'>');
-  console.log('showWaveChart minY=<',minY,'>');
   chartConfig.options.scales.yAxes[0].ticks.max = maxY;
   chartConfig.options.scales.yAxes[0].ticks.min = minY;
   let wavchar = new Chart(ctx,chartConfig);
