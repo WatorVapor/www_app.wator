@@ -14,7 +14,7 @@ function onClickRecordBtn(elem) {
   let timerCounterMax = RECORD_TIME_MS/300; 
   let timerCounter = RECORD_TIME_MS/300 -1; 
 
-  let parent = root = elem.parentElement;
+  let parent = elem.parentElement;
   console.log('onClickRecordBtn:parent=<',parent,'>');
   let progress = parent.getElementsByClassName('progress-bar')[0];
   console.log('onClickRecordBtn:progress=<',progress,'>');
