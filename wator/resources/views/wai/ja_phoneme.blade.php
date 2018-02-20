@@ -5,12 +5,12 @@
     <div class="row">
       <div class="col  m-0 p-0">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle">
-          <i class="material-icons " style="font-size:48px;color:green;">hearing</i>
+          <i class="material-icons " style="font-size:36px;color:green;">hearing</i>
         </button>
       </div>
       <div class="col  m-0 p-0">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" onclick="onClickRecordBtn(this)">
-          <i class="material-icons " style="font-size:48px;color:red;">mic</i>
+          <i class="material-icons " style="font-size:36px;color:red;">mic</i>
         </button>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
