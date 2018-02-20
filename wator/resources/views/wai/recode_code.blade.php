@@ -136,7 +136,9 @@ function showWaveChart(data,idCanvas) {
   
   chartConfig.data.datasets[0].data = [];
   chartConfig.data.datasets[0].data.push(1.0);
-  chartConfig.data.datasets[0].data.push(data);
+  for(let i = 0;i < data.length;i++) {
+    chartConfig.data.datasets[0].data.push(data[i]);  
+  }
   chartConfig.data.datasets[0].data.push(-1.0);
   console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
   let wavchar = new Chart(ctx,chartConfig);
