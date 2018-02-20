@@ -9,12 +9,12 @@
       </div>
       <div class="col  m-0 p-0">
         <div class="row">
-          <div class="col-2  m-0 p-0">
+          <div class="col-2  m-0 p-0 align-middle">
             <button type="submit" class="btn btn-dark rounded-circle" onclick="onClickRecordBtn(this)">
               <i class="material-icons " style="font-size:12px;color:red;">mic</i>
             </button>
           </div>
-          <div class="col-10  m-0 p-0">
+          <div class="col-10  m-0 p-0 align-middle">
             <div class="progress align-middle">
               <div class="progress-bar progress-bar-striped progress-bar-animated align-middle" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
