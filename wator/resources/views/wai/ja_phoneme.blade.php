@@ -53,6 +53,12 @@
 </div>
 
 
+<style>
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+</style>
+
 <script type="text/javascript">
 $('#ex1').slider({
 	formatter: function(value) {
