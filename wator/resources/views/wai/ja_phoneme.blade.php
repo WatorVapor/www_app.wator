@@ -53,10 +53,11 @@
 </div>
 
 
+<script type="text/javascript">
 $('#ex1').slider({
 	formatter: function(value) {
 		return 'Current value: ' + value;
 	}
 });
-
+</script>
 
