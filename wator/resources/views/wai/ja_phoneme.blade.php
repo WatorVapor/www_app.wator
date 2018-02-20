@@ -34,6 +34,8 @@
       <div class="col-sm  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm  m-0 p-0">
         <canvas id="wai-recoder-canvas-train"></canvas>
       </div>
