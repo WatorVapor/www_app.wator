@@ -169,6 +169,8 @@ function showWaveChart(data,idCanvas) {
   chartConfig.data.datasets[0].data.push(adjustFactor*minY);
   */
   sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
+  console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
+
   chartConfig.options.scales.yAxes[0].ticks.max = adjustFactor*maxY;
   chartConfig.options.scales.yAxes[0].ticks.min = adjustFactor*minY;
   let wavchar = new Chart(ctx,chartConfig);
