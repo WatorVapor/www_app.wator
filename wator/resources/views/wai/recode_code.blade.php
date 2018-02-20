@@ -16,13 +16,15 @@ function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   let timerCounterMax = RECORD_TIME_MS/300 -1; 
   let timerCounter = RECORD_TIME_MS/300 -1; 
+
+  let parent = root = elem.parentElement;
+  console.log('onClickRecordBtn:parent=<',parent,'>');
+  let progress = parent.getElementsByClassName('progress-bar')[0];
+  console.log('onClickRecordBtn:progress=<',progress,'>');
+  progress.style.cssText ='width: 100%;'; 
   let timer = setInterval( function() {
-    let parent = root = elem.parentElement;
-    console.log('onClickRecordBtn:parent=<',parent,'>');
-    let progress = parent.getElementsByClassName('progress-bar')[0];
-    console.log('onClickRecordBtn:progress=<',progress,'>');
     let percentage = 100*timerCounter/timerCounterMax;
-    progress.style.cssText ='width: ' + percentage + '%'; 
+    progress.style.cssText ='width: ' + percentage + '%;'; 
     if(timerCounter-- <= 0) {
       clearInterval(timer);
     }
