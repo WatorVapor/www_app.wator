@@ -15,8 +15,8 @@
             </button>
           </div>
           <div class="col-10  m-0 p-0">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            <div class="progress align-middle">
+              <div class="progress-bar progress-bar-striped progress-bar-animated align-middle" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
           </div>
         </div>
