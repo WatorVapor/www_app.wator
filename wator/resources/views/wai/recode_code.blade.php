@@ -154,7 +154,8 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart maxY=<',maxY,'>');
   console.log('showWaveChart minY=<',minY,'>');
 
-chartConfig.data.datasets[0].data = [];
+  chartConfig.data.datasets[0].data = [];
+  /*
   chartConfig.data.datasets[0].data.push(adjustFactor*maxY);
   for(let i = 0;i < data.length;i++) {
     if(data[i] > 0.0) {
@@ -166,12 +167,27 @@ chartConfig.data.datasets[0].data = [];
     }
   }
   chartConfig.data.datasets[0].data.push(adjustFactor*minY);
+  */
+  sampling(data,chartConfig.data.datasets[0].data);
   chartConfig.options.scales.yAxes[0].ticks.max = adjustFactor*maxY;
   chartConfig.options.scales.yAxes[0].ticks.min = adjustFactor*minY;
   let wavchar = new Chart(ctx,chartConfig);
 }
 
-function sampling(input,output) {
+function sampling(data,output) {
+  let sampleingCounter = 0;
+  let sampleingNumber = 1000;
+  for(let i = 0;i < data.length;i++) {
+    if(sampleingCounter++ % sampleingNumber === 0) {
+      if(data[i] > 0.0) {
+        let dataAdjust = ( adjustFactor * data[i] )/maxY
+        output.push(dataAdjust);
+      } else {
+        let dataAdjust = ( adjustFactor * data[i] )/minY
+        output.push(dataAdjust);
+      }
+    }
+  }
 }
 
 
