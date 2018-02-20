@@ -1,5 +1,6 @@
 <div class="card card-default text-center">
   <div class="card-body">
+    <h1 class="card-title">{{ $phoneme }}</h1>
     <div class="row">
       <div class="col-sm  m-0 p-0">
         <button type="submit" class="btn btn-sm btn-dark rounded-circle">
