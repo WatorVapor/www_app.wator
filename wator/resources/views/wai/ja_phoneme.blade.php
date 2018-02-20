@@ -4,12 +4,12 @@
     
     <div class="row">
       <div class="col  m-0 p-0">
-        <button type="submit" class="btn btn-lg btn-dark rounded-circle">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle">
           <i class="material-icons " style="font-size:48px;color:green;">hearing</i>
         </button>
       </div>
       <div class="col  m-0 p-0">
-        <button type="submit" class="btn btn-lg btn-dark rounded-circle" onclick="onClickRecordBtn(this)">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" onclick="onClickRecordBtn(this)">
           <i class="material-icons " style="font-size:48px;color:red;">mic</i>
         </button>
         <div class="progress">
