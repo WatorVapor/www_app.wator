@@ -98,7 +98,8 @@ let chartConfig = {
   },
   options: {
     responsive: true,
-    maintainAspectRatio: true
+    maintainAspectRatio: true,
+    animation: false
   }
 }
 
