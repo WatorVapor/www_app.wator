@@ -52,7 +52,7 @@ function onMediaSuccess(stream,phoneme) {
   mr.start(50);
   setTimeout(function(){
     mr.stop();
-  },2000);
+  },3000);
 }
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
