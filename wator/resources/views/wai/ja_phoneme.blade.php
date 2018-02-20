@@ -32,12 +32,12 @@
 
     <div class="row">
       <div class="col-sm  m-0 p-0">
-        <canvas id="wai-recoder-canvas-standard"></canvas>
+        <canvas id="wai-recoder-canvas-standard" width="600" height="450" ></canvas>
       </div>
     </div>
     <div class="row">
       <div class="col-sm  m-0 p-0">
-        <canvas id="wai-recoder-canvas-train"></canvas>
+        <canvas id="wai-recoder-canvas-train" width="600" height="450"></canvas>
       </div>
     </div>
 
