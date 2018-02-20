@@ -18,16 +18,27 @@
 
     <div class="row">
       <div class="col-sm  m-0 p-0">
-        <audio controls="controls" id="wai-recoder-standard">
+        <audio controls="controls" id="wai-recoder-audio-standard">
           <source src="" type="audio/webm">
         </audio>
       </div>
       <div class="col-sm  m-0 p-0">
-        <audio controls="controls" id="wai-recoder-train">
+        <audio controls="controls" id="wai-recoder-audio-train">
           <source src="" type="audio/webm">
         </audio>
       </div>
     </div>
+
+
+    <div class="row">
+      <div class="col-sm  m-0 p-0">
+        <canvas id="wai-recoder-canvas-standard"></canvas>
+      </div>
+      <div class="col-sm  m-0 p-0">
+        <canvas id="wai-recoder-canvas-train"></canvas>
+      </div>
+    </div>
+
   </div>
 </div>
 
