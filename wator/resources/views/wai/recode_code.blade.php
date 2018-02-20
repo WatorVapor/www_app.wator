@@ -92,6 +92,8 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let ctx = document.getElementById(idCanvas).getContext('2d');
   chartConfig.data = data;
+  chartConfig.data.push(1.0);
+  chartConfig.data.push(-1.0);
   let wavchar = new Chart(ctx,chartConfig);
 }
 
