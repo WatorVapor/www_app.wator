@@ -154,7 +154,8 @@ let chartConfig = {
   }
 }
 
-const SamplingRate = 4;
+const SamplingDropRate = 16;
+
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
@@ -169,7 +170,7 @@ function showWaveChart(data,idCanvas) {
   let skipCounter = 0;
   chartConfig.data.datasets[0].data = [];
   for(let i = 0;i < data.length;i++) {
-    if(skipCounter++% SamplingRate === 0) {
+    if(skipCounter++% SamplingDropRate === 0) {
       chartConfig.data.datasets[0].data.push(data[i]);
     }
   }
