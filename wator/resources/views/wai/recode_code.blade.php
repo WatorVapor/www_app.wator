@@ -8,9 +8,9 @@ function onUpdateData(msg) {
 }
 function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
-  let root = elem.parentElement.parentElement;
+  let root = elem.parentElement.parentElement.parentElement.parentElement;
   console.log('onClickRecordBtn:root=<',root,'>');
-  let phoneme = root.getElementsByTagName('h4')[0].textContent;
+  let phoneme = root.getElementsByTagName('h1')[0].textContent;
   console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   doAudioRecord(phoneme);
 }
