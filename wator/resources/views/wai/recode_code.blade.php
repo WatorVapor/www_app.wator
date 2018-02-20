@@ -142,7 +142,10 @@ const adjustFactor = 100000.0;
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
-  let ctx = document.getElementById(idCanvas).getContext('2d');
+  let canvas = document.getElementById(idCanvas);
+  let ctx = canvas.getContext('2d');
+  let width = canvas.clientWidth;
+  console.log('showWaveChart width=<',width,'>');
   
   let maxY = Math.max.apply(null, data);
   let minY = Math.min.apply(null, data);
