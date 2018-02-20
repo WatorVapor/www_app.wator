@@ -107,6 +107,7 @@ let chartConfig = {
     },
   scales: {
     xAxes: [{
+      display: false,
       gridLines: {
         display: false
       },
@@ -115,6 +116,7 @@ let chartConfig = {
       }
     }],
     yAxes: [{
+      display: false,
       gridLines: {
         display: false,
       },
