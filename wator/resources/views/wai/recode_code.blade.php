@@ -108,6 +108,9 @@ let chartConfig = {
   scales: {
     xAxes: [{
       display: false,
+      ticks: {
+        stepSize: 100
+      },
       gridLines: {
         display: false
       },
