@@ -144,7 +144,7 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let canvas = document.getElementById(idCanvas);
   let ctx = canvas.getContext('2d');
-  let width = canvas.clientWidth;
+  let width = $('#'+idCanvas).width();
   console.log('showWaveChart width=<',width,'>');
   
   let maxY = Math.max.apply(null, data);
