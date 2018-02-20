@@ -135,7 +135,7 @@ let chartConfig = {
   }
 }
 
-
+const SamplingRate = 10;
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
@@ -147,10 +147,12 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart width=<',width,'>');
   
 
-
+  let skipCounter = 0;
   chartConfig.data.datasets[0].data = [];
   for(let i = 0;i < data.length;i++) {
-    chartConfig.data.datasets[0].data.push(data[i]);
+    if(skipCounter++% SamplingRate === 0) {
+      chartConfig.data.datasets[0].data.push(data[i]);
+    }
   }
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
