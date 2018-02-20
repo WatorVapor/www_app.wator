@@ -154,6 +154,7 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart maxY=<',maxY,'>');
   console.log('showWaveChart minY=<',minY,'>');
 
+
   chartConfig.data.datasets[0].data = [];
   /*
   chartConfig.data.datasets[0].data.push(adjustFactor*maxY);
@@ -169,6 +170,9 @@ function showWaveChart(data,idCanvas) {
   chartConfig.data.datasets[0].data.push(adjustFactor*minY);
   */
   sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
+
+  chartConfig.data.labels = chartConfig.data.datasets[0].data;
+
   console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
 
   chartConfig.options.scales.yAxes[0].ticks.max = adjustFactor*maxY;
