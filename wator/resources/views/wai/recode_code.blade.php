@@ -121,7 +121,7 @@ let chartConfig = {
         min: -1.0,
         max: 1.0
       },
-      display: false,
+      display: true,
       gridLines: {
         display: false,
       },
