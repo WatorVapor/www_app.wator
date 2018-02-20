@@ -81,8 +81,6 @@ function analyzeBlobWebm(chunks) {
   reader.readAsArrayBuffer(blob);
 }
 
-let chartColors.red,
-
 let chartConfig = {
     type: 'line',
     data: {
