@@ -58,7 +58,7 @@
   </div>
 </div>
 
-
+<!--
 <style>
 #ex1Slider .slider-selection {
     background: #BABABA;
@@ -73,4 +73,5 @@ $('#ex1').slider({
   }
 });
 </script>
+-->
 
