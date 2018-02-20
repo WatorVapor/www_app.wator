@@ -31,6 +31,14 @@
     <hr/>
     <div class="row">
       <div class="col  m-0 p-0">
+      </div>
+      <div class="col  m-0 p-0">
+        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
       </div>
       <div class="col  m-0 p-0">
@@ -43,4 +51,12 @@
 
   </div>
 </div>
+
+
+$('#ex1').slider({
+	formatter: function(value) {
+		return 'Current value: ' + value;
+	}
+});
+
 
