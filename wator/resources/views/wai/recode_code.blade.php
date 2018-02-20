@@ -119,7 +119,8 @@ let chartConfig = {
       ticks: {
         beginAtZero: true,
         min: -1.0,
-        max: 1.0
+        max: 1.0,
+        stepSize: 0.0001
       },
       display: true,
       gridLines: {
