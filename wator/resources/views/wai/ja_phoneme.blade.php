@@ -44,12 +44,12 @@
       <div class="col  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
       </div>
-      <div class="col  m-0 p-0">
-        <canvas id="wai-recoder-canvas-train"></canvas>
-      </div>
     </div>
 
     <div class="row">
+      <div class="col  m-0 p-0">
+        <canvas id="wai-recoder-canvas-train"></canvas>
+      </div>
     </div>
 
   </div>
