@@ -99,7 +99,10 @@ let chartConfig = {
   options: {
     responsive: true,
     maintainAspectRatio: true,
-    animation: false
+    animation: false,
+    legend: {
+        display: false
+    },
   }
 }
 
