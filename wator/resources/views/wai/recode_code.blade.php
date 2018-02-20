@@ -88,11 +88,11 @@ function analyzeBlobWebm(chunks) {
   let reader = new FileReader();
   reader.onload = function() {
     let result = new Uint8Array(reader.result);
+    audioCtx.decodeAudioData(result, function(decodedData) {
+      console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
+    });
   };
   reader.readAsArrayBuffer(blob);
-  audioCtx.decodeAudioData(chunks, function(decodedData) {
-    console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
-  });
 }
 
 
