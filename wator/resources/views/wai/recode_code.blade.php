@@ -18,7 +18,7 @@ function onClickRecordBtn(elem) {
   let timer = setInterval( function() {
     let parent = root = elem.parentElement;
     console.log('onClickRecordBtn:parent=<',parent,'>');
-    let progress = getElementsByClassName('progress-bar')[0];
+    let progress = parent.getElementsByClassName('progress-bar')[0];
     console.log('onClickRecordBtn:progress=<',progress,'>');
     if(timerCounter-- <= 0) {
       clearInterval(timer);
