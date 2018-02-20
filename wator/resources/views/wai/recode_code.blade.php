@@ -108,24 +108,18 @@ let chartConfig = {
   scales: {
     xAxes: [{
       gridLines: {
-        display: false,
-        color: "black"
+        display: false
       },
       scaleLabel: {
-        display: true,
-        labelString: "Time in Seconds",
-        fontColor: "red"
+        display: false
       }
     }],
     yAxes: [{
       gridLines: {
-        color: "black",
-        borderDash: [2, 5],
+        display: false,
       },
       scaleLabel: {
-        display: true,
-        labelString: "Speed in Miles per Hour",
-        fontColor: "green"
+        display: false
       }
     }]
   }
