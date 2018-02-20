@@ -97,6 +97,7 @@ let chartConfig = {
    ]
   },
   options: {
+    responsive: false
   }
 }
 
