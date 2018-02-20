@@ -143,6 +143,7 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let canvas = document.getElementById(idCanvas);
+  console.log('showWaveChart canvas=<',canvas,'>');
   let ctx = canvas.getContext('2d');
   let width = $('#'+idCanvas).width();
   console.log('showWaveChart width=<',width,'>');
