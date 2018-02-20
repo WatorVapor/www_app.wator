@@ -168,13 +168,13 @@ function showWaveChart(data,idCanvas) {
   }
   chartConfig.data.datasets[0].data.push(adjustFactor*minY);
   */
-  sampling(data,chartConfig.data.datasets[0].data);
+  sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
   chartConfig.options.scales.yAxes[0].ticks.max = adjustFactor*maxY;
   chartConfig.options.scales.yAxes[0].ticks.min = adjustFactor*minY;
   let wavchar = new Chart(ctx,chartConfig);
 }
 
-function sampling(data,output) {
+function sampling(data,output,maxY,minY) {
   let sampleingCounter = 0;
   let sampleingNumber = 1000;
   for(let i = 0;i < data.length;i++) {
