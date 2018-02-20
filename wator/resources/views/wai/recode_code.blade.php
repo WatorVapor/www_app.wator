@@ -123,7 +123,7 @@ let chartConfig = {
         min: -1.0,
         max: 1.0,
       },
-      display: true,
+      display: false,
       gridLines: {
         display: false,
       },
@@ -135,8 +135,6 @@ let chartConfig = {
   }
 }
 
-//stepSize: 1
-const adjustFactor = 1.0;
 
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
@@ -167,20 +165,6 @@ function showWaveChart(data,idCanvas) {
   let wavchar = new Chart(ctx,chartConfig);
 }
 
-function sampling(data,output,maxY,minY) {
-  let sampleingCounter = 0;
-  let sampleingNumber = 1000;
-  for(let i = 0;i < data.length;i++) {
-    if(sampleingCounter++ % sampleingNumber === 0) {
-      if(data[i] > 0.0) {
-        let dataAdjust = ( adjustFactor * data[i] )/maxY
-        output.push(dataAdjust);
-      } else {
-        let dataAdjust = ( adjustFactor * data[i] )/minY
-        output.push(dataAdjust);
-      }
-    }
-  }
 }
 
 
