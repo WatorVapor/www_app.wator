@@ -155,24 +155,12 @@ function showWaveChart(data,idCanvas) {
 
 
   chartConfig.data.datasets[0].data = [];
-
-  chartConfig.data.datasets[0].data.push(adjustFactor*maxY);
   for(let i = 0;i < data.length;i++) {
-    if(data[i] > 0.0) {
-      let dataAdjust = ( adjustFactor * data[i] )/maxY
-      chartConfig.data.datasets[0].data.push(dataAdjust);
-    } else {
-      let dataAdjust = ( adjustFactor * data[i] )/minY
-      chartConfig.data.datasets[0].data.push(dataAdjust);
-    }
+    chartConfig.data.datasets[0].data.push(data[i]);
   }
-  chartConfig.data.datasets[0].data.push(adjustFactor*minY);
-
-  //sampling(data,chartConfig.data.datasets[0].data,maxY,minY);
-
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
-  console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
+  //console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
 
   chartConfig.options.scales.yAxes[0].ticks.max = adjustFactor*maxY;
   chartConfig.options.scales.yAxes[0].ticks.min = adjustFactor*minY;
