@@ -15,7 +15,7 @@ function onClickRecordBtn(elem) {
   let phoneme = root.getElementsByTagName('h1')[0].textContent;
   console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   let timerCounter = RECORD_TIME_MS/300 -1; 
-  let timer = setInterval(funtion() {
+  let timer = setInterval( function() {
     let parent = root = elem.parentElement;
     console.log('onClickRecordBtn:parent=<',parent,'>');
     let progress = getElementsByClassName('progress-bar')[0];
