@@ -120,7 +120,6 @@ let chartConfig = {
     }],
     yAxes: [{
       ticks: {
-        beginAtZero: true,
         min: -1.0,
         max: 1.0,
       },
