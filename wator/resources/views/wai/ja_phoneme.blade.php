@@ -14,6 +14,7 @@
       </div>
     </div>
 
+    <hr/>
     <div class="row">
       <div class="col  m-0 p-0">
         <audio controls="controls" id="wai-recoder-audio-standard">
@@ -27,7 +28,7 @@
       </div>
     </div>
 
-
+    <hr/>
     <div class="row">
       <div class="col  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
