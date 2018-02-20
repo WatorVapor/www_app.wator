@@ -81,9 +81,24 @@ function analyzeBlobWebm(chunks) {
   reader.readAsArrayBuffer(blob);
 }
 
+let chartColors.red,
+
 let chartConfig = {
     type: 'line',
-    data: ''
+    data: {
+      labels: [],
+      datasets: [{
+        label: "X",
+        backgroundColor: 'red',
+        borderColor: 'red',
+        data: [],
+        fill: false,
+        pointRadius: 1,
+        borderWidth:1
+       }
+     ]
+    }
+    options: {
 }
 
 
@@ -91,9 +106,7 @@ function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let ctx = document.getElementById(idCanvas).getContext('2d');
-  chartConfig.data = data;
-  chartConfig.data.push(1.0);
-  chartConfig.data.push(-1.0);
+  chartConfig.data.datasets[0].data = data;
   let wavchar = new Chart(ctx,chartConfig);
 }
 
