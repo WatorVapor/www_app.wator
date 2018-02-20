@@ -135,11 +135,11 @@ function showWaveChart(data,idCanvas) {
   let ctx = document.getElementById(idCanvas).getContext('2d');
   
   chartConfig.data.datasets[0].data = [];
-  chartConfig.data.datasets[0].data.push(1.0);
+  //chartConfig.data.datasets[0].data.push(1.0);
   for(let i = 0;i < data.length;i++) {
     chartConfig.data.datasets[0].data.push(data[i]);  
   }
-  chartConfig.data.datasets[0].data.push(-1.0);
+  //chartConfig.data.datasets[0].data.push(-1.0);
   console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
   let wavchar = new Chart(ctx,chartConfig);
 }
