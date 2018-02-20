@@ -10,10 +10,7 @@ function onUpdateData(msg) {
 }
 function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
-  let root = elem.parentElement.parentElement.parentElement.parentElement;
-  console.log('onClickRecordBtn:root=<',root,'>');
-  let phoneme = root.getElementsByTagName('h1')[0].textContent;
-  console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
+  
   let timerCounterMax = RECORD_TIME_MS/300 -1; 
   let timerCounter = RECORD_TIME_MS/300 -1; 
 
@@ -25,10 +22,15 @@ function onClickRecordBtn(elem) {
   let timer = setInterval( function() {
     let percentage = 100*timerCounter/timerCounterMax;
     progress.style.cssText ='width: ' + percentage + '%;'; 
-    if(timerCounter-- <= 0) {
+    if(timerCounter-- <= 1) {
       clearInterval(timer);
     }
   },300);
+
+  let root = elem.parentElement.parentElement.parentElement.parentElement;
+  console.log('onClickRecordBtn:root=<',root,'>');
+  let phoneme = root.getElementsByTagName('h1')[0].textContent;
+  console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
   doAudioRecord(phoneme);
 }
 
