@@ -120,7 +120,6 @@ let chartConfig = {
         beginAtZero: true,
         min: -1.0,
         max: 1.0,
-        stepSize: 0.0001
       },
       display: true,
       gridLines: {
@@ -134,6 +133,7 @@ let chartConfig = {
   }
 }
 
+#stepSize: 1
 
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
