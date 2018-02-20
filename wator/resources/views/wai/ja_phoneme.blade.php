@@ -1,6 +1,7 @@
 <div class="card card-default text-center">
   <div class="card-body">
     <h1 class="card-title">{{ $phoneme }}</h1>
+    
     <div class="row">
       <div class="col  m-0 p-0">
         <button type="submit" class="btn btn-dark rounded-circle">
@@ -14,7 +15,7 @@
           </button>
           <br/>
           <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated align-middle" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
           </div>
         </div>
       </div>
