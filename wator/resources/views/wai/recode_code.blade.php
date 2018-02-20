@@ -1,3 +1,6 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js" integrity="sha256-t3+U9BqykoMN9cqZmJ5Z53TvPv4V7S9AmjUcIWNNyxo=" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
 
 function onUpdateData(msg) {
@@ -63,7 +66,7 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
   let urlBlob = window.URL.createObjectURL(blob);
-  let audioElem = document.getElementById('wai-recoder-train');
+  let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
   let source = audioCtx.createMediaElementSource(audioElem);
@@ -82,7 +85,7 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
   let urlBlob = window.URL.createObjectURL(blob);
-  let audioElem = document.getElementById('wai-recoder-train');
+  let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
   let reader = new FileReader();
