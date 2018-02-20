@@ -81,6 +81,8 @@ function analyzeBlobWebm(chunks) {
   reader.readAsArrayBuffer(blob);
 }
 
+
+
 let chartConfig = {
   type: 'line',
   data: {
@@ -103,6 +105,30 @@ let chartConfig = {
     legend: {
         display: false
     },
+  scales: {
+    xAxes: [{
+      gridLines: {
+        display: false,
+        color: "black"
+      },
+      scaleLabel: {
+        display: true,
+        labelString: "Time in Seconds",
+        fontColor: "red"
+      }
+    }],
+    yAxes: [{
+      gridLines: {
+        color: "black",
+        borderDash: [2, 5],
+      },
+      scaleLabel: {
+        display: true,
+        labelString: "Speed in Miles per Hour",
+        fontColor: "green"
+      }
+    }]
+  }
   }
 }
 
