@@ -61,26 +61,6 @@ function onMediaError(e) {
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioCtx = new AudioContext();
 
-/*
-function analyzeBlobWebm(chunks) {
-  console.log('analyzeBlobWebm chunks=<',chunks,'>');
-  const blob = new Blob(chunks, { type: 'audio/webm' });
-  let urlBlob = window.URL.createObjectURL(blob);
-  let audioElem = document.getElementById('wai-recoder-audio-train');
-  audioElem.src = urlBlob;
-  console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
-  let source = audioCtx.createMediaElementSource(audioElem);
-  console.log('analyzeBlobWebm source=<',source,'>');
-  let analyser = audioCtx.createAnalyser();
-  source.connect(analyser);
-  analyser.connect(audioCtx.destination);
-  audioElem.play();
-  let times = new Uint8Array(analyser.frequencyBinCount);
-  analyser.getByteTimeDomainData(times);
-  console.log('analyzeBlobWebm times=<',times,'>');
-}
-*/
-
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -94,11 +74,15 @@ function analyzeBlobWebm(chunks) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
-        console.log('analyzeBlobWebm data=<',data,'>');
+        showWaveChart(data);
       }
     });
   };
   reader.readAsArrayBuffer(blob);
+}
+
+function showWaveChart(data) {
+  console.log('showWaveChart data=<',data,'>');
 }
 
 
