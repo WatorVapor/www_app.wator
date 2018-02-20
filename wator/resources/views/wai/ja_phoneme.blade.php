@@ -61,9 +61,10 @@
 
 <script type="text/javascript">
 $('#ex1').slider({
-	formatter: function(value) {
-		return 'Current value: ' + value;
-	}
+  formatter: function(value) {
+    console.log('formatter value=<',value,'>');
+    return 'Current value: ' + value;
+  }
 });
 </script>
 
