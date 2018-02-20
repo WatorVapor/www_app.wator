@@ -85,7 +85,12 @@ function analyzeBlobWebm(chunks) {
   let audioElem = document.getElementById('wai-recoder-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
-  audioCtx.decodeAudioData(blob, function(decodedData) {
+  let reader = new FileReader();
+  reader.onload = function() {
+    let result = new Uint8Array(reader.result);
+  };
+  reader.readAsArrayBuffer(blob);
+  audioCtx.decodeAudioData(chunks, function(decodedData) {
     console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
   });
 }
