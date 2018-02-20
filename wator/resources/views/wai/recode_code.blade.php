@@ -135,7 +135,7 @@ let chartConfig = {
   }
 }
 
-const SamplingRate = 10;
+const SamplingRate = 4;
 function showWaveChart(data,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
