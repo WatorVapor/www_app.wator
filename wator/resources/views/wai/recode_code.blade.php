@@ -58,6 +58,7 @@ function onMediaError(e) {
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioCtx = new AudioContext();
 
+/*
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -74,6 +75,19 @@ function analyzeBlobWebm(chunks) {
   let times = new Uint8Array(analyser.frequencyBinCount);
   analyser.getByteTimeDomainData(times);
   console.log('analyzeBlobWebm times=<',times,'>');
+}
+*/
+
+function analyzeBlobWebm(chunks) {
+  console.log('analyzeBlobWebm chunks=<',chunks,'>');
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  let urlBlob = window.URL.createObjectURL(blob);
+  let audioElem = document.getElementById('wai-recoder-train');
+  audioElem.src = urlBlob;
+  console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
+  audioCtx.decodeAudioData(blob, function(decodedData) {
+    console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
+  });
 }
 
 
