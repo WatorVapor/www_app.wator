@@ -3,6 +3,8 @@
 
 <script type="text/javascript">
 
+const RECORD_TIME_MS = 1500;
+
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
 }
@@ -12,6 +14,16 @@ function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:root=<',root,'>');
   let phoneme = root.getElementsByTagName('h1')[0].textContent;
   console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
+  let timerCounter = RECORD_TIME_MS/300 -1; 
+  let timer = setInterval(funtion() {
+    let parent = root = elem.parentElement;
+    console.log('onClickRecordBtn:parent=<',parent,'>');
+    let progress = getElementsByClassName('progress-bar')[0];
+    console.log('onClickRecordBtn:progress=<',progress,'>');
+    if(timerCounter-- <= 0) {
+      clearInterval(timer);
+    }
+  },300);
   doAudioRecord(phoneme);
 }
 
@@ -52,7 +64,7 @@ function onMediaSuccess(stream,phoneme) {
   mr.start(50);
   setTimeout(function(){
     mr.stop();
-  },1500);
+  },RECORD_TIME_MS);
 }
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
