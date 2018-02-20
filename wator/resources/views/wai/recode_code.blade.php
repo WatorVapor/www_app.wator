@@ -74,7 +74,7 @@ function analyzeBlobWebm(chunks) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
-        showWaveChart(data,'wai-recoder-canvas-standard');
+        showWaveChart(data,'wai-recoder-canvas-train');
       }
     });
   };
