@@ -7,7 +7,7 @@
           <i class="material-icons " style="font-size:12px;color:green;">hearing</i>
         </button>
       </div>
-      <div class="col  m-0 p-0">
+      <div class="col  m-0 p-0 align-baseline">
         <div class="row">
           <div class="col-2  m-0 p-0 align-middle">
             <button type="submit" class="btn btn-dark rounded-circle" onclick="onClickRecordBtn(this)">
