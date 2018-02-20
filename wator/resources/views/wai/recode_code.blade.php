@@ -11,7 +11,7 @@ function onUpdateData(msg) {
 function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
   
-  let timerCounterMax = RECORD_TIME_MS/300; 
+  let timerCounterMax = RECORD_TIME_MS/300 -1; 
   let timerCounter = RECORD_TIME_MS/300 -1; 
 
   let parent = elem.parentElement;
