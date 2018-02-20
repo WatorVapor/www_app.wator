@@ -86,7 +86,7 @@ let chartConfig = {
   data: {
     labels: [],
     datasets: [{
-      label: "X",
+      label: '',
       backgroundColor: 'red',
       borderColor: 'red',
       data: [],
