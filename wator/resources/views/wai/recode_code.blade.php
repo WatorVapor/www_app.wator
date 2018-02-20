@@ -74,16 +74,28 @@ function analyzeBlobWebm(chunks) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
-        showWaveChart(data);
+        showWaveChart(data,'wai-recoder-canvas-standard');
       }
     });
   };
   reader.readAsArrayBuffer(blob);
 }
 
-function showWaveChart(data) {
-  console.log('showWaveChart data=<',data,'>');
+let chartConfig = {
+    type: 'line',
+    data: ''
 }
+
+
+function showWaveChart(data,idCanvas) {
+  console.log('showWaveChart data=<',data,'>');
+  console.log('showWaveChart idCanvas=<',idCanvas,'>');
+  let ctx = document.getElementById(idCanvas).getContext('2d');
+  chartConfig.data = data;
+  let wavchar = new Chart(ctx,chartConfig);
+}
+
+
 
 
 </script>
