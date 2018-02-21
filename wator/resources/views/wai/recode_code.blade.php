@@ -93,7 +93,8 @@ function analyzeBlobWebm(chunks) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
-        showWaveChart(data,'wai-recoder-canvas-train');
+        let sample = decodedData.sampleRate();
+        showWaveChart(data,sample,'wai-recoder-canvas-train');
       }
     });
   };
@@ -154,10 +155,11 @@ let chartConfig = {
   }
 }
 
-const SamplingDropRate = 48;
+const SamplingDropRate = 96;
 
-function showWaveChart(data,idCanvas) {
+function showWaveChart(data,sample,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
+  console.log('showWaveChart sample=<',sample,'>');
   console.log('showWaveChart idCanvas=<',idCanvas,'>');
   let canvas = document.getElementById(idCanvas);
   console.log('showWaveChart canvas=<',canvas,'>');
