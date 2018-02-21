@@ -216,18 +216,8 @@ function showWaveChart(data,sample,idCanvas) {
   for(let j = clipStart;j < clipEnd;j++) {
     chartConfig.data.datasets[1].data[j] = 1.0;
   }
-  
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
-
-  //let maxY = Math.max.apply(null, chartConfig.data.datasets[0].data);
-  //let minY = Math.min.apply(null, chartConfig.data.datasets[0].data);
-  //console.log('showWaveChart maxY=<',maxY,'>');
-  //console.log('showWaveChart minY=<',minY,'>');
-
-  //console.log('showWaveChart chartConfig.data.datasets[0].data=<',chartConfig.data.datasets[0].data,'>');
-
-  //chartConfig.options.scales.yAxes[0].ticks.max = maxY;
-  //chartConfig.options.scales.yAxes[0].ticks.min = minY;
+  
   let wavchar = new Chart(ctx,chartConfig);
 }
 
