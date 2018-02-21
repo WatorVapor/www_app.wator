@@ -165,7 +165,7 @@ let chartConfig = {
   }
 }
 
-const SamplingDropRate = 96;
+const SamplingDropRate = 192;
 //const ClipDurationInSec = 0.25; ja
 const ClipDurationInSec = 0.3;
 
