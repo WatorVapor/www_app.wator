@@ -19,7 +19,7 @@
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            @include('wai.ja_phoneme',['phoneme' => 'あ'])
+            @include('wai.ja_phoneme',['phoneme' => 'あ','phoneme_help' => '阿'])
           </div>
         </div>
       </div>
