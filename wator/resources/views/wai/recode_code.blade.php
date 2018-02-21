@@ -176,11 +176,26 @@ function showWaveChart(data,sample,idCanvas) {
   let clipWindowSize = ClipDurationInSec * sample;
   console.log('showWaveChart clipWindowSize=<',clipWindowSize,'>');
   
+  let waveEnergy = 0.0;
+  let waveEnergyMax = 0.0;
+  let waveEnergyMaxIndex = 0.0;
   for(let i = 0;i < data.length;i++) {
     if(skipCounter++% SamplingDropRate === 0) {
       chartConfig.data.datasets[0].data.push(data[i]);
     }
+    waveEnergy += Math.abs(data[i]);
+    if(i > clipWindowSize) {
+      let j = i - clipWindowSize;
+      waveEnergy -= Math.abs(data[j]);
+    }
+    if(waveEnergy > waveEnergyMax) {
+      waveEnergyMax = waveEnergy;
+      waveEnergyMaxIndex = i;
+    }
   }
+  console.log('showWaveChart waveEnergyMax=<',waveEnergyMax,'>');
+  console.log('showWaveChart waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
+  
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
   //let maxY = Math.max.apply(null, chartConfig.data.datasets[0].data);
