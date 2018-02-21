@@ -167,7 +167,7 @@ let chartConfig = {
 
 const SamplingDropRate = 192;
 //const ClipDurationInSec = 0.25; ja
-const ClipDurationInSec = 0.3;
+const ClipDurationInSec = 0.4; // zn
 
 
 function showWaveChart(data,sample,idCanvas) {
