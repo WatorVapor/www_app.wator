@@ -207,7 +207,7 @@ function showWaveChart(data,sample,idCanvas) {
   console.log('showWaveChart waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
   let clipData = (new Array(chartConfig.data.datasets[0].data.length)).fill(0);
   console.log('showWaveChart clipData=<',clipData,'>');
-  chartConfig.data.datasets[1].clipData;
+  chartConfig.data.datasets[1].data = clipData;
   
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
