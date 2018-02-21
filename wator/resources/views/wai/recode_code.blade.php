@@ -211,7 +211,7 @@ function showWaveChart(data,sample,idCanvas) {
   
   let clipStart = (waveEnergyMaxIndex - clipWindowSize)/SamplingDropRate;
   let clipEnd = waveEnergyMaxIndex/SamplingDropRate;
-  for(let j = clipStart;i < clipEnd;j++) {
+  for(let j = clipStart;j < clipEnd;j++) {
     chartConfig.data.datasets[1].data[j] = 1.0;
   }
   
