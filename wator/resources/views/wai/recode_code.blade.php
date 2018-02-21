@@ -107,7 +107,8 @@ let chartConfig = {
   type: 'line',
   data: {
     labels: [],
-    datasets: [{
+    datasets: [
+    {
       label: '',
       backgroundColor: 'red',
       borderColor: 'red',
@@ -115,8 +116,17 @@ let chartConfig = {
       fill: false,
       pointRadius: 1,
       borderWidth:1
+     },
+    {
+      label: '',
+      backgroundColor: 'blue',
+      borderColor: 'blue',
+      data: [],
+      fill: false,
+      pointRadius: 1,
+      borderWidth:1
      }
-   ]
+    ]
   },
   options: {
     responsive: true,
@@ -195,6 +205,8 @@ function showWaveChart(data,sample,idCanvas) {
   }
   console.log('showWaveChart waveEnergyMax=<',waveEnergyMax,'>');
   console.log('showWaveChart waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
+  let clipData = (new Array(chartConfig.data.datasets[0].data.length)).fill(0);
+  chartConfig.data.datasets[1].clipData;
   
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
