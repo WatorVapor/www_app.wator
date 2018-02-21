@@ -166,7 +166,7 @@ let chartConfig = {
 }
 
 const SamplingDropRate = 96;
-const ClipDurationInSec = 0.2;
+const ClipDurationInSec = 0.25;
 
 function showWaveChart(data,sample,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
