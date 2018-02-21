@@ -93,7 +93,7 @@ function analyzeBlobWebm(chunks) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
-        let sample = decodedData.sampleRate();
+        let sample = decodedData.sampleRate;
         showWaveChart(data,sample,'wai-recoder-canvas-train');
       }
     });
