@@ -209,6 +209,12 @@ function showWaveChart(data,sample,idCanvas) {
   console.log('showWaveChart clipData=<',clipData,'>');
   chartConfig.data.datasets[1].data = clipData;
   
+  let clipStart = (waveEnergyMaxIndex - clipWindowSize)/SamplingDropRate;
+  let clipEnd = waveEnergyMaxIndex/SamplingDropRate;
+  for(let j = clipStart;i < clipEnd;j++) {
+    chartConfig.data.datasets[1].data[j] = 1.0;
+  }
+  
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
 
   //let maxY = Math.max.apply(null, chartConfig.data.datasets[0].data);
