@@ -156,6 +156,7 @@ let chartConfig = {
 }
 
 const SamplingDropRate = 96;
+const ClipDurationInSec = 0.4;
 
 function showWaveChart(data,sample,idCanvas) {
   console.log('showWaveChart data=<',data,'>');
@@ -171,6 +172,10 @@ function showWaveChart(data,sample,idCanvas) {
 
   let skipCounter = 0;
   chartConfig.data.datasets[0].data = [];
+  
+  let clipWindowSize = ClipDurationInSec * sample;
+  console.log('showWaveChart clipWindowSize=<',clipWindowSize,'>');
+  
   for(let i = 0;i < data.length;i++) {
     if(skipCounter++% SamplingDropRate === 0) {
       chartConfig.data.datasets[0].data.push(data[i]);
