@@ -1,6 +1,6 @@
 <div class="card card-default text-center">
   <div class="card-body">
-    <h1 class="card-title">{{ $phoneme }}</h1>
+    <h1 class="card-title" style="font-size:60px;">{{ $phoneme }}</h1>
     
     <div class="row">
       <div class="col  m-0 p-0">
