@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
 
-const RECORD_TIME_MS = 1500;
+const RECORD_TIME_MS = 1000;
 
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
