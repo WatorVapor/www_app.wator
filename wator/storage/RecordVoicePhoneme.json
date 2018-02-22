@@ -149,10 +149,40 @@
   "cn": [
     {"phoneme":"a","cn_help":"阿"},
     {"phoneme":"ā","cn_help":"阿"},
-    {"phoneme":"á","cn_help":"阿"},
-    {"phoneme":"ǎ","cn_help":"阿"},
-    {"phoneme":"à","cn_help":"阿"},
+    {"phoneme":"á","cn_help":"嗄"},
+    {"phoneme":"ǎ","cn_help":"啊"},
+    {"phoneme":"à","cn_help":"啊"},
 
+    {"phoneme":"ai","cn_help":"哎"},
+    {"phoneme":"āi","cn_help":"哎"},
+    {"phoneme":"ái","cn_help":"皑"},
+    {"phoneme":"ǎi","cn_help":"矮"},
+    {"phoneme":"ài","cn_help":"爱"},
+
+    {"phoneme":"an","cn_help":"安"},
+    {"phoneme":"ān","cn_help":"安"},
+    {"phoneme":"án","cn_help":"啽"},
+    {"phoneme":"ǎn","cn_help":"俺"},
+    {"phoneme":"àn","cn_help":"隌"},
+
+    {"phoneme":"ang","cn_help":"肮"},
+    {"phoneme":"āng","cn_help":"肮"},
+    {"phoneme":"áng","cn_help":"昂"},
+    {"phoneme":"ǎng","cn_help":"-"},
+    {"phoneme":"àng","cn_help":"盎"},
+    
+    {"phoneme":"ao","cn_help":"凹"},
+    {"phoneme":"āo","cn_help":"凹"},
+    {"phoneme":"áo","cn_help":"熬"},
+    {"phoneme":"ǎo","cn_help":"袄"},
+    {"phoneme":"ào","cn_help":"慠"},
+
+    {"phoneme":"ba","cn_help":"吧"},
+    {"phoneme":"bā","cn_help":"八"},
+    {"phoneme":"bá","cn_help":"拔"},
+    {"phoneme":"bǎ","cn_help":"靶"},
+    {"phoneme":"bà","cn_help":"坝"},
+    
     {"phoneme":"o","cn_help":"窝"},
     {"phoneme":"ō","cn_help":"窝"},
     {"phoneme":"ó","cn_help":"窝"},
