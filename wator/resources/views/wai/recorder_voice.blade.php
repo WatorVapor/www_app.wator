@@ -39,7 +39,7 @@
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            @include('wai.phoneme',['phoneme' => 'あ','phoneme_help' => '阿'])
+            @include('wai.phoneme')
           </div>
         </div>
       </div>
