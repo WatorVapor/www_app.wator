@@ -42,7 +42,7 @@
     {"phoneme":"で","cn_help":"该"},
     {"phoneme":"ど","cn_help":"高"},
 
-    {"phoneme":"な	","cn_help":"嘎"},
+    {"phoneme":"な","cn_help":"嘎"},
     {"phoneme":"に","cn_help":"给"},
     {"phoneme":"ぬ","cn_help":"骨"},
     {"phoneme":"ね","cn_help":"该"},
@@ -142,8 +142,54 @@
 
     {"phoneme":"りゃ","cn_help":"俩"},
     {"phoneme":"りゅ","cn_help":"遛"},
-    {"phoneme":"りょ","cn_help":"聊"}
+    {"phoneme":"りょ","cn_help":"聊"},
+    
+    {"phoneme":" ","cn_help":" "}
   ],
   "cn": [
+    {"phoneme":"a","cn_help":"阿"},
+    {"phoneme":"ā","cn_help":"阿"},
+    {"phoneme":"á","cn_help":"阿"},
+    {"phoneme":"ǎ","cn_help":"阿"},
+    {"phoneme":"à","cn_help":"阿"},
+
+    {"phoneme":"o","cn_help":"窝"},
+    {"phoneme":"ō","cn_help":"窝"},
+    {"phoneme":"ó","cn_help":"窝"},
+    {"phoneme":"ǒ","cn_help":"窝"},
+    {"phoneme":"ò","cn_help":"窝"},
+
+
+    {"phoneme":"e","cn_help":"哦"},
+    {"phoneme":"ē","cn_help":"哦"},
+    {"phoneme":"é","cn_help":"哦"},
+    {"phoneme":"ě","cn_help":"哦"},
+    {"phoneme":"è","cn_help":"哦"},
+
+    {"phoneme":"i","cn_help":"一"},
+    {"phoneme":"ī","cn_help":"一"},
+    {"phoneme":"í","cn_help":"一"},
+    {"phoneme":"ǐ","cn_help":"一"},
+    {"phoneme":"ì","cn_help":"一"},
+  
+    {"phoneme":"u","cn_help":"巫"},
+    {"phoneme":"ū","cn_help":"巫"},
+    {"phoneme":"ú","cn_help":"巫"},
+    {"phoneme":"ǔ","cn_help":"巫"},
+    {"phoneme":"ù","cn_help":"巫"},
+
+    {"phoneme":"ü","cn_help":"与"},
+    {"phoneme":"ǖ","cn_help":"与"},
+    {"phoneme":"ǘ","cn_help":"与"},
+    {"phoneme":"ǔ","cn_help":"与"},
+    {"phoneme":"ǜ","cn_help":"与"},
+
+    {"phoneme":"n","cn_help":"嗯"},
+    {"phoneme":"ń","cn_help":"嗯"},
+    {"phoneme":"ň","cn_help":"嗯"},
+
+
+
+    {"phoneme":" ","cn_help":" "}
   ]
 }
