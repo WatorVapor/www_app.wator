@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Redis;
-
+use File;
 
 class RecordVoiceController extends Controller
 {
