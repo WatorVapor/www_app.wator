@@ -24,7 +24,7 @@ class RecordVoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$lang='cn')
     {
         $data = [];
         try {
@@ -36,7 +36,7 @@ class RecordVoiceController extends Controller
                 $phonemeStr = file_get_contents($phonemePath);
                 $phonemeJson = json_decode($phonemeStr, true);
             } else {
-                $phonemeJson = $RecordVoicePhoneme::PHONEME_;
+                
             }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
