@@ -44,6 +44,9 @@ class RecordVoiceController extends Controller
                 
             }
             var_dump($phonemeJson);
+            if($phonemeJson[$lang]) {
+                var_dump($phonemeJson[$lang]);
+            }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
