@@ -11,6 +11,20 @@
 
 
 <div class="row justify-content-center">
+  <div class="col">
+    <button type="submit" class="btn btn-block " href="/wai/text/record_voice/cn">
+      {{ trans('wai_record_voice.chinese') }}
+    </button>
+  </div>
+  <div class="col">
+    <button type="submit" class="btn btn-block " href="/wai/text/record_voice/ja">
+      {{ trans('wai_record_voice.japanese') }}
+    </button>
+  </div>
+</div>
+
+
+<div class="row justify-content-center">
   <div class="col-lg-10 ">
     <div class="card card-default">
       <div class="card-header text-center">
