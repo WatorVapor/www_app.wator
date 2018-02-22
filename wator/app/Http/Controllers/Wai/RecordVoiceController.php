@@ -26,6 +26,7 @@ class RecordVoiceController extends Controller
      */
     public function index(Request $request,$lang='cn')
     {
+        var_dump($lang);
         $data = [];
         try {
             $accessToken = $request->session()->get('account.rsa.login.token');
