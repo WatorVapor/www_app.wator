@@ -14,12 +14,12 @@
   <div class="col-lg-10 ">
     <div class="row">
       <div class="col">
-        <button type="submit" class="btn btn-block " href="/wai/text/record_voice/cn">
+        <button type="submit" class="btn btn-primary btn-block" href="/wai/text/record_voice/cn">
           {{ trans('wai_record_voice.chinese') }}
         </button>
       </div>
       <div class="col">
-        <button type="submit" class="btn btn-block " href="/wai/text/record_voice/ja">
+        <button type="submit" class="btn btn-primary btn-block" href="/wai/text/record_voice/ja">
           {{ trans('wai_record_voice.japanese') }}
         </button>
       </div>
