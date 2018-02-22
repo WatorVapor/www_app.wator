@@ -37,7 +37,8 @@ class RecordVoiceController extends Controller
                 $phonemeStr = file_get_contents($phonemePath);
                 $phonemeJson = json_decode($phonemeStr, true);
             } else {
-                
+                $path = storage_path();
+                var_dump($path);
             }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
