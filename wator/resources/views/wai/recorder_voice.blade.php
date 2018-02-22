@@ -12,7 +12,7 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
-    <div class="row>
+    <div class="row">
       <div class="col">
         <button type="submit" class="btn btn-block " href="/wai/text/record_voice/cn">
           {{ trans('wai_record_voice.chinese') }}
