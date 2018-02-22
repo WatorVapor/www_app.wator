@@ -34,7 +34,7 @@
   <div class="col-lg-10 ">
     <div class="card card-default">
       <div class="card-header text-center">
-        {{ trans('wai_record_voice.hirakana') }}
+        {{ trans('wai_record_voice.train') }}
       </div>
       <div class="card-body">
         <div class="row justify-content-center">
