@@ -43,7 +43,7 @@ class RecordVoiceController extends Controller
                 $phonemeJson = json_decode($phonemeStr, true);
                 
             }
-            var_dump($phonemeJson);
+            //var_dump($phonemeJson);
             if($phonemeJson[$lang]) {
                 var_dump($phonemeJson[$lang]);
             }
