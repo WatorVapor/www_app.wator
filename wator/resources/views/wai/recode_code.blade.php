@@ -4,6 +4,9 @@
 <script type="text/javascript">
 
 const RECORD_TIME_MS = 1500;
+//const ClipDurationInSec = 0.25; ja
+const ClipDurationInSec = 0.4; // zn
+let chunks4clip = {};
 
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
@@ -44,7 +47,6 @@ function doAudioRecord(phoneme) {
 function onMediaSuccess(stream,phoneme) {
   let mr = new MediaRecorder(stream);
   mr.mimeType = 'audio/webm'; // audio/webm or audio/ogg or audio/wav
-  let chunks4clip = {};
   let chunks4analyze = [];
   let clipIndex = 0;
   mr.ondataavailable = function (e) {
@@ -61,6 +63,7 @@ function onMediaSuccess(stream,phoneme) {
   }
   mr.onstart = function (e) {
     console.log('onstart:e=<',e,'>');
+    chunks4clip = {};
   }
   mr.onstop = function (e) {
     console.log('onstop:e=<',e,'>');
@@ -96,6 +99,7 @@ function analyzeBlobWebm(chunks) {
         let sample = decodedData.sampleRate;
         let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
         console.log('analyzeBlobWebm position=<',position,'>');
+        doClipWave(position);
       }
     });
   };
@@ -167,8 +171,6 @@ let chartConfig = {
 }
 
 const SamplingDropRate = 192;
-//const ClipDurationInSec = 0.25; ja
-const ClipDurationInSec = 0.4; // zn
 
 
 function showWaveChart(data,sample,idCanvas) {
@@ -224,7 +226,10 @@ function showWaveChart(data,sample,idCanvas) {
   let wavchar = new Chart(ctx,chartConfig);
   return waveEnergyMaxIndex / data.length ;
 }
-
+function doClipWave(position) {
+  console.log('doClipWave position=<',position,'>');
+  console.log('doClipWave chunks4clip=<',chunks4clip,'>');
+}
 
 
 </script>
