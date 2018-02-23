@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="row d-none">
+    <div class="row">
       <div class="col  m-0 p-0">
         <audio id="wai-recoder-audio-standard">
           <source src="" type="audio/webm">
