@@ -248,7 +248,9 @@ function doClipWave(position) {
   console.log('doClipWave chunks=<',chunks,'>');
   
   const blob = new Blob(chunks, { type: 'audio/webm' });
+  console.log('doClipWave blob=<',blob,'>');
   let urlBlob = window.URL.createObjectURL(blob);
+  console.log('doClipWave urlBlob=<',urlBlob,'>');
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('doClipWave audioElem=<',audioElem,'>');
