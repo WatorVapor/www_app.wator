@@ -32,12 +32,12 @@ class RecordVoiceController extends Controller
             $accessToken = $request->session()->get('account.rsa.login.token');
             $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
             File::makeDirectory($profilePath, 0775, true, true);
-            $phonemePath = $profilePath . '/phoneme.json';
+            $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
             if (file_exists($phonemePath)) {
                 $phonemeStr = file_get_contents($phonemePath);
                 $phonemeJson = json_decode($phonemeStr, true);
             } else {
-                $phonemePath = storage_path() . '/RecordVoicePhoneme.json';
+                $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
                 //var_dump($phonemePath);
                 $phonemeStr = file_get_contents($phonemePath);
                 $phonemeJson = json_decode($phonemeStr, true);
