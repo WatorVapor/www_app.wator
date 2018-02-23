@@ -251,7 +251,7 @@ function doClipWave(position) {
   if(clipEnd < keys.length -1) {
     chunks.push(chunks4clip[keys.length -1]);
   }
-  saveToFile(chunks,'test');
+  //saveToFile(chunks,'test');
   console.log('doClipWave chunks=<',chunks,'>');
   
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -262,7 +262,7 @@ function doClipWave(position) {
   audioElem.src = urlBlob;
   console.log('doClipWave audioElem=<',audioElem,'>');
   console.log('doClipWave audioElem.duration=<',audioElem.duration,'>');
-  //audioElem.play();
+  audioElem.play();
 }
 
 
