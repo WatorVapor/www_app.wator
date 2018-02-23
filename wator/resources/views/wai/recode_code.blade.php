@@ -4,6 +4,7 @@
 <script type="text/javascript">
 
 const RECORD_TIME_MS = 1500;
+const RECORD_INTERVAL_MS = 50;
 //const ClipDurationInSec = 0.25; ja
 const ClipDurationInSec = 0.4; // zn
 let chunks4clip = {};
@@ -71,7 +72,7 @@ function onMediaSuccess(stream,phoneme) {
     console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
     analyzeBlobWebm(chunks4analyze);
   }
-  mr.start(50);
+  mr.start(RECORD_INTERVAL_MS);
   setTimeout(function(){
     mr.stop();
   },RECORD_TIME_MS);
@@ -231,6 +232,8 @@ function doClipWave(position) {
   console.log('doClipWave chunks4clip=<',chunks4clip,'>');
   let clipEnd = position * chunks4clip.length;
   console.log('doClipWave clipEnd=<',clipEnd,'>');
+  let clipStart = clipEnd - ClipDurationInSec * 1000 /RECORD_INTERVAL_MS
+  console.log('doClipWave clipStart=<',clipStart,'>');
 }
 
 
