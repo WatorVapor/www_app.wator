@@ -242,6 +242,9 @@ function doClipWave(position) {
   }
   console.log('doClipWave clipStart=<',clipStart,'>');
   let chunks = [];
+  if(clipStart > 0) {
+    chunks.push(chunks4clip[0]);
+  }
   for(let i = clipStart;i <= clipEnd ;i++) {
     chunks.push(chunks4clip[i]);
   }
