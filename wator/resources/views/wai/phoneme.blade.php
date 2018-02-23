@@ -1,7 +1,7 @@
 <div class="card card-default text-center">
   <div class="card-body">
     <h1 class="card-title" style="font-size:96px;">{{ $phoneme }}</h1>
-    <h1 class="card-title" style="font-size:48px;color:red;">{{ $phoneme_help }}</h1>
+    <pre class="card-title" style="font-size:48px;color:red;">{{ $phoneme_help }}</pre>
     
     <div class="row">
       <div class="col  m-0 p-0">
