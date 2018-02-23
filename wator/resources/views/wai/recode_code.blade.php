@@ -239,16 +239,17 @@ function showWaveChart(data,sample,idCanvas) {
   mediaRecorder.mimeType = 'audio/webm';
   nodeSrc.connect(audioCtx.destination);
   console.log('showWaveChart nodeSrc=<',nodeSrc,'>');
-  nodeSrc.connect(dest);
   let chunks = [];
-  nodeSrc.start(0);
   mediaRecorder.ondataavailable = function(evt) {
     chunks.push(evt.data);
+    console.log('showWaveChart evt=<',evt,'>');
   };
   mediaRecorder.onstop = function(evt) {
     let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
     console.log('showWaveChart blobClip=<',blobClip,'>');
   };
+  nodeSrc.connect(dest);
+  nodeSrc.start(0);
   //return waveEnergyMaxIndex / data.length ;
 }
 function doClipWave(position) {
