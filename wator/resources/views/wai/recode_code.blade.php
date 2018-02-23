@@ -94,7 +94,8 @@ function analyzeBlobWebm(chunks) {
       for( let i = 0;i < decodedData.numberOfChannels;i++) {
         let data = decodedData.getChannelData(i);
         let sample = decodedData.sampleRate;
-        showWaveChart(data,sample,'wai-recoder-canvas-train');
+        let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
+        console.log('analyzeBlobWebm position=<',position,'>');
       }
     });
   };
@@ -221,6 +222,7 @@ function showWaveChart(data,sample,idCanvas) {
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
   
   let wavchar = new Chart(ctx,chartConfig);
+  return waveEnergyMaxIndex;
 }
 
 
