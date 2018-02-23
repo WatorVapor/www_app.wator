@@ -251,7 +251,7 @@ function showWaveChart(data,sample,idCanvas) {
     console.log('doClipWave urlBlob=<',urlBlob,'>');
     let audioElem = document.getElementById('wai-recoder-audio-train');
     audioElem.src = urlBlob;
-    audioElem.play();
+    //audioElem.play();
   };
   nodeSrc.connect(dest);
   mediaRecorder.start();
