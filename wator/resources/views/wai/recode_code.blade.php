@@ -251,6 +251,7 @@ function doClipWave(position) {
   let urlBlob = window.URL.createObjectURL(blob);
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
+  console.log('doClipWave audioElem=<',audioElem,'>');
   audioElem.play();
 }
 
