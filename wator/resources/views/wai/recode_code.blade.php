@@ -225,9 +225,21 @@ function showWaveChart(data,sample,idCanvas) {
   chartConfig.data.labels = chartConfig.data.datasets[0].data;
   
   let wavchar = new Chart(ctx,chartConfig);
-  return waveEnergyMaxIndex / data.length ;
+  
+  let buffer = audioCtx.createBuffer(1, ClipDurationInSec *sample , sample);
+  let audioData = buffer.getChannelData(0);
+  let startClipBuffer = waveEnergyMaxIndex - clipWindowSize;
+  for(var i = 0; i < audioData.length; i++) {
+      audioData[i] = data[i + startClipBuffer];
+  }
+  let nodeSrc = audioCtx.createBufferSource();
+  nodeSrc.buffer = buffer;
+  nodeSrc.connect(audioCtx.destination);
+  node.noteOn(0);
+  //return waveEnergyMaxIndex / data.length ;
 }
 function doClipWave(position) {
+/*
   console.log('doClipWave position=<',position,'>');
   console.log('doClipWave chunks4clip=<',chunks4clip,'>');
   let keys = Object.keys(chunks4clip);
@@ -263,6 +275,7 @@ function doClipWave(position) {
   console.log('doClipWave audioElem=<',audioElem,'>');
   console.log('doClipWave audioElem.duration=<',audioElem.duration,'>');
   audioElem.play();
+*/
 }
 
 
