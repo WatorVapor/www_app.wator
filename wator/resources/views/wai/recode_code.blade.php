@@ -235,7 +235,7 @@ function showWaveChart(data,sample,idCanvas) {
   let nodeSrc = audioCtx.createBufferSource();
   nodeSrc.buffer = buffer;
   nodeSrc.connect(audioCtx.destination);
-  node.noteOn(0);
+  nodeSrc.noteOn(0);
   //return waveEnergyMaxIndex / data.length ;
 }
 function doClipWave(position) {
