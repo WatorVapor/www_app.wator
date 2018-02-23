@@ -4,10 +4,9 @@
 <script type="text/javascript">
 
 const RECORD_TIME_MS = 1500;
-const RECORD_INTERVAL_MS = 50;
+const RECORD_INTERVAL_MS = 300;
 //const ClipDurationInSec = 0.25; ja
 const ClipDurationInSec = 0.4; // zn
-let chunks4clip = {};
 
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
@@ -54,7 +53,6 @@ function onMediaSuccess(stream,phoneme) {
     //console.log('ondataavailable:e=<',e,'>');
     //console.log('ondataavailable:phoneme=<',phoneme,'>');
     //console.log('ondataavailable:window.URL=<',window.URL,'>');
-    chunks4clip[clipIndex++] = e.data;
     chunks4analyze.push(e.data);
    //saveToFile(chunks,phoneme);
    //uploadSlice(chunks,phoneme);
@@ -64,11 +62,9 @@ function onMediaSuccess(stream,phoneme) {
   }
   mr.onstart = function (e) {
     console.log('onstart:e=<',e,'>');
-    chunks4clip = {};
   }
   mr.onstop = function (e) {
     console.log('onstop:e=<',e,'>');
-    console.log('onstop:chunks4clip=<',chunks4clip,'>');
     console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
     analyzeBlobWebm(chunks4analyze);
   }
@@ -260,45 +256,6 @@ function showWaveChart(data,sample,idCanvas) {
     mediaRecorder.stop();
   },1000);
   //return waveEnergyMaxIndex / data.length ;
-}
-function doClipWave(position) {
-/*
-  console.log('doClipWave position=<',position,'>');
-  console.log('doClipWave chunks4clip=<',chunks4clip,'>');
-  let keys = Object.keys(chunks4clip);
-  let clipEnd = Math.ceil(position * keys.length);
-  if(clipEnd >= keys.length) {
-    clipEnd = keys.length -1;
-  }
-  console.log('doClipWave clipEnd=<',clipEnd,'>');
-  let clipStart = Math.floor(clipEnd - ClipDurationInSec * 1000 /RECORD_INTERVAL_MS);
-  if(clipStart < 0) {
-    clipStart = 0;
-  }
-  console.log('doClipWave clipStart=<',clipStart,'>');
-  let chunks = [];
-  if(clipStart > 0) {
-    chunks.push(chunks4clip[0]);
-  }
-  for(let i = clipStart;i <= clipEnd ;i++) {
-    chunks.push(chunks4clip[i]);
-  }
-  if(clipEnd < keys.length -1) {
-    chunks.push(chunks4clip[keys.length -1]);
-  }
-  //saveToFile(chunks,'test');
-  console.log('doClipWave chunks=<',chunks,'>');
-  
-  const blob = new Blob(chunks, { type: 'audio/webm' });
-  console.log('doClipWave blob=<',blob,'>');
-  let urlBlob = window.URL.createObjectURL(blob);
-  console.log('doClipWave urlBlob=<',urlBlob,'>');
-  let audioElem = document.getElementById('wai-recoder-audio-train');
-  audioElem.src = urlBlob;
-  console.log('doClipWave audioElem=<',audioElem,'>');
-  console.log('doClipWave audioElem.duration=<',audioElem.duration,'>');
-  audioElem.play();
-*/
 }
 
 
