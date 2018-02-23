@@ -21,12 +21,12 @@
 
     <div class="row d-none">
       <div class="col  m-0 p-0">
-        <audio controls="controls" id="wai-recoder-audio-standard">
+        <audio id="wai-recoder-audio-standard">
           <source src="" type="audio/webm">
         </audio>
       </div>
       <div class="col  m-0 p-0">
-        <audio controls="controls" id="wai-recoder-audio-train">
+        <audio id="wai-recoder-audio-train">
           <source src="" type="audio/webm">
         </audio>
       </div>
