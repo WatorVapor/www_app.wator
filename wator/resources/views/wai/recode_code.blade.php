@@ -96,7 +96,6 @@ function analyzeBlobWebm(chunks) {
         let sample = decodedData.sampleRate;
         let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
         console.log('analyzeBlobWebm position=<',position,'>');
-        doClipWave(position);
       }
     });
   };
