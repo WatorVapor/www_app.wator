@@ -231,16 +231,16 @@ function doClipWave(position) {
   console.log('doClipWave position=<',position,'>');
   console.log('doClipWave chunks4clip=<',chunks4clip,'>');
   let keys = Object.keys(chunks4clip);
-  let clipEnd = Math.round(position * keys.length);
-  console.log('doClipWave clipEnd=<',clipEnd,'>');
-  let clipStart = Math.round(clipEnd - ClipDurationInSec * 1000 /RECORD_INTERVAL_MS);
-  console.log('doClipWave clipStart=<',clipStart,'>');
+  let clipEnd = Math.ceil(position * keys.length);
   if(clipEnd > keys.length) {
     clipEnd = keys.length;
   }
+  console.log('doClipWave clipEnd=<',clipEnd,'>');
+  let clipStart = Math.floor(clipEnd - ClipDurationInSec * 1000 /RECORD_INTERVAL_MS);
   if(clipStart < 0) {
     clipStart = 0;
   }
+  console.log('doClipWave clipStart=<',clipStart,'>');
 }
 
 
