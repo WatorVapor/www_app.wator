@@ -248,6 +248,9 @@ function doClipWave(position) {
   for(let i = clipStart;i <= clipEnd ;i++) {
     chunks.push(chunks4clip[i]);
   }
+  if(clipEnd < keys.length -1) {
+    chunks.push(chunks4clip[keys.length -1]);
+  }
   saveToFile(chunks,'test');
   console.log('doClipWave chunks=<',chunks,'>');
   
