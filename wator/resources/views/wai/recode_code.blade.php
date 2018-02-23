@@ -229,6 +229,8 @@ function showWaveChart(data,sample,idCanvas) {
 function doClipWave(position) {
   console.log('doClipWave position=<',position,'>');
   console.log('doClipWave chunks4clip=<',chunks4clip,'>');
+  let clipEnd = position * chunks4clip.length;
+  console.log('doClipWave clipEnd=<',clipEnd,'>');
 }
 
 
