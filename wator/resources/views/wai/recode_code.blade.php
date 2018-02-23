@@ -234,9 +234,21 @@ function showWaveChart(data,sample,idCanvas) {
   }
   let nodeSrc = audioCtx.createBufferSource();
   nodeSrc.buffer = buffer;
+  let dest = ac.createMediaStreamDestination();
+  let mediaRecorder = new MediaRecorder(dest.stream);
+  mediaRecorder.mimeType = 'audio/webm';
   nodeSrc.connect(audioCtx.destination);
   console.log('showWaveChart nodeSrc=<',nodeSrc,'>');
+  nodeSrc.connect(dest);
+  let chunks = [];
   nodeSrc.start(0);
+  mediaRecorder.ondataavailable = function(evt) {
+    chunks.push(evt.data);
+  };
+  mediaRecorder.onstop = function(evt) {
+    let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
+    console.log('showWaveChart blobClip=<',blobClip,'>');
+  };
   //return waveEnergyMaxIndex / data.length ;
 }
 function doClipWave(position) {
