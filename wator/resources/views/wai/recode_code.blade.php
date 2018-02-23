@@ -249,6 +249,7 @@ function showWaveChart(data,sample,idCanvas) {
     console.log('showWaveChart blobClip=<',blobClip,'>');
   };
   nodeSrc.connect(dest);
+  mediaRecorder.start();
   nodeSrc.start(0);
   //return waveEnergyMaxIndex / data.length ;
 }
