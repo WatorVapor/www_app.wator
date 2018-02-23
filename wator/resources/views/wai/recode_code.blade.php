@@ -251,6 +251,9 @@ function showWaveChart(data,sample,idCanvas) {
   nodeSrc.connect(dest);
   mediaRecorder.start();
   nodeSrc.start(0);
+  setTimeout(function(){
+    mediaRecorder.stop();
+  },1000);
   //return waveEnergyMaxIndex / data.length ;
 }
 function doClipWave(position) {
