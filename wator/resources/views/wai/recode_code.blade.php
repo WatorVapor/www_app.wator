@@ -246,6 +246,12 @@ function doClipWave(position) {
     chunks.push(chunks4clip[i]);
   }
   console.log('doClipWave chunks=<',chunks,'>');
+  
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  let urlBlob = window.URL.createObjectURL(blob);
+  let audioElem = document.getElementById('wai-recoder-audio-train');
+  audioElem.src = urlBlob;
+  audioElem.play();
 }
 
 
