@@ -234,7 +234,7 @@ function showWaveChart(data,sample,idCanvas) {
   }
   let nodeSrc = audioCtx.createBufferSource();
   nodeSrc.buffer = buffer;
-  let dest = ac.createMediaStreamDestination();
+  let dest = audioCtx.createMediaStreamDestination();
   let mediaRecorder = new MediaRecorder(dest.stream);
   mediaRecorder.mimeType = 'audio/webm';
   nodeSrc.connect(audioCtx.destination);
