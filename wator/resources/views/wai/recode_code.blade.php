@@ -232,8 +232,8 @@ function doClipWave(position) {
   console.log('doClipWave chunks4clip=<',chunks4clip,'>');
   let keys = Object.keys(chunks4clip);
   let clipEnd = Math.ceil(position * keys.length);
-  if(clipEnd > keys.length) {
-    clipEnd = keys.length;
+  if(clipEnd >= keys.length) {
+    clipEnd = keys.length -1;
   }
   console.log('doClipWave clipEnd=<',clipEnd,'>');
   let clipStart = Math.floor(clipEnd - ClipDurationInSec * 1000 /RECORD_INTERVAL_MS);
