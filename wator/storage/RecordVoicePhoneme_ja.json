@@ -1,1 +1,149 @@
+{
+  "ja": [
+    {"phoneme":"あ","cn_help":"阿"},
+    {"phoneme":"い","cn_help":"一"},
+    {"phoneme":"う","cn_help":"巫"},
+    {"phoneme":"え","cn_help":"诶"},
+    {"phoneme":"お","cn_help":"凹"},
+    
+    {"phoneme":"か","cn_help":"喀"},
+    {"phoneme":"き","cn_help":"剋"},
+    {"phoneme":"く","cn_help":"哭"},
+    {"phoneme":"け","cn_help":"开"},
+    {"phoneme":"こ","cn_help":"考"},
+    
+    {"phoneme":"が","cn_help":"嘎"},
+    {"phoneme":"ぎ","cn_help":"给"},
+    {"phoneme":"ぐ","cn_help":"骨"},
+    {"phoneme":"げ","cn_help":"该"},
+    {"phoneme":"ご","cn_help":"高"},
 
+    {"phoneme":"さ","cn_help":"杀"},
+    {"phoneme":"し","cn_help":"吸"},
+    {"phoneme":"す","cn_help":"师"},
+    {"phoneme":"せ","cn_help":"筛"},
+    {"phoneme":"そ","cn_help":"烧"},
+
+    {"phoneme":"ざ","cn_help":"扎"},
+    {"phoneme":"じ","cn_help":"鸡"},
+    {"phoneme":"ず","cn_help":"猪"},
+    {"phoneme":"ぜ","cn_help":"摘"},
+    {"phoneme":"ぞ","cn_help":"招"},
+
+    {"phoneme":"た","cn_help":"塔"},
+    {"phoneme":"ち","cn_help":"期"},
+    {"phoneme":"つ","cn_help":"初"},
+    {"phoneme":"て","cn_help":"胎"},
+    {"phoneme":"と","cn_help":"涛"},
+
+    {"phoneme":"だ","cn_help":"搭"},
+    {"phoneme":"ぢ","cn_help":"鸡"},
+    {"phoneme":"づ","cn_help":"猪"},
+    {"phoneme":"で","cn_help":"呆"},
+    {"phoneme":"ど","cn_help":"刀"},
+
+    {"phoneme":"な","cn_help":"纳"},
+    {"phoneme":"に","cn_help":"你"},
+    {"phoneme":"ぬ","cn_help":"奴"},
+    {"phoneme":"ね","cn_help":"乃"},
+    {"phoneme":"の","cn_help":"孬"},
+
+    {"phoneme":"は","cn_help":"哈"},
+    {"phoneme":"ひ","cn_help":"黑"},
+    {"phoneme":"ふ","cn_help":"福"},
+    {"phoneme":"へ","cn_help":"嗨"},
+    {"phoneme":"ほ","cn_help":"蒿"},
+
+    {"phoneme":"ば","cn_help":"嘎"},
+    {"phoneme":"び","cn_help":"给"},
+    {"phoneme":"ぶ","cn_help":"骨"},
+    {"phoneme":"べ","cn_help":"该"},
+    {"phoneme":"ぼ","cn_help":"高"},
+ 
+    {"phoneme":"ぱ","cn_help":"嘎"},
+    {"phoneme":"ぴ","cn_help":"给"},
+    {"phoneme":"ぷ","cn_help":"骨"},
+    {"phoneme":"ぺ","cn_help":"该"},
+    {"phoneme":"ぽ","cn_help":"高"},
+
+    {"phoneme":"ま","cn_help":"嘎"},
+    {"phoneme":"み","cn_help":"给"},
+    {"phoneme":"む","cn_help":"骨"},
+    {"phoneme":"め","cn_help":"该"},
+    {"phoneme":"も","cn_help":"高"},
+
+    {"phoneme":"や","cn_help":"嘎"},
+    {"phoneme":"－","cn_help":"给"},
+    {"phoneme":"ゆ","cn_help":"骨"},
+    {"phoneme":"－","cn_help":"该"},
+    {"phoneme":"よ","cn_help":"高"},
+
+    {"phoneme":"ら","cn_help":"嘎"},
+    {"phoneme":"り","cn_help":"给"},
+    {"phoneme":"る","cn_help":"骨"},
+    {"phoneme":"れ","cn_help":"该"},
+    {"phoneme":"ろ","cn_help":"高"},
+
+    {"phoneme":"わ","cn_help":"嘎"},
+    {"phoneme":"－","cn_help":"给"},
+    {"phoneme":"－","cn_help":"骨"},
+    {"phoneme":"－","cn_help":"该"},
+    {"phoneme":"を","cn_help":"高"},
+
+    {"phoneme":"ん","cn_help":"嘎"},
+    {"phoneme":"－","cn_help":"给"},
+    {"phoneme":"－","cn_help":"骨"},
+    {"phoneme":"－","cn_help":"该"},
+    {"phoneme":"－","cn_help":"高"},
+    
+    {"phoneme":"きゃ","cn_help":"俩"},
+    {"phoneme":"きゅ","cn_help":"遛"},
+    {"phoneme":"きょ","cn_help":"聊"},
+
+    {"phoneme":"ぎゃ","cn_help":"俩"},
+    {"phoneme":"ぎゅ","cn_help":"遛"},
+    {"phoneme":"ぎょ","cn_help":"聊"},
+
+    {"phoneme":"きゃ","cn_help":"俩"},
+    {"phoneme":"きゅ","cn_help":"遛"},
+    {"phoneme":"きょ","cn_help":"聊"},
+
+    {"phoneme":"しゃ","cn_help":"俩"},
+    {"phoneme":"しゅ","cn_help":"遛"},
+    {"phoneme":"しょ","cn_help":"聊"},
+
+    {"phoneme":"じゃ","cn_help":"俩"},
+    {"phoneme":"じゅ","cn_help":"遛"},
+    {"phoneme":"じょ","cn_help":"聊"},
+
+    {"phoneme":"ちゃ","cn_help":"俩"},
+    {"phoneme":"ちゅ","cn_help":"遛"},
+    {"phoneme":"ちょ","cn_help":"聊"},
+
+    {"phoneme":"にゃ","cn_help":"俩"},
+    {"phoneme":"にゅ","cn_help":"遛"},
+    {"phoneme":"にょ","cn_help":"聊"},
+
+    {"phoneme":"ひゃ","cn_help":"俩"},
+    {"phoneme":"ひゅ","cn_help":"遛"},
+    {"phoneme":"ひょ","cn_help":"聊"},
+
+    {"phoneme":"びゃ","cn_help":"俩"},
+    {"phoneme":"びゅ","cn_help":"遛"},
+    {"phoneme":"びょ","cn_help":"聊"},
+    
+    {"phoneme":"ぴゃ","cn_help":"俩"},
+    {"phoneme":"ぴゅ","cn_help":"遛"},
+    {"phoneme":"ぴょ","cn_help":"聊"},
+
+    {"phoneme":"みゃ","cn_help":"俩"},
+    {"phoneme":"みゅ","cn_help":"遛"},
+    {"phoneme":"みょ","cn_help":"聊"},
+
+    {"phoneme":"りゃ","cn_help":"俩"},
+    {"phoneme":"りゅ","cn_help":"遛"},
+    {"phoneme":"りょ","cn_help":"聊"},
+    
+    {"phoneme":" ","cn_help":" "}
+  ]
+}
