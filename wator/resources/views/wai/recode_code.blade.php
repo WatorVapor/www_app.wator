@@ -255,7 +255,7 @@ function doClipWave(position) {
   audioElem.src = urlBlob;
   console.log('doClipWave audioElem=<',audioElem,'>');
   console.log('doClipWave audioElem.duration=<',audioElem.duration,'>');
-  audioElem.play();
+  //audioElem.play();
 }
 
 
