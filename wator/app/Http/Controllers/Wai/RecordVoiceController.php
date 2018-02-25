@@ -62,9 +62,12 @@ class RecordVoiceController extends Controller
             if($lang == 'ja') {
                 $data['duration'] = 0.2;
             }
+            $data['lang'] = $lang;
         } catch( \Exception $e ) {
             $data['phoneme'] = ' ';
             $data['phoneme_help'] = ' ';
+            $data['duration'] = 0.4;
+            $data['lang'] = $lang;
             var_dump($e->getMessage());
         }
         //var_dump($data);
@@ -79,13 +82,13 @@ class RecordVoiceController extends Controller
     public function store(Request $request,$lang='cn')
     {
         var_dump($lang);
-/*        
         var_dump($request->input());
-        $filename = $request->input('filename');
-        var_dump($filename);
-        $audio = $request->input('audio');
-        var_dump($audio);
-*/
+        $phoneme = $request->input('phoneme');
+        var_dump($phoneme);
+        $langPhoneme = $request->input('lang');
+        var_dump($langPhoneme);
+        $ipfs = $request->input('ipfs');
+        var_dump($ipfs);
         return response()->json(['status'=>'success']);
     }
 }
