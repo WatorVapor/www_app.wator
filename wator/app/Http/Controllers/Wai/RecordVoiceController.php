@@ -19,6 +19,24 @@ class RecordVoiceController extends Controller
           $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
           File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
+    
+    
+    public function fetchTrainData(Request $request,$lang) {
+        $accessToken = $request->session()->get('account.rsa.login.token');
+        $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
+        File::makeDirectory($profilePath, 0775, true, true);
+        $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
+        if (file_exists($phonemePath)) {
+            $phonemeStr = file_get_contents($phonemePath);
+            $phonemeJson = json_decode($phonemeStr, true);
+        } else {
+            $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
+            //var_dump($phonemePath);
+            $phonemeStr = file_get_contents($phonemePath);
+            $phonemeJson = json_decode($phonemeStr, true);
+        }
+        return $phonemeJson;
+     }
    /**
      * Display a listing of the resource.
      *
@@ -29,20 +47,8 @@ class RecordVoiceController extends Controller
         //var_dump($lang);
         $data = [];
         try {
-            $accessToken = $request->session()->get('account.rsa.login.token');
-            $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
-            File::makeDirectory($profilePath, 0775, true, true);
-            $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
-            if (file_exists($phonemePath)) {
-                $phonemeStr = file_get_contents($phonemePath);
-                $phonemeJson = json_decode($phonemeStr, true);
-            } else {
-                $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
-                //var_dump($phonemePath);
-                $phonemeStr = file_get_contents($phonemePath);
-                $phonemeJson = json_decode($phonemeStr, true);
-            }
-            //var_dump($phonemeJson);
+           //var_dump($phonemeJson);
+            $phonemeJson = $this->fetchTrainData($request,$lang);
             if($phonemeJson[$lang]) {
                 //var_dump($phonemeJson[$lang]);
                 $finnish = 0;
@@ -92,6 +98,11 @@ class RecordVoiceController extends Controller
         var_dump($langPhoneme);
         $ipfs = $request->input('ipfs');
         var_dump($ipfs);
+        try {
+            $phonemeJson = $this->fetchTrainData($request,$lang);
+        } catch( \Exception $e ) {
+            var_dump($e->getMessage());
+        }
         return response()->json(['status'=>'success']);
     }
 }
