@@ -105,9 +105,9 @@ class RecordVoiceController extends Controller
                 if($value['phoneme'] == $phoneme){
                     $phonemeJson[$key]['train'] = true;
                     $phonemeJson[$key]['ipfs'] = $ipfs;
+                    var_dump($phonemeJson[$key]);
                 }
             }
-            var_dump($phonemeJson);
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
