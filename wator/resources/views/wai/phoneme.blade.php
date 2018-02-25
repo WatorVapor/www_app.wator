@@ -1,6 +1,7 @@
 <div class="card card-default text-center">
   <div class="card-body">
     <h1 class="card-title" style="font-size:96px;">{{ $phoneme }}</h1>
+    <h6 class="card-title" style="font-size:36px;">finnish: {{ $finnish }}/{{ $total }} tatal</h6>
     <pre class="card-title" style="font-size:48px;color:red;">{{ $phoneme_help }}</pre>
     
     <div class="row">
