@@ -1,29 +1,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js" integrity="sha256-t3+U9BqykoMN9cqZmJ5Z53TvPv4V7S9AmjUcIWNNyxo=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-let AudioContext = window.AudioContext || window.webkitAudioContext;
-let audioCtx = new AudioContext();
-function analyzeBlobWebm(chunks) {
-  console.log('analyzeBlobWebm chunks=<',chunks,'>');
-  const blob = new Blob(chunks, { type: 'audio/webm' });
-  let urlBlob = window.URL.createObjectURL(blob);
-  let audioElem = document.getElementById('wai-recoder-audio-train');
-  audioElem.src = urlBlob;
-  console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
-  let reader = new FileReader();
-  reader.onload = function() {
-    audioCtx.decodeAudioData(reader.result, function(decodedData) {
-      console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
-      for( let i = 0;i < decodedData.numberOfChannels;i++) {
-        let data = decodedData.getChannelData(i);
-        let sample = decodedData.sampleRate;
-        let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
-        console.log('analyzeBlobWebm position=<',position,'>');
-      }
-    });
-  };
-  reader.readAsArrayBuffer(blob);
-}
 let chartConfig = {
   type: 'line',
   data: {
@@ -133,41 +110,7 @@ function showWaveChart(data,sample,idCanvas) {
   for(let j = clipStart;j < clipEnd;j++) {
     chartConfig.data.datasets[1].data[j] = 1.0;
   }
-  chartConfig.data.labels = chartConfig.data.datasets[0].data;
-  
+  chartConfig.data.labels = chartConfig.data.datasets[0].data;  
   let wavchar = new Chart(ctx,chartConfig);
-  
-  let buffer = audioCtx.createBuffer(1, ClipDurationInSec *sample , sample);
-  let audioData = buffer.getChannelData(0);
-  let startClipBuffer = waveEnergyMaxIndex - clipWindowSize;
-  for(var i = 0; i < audioData.length; i++) {
-      audioData[i] = data[i + startClipBuffer];
-  }
-  let nodeSrc = audioCtx.createBufferSource();
-  nodeSrc.buffer = buffer;
-  let dest = audioCtx.createMediaStreamDestination();
-  let mediaRecorder = new MediaRecorder(dest.stream);
-  mediaRecorder.mimeType = 'audio/webm';
-  nodeSrc.connect(audioCtx.destination);
-  console.log('showWaveChart nodeSrc=<',nodeSrc,'>');
-  let chunks = [];
-  mediaRecorder.ondataavailable = function(evt) {
-    chunks.push(evt.data);
-    console.log('showWaveChart evt=<',evt,'>');
-  };
-  mediaRecorder.onstop = function(evt) {
-    let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
-    console.log('showWaveChart blobClip=<',blobClip,'>');
-    let urlBlob = window.URL.createObjectURL(blobClip);
-    console.log('doClipWave urlBlob=<',urlBlob,'>');
-    let audioElem = document.getElementById('wai-recoder-audio-train');
-    audioElem.src = urlBlob;
-  };
-  nodeSrc.connect(dest);
-  mediaRecorder.start();
-  nodeSrc.start(0);
-  setTimeout(function(){
-    mediaRecorder.stop();
-  },1000);
 }
 </script>
