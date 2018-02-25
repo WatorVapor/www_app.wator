@@ -61,4 +61,29 @@ function onMediaSuccess(stream,phoneme) {
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
+
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = new AudioContext();
+function analyzeBlobWebm(chunks) {
+  console.log('analyzeBlobWebm chunks=<',chunks,'>');
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  let urlBlob = window.URL.createObjectURL(blob);
+  let audioElem = document.getElementById('wai-recoder-audio-train');
+  audioElem.src = urlBlob;
+  console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
+  let reader = new FileReader();
+  reader.onload = function() {
+    audioCtx.decodeAudioData(reader.result, function(decodedData) {
+      console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
+      for( let i = 0;i < decodedData.numberOfChannels;i++) {
+        let data = decodedData.getChannelData(i);
+        let sample = decodedData.sampleRate;
+        let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
+        console.log('analyzeBlobWebm position=<',position,'>');
+      }
+    });
+  };
+  reader.readAsArrayBuffer(blob);
+}
+
 </script>
