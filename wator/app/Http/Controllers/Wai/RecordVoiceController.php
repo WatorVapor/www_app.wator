@@ -103,8 +103,8 @@ class RecordVoiceController extends Controller
             foreach( $phonemeJson[$lang] as $key => $value ) {
                //var_dump($value);
                 if($value['phoneme'] == $phoneme){
-                    $phonemeJson[$key].['train'] = true;
-                    $phonemeJson[$key].['ipfs'] = $ipfs;
+                    $phonemeJson[$key]['train'] = true;
+                    $phonemeJson[$key]['ipfs'] = $ipfs;
                 }
             }
             var_dump($phonemeJson);
