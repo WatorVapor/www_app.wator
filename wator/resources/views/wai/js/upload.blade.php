@@ -10,6 +10,10 @@ ipfs.id(function (err, identity) {
   console.log('ipfs.id:identity=<',identity,'>');
 });
 
+function onClickDoneBtn(elem) {
+  console.log('onClickDoneBtn:elem=<',elem,'>');
+}
+
 function uploadSliceToIpfs(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   const reader = new FileReader();  
