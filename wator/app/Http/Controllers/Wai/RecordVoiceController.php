@@ -56,6 +56,12 @@ class RecordVoiceController extends Controller
                     }
                 }
             }
+            if($lang == 'cn') {
+                $data['duration'] = 0.4;
+            }
+            if($lang == 'ja') {
+                $data['duration'] = 0.2;
+            }
         } catch( \Exception $e ) {
             $data['phoneme'] = ' ';
             $data['phoneme_help'] = ' ';
