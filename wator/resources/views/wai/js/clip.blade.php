@@ -1,4 +1,7 @@
 <script type="text/javascript">
+
+let gClipChunks = [];
+
 function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
   console.log('clipPhoneme waveEnergyMax=<',waveEnergyMax,'>');
   console.log('clipPhoneme waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
@@ -16,13 +19,12 @@ function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
   mediaRecorder.mimeType = 'audio/webm';
   nodeSrc.connect(audioCtx.destination);
   console.log('clipPhoneme nodeSrc=<',nodeSrc,'>');
-  let chunks = [];
   mediaRecorder.ondataavailable = function(evt) {
-    chunks.push(evt.data);
+    gClipChunks.push(evt.data);
     console.log('clipPhoneme evt=<',evt,'>');
   };
   mediaRecorder.onstop = function(evt) {
-    let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
+    let blobClip = new Blob(gClipChunks, { 'type' : 'audio/webm' });
     console.log('clipPhoneme blobClip=<',blobClip,'>');
     let urlBlob = window.URL.createObjectURL(blobClip);
     console.log('clipPhoneme urlBlob=<',urlBlob,'>');
