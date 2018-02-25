@@ -62,7 +62,7 @@
 <script src="/wator/wai/record.js" type="text/javascript"></script>
 -->
 
-@include('wai.recode_code')
+@include('wai.js.recode')
 
 
 @endsection
