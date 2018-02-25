@@ -42,5 +42,6 @@ function uploadInfo(ipfs) {
   console.log('uploadInfo::ipfs=<',ipfs,'>');
   $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
+  $( 'wai-recoder-clip-upload-ipfs' ).value( ipfs[0].hash );
 }
 </script>
