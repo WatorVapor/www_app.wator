@@ -1,41 +1,33 @@
-<script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+
 <script type="text/javascript">
-function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
-  console.log('clipPhoneme waveEnergyMax=<',waveEnergyMax,'>');
-  console.log('clipPhoneme waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
-  let clipWindowSize = ClipDurationInSec * sample;
-  let buffer = audioCtx.createBuffer(1, ClipDurationInSec *sample , sample);
-  let audioData = buffer.getChannelData(0);
-  let startClipBuffer = waveEnergyMaxIndex - clipWindowSize;
-  for(var i = 0; i < audioData.length; i++) {
-      audioData[i] = data[i + startClipBuffer];
+const Buffer = window.IpfsApi().Buffer;
+let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
+ipfs.id(function (err, identity) {
+  if (err) {
+    throw err
   }
-  let nodeSrc = audioCtx.createBufferSource();
-  nodeSrc.buffer = buffer;
-  let dest = audioCtx.createMediaStreamDestination();
-  let mediaRecorder = new MediaRecorder(dest.stream);
-  mediaRecorder.mimeType = 'audio/webm';
-  nodeSrc.connect(audioCtx.destination);
-  console.log('clipPhoneme nodeSrc=<',nodeSrc,'>');
-  let chunks = [];
-  mediaRecorder.ondataavailable = function(evt) {
-    chunks.push(evt.data);
-    console.log('clipPhoneme evt=<',evt,'>');
-  };
-  mediaRecorder.onstop = function(evt) {
-    let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
-    console.log('clipPhoneme blobClip=<',blobClip,'>');
-    let urlBlob = window.URL.createObjectURL(blobClip);
-    console.log('clipPhoneme urlBlob=<',urlBlob,'>');
-    let audioElem = document.getElementById('wai-recoder-audio-train');
-    audioElem.src = urlBlob;
-    $( '#wai-recoder-clip-operator' ).removeClass( 'd-none' );
-  };
-  nodeSrc.connect(dest);
-  mediaRecorder.start();
-  nodeSrc.start(0);
-  setTimeout(function(){
-    mediaRecorder.stop();
-  },1000);
+  console.log('ipfs.id:identity=<',identity,'>');
+});
+
+function uploadSlice(chunks,phoneme) {
+  const blob = new Blob(chunks, { type: 'audio/webm' });
+  const reader = new FileReader();  
+  reader.addEventListener('loadend', (e) => {
+    const buffer = e.srcElement.result;
+    let bufText = Buffer.from(buffer);
+    if(ipfs) {
+      ipfs.files.add(bufText,function(err, result){
+        if (err) {
+          throw err;
+        }
+        console.log('uploadSlice::result=<',result,'>');
+        setTimeout(function () { 
+          tryReadFromIpfs(result);
+        },1);
+      });
+    }
+  }); 
+  reader.readAsArrayBuffer(blob);
 }
 </script>
