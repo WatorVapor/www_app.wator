@@ -37,7 +37,7 @@
     <div class="row d-none" id="wai-recoder-clip-operator">
       <div class="col  m-0 p-0">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
-          <i class="material-icons " style="font-size:60px;color:green;">hearing</i>
+          <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
         </button>
       </div>
     </div>
