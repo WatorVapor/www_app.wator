@@ -112,5 +112,6 @@ function showWaveChart(data,sample,idCanvas) {
   }
   chartConfig.data.labels = chartConfig.data.datasets[0].data;  
   let wavchar = new Chart(ctx,chartConfig);
+  clipPhoneme(data,waveEnergyMaxIndex); 
 }
 </script>
