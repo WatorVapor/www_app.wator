@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-operator">
-        <form method="POST" action="#" accept-charset="utf-8">
+        <form method="POST" action="/wai/text/record_voice" accept-charset="utf-8">
           <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
             <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
           </button>
