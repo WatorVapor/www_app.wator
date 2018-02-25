@@ -41,20 +41,25 @@ class RecordVoiceController extends Controller
                 //var_dump($phonemePath);
                 $phonemeStr = file_get_contents($phonemePath);
                 $phonemeJson = json_decode($phonemeStr, true);
-                
             }
             //var_dump($phonemeJson);
             if($phonemeJson[$lang]) {
                 //var_dump($phonemeJson[$lang]);
+                $finnish = 0;
                 foreach( $phonemeJson[$lang] as $key => $value ) {
                     //var_dump($key);
                     //var_dump($value);
                     if(!isset($value['train'])) {
-                        $data['phoneme'] = $value['phoneme'];
-                        $data['phoneme_help'] = $value['cn_help'];
-                        break;
+                        if(!isset($data['phoneme'])) {
+                            $data['phoneme'] = $value['phoneme'];
+                            $data['phoneme_help'] = $value['cn_help'];
+                        }
+                    } else {
+                        $finnish += 1;
                     }
                 }
+                $data['total']  = count($phonemeJson[$lang]);
+                $data['finnish']  = $finnish;
             }
             if($lang == 'cn') {
                 $data['duration'] = 0.4;
