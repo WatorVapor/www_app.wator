@@ -41,7 +41,7 @@ Route::get('/wai/text/participle', 'Wai\ParticipleController@index');
 Route::post('/wai/text/participle', 'Wai\ParticipleController@store');
 
 Route::get('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@index');
-Route::post('/wai/text/record_voice', 'Wai\RecordVoiceController@store');
+Route::post('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@store');
 
 
 Route::get('/wai/text/train/crawler/summary', 'Wai\CrawlerTrainController@summary');
