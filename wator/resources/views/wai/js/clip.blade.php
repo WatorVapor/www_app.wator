@@ -1,5 +1,3 @@
-<script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous"></script>
-
 <script type="text/javascript">
 function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
   console.log('clipPhoneme waveEnergyMax=<',waveEnergyMax,'>');
