@@ -56,14 +56,15 @@
 
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
-<script src="/wator/wai/upload.js" type="text/javascript"></script>
 <!--
+<script src="/wator/wai/upload.js" type="text/javascript"></script>
 <script src="/wator/wai/record.js" type="text/javascript"></script>
 -->
 
 @include('wai.js.recode')
 @include('wai.js.chart')
 @include('wai.js.clip')
+@include('wai.js.upload')
 
 
 @endsection
