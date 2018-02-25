@@ -4,8 +4,7 @@
 <script type="text/javascript">
 const RECORD_TIME_MS = 1500;
 const RECORD_INTERVAL_MS = 300;
-//const ClipDurationInSec = 0.25; ja
-const ClipDurationInSec = 0.4; // zn
+const ClipDurationInSec = {{ $duration }};
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
 }
