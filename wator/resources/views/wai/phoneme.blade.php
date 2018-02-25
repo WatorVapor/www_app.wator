@@ -15,6 +15,11 @@
           <i class="material-icons " style="font-size:60px;color:green;">done</i>
         </button>
       </div>
+      <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-animate">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
+          <i class="material-icons " style="font-size:60px;color:green;">done</i>
+        </button>
+      </div>
       <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-upload">
         <form method="POST" action="#" accept-charset="utf-8">
           {{ csrf_field() }}
