@@ -101,8 +101,13 @@ class RecordVoiceController extends Controller
         try {
             $phonemeJson = $this->fetchTrainData($request,$lang);
             foreach( $phonemeJson[$lang] as $key => $value ) {
-               var_dump($value);
+               //var_dump($value);
+                if($value['phoneme'] == $phoneme){
+                    $phonemeJson[$key].['train'] = true;
+                    $phonemeJson[$key].['ipfs'] = $ipfs;
+                }
             }
+            var_dump($phonemeJson);
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
