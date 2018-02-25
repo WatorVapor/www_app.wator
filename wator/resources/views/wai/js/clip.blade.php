@@ -1,5 +1,5 @@
 <script type="text/javascript">
-function clipPhoneme(data,waveEnergyMaxIndex) {
+function clipPhoneme(data,waveEnergyMaxIndex,sample) {
   let buffer = audioCtx.createBuffer(1, ClipDurationInSec *sample , sample);
   let audioData = buffer.getChannelData(0);
   let startClipBuffer = waveEnergyMaxIndex - clipWindowSize;
