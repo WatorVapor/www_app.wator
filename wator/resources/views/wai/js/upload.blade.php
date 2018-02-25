@@ -12,6 +12,7 @@ ipfs.id(function (err, identity) {
 
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
+  uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
 }
 
 function uploadSliceToIpfs(chunks,phoneme) {
@@ -36,6 +37,7 @@ function uploadSliceToIpfs(chunks,phoneme) {
 }
 
 function uploadInfo(ipfs) {
-    $( '#wai-recoder-clip-operator' ).removeClass( 'd-none' );
+  console.log('uploadInfo::ipfs=<',ipfs,'>');
+  $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
 }
 </script>
