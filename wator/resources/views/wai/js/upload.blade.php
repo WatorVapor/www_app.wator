@@ -40,6 +40,7 @@ function uploadSliceToIpfs(chunks,phoneme) {
 
 function uploadInfo(ipfs) {
   console.log('uploadInfo::ipfs=<',ipfs,'>');
+  $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
 }
 </script>
