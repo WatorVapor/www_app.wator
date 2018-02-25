@@ -29,7 +29,6 @@ function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
     let audioElem = document.getElementById('wai-recoder-audio-train');
     audioElem.src = urlBlob;
     uploadSlice(chunks,'{{ $phoneme }}');
-    $( '#wai-recoder-clip-operator' ).removeClass( 'd-none' );
   };
   nodeSrc.connect(dest);
   mediaRecorder.start();
