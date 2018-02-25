@@ -28,7 +28,7 @@ function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
     console.log('clipPhoneme urlBlob=<',urlBlob,'>');
     let audioElem = document.getElementById('wai-recoder-audio-train');
     audioElem.src = urlBlob;
-    $( '#wai-recoder-clip-operator' ).toggleClass( 'd-none' );
+    $( '#wai-recoder-clip-operator' ).removeClass( 'd-none' );
   };
   nodeSrc.connect(dest);
   mediaRecorder.start();
