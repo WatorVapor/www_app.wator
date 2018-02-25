@@ -1,5 +1,7 @@
 <script type="text/javascript">
-function clipPhoneme(data,waveEnergyMaxIndex,sample) {
+function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
+  console.log('clipPhoneme waveEnergyMax=<',waveEnergyMax,'>');
+  console.log('clipPhoneme waveEnergyMaxIndex=<',waveEnergyMaxIndex,'>');
   let clipWindowSize = ClipDurationInSec * sample;
   let buffer = audioCtx.createBuffer(1, ClipDurationInSec *sample , sample);
   let audioData = buffer.getChannelData(0);
@@ -13,17 +15,17 @@ function clipPhoneme(data,waveEnergyMaxIndex,sample) {
   let mediaRecorder = new MediaRecorder(dest.stream);
   mediaRecorder.mimeType = 'audio/webm';
   nodeSrc.connect(audioCtx.destination);
-  console.log('showWaveChart nodeSrc=<',nodeSrc,'>');
+  console.log('clipPhoneme nodeSrc=<',nodeSrc,'>');
   let chunks = [];
   mediaRecorder.ondataavailable = function(evt) {
     chunks.push(evt.data);
-    console.log('showWaveChart evt=<',evt,'>');
+    console.log('clipPhoneme evt=<',evt,'>');
   };
   mediaRecorder.onstop = function(evt) {
     let blobClip = new Blob(chunks, { 'type' : 'audio/webm' });
-    console.log('showWaveChart blobClip=<',blobClip,'>');
+    console.log('clipPhoneme blobClip=<',blobClip,'>');
     let urlBlob = window.URL.createObjectURL(blobClip);
-    console.log('doClipWave urlBlob=<',urlBlob,'>');
+    console.log('clipPhoneme urlBlob=<',urlBlob,'>');
     let audioElem = document.getElementById('wai-recoder-audio-train');
     audioElem.src = urlBlob;
   };
