@@ -64,6 +64,7 @@
 
 @include('wai.js.recode')
 @include('wai.js.chart')
+@include('wai.js.clip')
 
 
 @endsection
