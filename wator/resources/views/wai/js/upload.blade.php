@@ -10,7 +10,7 @@ ipfs.id(function (err, identity) {
   console.log('ipfs.id:identity=<',identity,'>');
 });
 
-function uploadSlice(chunks,phoneme) {
+function uploadSliceToIpfs(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   const reader = new FileReader();  
   reader.addEventListener('loadend', (e) => {
@@ -21,13 +21,17 @@ function uploadSlice(chunks,phoneme) {
         if (err) {
           throw err;
         }
-        console.log('uploadSlice::result=<',result,'>');
+        console.log('uploadSliceToIpfs::result=<',result,'>');
         setTimeout(function () { 
-          tryReadFromIpfs(result);
+          uploadInfo(result);
         },1);
       });
     }
   }); 
   reader.readAsArrayBuffer(blob);
+}
+
+function uploadInfo(ipfs) {
+    $( '#wai-recoder-clip-operator' ).removeClass( 'd-none' );
 }
 </script>
