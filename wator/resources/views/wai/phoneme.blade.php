@@ -33,6 +33,17 @@
     </div>
 
     <hr/>
+
+    <div class="row d-none" id="wai-recoder-clip-update">
+      <div class="col  m-0 p-0">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
+          <i class="material-icons " style="font-size:60px;color:green;">hearing</i>
+        </button>
+      </div>
+    </div>
+    
+    <hr/>
+
 <!--    
     <div class="row">
       <div class="col  m-0 p-0">
