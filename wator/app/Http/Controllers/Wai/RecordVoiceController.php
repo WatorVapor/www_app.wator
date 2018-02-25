@@ -78,7 +78,7 @@ class RecordVoiceController extends Controller
      */
     public function store(Request $request,$lang='cn')
     {
-        var_dump($request);
+        var_dump($lang);
 /*        
         var_dump($request->input());
         $filename = $request->input('filename');
