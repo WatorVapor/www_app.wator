@@ -63,6 +63,7 @@
 -->
 
 @include('wai.js.recode')
+@include('wai.js.chart')
 
 
 @endsection
