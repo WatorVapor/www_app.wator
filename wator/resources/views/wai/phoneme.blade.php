@@ -58,28 +58,7 @@
 
     <hr/>
 
-<!--
-    <div class="row d-none" id="wai-recoder-clip-operator">
-      <div class="col  m-0 p-0">
-        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
-          <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
-        </button>
-      </div>
-    </div>
--->    
-    <hr/>
 
-<!--    
-    <div class="row">
-      <div class="col  m-0 p-0">
-      </div>
-      <div class="col  m-0 p-0">
-        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
-      </div>
-    </div>
-    <br/>
--->    
-    
     <div class="row">
       <div class="col  m-0 p-0">
         <canvas id="wai-recoder-canvas-standard"></canvas>
@@ -95,20 +74,5 @@
   </div>
 </div>
 
-<!--
-<style>
-#ex1Slider .slider-selection {
-    background: #BABABA;
-}
-</style>
 
-<script type="text/javascript">
-$('#ex1').slider({
-  formatter: function(value) {
-    console.log('formatter value=<',value,'>');
-    return 'Current value: ' + value;
-  }
-});
-</script>
--->
 
