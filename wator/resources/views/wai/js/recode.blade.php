@@ -1,6 +1,3 @@
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js" integrity="sha256-t3+U9BqykoMN9cqZmJ5Z53TvPv4V7S9AmjUcIWNNyxo=" crossorigin="anonymous"></script>
-
 <script type="text/javascript">
 const RECORD_TIME_MS = 1500;
 const RECORD_INTERVAL_MS = 300;
