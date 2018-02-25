@@ -28,7 +28,7 @@ function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
     console.log('clipPhoneme urlBlob=<',urlBlob,'>');
     let audioElem = document.getElementById('wai-recoder-audio-train');
     audioElem.src = urlBlob;
-    uploadSlice(chunks,'{{ $phoneme }}');
+    uploadSliceToIpfs(chunks,'{{ $phoneme }}');
   };
   nodeSrc.connect(dest);
   mediaRecorder.start();
