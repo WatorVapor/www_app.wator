@@ -14,7 +14,8 @@ function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
-  uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
+  //uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
+  uploadInfo('none');
 }
 
 function uploadSliceToIpfs(chunks,phoneme) {
@@ -43,5 +44,8 @@ function uploadInfo(ipfs) {
   $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
   $( '#wai-recoder-clip-upload-ipfs' ).val( ipfs[0].hash );
+  const blob = new Blob(gClipChunks, { type: 'audio/webm' });
+  let urlBlob = window.URL.createObjectURL(blob);
+  $( '#wai-recoder-clip-upload-blob' ).val( urlBlob );
 }
 </script>
