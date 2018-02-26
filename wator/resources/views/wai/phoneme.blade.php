@@ -22,9 +22,10 @@
         <form method="POST" action="#" accept-charset="utf-8">
           {{ csrf_field() }}
           <div class="form-group d-none">
-            <input type="text" name="phoneme" value="{{ $phoneme }}"></input>
-            <input type="text" name="lang" value="{{ $lang }}"></input>
-            <input type="text" id="wai-recoder-clip-upload-ipfs" name="ipfs" value="ipfs"></input>
+            <input type="text" name="phoneme" value="{{ $phoneme }}" />
+            <input type="text" name="lang" value="{{ $lang }}" />
+            <input type="text" id="wai-recoder-clip-upload-ipfs" name="ipfs" value="ipfs" />
+            <input type="hidden" name="hidden_data" id="wai-recoder-clip-upload-blob" />
           </div>
           <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
             <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
