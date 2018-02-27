@@ -37,6 +37,15 @@ class RecordVoiceController extends Controller
         }
         return $phonemeJson;
      }
+    public function saveTrainData(Request $request,$lang,$phonemeJson) {
+        $accessToken = $request->session()->get('account.rsa.login.token');
+        $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
+        File::makeDirectory($profilePath, 0775, true, true);
+        $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
+        $phonemeData = json_encode($phonemeJson,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $result = file_put_contents($phonemePath,$phonemeData);
+        return $result;
+     }
    /**
      * Display a listing of the resource.
      *
@@ -98,10 +107,12 @@ class RecordVoiceController extends Controller
         var_dump($langPhoneme);
         $ipfs = $request->input('ipfs');
         var_dump($ipfs);
+        /*
         $hidden_data = $request->input('hidden_data');
         var_dump($hidden_data);
         $file = $request->file();
         var_dump($file);
+        */
 
         try {
             $phonemeJson = $this->fetchTrainData($request,$lang);
@@ -110,7 +121,10 @@ class RecordVoiceController extends Controller
                 if($value['phoneme'] == $phoneme){
                     $phonemeJson[$lang][$key]['train'] = true;
                     $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
-                    var_dump($phonemeJson[$lang][$key]);
+                    //var_dump($phonemeJson[$lang][$key]);
+                    $result = saveTrainData($request,$lang,$phonemeJson);
+                    var_dump($result);
+                    break;
                 }
             }
         } catch( \Exception $e ) {
