@@ -25,6 +25,7 @@ function uploadSliceToIpfs(chunks,phoneme) {
     const buffer = e.srcElement.result;
     let bufText = Buffer.from(buffer);
     if(ipfs) {
+      /*
       ipfs.files.add(bufText,function(err, result){
         if (err) {
           throw err;
@@ -34,6 +35,18 @@ function uploadSliceToIpfs(chunks,phoneme) {
           uploadInfo(result);
         },1);
       });
+      */
+      const obj = {
+        Data: bufText,
+        Links: []
+      }
+      ipfs.object.put(obj, (err, node) => {
+        if (err) {
+          throw err
+        }
+        console.log('uploadSliceToIpfs::node=<',node,'>');
+      })
+
     }
   }); 
   reader.readAsArrayBuffer(blob);
