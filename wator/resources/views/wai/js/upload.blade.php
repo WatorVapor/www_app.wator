@@ -14,8 +14,8 @@ function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
-  //uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
-  uploadInfo('none');
+  uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
+  //uploadInfo('none');
 }
 
 function uploadSliceToIpfs(chunks,phoneme) {
