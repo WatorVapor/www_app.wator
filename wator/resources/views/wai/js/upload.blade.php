@@ -14,8 +14,8 @@ function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
-  uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
-  //uploadInfo('none');
+  //uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
+  uploadInfo('none');
 }
 
 function uploadSliceToIpfs(chunks,phoneme) {
@@ -25,7 +25,6 @@ function uploadSliceToIpfs(chunks,phoneme) {
     const buffer = e.srcElement.result;
     let bufText = Buffer.from(buffer);
     if(ipfs) {
-      /*
       ipfs.files.add(bufText,function(err, result){
         if (err) {
           throw err;
@@ -35,7 +34,7 @@ function uploadSliceToIpfs(chunks,phoneme) {
           uploadInfo(result);
         },1);
       });
-      */
+      /*
       const obj = {
         Data: bufText,
         Links: []
@@ -46,6 +45,7 @@ function uploadSliceToIpfs(chunks,phoneme) {
         }
         console.log('uploadSliceToIpfs::node=<',node,'>');
       })
+      */
 
     }
   }); 
