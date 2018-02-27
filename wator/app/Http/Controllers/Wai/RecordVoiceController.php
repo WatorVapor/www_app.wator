@@ -100,7 +100,7 @@ class RecordVoiceController extends Controller
         var_dump($ipfs);
         $hidden_data = $request->input('hidden_data');
         var_dump($hidden_data);
-        $file=Input::file();
+        $file = $request->file();
         var_dump($file);
 
         try {
