@@ -98,6 +98,8 @@ class RecordVoiceController extends Controller
         var_dump($langPhoneme);
         $ipfs = $request->input('ipfs');
         var_dump($ipfs);
+        $hidden_data = $request->input('hidden_data');
+        var_dump($hidden_data);
         try {
             $phonemeJson = $this->fetchTrainData($request,$lang);
             foreach( $phonemeJson[$lang] as $key => $value ) {
