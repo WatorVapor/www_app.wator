@@ -113,7 +113,8 @@ $(document).ready(function(){
       counter += 1;
     }
   }
-  $( '#"wai-recoder-clip-in-local' ).val(counter);
+  console.log('document.ready::counter=<',counter,'>');
+  $( '#"wai-recoder-clip-in-local' ).val(counter + '@localstorage');
 }
 
 /*
