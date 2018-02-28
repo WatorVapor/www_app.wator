@@ -113,7 +113,7 @@ $(document).ready(function(){
     }
   }
   console.log('document.ready::counter=<',counter,'>');
-  $( '#wai-recoder-clip-in-local' ).text(counter + '@localstorage');
+  $( '#wai-recoder-clip-in-local' ).text(counter + '@local');
 });
 
 
