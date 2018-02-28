@@ -33,7 +33,6 @@ function uploadSliceToLocal(chunks,phoneme) {
     console.log('uploadSliceToLocal:file=<',file,'>');
     localStorage.setItem('wai/train/audio/clip/' + phoneme,bufferToBase64(bufText));
     $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
-    uploadLocalToIpfs();
   }); 
   reader.readAsArrayBuffer(blob);
 }
@@ -48,6 +47,20 @@ function uploadInfo(ipfs) {
   $( '#wai-recoder-clip-upload-blob' ).val( urlBlob );
 }
 
+function onClickDoneBtn(elem) {
+  console.log('onClickDoneBtn:elem=<',elem,'>');
+  $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
+  $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
+  uploadSliceToLocal(gClipChunks,'{{ $phoneme }}');
+  //uploadInfo('none');
+}
+
+function onClickUploadBtn(elem) {
+  console.log('onClickDoneBtn:elem=<',elem,'>');
+  $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
+  uploadLocalToIpfs();
+}
+
 
 function uploadLocalToIpfs() {
   let files = [];
@@ -56,16 +69,6 @@ function uploadLocalToIpfs() {
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
       let bufText = Buffer.from(base64ToBuffer(bufStorage));
-      
-/*      
-      ipfs.files.add(bufText,function(err, result){
-        if (err) {
-          throw err;
-        }
-        console.log('uploadSliceToIpfs::result=<',result,'>');
-      });
-      return;
-*/    
       let params = key.split('/');
       let phoneme = params[params.length -1];
       let file = {
