@@ -13,7 +13,6 @@ ipfs.id(function (err, identity) {
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
-  $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
   uploadSliceToLocal(gClipChunks,'{{ $phoneme }}');
   //uploadInfo('none');
 }
@@ -32,7 +31,7 @@ function uploadSliceToLocal(chunks,phoneme) {
     }
     console.log('uploadSliceToLocal:file=<',file,'>');
     localStorage.setItem('wai/train/audio/clip/' + phoneme,bufferToBase64(bufText));
-    $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
+    $( '#wai-recoder-clip-done-next' ).click();
   }); 
   reader.readAsArrayBuffer(blob);
 }
