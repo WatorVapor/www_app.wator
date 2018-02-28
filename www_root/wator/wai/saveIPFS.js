@@ -3,7 +3,8 @@
 onmessage = function (evt) {
   postMessage('saveIPFS::evt=<',evt,'>');
 };
-
+console.log('saveIPFS::IpfsApi=<',IpfsApi,'>');
+console.log('saveIPFS::Buffer=<',Buffer,'>');
 /*
 ipfs.id(function (err, identity) {
   if (err) {
