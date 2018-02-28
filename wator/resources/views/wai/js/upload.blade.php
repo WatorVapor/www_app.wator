@@ -36,26 +36,17 @@ function uploadSliceToLocal(chunks,phoneme) {
   reader.readAsArrayBuffer(blob);
 }
 
-function uploadInfo(ipfs) {
-  console.log('uploadInfo::ipfs=<',ipfs,'>');
-  $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
-  $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
-  $( '#wai-recoder-clip-upload-ipfs' ).val( ipfs[0].hash );
-  const blob = new Blob(gClipChunks, { type: 'audio/webm' });
-  let urlBlob = window.URL.createObjectURL(blob);
-  $( '#wai-recoder-clip-upload-blob' ).val( urlBlob );
-}
+
 
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
-  $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
   uploadSliceToLocal(gClipChunks,'{{ $phoneme }}');
-  //uploadInfo('none');
 }
 
 function onClickUploadBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
+  $( '#wai-recoder-clip-upload' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
   uploadLocalToIpfs();
 }
@@ -89,6 +80,14 @@ function uploadLocalToIpfs() {
       },1);
     });
   }
+}
+
+function uploadInfo(ipfs) {
+  console.log('uploadInfo::ipfs=<',ipfs,'>');
+  $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
+  $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
+  $( '#wai-recoder-clip-upload-ipfs' ).val( JSON.stringify(ipfs));
+  //$( 'wai-recoder-clip-ipfs-upload' ).click();
 }
 
 function bufferToBase64(buf) {
