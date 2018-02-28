@@ -56,6 +56,8 @@ function uploadLocalToIpfs() {
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
       let bufText = Buffer.from(base64ToBuffer(bufStorage));
+      
+/*      
       ipfs.files.add(bufText,function(err, result){
         if (err) {
           throw err;
@@ -63,7 +65,7 @@ function uploadLocalToIpfs() {
         console.log('uploadSliceToIpfs::result=<',result,'>');
       });
       return;
-      
+*/      
       let file = {
         path: key,
         content: bufText
