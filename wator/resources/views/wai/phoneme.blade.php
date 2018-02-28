@@ -1,3 +1,17 @@
+
+<div class="col-2 d-none" >
+  <form method="POST" action="#" accept-charset="utf-8">
+    {{ csrf_field() }}
+    <div class="form-group d-none">
+      <input type="text" name="phoneme" value="{{ $phoneme }}" />
+      <input type="text" name="lang" value="{{ $lang }}" />
+    </div>
+    <button type="submit" id="wai-recoder-clip-done-next">
+    </button>
+  </form>
+</div>
+
+
 <div class="card card-default text-center">
   <div class="card-body">
     <div class="row">
