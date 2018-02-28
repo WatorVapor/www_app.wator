@@ -1,10 +1,10 @@
 <div class="card card-default text-center">
   <div class="card-body">
     <div class="row">
-      <div class="col  m-0 p-0">
+      <div class="col-10  m-0 p-0">
         <h1 class="card-title" style="font-size:96px;">{{ $phoneme }}</h1>
       </div>
-      <div class="col  m-0 p-0" id="wai-recoder-clip-upload">
+      <div class="col-2  m-0 p-0" id="wai-recoder-clip-upload">
         <form method="POST" action="#" accept-charset="utf-8">
           {{ csrf_field() }}
           <div class="form-group d-none">
