@@ -61,4 +61,8 @@ function uploadInfo(ipfs) {
   let urlBlob = window.URL.createObjectURL(blob);
   $( '#wai-recoder-clip-upload-blob' ).val( urlBlob );
 }
+
+let worker = new Worker('/wator/wai/saveIPFS.js');
+console.log('::worker=<',worker,'>');
+
 </script>
