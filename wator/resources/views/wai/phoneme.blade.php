@@ -33,6 +33,7 @@
       <div class="col-2  m-0 p-0" id="wai-recoder-clip-upload">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickUploadBtn(this)">
           <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
+          <span class="badge badge-light">4</span>
         </button>
       </div>
       <div class="col-2  m-0 p-0 d-none" id="wai-recoder-clip-animate">
