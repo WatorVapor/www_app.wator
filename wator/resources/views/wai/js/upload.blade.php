@@ -62,7 +62,8 @@ function uploadLocalToIpfs() {
       };
       files.push(file);
     }
-  }  
+  }
+   console.log('uploadLocalToIpfs::files=<',files,'>');
   if(ipfs) {
     ipfs.files.add(files,function(err, result){
       if (err) {
