@@ -8,7 +8,6 @@ function onUpdateData(msg) {
 function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
-  $( '#wai-recoder-clip-upload' ).addClass( 'd-none' );
   
   let timerCounterMax = RECORD_TIME_MS/300 -2; 
   let timerCounter = RECORD_TIME_MS/300 -2; 
