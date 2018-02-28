@@ -56,7 +56,7 @@ function uploadLocalToIpfs() {
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
       let bufText = Buffer.from(bufStorage);
-      ipfs.files.add(files,function(err, result){
+      ipfs.files.add(bufText,function(err, result){
         if (err) {
           throw err;
         }
