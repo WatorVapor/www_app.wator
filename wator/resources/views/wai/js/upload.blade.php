@@ -54,7 +54,8 @@ function uploadLocalToIpfs() {
   for (let key in localStorage){
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('uploadLocalToIpfs::key=<',key,'>');
-      let bufText = localStorage.getItem(key);
+      let bufStorage = localStorage.getItem(key);
+      let bufText = Buffer.from(bufStorage);
       let file = {
         path: key,
         content: bufText
