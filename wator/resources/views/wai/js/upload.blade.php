@@ -52,7 +52,7 @@ function uploadInfo(ipfs) {
 function uploadLocalToIpfs() {
   let files = [];
   for (let key in localStorage){
-    if(key.startWith('wai/train/audio/clip/')){
+    if(key.startsWith('wai/train/audio/clip/')){
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufText = localStorage.get(key);
       let file = {
