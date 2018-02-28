@@ -35,6 +35,9 @@
           <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
         </button>
       </div>
+      <div class="col-2  m-0 p-0 d-none" id="wai-recoder-clip-animate">
+          <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
+      </div>
     </div>
     <h6 class="card-title" style="font-size:18px;">{{ $finnish }}/{{ $total }}</h6>
     <pre class="card-title" style="font-size:48px;color:red;">{{ $phoneme_help }}</pre>
@@ -49,9 +52,6 @@
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickDoneBtn(this)">
           <i class="material-icons " style="font-size:60px;color:green;">done</i>
         </button>
-      </div>
-      <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-animate">
-          <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
       </div>
       <div class="col  m-0 p-0">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickRecordBtn(this)">
