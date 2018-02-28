@@ -14,50 +14,23 @@ function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
-  uploadSliceToIpfs(gClipChunks,'{{ $phoneme }}');
+  uploadSliceToLocal(gClipChunks,'{{ $phoneme }}');
   //uploadInfo('none');
 }
 
-function uploadSliceToIpfs(chunks,phoneme) {
+//let globalClipFiles = [];
+
+function uploadSliceToLocal(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   const reader = new FileReader();  
   reader.addEventListener('loadend', (e) => {
     const buffer = e.srcElement.result;
     let bufText = Buffer.from(buffer);
-    if(ipfs) {
-      const files = [
-        {
-          path: phoneme + '1.webm',
-          content: bufText
-        },
-        {
-          path: phoneme + '2.webm',
-          content: bufText
-        }
-      ];
-      ipfs.files.add(files,function(err, result){
-        if (err) {
-          throw err;
-        }
-        console.log('uploadSliceToIpfs::result=<',result,'>');
-        setTimeout(function () { 
-          uploadInfo(result);
-        },1);
-      });
-      /*
-      const obj = {
-        Data: bufText,
-        Links: []
-      }
-      ipfs.object.put(obj, (err, node) => {
-        if (err) {
-          throw err
-        }
-        console.log('uploadSliceToIpfs::node=<',node,'>');
-      })
-      */
-
+    let file = {
+      path: phoneme,
+      content: bufText
     }
+    localStorage.setItem('/wai/train/audio/clip/' + phoneme,file);
   }); 
   reader.readAsArrayBuffer(blob);
 }
@@ -73,6 +46,29 @@ function uploadInfo(ipfs) {
 }
 
 
+function uploadLocalToIpfs() {     
+  if(ipfs) {
+    const files = [
+      {
+        path: phoneme + '1.webm',
+        content: bufText
+      },
+      {
+        path: phoneme + '2.webm',
+        content: bufText
+      }
+    ];
+    ipfs.files.add(files,function(err, result){
+      if (err) {
+        throw err;
+      }
+      console.log('uploadSliceToIpfs::result=<',result,'>');
+      setTimeout(function () { 
+        uploadInfo(result);
+      },1);
+    });
+  }
+}
 
 /*
 let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
