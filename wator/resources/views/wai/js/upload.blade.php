@@ -25,7 +25,17 @@ function uploadSliceToIpfs(chunks,phoneme) {
     const buffer = e.srcElement.result;
     let bufText = Buffer.from(buffer);
     if(ipfs) {
-      ipfs.files.add(bufText,function(err, result){
+      const files = [
+        {
+          path: phoneme + '1.webm',
+          content: bufText
+        },
+        {
+          path: phoneme + '2.webm',
+          content: bufText
+        }
+      ];
+      ipfs.files.add(files,function(err, result){
         if (err) {
           throw err;
         }
