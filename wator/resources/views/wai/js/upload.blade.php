@@ -56,6 +56,14 @@ function uploadLocalToIpfs() {
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
       let bufText = Buffer.from(bufStorage);
+      ipfs.files.add(files,function(err, result){
+        if (err) {
+          throw err;
+        }
+        console.log('uploadSliceToIpfs::result=<',result,'>');
+      }
+      return;
+      
       let file = {
         path: key,
         content: bufText
@@ -63,7 +71,7 @@ function uploadLocalToIpfs() {
       files.push(file);
     }
   }
-   console.log('uploadLocalToIpfs::files=<',files,'>');
+  console.log('uploadLocalToIpfs::files=<',files,'>');
   if(ipfs) {
     ipfs.files.add(files,function(err, result){
       if (err) {
