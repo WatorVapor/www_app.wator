@@ -31,6 +31,7 @@ function uploadSliceToLocal(chunks,phoneme) {
       content: bufText
     }
     localStorage.setItem('/wai/train/audio/clip/' + phoneme,file);
+    $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   }); 
   reader.readAsArrayBuffer(blob);
 }
