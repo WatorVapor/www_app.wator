@@ -18,7 +18,15 @@
       <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-animate">
           <i class="fa fa-spinner fa-spin" style="font-size:96px;color:red"></i>
       </div>
-      <div class="col  m-0 p-0 d-none" id="wai-recoder-clip-upload">
+      <div class="col  m-0 p-0">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickRecordBtn(this)">
+          <i class="material-icons " style="font-size:60px;color:red;">mic</i>
+        </button>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="col  m-0 p-0" id="wai-recoder-clip-upload">
         <form method="POST" action="#" accept-charset="utf-8">
           {{ csrf_field() }}
           <div class="form-group d-none">
@@ -31,14 +39,6 @@
             <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
           </button>
         </form>
-      </div>
-      <div class="col  m-0 p-0">
-        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickRecordBtn(this)">
-          <i class="material-icons " style="font-size:60px;color:red;">mic</i>
-        </button>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-        </div>
       </div>
     </div>
 
