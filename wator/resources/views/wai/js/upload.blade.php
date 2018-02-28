@@ -31,7 +31,7 @@ function uploadSliceToLocal(chunks,phoneme) {
       content: bufText
     }
     console.log('uploadSliceToLocal:file=<',file,'>');
-    localStorage.setItem('wai/train/audio/clip/' + phoneme,bufText);
+    localStorage.setItem('wai/train/audio/clip/' + phoneme,window.btoa(bufText));
     $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
     uploadLocalToIpfs();
   }); 
@@ -55,7 +55,7 @@ function uploadLocalToIpfs() {
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
-      let bufText = Buffer.from(bufStorage);
+      let bufText = Buffer.from(window.atob(bufStorage));
       ipfs.files.add(bufText,function(err, result){
         if (err) {
           throw err;
