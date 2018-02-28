@@ -30,7 +30,8 @@ function uploadSliceToLocal(chunks,phoneme) {
       path: phoneme,
       content: bufText
     }
-    localStorage.setItem('/wai/train/audio/clip/' + phoneme,file);
+    console.log('uploadSliceToLocal:file=<',file,'>');
+    localStorage.setItem('/wai/train/audio/clip/' + phoneme,bufText);
     $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   }); 
   reader.readAsArrayBuffer(blob);
