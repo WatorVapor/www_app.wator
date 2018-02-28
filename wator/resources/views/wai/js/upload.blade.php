@@ -33,6 +33,7 @@ function uploadSliceToLocal(chunks,phoneme) {
     console.log('uploadSliceToLocal:file=<',file,'>');
     localStorage.setItem('/wai/train/audio/clip/' + phoneme,bufText);
     $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
+    uploadLocalToIpfs();
   }); 
   reader.readAsArrayBuffer(blob);
 }
@@ -48,7 +49,10 @@ function uploadInfo(ipfs) {
 }
 
 
-function uploadLocalToIpfs() {     
+function uploadLocalToIpfs() {
+  for (var key in localStorage){
+     console.log('uploadLocalToIpfs::key=<',key,'>');
+  }  
   if(ipfs) {
     const files = [
       {
