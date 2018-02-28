@@ -63,12 +63,12 @@ function uploadInfo(ipfs) {
 }
 
 let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
-console.log('::workerSaveIPFS=<',workerSaveIPFS,'>');
 workerSaveIPFS.onmessage = function(e) {
   console.log('workerSaveIPFS.onmessage::e=<',e,'>');
 }
 workerSaveIPFS.onerror = function(e) {
   console.log('workerSaveIPFS.onmessage::e=<',e,'>');
 }
+console.log('::workerSaveIPFS=<',workerSaveIPFS,'>');
 
 </script>
