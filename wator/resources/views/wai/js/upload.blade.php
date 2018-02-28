@@ -61,7 +61,7 @@ function uploadLocalToIpfs() {
           throw err;
         }
         console.log('uploadSliceToIpfs::result=<',result,'>');
-      }
+      });
       return;
       
       let file = {
