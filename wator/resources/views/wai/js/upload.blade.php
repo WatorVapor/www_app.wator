@@ -65,9 +65,11 @@ function uploadLocalToIpfs() {
         console.log('uploadSliceToIpfs::result=<',result,'>');
       });
       return;
-*/      
+*/    
+      let params = key.split('/');
+      let phoneme = params[params.length -1];
       let file = {
-        path: key,
+        path: phoneme + '.webm',
         content: bufText
       };
       files.push(file);
