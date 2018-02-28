@@ -106,6 +106,15 @@ function base64ToBuffer(base64) {
     return buf;
 }
 
+$(document).ready(function(){
+  let counter = 0;
+  for (let key in localStorage){
+    if(key.startsWith('wai/train/audio/clip/')){
+      counter += 1;
+    }
+  }
+  $( '#"wai-recoder-clip-in-local' ).val(counter);
+}
 
 /*
 let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
