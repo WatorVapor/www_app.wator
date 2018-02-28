@@ -44,20 +44,6 @@
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
         </div>
       </div>
-      <div class="col  m-0 p-0" id="wai-recoder-clip-upload">
-        <form method="POST" action="#" accept-charset="utf-8">
-          {{ csrf_field() }}
-          <div class="form-group d-none">
-            <input type="text" name="phoneme" value="{{ $phoneme }}" />
-            <input type="text" name="lang" value="{{ $lang }}" />
-            <input type="text" id="wai-recoder-clip-upload-ipfs" name="ipfs" value="ipfs" />
-            <input type="hidden" name="hidden_data" id="wai-recoder-clip-upload-blob" />
-          </div>
-          <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
-            <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
-          </button>
-        </form>
-      </div>
     </div>
 
     <div class="row d-none">
