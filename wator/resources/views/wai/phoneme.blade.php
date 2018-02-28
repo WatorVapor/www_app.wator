@@ -1,13 +1,24 @@
 
-<div class="col-2 d-none" >
+<div class="d-none" >
   <form method="POST" action="#" accept-charset="utf-8">
     {{ csrf_field() }}
     <div class="form-group d-none">
       <input type="text" name="phoneme" value="{{ $phoneme }}" />
       <input type="text" name="lang" value="{{ $lang }}" />
     </div>
-    <button type="submit" id="wai-recoder-clip-done-next">
-    </button>
+    <button type="submit" id="wai-recoder-clip-done-next"></button>
+  </form>
+</div>
+
+<div class="d-none" >
+  <form method="POST" action="#" accept-charset="utf-8">
+    {{ csrf_field() }}
+    <div class="form-group d-none">
+      <input type="text" name="phoneme" value="{{ $phoneme }}" />
+      <input type="text" name="lang" value="{{ $lang }}" />
+      <input type="text" id="wai-recoder-clip-upload-ipfs" name="ipfs" value="ipfs" />
+    </div>
+    <button type="submit" id="wai-recoder-clip-ipfs-upload"></button>
   </form>
 </div>
 
@@ -20,18 +31,9 @@
         <h1 class="card-title" style="font-size:96px;">{{ $phoneme }}</h1>
       </div>
       <div class="col-2  m-0 p-0" id="wai-recoder-clip-upload">
-        <form method="POST" action="#" accept-charset="utf-8">
-          {{ csrf_field() }}
-          <div class="form-group d-none">
-            <input type="text" name="phoneme" value="{{ $phoneme }}" />
-            <input type="text" name="lang" value="{{ $lang }}" />
-            <input type="text" id="wai-recoder-clip-upload-ipfs" name="ipfs" value="ipfs" />
-            <input type="hidden" name="hidden_data" id="wai-recoder-clip-upload-blob" />
-          </div>
-          <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
-            <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
-          </button>
-        </form>
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickUploadBtn(this)">
+          <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
+        </button>
       </div>
     </div>
     <h6 class="card-title" style="font-size:18px;">{{ $finnish }}/{{ $total }}</h6>
