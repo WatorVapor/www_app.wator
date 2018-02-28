@@ -70,7 +70,7 @@ workerSaveIPFS.onerror = function(e) {
   console.log('workerSaveIPFS.onmessage::e=<',e,'>');
 }
 console.log('::workerSaveIPFS=<',workerSaveIPFS,'>');
-//workerSaveIPFS.postMessage([Buffer,ipfs]);
+workerSaveIPFS.postMessage(ipfs);
 
 
 </script>
