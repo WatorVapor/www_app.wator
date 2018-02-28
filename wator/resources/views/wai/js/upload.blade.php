@@ -62,7 +62,13 @@ function uploadInfo(ipfs) {
   $( '#wai-recoder-clip-upload-blob' ).val( urlBlob );
 }
 
-let worker = new Worker('/wator/wai/saveIPFS.js');
-console.log('::worker=<',worker,'>');
+let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
+console.log('::workerSaveIPFS=<',workerSaveIPFS,'>');
+workerSaveIPFS.onmessage = function(e) {
+  console.log('workerSaveIPFS.onmessage::e=<',e,'>');
+}
+workerSaveIPFS.onerror = function(e) {
+  console.log('workerSaveIPFS.onmessage::e=<',e,'>');
+}
 
 </script>
