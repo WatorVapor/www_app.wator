@@ -115,7 +115,7 @@ $(document).ready(function(){
   }
   console.log('document.ready::counter=<',counter,'>');
   $( '#"wai-recoder-clip-in-local' ).val(counter + '@localstorage');
-}
+});
 
 /*
 let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
