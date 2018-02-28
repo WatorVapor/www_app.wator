@@ -17,7 +17,6 @@ function onClickDoneBtn(elem) {
   //uploadInfo('none');
 }
 
-//let globalClipFiles = [];
 
 function uploadSliceToLocal(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -114,19 +113,8 @@ $(document).ready(function(){
     }
   }
   console.log('document.ready::counter=<',counter,'>');
-  $( '#wai-recoder-clip-in-local' ).val(counter + '@localstorage');
+  $( '#wai-recoder-clip-in-local' ).text(counter + '@localstorage');
 });
 
-/*
-let workerSaveIPFS = new Worker('/wator/wai/saveIPFS.js');
-workerSaveIPFS.onmessage = function(e) {
-  console.log('workerSaveIPFS.onmessage::e=<',e,'>');
-}
-workerSaveIPFS.onerror = function(e) {
-  console.log('workerSaveIPFS.onmessage::e=<',e,'>');
-}
-console.log('::workerSaveIPFS=<',workerSaveIPFS,'>');
-workerSaveIPFS.postMessage(ipfs);
-*/
 
 </script>
