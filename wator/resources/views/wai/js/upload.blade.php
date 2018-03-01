@@ -88,7 +88,7 @@ function uploadIPFSInfo(ipfs) {
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
   for (let index in ipfs){
     console.log('uploadIPFSInfo::index=<',index,'>');
-    let result = ipfs.[index];
+    let result = ipfs[index];
     console.log('uploadIPFSInfo::result=<',result,'>');
   }
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfs));
