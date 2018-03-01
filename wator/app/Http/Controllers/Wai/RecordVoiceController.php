@@ -156,7 +156,6 @@ class RecordVoiceController extends Controller
                         }
                     }
                 }
-                return response()->json(['status'=>'success']);
             }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
