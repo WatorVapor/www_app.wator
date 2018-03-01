@@ -6,7 +6,7 @@ services:
     volumes:
       - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
       - /watorvapor/app_www/services/nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
-      - /watorvapor/cert:/etc/certs
+      - /watorvapor/cert:/etc/cert
       - /watorvapor/app_www/www_root:/www_root
       - /watorvapor/autogen:/autogen
       - /watorvapor/log/nginx:/log
