@@ -86,8 +86,9 @@ function uploadIPFSInfo(ipfs) {
   console.log('uploadIPFSInfo::ipfs=<',ipfs,'>');
   $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
+  
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfs));
-  $( '#wai-recoder-clip-ipfs-submit' ).click();
+  //$( '#wai-recoder-clip-ipfs-submit' ).click();
 }
 
 function bufferToBase64(buf) {
