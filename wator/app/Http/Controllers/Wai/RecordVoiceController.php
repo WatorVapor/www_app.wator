@@ -22,9 +22,11 @@ class RecordVoiceController extends Controller
     
     protected $phonemeArray_ = [];
     public function fetchTrainData(Request $request,$lang) {
+        /*
         if(isset($this->phonemeArray_[$lang])) {
             return $this->phonemeArray_[$lang];
         }
+        */
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
         File::makeDirectory($profilePath, 0775, true, true);
@@ -106,11 +108,11 @@ class RecordVoiceController extends Controller
     public function store(Request $request,$lang='cn')
     {
         $phoneme = $request->input('phoneme');
-        var_dump($phoneme);
+        //var_dump($phoneme);
         $langPhoneme = $request->input('lang');
-        var_dump($langPhoneme);
+        //var_dump($langPhoneme);
         $ipfs = $request->input('ipfs');
-        var_dump($ipfs);
+        //var_dump($ipfs);
         /*
         $hidden_data = $request->input('hidden_data');
         var_dump($hidden_data);
@@ -125,7 +127,6 @@ class RecordVoiceController extends Controller
                    //var_dump($value);
                     if($value['phoneme'] == $phoneme){
                         $phonemeJson[$lang][$key]['train'] = true;
-                        $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
                         //var_dump($phonemeJson[$lang][$key]);
                         $result = $this->saveTrainData($request,$lang,$phonemeJson);
                         //var_dump($result);
@@ -135,9 +136,22 @@ class RecordVoiceController extends Controller
             }
             if(isset($ipfs)) {
                 $ipfsJson = json_decode($ipfs, true);
-                var_dump($ipfsJson);
+                //var_dump($ipfsJson);
                 foreach( $ipfsJson as $value ) {
                     var_dump($value);
+                    $lang = $value['lang'];
+                    $phoneme = $value['phoneme'];
+                    $phonemeJson = $this->fetchTrainData($request,$lang);
+                    foreach( $phonemeJson[$lang] as $key => $value ) {
+                       //var_dump($value);
+                        if($value['phoneme'] == $phoneme){
+                            $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
+                            //var_dump($phonemeJson[$lang][$key]);
+                            $result = $this->saveTrainData($request,$lang,$phonemeJson);
+                            //var_dump($result);
+                            break;
+                        }
+                    }
                 }
                 return response()->json(['status'=>'success']);
             }
