@@ -143,11 +143,12 @@ class RecordVoiceController extends Controller
                     var_dump($value);
                     $lang = $value['lang'];
                     $phoneme = $value['phoneme'];
+                    $ipfsHash = $value['ipfs'];
                     $phonemeJson = $this->fetchTrainData($request,$lang);
                     foreach( $phonemeJson[$lang] as $key => $value ) {
                        //var_dump($value);
                         if($value['phoneme'] == $phoneme){
-                            $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
+                            $phonemeJson[$lang][$key]['ipfs'] = $ipfsHash;
                             //var_dump($phonemeJson[$lang][$key]);
                             $result = $this->saveTrainData($request,$lang,$phonemeJson);
                             //var_dump($result);
