@@ -86,13 +86,21 @@ function uploadIPFSInfo(ipfs) {
   console.log('uploadIPFSInfo::ipfs=<',ipfs,'>');
   $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
   $( '#wai-recoder-clip-upload' ).removeClass( 'd-none' );
+  let ipfsInfo = [];
   for (let index in ipfs){
     console.log('uploadIPFSInfo::index=<',index,'>');
     let result = ipfs[index];
     console.log('uploadIPFSInfo::result=<',result,'>');
+    let params = result.path.split('@');
+    let info = {
+      phoneme:params[0],
+      lang:params[1],
+      ipfs:result.hash
+    }
+    ipfsInfo.push(info);
   }
-  $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfs));
-  //$( '#wai-recoder-clip-ipfs-submit' ).click();
+  $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfsInfo));
+  $( '#wai-recoder-clip-ipfs-submit' ).click();
 }
 
 function bufferToBase64(buf) {
