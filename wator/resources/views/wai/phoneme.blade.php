@@ -14,8 +14,6 @@
   <form method="POST" action="#" accept-charset="utf-8">
     {{ csrf_field() }}
     <div class="form-group d-none">
-      <input type="text" name="phoneme" value="{{ $phoneme }}" />
-      <input type="text" name="lang" value="{{ $lang }}" />
       <input type="text" id="wai-recoder-clip-ipfs" name="ipfs" value="ipfs" />
     </div>
     <button type="submit" id="wai-recoder-clip-ipfs-submit"></button>
