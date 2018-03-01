@@ -116,18 +116,22 @@ class RecordVoiceController extends Controller
 
         try {
             $phonemeJson = $this->fetchTrainData($request,$lang);
-            foreach( $phonemeJson[$lang] as $key => $value ) {
-               //var_dump($value);
-                if($value['phoneme'] == $phoneme){
-                    $phonemeJson[$lang][$key]['train'] = true;
-                    $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
-                    //var_dump($phonemeJson[$lang][$key]);
-                    $result = $this->saveTrainData($request,$lang,$phonemeJson);
-                    //var_dump($result);
-                    break;
+            if(isset($phoneme)) {
+                foreach( $phonemeJson[$lang] as $key => $value ) {
+                   //var_dump($value);
+                    if($value['phoneme'] == $phoneme){
+                        $phonemeJson[$lang][$key]['train'] = true;
+                        $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
+                        //var_dump($phonemeJson[$lang][$key]);
+                        $result = $this->saveTrainData($request,$lang,$phonemeJson);
+                        //var_dump($result);
+                        break;
+                    }
                 }
             }
             if(isset($ipfs)) {
+                $ipfsJson = json_decode($ipfs, true);
+                var_dump($ipfsJson);
                 return response()->json(['status'=>'success']);
             }
         } catch( \Exception $e ) {
