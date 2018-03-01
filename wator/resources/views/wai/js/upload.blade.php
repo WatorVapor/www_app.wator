@@ -61,7 +61,7 @@ function uploadLocalToIpfs() {
       let params = key.split('/');
       let phoneme = params[params.length -1];
       let file = {
-        path: phoneme + '.webm',
+        path: phoneme,
         content: bufText
       };
       files.push(file);
