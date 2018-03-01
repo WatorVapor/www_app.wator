@@ -130,7 +130,7 @@ class RecordVoiceController extends Controller
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
-        return redirect()->back();
-        //return response()->json(['status'=>'success']);
+        //return redirect()->back();
+        return response()->json(['status'=>'success']);
     }
 }
