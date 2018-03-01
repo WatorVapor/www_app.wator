@@ -51,6 +51,8 @@ function onClickUploadBtn(elem) {
 }
 
 
+
+
 function uploadLocalToIpfs() {
   let files = [];
   for (let key in localStorage){
@@ -101,7 +103,18 @@ function uploadIPFSInfo(ipfs) {
   }
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfsInfo));
   $( '#wai-recoder-clip-ipfs-submit' ).click();
+  clearUpLocalClips();
 }
+
+function clearUpLocalClips() {
+  for (let key in localStorage){
+    if(key.startsWith('wai/train/audio/clip/')){
+      console.log('uploadLocalToIpfs::key=<',key,'>');
+      localStorage.removeItem(key);
+    }
+  }
+}
+
 
 function bufferToBase64(buf) {
     let binstr = Array.prototype.map.call(buf, function (ch) {
