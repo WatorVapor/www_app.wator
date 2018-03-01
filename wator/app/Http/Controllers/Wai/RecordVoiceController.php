@@ -20,8 +20,11 @@ class RecordVoiceController extends Controller
           File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     
-    
+    protected $phonemeArray_ = [];
     public function fetchTrainData(Request $request,$lang) {
+        if(isset($this->phonemeArray_[$lang])) {
+            return $this->phonemeArray_[$lang]);
+        }
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
         File::makeDirectory($profilePath, 0775, true, true);
@@ -35,6 +38,7 @@ class RecordVoiceController extends Controller
             $phonemeStr = file_get_contents($phonemePath);
             $phonemeJson = json_decode($phonemeStr, true);
         }
+        $this->phonemeArray_[$lang] = $phonemeJson;
         return $phonemeJson;
      }
     public function saveTrainData(Request $request,$lang,$phonemeJson) {
