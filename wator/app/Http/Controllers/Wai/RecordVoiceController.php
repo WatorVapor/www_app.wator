@@ -107,6 +107,8 @@ class RecordVoiceController extends Controller
      */
     public function store(Request $request,$lang='cn')
     {
+        $accessToken = $request->session()->get('account.rsa.login.token');
+        var_dump($accessToken);
         $phoneme = $request->input('phoneme');
         //var_dump($phoneme);
         $langPhoneme = $request->input('lang');
