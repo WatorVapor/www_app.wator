@@ -23,7 +23,7 @@ class RecordVoiceController extends Controller
     protected $phonemeArray_ = [];
     public function fetchTrainData(Request $request,$lang) {
         if(isset($this->phonemeArray_[$lang])) {
-            return $this->phonemeArray_[$lang]);
+            return $this->phonemeArray_[$lang];
         }
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
