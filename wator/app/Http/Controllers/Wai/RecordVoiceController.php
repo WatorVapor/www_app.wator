@@ -122,17 +122,18 @@ class RecordVoiceController extends Controller
                     $phonemeJson[$lang][$key]['train'] = true;
                     $phonemeJson[$lang][$key]['ipfs'] = $ipfs;
                     //var_dump($phonemeJson[$lang][$key]);
-                    /*
                     $result = $this->saveTrainData($request,$lang,$phonemeJson);
-                    var_dump($result);
-                    */
+                    //var_dump($result);
                     break;
                 }
+            }
+            if(isset($ipfs)) {
+                return response()->json(['status'=>'success']);
             }
         } catch( \Exception $e ) {
             var_dump($e->getMessage());
         }
-        //return redirect()->back();
-        return response()->json(['status'=>'success']);
+        return redirect()->back();
+        //return response()->json(['status'=>'success']);
     }
 }
