@@ -132,6 +132,9 @@ class RecordVoiceController extends Controller
             if(isset($ipfs)) {
                 $ipfsJson = json_decode($ipfs, true);
                 var_dump($ipfsJson);
+                foreach( $ipfsJson as $value ) {
+                    var_dump($value);
+                }
                 return response()->json(['status'=>'success']);
             }
         } catch( \Exception $e ) {
