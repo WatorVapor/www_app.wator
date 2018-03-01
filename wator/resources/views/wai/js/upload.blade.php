@@ -60,8 +60,9 @@ function uploadLocalToIpfs() {
       let bufText = Buffer.from(base64ToBuffer(bufStorage));
       let params = key.split('/');
       let phoneme = params[params.length -1];
+      let lang = params[params.length -2];
       let file = {
-        path: phoneme,
+        path:  phoneme + '@' + lang,
         content: bufText
       };
       files.push(file);
