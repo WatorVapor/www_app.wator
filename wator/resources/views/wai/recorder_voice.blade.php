@@ -65,6 +65,7 @@
 @include('wai.js.chart')
 @include('wai.js.clip')
 @include('wai.js.upload')
+@include('wai.js.misc')
 
 
 @endsection
