@@ -74,13 +74,22 @@ class RecordVoiceController extends Controller
                 foreach( $phonemeJson[$lang] as $key => $value ) {
                     //var_dump($key);
                     //var_dump($value);
-                    if(!isset($value['train'])) {
-                        if(!isset($data['phoneme'])) {
+                    if(!isset($qPhoneme)) {
+                        if(!isset($value['train'])) {
+                            if(!isset($data['phoneme'])) {
                             $data['phoneme'] = $value['phoneme'];
                             $data['phoneme_help'] = $value['cn_help'];
                         }
+                        } else {
+                            $finnish += 1;
+                        }
                     } else {
-                        $finnish += 1;
+                        if($value['phoneme'] ==$qPhoneme) {
+                            $data['phoneme'] = $value['phoneme'];
+                            $data['phoneme_help'] = $value['cn_help'];
+                        } else {
+                            $finnish += 1;
+                        }
                     }
                 }
                 if($finnish == count($phonemeJson[$lang])) {
