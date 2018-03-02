@@ -79,6 +79,10 @@ class RecordVoiceController extends Controller
                         $finnish += 1;
                     }
                 }
+                if($finnish == count($phonemeJson[$lang])) {
+                    $data['phoneme'] = ' ';
+                    $data['phoneme_help'] = ' ';
+                }
                 $data['total']  = count($phonemeJson[$lang]);
                 $data['finnish']  = $finnish;
             }
