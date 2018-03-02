@@ -94,9 +94,9 @@ class RecordVoiceController extends Controller
                         if($value['phoneme'] == $qPhoneme) {
                             $data['phoneme'] = $value['phoneme'];
                             $data['phoneme_help'] = $value['cn_help'];
-                            var_dump($qPhoneme);
-                            var_dump($value);
-                            var_dump($value['ipfs']);
+                            //var_dump($qPhoneme);
+                            //var_dump($value);
+                            //var_dump($value['ipfs']);
                             if(isset($value['ipfs'])) {
                                 $data['ipfs'] = $value['ipfs'];
                             } else {
@@ -131,7 +131,7 @@ class RecordVoiceController extends Controller
             $data['ipfs'] = '';
             var_dump($e->getMessage());
         }
-        var_dump($data);
+        //var_dump($data);
         return view('wai.recorder_voice',$data);
     }
     /**
