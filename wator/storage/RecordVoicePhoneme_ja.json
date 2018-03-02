@@ -131,7 +131,7 @@
     {"phoneme":"りゅ","cn_help":"遛"},
     {"phoneme":"りょ","cn_help":"聊"},
     
-    {"phoneme":" ","cn_help":" "},
+    {"phoneme":"　","cn_help":" "},
     {"phoneme":"－","cn_help":" "},
     {"phoneme":"ー","cn_help":" "}
   ]
