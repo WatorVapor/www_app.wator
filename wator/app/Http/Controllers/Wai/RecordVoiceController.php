@@ -62,7 +62,7 @@ class RecordVoiceController extends Controller
         //var_dump($lang);
         $query = $request->query();
         //var_dump($query);
-        if(!isset($query['ph'])) {
+        if(isset($query['ph'])) {
             $qPhoneme = $query['ph'];
         }
         //var_dump($qPhoneme);
