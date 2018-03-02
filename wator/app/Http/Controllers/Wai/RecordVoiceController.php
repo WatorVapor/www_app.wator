@@ -59,8 +59,9 @@ class RecordVoiceController extends Controller
      */
     public function index(Request $request,$lang='cn')
     {
-        dd($request->query());
         //var_dump($lang);
+        $query = $request->query();
+        var_dump($query);
         $data = [];
         try {
            //var_dump($phonemeJson);
