@@ -62,6 +62,8 @@ class RecordVoiceController extends Controller
         //var_dump($lang);
         $query = $request->query();
         var_dump($query);
+        $qPhoneme = $query['ph'];
+        var_dump($qPhoneme);
         $data = [];
         try {
            //var_dump($phonemeJson);
