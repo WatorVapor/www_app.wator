@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-2  m-0 p-0"></div>
       <div class="col-8  m-0 p-0">
-        <h1 class="card-title" style="font-size:96px;">{{ $phoneme }} {{ $ipfs }}</h1>
+        <h1 class="card-title" style="font-size:96px;">{{ $phoneme }}</h1>
       </div>
       <div class="col-2  m-0 p-0" id="wai-recoder-clip-upload">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickUploadBtn(this)">
@@ -43,7 +43,7 @@
     
     <div class="row">
       <div class="col  m-0 p-0">
-        @if ($ipfs)
+        @if (empty($ipfs))
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickHearingBtn(this)">
         @else
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" disabled>
