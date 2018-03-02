@@ -80,9 +80,9 @@ class RecordVoiceController extends Controller
                             $data['phoneme'] = $value['phoneme'];
                             $data['phoneme_help'] = $value['cn_help'];
                             if(isset($value['ipfs'])) {
-                                $data['url'] = $value['ipfs'];
+                                $data['ipfs'] = $value['ipfs'];
                             } else {
-                                $data['url'] = '';
+                                $data['ipfs'] = '';
                             }
                         }
                         } else {
@@ -93,9 +93,9 @@ class RecordVoiceController extends Controller
                             $data['phoneme'] = $value['phoneme'];
                             $data['phoneme_help'] = $value['cn_help'];
                             if(isset($value['ipfs'])) {
-                                $data['url'] = $value['ipfs'];
+                                $data['ipfs'] = $value['ipfs'];
                             } else {
-                                $data['url'] = '';
+                                $data['ipfs'] = '';
                             }
                             break;
                         } else {
@@ -106,7 +106,7 @@ class RecordVoiceController extends Controller
                 if($finnish == count($phonemeJson[$lang])) {
                     $data['phoneme'] = ' ';
                     $data['phoneme_help'] = ' ';
-                    $data['url'] = '';
+                    $data['ipfs'] = '';
                 }
                 $data['total']  = count($phonemeJson[$lang]);
                 $data['finnish']  = $finnish;
@@ -123,7 +123,7 @@ class RecordVoiceController extends Controller
             $data['phoneme_help'] = ' ';
             $data['duration'] = 0.4;
             $data['lang'] = $lang;
-            $data['url'] = '';
+            $data['ipfs'] = '';
             var_dump($e->getMessage());
         }
         //var_dump($data);
