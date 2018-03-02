@@ -59,6 +59,7 @@ class RecordVoiceController extends Controller
      */
     public function index(Request $request,$lang='cn')
     {
+        dd($request->query());
         //var_dump($lang);
         $data = [];
         try {
