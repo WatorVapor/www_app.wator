@@ -68,7 +68,7 @@
 
     <div class="row d-none">
       <div class="col  m-0 p-0">
-        <audio controls id="wai-recoder-audio-standard">
+        <audio id="wai-recoder-audio-standard" preload="auto">
           <source src="//ipfs.io/ipfs/{{ $ipfs }}" type="audio/webm">
         </audio>
       </div>
