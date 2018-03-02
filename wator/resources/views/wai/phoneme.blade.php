@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col  m-0 p-0">
         @if ($ipfs)
-        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickHearingBtn(this)">
         @else
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" disabled>
         @endif
