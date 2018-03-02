@@ -87,9 +87,9 @@
 
     {"phoneme":"ん","cn_help":"嗯"},
     
-    {"phoneme":"きゃ","cn_help":"俩"},
-    {"phoneme":"きゅ","cn_help":"遛"},
-    {"phoneme":"きょ","cn_help":"聊"},
+    {"phoneme":"きゃ","cn_help":""},
+    {"phoneme":"きゅ","cn_help":""},
+    {"phoneme":"きょ","cn_help":""},
 
     {"phoneme":"ぎゃ","cn_help":""},
     {"phoneme":"ぎゅ","cn_help":""},
@@ -132,7 +132,6 @@
     {"phoneme":"りょ","cn_help":"聊"},
     
     {"phoneme":" ","cn_help":" "},
-    {"phoneme":"　","cn_help":" "},
     {"phoneme":"－","cn_help":" "},
     {"phoneme":"ー","cn_help":" "}
   ]
