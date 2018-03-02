@@ -131,7 +131,7 @@ class RecordVoiceController extends Controller
             $data['ipfs'] = '';
             var_dump($e->getMessage());
         }
-        //var_dump($data);
+        var_dump($data);
         return view('wai.recorder_voice',$data);
     }
     /**
