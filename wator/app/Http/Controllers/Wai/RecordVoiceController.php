@@ -84,7 +84,7 @@ class RecordVoiceController extends Controller
                             $finnish += 1;
                         }
                     } else {
-                        if($value['phoneme'] ==　$qPhoneme) {
+                        if($value['phoneme'] == $qPhoneme) {
                             $data['phoneme'] = $value['phoneme'];
                             $data['phoneme_help'] = $value['cn_help'];
                             break;
