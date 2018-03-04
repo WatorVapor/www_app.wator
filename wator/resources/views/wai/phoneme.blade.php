@@ -1,3 +1,4 @@
+
 <style>
 body {
   font-family:'{{trans('app.font_family')}}';
