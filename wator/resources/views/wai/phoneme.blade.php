@@ -1,3 +1,9 @@
+<style>
+body {
+  font-family:'{{trans('app.font_family')}}';
+}
+</style>
+
 
 <div class="d-none" >
   <form method="POST" action="#" accept-charset="utf-8">
