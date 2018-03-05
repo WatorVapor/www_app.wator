@@ -44,6 +44,7 @@
   </div>
 </div>
 
+<hr/>
 
 <div class="row justify-content-center ui-update-toggle d-none">
   <div class="col-lg-10 justify-content-center ">
