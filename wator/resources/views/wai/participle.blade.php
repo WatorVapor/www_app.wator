@@ -138,4 +138,6 @@
   }
 </script>
 
+@include('wai.js.tts')
+
 @endsection
