@@ -47,7 +47,7 @@
 <hr/>
 
 <div class="row justify-content-center ui-update-toggle d-none">
-  <div class="col-lg-8 justify-content-center ">
+  <div class="col-lg-10 justify-content-center ">
     <div class="row justify-content-center">
       <pre class="text-justify justify-content-center bg-warning" >
         <h4 id="ui-update-all-words" style="white-space:pre-wrap;"></h4>
