@@ -48,14 +48,16 @@
 
 <div class="row justify-content-center ui-update-toggle d-none">
   <div class="col-lg-8 justify-content-center ">
-    <pre class="text-justify justify-content-center bg-warning" >
-      <h5 id="ui-update-all-words" style="white-space:pre-wrap;"></h5>
-    </pre>
-  </div>
-  <div class="col-lg-2 justify-content-center ">
-    <audio controls id="ui-update-all-words-tts">
-      <source src="" type="audio/webm">
-    </audio>
+    <div class="row justify-content-center">
+      <pre class="text-justify justify-content-center bg-warning" >
+        <h4 id="ui-update-all-words" style="white-space:pre-wrap;"></h4>
+      </pre>
+    </div>
+    <div class="row justify-content-center">
+      <audio class="d-none" controls id="ui-update-all-words-tts">
+        <source src="" type="audio/webm">
+      </audio>
+    </div>
   </div>
 </div>
 
