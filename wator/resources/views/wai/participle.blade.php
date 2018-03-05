@@ -47,8 +47,7 @@
 
 <div class="row justify-content-center ui-update-toggle d-none">
   <div class="col-lg-10 justify-content-center ">
-    <pre class="text-justify justify-content-center text-nowrap bg-warning" style="white-space: pre-wrap;">
-      <h3 class="justify-content-center " id="ui-update-all-words"></h3>
+    <pre class="text-justify justify-content-center text-nowrap bg-warning" id="ui-update-all-words" style="white-space: pre-wrap;">
     </pre>
   </div>
 </div>
