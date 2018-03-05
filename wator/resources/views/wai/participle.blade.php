@@ -138,6 +138,7 @@
   }
 </script>
 
-@include('wai.js.tts')
+@include('wai.js.participle_graph')
+@include('wai.js.participle_tts')
 
 @endsection
