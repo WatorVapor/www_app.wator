@@ -15,6 +15,7 @@ wss.on('connection', function connection(ws) {
         files.push(file);
       });
       console.log('message: files=<', files,'>');
+      addFiles2IpfsStorage(files);
     } catch(e) {
       console.log('message: e=<', e,'>');
       console.log('message: msg=<', msg,'>');
@@ -42,3 +43,14 @@ var ipfsAPI = require('ipfs-api');
 var ipfs = ipfsAPI('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
 console.log('ipfs=<',ipfs,'>');
 
+function addFiles2IpfsStorage(files) {
+  ipfs.files.add(files,function(err, result){
+    if (err) {
+      throw err;
+    }
+    console.log('uploadSliceToIpfs::result=<',result,'>');
+    setTimeout(function () { 
+      uploadIPFSInfo(result);
+    },1);
+  });
+}
