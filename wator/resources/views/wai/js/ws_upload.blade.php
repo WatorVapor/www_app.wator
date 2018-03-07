@@ -118,15 +118,17 @@ function clearUpLocalClips(ipfs) {
     let result = ipfs[index];
     let params = result.path.split('@');
     console.log('clearUpLocalClips::params=<',params,'>');
+    let key = 'wai/train/audio/clip/' + params[1] + '/' + params[0];
+    console.log('clearUpLocalClips::key=<',key,'>');
   }
-/*  
+  
   for (let key in localStorage){
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('clearUpLocalClips::key=<',key,'>');
       //localStorage.removeItem(key);
     }
   }
-*/
+
 }
 function bufferToBase64(buf) {
     let binstr = Array.prototype.map.call(buf, function (ch) {
