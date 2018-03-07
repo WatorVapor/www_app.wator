@@ -113,13 +113,20 @@ function uploadIPFSInfo(ipfs) {
   //$( '#wai-recoder-clip-ipfs-submit' ).click();
   clearUpLocalClips(ipfs);
 }
-function clearUpLocalClips() {
+function clearUpLocalClips(ipfs) {
+  for (let index in ipfs){
+    let result = ipfs[index];
+    let params = result.path.split('@');
+    console.log('clearUpLocalClips::params=<',params,'>');
+  }
+/*  
   for (let key in localStorage){
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('clearUpLocalClips::key=<',key,'>');
       //localStorage.removeItem(key);
     }
   }
+*/
 }
 function bufferToBase64(buf) {
     let binstr = Array.prototype.map.call(buf, function (ch) {
