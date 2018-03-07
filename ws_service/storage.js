@@ -2,13 +2,29 @@ const WebSocket = require('ws');
 const config = {host:'127.0.01', port: 19083 }
 const wss = new WebSocket.Server(config);
 wss.on('connection', function connection(ws) {
-  ws.on('message', function (message) {
-    console.log('received: message=<', message,'>');
+  ws.on('message', function (msg) {
+    try {
+      let jsonMsg = JSON.parse(msg);
+      console.log('message: jsonMsg=<', jsonMsg,'>');
+    } catch(e) {
+      console.log('message: e=<', e,'>');
+      console.log('message: msg=<', msg,'>');
+    }
   });
   ws.on('error', function (evt) {
     console.log('error: evt=<', evt,'>');
   });
 });
+
+function base64ToBuffer(base64) {
+  let binstr = atob(base64);
+  let buf = new Uint8Array(binstr.length);
+  Array.prototype.forEach.call(binstr, function (ch, i) {
+    buf[i] = ch.charCodeAt(0);
+  });
+  return buf;
+}
+
 
 var ipfsAPI = require('ipfs-api');
 //var ipfs = ipfsAPI('/ip4/127.0.0.1/tcp/5001');
