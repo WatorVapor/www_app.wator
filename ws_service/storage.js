@@ -43,6 +43,14 @@ var ipfsAPI = require('ipfs-api');
 var ipfs = ipfsAPI('www.wator.xyz', '5001', {protocol: 'https'});
 console.log('ipfs=<',ipfs,'>');
 
+ipfs.id(function (err, identity) {
+  if (err) {
+    throw err;
+  }
+  console.log('identity=<',identity,'>');
+});
+
+
 function addFiles2IpfsStorage(files) {
   ipfs.files.add(files,function(err, result){
     if (err) {
