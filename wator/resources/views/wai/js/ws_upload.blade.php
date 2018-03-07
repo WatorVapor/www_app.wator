@@ -62,6 +62,8 @@ function onClickUploadBtn(elem) {
   $( '#wai-recoder-clip-animate' ).removeClass( 'd-none' );
   uploadLocalToIpfs();
 }
+
+
 function uploadLocalToIpfs() {
   let files = [];
   let counter = 0;
@@ -87,6 +89,9 @@ function uploadLocalToIpfs() {
     wsStorage.send(JSON.stringify(files));
   }
 }
+
+
+
 function uploadIPFSInfo(ipfs) {
   console.log('uploadIPFSInfo::ipfs=<',ipfs,'>');
   $( '#wai-recoder-clip-animate' ).addClass( 'd-none' );
@@ -105,7 +110,7 @@ function uploadIPFSInfo(ipfs) {
     ipfsInfo.push(info);
   }
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfsInfo));
-  $( '#wai-recoder-clip-ipfs-submit' ).click();
+  //$( '#wai-recoder-clip-ipfs-submit' ).click();
   clearUpLocalClips(ipfs);
 }
 function clearUpLocalClips() {
