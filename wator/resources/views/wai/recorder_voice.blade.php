@@ -61,11 +61,11 @@
 <script src="/wator/wai/record.js" type="text/javascript"></script>
 -->
 
-@include('wai.js.recode')
+@include('wai.js.recoder')
 @include('wai.js.chart')
 @include('wai.js.clip')
-@include('wai.js.upload')
 @include('wai.js.misc')
+@include('wai.js.ws_upload')
 
 
 @endsection
