@@ -19,6 +19,9 @@ function onStorageMessage_(evt) {
   console.log('onStorageMessage_:evt.data=<',evt.data,'>');
   let jsonMsg = JSON.parse(evt.data);
   console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
+  if(jsonMsg) {
+    uploadIPFSInfo(jsonMsg);
+  }
 }
 function onStorageClose_(evt) {
   console.log('onStorageClose_:evt=<',evt,'>');
@@ -61,12 +64,11 @@ function onClickUploadBtn(elem) {
 }
 function uploadLocalToIpfs() {
   let files = [];
+  let counter = 0;
   for (let key in localStorage){
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
-//      let bufText = Buffer.from(base64ToBuffer(bufStorage));
-      let bufText = base64ToBuffer(bufStorage);
       let params = key.split('/');
       let phoneme = params[params.length -1];
       let lang = params[params.length -2];
@@ -75,6 +77,9 @@ function uploadLocalToIpfs() {
         content: bufStorage
       };
       files.push(file);
+      if(counter++ > 9) {
+        break;
+      }
     }
   }
   console.log('uploadLocalToIpfs::files=<',files,'>');
@@ -101,13 +106,13 @@ function uploadIPFSInfo(ipfs) {
   }
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfsInfo));
   $( '#wai-recoder-clip-ipfs-submit' ).click();
-  clearUpLocalClips();
+  clearUpLocalClips(ipfs);
 }
 function clearUpLocalClips() {
   for (let key in localStorage){
     if(key.startsWith('wai/train/audio/clip/')){
-      console.log('uploadLocalToIpfs::key=<',key,'>');
-      localStorage.removeItem(key);
+      console.log('clearUpLocalClips::key=<',key,'>');
+      //localStorage.removeItem(key);
     }
   }
 }
