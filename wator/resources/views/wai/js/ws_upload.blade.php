@@ -109,9 +109,9 @@ function uploadIPFSInfo(ipfs) {
     }
     ipfsInfo.push(info);
   }
+  clearUpLocalClips(ipfs);
   $( '#wai-recoder-clip-ipfs' ).val( JSON.stringify(ipfsInfo));
   $( '#wai-recoder-clip-ipfs-submit' ).click();
-  clearUpLocalClips(ipfs);
 }
 function clearUpLocalClips(ipfs) {
   for (let index in ipfs){
