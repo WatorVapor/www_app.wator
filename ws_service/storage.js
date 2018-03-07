@@ -6,10 +6,15 @@ wss.on('connection', function connection(ws) {
     try {
       let jsonMsg = JSON.parse(msg);
       console.log('message: jsonMsg=<', jsonMsg,'>');
+      let files = [];
       jsonMsg.forEach(function(val, i) {
         console.log('message: val=<', val,'>');
-        console.log('message: i=<', i,'>');
+        let file = {};
+        file.path = Buffer.from(base64ToBuffer(val.path));
+        file.content = val.content;
+        files.push(file);
       });
+      console.log('message: files=<', files,'>');
     } catch(e) {
       console.log('message: e=<', e,'>');
       console.log('message: msg=<', msg,'>');
