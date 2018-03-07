@@ -36,5 +36,5 @@ sub.on('message', function(channel, message) {
 });
 sub.subscribe('wai.train.response');
 
-
 const pub  = redis.createClient(redisOption);
+
