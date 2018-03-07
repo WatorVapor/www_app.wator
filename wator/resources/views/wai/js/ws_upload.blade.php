@@ -79,7 +79,7 @@ function uploadLocalToIpfs() {
         content: bufStorage
       };
       files.push(file);
-      if(counter++ > 9) {
+      if(counter++ >= 9) {
         break;
       }
     }
