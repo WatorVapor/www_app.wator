@@ -76,16 +76,8 @@ function uploadLocalToIpfs() {
     }
   }
   console.log('uploadLocalToIpfs::files=<',files,'>');
-  if(ipfs) {
-    ipfs.files.add(files,function(err, result){
-      if (err) {
-        throw err;
-      }
-      console.log('uploadSliceToIpfs::result=<',result,'>');
-      setTimeout(function () { 
-        uploadIPFSInfo(result);
-      },1);
-    });
+  if(wsStorage.ready) {
+    wsStorage.send(files);
   }
 }
 function uploadIPFSInfo(ipfs) {
