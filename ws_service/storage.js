@@ -6,6 +6,10 @@ wss.on('connection', function connection(ws) {
     try {
       let jsonMsg = JSON.parse(msg);
       console.log('message: jsonMsg=<', jsonMsg,'>');
+      jsonMsg.forEach(function(val, i) {
+        console.log('message: val=<', val,'>');
+        console.log('message: i=<', i,'>');
+      });
     } catch(e) {
       console.log('message: e=<', e,'>');
       console.log('message: msg=<', msg,'>');
