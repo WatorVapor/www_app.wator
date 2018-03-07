@@ -1,11 +1,11 @@
 <script type="text/javascript">
 
-let uri = "wss://" + location.host + "/wator/storage";
-let ws = new WebSocket(uri);
-ws.onopen = onStorageOpen_;
-ws.onmessage = onStorageMessage_;
-ws.onclose = onStorageClose_;
-ws.onerror = onStorageError_;
+let uriStorage = "wss://" + location.host + "/wator/storage";
+let wsStorage = new WebSocket(uriStorage);
+wsStorage.onopen = onStorageOpen_;
+wsStorage.onmessage = onStorageMessage_;
+wsStorage.onclose = onStorageClose_;
+wsStorage.onerror = onStorageError_;
 
 function onStorageOpen_(evt) {
   console.log('onStorageOpen_:evt=<',evt,'>');
