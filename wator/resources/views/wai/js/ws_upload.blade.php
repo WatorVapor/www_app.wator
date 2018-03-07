@@ -1,4 +1,8 @@
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+
 <script type="text/javascript">
+const Buffer = window.IpfsApi().Buffer;
+
 
 let uriStorage = "wss://" + location.host + "/wator/storage";
 let wsStorage = new WebSocket(uriStorage);
@@ -36,11 +40,8 @@ function uploadSliceToLocal(chunks,phoneme) {
   reader.addEventListener('loadend', (e) => {
     const buffer = e.srcElement.result;
     let bufText = Buffer.from(buffer);
-    let file = {
-      path: phoneme,
-      content: bufText
-    }
-    console.log('uploadSliceToLocal:file=<',file,'>');
+    console.log('uploadSliceToLocal:bufText=<',bufText,'>');
+    console.log('uploadSliceToLocal:buffer=<',buffer,'>');
     localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(bufText));
     $( '#wai-recoder-clip-done-next' ).click();
   }); 
