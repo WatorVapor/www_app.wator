@@ -15,6 +15,9 @@ upstream starbian.wator.xyz {
 upstream notify.wator.xyz {
   server 127.0.0.1:19082;
 }
+upstream storage.wator.xyz {
+  server 127.0.0.1:19083;
+}
 
 upstream local.api.ipfs.wator.xyz {
   server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:5001;
@@ -60,7 +63,11 @@ server {
 
   location /wator/notify {
       proxy_pass http://notify.wator.xyz;
-      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+  }
+  location /wator/storage {
+      proxy_pass http://storage.wator.xyz;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
   }
