@@ -40,7 +40,7 @@ function base64ToBuffer(base64) {
 
 var ipfsAPI = require('ipfs-api');
 //var ipfs = ipfsAPI('/ip4/127.0.0.1/tcp/5001');
-var ipfs = ipfsAPI('master.ipfs.wator.xyz', '5001', {protocol: 'http'});
+var ipfs = ipfsAPI('www.wator.xyz', '5001', {protocol: 'https'});
 console.log('ipfs=<',ipfs,'>');
 
 function addFiles2IpfsStorage(files) {
