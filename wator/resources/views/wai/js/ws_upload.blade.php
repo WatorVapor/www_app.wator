@@ -1,12 +1,29 @@
 <script type="text/javascript">
-const Buffer = window.IpfsApi().Buffer;
-let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
-ipfs.id(function (err, identity) {
-  if (err) {
-    throw err
-  }
-  console.log('ipfs.id:identity=<',identity,'>');
-});
+
+let uri = "wss://" + location.host + "/wator/storage";
+let ws = new WebSocket(uri);
+ws.onopen = onStorageOpen_;
+ws.onmessage = onStorageMessage_;
+ws.onclose = onStorageClose_;
+ws.onerror = onStorageError_;
+
+function onStorageOpen_(evt) {
+  console.log('onStorageOpen_:evt=<',evt,'>');
+}
+function onStorageMessage_(evt) {
+  //console.log('onStorageMessage_:evt.data=<',evt.data,'>');
+  let jsonMsg = JSON.parse(evt.data);
+  //console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
+}
+function onStorageClose_(evt) {
+  console.log('onStorageClose_:evt=<',evt,'>');
+}
+function onStorageError_(evt) {
+  console.log('onStorageError_:evt=<',evt,'>');
+}
+
+
+
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
