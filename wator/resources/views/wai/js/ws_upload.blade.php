@@ -1,7 +1,9 @@
+<!--
 <script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+-->
 
 <script type="text/javascript">
-const Buffer = window.IpfsApi().Buffer;
+//const Buffer = window.IpfsApi().Buffer;
 
 
 let uriStorage = "wss://" + location.host + "/wator/storage";
@@ -39,10 +41,10 @@ function uploadSliceToLocal(chunks,phoneme) {
   const reader = new FileReader();  
   reader.addEventListener('loadend', (e) => {
     const buffer = e.srcElement.result;
-    let bufText = Buffer.from(buffer);
-    console.log('uploadSliceToLocal:bufText=<',bufText,'>');
+    //let bufText = Buffer.from(buffer);
+    //console.log('uploadSliceToLocal:bufText=<',bufText,'>');
     console.log('uploadSliceToLocal:buffer=<',buffer,'>');
-    localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(bufText));
+    localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(buffer));
     $( '#wai-recoder-clip-done-next' ).click();
   }); 
   reader.readAsArrayBuffer(blob);
@@ -64,20 +66,21 @@ function uploadLocalToIpfs() {
     if(key.startsWith('wai/train/audio/clip/')){
       console.log('uploadLocalToIpfs::key=<',key,'>');
       let bufStorage = localStorage.getItem(key);
-      let bufText = Buffer.from(base64ToBuffer(bufStorage));
+//      let bufText = Buffer.from(base64ToBuffer(bufStorage));
+      let bufText = base64ToBuffer(bufStorage);
       let params = key.split('/');
       let phoneme = params[params.length -1];
       let lang = params[params.length -2];
       let file = {
         path:  phoneme + '@' + lang,
-        content: bufText
+        content: bufStorage
       };
       files.push(file);
     }
   }
   console.log('uploadLocalToIpfs::files=<',files,'>');
   if(wsStorage.readyState) {
-    wsStorage.send(files);
+    wsStorage.send(JSON.stringify(files));
   }
 }
 function uploadIPFSInfo(ipfs) {
