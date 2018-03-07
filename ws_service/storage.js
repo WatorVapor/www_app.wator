@@ -10,8 +10,8 @@ wss.on('connection', function connection(ws) {
       jsonMsg.forEach(function(val, i) {
         console.log('message: val=<', val,'>');
         let file = {};
-        file.path = Buffer.from(base64ToBuffer(val.path));
-        file.content = val.content;
+        file.path = val.path;
+        file.content = Buffer.from(val.content, 'base64');
         files.push(file);
       });
       console.log('message: files=<', files,'>');
@@ -25,6 +25,7 @@ wss.on('connection', function connection(ws) {
   });
 });
 
+/*
 function base64ToBuffer(base64) {
   let binstr = atob(base64);
   let buf = new Uint8Array(binstr.length);
@@ -33,6 +34,7 @@ function base64ToBuffer(base64) {
   });
   return buf;
 }
+*/
 
 
 var ipfsAPI = require('ipfs-api');
