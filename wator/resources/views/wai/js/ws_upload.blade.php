@@ -16,9 +16,9 @@ function onStorageOpen_(evt) {
   console.log('onStorageOpen_:evt=<',evt,'>');
 }
 function onStorageMessage_(evt) {
-  //console.log('onStorageMessage_:evt.data=<',evt.data,'>');
+  console.log('onStorageMessage_:evt.data=<',evt.data,'>');
   let jsonMsg = JSON.parse(evt.data);
-  //console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
+  console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
 }
 function onStorageClose_(evt) {
   console.log('onStorageClose_:evt=<',evt,'>');
