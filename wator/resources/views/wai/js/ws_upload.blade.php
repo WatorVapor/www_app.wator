@@ -76,7 +76,7 @@ function uploadLocalToIpfs() {
     }
   }
   console.log('uploadLocalToIpfs::files=<',files,'>');
-  if(wsStorage.ready) {
+  if(wsStorage.readyState) {
     wsStorage.send(files);
   }
 }
