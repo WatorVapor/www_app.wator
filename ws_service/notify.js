@@ -20,9 +20,15 @@ wss.on('connection', function connection(ws) {
   ws.on('error', function (evt) {
     console.log('error: evt=<', evt,'>');
   });
+
+  ws.isAlive = true;
+  ws.on('pong', heartbeat);
 });
 
 function noop() {}
+function heartbeat() {
+  this.isAlive = true;
+}
 
 const interval = setInterval(function ping() {
   wss.clients.forEach(function each(ws) {
