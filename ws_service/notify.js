@@ -22,6 +22,8 @@ wss.on('connection', function connection(ws) {
   });
 });
 
+function noop() {}
+
 const interval = setInterval(function ping() {
   wss.clients.forEach(function each(ws) {
     if (ws.isAlive === false) {
