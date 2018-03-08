@@ -73,13 +73,4 @@ services:
     command: node ./notify.js
     restart: always
 
-#  wator-ws-storage:
-#    image: node:slim
-#    network_mode: "host"
-#    volumes:
-#      - /watorvapor/app_www/ws_service:/opt/wc
-#    working_dir: "/opt/wc"
-#    command: node ./storage.js
-#    restart: always
-
-    
+ 
