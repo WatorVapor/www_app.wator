@@ -44,9 +44,10 @@
         }
       });
     }
-    if(msg.tts && typeof msg.wai === 'string') {
-     let audioElem = document.getElementById('ui-update-all-words-tts');
-     audioElem.src = msg.tts;
+    if(msg.tts && typeof msg.tts === 'string') {
+      console.log('onUpdateData:msg.tts=<',msg.tts,'>');
+      let audioElem = document.getElementById('ui-update-all-words-tts');
+      audioElem.src = msg.tts;
    }
   }
 </script>
