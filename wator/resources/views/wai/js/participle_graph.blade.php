@@ -47,7 +47,7 @@
     if(msg.tts && typeof msg.tts === 'string') {
       console.log('onUpdateData:msg.tts=<',msg.tts,'>');
       let audioElem = document.getElementById('ui-update-all-words-tts');
-      audioElem.src = msg.tts;
+      audioElem.src = 'https://www.wator.xyz/' + msg.tts;
    }
   }
 </script>
