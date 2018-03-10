@@ -26,11 +26,24 @@ function createClipsElement(clip) {
   console.log('createClipsElement:audio=<',audio,'>');
   return audio;
 }
+
+
 function doPlayTTS(playList) {
   console.log('doPlayTTS:playList=<',playList,'>');
+  /*
   for(let index in playList) {
     let audio = playList[index];
     console.log('doPlayTTS:audio.buffered=<',audio.buffered,'>');
+  }
+  */
+  if(playList.length > 0) {
+    let audio = playList[0];
+    console.log('doPlayTTS:audio=<',audio,'>');
+    audio.addEventListener("ended", function(){
+      let nextList = playList.shift()
+      doPlayTTS(nextList);
+    });
+    audio.play();
   }
 }
 </script>
