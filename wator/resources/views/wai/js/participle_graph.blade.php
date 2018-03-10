@@ -53,7 +53,4 @@
       audioElem.src = 'https://www.wator.xyz/' + msg.m3u8;
    }
   }
-  function createTTS(tts) {
-    console.log('createTTS:tts=<',tts,'>');
-  }
 </script>
