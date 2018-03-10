@@ -28,5 +28,9 @@ function createClipsElement(clip) {
 }
 function doPlayTTS(playList) {
   console.log('doPlayTTS:playList=<',playList,'>');
+  for(let index in playList) {
+    let audio = playList[index];
+    console.log('doPlayTTS:audio.buffered=<',audio.buffered,'>');
+  }
 }
 </script>
