@@ -21,7 +21,7 @@ function createTTS(tts) {
 function createClipsElement(clip) {
   console.log('createClipsElement:clip=<',clip,'>');
   let audio = document.createElement('source');
-  audio.src = 'https://ipfs.io/ipfs/' + clip;
+  audio.setAttribute('src','https://ipfs.io/ipfs/' + clip);
   console.log('createClipsElement:audio=<',audio,'>');
   return audio;
 }
