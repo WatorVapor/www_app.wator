@@ -11,7 +11,8 @@ function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
   let clipsElem = document.getElementById('ui-update-all-clips');
   console.log('onClickTTS:clipsElem=<',clipsElem,'>');
-  for(let clip in tts) {
+  for(let index in tts) {
+    let clip = tts[index];
     console.log('createTTS:clip=<',clip,'>');
     createClipsElement(clip);
   }
