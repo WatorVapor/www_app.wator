@@ -49,8 +49,6 @@
     }
     if(msg.m3u8 && typeof msg.m3u8 === 'string') {
       console.log('onUpdateData:msg.tts=<',msg.m3u8,'>');
-      let audioElem = document.getElementById('ui-update-all-words-tts');
-      audioElem.src = 'https://www.wator.xyz/' + msg.m3u8;
    }
   }
 </script>
