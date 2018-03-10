@@ -2,9 +2,8 @@
 
 function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
-  let audioElem = document.getElementById('ui-update-all-words-tts');
-  console.log('onClickTTS:audioElem=<',audioElem,'>');
-  audioElem.play();
+  let allClipsElem = document.getElementsByClassName('ui-update-tts-one-clip');
+  console.log('onClickTTS:allClipsElem=<',allClipsElem,'>');
 }
 
 function createTTS(tts) {
@@ -14,7 +13,8 @@ function createTTS(tts) {
   for(let index in tts) {
     let clip = tts[index];
     console.log('createTTS:clip=<',clip,'>');
-    createClipsElement(clip);
+    let audioElem = createClipsElement(clip);
+    clipsElem.appendChild(audioElem);
   }
 }
 function createClipsElement(clip) {
