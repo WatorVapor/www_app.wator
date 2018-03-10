@@ -4,6 +4,7 @@ function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
   let allClipsElem = document.getElementsByClassName('ui-update-tts-one-clip');
   console.log('onClickTTS:allClipsElem=<',allClipsElem,'>');
+  doPlayTTS(allClipsElem);
 }
 
 function createTTS(tts) {
@@ -25,5 +26,7 @@ function createClipsElement(clip) {
   console.log('createClipsElement:audio=<',audio,'>');
   return audio;
 }
-
+function doPlayTTS(playList) {
+  console.log('doPlayTTS:playList=<',playList,'>');
+}
 </script>
