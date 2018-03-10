@@ -2,32 +2,31 @@
 
 function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
-  let allClipsElem = document.getElementsByClassName('ui-update-tts-one-clip');
-  console.log('onClickTTS:allClipsElem=<',allClipsElem,'>');
-  doPlayTTS(allClipsElem,0);
+  let audioElem = document.getElementsByClassName('ui-update-tts-audio');
+  console.log('onClickTTS:audioElem=<',audioElem,'>');
+  audioElem.play();
 }
 
 function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
-  let clipsElem = document.getElementById('ui-update-all-clips');
-  console.log('onClickTTS:clipsElem=<',clipsElem,'>');
+  let audioElem = document.getElementById('ui-update-tts-audio');
+  console.log('onClickTTS:audioElem=<',audioElem,'>');
   for(let index in tts) {
     let clip = tts[index];
     console.log('createTTS:clip=<',clip,'>');
-    let audioElem = createClipsElement(clip);
-    clipsElem.appendChild(audioElem);
+    let sourceElem = createClipsElement(clip);
+    audioElem.appendChild(sourceElem);
   }
 }
 function createClipsElement(clip) {
   console.log('createClipsElement:clip=<',clip,'>');
-  let audio = new Audio();
+  let audio = document.createElement('source');
   audio.src = 'https://ipfs.io/ipfs/' + clip;
-  audio.className = "ui-update-tts-one-clip";
   console.log('createClipsElement:audio=<',audio,'>');
   return audio;
 }
 
-
+/*
 function doPlayTTS(playList,index) {
   console.log('doPlayTTS:playList=<',playList,'>');
   if(playList.length > index) {
@@ -40,4 +39,5 @@ function doPlayTTS(playList,index) {
     audio.play();
   }
 }
+*/
 </script>
