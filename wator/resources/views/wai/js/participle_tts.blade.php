@@ -24,6 +24,7 @@ function createClipsElement(clip) {
   audio.src = 'https://ipfs.io/ipfs/' + clip;
   audio.className = 'ui-update-tts-one-clip';
   console.log('createClipsElement:audio=<',audio,'>');
+  audio.load();
   return audio;
 }
 
