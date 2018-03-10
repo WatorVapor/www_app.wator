@@ -36,7 +36,7 @@ function doPlayTTS(playList,index) {
     audio.addEventListener("ended", function(){
       doPlayTTS(playList,index+1);
     });
-    audio.playbackRate = 4;
+    audio.playbackRate = 2.5;
     audio.play();
   }
 }
