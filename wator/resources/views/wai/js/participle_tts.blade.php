@@ -24,7 +24,8 @@ function createClipsElement(clip) {
   audio.src = 'https://ipfs.io/ipfs/' + clip;
   audio.className = 'ui-update-tts-one-clip';
   console.log('createClipsElement:audio=<',audio,'>');
-  audio.load();
+  audio.muted = true;
+  audio.play();
   return audio;
 }
 
@@ -33,6 +34,7 @@ function doPlayTTS(playList,index) {
   console.log('doPlayTTS:playList=<',playList,'>');
   if(playList.length > index) {
     let audio = playList[index];
+    audio.muted = false;
     console.log('doPlayTTS:audio=<',audio,'>');
     audio.addEventListener("ended", function(){
       doPlayTTS(playList,index+1);
