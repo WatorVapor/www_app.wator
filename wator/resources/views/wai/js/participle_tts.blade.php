@@ -19,6 +19,8 @@ function createTTS(tts) {
 }
 function createClipsElement(clip) {
   console.log('createClipsElement:clip=<',clip,'>');
+  var audio = new Audio();
+  console.log('createClipsElement:audio=<',audio,'>');
 }
 
 </script>
