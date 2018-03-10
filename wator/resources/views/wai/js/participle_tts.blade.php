@@ -4,7 +4,7 @@ function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
   let allClipsElem = document.getElementsByClassName('ui-update-tts-one-clip');
   console.log('onClickTTS:allClipsElem=<',allClipsElem,'>');
-  doPlayTTS(allClipsElem);
+  doPlayTTS(allClipsElem,0);
 }
 
 function createTTS(tts) {
@@ -28,20 +28,13 @@ function createClipsElement(clip) {
 }
 
 
-function doPlayTTS(playList) {
+function doPlayTTS(playList,index) {
   console.log('doPlayTTS:playList=<',playList,'>');
-  /*
-  for(let index in playList) {
+  if(playList.length >= index) {
     let audio = playList[index];
-    console.log('doPlayTTS:audio.buffered=<',audio.buffered,'>');
-  }
-  */
-  if(playList.length > 0) {
-    let audio = playList[0];
     console.log('doPlayTTS:audio=<',audio,'>');
     audio.addEventListener("ended", function(){
-      let nextList = playList.shift()
-      doPlayTTS(nextList);
+      doPlayTTS(playList,index+1);
     });
     audio.play();
   }
