@@ -2,7 +2,7 @@
 
 function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
-  let audioElem = document.getElementsByClassName('ui-update-tts-audio');
+  let audioElem = document.getElementById('ui-update-tts-audio');
   console.log('onClickTTS:audioElem=<',audioElem,'>');
   audioElem.play();
 }
