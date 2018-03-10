@@ -30,7 +30,7 @@ function createClipsElement(clip) {
 
 function doPlayTTS(playList,index) {
   console.log('doPlayTTS:playList=<',playList,'>');
-  if(playList.length >= index) {
+  if(playList.length > index) {
     let audio = playList[index];
     console.log('doPlayTTS:audio=<',audio,'>');
     audio.addEventListener("ended", function(){
