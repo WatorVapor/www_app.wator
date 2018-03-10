@@ -43,7 +43,7 @@
           $( "#ui-update-graph" ).append(new_graph_card);
         }
         if(wai.tts){
-          createTTS((wai.tts);
+          createTTS(wai.tts);
         }
      });
     }
