@@ -42,12 +42,18 @@
           new_graph_card = new_graph_card.replace('##wai_participle.facebook##',btn_text_facebook);
           $( "#ui-update-graph" ).append(new_graph_card);
         }
-      });
+        if(wai.tts){
+          createTTS((wai.tts);
+        }
+     });
     }
-    if(msg.tts && typeof msg.tts === 'string') {
-      console.log('onUpdateData:msg.tts=<',msg.tts,'>');
+    if(msg.m3u8 && typeof msg.m3u8 === 'string') {
+      console.log('onUpdateData:msg.tts=<',msg.m3u8,'>');
       let audioElem = document.getElementById('ui-update-all-words-tts');
-      audioElem.src = 'https://www.wator.xyz/' + msg.tts;
+      audioElem.src = 'https://www.wator.xyz/' + msg.m3u8;
    }
+  }
+  function createTTS(tts) {
+    console.log('createTTS:tts=<',tts,'>');
   }
 </script>
