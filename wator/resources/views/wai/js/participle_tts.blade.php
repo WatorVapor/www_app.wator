@@ -2,31 +2,32 @@
 
 function onClickTTS(elem) {
   console.log('onClickTTS:elem=<',elem,'>');
-  let audioElem = document.getElementById('ui-update-tts-audio');
-  console.log('onClickTTS:audioElem=<',audioElem,'>');
-  audioElem.play();
+  let audioList = document.getElementsByClassName('ui-update-tts-one-clip');
+  console.log('onClickTTS:audioList=<',audioList,'>');
+  doPlayTTS(audioList,0);
 }
 
 function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
-  let audioElem = document.getElementById('ui-update-tts-audio');
-  console.log('onClickTTS:audioElem=<',audioElem,'>');
+  let clipsElem = document.getElementById('ui-update-tts-all-clips');
+  console.log('onClickTTS:clipsElem=<',clipsElem,'>');
   for(let index in tts) {
     let clip = tts[index];
     console.log('createTTS:clip=<',clip,'>');
-    let sourceElem = createClipsElement(clip);
-    audioElem.appendChild(sourceElem);
+    let audioElem = createClipsElement(clip);
+    clipsElem.appendChild(audioElem);
   }
 }
 function createClipsElement(clip) {
   console.log('createClipsElement:clip=<',clip,'>');
-  let audio = document.createElement('source');
-  audio.setAttribute('src','https://ipfs.io/ipfs/' + clip);
+  let audio = document.createElement('audio');
+  audio.src = 'https://ipfs.io/ipfs/' + clip;
+  audio.className = 'ui-update-tts-one-clip';
   console.log('createClipsElement:audio=<',audio,'>');
   return audio;
 }
 
-/*
+
 function doPlayTTS(playList,index) {
   console.log('doPlayTTS:playList=<',playList,'>');
   if(playList.length > index) {
@@ -39,5 +40,5 @@ function doPlayTTS(playList,index) {
     audio.play();
   }
 }
-*/
+
 </script>
