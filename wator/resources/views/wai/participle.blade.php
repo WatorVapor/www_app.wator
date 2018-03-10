@@ -54,7 +54,7 @@
       </pre>
     </div>
     <div class="row justify-content-center">
-      <audio class="d-none" controls id="ui-update-all-words-tts">
+      <audio class="d-none" controls id="ui-update-tts-audio">
       </audio>
       <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
         <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
