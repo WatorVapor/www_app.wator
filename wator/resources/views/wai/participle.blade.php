@@ -54,19 +54,25 @@
       </pre>
     </div>
     <div class="row justify-content-center">
-      <audio class="d-none" id="ui-update-tts-audio">
-      </audio>
-      <div class="d-none" id="ui-update-tts-all-clips">
+      <div class="col">
+        <audio class="d-none" id="ui-update-tts-audio">
+        </audio>
+        <div class="d-none" id="ui-update-tts-all-clips">
+        </div>
+        <div class="d-none" id="ui-update-tts-all-clips">
+        </div>
       </div>
-      <div class="d-none" id="ui-update-tts-all-clips">
+      <div class="col">
+        <div class="input-group">
+          <span class="input-group-addon">Speed</span>
+          <input id="msg" type="text" class="form-control" name="msg" value="1.5">
+        </div>
       </div>
-      <div class="input-group">
-        <span class="input-group-addon">Speed</span>
-        <input id="msg" type="text" class="form-control" name="msg" value="1.5">
+      <div class="col">
+        <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
+          <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
+        </button>
       </div>
-      <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
-        <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
-      </button>
     </div>
   </div>
 </div>
