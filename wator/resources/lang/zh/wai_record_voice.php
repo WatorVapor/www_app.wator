@@ -6,5 +6,6 @@ return [
     'japanese_ext' => '日语扩张',
     'train' => '训练',
     'hirakana' => '平假名',
+    'ctrl' => '控制符',
     '' => ''
 ];
