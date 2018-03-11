@@ -54,21 +54,21 @@
       </pre>
     </div>
     <div class="row justify-content-center">
-      <div class="col">
-        <audio class="d-none" id="ui-update-tts-audio">
+      <div class="col d-none">
+        <audio id="ui-update-tts-audio">
         </audio>
-        <div class="d-none" id="ui-update-tts-all-clips">
+        <div id="ui-update-tts-all-clips">
         </div>
-        <div class="d-none" id="ui-update-tts-all-clips">
+        <div id="ui-update-tts-all-clips">
         </div>
       </div>
-      <div class="col">
+      <div class="col-2">
         <div class="input-group">
           <span class="input-group-addon">Speed</span>
           <input id="msg" type="text" class="form-control" name="msg" value="1.5">
         </div>
       </div>
-      <div class="col">
+      <div class="col-10">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
           <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
         </button>
