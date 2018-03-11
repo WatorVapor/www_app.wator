@@ -2,11 +2,33 @@
     "ctrl": [
         {
             "phoneme": "ws",
+            "duration": 0.05,
             "cn_help": "词间停顿"
         },
         {
-            "phoneme": "ss",
-            "cn_help": "句间停顿"
+            "phoneme": ",",
+            "duration": 0.2,
+            "cn_help": ""
+        },
+        {
+            "phoneme": "，",
+            "duration": 0.2,
+            "cn_help": ""
+        },
+        {
+            "phoneme": ".",
+            "duration": 0.4,
+            "cn_help": ""
+        },
+        {
+            "phoneme": "。",
+            "duration": 0.4,
+            "cn_help": ""
+        },
+        {
+            "phoneme": "",
+            "duration": 0.2,
+            "cn_help": ""
         }
     ]
 }
