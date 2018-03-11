@@ -121,12 +121,16 @@ class RecordVoiceController extends Controller
                 $data['phoneme'] = ' ';
                 $data['phoneme_help'] = ' ';
                 $data['ipfs'] = '';
+                $data['total']  = 1;
+                $data['finnish']  = 1;
             }
         } catch( \Exception $e ) {
             $data['phoneme'] = ' ';
             $data['phoneme_help'] = ' ';
             $data['duration'] = 0.4;
             $data['ipfs'] = '';
+            $data['total']  = 1;
+            $data['finnish']  = 1;
             var_dump($e->getMessage());
         }
         if($lang == 'cn') {
