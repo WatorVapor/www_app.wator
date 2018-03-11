@@ -62,13 +62,13 @@
         <div id="ui-update-tts-all-clips">
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-6 justify-content-right">
         <div class="input-group">
           <span class="input-group-addon">Speed</span>
           <input id="msg" type="text" class="form-control" name="msg" value="1.5">
         </div>
       </div>
-      <div class="col-10">
+      <div class="col-6 justify-content-left">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
           <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
         </button>
