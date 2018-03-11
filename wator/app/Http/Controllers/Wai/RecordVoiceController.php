@@ -90,6 +90,9 @@ class RecordVoiceController extends Controller
                             } else {
                                 $data['ipfs'] = '';
                             }
+                            if(isset($value['duration'])) {
+                                $data['duration'] = $value['duration'];
+                            }
                         }
                         } else {
                             $finnish += 1;
@@ -136,19 +139,27 @@ class RecordVoiceController extends Controller
             var_dump($e->getMessage());
         }
         if($lang == 'cn') {
-            $data['duration'] = 0.4;
+            if(!isset($value['duration'])) {
+                $data['duration'] = 0.4;
+            }
             $data['lang'] = $lang;
         }
         if($lang == 'ja') {
-            $data['duration'] = 0.2;
+            if(!isset($value['duration'])) {
+                $data['duration'] = 0.2;
+            }
             $data['lang'] = $lang;
         }
         if($lang == 'ext_ja') {
-            $data['duration'] = 0.4;
+            if(!isset($value['duration'])) {
+                $data['duration'] = 0.4;
+            }
             $data['lang'] = $lang;
         }
         if($lang == 'ctrl') {
-            $data['duration'] = 0.4;
+            if(!isset($value['duration'])) {
+                $data['duration'] = 0.2;
+            }
             $data['lang'] = $lang;
         }
         //var_dump($data);
