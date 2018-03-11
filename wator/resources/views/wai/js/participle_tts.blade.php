@@ -39,7 +39,7 @@ function doPlayTTS(playList,index) {
     audio.addEventListener("ended", function(){
       doPlayTTS(playList,index+1);
     });
-    audio.playbackRate = 1.0;
+    audio.playbackRate = {{ $tts_speed }};
     audio.play();
   }
 }
