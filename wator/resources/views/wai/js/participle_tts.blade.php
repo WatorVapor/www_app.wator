@@ -1,11 +1,5 @@
 <script type="text/javascript">
 
-function onClickTTS(elem) {
-  //console.log('onClickTTS:elem=<',elem,'>');
-  let audioList = document.getElementsByClassName('ui-update-tts-one-clip');
-  //console.log('onClickTTS:audioList=<',audioList,'>');
-  doPlayTTS(audioList,0);
-}
 
 function createTTS(tts) {
   //console.log('createTTS:tts=<',tts,'>');
@@ -29,17 +23,26 @@ function createClipsElement(clip) {
   return audio;
 }
 
+function onClickTTS(elem) {
+  //console.log('onClickTTS:elem=<',elem,'>');
+  let audioList = document.getElementsByClassName('ui-update-tts-one-clip');
+  //console.log('onClickTTS:audioList=<',audioList,'>');
+  let root = elem.parent;
+  console.log('onClickTTS:root=<',root,'>');
+  let speed = parseFloat(root.getElementsByTagName(input)[0].value);
+  doPlayTTS(audioList,0,speed);
+}
 
-function doPlayTTS(playList,index) {
+function doPlayTTS(playList,index,speed) {
   //console.log('doPlayTTS:playList=<',playList,'>');
   if(playList.length > index) {
     let audio = playList[index];
     audio.muted = false;
     //console.log('doPlayTTS:audio=<',audio,'>');
     audio.addEventListener("ended", function(){
-      doPlayTTS(playList,index+1);
+      doPlayTTS(playList,index+1,speed);
     });
-    audio.playbackRate = 1.5;
+    audio.playbackRate = speed;
     audio.play();
   }
 }
