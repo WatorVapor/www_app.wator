@@ -59,7 +59,7 @@ class ParticipleController extends Controller
         } else {
             $data['process'] = False;
         }
-        
+        $data['tts_speed'] = '2.0';
         //var_dump($data);
         return view('wai.participle',$data);
     }
