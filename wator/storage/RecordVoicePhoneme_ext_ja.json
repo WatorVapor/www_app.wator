@@ -1,6 +1,30 @@
 {
     "ja": [
-       {
+        {
+            "phoneme": "ああ",
+            "cn_help": "阿",
+        },
+        {
+            "phoneme": "いい",
+            "cn_help": "一",
+        },
+        {
+            "phoneme": "うう",
+            "cn_help": "巫",
+        },
+        {
+            "phoneme": "ええ",
+            "cn_help": "诶",
+        },
+        {
+            "phoneme": "えい",
+            "cn_help": "诶",
+        },
+        {
+            "phoneme": "おお",
+            "cn_help": "凹",
+        },
+        {
             "phoneme": "かあ",
             "cn_help": "喀",
 
@@ -17,6 +41,11 @@
         },
         {
             "phoneme": "けえ",
+            "cn_help": "开",
+
+        },
+        {
+            "phoneme": "けい",
             "cn_help": "开",
 
         },
