@@ -31,14 +31,16 @@ class RecordVoiceController extends Controller
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
         File::makeDirectory($profilePath, 0775, true, true);
         $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
+        var_dump($phonemePath);
         if (file_exists($phonemePath)) {
             $phonemeStr = file_get_contents($phonemePath);
             $phonemeJson = json_decode($phonemeStr, true);
+            var_dump($phonemeJson);
         } else {
             $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
-            //var_dump($phonemePath);
             $phonemeStr = file_get_contents($phonemePath);
             $phonemeJson = json_decode($phonemeStr, true);
+            var_dump($phonemeJson);
         }
         $this->phonemeArray_[$lang] = $phonemeJson;
         return $phonemeJson;
