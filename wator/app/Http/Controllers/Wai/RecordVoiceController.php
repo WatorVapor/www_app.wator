@@ -145,7 +145,7 @@ class RecordVoiceController extends Controller
         }
         if($lang == 'ext_ja') {
             $data['duration'] = 0.4;
-            $data['lang'] = 'ja';
+            $data['lang'] = $lang;
         }
         //var_dump($data);
         return view('wai.recorder_voice',$data);
