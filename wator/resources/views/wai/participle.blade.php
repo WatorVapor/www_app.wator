@@ -62,7 +62,9 @@
         <div id="ui-update-tts-all-clips">
         </div>
       </div>
-      <div class="col-6 justify-content-right">
+      <div class="col-5">
+      </div>
+      <div class="col-1 justify-content-right">
         <div class="input-group">
           <span class="input-group-addon">Speed</span>
           <input id="msg" type="text" class="form-control" name="msg" value="1.5">
