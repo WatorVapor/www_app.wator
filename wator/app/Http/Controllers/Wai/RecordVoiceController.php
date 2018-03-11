@@ -116,20 +116,24 @@ class RecordVoiceController extends Controller
                 $data['total']  = count($phonemeJson[$lang]);
                 $data['finnish']  = $finnish;
             }
-            if($lang == 'cn') {
-                $data['duration'] = 0.4;
-            }
-            if($lang == 'ja') {
-                $data['duration'] = 0.2;
-            }
-            $data['lang'] = $lang;
         } catch( \Exception $e ) {
             $data['phoneme'] = ' ';
             $data['phoneme_help'] = ' ';
             $data['duration'] = 0.4;
-            $data['lang'] = $lang;
             $data['ipfs'] = '';
             var_dump($e->getMessage());
+        }
+        if($lang == 'cn') {
+            $data['duration'] = 0.4;
+            $data['lang'] = $lang;
+        }
+        if($lang == 'ja') {
+            $data['duration'] = 0.2;
+            $data['lang'] = $lang;
+        }
+        if($lang == 'ext_ja') {
+            $data['duration'] = 0.4;
+            $data['lang'] = 'ja';
         }
         //var_dump($data);
         return view('wai.recorder_voice',$data);
