@@ -29,7 +29,7 @@ function onClickTTS(elem) {
   //console.log('onClickTTS:audioList=<',audioList,'>');
   let root = elem.parentElement;
   console.log('onClickTTS:root=<',root,'>');
-  let speed = parseFloat(root.getElementsByTagName(input)[0].value);
+  let speed = parseFloat(root.getElementsByTagName('input')[0].value);
   doPlayTTS(audioList,0,speed);
 }
 
