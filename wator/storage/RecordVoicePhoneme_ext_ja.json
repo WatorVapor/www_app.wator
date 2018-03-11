@@ -2,559 +2,558 @@
     "ext_ja": [
         {
             "phoneme": "ああ",
-            "cn_help": "阿",
+            "cn_help": "阿"
         },
         {
             "phoneme": "いい",
-            "cn_help": "一",
+            "cn_help": "一"
         },
         {
             "phoneme": "うう",
-            "cn_help": "巫",
+            "cn_help": "巫"
         },
         {
             "phoneme": "ええ",
-            "cn_help": "诶",
+            "cn_help": "诶"
         },
         {
             "phoneme": "えい",
-            "cn_help": "诶",
+            "cn_help": "诶"
         },
         {
             "phoneme": "おお",
-            "cn_help": "凹",
+            "cn_help": "凹"
         },
         {
             "phoneme": "おう",
-            "cn_help": "凹",
+            "cn_help": "凹"
         },
         {
             "phoneme": "かあ",
-            "cn_help": "喀",
+            "cn_help": "喀"
 
         },
         {
             "phoneme": "きい",
-            "cn_help": "剋",
+            "cn_help": "剋"
 
         },
         {
             "phoneme": "くう",
-            "cn_help": "哭",
+            "cn_help": "哭"
 
         },
         {
             "phoneme": "けえ",
-            "cn_help": "开",
+            "cn_help": "开"
 
         },
         {
             "phoneme": "けい",
-            "cn_help": "开",
+            "cn_help": "开"
 
         },
         {
             "phoneme": "こう",
-            "cn_help": "考",
+            "cn_help": "考"
 
         },
         {
             "phoneme": "があ",
-            "cn_help": "嘎",
+            "cn_help": "嘎"
 
         },
         {
             "phoneme": "ぎい",
-            "cn_help": "给",
+            "cn_help": "给"
 
         },
         {
             "phoneme": "ぐう",
-            "cn_help": "骨",
+            "cn_help": "骨"
 
         },
         {
             "phoneme": "げえ",
-            "cn_help": "该",
+            "cn_help": "该"
         },
         {
             "phoneme": "ごう",
-            "cn_help": "高",
+            "cn_help": "高"
 
         },
         {
             "phoneme": "さあ",
-            "cn_help": "杀",
+            "cn_help": "杀"
 
         },
         {
             "phoneme": "しい",
-            "cn_help": "吸",
+            "cn_help": "吸"
 
         },
         {
             "phoneme": "すい",
-            "cn_help": "师",
+            "cn_help": "师"
 
         },
         {
             "phoneme": "せえ",
-            "cn_help": "筛",
+            "cn_help": "筛"
 
         },
         {
             "phoneme": "せい",
-            "cn_help": "筛",
+            "cn_help": "筛"
 
         },
         {
             "phoneme": "そう",
-            "cn_help": "烧",
+            "cn_help": "烧"
 
         },
         {
             "phoneme": "ざあ",
-            "cn_help": "扎",
+            "cn_help": "扎"
 
         },
         {
             "phoneme": "じい",
-            "cn_help": "鸡",
+            "cn_help": "鸡"
 
         },
         {
             "phoneme": "ずい",
-            "cn_help": "猪",
+            "cn_help": "猪"
 
         },
         {
             "phoneme": "ぜえ",
-            "cn_help": "摘",
+            "cn_help": "摘"
 
         },
         {
             "phoneme": "ぜい",
-            "cn_help": "摘",
+            "cn_help": "摘"
 
         },
         {
             "phoneme": "ぞう",
-            "cn_help": "招",
+            "cn_help": "招"
 
         },
         {
             "phoneme": "たあ",
-            "cn_help": "塔",
+            "cn_help": "塔"
 
         },
         {
             "phoneme": "ちい",
-            "cn_help": "期",
+            "cn_help": "期"
 
         },
         {
             "phoneme": "つう",
-            "cn_help": "初",
+            "cn_help": "初"
 
         },
         {
             "phoneme": "てえ",
-            "cn_help": "胎",
+            "cn_help": "胎"
 
         },
         {
             "phoneme": "てい",
-            "cn_help": "胎",
+            "cn_help": "胎"
 
         },
         {
             "phoneme": "とう",
-            "cn_help": "涛",
+            "cn_help": "涛"
 
         },
         {
             "phoneme": "とお",
-            "cn_help": "涛",
+            "cn_help": "涛"
 
         },
         {
             "phoneme": "だあ",
-            "cn_help": "搭",
+            "cn_help": "搭"
 
         },
         {
             "phoneme": "ぢい",
-            "cn_help": "鸡",
+            "cn_help": "鸡"
 
         },
         {
             "phoneme": "づう",
-            "cn_help": "猪",
+            "cn_help": "猪"
 
         },
         {
             "phoneme": "でえ",
-            "cn_help": "呆",
+            "cn_help": "呆"
 
         },
         {
             "phoneme": "どう",
-            "cn_help": "刀",
+            "cn_help": "刀"
 
         },
         {
             "phoneme": "なあ",
-            "cn_help": "纳",
+            "cn_help": "纳"
 
         },
         {
             "phoneme": "にい",
-            "cn_help": "你",
+            "cn_help": "你"
 
         },
         {
             "phoneme": "ぬう",
-            "cn_help": "奴",
+            "cn_help": "奴"
 
         },
         {
             "phoneme": "ねえ",
-            "cn_help": "乃",
+            "cn_help": "乃"
 
         },
         {
             "phoneme": "のう",
-            "cn_help": "孬",
+            "cn_help": "孬"
 
         },
         {
             "phoneme": "はあ",
-            "cn_help": "哈",
+            "cn_help": "哈"
 
         },
         {
             "phoneme": "ひい",
-            "cn_help": "黑",
+            "cn_help": "黑"
 
         },
         {
             "phoneme": "ふう",
-            "cn_help": "福",
+            "cn_help": "福"
 
         },
         {
             "phoneme": "へえ",
-            "cn_help": "嗨",
+            "cn_help": "嗨"
 
         },
         {
             "phoneme": "へい",
-            "cn_help": "嗨",
+            "cn_help": "嗨"
 
         },
         {
             "phoneme": "ほう",
-            "cn_help": "蒿",
+            "cn_help": "蒿"
 
         },
         {
             "phoneme": "ばあ",
-            "cn_help": "八",
+            "cn_help": "八"
 
         },
         {
             "phoneme": "びい",
-            "cn_help": "匕",
+            "cn_help": "匕"
 
         },
         {
             "phoneme": "ぶう",
-            "cn_help": "不",
+            "cn_help": "不"
 
         },
         {
             "phoneme": "べえ",
-            "cn_help": "掰",
+            "cn_help": "掰"
 
         },
         {
             "phoneme": "べい",
-            "cn_help": "掰",
+            "cn_help": "掰"
 
         },
         {
             "phoneme": "ぼう",
-            "cn_help": "包",
+            "cn_help": "包"
 
         },
         {
             "phoneme": "ぱあ",
-            "cn_help": "趴",
+            "cn_help": "趴"
 
         },
         {
             "phoneme": "ぴい",
-            "cn_help": "批",
+            "cn_help": "批"
 
         },
         {
             "phoneme": "ぷう",
-            "cn_help": "扑",
+            "cn_help": "扑"
 
         },
         {
             "phoneme": "ぺえ",
-            "cn_help": "拍",
+            "cn_help": "拍"
 
         },
         {
             "phoneme": "ぺい",
-            "cn_help": "拍",
+            "cn_help": "拍"
 
         },
         {
             "phoneme": "ぽう",
-            "cn_help": "抛",
+            "cn_help": "抛"
 
         },
         {
             "phoneme": "まあ",
-            "cn_help": "妈",
+            "cn_help": "妈"
 
         },
         {
             "phoneme": "みい",
-            "cn_help": "咪",
+            "cn_help": "咪"
 
         },
         {
             "phoneme": "むう",
-            "cn_help": "呒",
+            "cn_help": "呒"
 
         },
         {
             "phoneme": "めえ",
-            "cn_help": "唛",
+            "cn_help": "唛"
 
         },
         {
             "phoneme": "もう",
-            "cn_help": "猫",
+            "cn_help": "猫"
 
         },
         {
             "phoneme": "やあ",
-            "cn_help": "压",
+            "cn_help": "压"
 
         },
         {
             "phoneme": "ゆう",
-            "cn_help": "优",
+            "cn_help": "优"
 
         },
         {
             "phoneme": "よう",
-            "cn_help": "腰",
+            "cn_help": "腰"
 
         },
         {
             "phoneme": "らあ",
-            "cn_help": "啦",
+            "cn_help": "啦"
 
         },
         {
             "phoneme": "りい",
-            "cn_help": "莅",
+            "cn_help": "莅"
 
         },
         {
             "phoneme": "るう",
-            "cn_help": "撸",
+            "cn_help": "撸"
 
         },
         {
             "phoneme": "れえ",
-            "cn_help": "莱",
+            "cn_help": "莱"
 
         },
         {
             "phoneme": "ろう",
-            "cn_help": "捞",
+            "cn_help": "捞"
 
         },
         {
             "phoneme": "わあ",
-            "cn_help": "哇",
+            "cn_help": "哇"
 
         },
         {
             "phoneme": "きゃあ",
-            "cn_help": "",
-
+            "cn_help": ""
         },
         {
             "phoneme": "きゅう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "きょう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぎゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぎゅう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぎょう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "しゃあ",
-            "cn_help": "吓",
+            "cn_help": "吓"
 
         },
         {
             "phoneme": "しゅう",
-            "cn_help": "羞",
+            "cn_help": "羞"
 
         },
         {
             "phoneme": "しょう",
-            "cn_help": "消",
+            "cn_help": "消"
 
         },
         {
             "phoneme": "じゃあ",
-            "cn_help": "家",
+            "cn_help": "家"
 
         },
         {
             "phoneme": "じゅう",
-            "cn_help": "揪",
+            "cn_help": "揪"
 
         },
         {
             "phoneme": "じょう",
-            "cn_help": "交",
+            "cn_help": "交"
 
         },
         {
             "phoneme": "ちゃあ",
-            "cn_help": "掐",
+            "cn_help": "掐"
 
         },
         {
             "phoneme": "ちゅう",
-            "cn_help": "丘",
+            "cn_help": "丘"
 
         },
         {
             "phoneme": "ちょう",
-            "cn_help": "敲",
+            "cn_help": "敲"
 
         },
         {
             "phoneme": "にゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "にゅう",
-            "cn_help": "妞",
+            "cn_help": "妞"
 
         },
         {
             "phoneme": "にょう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ひゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ひゅう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ひょう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "びゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "びゅう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "びょう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぴゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぴゅう",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "ぴょう",
-            "cn_help": "飘",
+            "cn_help": "飘"
 
         },
         {
             "phoneme": "みゃあ",
-            "cn_help": "",
+            "cn_help": ""
 
         },
         {
             "phoneme": "みゅう",
-            "cn_help": "谬",
+            "cn_help": "谬"
 
         },
         {
             "phoneme": "みょう",
-            "cn_help": "喵",
+            "cn_help": "喵"
 
         },
         {
             "phoneme": "りゃあ",
-            "cn_help": "俩",
+            "cn_help": "俩"
 
         },
         {
             "phoneme": "りゅう",
-            "cn_help": "遛",
+            "cn_help": "遛"
 
         },
         {
             "phoneme": "りょう",
-            "cn_help": "聊",
+            "cn_help": "聊"
 
         },
         {
             "phoneme": " ",
-            "cn_help": " ",
+            "cn_help": " "
 
         }
     ]
