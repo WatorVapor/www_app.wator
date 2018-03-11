@@ -29,6 +29,11 @@
           {{ trans('wai_record_voice.japanese_ext') }}
         </a>
       </div>
+      <div class="col">
+        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_voice/ctrl" role="button">
+          {{ trans('wai_record_voice.japanese_ext') }}
+        </a>
+      </div>
     </div>
   </div>
 </div>
