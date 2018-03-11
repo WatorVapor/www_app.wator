@@ -1,0 +1,12 @@
+{
+    "ctrl": [
+        {
+            "phoneme": "ws",
+            "cn_help": "词间停顿"
+        },
+        {
+            "phoneme": "ss",
+            "cn_help": "句间停顿"
+        }
+    ]
+}
