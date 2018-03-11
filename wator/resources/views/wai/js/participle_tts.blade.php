@@ -27,7 +27,7 @@ function onClickTTS(elem) {
   //console.log('onClickTTS:elem=<',elem,'>');
   let audioList = document.getElementsByClassName('ui-update-tts-one-clip');
   //console.log('onClickTTS:audioList=<',audioList,'>');
-  let root = elem.parent;
+  let root = elem.parentElement;
   console.log('onClickTTS:root=<',root,'>');
   let speed = parseFloat(root.getElementsByTagName(input)[0].value);
   doPlayTTS(audioList,0,speed);
