@@ -38,9 +38,10 @@ class RecordVoiceController extends Controller
             //var_dump($phonemeJson);
         } else {
             $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
+            var_dump($phonemePath);
             $phonemeStr = file_get_contents($phonemePath);
             $phonemeJson = json_decode($phonemeStr, true);
-            //var_dump($phonemeJson);
+            var_dump($phonemeJson);
         }
         $this->phonemeArray_[$lang] = $phonemeJson;
         return $phonemeJson;
