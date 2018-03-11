@@ -25,6 +25,10 @@
             "cn_help": "凹",
         },
         {
+            "phoneme": "おう",
+            "cn_help": "凹",
+        },
+        {
             "phoneme": "かあ",
             "cn_help": "喀",
 
@@ -99,6 +103,11 @@
 
         },
         {
+            "phoneme": "せい",
+            "cn_help": "筛",
+
+        },
+        {
             "phoneme": "そう",
             "cn_help": "烧",
 
@@ -116,6 +125,11 @@
         {
             "phoneme": "ずい",
             "cn_help": "猪",
+
+        },
+        {
+            "phoneme": "ぜえ",
+            "cn_help": "摘",
 
         },
         {
@@ -149,7 +163,17 @@
 
         },
         {
+            "phoneme": "てい",
+            "cn_help": "胎",
+
+        },
+        {
             "phoneme": "とう",
+            "cn_help": "涛",
+
+        },
+        {
+            "phoneme": "とお",
             "cn_help": "涛",
 
         },
@@ -224,6 +248,11 @@
 
         },
         {
+            "phoneme": "へい",
+            "cn_help": "嗨",
+
+        },
+        {
             "phoneme": "ほう",
             "cn_help": "蒿",
 
@@ -249,6 +278,11 @@
 
         },
         {
+            "phoneme": "べい",
+            "cn_help": "掰",
+
+        },
+        {
             "phoneme": "ぼう",
             "cn_help": "包",
 
@@ -270,6 +304,11 @@
         },
         {
             "phoneme": "ぺえ",
+            "cn_help": "拍",
+
+        },
+        {
+            "phoneme": "ぺい",
             "cn_help": "拍",
 
         },
@@ -314,7 +353,7 @@
 
         },
         {
-            "phoneme": "よお",
+            "phoneme": "よう",
             "cn_help": "腰",
 
         },
@@ -346,16 +385,6 @@
         {
             "phoneme": "わあ",
             "cn_help": "哇",
-
-        },
-        {
-            "phoneme": "を",
-            "cn_help": "喔",
-
-        },
-        {
-            "phoneme": "ん",
-            "cn_help": "嗯",
 
         },
         {
