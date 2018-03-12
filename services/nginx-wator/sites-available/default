@@ -22,7 +22,9 @@ upstream storage.wator.xyz {
 upstream local.api.ipfs.wator.xyz {
   server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:5001;
 }
-
+upstream local.gw.ipfs.wator.xyz {
+  server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:5001;
+}
 
 
 # HTTPS server
@@ -79,7 +81,7 @@ server {
   }
 
   location ^~ /ipfs {
-      proxy_pass       http://local.ipfs.wator.xyz;
+      proxy_pass       http://local.gw.ipfs.wator.xyz;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header Host $host;
   }
