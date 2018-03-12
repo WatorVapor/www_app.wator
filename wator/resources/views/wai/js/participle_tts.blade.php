@@ -35,7 +35,7 @@ function createClipsElement(clip,clipsElem) {
     let blob = new Blob(result, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     audio.src = urlBlob;
-    audio.type = 'audio/webm';
+    audio.setAttribute('type','audio/webm');
     //console.log('createClipsElement:audio=<',audio,'>');
     clipsElem.appendChild(audio);
   });
