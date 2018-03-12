@@ -44,7 +44,8 @@
           $( "#ui-update-graph" ).append(new_graph_card);
         }
         if(wai.tts){
-          for(let clip in wai.tts) {
+          for(let index in wai.tts) {
+            let clip = wai.tts[index];
             ttsTotal.push(clip);
           }
         }
