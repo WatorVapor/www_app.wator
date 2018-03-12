@@ -60,17 +60,18 @@ function doPlayTTS(playList,index,speed) {
     console.log('doPlayTTS:audio=<',audio,'>');
     console.log('doPlayTTS:audio.duration=<',audio.duration,'>');
     
-    /*
+   
     audio.addEventListener('ended', function(){
       doPlayTTS(playList,index+1,speed);
     });
-    */
-
+    
+    /*
     let stop = audio.duration *1000 + 10;
     setTimeout(function(){
       stopPlayTTS(playList,index);
       doPlayTTS(playList,index+1,speed);
     },stop);
+    */
     audio.playbackRate = speed;
     audio.play();
   }
