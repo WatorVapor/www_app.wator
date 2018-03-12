@@ -27,7 +27,7 @@ function createClipsElement(clipsElem,index,tts) {
     if (err) {
       throw err;
     }
-    console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
+    //console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
     let blob = new Blob([file], { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     let audio = document.createElement('audio');
@@ -35,7 +35,7 @@ function createClipsElement(clipsElem,index,tts) {
     audio.setAttribute('id','ui-update-tts-one-clip-' + index);
     audio.src = urlBlob;
     audio.setAttribute('type','audio/webm');
-    //console.log('createClipsElement:audio=<',audio,'>');
+    console.log('createClipsElement:audio=<',audio,'>');
     clipsElem.appendChild(audio);
     if(tts.length > index +1) {
       createClipsElement(clipsElem,index +1,tts)
