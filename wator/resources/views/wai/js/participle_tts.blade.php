@@ -18,13 +18,13 @@ function createTTS(tts) {
   for(let index in tts) {
     let clip = tts[index];
     //console.log('createTTS:clip=<',clip,'>');
-    let audioElem = createClipsElement(clip);
-    clipsElem.appendChild(audioElem);
+    let audioElem = createClipsElement(clip,clipsElem);
   }
 }
-function createClipsElement(clip) {
+function createClipsElement(clip,clipsElem) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let audio = document.createElement('audio');
+  audio.className = 'ui-update-tts-one-clip';
   
   ipfs.files.cat(clip,function(err, result){
     if (err) {
@@ -34,10 +34,9 @@ function createClipsElement(clip) {
     let blob = new Blob(result, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     audio.src = urlBlob;  
+    //console.log('createClipsElement:audio=<',audio,'>');
+    clipsElem.appendChild(audioElem);
   });
-  audio.className = 'ui-update-tts-one-clip';
-  //console.log('createClipsElement:audio=<',audio,'>');
-  return audio;
 }
 
 function onClickTTS(elem) {
