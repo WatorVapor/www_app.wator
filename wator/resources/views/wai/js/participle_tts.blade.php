@@ -65,6 +65,7 @@ function doPlayTTS(playList,index,speed) {
     audio.onended = function (evt){
       console.log('doPlayTTS:audio.onended evt=<',evt,'>');
       console.log('doPlayTTS:audio.onended evt.target.index=<',evt.target.index,'>');
+      doPlayTTS(playList,evt.target.index + 1,speed);
     }
     /*
     audio.addEventListener('ended', function(){
