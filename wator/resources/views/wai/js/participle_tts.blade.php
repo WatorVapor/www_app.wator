@@ -15,7 +15,7 @@ function createTTS(tts) {
   //console.log('createTTS:tts=<',tts,'>');
   let clipsElem = document.getElementById('ui-update-tts-all-clips');
   //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
-  if(tts.length >0)
+  if(tts.length > 0){
     createClipsElement(clipsElem,0,tts);
   }
 }
