@@ -31,7 +31,8 @@ function createClipsElement(clip,clipsElem) {
     if (err) {
       throw err;
     }
-    console.log('createClipsElement:: ipfs.files.cat result=<',file,'>');
+    console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
+    /*
     let res = [];
     file.on('data', function (chunk) {
       console.log('chunk:', chunk)
@@ -48,6 +49,13 @@ function createClipsElement(clip,clipsElem) {
       //console.log('createClipsElement:audio=<',audio,'>');
       clipsElem.appendChild(audio);
     });
+    */
+    let blob = new Blob([file], { type: 'audio/webm' });
+    let urlBlob = window.URL.createObjectURL(blob);
+    audio.src = urlBlob;
+    audio.setAttribute('type','audio/webm');
+    //console.log('createClipsElement:audio=<',audio,'>');
+    clipsElem.appendChild(audio);
   });
 }
 
