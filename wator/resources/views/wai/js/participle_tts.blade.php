@@ -61,10 +61,14 @@ function doPlayTTS(playList,index,speed) {
     console.log('doPlayTTS:index=<',index,'>');
     console.log('doPlayTTS:audio.duration=<',audio.duration,'>');
     
-   
+    audio.onended = function (evt){
+      console.log('doPlayTTS:audio.onended evt=<',evt,'>');
+    }
+    /*
     audio.addEventListener('ended', function(){
       doPlayTTS(playList,index+1,speed);
     });
+    */
     
     /*
     let stop = audio.duration *1000 + 10;
