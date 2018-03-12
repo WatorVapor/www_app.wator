@@ -15,7 +15,7 @@ function createTTS(tts) {
 function createClipsElement(clip) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let audio = document.createElement('audio');
-  audio.src = 'https://ipfs.io/ipfs/' + clip;
+  audio.src = '//ipfs/' + clip;
   audio.className = 'ui-update-tts-one-clip';
   //console.log('createClipsElement:audio=<',audio,'>');
   audio.muted = true;
