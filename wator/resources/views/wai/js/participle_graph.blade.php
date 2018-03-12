@@ -47,6 +47,7 @@
           ttsTotal.concat(wai.tts);
         }
      });
+     console.log('onUpdateData:ttsTotal=<',ttsTotal,'>');
      createTTS(ttsTotal);
     }
     if(msg.m3u8 && typeof msg.m3u8 === 'string') {
