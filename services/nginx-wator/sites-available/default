@@ -20,10 +20,10 @@ upstream storage.wator.xyz {
 }
 
 upstream local.api.ipfs.wator.xyz {
-  server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:5001;
+  server [2400:2412:13e0:9d00:baae:edff:fe77:4c71]:5001;
 }
 upstream local.gw.ipfs.wator.xyz {
-  server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:443;
+  server [2400:2412:13e0:9d00:baae:edff:fe77:4c71]:443;
 }
 
 
