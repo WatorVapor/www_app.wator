@@ -72,5 +72,12 @@ services:
     working_dir: "/opt/wc"
     command: node ./notify.js
     restart: always
-
- 
+    
+  redis:
+    image: redis
+    network_mode: "host"
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./redis/data:/data
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    restart: always
