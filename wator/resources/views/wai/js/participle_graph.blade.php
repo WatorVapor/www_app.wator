@@ -44,7 +44,9 @@
           $( "#ui-update-graph" ).append(new_graph_card);
         }
         if(wai.tts){
-          ttsTotal.concat(wai.tts);
+          for(let clip in wai.tts) {
+            ttsTotal.push(clip);
+          }
         }
      });
      console.log('onUpdateData:ttsTotal=<',ttsTotal,'>');
