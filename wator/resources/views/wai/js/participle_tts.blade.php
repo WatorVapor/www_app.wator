@@ -32,6 +32,7 @@ function createClipsElement(clipsElem,index,tts) {
     let urlBlob = window.URL.createObjectURL(blob);
     let audio = document.createElement('audio');
     audio.className = 'ui-update-tts-one-clip';
+    audio.setAttribute('id','ui-update-tts-one-clip-' + index);
     audio.src = urlBlob;
     audio.setAttribute('type','audio/webm');
     //console.log('createClipsElement:audio=<',audio,'>');
