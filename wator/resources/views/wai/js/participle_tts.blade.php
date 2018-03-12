@@ -18,7 +18,7 @@ function createTTS(tts) {
   for(let index in tts) {
     let clip = tts[index];
     //console.log('createTTS:clip=<',clip,'>');
-    let audioElem = createClipsElement(clip,clipsElem);
+    createClipsElement(clip,clipsElem);
   }
 }
 function createClipsElement(clip,clipsElem) {
@@ -35,7 +35,7 @@ function createClipsElement(clip,clipsElem) {
     let urlBlob = window.URL.createObjectURL(blob);
     audio.src = urlBlob;  
     //console.log('createClipsElement:audio=<',audio,'>');
-    clipsElem.appendChild(audioElem);
+    clipsElem.appendChild(audio);
   });
 }
 
