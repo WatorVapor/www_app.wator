@@ -45,12 +45,19 @@ function doPlayTTS(playList,index,speed) {
       doPlayTTS(playList,index+1,speed);
     });
     */
-    let stop = audio.duration *1000 + 50;
+    let stop = audio.duration *1000 + 10;
     setTimeout(function(){
+      stopPlayTTS(playList,index);
       doPlayTTS(playList,index+1,speed);
     },stop);
     audio.playbackRate = speed;
     audio.play();
+  }
+}
+function stopPlayTTS(playList,index) {
+  if(playList.length > index) {
+    let audio = playList[index];
+    audio.stop();
   }
 }
 
