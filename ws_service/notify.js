@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const config = {host:'127.0.01', port: 19082 }
+const config = {host:'127.0.0.1', port: 19082 }
 const wss = new WebSocket.Server(config);
 wss.on('connection', function connection(ws) {
     
@@ -44,8 +44,7 @@ const interval = setInterval(function ping() {
 const redis = require("redis");
 const redisOption = {
   port:6379,
-  host:'master.redis.wator.xyz',
-  family:'IPv6'
+  host:'127.0.0.1'
 };
 const sub = redis.createClient(redisOption);
 sub.on('message', function(channel, message) {
