@@ -78,6 +78,12 @@ server {
       proxy_set_header Host $host;
   }
 
+  location ^~ /ipfs {
+      proxy_pass       http://local.ipfs.wator.xyz;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header Host $host;
+  }
+
 }
 
 
