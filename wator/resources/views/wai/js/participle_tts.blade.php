@@ -27,17 +27,27 @@ function createClipsElement(clip,clipsElem) {
   let audio = document.createElement('audio');
   audio.className = 'ui-update-tts-one-clip';
   
-  ipfs.files.cat(clip,function(err, result){
+  ipfs.files.cat(clip,function(err, file){
     if (err) {
       throw err;
     }
-    console.log('createClipsElement:: ipfs.files.cat result=<',result,'>');
-    let blob = new Blob(result, { type: 'audio/webm' });
-    let urlBlob = window.URL.createObjectURL(blob);
-    audio.src = urlBlob;
-    audio.setAttribute('type','audio/webm');
-    //console.log('createClipsElement:audio=<',audio,'>');
-    clipsElem.appendChild(audio);
+    console.log('createClipsElement:: ipfs.files.cat result=<',file,'>');
+    let res = [];
+    file.on('data', function (chunk) {
+      console.log('chunk:', chunk)
+      res.push(chunk);
+    })
+    file.on('error', function (err) {
+      console.error('Oh nooo', err)    
+    })
+    file.on('end', function () {
+      let blob = new Blob(res, { type: 'audio/webm' });
+      let urlBlob = window.URL.createObjectURL(blob);
+      audio.src = urlBlob;
+      audio.setAttribute('type','audio/webm');
+      //console.log('createClipsElement:audio=<',audio,'>');
+      clipsElem.appendChild(audio);
+    });
   });
 }
 
