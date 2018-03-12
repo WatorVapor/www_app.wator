@@ -21,6 +21,7 @@ function createTTS(tts) {
     createClipsElement(clip,clipsElem);
   }
 }
+
 function createClipsElement(clip,clipsElem) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let audio = document.createElement('audio');
@@ -33,7 +34,8 @@ function createClipsElement(clip,clipsElem) {
     console.log('createClipsElement:: ipfs.files.cat result=<',result,'>');
     let blob = new Blob(result, { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
-    audio.src = urlBlob;  
+    audio.src = urlBlob;
+    audio.type = 'audio/webm';
     //console.log('createClipsElement:audio=<',audio,'>');
     clipsElem.appendChild(audio);
   });
