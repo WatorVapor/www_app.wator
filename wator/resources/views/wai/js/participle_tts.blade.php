@@ -15,47 +15,30 @@ function createTTS(tts) {
   //console.log('createTTS:tts=<',tts,'>');
   let clipsElem = document.getElementById('ui-update-tts-all-clips');
   //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
-  for(let index in tts) {
-    let clip = tts[index];
-    //console.log('createTTS:clip=<',clip,'>');
-    createClipsElement(clip,clipsElem);
+  if(tts.length >0)
+    createClipsElement(clipsElem,0,tts);
   }
 }
 
-function createClipsElement(clip,clipsElem) {
+function createClipsElement(clip,clipsElem,index,tts) {
   //console.log('createClipsElement:clip=<',clip,'>');
-  let audio = document.createElement('audio');
-  audio.className = 'ui-update-tts-one-clip';
-  
+  let clip = tts[index];
   ipfs.files.cat(clip,function(err, file){
     if (err) {
       throw err;
     }
     console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
-    /*
-    let res = [];
-    file.on('data', function (chunk) {
-      console.log('chunk:', chunk)
-      res.push(chunk);
-    })
-    file.on('error', function (err) {
-      console.error('Oh nooo', err)    
-    })
-    file.on('end', function () {
-      let blob = new Blob(res, { type: 'audio/webm' });
-      let urlBlob = window.URL.createObjectURL(blob);
-      audio.src = urlBlob;
-      audio.setAttribute('type','audio/webm');
-      //console.log('createClipsElement:audio=<',audio,'>');
-      clipsElem.appendChild(audio);
-    });
-    */
     let blob = new Blob([file], { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
+    let audio = document.createElement('audio');
+    audio.className = 'ui-update-tts-one-clip';
     audio.src = urlBlob;
     audio.setAttribute('type','audio/webm');
     //console.log('createClipsElement:audio=<',audio,'>');
     clipsElem.appendChild(audio);
+    if(tts.length > index +1) {
+      createClipsElement(clipsElem,index +1,tts)
+    }
   });
 }
 
@@ -77,16 +60,17 @@ function doPlayTTS(playList,index,speed) {
     console.log('doPlayTTS:audio=<',audio,'>');
     console.log('doPlayTTS:audio.duration=<',audio.duration,'>');
     
+    /*
     audio.addEventListener('ended', function(){
       doPlayTTS(playList,index+1,speed);
     });
-    /*
-    let stop = audio.duration *1000 + 10;
+    */
+
+    let stop = audio.duration *1000 - 10;
     setTimeout(function(){
       stopPlayTTS(playList,index);
       doPlayTTS(playList,index+1,speed);
     },stop);
-    */
     audio.playbackRate = speed;
     audio.play();
   }
