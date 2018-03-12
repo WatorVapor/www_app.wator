@@ -58,6 +58,7 @@ function doPlayTTS(playList,index,speed) {
     let audio = playList[index];
     audio.muted = false;
     console.log('doPlayTTS:audio=<',audio,'>');
+    console.log('doPlayTTS:index=<',index,'>');
     console.log('doPlayTTS:audio.duration=<',audio.duration,'>');
     
    
