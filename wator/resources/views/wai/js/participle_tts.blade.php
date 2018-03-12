@@ -1,4 +1,14 @@
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+
 <script type="text/javascript">
+const Buffer = window.IpfsApi().Buffer;
+let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
+ipfs.id(function (err, identity) {
+  if (err) {
+    throw err
+  }
+  console.log('ipfs.id:identity=<',identity,'>');
+});
 
 
 function createTTS(tts) {
@@ -15,6 +25,13 @@ function createTTS(tts) {
 function createClipsElement(clip) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let audio = document.createElement('audio');
+  
+  ipfs.files.cat(clip,function(err, result){
+    if (err) {
+      throw err;
+    }
+    console.log('createClipsElement::result=<',result,'>');
+  });
   audio.src = 'https://ipfs.io/ipfs/' + clip;
   audio.className = 'ui-update-tts-one-clip';
   //console.log('createClipsElement:audio=<',audio,'>');
