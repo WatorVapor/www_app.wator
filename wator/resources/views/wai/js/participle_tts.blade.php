@@ -20,7 +20,7 @@ function createTTS(tts) {
   }
 }
 
-function createClipsElement(clip,clipsElem,index,tts) {
+function createClipsElement(clipsElem,index,tts) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let clip = tts[index];
   ipfs.files.cat(clip,function(err, file){
