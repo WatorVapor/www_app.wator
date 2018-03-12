@@ -57,7 +57,7 @@ function doPlayTTS(playList,index,speed) {
 function stopPlayTTS(playList,index) {
   if(playList.length > index) {
     let audio = playList[index];
-    audio.stop();
+    audio.pause();
   }
 }
 
