@@ -17,6 +17,7 @@
     $( ".ui-update-toggle" ).toggleClass('d-none');
     $( "#ui-update-all-words" ).text('');
     if(msg.wai && typeof msg.wai === 'object') {
+      let ttsTotal = [];
       msg.wai.forEach(function(wai,index,ar){
         console.log('onUpdateData:wai=<',wai,'>');
         //console.log('onUpdateData:index=<',index,'>');
@@ -43,9 +44,10 @@
           $( "#ui-update-graph" ).append(new_graph_card);
         }
         if(wai.tts){
-          createTTS(wai.tts);
+          ttsTotal.concat(wai.tts);
         }
      });
+     createTTS(ttsTotal);
     }
     if(msg.m3u8 && typeof msg.m3u8 === 'string') {
       console.log('onUpdateData:msg.tts=<',msg.m3u8,'>');
