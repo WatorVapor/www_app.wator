@@ -23,7 +23,7 @@ upstream local.api.ipfs.wator.xyz {
   server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:5001;
 }
 upstream local.gw.ipfs.wator.xyz {
-  server [2400:2412:13e0:9d00:81:62ff:feb8:40f8];
+  server [2400:2412:13e0:9d00:81:62ff:feb8:40f8]:443;
 }
 
 
