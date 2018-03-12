@@ -30,14 +30,13 @@ function createClipsElement(clip) {
     if (err) {
       throw err;
     }
-    console.log('createClipsElement::result=<',result,'>');
+    console.log('createClipsElement:: ipfs.files.cat result=<',result,'>');
+    let blob = new Blob(result, { type: 'audio/webm' });
+    let urlBlob = window.URL.createObjectURL(blob);
+    audio.src = urlBlob;  
   });
-  audio.src = 'https://ipfs.io/ipfs/' + clip;
   audio.className = 'ui-update-tts-one-clip';
   //console.log('createClipsElement:audio=<',audio,'>');
-  audio.load();
-  audio.muted = true;
-  audio.play();
   return audio;
 }
 
