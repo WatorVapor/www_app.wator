@@ -64,13 +64,13 @@
       </div>
       <div class="col-5">
       </div>
-      <div class="col-1 justify-content-right">
+      <div class="col-1 justify-content-right d-none ui-update-tts-enable-audio">
         <div class="input-group">
           <span class="input-group-addon">Speed</span>
           <input id="msg" type="text" class="form-control" name="msg" value="1.0">
         </div>
       </div>
-      <div class="col-6 justify-content-left">
+      <div class="col-6 justify-content-left d-none ui-update-tts-enable-audio">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickTTS(this)">
           <i class="material-icons " style="font-size:60px;color:green;">volume_up</i>
         </button>
