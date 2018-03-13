@@ -79,7 +79,7 @@ function doPlayTTS(playList,index,speed) {
     let timer = setInterval(function(){
       console.log('doPlayTTS:audio.currentTime <',audio.currentTime,'>');
       if(audio.currentTime >= audio.duration - 0.01) {
-        clearinterval(timer);
+        clearInterval(timer);
         doPlayTTS(playList,index+1,speed);
       }
     },20);
