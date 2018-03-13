@@ -39,6 +39,8 @@ function createClipsElement(clipsElem,index,tts) {
     clipsElem.appendChild(audio);
     if(tts.length > index +1) {
       createClipsElement(clipsElem,index +1,tts)
+    } else {
+      $( '.ui-update-tts-enable-audio' ).removeClass( 'd-none' );
     }
   });
 }
