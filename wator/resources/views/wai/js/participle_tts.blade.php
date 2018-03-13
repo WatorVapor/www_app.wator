@@ -62,20 +62,18 @@ function doPlayTTS(playList,index,speed) {
     console.log('doPlayTTS:index=<',index,'>');
     console.log('doPlayTTS:audio.duration=<',audio.duration,'>');
     
-    /*
     audio.index = index;
     audio.onended = function (evt){
       console.log('doPlayTTS:audio.onended evt=<',evt,'>');
       console.log('doPlayTTS:audio.onended evt.target.index=<',evt.target.index,'>');
       doPlayTTS(playList,evt.target.index + 1,speed);
     }
-    */
-   
+    /*
     let stop = audio.duration *1000 + 50;
     setTimeout(function(){
-      stopPlayTTS(playList,index);
       doPlayTTS(playList,index+1,speed);
     },stop);
+    */
     audio.playbackRate = speed;
     audio.play();
   }
