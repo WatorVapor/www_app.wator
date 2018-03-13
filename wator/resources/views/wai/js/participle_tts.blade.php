@@ -71,7 +71,7 @@ function doPlayTTS(playList,index,speed) {
     }
     */
    
-    let stop = audio.duration *1000 + 10;
+    let stop = audio.duration *1000 + 50;
     setTimeout(function(){
       stopPlayTTS(playList,index);
       doPlayTTS(playList,index+1,speed);
