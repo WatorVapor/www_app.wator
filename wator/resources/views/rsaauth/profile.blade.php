@@ -14,22 +14,16 @@
       <div class="card-body">
         <form  class="mt-2 mb-2" method="POST" action="/rsaauth/profile">
           {{ csrf_field() }}
-          <div class="input-group-prepend">
-            <span>{{trans('rsaauth_profile.apply_name')}}:</span>
-           </div>
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="material-icons " style="font-size:36px;color:green;">done</i>
-            </button>
-           </div>
-          <div class="input-group">
-             <span class="input-group-btn">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
               <span>{{trans('rsaauth_profile.apply_name')}}:</span>
-              <button type="submit" class="btn btn-success">
+            </div>
+            <div class="input-group-prepend">
+              <button type="submit" class="btn btn-outline-secondary">
                 <i class="material-icons " style="font-size:36px;color:green;">done</i>
               </button>
-             </span>
-             <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
+            </div>
+            <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
           </div>
         </form>
       </div>
