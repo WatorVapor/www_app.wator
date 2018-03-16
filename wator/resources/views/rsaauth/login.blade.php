@@ -18,15 +18,15 @@
           {{ csrf_field() }}
           <div class="form-group text-left">
             <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
-            <textarea id="rsa.login.accessToken" name="accessToken" class="form-control" cols="40" rows="3" aria-describedby="basic-addon1"></textarea>
+            <textarea id="rsa.login.accessToken" name="accessToken" class="form-control" disabled cols="40" rows="3" aria-describedby="basic-addon1"></textarea>
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="rsa.login.access">{{trans('rsaauth_login.access')}}</span>
-             <textarea id="rsa.login.access" name="access" class="form-control" cols="40" rows="3" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
+             <textarea id="rsa.login.access" name="access" class="form-control" disabled cols="40" rows="3" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</span>
-            <textarea id="rsa.login.signature" name="signature" class="form-control" cols="40" rows="14" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
+            <textarea id="rsa.login.signature" name="signature" class="form-control" disabled cols="40" rows="14" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
           </div>
           <button type="submit" class="btn btn-default">{{trans('rsaauth_login.login')}}</button>
         </form>
