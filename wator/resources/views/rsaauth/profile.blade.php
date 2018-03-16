@@ -19,8 +19,8 @@
               <span>{{trans('rsaauth_profile.apply_name')}}:</span>
             </div>
             <div class="input-group-prepend">
-              <button type="submit" class="btn btn-outline-secondary">
-                <i class="material-icons " style="font-size:36px;color:green;">done</i>
+              <button type="submit" class="btn btn-outline-primary">
+                <i class="material-icons " style="color:green;">done</i>
               </button>
             </div>
             <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
