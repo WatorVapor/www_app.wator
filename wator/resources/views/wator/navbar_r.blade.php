@@ -29,7 +29,7 @@
   $apps .= '</div>';
   $apps .= '<hr/>';
   $apps .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $apps .= '<a class="btn btn-lg btn-info mr-lg-5 " href="/wai" role="button">';
+  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 " href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
   $apps .= '<a class="btn btn-lg btn-success " href="/story" role="button">';
@@ -44,7 +44,7 @@
     $user_title = $nav_login_show_name;
   }
   $user = '';
-  $user .= '<a class="btn btn-lg btn-success mr-lg-5" href="/rsaauth/profile" role="button">';
+  $user .= '<a class="btn btn-lg btn-info mr-lg-5" href="/rsaauth/profile" role="button">';
   $user .= '<i class="material-icons md-48">account_box</i>';
   $user .= '</a>';
   $user .= '<a class="btn btn-lg btn-danger" href="/rsaauth/profile" role="button">';
