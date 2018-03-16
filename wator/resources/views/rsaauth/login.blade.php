@@ -15,6 +15,9 @@
       <div class="card-header">{{trans('rsaauth_login.title')}}</div>
       <div class="card-body">
         <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/rsaauth/login">
+          <button type="submit" class="btn btn-success">
+            <spam>{{trans('rsaauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
+          </button>
           {{ csrf_field() }}
           <div class="form-group text-left">
             <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</span>
@@ -28,9 +31,6 @@
             <span class="input-group-text"for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</span>
             <textarea type="text" id="rsa.login.signature" name="signature" class="form-control" cols="40" rows="14">{{ $RsaLoginAccessKey }}</textarea>
           </div>
-          <button type="submit" class="btn btn-success">
-            <spam>{{trans('rsaauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
-          </button>
         </form>
       </div>
     </div>
