@@ -44,6 +44,7 @@ function updateLanguage() {
       error : function(data) {
         // Error
         console.log(data);
+        sessionStorage.setItem('operation.lang.run.error',JSON.stringify(data));
       }
     });
   }
