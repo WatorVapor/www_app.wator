@@ -9,7 +9,7 @@
 
 <div class="row justify-content-center">
   <div class="col-8 bg-info">
-    <textarea id="privateKey" class="w-100 text-left small" rows="40">
+    <textarea id="importKey" class="w-100 text-left small" rows="40">
       -----BEGIN PRIVATE KEY-----
       -----BEGIN PUBLIC KEY-----
     </textarea>
@@ -18,6 +18,7 @@
 
 <script>
   $(document).ready(function() {
+    document.getElementById("importKey").select();
   });
 </script>
 @endsection
