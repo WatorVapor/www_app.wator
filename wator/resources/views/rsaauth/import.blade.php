@@ -11,8 +11,7 @@
   <div class="col-8 bg-info">
     <textarea id="importKey" 
       class="w-100 text-left small" rows="40" 
-      data-toggle="tooltip" data-placement="top" title="paste public key and public key"
-      placeholder="-----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----"
+      placeholder="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----"
       >
     </textarea>
    </div>
