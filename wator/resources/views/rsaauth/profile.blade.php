@@ -15,10 +15,8 @@
         <form  class="mt-2 mb-2" method="POST" action="/rsaauth/profile">
           {{ csrf_field() }}
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="align-bottom mt-5">
-                {{trans('rsaauth_profile.apply_name')}}:
-              </span>
+            <div class="input-group-prepend align-middle">
+              <span>{{trans('rsaauth_profile.apply_name')}}:</span>
             </div>
             <div class="input-group-prepend">
               <button type="submit" class="btn btn-outline-primary">
