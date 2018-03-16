@@ -20,7 +20,7 @@
             <spam>{{trans('rsaauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
           </button>
           <div class="form-group text-left">
-            <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
+            <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</span>
             <textarea id="rsa.login.accessToken" name="accessToken" class="form-control" disabled cols="40" rows="3"></textarea>
           </div>
           <div class="form-group text-left">
