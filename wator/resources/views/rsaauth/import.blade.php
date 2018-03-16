@@ -9,7 +9,7 @@
 
 <div class="row justify-content-md-center">
   <div class="col-8 bg-info">
-    <textarea id="privateKey" class="text-left small" rows="40">
+    <textarea id="privateKey" class="w-100 text-left small" rows="40">
       -----BEGIN PRIVATE KEY-----
       -----BEGIN PUBLIC KEY-----
     </textarea>
