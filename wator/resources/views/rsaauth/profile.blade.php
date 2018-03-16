@@ -16,8 +16,8 @@
           {{ csrf_field() }}
           <div class="input-group">
              <span class="input-group-btn">
-               <button type="submit" class="btn btn-default">
-                <span>{{trans('rsaauth_profile.apply_name')}}</span>
+               <button type="submit" class="btn btn-success">
+                <span>{{trans('rsaauth_profile.apply_name')}}:</span>
                 <i class="material-icons " style="font-size:36px;color:green;">done</i>
                </button>
              </span>
