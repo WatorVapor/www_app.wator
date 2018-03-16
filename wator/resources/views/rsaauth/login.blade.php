@@ -22,13 +22,17 @@
             </div>
             <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" placeholder="" aria-describedby="basic-addon1">
           </div>
-          <div class="form-group">
-             <label for="rsa.login.access">{{trans('rsaauth_login.access')}}</label>
+          <div class="input-group mb-3">
+             <div class="input-group-prepend">
+              <span class="input-group-text" for="rsa.login.access">{{trans('rsaauth_login.access')}}</span>
+             </div>
              <input type="text" id="rsa.login.access" name="access" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
           </div>
-          <div class="form-group">
-             <label for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</label>
-             <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+             <span class="input-group-text"for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</span>
+            </div>
+            <input type="text" id="rsa.login.signature" name="signature" class="form-control" placeholder="" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}">
           </div>
           <button type="submit" class="btn btn-default">{{trans('rsaauth_login.login')}}</button>
         </form>
