@@ -47,7 +47,7 @@
   $user .= '<a class="btn btn-lg btn-success mr-lg-5" href="/rsaauth/profile" role="button">';
   $user .= '<i class="material-icons md-48">account_box</i>';
   $user .= '</a>';
-  $user .= '<a class="btn btn-lg btn-danger ml-lg-5" href="/rsaauth/profile" role="button">';
+  $user .= '<a class="btn btn-lg btn-danger" href="/rsaauth/profile" role="button">';
   $user .= '<i class="material-icons md-48">exit_to_app</i>';
   $user .= '</a>';
 ?>
