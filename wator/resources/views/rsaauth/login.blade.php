@@ -16,7 +16,7 @@
       <div class="card-body">
         <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/rsaauth/login">
           {{ csrf_field() }}
-          <div class="form-group">
+          <div class="form-group text-left">
             <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
             <textarea id="rsa.login.accessToken" name="accessToken" class="form-control" cols="40" rows="3" aria-describedby="basic-addon1"></textarea>
           </div>
