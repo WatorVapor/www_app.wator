@@ -24,6 +24,8 @@ Route::get('/rsaauth/profile', 'RsaAuth\ProfileController@index');
 Route::post('/rsaauth/profile', 'RsaAuth\ProfileController@store');
 Route::get('/rsaauth/login', 'RsaAuth\LoginController@index');
 Route::post('/rsaauth/login', 'RsaAuth\LoginController@store');
+Route::get('/rsaauth/logout', 'RsaAuth\LogoutController@index');
+Route::post('/rsaauth/logout', 'RsaAuth\LogoutController@store');
 Route::get('/rsaauth/fix', 'RsaAuth\FixController@index');
 Route::post('/rsaauth/fix', 'RsaAuth\FixController@store');
 Route::get('/rsaauth/access', 'RsaAuth\AccessController@index');
