@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="row justify-content-md-center">
-  <div class="col-md-8 bg-info">
+  <div class="col-8 bg-info">
     <textarea id="privateKey" class="text-left small" rows="40">
       -----BEGIN PRIVATE KEY-----
       -----BEGIN PUBLIC KEY-----
