@@ -26,7 +26,7 @@
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="rsa.login.signature">{{trans('rsaauth_login.signature')}}</span>
-            <textarea id="rsa.login.signature" name="signature" class="form-control" cols="40" rows="3" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
+            <textarea id="rsa.login.signature" name="signature" class="form-control" cols="40" rows="10" aria-describedby="basic-addon1" value="{{ $RsaLoginAccessKey }}"></textarea>
           </div>
           <button type="submit" class="btn btn-default">{{trans('rsaauth_login.login')}}</button>
         </form>
