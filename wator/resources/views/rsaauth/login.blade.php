@@ -21,7 +21,7 @@
           </button>
           <div class="form-group text-left">
             <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</span>
-            <textarea type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" disabled cols="40" rows="3"></textarea>
+            <input type="text" id="rsa.login.accessToken" name="accessToken" class="form-control" disabled cols="40" rows="3"></input>
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="rsa.login.access">{{trans('rsaauth_login.access')}}</span>
