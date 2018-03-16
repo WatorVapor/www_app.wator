@@ -69,7 +69,7 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
     error : function(data) {
       // Error
       console.log('data=<',data,'>');
-      sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
+      sessionStorage.setItem('auth.rsa.run.error',JSON.stringify(data));
       window.location.href = '/rsaauth/error';
     }
   });
@@ -94,7 +94,7 @@ RSAAuth.clear = function() {
     error : function(data) {
       // Error
       console.log(data);
-      sessionStorage.setItem('auth.rsa.run',JSON.stringify(data));
+      sessionStorage.setItem('auth.rsa.run.error',JSON.stringify(data));
       window.location.href = '/rsaauth/error';
     }
   });
