@@ -16,7 +16,9 @@
           {{ csrf_field() }}
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span>{{trans('rsaauth_profile.apply_name')}}:</span>
+              <span class="align-middle">
+                {{trans('rsaauth_profile.apply_name')}}:
+              </span>
             </div>
             <div class="input-group-prepend">
               <button type="submit" class="btn btn-outline-primary">
