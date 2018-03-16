@@ -17,7 +17,7 @@
         <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/rsaauth/login">
           {{ csrf_field() }}
           <button type="submit" class="btn btn-success">
-            <i class="material-icons " style="color:green;">done</i>
+            <spam>{{trans('rsaauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
           </button>
           <div class="form-group text-left">
             <span class="input-group-text" for="rsa.login.accessToken">{{trans('rsaauth_login.accessToken')}}</label>
