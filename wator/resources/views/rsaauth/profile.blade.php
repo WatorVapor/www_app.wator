@@ -23,7 +23,7 @@
                 <i class="material-icons " style="color:green;">done</i>
               </button>
             </div>
-            <input type="text" name="user-name" class="form-control" placeholder="{{ $user_name }}" aria-describedby="basic-addon1">
+            <input type="text" name="user-name" class="form-control" value="{{ $user_name }}" aria-describedby="basic-addon1">
           </div>
         </form>
       </div>
