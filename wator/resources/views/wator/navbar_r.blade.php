@@ -29,7 +29,7 @@
   $apps .= '</div>';
   $apps .= '<hr/>';
   $apps .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $apps .= '<a class="btn btn-lg btn-success mr-lg-5 " href="/wai" role="button">';
+  $apps .= '<a class="btn btn-lg btn-info mr-lg-5 " href="/wai" role="button">';
   $apps .= '<i class="material-icons md-48">mic</i>';
   $apps .= '</a>';
   $apps .= '<a class="btn btn-lg btn-success " href="/story" role="button">';
