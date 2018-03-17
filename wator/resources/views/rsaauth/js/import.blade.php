@@ -17,7 +17,9 @@ function onImportKey(elem) {
   let verified = pubKey.verify(msg,sign);
   console.log('verified=<',verified,'>');
   if(verified) {
+    markAsGoodKeyPair();
   } else {
+    markAsBadKeyPair();
   }
 }
 function getKeys( keyStr) {
@@ -36,5 +38,16 @@ function getKeys( keyStr) {
   console.log('getKeys:pubKey=<',pubKey,'>');
   return {pub:pubKey,prv:prvKey};
 }
+
+function markAsGoodKeyPair() {
+  $( '#import-key-verify').addClass('d-none');
+  $( '#import-key-save').removeClass('d-none');
+}
+function markAsBadKeyPair() {
+  $( '#import-key-verify').addClass('d-none');
+  $( '#import-key-discard').removeClass('d-none');
+}
+
+
 </script>
 
