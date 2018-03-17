@@ -7,7 +7,7 @@ function onImportKey(elem) {
   console.log('onImportKey:keyStr=<',keyStr,'>');
   let keys = getKeys(keyStr)
   console.log('onImportKey:keys=<',keys,'>');
-  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(keyStr);
+  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(keys.prv);
   console.log('rsaKey=<',rsaKey,'>');
 
 }
@@ -16,8 +16,16 @@ function getKeys( keyStr) {
   console.log('getKeys:startPrv=<',startPrv,'>');
   let endPrv = keyStr.indexOf('-----END PRIVATE KEY-----')
   console.log('getKeys:endPrv=<',endPrv,'>');
-  let prvKey = keyStr.substr(startPrv,endPrv-startPrv);
+  let prvKey = keyStr.substr(startPrv,endPrv-startPrv) + '-----END PRIVATE KEY-----'
   console.log('getKeys:prvKey=<',prvKey,'>');
+
+  let startPub = keyStr.indexOf('-----BEGIN PUBLIC KEY-----')
+  console.log('getKeys:startPub=<',startPub,'>');
+  let endPub = keyStr.indexOf('-----END PUBLIC KEY-----')
+  console.log('getKeys:endPub=<',endPub,'>');
+  let pubKey = keyStr.substr(startPub,endPub-startPub) + '-----END PUBLIC KEY-----'
+  console.log('getKeys:pubKey=<',pubKey,'>');
+  return {pub:pubKey,prv:prvKey};
 }
 </script>
 
