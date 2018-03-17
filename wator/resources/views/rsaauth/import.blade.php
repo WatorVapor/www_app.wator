@@ -12,14 +12,14 @@
 
 <div class="row justify-content-center">
   <div class="col-8">
-    <textarea id="importKey" class="w-100 text-left small" rows="10" data-toggle="tooltip" data-placement="bottom" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
+    <textarea id="import-key-value" class="w-100 text-left small" rows="10" data-toggle="tooltip" data-placement="bottom" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
     </textarea>
   </div>
 </div>
 
 <div class="row justify-content-center">
   <div class="col-2">
-    <button class="btn btn-success btn-block">
+    <button class="btn btn-success btn-block" onclick="onImportKey(this)">
       <spam>{{trans('rsaauth_login.apply')}}</span><i class="material-icons " style="color:green;">done</i>
     </button>
   </div>
