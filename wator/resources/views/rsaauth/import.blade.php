@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="row justify-content-center" style="height=10px;">
+<div class="row justify-content-center" style="height:10px;">
 </div>
 <div class="row justify-content-center">
   <div class="col-8 bg-info">
