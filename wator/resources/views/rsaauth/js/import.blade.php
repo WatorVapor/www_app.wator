@@ -16,6 +16,8 @@ function getKeys( keyStr) {
   console.log('getKeys:startPrv=<',startPrv,'>');
   let endPrv = keyStr.indexOf('-----END PRIVATE KEY-----')
   console.log('getKeys:endPrv=<',endPrv,'>');
+  let prvKey = keyStr.substr(startPrv,endPrv-startPrv);
+  console.log('getKeys:prvKey=<',prvKey,'>');
 }
 </script>
 
