@@ -20,7 +20,24 @@
 <div class="row justify-content-center">
   <div class="col-2">
     <button class="btn btn-success btn-block" onclick="onImportKey(this)">
+      <spam>{{trans('rsaauth_login.check')}}</span><i class="material-icons " style="color:green;">check_circle</i>
+    </button>
+  </div>
+</div>
+
+
+<div class="row justify-content-center d-none" id="import-key-save">
+  <div class="col-2">
+    <button class="btn btn-success btn-block" onclick="onImportKey(this)">
       <spam>{{trans('rsaauth_login.apply')}}</span><i class="material-icons " style="color:green;">done</i>
+    </button>
+  </div>
+</div>
+
+<div class="row justify-content-center d-none" id="import-key-discard">
+  <div class="col-2">
+    <button class="btn btn-success btn-block" onclick="ondiscardKey(this)">
+      <spam>{{trans('rsaauth_login.discard')}}</span><i class="material-icons " style="color:green;">cancel</i>
     </button>
   </div>
 </div>
