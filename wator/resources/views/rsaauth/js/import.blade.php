@@ -9,7 +9,7 @@ function onImportKey(elem) {
   console.log('onImportKey:keys=<',keys,'>');
   let prvKey = KEYUTIL.getKey(keys.prv);
   console.log('prvKey=<',prvKey,'>');
-  let pubKey = KEYUTIL.getKey(keys.prv);
+  let pubKey = KEYUTIL.getKey(keys.pub);
   console.log('pubKey=<',pubKey,'>');
   let msg = 'wator';
   let sign = prvKey.sign(msg,'sha1');
