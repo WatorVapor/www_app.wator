@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" id="import-key-verify">
   <div class="col-2">
     <button class="btn btn-success btn-block" onclick="onImportKey(this)">
       <spam>{{trans('rsaauth_login.check')}}</span><i class="material-icons " style="color:green;">check_circle</i>
