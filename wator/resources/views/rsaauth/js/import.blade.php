@@ -12,7 +12,7 @@ function onImportKey(elem) {
   let pubKey = KEYUTIL.getKey(keys.prv);
   console.log('pubKey=<',pubKey,'>');
   let msg = 'wator';
-  let sign = prvKey.sign(msg);
+  let sign = prvKey.sign(msg,'sha1');
   console.log('sign=<',sign,'>');
   let verified = pubKey.verify(msg,sign);
   console.log('verified=<',verified,'>');
