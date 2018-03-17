@@ -7,9 +7,10 @@ function onImportKey(elem) {
   console.log('onImportKey:keyStr=<',keyStr,'>');
   let keys = getKeys(keyStr)
   console.log('onImportKey:keys=<',keys,'>');
-  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(keys.prv);
+  let rsaKey = KEYUTIL.getKey(keys.prv);
   console.log('rsaKey=<',rsaKey,'>');
-
+  let pubKey = KEYUTIL.getKey(keys.prv);
+  console.log('pubKey=<',pubKey,'>');
 }
 function getKeys( keyStr) {
   let startPrv = keyStr.indexOf('-----BEGIN PRIVATE KEY-----')
