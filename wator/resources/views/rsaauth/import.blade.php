@@ -9,11 +9,12 @@
 
 <div class="row justify-content-center" style="height:20px;">
 </div>
+
 <div class="row justify-content-center">
-  <div class="col-8 bg-info">
+  <div class="col-8">
     <textarea id="importKey" class="w-100 text-left small" rows="20" data-toggle="tooltip" data-placement="bottom" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
     </textarea>
-   </div>
+  </div>
 </div>
 
 <script>
