@@ -17,6 +17,15 @@
   </div>
 </div>
 
+<div class="row justify-content-center">
+  <div class="col-6">
+    <button type="submit" class="btn btn-success btn-block">
+      <spam>{{trans('rsaauth_login.apply')}}</span><i class="material-icons " style="color:green;">done</i>
+    </button>
+  </div>
+</div>
+
+
 <script>
   $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
