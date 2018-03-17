@@ -31,4 +31,5 @@
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
+@include('rsaauth.js.import')
 @endsection
