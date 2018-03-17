@@ -12,7 +12,7 @@
 
 <div class="row justify-content-center">
   <div class="col-8">
-    <textarea id="import-key-value" class="w-100 text-left small" rows="10" data-toggle="tooltip" data-placement="bottom" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
+    <textarea id="import-key-value" class="w-100 text-left small" rows="10" data-toggle="tooltip" data-placement="top" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
     </textarea>
   </div>
 </div>
