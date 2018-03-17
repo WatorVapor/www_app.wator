@@ -41,10 +41,12 @@ function getKeys( keyStr) {
 
 function markAsGoodKeyPair() {
   $( '#import-key-verify').addClass('d-none');
+  $( '#import-key-discard').addClass('d-none');
   $( '#import-key-save').removeClass('d-none');
 }
 function markAsBadKeyPair() {
   $( '#import-key-verify').addClass('d-none');
+  $( '#import-key-save').addClass('d-none');
   $( '#import-key-discard').removeClass('d-none');
 }
 
