@@ -7,10 +7,18 @@ function onImportKey(elem) {
   console.log('onImportKey:keyStr=<',keyStr,'>');
   let keys = getKeys(keyStr)
   console.log('onImportKey:keys=<',keys,'>');
-  let rsaKey = KEYUTIL.getKey(keys.prv);
-  console.log('rsaKey=<',rsaKey,'>');
+  let prvKey = KEYUTIL.getKey(keys.prv);
+  console.log('prvKey=<',prvKey,'>');
   let pubKey = KEYUTIL.getKey(keys.prv);
   console.log('pubKey=<',pubKey,'>');
+  let msg = 'wator';
+  let sign = prvKey.sign(msg);
+  console.log('sign=<',sign,'>');
+  let verified = pubKey.verify(msg,sign);
+  console.log('verified=<',verified,'>');
+  if(verified) {
+  } else {
+  }
 }
 function getKeys( keyStr) {
   let startPrv = keyStr.indexOf('-----BEGIN PRIVATE KEY-----')
