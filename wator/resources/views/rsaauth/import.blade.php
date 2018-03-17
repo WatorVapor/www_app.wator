@@ -20,7 +20,7 @@
 <div class="row justify-content-center" id="import-key-verify">
   <div class="col-2">
     <button class="btn btn-info btn-block" onclick="onImportKey(this)">
-      <spam>{{trans('rsaauth_login.check')}}</span><i class="material-icons " style="color:green;">check_circle</i>
+      <spam>{{trans('rsaauth_login.check')}}</span><i class="material-icons " style="color:orange;">check_circle</i>
     </button>
   </div>
 </div>
@@ -29,7 +29,7 @@
 <div class="row justify-content-center d-none" id="import-key-save">
   <div class="col-2">
     <button class="btn btn-success btn-block" onclick="onImportKey(this)">
-      <spam>{{trans('rsaauth_login.apply')}}</span><i class="material-icons " style="color:orange;">done</i>
+      <spam>{{trans('rsaauth_login.apply')}}</span><i class="material-icons " style="color:green;">done</i>
     </button>
   </div>
 </div>
