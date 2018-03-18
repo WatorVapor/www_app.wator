@@ -61,16 +61,18 @@ function markAsBadKeyPair() {
 
 function onSaveKey(elem) {
   console.log('onSaveKey:elem=<',elem,'>');
+  if(keyImportPub && keyImportPrv){
+    let pemPriv = KEYUTIL.getPEM(keyImportPrv,"PKCS8PRV");
+    localStorage.setItem('auth.rsa.key.private',pemPriv);
+  }
   if(keyImportPub && keyImportPrv) {
     let pemPub = KEYUTIL.getPEM(keyImportPub);
     localStorage.setItem('auth.rsa.key.public',pemPub);
     let token = KJUR.crypto.Util.sha512(pemPub);
     localStorage.setItem('auth.rsa.token',token);
-    RSAAuth.upPubKey();
-  }
-  if(keyImportPub && keyImportPrv){
-    let pemPriv = KEYUTIL.getPEM(keyImportPrv,"PKCS8PRV");
-    localStorage.setItem('auth.rsa.key.private',pemPriv);
+    RSAAuth.upPubKey(function(status){
+      console.log('onSaveKey:status=<',status,'>');
+    });
   }
 }
 
