@@ -17,7 +17,7 @@ function onImportKey(elem) {
   let verified = pubKey.verify(msg,sign);
   console.log('verified=<',verified,'>');
   if(verified) {
-    markAsGoodKeyPair();
+    markAsGoodKeyPair(prvKey,pubKey);
   } else {
     markAsBadKeyPair();
   }
@@ -39,10 +39,19 @@ function getKeys( keyStr) {
   return {pub:pubKey,prv:prvKey};
 }
 
-function markAsGoodKeyPair() {
+function markAsGoodKeyPair(prvKey,pubKey) {
   $( '#import-key-verify').addClass('d-none');
   $( '#import-key-discard').addClass('d-none');
   $( '#import-key-save').removeClass('d-none');
+
+  let pemPub = KEYUTIL.getPEM(pubKey);
+  localStorage.setItem('auth.rsa.key.public',pemPub);
+  let token = KJUR.crypto.Util.sha512(pemPub);
+  localStorage.setItem('auth.rsa.token',token);
+
+  let pemPriv = KEYUTIL.getPEM(prvKey,"PKCS8PRV");
+  localStorage.setItem('auth.rsa.key.private',pemPriv);
+
 }
 function markAsBadKeyPair() {
   $( '#import-key-verify').addClass('d-none');
