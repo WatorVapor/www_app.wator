@@ -28,7 +28,7 @@
 
 <div class="row justify-content-center d-none" id="import-key-save">
   <div class="col-2">
-    <button class="btn btn-success btn-block" onclick="onImportKey(this)">
+    <button class="btn btn-success btn-block" onclick="onSaveKey(this)">
       <spam>{{trans('rsaauth_import.apply')}}</span><i class="material-icons " style="color:green;">done</i>
     </button>
   </div>
