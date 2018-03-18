@@ -1,4 +1,8 @@
 <script type="text/javascript">
+let keyImportPub = false;
+let keyImportPrv = false;
+
+
 function onImportKey(elem) {
   console.log('onImportKey:elem=<',elem,'>');
   let elemKey = document.getElementById("import-key-value");
@@ -17,11 +21,16 @@ function onImportKey(elem) {
   let verified = pubKey.verify(msg,sign);
   console.log('verified=<',verified,'>');
   if(verified) {
-    markAsGoodKeyPair(prvKey,pubKey);
+    keyImportPub = pubKey;
+    keyImportPrv = prvKey;
+    markAsGoodKeyPair();
   } else {
+    keyImportPub = false;
+    keyImportPrv = false;
     markAsBadKeyPair();
   }
 }
+
 function getKeys( keyStr) {
   let startPrv = keyStr.indexOf('-----BEGIN PRIVATE KEY-----')
   console.log('getKeys:startPrv=<',startPrv,'>');
@@ -39,19 +48,10 @@ function getKeys( keyStr) {
   return {pub:pubKey,prv:prvKey};
 }
 
-function markAsGoodKeyPair(prvKey,pubKey) {
+function markAsGoodKeyPair() {
   $( '#import-key-verify').addClass('d-none');
   $( '#import-key-discard').addClass('d-none');
   $( '#import-key-save').removeClass('d-none');
-
-  let pemPub = KEYUTIL.getPEM(pubKey);
-  localStorage.setItem('auth.rsa.key.public',pemPub);
-  let token = KJUR.crypto.Util.sha512(pemPub);
-  localStorage.setItem('auth.rsa.token',token);
-
-  let pemPriv = KEYUTIL.getPEM(prvKey,"PKCS8PRV");
-  localStorage.setItem('auth.rsa.key.private',pemPriv);
-
 }
 function markAsBadKeyPair() {
   $( '#import-key-verify').addClass('d-none');
@@ -59,6 +59,20 @@ function markAsBadKeyPair() {
   $( '#import-key-discard').removeClass('d-none');
 }
 
+function onSaveKey(elem) {
+  console.log('onSaveKey:elem=<',elem,'>');
+  if(keyImportPub && keyImportPrv) {
+    let pemPub = KEYUTIL.getPEM(keyImportPub);
+    localStorage.setItem('auth.rsa.key.public',pemPub);
+    let token = KJUR.crypto.Util.sha512(pemPub);
+    localStorage.setItem('auth.rsa.token',token);
+    RSAAuth.upPubKey();
+  }
+  if(keyImportPub && keyImportPrv){
+    let pemPriv = KEYUTIL.getPEM(prvKey,"PKCS8PRV");
+    localStorage.setItem('auth.rsa.key.private',pemPriv);
+  }
+}
 
 </script>
 
