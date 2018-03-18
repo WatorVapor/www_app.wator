@@ -36,7 +36,7 @@
 
 <div class="row justify-content-center d-none" id="import-key-discard">
   <div class="col-2">
-    <button class="btn btn-danger btn-block" onclick="ondiscardKey(this)">
+    <button class="btn btn-danger btn-block" onclick="onDiscardKey(this)">
       <spam>{{trans('rsaauth_import.discard')}}</span><i class="material-icons " style="color:red;">cancel</i>
     </button>
   </div>
