@@ -43,11 +43,11 @@
 </div>
 
 
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success d-none" role="alert">
   Success!!
 </div>
 
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger d-none" role="alert">
   Fatal Error!!,Do Again.
 </div>
 
