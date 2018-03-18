@@ -49,4 +49,7 @@
   });
 </script>
 @include('rsaauth.js.import')
+
+<script src="/wator/rsaauth/js/upload.js" type="text/javascript"></script>
+
 @endsection
