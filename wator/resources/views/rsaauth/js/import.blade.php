@@ -69,7 +69,7 @@ function onSaveKey(elem) {
     RSAAuth.upPubKey();
   }
   if(keyImportPub && keyImportPrv){
-    let pemPriv = KEYUTIL.getPEM(prvKey,"PKCS8PRV");
+    let pemPriv = KEYUTIL.getPEM(keyImportPrv,"PKCS8PRV");
     localStorage.setItem('auth.rsa.key.private',pemPriv);
   }
 }
