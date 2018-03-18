@@ -73,9 +73,9 @@ function onSaveKey(elem) {
     RSAAuth.upPubKey(function(status){
       console.log('onSaveKey:status=<',status,'>');
       if(status.status === 'success') {
-        $('#import-key-success').alert();
+        $( '#import-key-success').removeClass('d-none');
       } else {
-        $('#import-key-failure').alert();
+        $( '#import-key-failure').removeClass('d-none');
       }
     });
   }
