@@ -72,6 +72,11 @@ function onSaveKey(elem) {
     localStorage.setItem('auth.rsa.token',token);
     RSAAuth.upPubKey(function(status){
       console.log('onSaveKey:status=<',status,'>');
+      if(status.status === 'success') {
+        $('.alert-success').alert();
+      } else {
+        $('.alert-danger').alert();
+      }
     });
   }
 }
