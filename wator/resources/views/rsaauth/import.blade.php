@@ -43,6 +43,15 @@
 </div>
 
 
+<div class="alert alert-success" role="alert">
+  Success!!
+</div>
+
+<div class="alert alert-danger" role="alert">
+  Fatal Error!!,Do Again.
+</div>
+
+
 <script>
   $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
