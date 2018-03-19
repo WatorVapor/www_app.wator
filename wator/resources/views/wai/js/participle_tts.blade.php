@@ -94,6 +94,15 @@ function createLongClip() {
     }
   }
 }
+function playLongClip() {
+  if(longBuffer) {
+    let source = audioCtx.createBufferSource();
+    source.buffer = longBuffer;
+    source.connect(audioCtx.destination);
+    source.start();
+  }
+}
+
 
 function onClickTTS(elem) {
   //console.log('onClickTTS:elem=<',elem,'>');
@@ -102,7 +111,8 @@ function onClickTTS(elem) {
   let root = elem.parentElement.parentElement;
   console.log('onClickTTS:root=<',root,'>');
   let speed = parseFloat(root.getElementsByTagName('input')[0].value);
-  doPlayTTS(audioList,0,speed);
+  //doPlayTTS(audioList,0,speed);
+  playLongClip();
 }
 
 function doPlayTTS(playList,index,speed) {
