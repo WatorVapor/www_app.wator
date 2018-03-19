@@ -76,13 +76,23 @@ function createClipsElement(clipsElem,index,tts) {
   });
 }
 
-
+let longBuffer = false;
 function createLongClip() {
   console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
   console.log('createLongClip:totalDuration=<',totalDuration,'>');
   let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
-  let longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
+  longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
   console.log('createLongClip:longBuffer=<',longBuffer,'>');
+  for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
+    let longBuffering = longBuffer.getChannelData(channel);
+    let index = 0;
+    for(let clipIndex = 0;clipIndex < totalAudioBuffer.length ;clipIndex++) {
+      let clip = totalAudioBuffer[clipIndex]
+      let clipBuffer = clip.getChannelData(channel);
+      longBuffering.copyToChannel(clipBuffer,channel,index);
+      index += clipBuffer.length;
+    }
+  }
 }
 
 function onClickTTS(elem) {
