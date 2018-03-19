@@ -56,7 +56,16 @@ function createClipsElement(clipsElem,index,tts) {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
       totalAudioBuffer.push(decodedData);
       totalDuration += decodedData.duration;
+      if(tts.length > index +1) {
+        createClipsElement(clipsElem,index +1,tts)
+      } else {
+        $( '.ui-update-tts-enable-audio' ).removeClass( 'd-none' );
+        //console.log('createClipsElement:totalDuration=<',totalDuration,'>');
+        createLongClip();
+      }
     });
+    
+    /*
     let blob = new Blob([file], { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
     let audio = document.createElement('audio');
@@ -73,6 +82,7 @@ function createClipsElement(clipsElem,index,tts) {
       //console.log('createClipsElement:totalDuration=<',totalDuration,'>');
       createLongClip();
     }
+    */
   });
 }
 
