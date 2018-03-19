@@ -80,7 +80,8 @@ function createClipsElement(clipsElem,index,tts) {
 function createLongClip() {
   console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
   console.log('createLongClip:totalDuration=<',totalDuration,'>');
-  let longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, totalDuration, totalAudioBuffer[0].sampleRate);
+  let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
+  let longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
   console.log('createLongClip:longBuffer=<',longBuffer,'>');
 }
 
