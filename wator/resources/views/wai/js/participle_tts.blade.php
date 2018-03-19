@@ -31,6 +31,13 @@ function createTTS(tts) {
   }
 }
 
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = new AudioContext();
+
+
+
+let allAudioBuffer = [];
+
 function createClipsElement(clipsElem,index,tts) {
   //console.log('createClipsElement:clip=<',clip,'>');
   let clip = tts[index];
@@ -38,6 +45,9 @@ function createClipsElement(clipsElem,index,tts) {
     if (err) {
       throw err;
     }
+    audioCtx.decodeAudioData(file, function(decodedData) {
+      console.log('createClipsElement decodedData=<',decodedData,'>');
+    });
     //console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
     let blob = new Blob([file], { type: 'audio/webm' });
     let urlBlob = window.URL.createObjectURL(blob);
