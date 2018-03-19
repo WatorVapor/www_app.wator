@@ -121,8 +121,8 @@ function onClickTTS(elem) {
   let root = elem.parentElement.parentElement;
   console.log('onClickTTS:root=<',root,'>');
   let speed = parseFloat(root.getElementsByTagName('input')[0].value);
-  doPlayTTS(audioList,0,speed);
-  //playLongClip();
+  //doPlayTTS(audioList,0,speed);
+  playLongClip();
 }
 
 function doPlayTTS(playList,index,speed) {
