@@ -46,7 +46,7 @@ function createClipsElement(clipsElem,index,tts) {
       throw err;
     }
     console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
-    audioCtx.decodeAudioData(file, function(decodedData) {
+    audioCtx.decodeAudioData(file.buffer, function(decodedData) {
       console.log('createClipsElement decodedData=<',decodedData,'>');
     });
     let blob = new Blob([file], { type: 'audio/webm' });
