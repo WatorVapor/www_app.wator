@@ -1,9 +1,24 @@
-<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+<script type="text/javascript">
+let ttsCached = false;
 
+function createTTS(tts) {
+  if(ipfs.isReadyMask) {
+    //console.log('createTTS:tts=<',tts,'>');
+    let clipsElem = document.getElementById('ui-update-tts-all-clips');
+    //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
+    if(tts.length > 0){
+      createClipsElement(clipsElem,0,tts);
+    }
+  } else {
+    ttsCached = tts;
+  }
+}
+
+</script>
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
 <script type="text/javascript">
 const Buffer = window.IpfsApi().Buffer;
 let ipfs = window.IpfsApi({host:'www.wator.xyz', port:'443', protocol: 'https'});
-let ttsCached = false;
 ipfs.id(function (err, identity) {
   if (err) {
     throw err
@@ -18,18 +33,7 @@ ipfs.id(function (err, identity) {
 });
 
 
-function createTTS(tts) {
-  if(ipfs.isReadyMask) {
-    //console.log('createTTS:tts=<',tts,'>');
-    let clipsElem = document.getElementById('ui-update-tts-all-clips');
-    //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
-    if(tts.length > 0){
-      createClipsElement(clipsElem,0,tts);
-    }
-  } else {
-    ttsCached = tts;
-  }
-}
+
 
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioCtx = new AudioContext();
