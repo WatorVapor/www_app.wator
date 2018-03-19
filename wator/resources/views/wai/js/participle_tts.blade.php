@@ -78,6 +78,8 @@ function createClipsElement(clipsElem,index,tts) {
 function createLongClip() {
   console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
   console.log('createLongClip:totalDuration=<',totalDuration,'>');
+  let longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numOfchannels, totalDuration, totalAudioBuffer[0].sampleRate);
+  console.log('createLongClip:longBuffer=<',longBuffer,'>');
 }
 
 function onClickTTS(elem) {
