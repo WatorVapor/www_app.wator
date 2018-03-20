@@ -233,7 +233,7 @@ let audioCtx = new AudioContext();
 let totalAudioBuffer = [];
 let totalDuration = 0;
 
-let gTts = false;
+let gTTS = false;
 let gIndex = false;
 
 function createClipsAudio(index,tts) {
@@ -241,7 +241,7 @@ function createClipsAudio(index,tts) {
   console.log('createClipsElement:clip=<',clip,'>');
   let fetchClip = {tts:{download:clip}};
   console.log('createClipsElement:fetchClip=<',fetchClip,'>');
-  tts = tts;
+  gTTS = tts;
   gIndex = index;
   wsStorage.send(JSON.stringify(fetchClip));
   
