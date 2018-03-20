@@ -199,4 +199,22 @@ function onStorageError_(evt) {
   console.log('onStorageError_:evt=<',evt,'>');
 }
 
+let ttsCached = false;
+
+function createTTS(tts) {
+  console.log('createTTS:tts=<',tts,'>');
+  console.log('createTTS:wsStorage=<',wsStorage,'>');
+  if(wsStorage.) {
+    let clipsElem = document.getElementById('ui-update-tts-all-clips');
+    //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
+    if(tts.length > 0){
+      createClipsElement(clipsElem,0,tts);
+    }
+  } else {
+    ttsCached = tts;
+  }
+}
+
+
+
 </script>
