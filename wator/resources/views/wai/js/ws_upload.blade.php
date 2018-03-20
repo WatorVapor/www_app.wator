@@ -49,7 +49,7 @@ function uploadSliceToLocal(chunks,phoneme) {
     //console.log('uploadSliceToLocal:bufText=<',bufText,'>');
     console.log('uploadSliceToLocal:buffer=<',buffer,'>');
     localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(buffer));
-    $( '#wai-recoder-clip-done-next' ).click();
+    //$( '#wai-recoder-clip-done-next' ).click();
   }); 
   reader.readAsArrayBuffer(blob);
 }
