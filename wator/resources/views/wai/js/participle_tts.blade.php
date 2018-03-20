@@ -233,6 +233,8 @@ let audioCtx = new AudioContext();
 let totalAudioBuffer = [];
 let totalDuration = 0;
 
+let gTts = false;
+let gIndex = false;
 
 function createClipsElement(clipsElem,index,tts) {
   let clip = tts[index];
@@ -240,6 +242,8 @@ function createClipsElement(clipsElem,index,tts) {
   let fetchClip = {tts:{download:clip}};
   console.log('createClipsElement:fetchClip=<',fetchClip,'>');
   wsStorage.send(JSON.stringify(fetchClip));
+  tts = tts;
+  gIndex = index;
   
   /*
   ipfs.files.cat(clip,function(err, file){
@@ -273,11 +277,11 @@ function onRecieveClipData(file) {
     //console.log('createClipsElement decodedData=<',decodedData,'>');
     totalAudioBuffer.push(decodedData);
     totalDuration += decodedData.duration;
-    if(tts.length > index +1) {
-      createClipsElement(clipsElem,index +1,tts)
+    if(gTts.length > gIndex +1) {
+      createClipsElement(clipsElem,gIndex +1,gTts)
     } else {
       $( '.ui-update-tts-enable-audio' ).removeClass( 'd-none' );
-      //console.log('createClipsElement:totalDuration=<',totalDuration,'>');
+      console.log('createClipsElement:totalDuration=<',totalDuration,'>');
       createLongClip();
     }
   });    
