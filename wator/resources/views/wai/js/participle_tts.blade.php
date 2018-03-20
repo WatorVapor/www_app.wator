@@ -107,10 +107,11 @@ function createLongClip() {
     }
   }
 }
-function playLongClip() {
+function playLongClip(speed) {
   if(longBuffer) {
     let source = audioCtx.createBufferSource();
     source.buffer = longBuffer;
+    source.playbackRate.value = speed;
     source.connect(audioCtx.destination);
     source.start();
   }
@@ -124,7 +125,7 @@ function onClickTTS(elem) {
   let root = elem.parentElement.parentElement;
   console.log('onClickTTS:root=<',root,'>');
   let speed = parseFloat(root.getElementsByTagName('input')[0].value);
-  playLongClip();
+  playLongClip(speed);
 }
 
 
