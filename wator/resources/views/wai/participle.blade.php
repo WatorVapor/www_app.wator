@@ -67,7 +67,7 @@
       <div class="col-1 justify-content-right d-none ui-update-tts-enable-audio">
         <div class="input-group">
           <span class="input-group-addon">Speed</span>
-          <input id="msg" type="text" class="form-control" name="msg" value="1.0">
+          <input id="msg" type="text" class="form-control" name="msg" value="1.1">
         </div>
       </div>
       <div class="col-6 justify-content-left d-none ui-update-tts-enable-audio">
