@@ -1,3 +1,5 @@
+<!--
+
 <script type="text/javascript">
 let ttsCached = false;
 
@@ -166,6 +168,35 @@ function stopPlayTTS(playList,index) {
     let audio = playList[index];
     audio.pause();
   }
+}
+
+</script>
+
+-->
+
+<script type="text/javascript">
+let uriStorage = "wss://" + location.host + "/wator/storage";
+let wsStorage = new WebSocket(uriStorage);
+wsStorage.onopen = onStorageOpen_;
+wsStorage.onmessage = onStorageMessage_;
+wsStorage.onclose = onStorageClose_;
+wsStorage.onerror = onStorageError_;
+function onStorageOpen_(evt) {
+  console.log('onStorageOpen_:evt=<',evt,'>');
+}
+function onStorageMessage_(evt) {
+  console.log('onStorageMessage_:evt.data=<',evt.data,'>');
+  let jsonMsg = JSON.parse(evt.data);
+  console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
+  if(jsonMsg) {
+    uploadIPFSInfo(jsonMsg);
+  }
+}
+function onStorageClose_(evt) {
+  console.log('onStorageClose_:evt=<',evt,'>');
+}
+function onStorageError_(evt) {
+  console.log('onStorageError_:evt=<',evt,'>');
 }
 
 </script>
