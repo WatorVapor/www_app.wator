@@ -38,7 +38,6 @@ function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
   uploadSliceToLocal(gClipChunks,'{{ $phoneme }}');
-  //uploadInfo('none');
 }
 function uploadSliceToLocal(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -50,7 +49,7 @@ function uploadSliceToLocal(chunks,phoneme) {
     let bufText = new Uint8Array(buffer);
     console.log('uploadSliceToLocal:bufText=<',bufText,'>');
     localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(bufText));
-    //$( '#wai-recoder-clip-done-next' ).click();
+    $( '#wai-recoder-clip-done-next' ).click();
   }); 
   reader.readAsArrayBuffer(blob);
 }
