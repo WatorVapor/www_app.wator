@@ -52,7 +52,7 @@ function uploadSliceToLocal(chunks,phoneme) {
     localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(buffer));
     //$( '#wai-recoder-clip-done-next' ).click();
   }); 
-  reader.readAsDataURL(blob);
+  reader.readAsArrayBuffer(blob);
 }
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
