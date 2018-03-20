@@ -193,10 +193,11 @@ function onStorageOpen_(evt) {
   }
 }
 function onStorageMessage_(evt) {
-  console.log('onStorageMessage_:evt.data=<',evt.data,'>');
+  //console.log('onStorageMessage_:evt.data=<',evt.data,'>');
   let jsonMsg = JSON.parse(evt.data);
   console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
-  if(jsonMsg) {
+  if(jsonMsg.result && jsonMsg.result.data) {
+    onRecieveClipData(jsonMsg.result.data);
   }
 }
 function onStorageClose_(evt) {
@@ -262,6 +263,21 @@ function createClipsElement(clipsElem,index,tts) {
   */
 }
 
+function onRecieveClipData(file) {
+  console.log('onRecieveClipData:: file=<',file,'>');
+  audioCtx.decodeAudioData(file, function(decodedData) {
+    //console.log('createClipsElement decodedData=<',decodedData,'>');
+    totalAudioBuffer.push(decodedData);
+    totalDuration += decodedData.duration;
+    if(tts.length > index +1) {
+      createClipsElement(clipsElem,index +1,tts)
+    } else {
+      $( '.ui-update-tts-enable-audio' ).removeClass( 'd-none' );
+      //console.log('createClipsElement:totalDuration=<',totalDuration,'>');
+      createLongClip();
+    }
+  });    
+}
 
 
 </script>
