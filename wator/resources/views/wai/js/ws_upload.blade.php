@@ -4,9 +4,7 @@
 
 
 <script type="text/javascript">
-<!--
-const Buffer = window.IpfsApi().Buffer;
--->
+//const Buffer = window.IpfsApi().Buffer;
 
 
 let uriStorage = "wss://" + location.host + "/wator/storage";
