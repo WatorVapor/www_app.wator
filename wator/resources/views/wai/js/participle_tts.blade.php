@@ -236,7 +236,7 @@ let totalDuration = 0;
 function createClipsElement(clipsElem,index,tts) {
   let clip = tts[index];
   console.log('createClipsElement:clip=<',clip,'>');
-  let fetchClip = {tts:{down:clip}};
+  let fetchClip = {tts:{download:clip}};
   console.log('createClipsElement:fetchClip=<',fetchClip,'>');
   wsStorage.send(JSON.stringify(fetchClip));
   
