@@ -216,7 +216,7 @@ function createTTS(tts) {
     let clipsElem = document.getElementById('ui-update-tts-all-clips');
     //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
     if(tts.length > 0){
-      createClipsElement(clipsElem,0,tts);
+      createClipsAudio(0,tts);
     }
   } else {
     ttsCached = tts;
