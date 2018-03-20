@@ -44,14 +44,15 @@ function uploadSliceToLocal(chunks,phoneme) {
   const blob = new Blob(chunks, { type: 'audio/webm' });
   const reader = new FileReader();  
   reader.addEventListener('loadend', (e) => {
-    const buffer = e.srcElement.result;
+    console.log('uploadSliceToLocal:e=<',e,'>');
+    const buffer = reader.result;
     //let bufText = Buffer.from(buffer);
     //console.log('uploadSliceToLocal:bufText=<',bufText,'>');
     console.log('uploadSliceToLocal:buffer=<',buffer,'>');
     localStorage.setItem('wai/train/audio/clip/' + '{{ $lang }}/' + phoneme,bufferToBase64(buffer));
     //$( '#wai-recoder-clip-done-next' ).click();
   }); 
-  reader.readAsArrayBuffer(blob);
+  reader.readAsDataURL(blob);
 }
 function onClickDoneBtn(elem) {
   console.log('onClickDoneBtn:elem=<',elem,'>');
