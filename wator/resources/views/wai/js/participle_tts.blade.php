@@ -175,14 +175,22 @@ function stopPlayTTS(playList,index) {
 -->
 
 <script type="text/javascript">
+
+
 let uriStorage = "wss://" + location.host + "/wator/storage";
 let wsStorage = new WebSocket(uriStorage);
 wsStorage.onopen = onStorageOpen_;
 wsStorage.onmessage = onStorageMessage_;
 wsStorage.onclose = onStorageClose_;
 wsStorage.onerror = onStorageError_;
+
 function onStorageOpen_(evt) {
   console.log('onStorageOpen_:evt=<',evt,'>');
+  if(ttsCached) {
+    setTimeout(function(){
+      createTTS(ttsCached);
+    },1);
+  }
 }
 function onStorageMessage_(evt) {
   console.log('onStorageMessage_:evt.data=<',evt.data,'>');
@@ -204,7 +212,7 @@ let ttsCached = false;
 function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
   console.log('createTTS:wsStorage=<',wsStorage,'>');
-  if(wsStorage.ready) {
+  if(wsStorage.readyState) {
     let clipsElem = document.getElementById('ui-update-tts-all-clips');
     //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
     if(tts.length > 0){
