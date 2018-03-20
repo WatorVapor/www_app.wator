@@ -197,7 +197,6 @@ function onStorageMessage_(evt) {
   let jsonMsg = JSON.parse(evt.data);
   console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
   if(jsonMsg) {
-    uploadIPFSInfo(jsonMsg);
   }
 }
 function onStorageClose_(evt) {
@@ -221,6 +220,45 @@ function createTTS(tts) {
   } else {
     ttsCached = tts;
   }
+}
+
+
+
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = new AudioContext();
+
+
+
+let totalAudioBuffer = [];
+let totalDuration = 0;
+
+
+function createClipsElement(clipsElem,index,tts) {
+  //console.log('createClipsElement:clip=<',clip,'>');
+  let clip = tts[index];
+  let fetchClip = {tts:{down:clip}};
+  wsStorage.send(JSON.stringify(fetchClip));
+  
+  /*
+  ipfs.files.cat(clip,function(err, file){
+    if (err) {
+      throw err;
+    }
+    console.log('createClipsElement:: ipfs.files.cat file=<',file,'>');
+    audioCtx.decodeAudioData(file.buffer, function(decodedData) {
+      //console.log('createClipsElement decodedData=<',decodedData,'>');
+      totalAudioBuffer.push(decodedData);
+      totalDuration += decodedData.duration;
+      if(tts.length > index +1) {
+        createClipsElement(clipsElem,index +1,tts)
+      } else {
+        $( '.ui-update-tts-enable-audio' ).removeClass( 'd-none' );
+        //console.log('createClipsElement:totalDuration=<',totalDuration,'>');
+        createLongClip();
+      }
+    });    
+  });
+  */
 }
 
 
