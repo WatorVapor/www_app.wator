@@ -204,7 +204,7 @@ let ttsCached = false;
 function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
   console.log('createTTS:wsStorage=<',wsStorage,'>');
-  if(wsStorage.) {
+  if(wsStorage.ready) {
     let clipsElem = document.getElementById('ui-update-tts-all-clips');
     //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
     if(tts.length > 0){
