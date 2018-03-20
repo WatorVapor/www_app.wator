@@ -265,7 +265,7 @@ function createClipsElement(clipsElem,index,tts) {
 
 function onRecieveClipData(file) {
   console.log('onRecieveClipData:: file=<',file,'>');
-  let encodedData = Uint8Array(file);
+  let encodedData = new Uint8Array(file);
   audioCtx.decodeAudioData(encodedData, function(decodedData) {
     //console.log('createClipsElement decodedData=<',decodedData,'>');
     totalAudioBuffer.push(decodedData);
