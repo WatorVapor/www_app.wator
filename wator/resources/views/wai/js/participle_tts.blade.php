@@ -74,7 +74,7 @@ function onRecieveClipData(file) {
   let encodedData = new Uint8Array(file);
   //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
   //let encodedData = new ArrayBuffer(file);
-  //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
+  console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
   audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
     //console.log('createClipsElement decodedData=<',decodedData,'>');
     totalAudioBuffer.push(decodedData);
