@@ -1,11 +1,4 @@
-<!--
-<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
--->
-
-
 <script type="text/javascript">
-//const Buffer = window.IpfsApi().Buffer;
-
 
 let uriStorage = "wss://" + location.host + "/wator/storage";
 let wsStorage = new WebSocket(uriStorage);
@@ -88,7 +81,8 @@ function uploadLocalToIpfs() {
   }
   console.log('uploadLocalToIpfs::files=<',files,'>');
   if(wsStorage.readyState) {
-    wsStorage.send(JSON.stringify(files));
+    let train = {train:{upload:files}};
+    wsStorage.send(JSON.stringify(train));
   }
 }
 
