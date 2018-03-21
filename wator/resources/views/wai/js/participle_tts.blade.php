@@ -31,15 +31,19 @@ function onStorageError_(evt) {
 }
 
 let ttsCached = false;
+let baseDuration = 0.4;
 
 function createTTS(tts) {
   console.log('createTTS:tts=<',tts,'>');
   console.log('createTTS:wsStorage=<',wsStorage,'>');
+  if(tts.lang ==='ja') {
+    baseDuration = 0.2;
+  }
   if(wsStorage.readyState) {
     let clipsElem = document.getElementById('ui-update-tts-all-clips');
     //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
     if(tts.length > 0){
-      createClipsAudio(0,tts);
+      createClipsAudio(0,tts.list);
     }
   } else {
     ttsCached = tts;
@@ -69,7 +73,7 @@ function createClipsAudio(index,tts) {
   wsStorage.send(JSON.stringify(fetchClip)); 
 }
 
-const baseDuration = 0.4;
+
 
 
 function onRecieveClipData(file) {
