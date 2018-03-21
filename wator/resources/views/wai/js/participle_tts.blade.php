@@ -69,6 +69,9 @@ function createClipsAudio(index,tts) {
   wsStorage.send(JSON.stringify(fetchClip)); 
 }
 
+const baseDuration = 0.4;
+
+
 function onRecieveClipData(file) {
   //console.log('onRecieveClipData:: file=<',file,'>');
   let encodedData = new Uint8Array(file);
@@ -78,7 +81,11 @@ function onRecieveClipData(file) {
   audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
     //console.log('createClipsElement decodedData=<',decodedData,'>');
     totalAudioBuffer.push(decodedData);
-    totalDuration += decodedData.duration;
+    if(decodedData.duration > baseDuration) {
+      totalDuration += baseDuration;
+    } else {
+      totalDuration += decodedData.duration;
+    }
     if(gTTS.length > gIndex +1) {
       createClipsAudio(gIndex +1,gTTS)
     } else {
@@ -90,29 +97,28 @@ function onRecieveClipData(file) {
 }
 
 let longBuffer = false;
-const baseDuration = 0.4;
 
 function createLongClip() {
-  console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
-  console.log('createLongClip:totalDuration=<',totalDuration,'>');
+  //console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
+  //console.log('createLongClip:totalDuration=<',totalDuration,'>');
   let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
   longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
-  console.log('createLongClip:longBuffer=<',longBuffer,'>');
+  //console.log('createLongClip:longBuffer=<',longBuffer,'>');
   for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
     //let longBuffering = longBuffer.getChannelData(channel);
     let index = 0;
     for(let clipIndex = 0;clipIndex < totalAudioBuffer.length ;clipIndex++) {
       let clip = totalAudioBuffer[clipIndex];
       let clipBuffer = clip.getChannelData(channel);
-      console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
+      //console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
       
       let baseLength  = baseDuration * clip.sampleRate;
-      console.log('createLongClip:baseLength=<',baseLength,'>');
+      //console.log('createLongClip:baseLength=<',baseLength,'>');
       let cpLength = clipBuffer.length;
       if(clipBuffer.length > baseLength) {
         cpLength = baseLength;
       }
-      console.log('createLongClip:cpLength=<',cpLength,'>');
+      //console.log('createLongClip:cpLength=<',cpLength,'>');
       
       let baseBuffer = new Float32Array(clipBuffer,0,cpLength);
 
