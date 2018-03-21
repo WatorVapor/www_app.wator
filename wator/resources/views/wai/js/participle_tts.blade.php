@@ -103,6 +103,9 @@ function createLongClip() {
     let index = 0;
     for(let clipIndex = 0;clipIndex < totalAudioBuffer.length ;clipIndex++) {
       let clip = totalAudioBuffer[clipIndex];
+      let clipBuffer = clip.getChannelData(channel);
+      console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
+      
       let baseLength  = baseDuration * clip.sampleRate;
       console.log('createLongClip:baseLength=<',baseLength,'>');
       let cpLength = clipBuffer.length;
@@ -110,8 +113,7 @@ function createLongClip() {
         cpLength = baseLength;
       }
       console.log('createLongClip:cpLength=<',cpLength,'>');
-      let clipBuffer = clip.getChannelData(channel);
-      console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
+
       longBuffer.copyToChannel(clipBuffer,channel,index);
       index += clipBuffer.length;
     }
