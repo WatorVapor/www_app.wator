@@ -81,7 +81,7 @@ function onRecieveClipData(file) {
   let encodedData = new Uint8Array(file);
   //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
   //let encodedData = new ArrayBuffer(file);
-  console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
+  //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
   audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
     //console.log('createClipsElement decodedData=<',decodedData,'>');
     totalAudioBuffer.push(decodedData);
@@ -122,7 +122,7 @@ function createLongClip() {
       if(clipBuffer.length > baseLength) {
         cpLength = baseLength;
       }
-      //console.log('createLongClip:cpLength=<',cpLength,'>');
+      console.log('createLongClip:cpLength=<',cpLength,'>');
       
       let baseBuffer = new Float32Array(clipBuffer,0,cpLength);
 
