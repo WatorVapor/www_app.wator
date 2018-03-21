@@ -42,7 +42,7 @@ function createTTS(tts) {
   if(wsStorage.readyState) {
     let clipsElem = document.getElementById('ui-update-tts-all-clips');
     //console.log('onClickTTS:clipsElem=<',clipsElem,'>');
-    if(tts.length > 0){
+    if(tts.list.length > 0){
       createClipsAudio(0,tts.list);
     }
   } else {
