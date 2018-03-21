@@ -17,9 +17,10 @@
     $( ".ui-update-toggle" ).toggleClass('d-none');
     $( "#ui-update-all-words" ).text('');
     if(msg.wai && typeof msg.wai === 'object') {
-      let ttsTotal = [];
+      let ttsTotal = {list:[]};
       msg.wai.forEach(function(wai,index,ar){
         console.log('onUpdateData:wai=<',wai,'>');
+        ttsTotal.lang = wai.lang;
         //console.log('onUpdateData:index=<',index,'>');
         //console.log('onUpdateData:ar=<',ar,'>');
         if(wai.sentence) {
@@ -46,7 +47,7 @@
         if(wai.tts){
           for(let index in wai.tts) {
             let clip = wai.tts[index];
-            ttsTotal.push(clip);
+            ttsTotal.list.push(clip);
           }
         }
      });
