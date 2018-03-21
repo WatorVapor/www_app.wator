@@ -117,7 +117,7 @@ function createLongClip() {
       let baseBuffer = new Float32Array(clipBuffer,0,cpLength);
 
       longBuffer.copyToChannel(baseBuffer,channel,index);
-      index += clipBuffer.length;
+      index += cpLength;
     }
   }
 }
