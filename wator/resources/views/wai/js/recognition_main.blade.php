@@ -104,7 +104,7 @@ function drawDataXY(wave,length) {
   ctx.clearRect(0, 0, width, height);
   ctx.strokeStyle = 'green';
   ctx.lineWidth = 1;
-  ctx.moveTo(0, pink);
+  //ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
     let absY = Math.abs(wave[i][1]);
     if(absY > 0.01) {
@@ -113,6 +113,7 @@ function drawDataXY(wave,length) {
       //console.log('drawData:x=<',x,'>');
       //console.log('drawData:y=<',y,'>');
       ctx.lineTo(x, y);
+      ctx.moveTo(x, y);
     }
   }
   ctx.stroke();
