@@ -46,6 +46,9 @@ function onAudioProcess(evt) {
   console.log('onAudioProcess:height=<',height,'>');
   
   ctx.beginPath();
+  ctx.clearRect(0, 0, width, height);
+  ctx.strokeStyle = 'rgba(255, 255, 0, 0.5)';
+  ctx.lineWidth = 1;
   ctx.moveTo(0, 100);
   let audioData = evt.inputBuffer.getChannelData(0);
   //console.log('onAudioProcess:input=<',input,'>');
