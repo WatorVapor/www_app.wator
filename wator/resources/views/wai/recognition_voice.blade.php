@@ -19,7 +19,7 @@
 
 <div class="row justify-content-center">
   <div class="col-10 justify-content-center ">
-    <canvas id="reco-wave" class="border border-danger w-100" height="200"></canvas>
+    <canvas id="wai-recognition-wave" class="border border-danger w-100" height="200"></canvas>
   </div>
 </div>
 
