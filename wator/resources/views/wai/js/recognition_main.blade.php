@@ -26,7 +26,7 @@ function onMediaError(e) {
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
-  let jsProcess = audioCtx.createScriptProcessor(128, 1, 1);
+  let jsProcess = audioCtx.createScriptProcessor(256, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
   source.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
