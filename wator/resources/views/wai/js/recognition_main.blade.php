@@ -106,7 +106,7 @@ function drawDataXY(wave,length) {
   ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
     let absY = Math.abs(wave[i][1]);
-    if(absY > 0.001) {
+    if(absY > 0.01) {
       let x = width * wave[i][0] / length;
       let y = pink + wave[i][1] * pink;
       //console.log('drawData:x=<',x,'>');
