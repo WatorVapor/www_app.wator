@@ -17,6 +17,12 @@
   </div>
 </div>
 
+<div class="row justify-content-center">
+  <div class="col-10 justify-content-center">
+    <canvas id="reco-wave" class="w-100" height="200"></canvas>
+  </div>
+</div>
+
 
 @include('wai.js.recognition_main')
 
