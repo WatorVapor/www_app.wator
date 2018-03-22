@@ -32,10 +32,21 @@ function onMediaSuccess(stream) {
   jsProcess.connect(audioCtx.destination);
 }
 
+
+
+let canvas = document.getElementById('wai-recognition-wave');
+let ctx = canvas.getContext('2d');
+
+
 function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let input = evt.inputBuffer.getChannelData(0);
   console.log('onAudioProcess:input=<',input,'>');
+  let width = canvas.width;
+  let height = canvas.height;
+
+  console.log('onAudioProcess:width=<',width,'>');
+  console.log('onAudioProcess:height=<',height,'>');
 }
 
 
