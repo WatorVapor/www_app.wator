@@ -26,7 +26,7 @@ function onMediaError(e) {
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
-  let filter = context.createBiquadFilter();
+  let filter = audioCtx.createBiquadFilter();
   filter.type = filter.LOWPASS;
   filter.frequency.value=800;
   
