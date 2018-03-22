@@ -27,8 +27,8 @@ function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
   let filter = audioCtx.createBiquadFilter();
-  filter.type = filter.LOWPASS;
-  filter.frequency.value=800;
+  filter.type = 'lowpass';
+  filter.frequency.value = 1000;
   
   let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
