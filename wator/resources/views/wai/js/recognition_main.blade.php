@@ -40,13 +40,24 @@ let ctx = canvas.getContext('2d');
 
 function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
-  let input = evt.inputBuffer.getChannelData(0);
-  console.log('onAudioProcess:input=<',input,'>');
   let width = canvas.width;
   let height = canvas.height;
-
   console.log('onAudioProcess:width=<',width,'>');
   console.log('onAudioProcess:height=<',height,'>');
+  
+  ctx.beginPath();
+  ctx.moveTo(0, 100);
+  let audioData = evt.inputBuffer.getChannelData(0);
+  //console.log('onAudioProcess:input=<',input,'>');
+  for(let i = 0;i < audioData.length;i++) {
+    let x= width *i /audioData.length;
+    let y = 100 + audioData[i] * 100;
+    console.log('onAudioProcess:x=<',x,'>');
+    console.log('onAudioProcess:y=<',y,'>');
+  }
+
+  ctx.stroke();
+  
 }
 
 
