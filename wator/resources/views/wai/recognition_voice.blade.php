@@ -10,8 +10,7 @@
     <div class="row justify-content-center">
       <div class="col-2 justify-content-center">
         <button type="submit" class="btn btn-lg btn-outline-dark rounded-circle" style="height:96px;width:96px;" onclick="onClickRecognition(this)">
-          <i class="material-icons " style="font-size:60px;color:green;">cloud_upload</i>
-          <span class="badge badge-light" id="wai-recoder-clip-in-local">0</span>
+          <i class="material-icons " style="font-size:60px;color:green;">keyboard_voice</i>
         </button>
        </div>
      </div>
