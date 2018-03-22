@@ -26,10 +26,10 @@ function onMediaError(e) {
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
-  let jsNode = audioCtx.createJavaScriptNode(2048, 1, 1);
-  jsNode.onaudioprocess = onAudioProcess;
-  source.connect(jsNode);
-  jsNode.connect(audioCtx.destination);
+  let jsProcess = audioCtx.createScriptProcessor(2048, 1, 1);
+  jsProcess.onaudioprocess = onAudioProcess;
+  source.connect(jsProcess);
+  jsProcess.connect(audioCtx.destination);
 }
 
 function onAudioProcess(evt) {
