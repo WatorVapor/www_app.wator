@@ -42,13 +42,13 @@ function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let width = canvas.width;
   let height = canvas.height;
-  console.log('onAudioProcess:width=<',width,'>');
-  console.log('onAudioProcess:height=<',height,'>');
+  //console.log('onAudioProcess:width=<',width,'>');
+  //console.log('onAudioProcess:height=<',height,'>');
   
   ctx.beginPath();
   ctx.clearRect(0, 0, width, height);
-  ctx.strokeStyle = 'rgba(255, 255, 0, 0.5)';
-  ctx.lineWidth = 1;
+  ctx.strokeStyle = 'rgba(0, 255, 0, 1.0)';
+  ctx.lineWidth = 0.5;
   ctx.moveTo(0, 100);
   let audioData = evt.inputBuffer.getChannelData(0);
   //console.log('onAudioProcess:input=<',input,'>');
