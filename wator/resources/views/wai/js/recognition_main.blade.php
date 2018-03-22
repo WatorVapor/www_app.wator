@@ -33,7 +33,9 @@ function onMediaSuccess(stream) {
 }
 
 function onAudioProcess(evt) {
-  console.log('onAudioProcess:evt=<',evt,'>');
+  //console.log('onAudioProcess:evt=<',evt,'>');
+  let input = evt.inputBuffer.getChannelData(0);
+  console.log('onAudioProcess:input=<',input,'>');
 }
 
 
