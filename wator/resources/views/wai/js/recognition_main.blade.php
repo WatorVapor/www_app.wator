@@ -45,16 +45,18 @@ function onAudioProcess(evt) {
   //console.log('onAudioProcess:width=<',width,'>');
   //console.log('onAudioProcess:height=<',height,'>');
   
+  let pink = height/2;
+  
   ctx.beginPath();
   ctx.clearRect(0, 0, width, height);
   ctx.strokeStyle = 'rgba(0, 255, 0, 1.0)';
   ctx.lineWidth = 0.5;
-  ctx.moveTo(0, 100);
+  ctx.moveTo(0, pink);
   let audioData = evt.inputBuffer.getChannelData(0);
   //console.log('onAudioProcess:input=<',input,'>');
   for(let i = 0;i < audioData.length;i++) {
     let x= width *i /audioData.length;
-    let y = 100 + audioData[i] * 100;
+    let y = pink + audioData[i] * pink;
     //console.log('onAudioProcess:x=<',x,'>');
     //console.log('onAudioProcess:y=<',y,'>');
     ctx.lineTo(x, y);
