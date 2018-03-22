@@ -2,7 +2,7 @@
 function onUpdateData(msg) {
   console.log('onUpdateData:msg=<',msg,'>');
 }
-let AudioContext = window.AudioContext || window.webkitAudioContext;
+const AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioCtx = new AudioContext();
 
 
@@ -18,10 +18,23 @@ function doAudioRecord() {
       onMediaSuccess(stream);
     }, onMediaError);
 }
-function onMediaSuccess(stream) {
-  console.log('onMediaSuccess:stream=<',stream,'>');
-}
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
+
+
+function onMediaSuccess(stream) {
+  console.log('onMediaSuccess:stream=<',stream,'>');
+  let source = audioContext.createMediaStreamSource(stream);
+  let jsNode = audioContext.createJavaScriptNode(2048, 1, 1);
+  jsNode.onaudioprocess = onAudioProcess;
+  source.connect(jsNode);
+  jsNode.connect(audioCtx.destination);
+}
+
+function onAudioProcess(evt) {
+  console.log('onAudioProcess:evt=<',evt,'>');
+}
+
+
 </script>
