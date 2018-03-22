@@ -91,7 +91,7 @@ function drawData(wave,length) {
   ctx.stroke();
 }
 
-function drawDataXY(wave) {
+function drawDataXY(wave,length) {
   let width = canvas.width;
   let height = canvas.height;
   //console.log('drawData:width=<',width,'>');
@@ -105,10 +105,10 @@ function drawDataXY(wave) {
   ctx.lineWidth = 0.5;
   ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
-    let x= width *i /wave.length;
-    let y = pink + wave[i] * pink;
-    //console.log('drawData:x=<',x,'>');
-    //console.log('drawData:y=<',y,'>');
+    let x = width * wave[i][0] / length;
+    let y = pink + wave[i][1] * pink;
+    console.log('drawData:x=<',x,'>');
+    console.log('drawData:y=<',y,'>');
     ctx.lineTo(x, y);
   }
   ctx.stroke();
