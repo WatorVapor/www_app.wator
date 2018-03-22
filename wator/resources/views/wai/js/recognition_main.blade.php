@@ -61,9 +61,27 @@ function onAudioProcess(evt) {
     //console.log('onAudioProcess:y=<',y,'>');
     ctx.lineTo(x, y);
   }
-
   ctx.stroke();
+  checkPink2Pink(audioData);
   
+}
+
+function checkPink2Pink(wave) {
+  //let pinkT = wave[0];
+  //let pinkB = wave[0];
+  let pingT = [];
+  let pingB = [];
+  
+  for(let i = 1;i < wave.length -1;i++) {
+    if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
+      pingT.push(i); 
+    }
+    if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
+      pingB.push(i); 
+    }
+  }
+  console.log('checkPink2Pink:pingT=<',pingT,'>');
+  console.log('checkPink2Pink:pingB=<',pingB,'>');
 }
 
 
