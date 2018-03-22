@@ -87,6 +87,7 @@ function drawData(wave) {
     //console.log('drawData:x=<',x,'>');
     //console.log('drawData:y=<',y,'>');
     ctx.lineTo(x, y);
+    ctx.moveTo(x, y);
   }
   ctx.stroke();
 }
