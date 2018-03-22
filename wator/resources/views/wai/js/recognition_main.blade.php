@@ -105,11 +105,14 @@ function drawDataXY(wave,length) {
   ctx.lineWidth = 1;
   ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
-    let x = width * wave[i][0] / length;
-    let y = pink + wave[i][1] * pink;
-    //console.log('drawData:x=<',x,'>');
-    //console.log('drawData:y=<',y,'>');
-    ctx.lineTo(x, y);
+    let absY = Math.abs(wave[i][1]);
+    if(absY > 0.001) {
+      let x = width * wave[i][0] / length;
+      let y = pink + wave[i][1] * pink;
+      //console.log('drawData:x=<',x,'>');
+      //console.log('drawData:y=<',y,'>');
+      ctx.lineTo(x, y);
+    }
   }
   ctx.stroke();
 }
