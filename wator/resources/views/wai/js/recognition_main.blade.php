@@ -63,8 +63,8 @@ function checkPink2Pink(wave) {
       pinks.push([i,wave[i]]);
     }
   }
-  console.log('checkPink2Pink:pingT=<',pingT,'>');
-  console.log('checkPink2Pink:pingB=<',pingB,'>');
+  console.log('checkPink2Pink:pinkT=<',pinkT,'>');
+  console.log('checkPink2Pink:pinkB=<',pinkB,'>');
   drawDataXY(pinks,wave.length);
 }
 
