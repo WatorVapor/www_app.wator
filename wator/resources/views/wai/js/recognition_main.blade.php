@@ -52,8 +52,9 @@ function onAudioProcess(evt) {
   for(let i = 0;i < audioData.length;i++) {
     let x= width *i /audioData.length;
     let y = 100 + audioData[i] * 100;
-    console.log('onAudioProcess:x=<',x,'>');
-    console.log('onAudioProcess:y=<',y,'>');
+    //console.log('onAudioProcess:x=<',x,'>');
+    //console.log('onAudioProcess:y=<',y,'>');
+    ctx.lineTo(x, y);
   }
 
   ctx.stroke();
