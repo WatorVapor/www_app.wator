@@ -78,7 +78,7 @@ function drawData(wave) {
   
   ctx.beginPath();
   ctx.clearRect(0, 0, width, height);
-  ctx.strokeStyle = 'rgba(0, 255, 0, 1.0)';
+  ctx.strokeStyle = 'green';
   ctx.lineWidth = 0.5;
   ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
@@ -101,7 +101,7 @@ function drawDataXY(wave,length) {
   
   ctx.beginPath();
   ctx.clearRect(0, 0, width, height);
-  ctx.strokeStyle = 'rgba(0, 255, 0, 1.0)';
+  ctx.strokeStyle = 'green';
   ctx.lineWidth = 0.5;
   ctx.moveTo(0, pink);
   for(let i = 0;i < wave.length;i++) {
