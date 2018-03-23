@@ -77,7 +77,15 @@ function createWaveSVG(wave) {
   }
   svg += '"';
   svg += '\n';
-  svg += ' fill="none" stroke="red" stroke-width="5" />';
+  svg += ' fill="none" stroke="red" stroke-width="1" />';
+
+  svg += '<polyline points="';
+  svg += ' 0,' + pink + ' ';
+  svg += width +',' + pink + ' ';
+  svg += '"';
+  svg += '\n';
+  svg += ' fill="none" stroke="blue" stroke-width="1" />';
+
   svg += '\n';
   svg += '</svg>';
   //console.log('createWaveSVG:svg=<',svg,'>');
