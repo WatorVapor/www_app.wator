@@ -21,30 +21,31 @@ function onMediaError(e) {
 
 
 const RECORD_TIME_MS = 1000;
-const RECORD_INTERVAL_MS = 100;
 
 
 function onMediaSuccess(stream) {
-  let mr = new MediaRecorder(stream);
-  mr.mimeType = 'audio/webm';
-  let chunks4analyze = [];
-  mr.ondataavailable = function (e) {
-    chunks4analyze.push(e.data);
-  }
-  mr.onerror = function (e) {
-    console.log('error:e=<',e,'>');
-  }
-  mr.onstart = function (e) {
-    console.log('onstart:e=<',e,'>');
-  }
-  mr.onstop = function (e) {
-    console.log('onstop:e=<',e,'>');
-    console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
-  }
-  mr.start(RECORD_INTERVAL_MS);
+  console.log('onMediaSuccess:stream=<',stream,'>');
+  let source = audioCtx.createMediaStreamSource(stream);
+  let filter = audioCtx.createBiquadFilter();
+  filter.type = 'lowpass';
+  filter.frequency.value = 1024;
+  
+  let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
+  jsProcess.onaudioprocess = onAudioProcess;
+  source.connect(filter);
+  filter.connect(jsProcess);
+  jsProcess.connect(audioCtx.destination);
   setTimeout(function(){
-    mr.stop();
+    jsProcess.disconnect();
   },RECORD_TIME_MS);
 }
+
+function onAudioProcess(evt) {
+  //console.log('onAudioProcess:evt=<',evt,'>');
+  let audioData = evt.inputBuffer.getChannelData(0);
+  console.log('onAudioProcess:input=<',input,'>');
+}
+
+
 
 </script>
