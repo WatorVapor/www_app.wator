@@ -60,7 +60,7 @@ function onAudioTotalClipSuccess() {
 function createWaveSVG(wave) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
-  let height = width * 0.4;
+  let height = width * 0.25;
   let pink = height/2;
   //console.log('createWaveSVG:width=<',width,'>');
   //console.log('createWaveSVG:height=<',height,'>');
@@ -87,7 +87,10 @@ function createWaveSVG(wave) {
   console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
   let img = document.getElementById('wai-recognition-wave');
   img.src = urlBlob;
-  
+  var a = document.createElement('a');
+  a.href = urlBlob;
+  a.click();
+  document.body.removeChild(a);
 }
 
 </script>
