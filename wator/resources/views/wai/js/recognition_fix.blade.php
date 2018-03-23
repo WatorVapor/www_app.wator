@@ -37,6 +37,9 @@ function onMediaSuccess(stream) {
   jsProcess.connect(audioCtx.destination);
   setTimeout(function(){
     jsProcess.disconnect();
+    setTimeout(funtion(){
+      onAudioTotalClipSuccess();
+    },1000);
   },RECORD_TIME_MS);
 }
 
@@ -48,6 +51,9 @@ function onAudioProcess(evt) {
   totalBuffer.push(...audioData);
 }
 
+function onAudioTotalClipSuccess() {
+  console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
+}
 
 
 </script>
