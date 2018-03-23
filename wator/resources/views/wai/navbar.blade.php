@@ -19,7 +19,13 @@
       <i class="material-icons md-48">keyboard_voice</i>
     </a>
   </li>
-  
+
+  <li class="nav-item active ml-lg-3">
+    <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/recognition_fix" role="button">
+      <i class="material-icons md-48">settings_voice</i>
+    </a>
+  </li>
+
   <!--
   <li class="nav-item active ml-lg-3">
     <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/train/crawler/summary" role="button">
