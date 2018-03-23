@@ -63,7 +63,14 @@ function createWaveSVG(wave) {
   let height = width * 0.2;
   console.log('createWaveSVG:width=<',width,'>');
   console.log('createWaveSVG:height=<',height,'>');
-  let svg = '<svg width="500" height="450" xmlns="http://www.w3.org/2000/svg"'
+  let svg = '<svg width="';
+  svg += width;
+  svg += '" height="';
+  svg += height;
+  svg += '" xmlns="http://www.w3.org/2000/svg"';
+  svg += '\n';
+  
+  svg += '\n';
   svg += '</svg>';
   console.log('createWaveSVG:svg=<',svg,'>');
 }
