@@ -27,6 +27,12 @@ class RecognitionVoiceController extends Controller
         //var_dump($data);
         return view('wai.recognition_voice',$data);
     }
+    public function index_fix(Request $request)
+    {
+        $data = [];
+        //var_dump($data);
+        return view('wai.recognition_voice_fix',$data);
+    }
     /**
      * Store a newly created resource in storage.
      *
