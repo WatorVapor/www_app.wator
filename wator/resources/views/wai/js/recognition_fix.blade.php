@@ -20,7 +20,7 @@ function onMediaError(e) {
 }
 
 
-const RECORD_TIME_MS = 2000;
+const RECORD_TIME_MS = 1500;
 
 
 function onMediaSuccess(stream) {
@@ -53,8 +53,12 @@ function onAudioProcess(evt) {
 }
 
 function onAudioTotalClipSuccess() {
-  console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
+  //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
+  createWaveSVG(totalBuffer);
 }
 
+function createWaveSVG(wave) {
+  console.log('createWaveSVG:wave=<',wave,'>');
+}
 
 </script>
