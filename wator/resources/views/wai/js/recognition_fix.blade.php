@@ -85,6 +85,8 @@ function createWaveSVG(wave) {
   let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
+  let img = document.getElementById('wai-recognition-wave');
+  img.src = urlBlob;
   
 }
 
