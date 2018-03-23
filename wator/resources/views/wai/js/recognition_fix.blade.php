@@ -77,7 +77,7 @@ function createWaveSVG(wave) {
   }
   svg += '"';
   svg += '\n';
-  svg += ' fill="none" stroke="navy" stroke-width="1" />';
+  svg += ' fill="none" stroke="red" stroke-width="5" />';
   svg += '\n';
   svg += '</svg>';
   //console.log('createWaveSVG:svg=<',svg,'>');
