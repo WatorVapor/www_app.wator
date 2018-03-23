@@ -62,8 +62,8 @@ function createWaveSVG(wave) {
   let width = wave.length;
   let height = width * 0.2;
   let pink = height/2;
-  console.log('createWaveSVG:width=<',width,'>');
-  console.log('createWaveSVG:height=<',height,'>');
+  //console.log('createWaveSVG:width=<',width,'>');
+  //console.log('createWaveSVG:height=<',height,'>');
   let svg = '<svg width="';
   svg += width;
   svg += '" height="';
@@ -80,7 +80,12 @@ function createWaveSVG(wave) {
   svg += ' fill="none" stroke="navy" stroke-width="1" />';
   svg += '\n';
   svg += '</svg>';
-  console.log('createWaveSVG:svg=<',svg,'>');
+  //console.log('createWaveSVG:svg=<',svg,'>');
+  
+  let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"})
+  let url = DOMURL.createObjectURL(svg);
+  console.log('createWaveSVG:url=<',url,'>');
+  
 }
 
 </script>
