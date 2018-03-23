@@ -72,7 +72,8 @@ function createWaveSVG(wave) {
   svg += '\n';
   svg += '<polyline points="';
   for(let i = 0;i < wave.length ;i++) {
-    svg +=  ' ' + i  + ',' + wave[i] * pink;
+    let y = pink - wave[i] * pink;
+    svg +=  ' ' + i  + ',' + y;
   }
   svg += '"';
   svg += '\n';
