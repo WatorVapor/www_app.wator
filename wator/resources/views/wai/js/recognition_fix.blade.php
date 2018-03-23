@@ -60,7 +60,7 @@ function onAudioTotalClipSuccess() {
 function createWaveSVG(wave) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
-  let height = width * 0.2;
+  let height = width * 0.4;
   let pink = height/2;
   //console.log('createWaveSVG:width=<',width,'>');
   //console.log('createWaveSVG:height=<',height,'>');
