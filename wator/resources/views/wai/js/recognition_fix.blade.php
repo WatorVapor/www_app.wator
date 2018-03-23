@@ -40,7 +40,7 @@ function onMediaSuccess(stream) {
   },RECORD_TIME_MS);
   
   setTimeout(function(){
-    onAudioTotalClipSuccess;
+    onAudioTotalClipSuccess();
   },RECORD_TIME_MS + 1000);
 }
 
@@ -48,7 +48,7 @@ let totalBuffer = [];
 function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let audioData = evt.inputBuffer.getChannelData(0);
-  console.log('onAudioProcess:audioData=<',audioData,'>');
+  //console.log('onAudioProcess:audioData=<',audioData,'>');
   totalBuffer.push(...audioData);
 }
 
