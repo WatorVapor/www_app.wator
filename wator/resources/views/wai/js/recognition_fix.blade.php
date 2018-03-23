@@ -61,6 +61,7 @@ function createWaveSVG(wave) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
   let height = width * 0.2;
+  let pink = height/2;
   console.log('createWaveSVG:width=<',width,'>');
   console.log('createWaveSVG:height=<',height,'>');
   let svg = '<svg width="';
@@ -70,6 +71,9 @@ function createWaveSVG(wave) {
   svg += '" xmlns="http://www.w3.org/2000/svg">';
   svg += '\n';
   svg += '<polyline points="';
+  for(let i = 0;i < wave.length ;i++) {
+    svg +=  ' ' + i  + ',' + wave[i] * pink;
+  }
   svg += '"';
   svg += '\n';
   svg += ' fill="none" stroke="navy" stroke-width="1" />';
