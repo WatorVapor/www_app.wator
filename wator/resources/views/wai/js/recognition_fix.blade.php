@@ -82,9 +82,9 @@ function createWaveSVG(wave) {
   svg += '</svg>';
   //console.log('createWaveSVG:svg=<',svg,'>');
   
-  let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"})
-  let url = DOMURL.createObjectURL(svg);
-  console.log('createWaveSVG:url=<',url,'>');
+  let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
+  let urlBlob = window.URL.createObjectURL(blob);
+  console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
   
 }
 
