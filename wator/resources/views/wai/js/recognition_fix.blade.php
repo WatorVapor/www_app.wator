@@ -55,6 +55,7 @@ function onAudioProcess(evt) {
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   createWaveSVG(totalBuffer);
+  totalBuffer = [];
 }
 
 function createWaveSVG(wave) {
