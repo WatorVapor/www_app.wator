@@ -32,13 +32,16 @@ function onMediaSuccess(stream) {
   
   let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
-  jsProcess.onended = onAudioTotalClipSuccess;
   source.connect(filter);
   filter.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
   setTimeout(function(){
     jsProcess.disconnect();
   },RECORD_TIME_MS);
+  
+  setTimeout(function(){
+    onAudioTotalClipSuccess;
+  },RECORD_TIME_MS + 1000);
 }
 
 let totalBuffer = [];
