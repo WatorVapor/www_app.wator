@@ -20,8 +20,8 @@ function onMediaError(e) {
 }
 
 
-const RECORD_TIME_MS = 10000;
-const RECORD_INTERVAL_MS = 1000;
+const RECORD_TIME_MS = 1000;
+const RECORD_INTERVAL_MS = 100;
 
 
 function onMediaSuccess(stream) {
@@ -40,7 +40,6 @@ function onMediaSuccess(stream) {
   mr.onstop = function (e) {
     console.log('onstop:e=<',e,'>');
     console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
-    analyzeBlobWebm(chunks4analyze);
   }
   mr.start(RECORD_INTERVAL_MS);
   setTimeout(function(){
