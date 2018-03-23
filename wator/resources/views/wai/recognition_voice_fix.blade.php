@@ -24,7 +24,7 @@
 </div>
 
 
-@include('wai.js.recognition_main')
+@include('wai.js.recognition_fix')
 
 
 @endsection
