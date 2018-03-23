@@ -46,6 +46,7 @@ Route::get('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@index');
 Route::post('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@store');
 
 Route::get('/wai/text/recognition', 'Wai\RecognitionVoiceController@index');
+Route::get('/wai/text/recognition_fix', 'Wai\RecognitionVoiceController@index_fix');
 
 
 Route::get('/wai/text/train/crawler/summary', 'Wai\CrawlerTrainController@summary');
