@@ -89,6 +89,7 @@ function createWaveSVG(wave) {
   img.src = urlBlob;
   var a = document.createElement('a');
   a.href = urlBlob;
+  a.download = 'wai.recog_fix.svg';
   a.click();
   document.body.removeChild(a);
 }
