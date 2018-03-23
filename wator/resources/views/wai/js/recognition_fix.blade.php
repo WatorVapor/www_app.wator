@@ -44,11 +44,11 @@ let totalBuffer;
 function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let audioData = evt.inputBuffer.getChannelData(0);
-  //console.log('onAudioProcess:audioData=<',audioData,'>');
+  console.log('onAudioProcess:audioData=<',audioData,'>');
   if(totalBuffer) {
     totalBuffer.push(...audioData);
   } else {
-    totalBuffer = audioData;
+    //totalBuffer = new (audioData);
   }
 }
 
