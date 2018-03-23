@@ -67,9 +67,11 @@ function createWaveSVG(wave) {
   svg += width;
   svg += '" height="';
   svg += height;
-  svg += '" xmlns="http://www.w3.org/2000/svg"';
+  svg += '" xmlns="http://www.w3.org/2000/svg">';
   svg += '\n';
-  
+  svg += '<polyline points="';
+  svg += '"';
+  svg += 'fill="none" stroke="navy" stroke-width="1" />';
   svg += '\n';
   svg += '</svg>';
   console.log('createWaveSVG:svg=<',svg,'>');
