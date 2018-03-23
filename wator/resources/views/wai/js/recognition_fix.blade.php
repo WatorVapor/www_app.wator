@@ -40,7 +40,7 @@ function onMediaSuccess(stream) {
   },RECORD_TIME_MS);
 }
 
-let totalBuffer = new Float32Array();
+let totalBuffer = [];
 function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let audioData = evt.inputBuffer.getChannelData(0);
