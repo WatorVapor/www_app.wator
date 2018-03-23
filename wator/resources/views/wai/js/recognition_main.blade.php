@@ -30,7 +30,7 @@ function onMediaSuccess(stream) {
   filter.type = 'lowpass';
   filter.frequency.value = 1024;
   
-  let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
+  let jsProcess = audioCtx.createScriptProcessor(1024, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
   source.connect(filter);
   filter.connect(jsProcess);
