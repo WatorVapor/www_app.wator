@@ -91,7 +91,7 @@ function createWaveSVG(wave) {
   a.href = urlBlob;
   a.download = 'wai.recog_fix.svg';
   a.click();
-  document.body.removeChild(a);
+  //document.body.removeChild(a);
 }
 
 </script>
