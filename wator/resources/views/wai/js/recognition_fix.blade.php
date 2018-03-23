@@ -20,7 +20,7 @@ function onMediaError(e) {
 }
 
 
-const RECORD_TIME_MS = 500;
+const RECORD_TIME_MS = 1500;
 
 
 function onMediaSuccess(stream) {
