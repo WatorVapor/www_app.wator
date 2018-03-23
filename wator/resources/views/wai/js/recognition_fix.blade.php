@@ -58,7 +58,14 @@ function onAudioTotalClipSuccess() {
 }
 
 function createWaveSVG(wave) {
-  console.log('createWaveSVG:wave=<',wave,'>');
+  //console.log('createWaveSVG:wave=<',wave,'>');
+  let width = wave.length;
+  let height = width * 0.2;
+  console.log('createWaveSVG:width=<',width,'>');
+  console.log('createWaveSVG:height=<',height,'>');
+  let svg = '<svg width="500" height="450" xmlns="http://www.w3.org/2000/svg"'
+  svg += '</svg>';
+  console.log('createWaveSVG:svg=<',svg,'>');
 }
 
 </script>
