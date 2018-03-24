@@ -54,11 +54,12 @@ function onAudioProcess(evt) {
 
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
-  createWaveSVG(totalBuffer);
+  let peaks = checkPeak2Peak();
+  createWaveSVG(totalBuffer,peaks);
   totalBuffer = [];
 }
 
-function createWaveSVG(wave) {
+function createWaveSVG(wave,peaks) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
   let height = 400;
@@ -71,14 +72,26 @@ function createWaveSVG(wave) {
   svg += height;
   svg += '" xmlns="http://www.w3.org/2000/svg">';
   svg += '\n';
+  
   svg += '<polyline points="';
   for(let i = 0;i < wave.length ;i++) {
     let y = pink - wave[i] * pink;
-    svg +=  ' ' + i  + ',' + y;
+    let x = i;
+    svg +=  ' ' + x  + ',' + y;
   }
   svg += '"';
   svg += '\n';
   svg += ' fill="none" stroke="red" stroke-width="1" />';
+
+  svg += '<polyline points="';
+  for(let i = 0;i < peaks.length ;i++) {
+    let y = pink - peaks[i][1] * pink;
+    let x = peaks[i][0];
+    svg +=  ' ' + x  + ',' + y;
+  }
+  svg += '"';
+  svg += '\n';
+  svg += ' fill="none" stroke="green" stroke-width="1" />';
 
   svg += '<polyline points="';
   svg += ' 0,' + pink + ' ';
@@ -119,8 +132,9 @@ function checkPeak2Peak(wave) {
       peaks.push([i,wave[i]]);
     }
   }
-  console.log('checkPeak2Peak:peakT=<',peakT,'>');
-  console.log('checkPeak2Peak:peakB=<',peakB,'>');
+  //console.log('checkPeak2Peak:peakT=<',peakT,'>');
+  //console.log('checkPeak2Peak:peakB=<',peakB,'>');
+  return peaks;
 }
 
 
