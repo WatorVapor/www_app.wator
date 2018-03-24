@@ -54,7 +54,7 @@ function onAudioProcess(evt) {
 
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
-  let peaks = checkPeak2Peak();
+  let peaks = checkPeak2Peak(totalBuffer);
   createWaveSVG(totalBuffer,peaks);
   totalBuffer = [];
 }
