@@ -47,30 +47,28 @@ function onAudioProcess(evt) {
   //console.log('onAudioProcess:evt=<',evt,'>');
   let audioData = evt.inputBuffer.getChannelData(0);
   //console.log('onAudioProcess:input=<',input,'>');
-  checkPink2Pink(audioData);
+  checkPeak2Peak(audioData);
 }
 
-function checkPink2Pink(wave) {
-  //let pinkT = wave[0];
-  //let pinkB = wave[0];
-  let pinkT = [];
-  let pinkB = [];
+function checkPeak2Peak(wave) {
+  let peakT = [];
+  let peakB = [];
   
-  let pinks = [];
+  let peaks = [];
   
   for(let i = 1;i < wave.length -1;i++) {
     if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
-      pinkT.push(i);
-      pinks.push([i,wave[i]]);
+      peakT.push(i);
+      peaks.push([i,wave[i]]);
     }
     if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
-      pinkB.push(i); 
-      pinks.push([i,wave[i]]);
+      peakB.push(i); 
+      peaks.push([i,wave[i]]);
     }
   }
-  console.log('checkPink2Pink:pinkT=<',pinkT,'>');
-  console.log('checkPink2Pink:pinkB=<',pinkB,'>');
-  drawDataXY(pinks,wave.length);
+  console.log('checkPeak2Peak:peakT=<',peakT,'>');
+  console.log('checkPeak2Peak:peakB=<',peakB,'>');
+  drawDataXY(peaks,wave.length);
 }
 
 function drawData(wave) {
