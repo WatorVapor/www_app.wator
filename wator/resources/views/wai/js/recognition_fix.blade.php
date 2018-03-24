@@ -103,4 +103,25 @@ function createWaveSVG(wave) {
   //document.body.removeChild(a);
 }
 
+function checkPeak2Peak(wave) {
+  let peakT = [];
+  let peakB = [];
+  
+  let peaks = [];
+  
+  for(let i = 1;i < wave.length -1;i++) {
+    if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
+      peakT.push(i);
+      peaks.push([i,wave[i]]);
+    }
+    if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
+      peakB.push(i); 
+      peaks.push([i,wave[i]]);
+    }
+  }
+  console.log('checkPeak2Peak:peakT=<',peakT,'>');
+  console.log('checkPeak2Peak:peakB=<',peakB,'>');
+}
+
+
 </script>
