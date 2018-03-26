@@ -110,7 +110,7 @@ function createWaveSVG(wave,peaks,freqs) {
 
   let counter = 0;
   for(let i = 0;i < freqs.length ;i++) {
-    let y = peak + ;
+    let y = peak;
     y += (counter++%4)(peak/4);
     let x = freqs[i][0];
     svg += '<text font-size="3" x="';
