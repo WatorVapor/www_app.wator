@@ -111,7 +111,7 @@ function createWaveSVG(wave,peaks,freqs) {
 
   let counter = 0;
   for(let i = 0;i < freqs.length ;i++) {
-    let y = peak - freqs[i][1] * peak;
+    let y = peak - freqs[i][2] * peak;
     /*
     let y = peak;
     let offset = (counter++%5 -2.5)*(peak/4);
@@ -178,7 +178,7 @@ function calFreq(peaks) {
   for(let i = 1;i < peaks.length;i++) {
     let freq = peaks[i][0] - peaks[i-1][0];
     let index = peaks[i][0];
-    freqs.push([index,freq]);
+    freqs.push([index,freq,peaks[i][1]]);
   }
   console.log('calFreq:freqs=<',freqs,'>');
   return freqs;
