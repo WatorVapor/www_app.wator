@@ -111,7 +111,7 @@ function createWaveSVG(wave,peaks,freqs) {
   for(let i = 0;i < freqs.length ;i++) {
     let y = peak;
     let x = freqs[i][0];
-    svg += '<text x="';
+    svg += '<text font-size="5" x="';
     svg += x;
     svg += '" y="';
     svg += y;
