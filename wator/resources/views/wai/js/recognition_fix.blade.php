@@ -63,7 +63,7 @@ function createWaveSVG(wave,peaks) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
   let height = 400;
-  let pink = height/2;
+  let peak = height/2;
   //console.log('createWaveSVG:width=<',width,'>');
   //console.log('createWaveSVG:height=<',height,'>');
   let svg = '<svg width="';
@@ -75,7 +75,7 @@ function createWaveSVG(wave,peaks) {
   
   svg += '<polyline points="';
   for(let i = 0;i < wave.length ;i++) {
-    let y = pink - wave[i] * pink;
+    let y = peak - wave[i] * peak;
     let x = i;
     svg +=  ' ' + x  + ',' + y;
   }
@@ -85,7 +85,7 @@ function createWaveSVG(wave,peaks) {
 
   svg += '<polyline points="';
   for(let i = 0;i < peaks.length ;i++) {
-    let y = pink - peaks[i][1] * pink;
+    let y = peak - peaks[i][1] * peak;
     let x = peaks[i][0];
     svg +=  ' ' + x  + ',' + y;
   }
@@ -94,8 +94,8 @@ function createWaveSVG(wave,peaks) {
   svg += ' fill="none" stroke="green" stroke-width="1" />';
 
   svg += '<polyline points="';
-  svg += ' 0,' + pink + ' ';
-  svg += width +',' + pink + ' ';
+  svg += ' 0,' + peak + ' ';
+  svg += width +',' + peak + ' ';
   svg += '"';
   svg += '\n';
   svg += ' fill="none" stroke="blue" stroke-width="1" />';
