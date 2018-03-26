@@ -93,6 +93,19 @@ function createWaveSVG(wave,peaks) {
   svg += '\n';
   svg += ' fill="none" stroke="green" stroke-width="1" />';
 
+  for(let i = 0;i < peaks.length ;i++) {
+    let y = peak - peaks[i][1] * peak;
+    let x = peaks[i][0];
+    svg += '<text x="';
+    svg += x;
+    svg += '" y="';
+    svg += y;
+    svg += '">';
+    svg += peaks[i][0];
+    svg +=  '</text>';
+  }
+
+
   svg += '<polyline points="';
   svg += ' 0,' + peak + ' ';
   svg += width +',' + peak + ' ';
