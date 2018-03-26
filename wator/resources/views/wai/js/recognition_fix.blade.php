@@ -101,7 +101,7 @@ function createWaveSVG(wave,peaks) {
     svg += '" y="';
     svg += y;
     svg += '">';
-    svg += peaks[i][0];
+    svg += peaks[i][0] %10;
     svg +=  '</text>';
   }
 
