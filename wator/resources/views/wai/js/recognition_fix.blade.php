@@ -94,6 +94,7 @@ function createWaveSVG(wave,peaks,freqs) {
   svg += '\n';
   svg += ' fill="none" stroke="green" stroke-width="1" />';
 
+/*
   for(let i = 0;i < peaks.length ;i++) {
     let y = peak - peaks[i][1] * peak;
     let x = peaks[i][0];
@@ -105,6 +106,7 @@ function createWaveSVG(wave,peaks,freqs) {
     svg += peaks[i][0] %100;
     svg +=  '</text>';
   }
+*/
 
   for(let i = 0;i < freqs.length ;i++) {
     let y = peak;
