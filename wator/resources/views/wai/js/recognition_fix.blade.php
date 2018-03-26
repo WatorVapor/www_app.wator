@@ -55,11 +55,12 @@ function onAudioProcess(evt) {
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBuffer);
-  createWaveSVG(totalBuffer,peaks);
+  let freqs = calFreq(peaks);
+  createWaveSVG(totalBuffer,peaks,freqs);
   totalBuffer = [];
 }
 
-function createWaveSVG(wave,peaks) {
+function createWaveSVG(wave,peaks,freqs) {
   //console.log('createWaveSVG:wave=<',wave,'>');
   let width = wave.length;
   let height = 400;
@@ -102,6 +103,18 @@ function createWaveSVG(wave,peaks) {
     svg += y;
     svg += '">';
     svg += peaks[i][0] %100;
+    svg +=  '</text>';
+  }
+
+  for(let i = 0;i < freqs.length ;i++) {
+    let y = peak;
+    let x = freqs[i][0];
+    svg += '<text x="';
+    svg += x;
+    svg += '" y="';
+    svg += y;
+    svg += '">';
+    svg += freqs[i][1];
     svg +=  '</text>';
   }
 
@@ -149,6 +162,19 @@ function checkPeak2Peak(wave) {
   //console.log('checkPeak2Peak:peakB=<',peakB,'>');
   return peaks;
 }
+
+function calFreq(peaks) {
+  let freqs = [];
+  
+  for(let i = 1;i < peaks.length;i++) {
+    let freq = peaks[i][0] - peaks[i-1][0];
+    let index = peaks[i][0];
+    freqs.push([index,freq]);
+  }
+  console.log('calFreq:freqs=<',freqs,'>');
+  return freqs;
+}
+
 
 
 </script>
