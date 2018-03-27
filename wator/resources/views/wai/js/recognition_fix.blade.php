@@ -150,8 +150,11 @@ function createWaveSVG(wave,peaks,freqs) {
   let counter = 0;
   for(let i = 0;i < freqs.length ;i++) {
     let y = peak - freqs[i][2] * peak;
-    if(y < 10) {
-      y += 10;
+    if(y < 30) {
+      y += 30;
+    }
+    if(y > height -30) {
+      y -= 30;
     }
     /*
     let y = peak;
