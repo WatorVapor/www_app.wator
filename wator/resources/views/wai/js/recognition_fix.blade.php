@@ -26,23 +26,39 @@ const RECORD_TIME_MS = 2000;
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
+
   let filter = audioCtx.createBiquadFilter();
-//  filter.type = 'lowpass';
-  filter.type = 'highpass';
+  filter.type = 'lowpass';
 //  filter.frequency.value = 16384;
-  filter.frequency.value = 1024;
+  filter.frequency.value = 512;
   
   let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
   source.connect(filter);
   filter.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
+
+
+  let filterHigh = audioCtx.createBiquadFilter();
+  filterHigh.type = 'highpass';
+//  filterHigh.frequency.value = 16384;
+  filterHigh.frequency.value = 512;
+  
+  let jsProcessHigh = audioCtx.createScriptProcessor(16384, 1, 1);
+  jsProcessHigh.onaudioprocess = onAudioProcessHigh;
+  source.connect(filterHigh);
+  filterHigh.connect(jsProcessHigh);
+  jsProcessHigh.connect(audioCtx.destination);
+
+  
   setTimeout(function(){
     source.disconnect();
   },RECORD_TIME_MS);
   
+  
   setTimeout(function(){
     onAudioTotalClipSuccess();
+    onAudioHighTotalClipSuccess();
   },RECORD_TIME_MS + 1000);
 }
 
@@ -54,6 +70,14 @@ function onAudioProcess(evt) {
   totalBuffer.push(...audioData);
 }
 
+let totalBufferHigh = [];
+function onAudioProcessHigh(evt) {
+  //console.log('onAudioProcessHigh:evt=<',evt,'>');
+  let audioData = evt.inputBuffer.getChannelData(0);
+  //console.log('onAudioProcessHigh:audioData=<',audioData,'>');
+  totalBufferHigh.push(...audioData);
+}
+
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBuffer);
@@ -61,6 +85,15 @@ function onAudioTotalClipSuccess() {
   createWaveSVG(totalBuffer,peaks,freqs);
   totalBuffer = [];
 }
+
+function onAudioHighTotalClipSuccess() {
+  //console.log('onAudioHighTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
+  let peaks = checkPeak2Peak(totalBufferHigh);
+  let freqs = calFreq(peaks);
+  createWaveSVG(totalBufferHigh,peaks,freqs);
+  totalBufferHigh = [];
+}
+
 
 function createWaveSVG(wave,peaks,freqs) {
   //console.log('createWaveSVG:wave=<',wave,'>');
