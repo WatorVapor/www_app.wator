@@ -38,7 +38,7 @@ function onMediaSuccess(stream) {
   filter.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
   setTimeout(function(){
-    jsProcess.disconnect();
+    source.disconnect();
   },RECORD_TIME_MS);
   
   setTimeout(function(){
