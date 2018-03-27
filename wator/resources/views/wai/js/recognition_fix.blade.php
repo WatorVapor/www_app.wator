@@ -30,7 +30,7 @@ function onMediaSuccess(stream) {
 //  filter.type = 'lowpass';
   filter.type = 'highpass';
 //  filter.frequency.value = 16384;
-  filter.frequency.value = 512;
+  filter.frequency.value = 1024;
   
   let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
