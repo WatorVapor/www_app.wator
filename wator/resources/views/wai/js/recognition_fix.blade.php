@@ -194,11 +194,13 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
     svg +=  '</text>';
     svg += '\n';
  }
-
+  
+  
+  let centerY = peak+offsetY;
 
   svg += '<polyline points="';
-  svg += ' ' + offsetY + ',' + peak + ' ';
-  svg += width +',' + peak + ' ';
+  svg += ' 0,' + centerY + ' ';
+  svg += width +',' + centerY + ' ';
   svg += '"';
   svg += '\n';
   svg += ' fill="none" stroke="blue" stroke-width="1" />';
