@@ -196,7 +196,7 @@ function createWaveSVG(wave,peaks,freqs) {
 }
 
 
-const dMinDeltaWave = 0.05;
+const dMinDeltaWave = 0.02;
 
 function checkPeak2Peak(wave) {
   let peakT = [];
