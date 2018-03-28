@@ -195,20 +195,30 @@ function createWaveSVG(wave,peaks,freqs) {
   //document.body.removeChild(a);
 }
 
+
+const dMinDeltaWave = 0.001;
 function checkPeak2Peak(wave) {
   let peakT = [];
   let peakB = [];
   
   let peaks = [];
+  let peakPrev = 0.0;
   
   for(let i = 1;i < wave.length -1;i++) {
     if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
-      peakT.push(i);
-      peaks.push([i,wave[i]]);
+      let delta = Math.abs(peakPrev - wave[i]);
+      if(dMinDeltaWave >peakPrev) {
+        peakT.push(i);
+        peaks.push([i,wave[i]]);
+        peakPrev = wave[i];
+      }
     }
     if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
-      peakB.push(i); 
-      peaks.push([i,wave[i]]);
+      let delta = Math.abs(peakPrev - wave[i]);
+      if(dMinDeltaWave >peakPrev) {
+        peakB.push(i); 
+        peaks.push([i,wave[i]]);
+      }
     }
   }
   //console.log('checkPeak2Peak:peakT=<',peakT,'>');
