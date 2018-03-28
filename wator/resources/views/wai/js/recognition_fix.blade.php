@@ -93,7 +93,7 @@ function onAudioTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svg = createWaveSVG(totalBuffer,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSave(svg + svgHigh);
+    saveAllSVG(svg + svgHigh);
   }
   totalBuffer = [];
 }
@@ -105,12 +105,12 @@ function onAudioHighTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svgHigh = createWaveSVG(totalBufferHigh,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSave(svg + svgHigh);
+    saveAllSVG(svg + svgHigh);
   }
   totalBufferHigh = [];
 }
 
-function saveAllSave(svg) {
+function saveAllSVG(svg) {
   let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
