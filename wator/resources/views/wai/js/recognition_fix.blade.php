@@ -167,7 +167,7 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
     svg += '<text font-size="1" x="';
     svg += x;
     svg += '" y="';
-    svg += y;
+    svg += offsetY + y;
     svg += '">';
     svg += peaks[i][0] %100;
     svg +=  '</text>';
@@ -184,11 +184,6 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
       y -= 30;
     }
     y + offsetY;
-    /*
-    let y = peak;
-    let offset = (counter++%5 -2.5)*(peak/4);
-    y += offset;
-    */
     let x = freqs[i][0];
     svg += '<text font-size="12" x="';
     svg += x;
@@ -197,12 +192,12 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
     svg += '">';
     svg += freqs[i][1];
     svg +=  '</text>';
-   svg += '\n';
+    svg += '\n';
  }
 
 
   svg += '<polyline points="';
-  svg += ' 0,' + peak + ' ';
+  svg += ' ' + offsetY + ',' + peak + ' ';
   svg += width +',' + peak + ' ';
   svg += '"';
   svg += '\n';
@@ -214,91 +209,6 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
 
 
 
-function createWaveSVG(wave,peaks,freqs) {
-  //console.log('createWaveSVG:wave=<',wave,'>');
-  let width = wave.length;
-  let height = 400;
-  let peak = height/2;
-  //console.log('createWaveSVG:width=<',width,'>');
-  //console.log('createWaveSVG:height=<',height,'>');
-  let svg = '<svg width="';
-  svg += width;
-  svg += '" height="';
-  svg += height;
-  svg += '" xmlns="http://www.w3.org/2000/svg">';
-  svg += '\n';
-  
-  svg += '<polyline points="';
-  for(let i = 0;i < wave.length ;i++) {
-    let y = peak - wave[i] * peak;
-    let x = i;
-    svg +=  ' ' + x  + ',' + y;
-  }
-  svg += '"';
-  svg += '\n';
-  svg += ' fill="none" stroke="red" stroke-width="1" />';
-
-  svg += '<polyline points="';
-  for(let i = 0;i < peaks.length ;i++) {
-    let y = peak - peaks[i][1] * peak;
-    let x = peaks[i][0];
-    svg +=  ' ' + x  + ',' + y;
-  }
-  svg += '"';
-  svg += '\n';
-  svg += ' fill="none" stroke="green" stroke-width="1" />';
-
-/*
-  for(let i = 0;i < peaks.length ;i++) {
-    let y = peak - peaks[i][1] * peak;
-    let x = peaks[i][0];
-    svg += '<text font-size="1" x="';
-    svg += x;
-    svg += '" y="';
-    svg += y;
-    svg += '">';
-    svg += peaks[i][0] %100;
-    svg +=  '</text>';
-  }
-*/
-
-  let counter = 0;
-  for(let i = 0;i < freqs.length ;i++) {
-    let y = peak - freqs[i][2] * peak;
-    if(y < 30) {
-      y += 30;
-    }
-    if(y > height -30) {
-      y -= 30;
-    }
-    /*
-    let y = peak;
-    let offset = (counter++%5 -2.5)*(peak/4);
-    y += offset;
-    */
-    let x = freqs[i][0];
-    svg += '<text font-size="12" x="';
-    svg += x;
-    svg += '" y="';
-    svg += y;
-    svg += '">';
-    svg += freqs[i][1];
-    svg +=  '</text>';
-  }
-
-
-  svg += '<polyline points="';
-  svg += ' 0,' + peak + ' ';
-  svg += width +',' + peak + ' ';
-  svg += '"';
-  svg += '\n';
-  svg += ' fill="none" stroke="blue" stroke-width="1" />';
-
-  svg += '\n';
-  svg += '</svg>';
-  //console.log('createWaveSVG:svg=<',svg,'>');
-  return svg;
-}
 
 
 const dMinDeltaWave = 0.02;
