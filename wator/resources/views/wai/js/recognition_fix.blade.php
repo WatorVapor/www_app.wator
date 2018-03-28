@@ -91,9 +91,9 @@ function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBuffer);
   let freqs = calFreq(peaks);
-  svg = createWaveSVG(totalBuffer,peaks,freqs);
+  svg = createWavePolyline(200,0,totalBuffer,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(svgHigh);
+    saveAllSVG(200,1,svgHigh);
   }
   totalBuffer = [];
 }
@@ -103,14 +103,27 @@ function onAudioHighTotalClipSuccess() {
   //console.log('onAudioHighTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBufferHigh);
   let freqs = calFreq(peaks);
-  svgHigh = createWaveSVG(totalBufferHigh,peaks,freqs);
+  svgHigh = createWavePolyline(200,200,totalBufferHigh,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(svgHigh);
+    saveAllSVG(200,1,svgHigh);
   }
   totalBufferHigh = [];
 }
 
-function saveAllSVG(svg) {
+function saveAllSVG(height,row,svgRows) {
+  let width = totalBuffer.length;
+  if(totalBufferHigh.length > width = ) {
+    width = totalBufferHigh.length;
+  }
+  let svg = '<svg width="';
+  svg += width ;
+  svg += '" height="';
+  svg += height * row;
+  svg += '" xmlns="http://www.w3.org/2000/svg">';
+  svg += '\n';
+  svg += svgRows;
+  svg += '</svg>';
+
   let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
   let urlBlob = window.URL.createObjectURL(blob);
   console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
@@ -123,6 +136,83 @@ function saveAllSVG(svg) {
   svg = false;
   svgHigh = false;
 }
+
+
+function createWavePolyline(height,offsetY,wave,peaks,freqs) {
+  //console.log('createWavePolyline:wave=<',wave,'>');
+  let peak = height/2;
+  
+  svg += '<polyline points="';
+  for(let i = 0;i < wave.length ;i++) {
+    let y = offsetY + peak - wave[i] * peak;
+    let x = i;
+    svg +=  ' ' + x  + ',' + y;
+  }
+  svg += '"';
+  svg += '\n';
+  svg += ' fill="none" stroke="red" stroke-width="1" />';
+
+  svg += '<polyline points="';
+  for(let i = 0;i < peaks.length ;i++) {
+    let y = offsetY + peak - peaks[i][1] * peak;
+    let x = peaks[i][0];
+    svg +=  ' ' + x  + ',' + y;
+  }
+  svg += '"';
+  svg += '\n';
+  svg += ' fill="none" stroke="green" stroke-width="1" />';
+
+/*
+  for(let i = 0;i < peaks.length ;i++) {
+    let y = peak - peaks[i][1] * peak;
+    let x = peaks[i][0];
+    svg += '<text font-size="1" x="';
+    svg += x;
+    svg += '" y="';
+    svg += y;
+    svg += '">';
+    svg += peaks[i][0] %100;
+    svg +=  '</text>';
+  }
+*/
+
+  let counter = 0;
+  for(let i = 0;i < freqs.length ;i++) {
+    let y = peak - freqs[i][2] * peak;
+    if(y < 30) {
+      y += 30;
+    }
+    if(y > height -30) {
+      y -= 30;
+    }
+    y + offsetY;
+    /*
+    let y = peak;
+    let offset = (counter++%5 -2.5)*(peak/4);
+    y += offset;
+    */
+    let x = freqs[i][0];
+    svg += '<text font-size="12" x="';
+    svg += x;
+    svg += '" y="';
+    svg += y;
+    svg += '">';
+    svg += freqs[i][1];
+    svg +=  '</text>';
+  }
+
+
+  svg += '<polyline points="';
+  svg += ' 0,' + peak + ' ';
+  svg += width +',' + peak + ' ';
+  svg += '"';
+  svg += '\n';
+  svg += ' fill="none" stroke="blue" stroke-width="1" />';
+
+  svg += '\n';
+  return svg;
+}
+
 
 
 function createWaveSVG(wave,peaks,freqs) {
