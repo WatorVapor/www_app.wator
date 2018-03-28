@@ -197,6 +197,7 @@ function createWaveSVG(wave,peaks,freqs) {
 
 
 const dMinDeltaWave = 0.001;
+
 function checkPeak2Peak(wave) {
   let peakT = [];
   let peakB = [];
@@ -207,7 +208,7 @@ function checkPeak2Peak(wave) {
   for(let i = 1;i < wave.length -1;i++) {
     if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
       let delta = Math.abs(peakPrev - wave[i]);
-      if(dMinDeltaWave >peakPrev) {
+      if(delta > dMinDeltaWave) {
         peakT.push(i);
         peaks.push([i,wave[i]]);
         peakPrev = wave[i];
@@ -215,7 +216,7 @@ function checkPeak2Peak(wave) {
     }
     if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
       let delta = Math.abs(peakPrev - wave[i]);
-      if(dMinDeltaWave >peakPrev) {
+      if(delta > dMinDeltaWave) {
         peakB.push(i); 
         peaks.push([i,wave[i]]);
       }
