@@ -253,7 +253,7 @@ function checkPeak2Peak(wave) {
   let peakPrev = 0.0;
   
   for(let i = 1;i < wave.length -1;i++) {
-    if(wave[i] > wave[i-1] && wave[i] > wave[i+1]) {
+    if(wave[i] >= wave[i-1] && wave[i] >= wave[i+1]) {
       let delta = Math.abs(peakPrev - wave[i]);
       if(delta > dMinDeltaWave) {
         peakT.push(i);
@@ -261,7 +261,7 @@ function checkPeak2Peak(wave) {
         peakPrev = wave[i];
       }
     }
-    if(wave[i] < wave[i-1] && wave[i] < wave[i+1]) {
+    if(wave[i] <= wave[i-1] && wave[i] <= wave[i+1]) {
       let delta = Math.abs(peakPrev - wave[i]);
       if(delta > dMinDeltaWave) {
         peakB.push(i); 
