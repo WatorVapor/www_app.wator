@@ -30,7 +30,7 @@ function onMediaSuccess(stream) {
   let filter = audioCtx.createBiquadFilter();
   filter.type = 'lowpass';
 //  filter.frequency.value = 16384;
-  filter.frequency.value = 1024;
+  filter.frequency.value = 1600;
   
   let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
   jsProcess.onaudioprocess = onAudioProcess;
@@ -42,7 +42,7 @@ function onMediaSuccess(stream) {
   let filterHigh = audioCtx.createBiquadFilter();
   filterHigh.type = 'bandpass';
 //  filterHigh.frequency.value = 16384;
-  let from = 1024;
+  let from = 1600;
   let to = 16384;
   let geometricMean = Math.sqrt(from * to);
   filterHigh.frequency.value = geometricMean;
