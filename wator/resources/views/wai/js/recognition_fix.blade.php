@@ -136,6 +136,7 @@ function saveAllSVG(height,row,svgRows) {
 
 
 function createWavePolyline(height,offsetY,wave,peaks,freqs) {
+  let width = Math.max(totalBuffer.length,totalBufferHigh.length);
   //console.log('createWavePolyline:wave=<',wave,'>');
   let peak = height/2;
   
