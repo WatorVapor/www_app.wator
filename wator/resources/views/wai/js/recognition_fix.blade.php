@@ -93,7 +93,7 @@ function onAudioTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svg = createWaveSVG(totalBuffer,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(svg + svgHigh);
+    saveAllSVG(svgHigh);
   }
   totalBuffer = [];
 }
@@ -105,7 +105,7 @@ function onAudioHighTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svgHigh = createWaveSVG(totalBufferHigh,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(svg + svgHigh);
+    saveAllSVG(svgHigh);
   }
   totalBufferHigh = [];
 }
