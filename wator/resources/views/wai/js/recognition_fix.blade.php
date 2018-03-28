@@ -44,8 +44,8 @@ function onMediaSuccess(stream) {
 
   let filterHigh = audioCtx.createBiquadFilter();
   filterHigh.type = 'bandpass';
-  let fromHigh = 1600;
-  let toHigh = 16384;
+  let fromHigh = 100;
+  let toHigh = 1600;
   let geometricMeanHigh = Math.sqrt(fromHigh * toHigh);
   filterHigh.frequency.value = geometricMeanHigh;
   filterHigh.Q.value = geometricMeanHigh / (toHigh - fromHigh);
