@@ -96,7 +96,6 @@ function onAudioTotalClipSuccess() {
     saveAllSave(svg + svgHigh);
   }
   totalBuffer = [];
-  svg = false;
 }
 
 
@@ -121,7 +120,8 @@ function saveAllSave(svg) {
   a.href = urlBlob;
   a.download = 'wai.recog_fix.svg';
   a.click();
-  //document.body.removeChild(a);
+  svg = false;
+  svgHigh = false;
 }
 
 
