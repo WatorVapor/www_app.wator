@@ -140,7 +140,7 @@ function onAudioRawTotalClipSuccess() {
 
 
 function saveAllSVG(height,row,svgRows) {
-  let width = Math.max(totalBuffer.length,totalBufferHigh.length);
+  let width = Math.max(totalBuffer.length,totalBufferHigh.length,totalRawBuffer.length);
   let svg = '<svg width="';
   svg += width ;
   svg += '" height="';
@@ -166,7 +166,7 @@ function saveAllSVG(height,row,svgRows) {
 
 
 function createWavePolyline(height,offsetY,wave,peaks,freqs) {
-  let width = Math.max(totalBuffer.length,totalBufferHigh.length);
+  let width = wave.length;
   //console.log('createWavePolyline:wave=<',wave,'>');
   let peak = height/2;
   
