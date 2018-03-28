@@ -84,20 +84,44 @@ function onAudioProcessHigh(evt) {
   totalBufferHigh.push(...audioData);
 }
 
+let svg = false;
+let svgHigh = false;
+
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBuffer);
   let freqs = calFreq(peaks);
-  createWaveSVG(totalBuffer,peaks,freqs);
+  svg = createWaveSVG(totalBuffer,peaks,freqs);
+  if(svg && svgHigh) {
+    saveAllSave(svg + svgHigh);
+  }
   totalBuffer = [];
+  svg = false;
 }
+
 
 function onAudioHighTotalClipSuccess() {
   //console.log('onAudioHighTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBufferHigh);
   let freqs = calFreq(peaks);
-  createWaveSVG(totalBufferHigh,peaks,freqs);
+  svgHigh = createWaveSVG(totalBufferHigh,peaks,freqs);
+  if(svg && svgHigh) {
+    saveAllSave(svg + svgHigh);
+  }
   totalBufferHigh = [];
+}
+
+function saveAllSave(svg) {
+  let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
+  let urlBlob = window.URL.createObjectURL(blob);
+  console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
+  let img = document.getElementById('wai-recognition-wave');
+  img.src = urlBlob;
+  var a = document.createElement('a');
+  a.href = urlBlob;
+  a.download = 'wai.recog_fix.svg';
+  a.click();
+  //document.body.removeChild(a);
 }
 
 
@@ -185,16 +209,6 @@ function createWaveSVG(wave,peaks,freqs) {
   svg += '</svg>';
   //console.log('createWaveSVG:svg=<',svg,'>');
   
-  let blob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
-  let urlBlob = window.URL.createObjectURL(blob);
-  console.log('createWaveSVG:urlBlob=<',urlBlob,'>');
-  let img = document.getElementById('wai-recognition-wave');
-  img.src = urlBlob;
-  var a = document.createElement('a');
-  a.href = urlBlob;
-  a.download = 'wai.recog_fix.svg';
-  a.click();
-  //document.body.removeChild(a);
 }
 
 
