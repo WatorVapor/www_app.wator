@@ -183,7 +183,7 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
     if(y > height -30) {
       y -= 30;
     }
-    y + offsetY;
+    y += offsetY;
     let x = freqs[i][0];
     svg += '<text font-size="12" x="';
     svg += x;
