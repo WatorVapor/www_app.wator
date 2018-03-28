@@ -133,7 +133,7 @@ function onAudioRawTotalClipSuccess() {
   if(svg && svgHigh && svgRaw) {
     saveAllSVG(200,3,svgRaw + svg + svgHigh);
   }
-  totalBufferHigh = [];
+  totalRawBuffer = [];
 }
 
 
