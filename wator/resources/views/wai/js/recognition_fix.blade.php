@@ -208,7 +208,7 @@ function createWaveSVG(wave,peaks,freqs) {
   svg += '\n';
   svg += '</svg>';
   //console.log('createWaveSVG:svg=<',svg,'>');
-  
+  return svg;
 }
 
 
@@ -251,7 +251,7 @@ function calFreq(peaks) {
     let index = peaks[i][0];
     freqs.push([index,freq,peaks[i][1]]);
   }
-  console.log('calFreq:freqs=<',freqs,'>');
+  //console.log('calFreq:freqs=<',freqs,'>');
   return freqs;
 }
 
