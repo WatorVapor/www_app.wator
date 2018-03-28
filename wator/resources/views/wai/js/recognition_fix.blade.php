@@ -93,7 +93,7 @@ function onAudioTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svg = createWavePolyline(200,0,totalBuffer,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(200,1,svgHigh);
+    saveAllSVG(200,2,svg + svgHigh);
   }
   totalBuffer = [];
 }
@@ -105,7 +105,7 @@ function onAudioHighTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svgHigh = createWavePolyline(200,200,totalBufferHigh,peaks,freqs);
   if(svg && svgHigh) {
-    saveAllSVG(200,1,svgHigh);
+    saveAllSVG(200,2,svg + svgHigh);
   }
   totalBufferHigh = [];
 }
@@ -197,7 +197,8 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
     svg += '">';
     svg += freqs[i][1];
     svg +=  '</text>';
-  }
+   svg += '\n';
+ }
 
 
   svg += '<polyline points="';
