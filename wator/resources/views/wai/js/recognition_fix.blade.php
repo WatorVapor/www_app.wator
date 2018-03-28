@@ -111,10 +111,7 @@ function onAudioHighTotalClipSuccess() {
 }
 
 function saveAllSVG(height,row,svgRows) {
-  let width = totalBuffer.length;
-  if(totalBufferHigh.length > width) {
-    width = totalBufferHigh.length;
-  }
+  let width = Math.max(totalBuffer.length,totalBufferHigh.length);
   let svg = '<svg width="';
   svg += width ;
   svg += '" height="';
