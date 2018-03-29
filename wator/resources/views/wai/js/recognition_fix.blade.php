@@ -20,7 +20,7 @@ function onMediaError(e) {
 }
 
 
-const RECORD_TIME_MS = 3000;
+const RECORD_TIME_MS = 1500;
 const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.04;
 const dMinDeltaMiddleFeqWave = 0.02;
