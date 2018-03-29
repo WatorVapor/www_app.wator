@@ -21,8 +21,10 @@ function onMediaError(e) {
 
 
 const RECORD_TIME_MS = 3000;
+const dMinDeltaRawFeqWave = 0.001;
+const dMinDeltaLowFeqWave = 0.08;
+const dMinDeltaMiddleFeqWave = 0.04;
 const dMinDeltaHighFeqWave = 0.02;
-const dMinDeltaLowFeqWave = 0.04;
 
 
 function onMediaSuccess(stream) {
@@ -107,7 +109,7 @@ let svgRaw = false;
 
 function onAudioRawTotalClipSuccess() {
   //console.log('onAudioHighTotalClipSuccess:totalRawBuffer=<',totalRawBuffer,'>');
-  let peaks = checkPeak2Peak(totalRawBuffer);
+  let peaks = checkPeak2Peak(totalRawBuffer,dMinDeltaRawFeqWave);
   let freqs = calFreq(peaks);
   svgRaw = createWavePolyline(200,0,totalRawBuffer,peaks,freqs);
   if(svg && svgMiddle && svgHigh && svgRaw) {
@@ -119,7 +121,7 @@ function onAudioRawTotalClipSuccess() {
 
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
-  let peaks = checkPeak2Peak(totalBuffer);
+  let peaks = checkPeak2Peak(totalBuffer,dMinDeltaLowFeqWave);
   let freqs = calFreq(peaks);
   svg = createWavePolyline(200,200,totalBuffer,peaks,freqs);
   if(svg && svgHigh && svgRaw) {
@@ -130,7 +132,7 @@ function onAudioTotalClipSuccess() {
 
 function onAudioMiddleTotalClipSuccess() {
   //console.log('onAudioMiddleTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
-  let peaks = checkPeak2Peak(totalBufferMiddle);
+  let peaks = checkPeak2Peak(totalBufferMiddle,dMinDeltaMiddleFeqWave);
   let freqs = calFreq(peaks);
   svgMiddle = createWavePolyline(200,400,totalBufferMiddle,peaks,freqs);
   if(svg && svgMiddle && svgHigh && svgRaw) {
@@ -142,7 +144,7 @@ function onAudioMiddleTotalClipSuccess() {
 
 function onAudioHighTotalClipSuccess() {
   //console.log('onAudioHighTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
-  let peaks = checkPeak2Peak(totalBufferHigh);
+  let peaks = checkPeak2Peak(totalBufferHigh,dMinDeltaHighFeqWave);
   let freqs = calFreq(peaks);
   svgHigh = createWavePolyline(200,600,totalBufferHigh,peaks,freqs);
   if(svg && svgMiddle && svgHigh && svgRaw) {
@@ -260,7 +262,7 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
 
 
 
-function checkPeak2Peak(wave) {
+function checkPeak2Peak(wave,dMinDeltaWave) {
   let peakT = [];
   let peakB = [];
   
