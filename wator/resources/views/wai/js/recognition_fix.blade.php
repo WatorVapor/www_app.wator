@@ -33,9 +33,9 @@ function onMediaSuccess(stream) {
   
 
   createAudioPipe(source,onRawAudioProcess);
-  createAudioPipe(source,onAudioProcess,100,300);
-  createAudioPipe(source,onAudioProcessMiddle,300,800);
-  createAudioPipe(source,onAudioProcessHigh,800,1600);
+  createAudioPipe(source,onAudioProcess,100,500);
+  createAudioPipe(source,onAudioProcessMiddle,490,1000);
+  createAudioPipe(source,onAudioProcessHigh,990,1600);
   
   setTimeout(function(){
     source.disconnect();
