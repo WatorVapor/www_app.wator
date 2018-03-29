@@ -22,9 +22,9 @@ function onMediaError(e) {
 
 const RECORD_TIME_MS = 3000;
 const dMinDeltaRawFeqWave = 0.001;
-const dMinDeltaLowFeqWave = 0.08;
-const dMinDeltaMiddleFeqWave = 0.04;
-const dMinDeltaHighFeqWave = 0.02;
+const dMinDeltaLowFeqWave = 0.16;
+const dMinDeltaMiddleFeqWave = 0.08;
+const dMinDeltaHighFeqWave = 0.04;
 
 
 function onMediaSuccess(stream) {
