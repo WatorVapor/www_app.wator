@@ -21,46 +21,19 @@ function onMediaError(e) {
 
 
 const RECORD_TIME_MS = 3000;
+const dMinDeltaHighFeqWave = 0.02;
+const dMinDeltaLowFeqWave = 0.04;
 
 
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
   
-  let jsProcessRaw = audioCtx.createScriptProcessor(16384, 1, 1);
-  jsProcessRaw.onaudioprocess = onRawAudioProcess;
-  source.connect(jsProcessRaw);
-  jsProcessRaw.connect(audioCtx.destination);
 
-  let filter = audioCtx.createBiquadFilter();
-  filter.type = 'bandpass';
-  let from = 100;
-  let to = 300;
-  let geometricMean = Math.sqrt(from * to);
-  filter.frequency.value = geometricMean;
-  filter.Q.value = geometricMean / (to - from);
-  
-  let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
-  jsProcess.onaudioprocess = onAudioProcess;
-  source.connect(filter);
-  filter.connect(jsProcess);
-  jsProcess.connect(audioCtx.destination);
-
-
-  let filterHigh = audioCtx.createBiquadFilter();
-  filterHigh.type = 'bandpass';
-  let fromHigh = 200;
-  let toHigh = 1600;
-  let geometricMeanHigh = Math.sqrt(fromHigh * toHigh);
-  filterHigh.frequency.value = geometricMeanHigh;
-  filterHigh.Q.value = geometricMeanHigh / (toHigh - fromHigh);
-  
-  let jsProcessHigh = audioCtx.createScriptProcessor(16384, 1, 1);
-  jsProcessHigh.onaudioprocess = onAudioProcessHigh;
-  source.connect(filterHigh);
-  filterHigh.connect(jsProcessHigh);
-  jsProcessHigh.connect(audioCtx.destination);
-
+  createAudioPipe(source,onRawAudioProcess);
+  createAudioPipe(source,onAudioProcess,100,300);
+  createAudioPipe(source,onAudioProcessMiddle,300,800);
+  createAudioPipe(source,onAudioProcessHigh,800,1600);
   
   setTimeout(function(){
     source.disconnect();
@@ -68,10 +41,30 @@ function onMediaSuccess(stream) {
   
   
   setTimeout(function(){
-    onAudioTotalClipSuccess();
-    onAudioHighTotalClipSuccess();
     onAudioRawTotalClipSuccess();
+    onAudioTotalClipSuccess();
+    onAudioMiddleTotalClipSuccess();
+    onAudioHighTotalClipSuccess();
   },RECORD_TIME_MS + 1000);
+}
+
+function createAudioPipe(source,onData,freqL,freqH) {
+  let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
+  jsProcess.onaudioprocess = onData;
+  if(freqL && freqH) {
+    filter = audioCtx.createBiquadFilter();
+    filter.type = 'bandpass';
+    let from = freqL;
+    let to = freqH;
+    let geometricMean = Math.sqrt(from * to);
+    filter.frequency.value = geometricMean;
+    filter.Q.value = geometricMean / (to - from);
+    source.connect(filter);
+    filter.connect(jsProcess);
+  } else {
+    source.connect(jsProcess);
+  }
+  jsProcess.connect(audioCtx.destination);
 }
 
 let totalRawBuffer = [];
@@ -90,6 +83,14 @@ function onAudioProcess(evt) {
   totalBuffer.push(...audioData);
 }
 
+let totalBufferMiddle = [];
+function onAudioProcessMiddle(evt) {
+  //console.log('onAudioProcessMiddle:evt=<',evt,'>');
+  let audioData = evt.inputBuffer.getChannelData(0);
+  //console.log('onAudioProcessMiddle:audioData=<',audioData,'>');
+  totalBufferMiddle.push(...audioData);
+}
+
 let totalBufferHigh = [];
 function onAudioProcessHigh(evt) {
   //console.log('onAudioProcessHigh:evt=<',evt,'>');
@@ -98,9 +99,23 @@ function onAudioProcessHigh(evt) {
   totalBufferHigh.push(...audioData);
 }
 
+
 let svg = false;
+let svgMiddle = false;
 let svgHigh = false;
 let svgRaw = false;
+
+function onAudioRawTotalClipSuccess() {
+  //console.log('onAudioHighTotalClipSuccess:totalRawBuffer=<',totalRawBuffer,'>');
+  let peaks = checkPeak2Peak(totalRawBuffer);
+  let freqs = calFreq(peaks);
+  svgRaw = createWavePolyline(200,0,totalRawBuffer,peaks,freqs);
+  if(svg && svgMiddle && svgHigh && svgRaw) {
+    saveAllSVG(200,4,svgRaw + svg + svgMiddle + svgHigh);
+  }
+  totalRawBuffer = [];
+}
+
 
 function onAudioTotalClipSuccess() {
   //console.log('onAudioTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
@@ -108,9 +123,20 @@ function onAudioTotalClipSuccess() {
   let freqs = calFreq(peaks);
   svg = createWavePolyline(200,200,totalBuffer,peaks,freqs);
   if(svg && svgHigh && svgRaw) {
-    saveAllSVG(200,3,svgRaw + svg + svgHigh);
+    saveAllSVG(200,4,svgRaw + svg + svgMiddle + svgHigh);
   }
   totalBuffer = [];
+}
+
+function onAudioMiddleTotalClipSuccess() {
+  //console.log('onAudioMiddleTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
+  let peaks = checkPeak2Peak(totalBufferMiddle);
+  let freqs = calFreq(peaks);
+  svgMiddle = createWavePolyline(200,400,totalBufferMiddle,peaks,freqs);
+  if(svg && svgMiddle && svgHigh && svgRaw) {
+    saveAllSVG(200,4,svgRaw + svg + svgMiddle + svgHigh);
+  }
+  totalBufferMiddle = [];
 }
 
 
@@ -118,23 +144,13 @@ function onAudioHighTotalClipSuccess() {
   //console.log('onAudioHighTotalClipSuccess:totalBuffer=<',totalBuffer,'>');
   let peaks = checkPeak2Peak(totalBufferHigh);
   let freqs = calFreq(peaks);
-  svgHigh = createWavePolyline(200,400,totalBufferHigh,peaks,freqs);
-  if(svg && svgHigh && svgRaw) {
-    saveAllSVG(200,3,svgRaw + svg + svgHigh);
+  svgHigh = createWavePolyline(200,600,totalBufferHigh,peaks,freqs);
+  if(svg && svgMiddle && svgHigh && svgRaw) {
+    saveAllSVG(200,4,svgRaw + svg + svgMiddle + svgHigh);
   }
   totalBufferHigh = [];
 }
 
-function onAudioRawTotalClipSuccess() {
-  //console.log('onAudioHighTotalClipSuccess:totalRawBuffer=<',totalRawBuffer,'>');
-  let peaks = checkPeak2Peak(totalRawBuffer);
-  let freqs = calFreq(peaks);
-  svgRaw = createWavePolyline(200,0,totalRawBuffer,peaks,freqs);
-  if(svg && svgHigh && svgRaw) {
-    saveAllSVG(200,3,svgRaw + svg + svgHigh);
-  }
-  totalRawBuffer = [];
-}
 
 
 
@@ -243,7 +259,6 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
 
 
 
-const dMinDeltaWave = 0.02;
 
 function checkPeak2Peak(wave) {
   let peakT = [];
