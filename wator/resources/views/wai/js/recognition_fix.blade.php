@@ -22,8 +22,8 @@ function onMediaError(e) {
 
 const RECORD_TIME_MS = 3000;
 const dMinDeltaRawFeqWave = 0.001;
-const dMinDeltaLowFeqWave = 0.04;
-const dMinDeltaMiddleFeqWave = 0.02;
+const dMinDeltaLowFeqWave = 0.16;
+const dMinDeltaMiddleFeqWave = 0.04;
 const dMinDeltaHighFeqWave = 0.01;
 
 
@@ -33,9 +33,9 @@ function onMediaSuccess(stream) {
   
 
   createAudioPipe(source,onRawAudioProcess);
-  createAudioPipe(source,onAudioProcess,100,500);
-  createAudioPipe(source,onAudioProcessMiddle,490,1000);
-  createAudioPipe(source,onAudioProcessHigh,990,1600);
+  createAudioPipe(source,onAudioProcess,100,200);
+  createAudioPipe(source,onAudioProcessMiddle,200,800);
+  createAudioPipe(source,onAudioProcessHigh,800,1600);
   
   setTimeout(function(){
     source.disconnect();
