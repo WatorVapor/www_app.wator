@@ -42,7 +42,8 @@ class FilterAudioPipe {
   onEnd() {
     let peaks = checkPeak2Peak(this.totalBuffer,this.delta);
     let freqs = calFreq(peaks);
-    this.svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
+    let svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
+    return svg;
   }
   createAudioPipe_() {
     let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
@@ -105,17 +106,19 @@ function onMediaSuccess(stream) {
   
   
   setTimeout(function(){
-    fraw.onEnd();
-    f100.onEnd();
-    f200.onEnd();
-    f300.onEnd();
-    f400.onEnd();
-    f500.onEnd();
-    f600.onEnd();
-    f700.onEnd();
-    f800.onEnd();
-    f900.onEnd();
-    f1000.onEnd();
+    let svg = '';
+    svg += fraw.onEnd();
+    svg += f100.onEnd();
+    svg += f200.onEnd();
+    svg += f300.onEnd();
+    svg += f400.onEnd();
+    svg += f500.onEnd();
+    svg += f600.onEnd();
+    svg += f700.onEnd();
+    svg += f800.onEnd();
+    svg += f900.onEnd();
+    svg += f1000.onEnd();
+    console.log('onMediaSuccess:svg.length=<',svg.length,'>');
   },RECORD_TIME_MS + 1000);
 }
 
