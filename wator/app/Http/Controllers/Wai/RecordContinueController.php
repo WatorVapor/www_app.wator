@@ -160,7 +160,7 @@ class RecordContinueController extends Controller
             $data['lang'] = $lang;
         }
         //var_dump($data);
-        return view('wai.recorder_voice',$data);
+        return view('wai.recorder_continue',$data);
     }
     /**
      * Store a newly created resource in storage.
