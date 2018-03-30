@@ -6,31 +6,22 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.css" integrity="sha256-qkeO+BtgpANRnm6UfrclSLyB+QdfOK4qtspUK6qpnGk=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.js" integrity="sha256-CMbY8O/nsUqZQgyh7wMVktFXm31lLdWlCkl86V2eSCg=" crossorigin="anonymous"></script>
-
-<hr/>
 
 <div class="row justify-content-center">
   <div class="col-lg-10 ">
     <div class="row">
       <div class="col">
-        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_voice/cn" role="button">
+        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_continue/cn" role="button">
           {{ trans('wai_record_voice.chinese') }}
         </a>
       </div>
       <div class="col">
-        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_voice/ja" role="button">
+        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_continue/ja" role="button">
           {{ trans('wai_record_voice.japanese') }}
         </a>
       </div>
       <div class="col">
-        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_voice/ext_ja" role="button">
-          {{ trans('wai_record_voice.japanese_ext') }}
-        </a>
-      </div>
-      <div class="col">
-        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_voice/ctrl" role="button">
+        <a class="btn btn-lg btn btn-primary btn-block" href="/wai/text/record_continue/ctrl" role="button">
           {{ trans('wai_record_voice.ctrl') }}
         </a>
       </div>
