@@ -46,7 +46,7 @@ class FilterAudioPipe {
   }
   createAudioPipe_() {
     let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
-    let jsProcess.onaudioprocess = this.onData_;
+    jsProcess.onaudioprocess = this.onData_;
     if(this.freqFrom && this.freqTo) {
       let filter = audioCtx.createBiquadFilter();
       filter.type = 'bandpass';
