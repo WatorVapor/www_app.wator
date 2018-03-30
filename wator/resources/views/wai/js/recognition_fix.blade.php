@@ -45,8 +45,8 @@ class FilterAudioPipe {
     this.svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
   }
   createAudioPipe_() {
-    this.jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
-    this.jsProcess.onaudioprocess = this.onData_;
+    let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
+    let jsProcess.onaudioprocess = this.onData_;
     if(this.freqFrom && this.freqTo) {
       let filter = audioCtx.createBiquadFilter();
       filter.type = 'bandpass';
@@ -60,7 +60,7 @@ class FilterAudioPipe {
     } else {
       this.source.connect(jsProcess);
     }
-    this.jsProcess.connect(audioCtx.destination);
+    jsProcess.connect(audioCtx.destination);
   }  
   onData_(evt){
     //console.log('onData:evt=<',evt,'>');
