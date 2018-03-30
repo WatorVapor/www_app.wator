@@ -45,6 +45,9 @@ Route::post('/wai/text/participle', 'Wai\ParticipleController@store');
 Route::get('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@index');
 Route::post('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@store');
 
+Route::get('/wai/text/record_continue/{name?}', 'Wai\RecordContinueController@index');
+Route::post('/wai/text/record_continue/{name?}', 'Wai\RecordContinueController@store');
+
 Route::get('/wai/text/recognition', 'Wai\RecognitionVoiceController@index');
 Route::get('/wai/text/recognition_fix', 'Wai\RecognitionVoiceController@index_fix');
 
