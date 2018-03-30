@@ -84,10 +84,10 @@ function onMediaSuccess(stream) {
   let f100 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,100,400);
 //  let f200 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,200,300);
 //  let f300 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,300,500);
-  let f400 = new FilterAudioPipe(source,dMinDeltaLowFeqWave400,700);
+  let f400 = new FilterAudioPipe(source,dMinDeltaMiddleFeqWave,700);
 //  let f500 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,500,700);
 //  let f600 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,600,700);
-  let f700 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,700,1000,dMinDeltaHighFeqWave);
+  let f700 = new FilterAudioPipe(source,dMinDeltaMiddleFeqWave,700,1000);
 //  let f800 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,800,900);
 //  let f900 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,900,1100);
   let fk = new FilterAudioPipe(source,dMinDeltaHighFeqWave,1000,1600);
