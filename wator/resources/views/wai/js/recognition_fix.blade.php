@@ -80,16 +80,17 @@ function onMediaSuccess(stream) {
   let source = audioCtx.createMediaStreamSource(stream);
  
   let fraw = new FilterAudioPipe(source);
-  let f100 = new FilterAudioPipe(source,100,300,dMinDeltaRawFeqWave);
+  
+  let f100 = new FilterAudioPipe(source,100,400,dMinDeltaRawFeqWave);
 //  let f200 = new FilterAudioPipe(source,200,300,dMinDeltaLowFeqWave);
-  let f300 = new FilterAudioPipe(source,300,500,dMinDeltaLowFeqWave);
-//  let f400 = new FilterAudioPipe(source,400,500,dMinDeltaLowFeqWave);
-  let f500 = new FilterAudioPipe(source,500,700,dMinDeltaLowFeqWave);
+//  let f300 = new FilterAudioPipe(source,300,500,dMinDeltaLowFeqWave);
+  let f400 = new FilterAudioPipe(source,400,700,dMinDeltaLowFeqWave);
+//  let f500 = new FilterAudioPipe(source,500,700,dMinDeltaLowFeqWave);
 //  let f600 = new FilterAudioPipe(source,600,700,dMinDeltaLowFeqWave);
   let f700 = new FilterAudioPipe(source,700,900,dMinDeltaHighFeqWave);
 //  let f800 = new FilterAudioPipe(source,800,900,dMinDeltaHighFeqWave);
-  let f900 = new FilterAudioPipe(source,900,1100,dMinDeltaHighFeqWave);
-  let fk = new FilterAudioPipe(source,1100,1600,dMinDeltaHighFeqWave);
+//  let f900 = new FilterAudioPipe(source,900,1100,dMinDeltaHighFeqWave);
+  let fk = new FilterAudioPipe(source,1000,1600,dMinDeltaHighFeqWave);
 
   setTimeout(function(){
     source.disconnect();
@@ -101,16 +102,16 @@ function onMediaSuccess(stream) {
     svg += fraw.onEnd();
     svg += f100.onEnd();
     //svg += f200.onEnd();
-    svg += f300.onEnd();
-    //svg += f400.onEnd();
-    svg += f500.onEnd();
+    //svg += f300.onEnd();
+    svg += f400.onEnd();
+    //svg += f500.onEnd();
     //svg += f600.onEnd();
     svg += f700.onEnd();
     //svg += f800.onEnd();
-    svg += f900.onEnd();
+    //svg += f900.onEnd();
     svg += fk.onEnd();
     console.log('onMediaSuccess:svg.length=<',svg.length,'>');
-    saveAllSVG(iWaveHeight,7,svg,fraw.getWidth());
+    saveAllSVG(iWaveHeight,5,svg,fraw.getWidth());
   },RECORD_TIME_MS + 1000);
 }
 
