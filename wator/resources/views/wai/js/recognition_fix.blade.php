@@ -88,8 +88,8 @@ function onMediaSuccess(stream) {
 //  let f600 = new FilterAudioPipe(source,600,700,dMinDeltaLowFeqWave);
   let f700 = new FilterAudioPipe(source,700,900,dMinDeltaHighFeqWave);
 //  let f800 = new FilterAudioPipe(source,800,900,dMinDeltaHighFeqWave);
-  let f900 = new FilterAudioPipe(source,900,1000,dMinDeltaHighFeqWave);
-  let f1000 = new FilterAudioPipe(source,1000,1600,dMinDeltaHighFeqWave);
+  let f900 = new FilterAudioPipe(source,900,1200,dMinDeltaHighFeqWave);
+  let f1000 = new FilterAudioPipe(source,1200,1600,dMinDeltaHighFeqWave);
 
   setTimeout(function(){
     source.disconnect();
