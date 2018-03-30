@@ -27,14 +27,14 @@ class RecordContinueController extends Controller
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
         File::makeDirectory($profilePath, 0775, true, true);
-        $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
+        $phonemePath = $profilePath . '/continue_phoneme_' . $lang . '.json';
         //var_dump($phonemePath);
         if (file_exists($phonemePath)) {
             $phonemeStr = file_get_contents($phonemePath);
             $phonemeJson = json_decode($phonemeStr, true);
             //var_dump($phonemeJson);
         } else {
-            $phonemePath = storage_path() . '/RecordVoicePhoneme_'. $lang . '.json';
+            $phonemePath = storage_path() . '/Continue_RecordVoicePhoneme_'. $lang . '.json';
             //var_dump($phonemePath);
             $phonemeStr = file_get_contents($phonemePath);
             //var_dump($phonemeStr);
@@ -48,7 +48,7 @@ class RecordContinueController extends Controller
         $accessToken = $request->session()->get('account.rsa.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/wai';
         File::makeDirectory($profilePath, 0775, true, true);
-        $phonemePath = $profilePath . '/phoneme_' . $lang . '.json';
+        $phonemePath = $profilePath . '/continue_phoneme_' . $lang . '.json';
         $phonemeData = json_encode($phonemeJson,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         $result = file_put_contents($phonemePath,$phonemeData);
         return $result;
