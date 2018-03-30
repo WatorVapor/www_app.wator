@@ -79,18 +79,20 @@ function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
  
-  let fraw = new FilterAudioPipe(source);
+  let fraw = new FilterAudioPipe(source,dMinDeltaRawFeqWave);
   
-  let f100 = new FilterAudioPipe(source,100,400,dMinDeltaRawFeqWave);
-//  let f200 = new FilterAudioPipe(source,200,300,dMinDeltaLowFeqWave);
-//  let f300 = new FilterAudioPipe(source,300,500,dMinDeltaLowFeqWave);
-  let f400 = new FilterAudioPipe(source,400,700,dMinDeltaLowFeqWave);
-//  let f500 = new FilterAudioPipe(source,500,700,dMinDeltaLowFeqWave);
-//  let f600 = new FilterAudioPipe(source,600,700,dMinDeltaLowFeqWave);
-  let f700 = new FilterAudioPipe(source,700,1000,dMinDeltaHighFeqWave);
-//  let f800 = new FilterAudioPipe(source,800,900,dMinDeltaHighFeqWave);
-//  let f900 = new FilterAudioPipe(source,900,1100,dMinDeltaHighFeqWave);
-  let fk = new FilterAudioPipe(source,1000,1600,dMinDeltaHighFeqWave);
+  let f100 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,100,400);
+//  let f200 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,200,300);
+//  let f300 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,300,500);
+  let f400 = new FilterAudioPipe(source,dMinDeltaLowFeqWave400,700);
+//  let f500 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,500,700);
+//  let f600 = new FilterAudioPipe(source,dMinDeltaLowFeqWave,600,700);
+  let f700 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,700,1000,dMinDeltaHighFeqWave);
+//  let f800 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,800,900);
+//  let f900 = new FilterAudioPipe(source,dMinDeltaHighFeqWave,900,1100);
+  let fk = new FilterAudioPipe(source,dMinDeltaHighFeqWave,1000,1600);
+
+  let fear = new FilterAudioPipe(source,dMinDeltaHighFeqWave,1600,16384);
 
   setTimeout(function(){
     source.disconnect();
@@ -110,8 +112,9 @@ function onMediaSuccess(stream) {
     //svg += f800.onEnd();
     //svg += f900.onEnd();
     svg += fk.onEnd();
+    svg += fear.onEnd();
     console.log('onMediaSuccess:svg.length=<',svg.length,'>');
-    saveAllSVG(iWaveHeight,5,svg,fraw.getWidth());
+    saveAllSVG(iWaveHeight,6,svg,fraw.getWidth());
   },RECORD_TIME_MS + 1000);
 }
 
