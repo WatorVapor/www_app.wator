@@ -30,7 +30,7 @@ const iWaveHeight = 200;
 
 let filterCounter = 0;
 class FilterAudioPipe {
-  constructor(source,freqFrom,freqTo,delta) {
+  constructor(source,delta,freqFrom,freqTo) {
     this.totalBuffer = [];
     this.source = source;
     this.freqFrom = freqFrom;
