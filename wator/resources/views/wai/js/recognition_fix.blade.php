@@ -25,28 +25,97 @@ const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.08;
 const dMinDeltaMiddleFeqWave = 0.02;
 const dMinDeltaHighFeqWave = 0.01;
+const iWaveHeight = 200;
+
+
+let filterCounter = 0;
+class FilterAudioPipe {
+  constructor(source,freqFrom,freqTo,delta) {
+    this.totalBuffer = [];
+    this.source = source;
+    this.freqFrom = freqFrom;
+    this.freqTo = freqTo;
+    this.delta = delta;
+    this.offset = filterCounter++;
+    this.createAudioPipe_();
+  }
+  onEnd() {
+    let peaks = checkPeak2Peak(this.totalBuffer,this.delta);
+    let freqs = calFreq(peaks);
+    this.svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
+  }
+  createAudioPipe_() {
+    this.jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
+    this.jsProcess.onaudioprocess = this.onData_;
+    if(this.freqFrom && this.freqTo) {
+      let filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      let from = this.freqFrom;
+      let to = this.freqTo;
+      let geometricMean = Math.sqrt(from * to);
+      filter.frequency.value = geometricMean;
+      filter.Q.value = geometricMean / (to - from);
+      this.source.connect(filter);
+      filter.connect(jsProcess);
+    } else {
+      this.source.connect(jsProcess);
+    }
+    this.jsProcess.connect(audioCtx.destination);
+  }  
+  onData_(evt){
+    //console.log('onData:evt=<',evt,'>');
+    let audioData = evt.inputBuffer.getChannelData(0);
+    //console.log('onData:audioData=<',audioData,'>');
+    this.totalBuffer.push(...audioData);
+  }
+};
 
 
 function onMediaSuccess(stream) {
   console.log('onMediaSuccess:stream=<',stream,'>');
   let source = audioCtx.createMediaStreamSource(stream);
-  
-
-  createAudioPipe(source,onRawAudioProcess);
+ 
+  let fraw = new FilterAudioPipe(source);
+  let f100 = new FilterAudioPipe(source,100,200,dMinDeltaRawFeqWave);
+  let f200 = new FilterAudioPipe(source,200,300,dMinDeltaLowFeqWave);
+  let f300 = new FilterAudioPipe(source,300,400,dMinDeltaLowFeqWave);
+  let f400 = new FilterAudioPipe(source,400,500,dMinDeltaLowFeqWave);
+  let f500 = new FilterAudioPipe(source,500,600,dMinDeltaLowFeqWave);
+  let f600 = new FilterAudioPipe(source,600,700,dMinDeltaLowFeqWave);
+  let f700 = new FilterAudioPipe(source,700,800,dMinDeltaHighFeqWave);
+  let f800 = new FilterAudioPipe(source,800,900,dMinDeltaHighFeqWave);
+  let f900 = new FilterAudioPipe(source,900,1000,dMinDeltaHighFeqWave);
+  let f1000 = new FilterAudioPipe(source,1000,1600,dMinDeltaHighFeqWave);
+/*  
   createAudioPipe(source,onAudioProcess,100,200);
-  createAudioPipe(source,onAudioProcessMiddle,200,800);
-  createAudioPipe(source,onAudioProcessHigh,800,1600);
   
+  createAudioPipe(source,onAudioProcessMiddle200,200,300);
+  createAudioPipe(source,onAudioProcessMiddle300,300,400);
+  createAudioPipe(source,onAudioProcessMiddle400,400,500);
+  createAudioPipe(source,onAudioProcessMiddle500,500,600);
+  createAudioPipe(source,onAudioProcessMiddle600,600,700);
+  createAudioPipe(source,onAudioProcessMiddle700,700,800);
+  createAudioPipe(source,onAudioProcessMiddle800,800,900);
+  createAudioPipe(source,onAudioProcessMiddle900,900,1000);
+  createAudioPipe(source,onAudioProcessHigh,1000,1600);
+*/  
   setTimeout(function(){
     source.disconnect();
   },RECORD_TIME_MS);
   
   
   setTimeout(function(){
-    onAudioRawTotalClipSuccess();
-    onAudioTotalClipSuccess();
-    onAudioMiddleTotalClipSuccess();
-    onAudioHighTotalClipSuccess();
+    fraw.onEnd();
+    f100.onEnd();
+    f200.onEnd();
+    f300.onEnd();
+    f400.onEnd();
+    f500.onEnd();
+    f600.onEnd();
+    f700.onEnd();
+    f800.onEnd();
+    f900.onEnd();
+    f1000.onEnd();
   },RECORD_TIME_MS + 1000);
 }
 
