@@ -45,6 +45,9 @@ class FilterAudioPipe {
     let svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
     return svg;
   }
+  getWidth() {
+    return this.totalBuffer.length;
+  }
   createAudioPipe_() {
     let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
     jsProcess.onaudioprocess = this.onData_.bind(this);
@@ -87,19 +90,7 @@ function onMediaSuccess(stream) {
   let f800 = new FilterAudioPipe(source,800,900,dMinDeltaHighFeqWave);
   let f900 = new FilterAudioPipe(source,900,1000,dMinDeltaHighFeqWave);
   let f1000 = new FilterAudioPipe(source,1000,1600,dMinDeltaHighFeqWave);
-/*  
-  createAudioPipe(source,onAudioProcess,100,200);
-  
-  createAudioPipe(source,onAudioProcessMiddle200,200,300);
-  createAudioPipe(source,onAudioProcessMiddle300,300,400);
-  createAudioPipe(source,onAudioProcessMiddle400,400,500);
-  createAudioPipe(source,onAudioProcessMiddle500,500,600);
-  createAudioPipe(source,onAudioProcessMiddle600,600,700);
-  createAudioPipe(source,onAudioProcessMiddle700,700,800);
-  createAudioPipe(source,onAudioProcessMiddle800,800,900);
-  createAudioPipe(source,onAudioProcessMiddle900,900,1000);
-  createAudioPipe(source,onAudioProcessHigh,1000,1600);
-*/  
+
   setTimeout(function(){
     source.disconnect();
   },RECORD_TIME_MS);
@@ -119,6 +110,7 @@ function onMediaSuccess(stream) {
     svg += f900.onEnd();
     svg += f1000.onEnd();
     console.log('onMediaSuccess:svg.length=<',svg.length,'>');
+    saveAllSVG(iWaveHeight,11,svg,fraw.getWidth());
   },RECORD_TIME_MS + 1000);
 }
 
@@ -229,8 +221,7 @@ function onAudioHighTotalClipSuccess() {
 
 
 
-function saveAllSVG(height,row,svgRows) {
-  let width = Math.max(totalBuffer.length,totalBufferHigh.length,totalRawBuffer.length);
+function saveAllSVG(height,row,svgRows,width) {
   let svg = '<svg width="';
   svg += width ;
   svg += '" height="';
