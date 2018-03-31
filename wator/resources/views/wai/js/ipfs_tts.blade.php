@@ -1,12 +1,12 @@
 <script type="text/javascript">
 
 class IpfsTTS {
-  constructor() {
+  constructor(baseDuration) {
     this.ttsStorage = new IpfsStorage(); 
     this.readyState = false;
     this.ttsCached = false;
     this.ttsCB = false;
-    this.baseDuration = 0.2;
+    this.baseDuration = baseDuration;
     this.gTTS = false;
     this.gIndex = false;
     this.totalAudioBuffer = [];
