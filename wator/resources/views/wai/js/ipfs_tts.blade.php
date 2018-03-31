@@ -40,5 +40,8 @@ function createClipsAudio(index,tts) {
   ttsStorage.get(fetchClip); 
 }
 
+ttsStorage.onStorage = function(clipData) {
+  console.log('ttsStorage.onStorage:clipData=<',clipData,'>');
+}
 
 </script>
