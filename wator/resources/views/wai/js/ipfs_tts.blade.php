@@ -50,7 +50,7 @@ class IpfsTTS {
   }
   
   
-  function createClipsAudio(index,tts) {
+  createClipsAudio_(index,tts) {
     let clip = tts[index];
     console.log('createClipsAudio:clip=<',clip,'>');
     let fetchClip = {tts:{download:clip}};
@@ -61,7 +61,7 @@ class IpfsTTS {
   }
 
 
-  function onRecieveClipData(file) {
+  onRecieveClipData_(file) {
     //console.log('onRecieveClipData:: file=<',file,'>');
     let encodedData = new Uint8Array(file);
     //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
@@ -84,7 +84,7 @@ class IpfsTTS {
   }
 
 
-  function createLongClip() {
+  createLongClip_() {
     //console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
     //console.log('createLongClip:totalDuration=<',totalDuration,'>');
     let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
