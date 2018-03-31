@@ -97,10 +97,10 @@ class IpfsTTS {
       for(let clipIndex = 0;clipIndex < this.totalAudioBuffer.length ;clipIndex++) {
         let clip = this.totalAudioBuffer[clipIndex];
         let clipBuffer = clip.getChannelData(channel);
-        //console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
+        console.log('createLongClip:clip=<',clip,'>');
 
         let baseLength  = this.baseDuration * clip.sampleRate;
-        //console.log('createLongClip:baseLength=<',this.baseLength,'>');
+        console.log('createLongClip:baseLength=<',this.baseLength,'>');
         let cpLength = clipBuffer.length;
         if(clipBuffer.length > baseLength) {
           cpLength = this.baseLength;
