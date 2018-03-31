@@ -55,9 +55,9 @@ class IpfsTTS {
     console.log('createClipsAudio:clip=<',clip,'>');
     let fetchClip = {tts:{download:clip}};
     console.log('createClipsAudio:fetchClip=<',fetchClip,'>');
-    gTTS = tts;
-    gIndex = index;
-    ttsStorage.get(fetchClip); 
+    this.gTTS = tts;
+    this.gIndex = index;
+    this.ttsStorage.get(fetchClip); 
   }
 
 
