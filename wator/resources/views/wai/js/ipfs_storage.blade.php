@@ -28,7 +28,7 @@ class IpfsStorage {
   onStorageMessage_(evt) {
     //console.log('onStorageMessage_:evt.data=<',evt.data,'>');
     let jsonMsg = JSON.parse(evt.data);
-    console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
+    //console.log('onStorageMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg.result && jsonMsg.result.data) {
       this.onStorage(jsonMsg.result.data);
     }
