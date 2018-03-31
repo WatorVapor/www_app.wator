@@ -37,7 +37,7 @@ function createClipsAudio(index,tts) {
   console.log('createClipsAudio:fetchClip=<',fetchClip,'>');
   gTTS = tts;
   gIndex = index;
-  ttsStorage.get(JSON.stringify(fetchClip)); 
+  ttsStorage.get(fetchClip); 
 }
 
 
