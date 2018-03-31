@@ -15,6 +15,7 @@ class IpfsStorage {
   }
   
   get(path){
+    this.wsStorage.send(JSON.stringify(path));
   }
   
   onStorageOpen_(evt) {
