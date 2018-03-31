@@ -119,7 +119,7 @@ class IpfsTTS {
 };
 
 
-
+/*
 let ttsStorage = new IpfsStorage(); 
 let ttsStorageReadyState = false;
 let ttsCached = false;
@@ -236,6 +236,6 @@ function playLongClip(speed) {
     source.start();
   }
 }
-
+*/
 
 </script>
