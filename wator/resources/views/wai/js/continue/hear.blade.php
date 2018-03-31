@@ -3,12 +3,24 @@
 @endphp
 
 <script type="text/javascript">
-let phonemes = '{{ $phonemesList }}';
+
+let hearingBuffer = false;
 function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:elem=<',elem,'>');
-  console.log('onClickHearingBtn:phonemes=<',phonemes,'>');
-  let phonArr = phonemes.split(',');
-  console.log('onClickHearingBtn:phonArr=<',phonArr,'>');
-  playIPFSClips(phonArr);
 }
+
+$(document).ready(function(){
+  createTTSBuffer();
+});
+
+function createTTSBuffer() {
+  let phonemes = '{{ $phonemesList }}';
+  console.log('createTTSBuffer:phonemes=<',phonemes,'>');
+  let phonArr = phonemes.split(',');
+  console.log('createTTSBuffer:phonArr=<',phonArr,'>');
+  creatAudioBufferByIPFSClips(phonArr,function(buffer){
+    console.log('createTTSBuffer:buffer=<',buffer,'>');
+  });
+}
+
 </script>
