@@ -71,7 +71,7 @@ class IpfsTTS {
     audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
       self.totalAudioBuffer.push(decodedData);
-      if(decodedData.duration > baseDuration) {
+      if(decodedData.duration > self.baseDuration) {
         totalDuration += self.baseDuration;
       } else {
         totalDuration += decodedData.duration;
