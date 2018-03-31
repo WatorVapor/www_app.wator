@@ -57,6 +57,7 @@
 
 
 
+@include('wai.js.continue.hear')
 @include('wai.js.continue.recorder')
 @include('wai.js.continue.clip')
 @include('wai.js.ws_upload')
