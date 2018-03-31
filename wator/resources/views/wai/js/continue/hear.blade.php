@@ -9,5 +9,6 @@ function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:phonemes=<',phonemes,'>');
   let phonArr = phonemes.split(',');
   console.log('onClickHearingBtn:phonArr=<',phonArr,'>');
+  playIPFSClips(phonArr);
 }
 </script>
