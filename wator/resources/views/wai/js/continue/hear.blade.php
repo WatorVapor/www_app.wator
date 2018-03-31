@@ -10,7 +10,9 @@ function onClickHearingBtn (elem) {
 }
 
 $(document).ready(function(){
-  createTTSBuffer();
+  setTimeout(function(){
+    createTTSBuffer();
+  },1000);
 });
 
 function createTTSBuffer() {
