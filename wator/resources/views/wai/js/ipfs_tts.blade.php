@@ -91,11 +91,11 @@ class IpfsTTS {
     let frameCount = this.totalAudioBuffer[0].sampleRate * this.totalDuration;
     this.longBuffer = audioCtx.createBuffer(this.totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
     //console.log('createLongClip:longBuffer=<',longBuffer,'>');
-    for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
-      //let longBuffering = longBuffer.getChannelData(channel);
+    for(let channel = 0 ; channel < this.longBuffer.numberOfChannels;channel++) {
+      //let longBuffering = this.longBuffer.getChannelData(channel);
       let index = 0;
       for(let clipIndex = 0;clipIndex < totalAudioBuffer.length ;clipIndex++) {
-        let clip = totalAudioBuffer[clipIndex];
+        let clip = this.totalAudioBuffer[clipIndex];
         let clipBuffer = clip.getChannelData(channel);
         //console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
 
