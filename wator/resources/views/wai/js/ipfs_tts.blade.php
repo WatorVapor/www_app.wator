@@ -100,10 +100,10 @@ class IpfsTTS {
         console.log('createLongClip:clip=<',clip,'>');
 
         let baseLength  = this.baseDuration * clip.sampleRate;
-        console.log('createLongClip:baseLength=<',this.baseLength,'>');
+        console.log('createLongClip:baseLength=<',baseLength,'>');
         let cpLength = clipBuffer.length;
         if(clipBuffer.length > baseLength) {
-          cpLength = this.baseLength;
+          cpLength = baseLength;
         }
         console.log('createLongClip:cpLength=<',cpLength,'>');
 
