@@ -1,10 +1,11 @@
+
 <script type="text/javascript">
-const RECORD_TIME_MS = 1500;
+
+
+const RECORD_TIME_MS = 3000;
 const RECORD_INTERVAL_MS = 300;
 const ClipDurationInSec = {{ $duration }};
-function onUpdateData(msg) {
-  console.log('onUpdateData:msg=<',msg,'>');
-}
+
 function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:elem=<',elem,'>');
   $( '#wai-recoder-clip-done' ).addClass( 'd-none' );
