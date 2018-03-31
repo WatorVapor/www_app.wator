@@ -72,9 +72,9 @@ class IpfsTTS {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
       self.totalAudioBuffer.push(decodedData);
       if(decodedData.duration > self.baseDuration) {
-        totalDuration += self.baseDuration;
+        self.totalDuration += self.baseDuration;
       } else {
-        totalDuration += decodedData.duration;
+        self.totalDuration += decodedData.duration;
       }
       if(self.gTTS.length > self.gIndex +1) {
         self.createClipsAudio_(self.gIndex +1,self.gTTS)
@@ -86,10 +86,10 @@ class IpfsTTS {
 
 
   createLongClip_() {
-    //console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
-    //console.log('createLongClip:totalDuration=<',totalDuration,'>');
-    let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
-    this.longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
+    //console.log('createLongClip:totalAudioBuffer=<',this.totalAudioBuffer,'>');
+    //console.log('createLongClip:totalDuration=<',this.totalDuration,'>');
+    let frameCount = this.totalAudioBuffer[0].sampleRate * this.totalDuration;
+    this.longBuffer = audioCtx.createBuffer(this.totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
     //console.log('createLongClip:longBuffer=<',longBuffer,'>');
     for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
       //let longBuffering = longBuffer.getChannelData(channel);
