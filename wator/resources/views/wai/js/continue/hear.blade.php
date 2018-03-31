@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
 
-let tts = let new IpfsTTS(0.2);
+let tts = new IpfsTTS(0.2);
 function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:elem=<',elem,'>');
   tts.playLongClip(1.1);
