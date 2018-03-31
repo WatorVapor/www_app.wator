@@ -4,10 +4,10 @@ class IpfsStorage {
   constructor() {
     this.uriStorage = "wss://" + location.host + "/wator/storage";
     this.wsStorage = new WebSocket(this.uriStorage);
-    this.wsStorage.onopen = onStorageOpen_.bind(this);
-    this.wsStorage.onmessage = onStorageMessage_.bind(this);
-    this.wsStorage.onclose = onStorageClose_.bind(this);
-    this.wsStorage.onerror = onStorageError_.bind(this);
+    this.wsStorage.onopen = this.onStorageOpen_.bind(this);
+    this.wsStorage.onmessage = this.onStorageMessage_.bind(this);
+    this.wsStorage.onclose = this.onStorageClose_.bind(this);
+    this.wsStorage.onerror = this.onStorageError_.bind(this);
   }
   onReady() {
   }
