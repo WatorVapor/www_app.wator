@@ -18,11 +18,11 @@ $(document).ready(function(){
 
 function createTTSBuffer() {
   let phonemes = '{{ $phonemesList }}';
-  console.log('createTTSBuffer:phonemes=<',phonemes,'>');
+  //console.log('createTTSBuffer:phonemes=<',phonemes,'>');
   let phonArr = phonemes.split(',');
-  console.log('createTTSBuffer:phonArr=<',phonArr,'>');
+  //console.log('createTTSBuffer:phonArr=<',phonArr,'>');
   creatAudioBufferByIPFSClips(phonArr,function(buffer){
-    console.log('createTTSBuffer:buffer=<',buffer,'>');
+    //console.log('createTTSBuffer:buffer=<',buffer,'>');
   });
 }
 
