@@ -14,16 +14,13 @@ ttsStorage.onReady = function(evt) {
   }
 }
 
-let baseDuration = 0.4;
+let baseDuration = 0.2;
 
 function creatAudioBufferByIPFSClips(tts,cb) {
   console.log('creatAudioBufferByIPFSClips:tts=<',tts,'>');
-  if(tts.lang ==='ja') {
-    baseDuration = 0.2;
-  }
   if(ttsStorageReadyState) {
-    if(tts.list.length > 0){
-      createClipsAudio(0,tts.list);
+    if(tts.length > 0){
+      createClipsAudio(0,tts);
     }
   } else {
     ttsCached = tts;
