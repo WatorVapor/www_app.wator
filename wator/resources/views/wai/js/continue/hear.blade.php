@@ -1,5 +1,5 @@
 @php
-  $phonemesList = json_encode($ipfs,JSON_UNESCAPED_UNICODE);
+  $phonemesList = implode(',',$ipfs);
 @endphp
 
 <script type="text/javascript">
