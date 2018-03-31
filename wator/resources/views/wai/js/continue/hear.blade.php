@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
 let phonemes = '{{ $phonemesList }}';
-function onClickRecordBtn(elem) {
+function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:elem=<',elem,'>');
   console.log('onClickHearingBtn:phonemes=<',phonemes,'>');
 }
