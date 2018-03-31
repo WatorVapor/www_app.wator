@@ -4,10 +4,10 @@
 
 <script type="text/javascript">
 
-let hearingBuffer = false;
+let tts = let IpfsTTS();
 function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:elem=<',elem,'>');
-  playLongClip(1.1);
+  tts.playLongClip(1.1);
 }
 
 $(document).ready(function(){
@@ -21,7 +21,7 @@ function createTTSBuffer() {
   //console.log('createTTSBuffer:phonemes=<',phonemes,'>');
   let phonArr = phonemes.split(',');
   //console.log('createTTSBuffer:phonArr=<',phonArr,'>');
-  creatAudioBufferByIPFSClips(phonArr,function(buffer){
+  tts.creatAudioBufferByIPFSClips(phonArr,function(buffer){
     //console.log('createTTSBuffer:buffer=<',buffer,'>');
   });
 }
