@@ -99,11 +99,11 @@ class IpfsTTS {
         let clipBuffer = clip.getChannelData(channel);
         //console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
 
-        let baseLength  = baseDuration * clip.sampleRate;
-        //console.log('createLongClip:baseLength=<',baseLength,'>');
+        let baseLength  = this.baseDuration * clip.sampleRate;
+        //console.log('createLongClip:baseLength=<',this.baseLength,'>');
         let cpLength = clipBuffer.length;
         if(clipBuffer.length > baseLength) {
-          cpLength = baseLength;
+          cpLength = this.baseLength;
         }
         console.log('createLongClip:cpLength=<',cpLength,'>');
 
