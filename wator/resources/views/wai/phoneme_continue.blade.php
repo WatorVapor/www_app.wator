@@ -75,7 +75,7 @@ body {
     <div class="row d-none">
       <div class="col  m-0 p-0">
         <audio id="wai-recoder-audio-standard" preload="auto">
-          <source src="//ipfs.io/ipfs/{{ $ipfs }}" type="audio/webm">
+          <source src="//ipfs.io/ipfs/" type="audio/webm">
         </audio>
       </div>
       <div class="col  m-0 p-0">
