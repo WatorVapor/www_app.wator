@@ -1,30 +1,15 @@
 {
     "ja": [
         {
-            "phoneme": "あ",
-            "cn_help": "阿",
-            "ipfs": "QmaTe61cvrLLxLphdfqFBRn2CEQ4bNZK4SmuWccvM86uqm"
-        },
-        {
-            "phoneme": "い",
-            "cn_help": "一",
-            "ipfs": "QmeRmUaCa1bzfk4EGrvwuoJ1yZAvbvQShTuPPAhWki8ewi"
-        },
-        {
-            "phoneme": "う",
-            "cn_help": "巫",
-
-            "ipfs": "QmaEqfAjniCN6YLbmdWSvUU7XGecGBEXEbx1EHRzMyMH2e"
-        },
-        {
-            "phoneme": "え",
-            "cn_help": "诶",
-            "ipfs": "QmQmgDpjbjZa5ihDZPGTeDDk8XDQqbUtTEh4uHGkYRusig"
-        },
-        {
-            "phoneme": "お",
-            "cn_help": "凹",
-            "ipfs": "QmSV5dMEJobCW7Ew7C1FsFCg2YMeNumKS2o8Ks9GFMXkXE"
+            "phoneme": "あいうえお",
+            "cn_help": "阿一巫诶凹",
+            "ipfs": [
+                "QmaTe61cvrLLxLphdfqFBRn2CEQ4bNZK4SmuWccvM86uqm",
+                "QmeRmUaCa1bzfk4EGrvwuoJ1yZAvbvQShTuPPAhWki8ewi",
+                "QmaEqfAjniCN6YLbmdWSvUU7XGecGBEXEbx1EHRzMyMH2e",
+                "QmQmgDpjbjZa5ihDZPGTeDDk8XDQqbUtTEh4uHGkYRusig",
+                "QmSV5dMEJobCW7Ew7C1FsFCg2YMeNumKS2o8Ks9GFMXkXE"
+            ]
         },
         {
             "phoneme": "か",
