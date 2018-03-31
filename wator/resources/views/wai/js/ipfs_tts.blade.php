@@ -13,6 +13,12 @@ ttsStorage.onReady = function(evt) {
     },1);
   }
 }
+ttsStorage.onStorage = function(clipData) {
+  //console.log('ttsStorage.onStorage:clipData=<',clipData,'>');
+  onRecieveClipData(clipData);
+}
+
+
 
 let baseDuration = 0.2;
 
@@ -40,8 +46,31 @@ function createClipsAudio(index,tts) {
   ttsStorage.get(fetchClip); 
 }
 
-ttsStorage.onStorage = function(clipData) {
-  console.log('ttsStorage.onStorage:clipData=<',clipData,'>');
+
+let totalAudioBuffer = [];
+let totalDuration = 0;
+
+function onRecieveClipData(file) {
+  //console.log('onRecieveClipData:: file=<',file,'>');
+  let encodedData = new Uint8Array(file);
+  //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
+  //let encodedData = new ArrayBuffer(file);
+  //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
+  audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
+    //console.log('createClipsElement decodedData=<',decodedData,'>');
+    totalAudioBuffer.push(decodedData);
+    if(decodedData.duration > baseDuration) {
+      totalDuration += baseDuration;
+    } else {
+      totalDuration += decodedData.duration;
+    }
+    if(gTTS.length > gIndex +1) {
+      createClipsAudio(gIndex +1,gTTS)
+    } else {
+      createLongClip();
+    }
+  });    
 }
+
 
 </script>
