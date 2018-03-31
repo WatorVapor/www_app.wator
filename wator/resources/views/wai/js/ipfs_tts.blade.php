@@ -67,18 +67,19 @@ class IpfsTTS {
     //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
     //let encodedData = new ArrayBuffer(file);
     //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
+    let self = this;
     audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
-      totalAudioBuffer.push(decodedData);
+      self.totalAudioBuffer.push(decodedData);
       if(decodedData.duration > baseDuration) {
-        totalDuration += baseDuration;
+        totalDuration += self.baseDuration;
       } else {
         totalDuration += decodedData.duration;
       }
-      if(gTTS.length > gIndex +1) {
-        createClipsAudio(gIndex +1,gTTS)
+      if(self.gTTS.length > self.gIndex +1) {
+        self.createClipsAudio_(self.gIndex +1,self.gTTS)
       } else {
-        createLongClip();
+        self.createLongClip_();
       }
     });    
   }
@@ -88,7 +89,7 @@ class IpfsTTS {
     //console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
     //console.log('createLongClip:totalDuration=<',totalDuration,'>');
     let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
-    longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
+    this.longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
     //console.log('createLongClip:longBuffer=<',longBuffer,'>');
     for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
       //let longBuffering = longBuffer.getChannelData(channel);
@@ -107,12 +108,12 @@ class IpfsTTS {
         console.log('createLongClip:cpLength=<',cpLength,'>');
 
         let baseBuffer = new Float32Array(clipBuffer,0,cpLength);
-        longBuffer.copyToChannel(baseBuffer,channel,index);
+        this.longBuffer.copyToChannel(baseBuffer,channel,index);
         index += cpLength;
       }
     }
-    if(typeof ttsCB === 'function') {
-      ttsCB(longBuffer);
+    if(typeof this.ttsCB === 'function') {
+      this.ttsCB(this.longBuffer);
     }
   }
 
