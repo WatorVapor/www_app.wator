@@ -27,4 +27,18 @@ function creatAudioBufferByIPFSClips(tts,cb) {
     ttsCB = cb;
   }
 }
+
+let gTTS = false;
+let gIndex = false;
+function createClipsAudio(index,tts) {
+  let clip = tts[index];
+  console.log('createClipsAudio:clip=<',clip,'>');
+  let fetchClip = {tts:{download:clip}};
+  console.log('createClipsAudio:fetchClip=<',fetchClip,'>');
+  gTTS = tts;
+  gIndex = index;
+  ttsStorage.get(JSON.stringify(fetchClip)); 
+}
+
+
 </script>
