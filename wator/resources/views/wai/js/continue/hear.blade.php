@@ -7,6 +7,7 @@
 let hearingBuffer = false;
 function onClickHearingBtn (elem) {
   console.log('onClickHearingBtn:elem=<',elem,'>');
+  playLongClip(1.1);
 }
 
 $(document).ready(function(){
