@@ -9,7 +9,7 @@ class IpfsStorage {
     this.wsStorage.onclose = this.onStorageClose_.bind(this);
     this.wsStorage.onerror = this.onStorageError_.bind(this);
   }
-  onReady() {
+  onReady(evt) {
   }
   onStorage(data) {
   }
@@ -21,7 +21,7 @@ class IpfsStorage {
     console.log('onStorageOpen_:evt=<',evt,'>');
     let self = this;
     setTimeout(function(){
-      self.onReady();
+      self.onReady(evt);
     },1);
   }
   onStorageMessage_(evt) {
