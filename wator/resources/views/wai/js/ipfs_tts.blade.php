@@ -94,7 +94,7 @@ class IpfsTTS {
     for(let channel = 0 ; channel < this.longBuffer.numberOfChannels;channel++) {
       //let longBuffering = this.longBuffer.getChannelData(channel);
       let index = 0;
-      for(let clipIndex = 0;clipIndex < totalAudioBuffer.length ;clipIndex++) {
+      for(let clipIndex = 0;clipIndex < this.totalAudioBuffer.length ;clipIndex++) {
         let clip = this.totalAudioBuffer[clipIndex];
         let clipBuffer = clip.getChannelData(channel);
         //console.log('createLongClip:clipBuffer=<',clipBuffer,'>');
