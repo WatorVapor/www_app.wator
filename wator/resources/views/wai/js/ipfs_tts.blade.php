@@ -72,11 +72,13 @@ function onRecieveClipData(file) {
   });    
 }
 
+let longBuffer = false;
+
 function createLongClip() {
   //console.log('createLongClip:totalAudioBuffer=<',totalAudioBuffer,'>');
   //console.log('createLongClip:totalDuration=<',totalDuration,'>');
   let frameCount = totalAudioBuffer[0].sampleRate * totalDuration;
-  let longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
+  longBuffer = audioCtx.createBuffer(totalAudioBuffer[0].numberOfChannels, frameCount, totalAudioBuffer[0].sampleRate);
   //console.log('createLongClip:longBuffer=<',longBuffer,'>');
   for(let channel = 0 ; channel < longBuffer.numberOfChannels;channel++) {
     //let longBuffering = longBuffer.getChannelData(channel);
@@ -101,6 +103,16 @@ function createLongClip() {
   }
   if(typeof ttsCB === 'function') {
     ttsCB(longBuffer);
+  }
+}
+
+function playLongClip(speed) {
+  if(longBuffer) {
+    let source = audioCtx.createBufferSource();
+    source.buffer = longBuffer;
+    source.playbackRate.value = speed;
+    source.connect(audioCtx.destination);
+    source.start();
   }
 }
 
