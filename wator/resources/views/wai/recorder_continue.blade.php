@@ -58,6 +58,7 @@
 
 
 @include('wai.js.ipfs_storage')
+@include('wai.js.ipfs_tts')
 @include('wai.js.continue.hear')
 @include('wai.js.continue.recorder')
 @include('wai.js.continue.clip')
