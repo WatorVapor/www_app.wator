@@ -57,10 +57,8 @@
 
 
 
-@include('wai.js.recoder')
-@include('wai.js.chart')
-@include('wai.js.clip')
-@include('wai.js.misc')
+@include('wai.js.continue.recorder')
+@include('wai.js.continue.clip')
 @include('wai.js.ws_upload')
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
