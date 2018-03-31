@@ -40,7 +40,7 @@
       <div class="card-body">
         <div class="row justify-content-center">
           <div class="col">
-            @include('wai.phoneme')
+            @include('wai.phoneme_continue')
           </div>
         </div>
       </div>
