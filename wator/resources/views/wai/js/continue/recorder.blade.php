@@ -71,28 +71,24 @@ let audioCtx = new AudioContext();
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
+  /*
   let urlBlob = window.URL.createObjectURL(blob);
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
   let source = audioCtx.createMediaElementSource(audioElem);
   console.log('analyzeBlobWebm source=<',source,'>');
-  splitPhonemeClips(source);
-/*  
+  */
+  let source = audioCtx.createBufferSource();
   let reader = new FileReader();
   reader.onload = function() {
     audioCtx.decodeAudioData(reader.result, function(decodedData) {
       console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
-      for( let i = 0;i < decodedData.numberOfChannels;i++) {
-        let data = decodedData.getChannelData(i);
-        let sample = decodedData.sampleRate;
-        let position = showWaveChart(data,sample,'wai-recoder-canvas-train');
-        console.log('analyzeBlobWebm position=<',position,'>');
-      }
+      source.buffer = decodedData;
+      splitPhonemeClips(source);
     });
   };
   reader.readAsArrayBuffer(blob);
-*/
 }
 </script>
 
