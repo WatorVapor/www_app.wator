@@ -75,6 +75,8 @@ function analyzeBlobWebm(chunks) {
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
+  let source = audioCtx.createMediaElementSource(audioElem);
+  console.log('analyzeBlobWebm source=<',source,'>');
 /*  
   let reader = new FileReader();
   reader.onload = function() {
