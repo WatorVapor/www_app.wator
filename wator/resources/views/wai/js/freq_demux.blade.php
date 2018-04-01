@@ -42,7 +42,7 @@ class AudioFreqDemux {
   onData_(evt){
     //console.log('onData:evt=<',evt,'>');
     let audioData = evt.inputBuffer.getChannelData(0);
-    //console.log('onData:audioData=<',audioData,'>');
+    console.log('onData:audioData=<',audioData,'>');
     this.totalBuffer.push(...audioData);
   }
 };
