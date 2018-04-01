@@ -45,7 +45,7 @@ class IpfsTTS {
       let source = this.audioCtx.createBufferSource();
       source.buffer = this.longBuffer;
       source.playbackRate.value = speed;
-      source.connect(audioCtx.destination);
+      source.connect(this.audioCtx.destination);
       source.start();
     }
   }
