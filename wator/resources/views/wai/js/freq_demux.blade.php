@@ -9,6 +9,7 @@ class AudioFreqDemux {
     this.freqFrom = freqFrom;
     this.freqTo = freqTo;
     this.delta = delta;
+    this.sampleRate = this.audioCtx.sampleRate;
 
     this.offset = filterCounter++;
     this.totalBuffer = [];
@@ -37,6 +38,7 @@ class AudioFreqDemux {
     let audioData = evt.inputBuffer.getChannelData(0);
     //console.log('onData:audioData=<',audioData,'>');
     this.totalBuffer.push(...audioData);
+    console.log('onData_:this.sampleRate=<',this.sampleRate,'>');
   }
 };
 
