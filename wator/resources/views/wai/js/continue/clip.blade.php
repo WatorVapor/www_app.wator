@@ -11,10 +11,10 @@ function splitPhonemeClips(audioCtx,source) {
   let fraw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave,function(freqs){
     //console.log('fraw freqs=<',freqs,'>');
   });
-/*
   let f100 = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
     console.log('f100 freqs=<',freqs,'>');
   },50,500);
+/*
 //  let f200 = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,200,300);
 //  let f300 = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,300,500);
   let f400 = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,700);
