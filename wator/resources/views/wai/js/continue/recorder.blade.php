@@ -42,6 +42,7 @@ function onMediaSuccess(stream,phoneme) {
   mr.mimeType = 'audio/wav';
   let chunks4analyze = [];
   mr.ondataavailable = function (e) {
+    console.log('ondataavailable:e=<',e,'>');
     chunks4analyze.push(e.data);
   }
   mr.onerror = function (e) {
@@ -69,9 +70,9 @@ function onMediaError(e) {
 let audioCtx = new AudioContext();
 
 function analyzeBlobWebm(chunks) {
+  /*
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
-  /*
   let urlBlob = window.URL.createObjectURL(blob);
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
