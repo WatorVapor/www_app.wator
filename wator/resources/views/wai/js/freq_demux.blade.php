@@ -13,6 +13,7 @@ class AudioFreqDemux {
     this.createAudioPipe_();
   }
   onEnd() {
+    console.log('onEnd:evt=<',evt,'>');
     let peaks = checkPeak2Peak(this.totalBuffer,this.delta);
     let freqs = calFreq(peaks);
     let svg = createWavePolyline(iWaveHeight,this.offset * iWaveHeight,this.totalBuffer,peaks,freqs);
@@ -52,7 +53,7 @@ class AudioFreqDemux {
     this.rcvData = true;
     //console.log('onData:evt=<',evt,'>');
     let audioData = evt.inputBuffer.getChannelData(0);
-    console.log('onData:audioData=<',audioData,'>');
+    //console.log('onData:audioData=<',audioData,'>');
     this.totalBuffer.push(...audioData);
   }
   onEndedCheck_(evt){
