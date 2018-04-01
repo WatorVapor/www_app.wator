@@ -52,7 +52,7 @@ class AudioFreqDemux {
   }  
   onData_(evt){
     this.rcvData = true;
-    //console.log('onData:evt=<',evt,'>');
+    console.log('onData_:this.rcvData=<',this.rcvData,'>');
     let audioData = evt.inputBuffer.getChannelData(0);
     //console.log('onData:audioData=<',audioData,'>');
     this.totalBuffer.push(...audioData);
