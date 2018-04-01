@@ -90,6 +90,7 @@ class IpfsTTS {
     //console.log('createLongClip:totalAudioBuffer=<',this.totalAudioBuffer,'>');
     //console.log('createLongClip:totalDuration=<',this.totalDuration,'>');
     let frameCount = this.totalAudioBuffer[0].sampleRate * this.totalDuration;
+    let audioCtx = new AudioContext();
     this.longBuffer = audioCtx.createBuffer(this.totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
     //console.log('createLongClip:longBuffer=<',longBuffer,'>');
     for(let channel = 0 ; channel < this.longBuffer.numberOfChannels;channel++) {
