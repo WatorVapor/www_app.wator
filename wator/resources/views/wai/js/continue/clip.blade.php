@@ -48,10 +48,8 @@ const dMinDeltaHighFeqWave = 0.01;
 
 function splitPhonemeClips(source) {
   console.log('splitPhonemeClips source=<',source,'>');
-
-/*
   let fraw = new AudioFreqDemux (source,dMinDeltaRawFeqWave);
-  
+/*
   let f100 = new AudioFreqDemux(source,dMinDeltaLowFeqWave,100,400);
 //  let f200 = new AudioFreqDemux(source,dMinDeltaLowFeqWave,200,300);
 //  let f300 = new AudioFreqDemux(source,dMinDeltaLowFeqWave,300,500);
