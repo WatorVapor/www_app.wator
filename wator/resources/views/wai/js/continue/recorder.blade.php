@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 
 
@@ -28,9 +27,9 @@ function onClickRecordBtn(elem) {
   console.log('onClickRecordBtn:root=<',root,'>');
   let phoneme = root.getElementsByTagName('h1')[0].textContent;
   console.log('onClickRecordBtn:phoneme=<',phoneme,'>');
-  doAudioRecord(phoneme);
+  doLearAudio(phoneme);
 }
-function doAudioRecord(phoneme) {
+function doLearAudio(phoneme) {
   console.log('doAudioRecord:phoneme=<',phoneme,'>');
   let mediaConstraints = { audio: true};
   navigator.getUserMedia(mediaConstraints, function(stream) {
@@ -38,50 +37,14 @@ function doAudioRecord(phoneme) {
     }, onMediaError);
 }
 function onMediaSuccess(stream,phoneme) {
-  let mr = new MediaRecorder(stream);
-  mr.mimeType = 'audio/webm';
-  let chunks4analyze = [];
-  mr.ondataavailable = function (e) {
-    console.log('ondataavailable:e=<',e,'>');
-    chunks4analyze.push(e.data);
-  }
-  mr.onerror = function (e) {
-    console.log('error:e=<',e,'>');
-  }
-  mr.onstart = function (e) {
-    console.log('onstart:e=<',e,'>');
-  }
-  mr.onstop = function (e) {
-    console.log('onstop:e=<',e,'>');
-    console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
-    analyzeBlobWebm(chunks4analyze);
-  }
-  mr.start();
-  setTimeout(function(){
-    mr.stop();
-  },RECORD_TIME_MS);
+  let audioCtx = new AudioContext();
+  let source = audioCtx.createMediaStreamSource(stream);
+  splitPhonemeClips(source,phoneme);
 }
-
 
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
 
-let audioCtx = new AudioContext();
-
-function analyzeBlobWebm(chunks) {
-  console.log('analyzeBlobWebm chunks=<',chunks,'>');
-  const blob = new Blob(chunks, { type: 'audio/webm' });
-  let source = audioCtx.createBufferSource();
-  let reader = new FileReader();
-  reader.onload = function() {
-    audioCtx.decodeAudioData(reader.result, function(decodedData) {
-      console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
-      source.buffer = decodedData;
-      splitPhonemeClips(source);
-    });
-  };
-  reader.readAsArrayBuffer(blob); 
-}
 </script>
 
