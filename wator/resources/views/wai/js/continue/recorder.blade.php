@@ -39,7 +39,7 @@ function doAudioRecord(phoneme) {
 }
 function onMediaSuccess(stream,phoneme) {
   let mr = new MediaRecorder(stream);
-  mr.mimeType = 'audio/wav';
+  //mr.mimeType = 'audio/wav';
   let chunks4analyze = [];
   mr.ondataavailable = function (e) {
     console.log('ondataavailable:e=<',e,'>');
