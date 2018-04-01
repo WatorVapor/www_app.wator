@@ -68,6 +68,7 @@ class IpfsTTS {
     //let encodedData = new ArrayBuffer(file);
     //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
     let self = this;
+    let audioCtx = new AudioContext();
     audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
       self.totalAudioBuffer.push(decodedData);
