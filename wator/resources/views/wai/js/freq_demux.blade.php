@@ -1,4 +1,4 @@
-
+<script type="text/javascript">
 class AudioFreqDemux {
   constructor(source,delta,freqFrom,freqTo) {
     this.totalBuffer = [];
@@ -43,3 +43,4 @@ class AudioFreqDemux {
     this.totalBuffer.push(...audioData);
   }
 };
+</script>
