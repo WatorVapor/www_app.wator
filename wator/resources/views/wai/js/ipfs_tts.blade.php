@@ -41,6 +41,7 @@ class IpfsTTS {
   }
   playLongClip(speed) {
     if(this.longBuffer) {
+      let audioCtx = new AudioContext();
       let source = audioCtx.createBufferSource();
       source.buffer = this.longBuffer;
       source.playbackRate.value = speed;
