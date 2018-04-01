@@ -12,17 +12,17 @@ function splitPhonemeClips(audioCtx,source) {
     //console.log('fraw freqs=<',freqs,'>');
   });
   let flow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
-    if(freqs) {
+    if(freqs.length >0) {
       console.log('flow freqs=<',freqs,'>');
     }
   },50,500);
   let fmiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(freqs){
-    if(freqs) {
+    if(freqs.length >0) {
       console.log('flow freqs=<',freqs,'>');
     }
   },500,1000);
   let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(freqs){
-    if(freqs) {
+    if(freqs.length >0) {
       console.log('flow freqs=<',freqs,'>');
     }
   },1000,1600);
