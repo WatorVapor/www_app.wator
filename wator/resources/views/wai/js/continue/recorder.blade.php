@@ -39,7 +39,7 @@ function doAudioRecord(phoneme) {
 }
 function onMediaSuccess(stream,phoneme) {
   let mr = new MediaRecorder(stream);
-  //mr.mimeType = 'audio/wav';
+  mr.mimeType = 'audio/webm';
   let chunks4analyze = [];
   mr.ondataavailable = function (e) {
     console.log('ondataavailable:e=<',e,'>');
@@ -70,9 +70,9 @@ function onMediaError(e) {
 let audioCtx = new AudioContext();
 
 function analyzeBlobWebm(chunks) {
-  /*
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
+  /*
   let urlBlob = window.URL.createObjectURL(blob);
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
@@ -81,12 +81,6 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm source=<',source,'>');
   */
   let source = audioCtx.createBufferSource();
-  audioCtx.decodeAudioData(chunks, function(decodedData) {
-    console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
-    source.buffer = decodedData;
-    splitPhonemeClips(source);
-  });
-  /*
   let reader = new FileReader();
   reader.onload = function() {
     audioCtx.decodeAudioData(reader.result, function(decodedData) {
@@ -95,9 +89,7 @@ function analyzeBlobWebm(chunks) {
       splitPhonemeClips(source);
     });
   };
-  reader.readAsArrayBuffer(blob);
-  */
-  
+  reader.readAsArrayBuffer(blob); 
 }
 </script>
 
