@@ -12,7 +12,7 @@ function splitPhonemeClips(audioCtx,source) {
     //console.log('fRaw freqs=<',freqs,'>');
   });
   let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
-    if(freqs.length >10) {
+    if(freqs.length >0) {
       console.log('fLow freqs=<',freqs,'>');
     }
   },50,500);
