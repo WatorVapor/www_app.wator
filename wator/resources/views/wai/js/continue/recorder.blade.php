@@ -56,7 +56,7 @@ function onMediaSuccess(stream,phoneme) {
     console.log('onstop:chunks4analyze=<',chunks4analyze,'>');
     analyzeBlobWebm(chunks4analyze);
   }
-  mr.start(RECORD_INTERVAL_MS);
+  mr.start();
   setTimeout(function(){
     mr.stop();
   },RECORD_TIME_MS);
@@ -72,14 +72,6 @@ let audioCtx = new AudioContext();
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
-  /*
-  let urlBlob = window.URL.createObjectURL(blob);
-  let audioElem = document.getElementById('wai-recoder-audio-train');
-  audioElem.src = urlBlob;
-  console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
-  let source = audioCtx.createMediaElementSource(audioElem);
-  console.log('analyzeBlobWebm source=<',source,'>');
-  */
   let source = audioCtx.createBufferSource();
   let reader = new FileReader();
   reader.onload = function() {
