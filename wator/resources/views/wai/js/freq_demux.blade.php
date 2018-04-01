@@ -4,7 +4,7 @@
 let filterCounter = 0;
 const FilterWindowSize = 8192;
 class AudioFreqDemux {
-  constructor(audioCtx,source,delta,freqFrom,freqTo,cb) {
+  constructor(audioCtx,source,delta,cb,freqFrom,freqTo) {
     this.audioCtx = audioCtx;
     this.source = source;
     this.freqFrom = freqFrom;
