@@ -80,6 +80,12 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm source=<',source,'>');
   */
   let source = audioCtx.createBufferSource();
+  audioCtx.decodeAudioData(chunks, function(decodedData) {
+    console.log('analyzeBlobWebm decodedData=<',decodedData,'>');
+    source.buffer = decodedData;
+    splitPhonemeClips(source);
+  });
+  /*
   let reader = new FileReader();
   reader.onload = function() {
     audioCtx.decodeAudioData(reader.result, function(decodedData) {
@@ -89,6 +95,8 @@ function analyzeBlobWebm(chunks) {
     });
   };
   reader.readAsArrayBuffer(blob);
+  */
+  
 }
 </script>
 
