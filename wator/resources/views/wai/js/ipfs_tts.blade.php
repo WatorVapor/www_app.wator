@@ -12,6 +12,7 @@ class IpfsTTS {
     this.totalAudioBuffer = [];
     this.totalDuration = 0;
     this.longBuffer = false;
+    this.audioCtx = new AudioContext();
 
     
     
@@ -41,7 +42,6 @@ class IpfsTTS {
   }
   playLongClip(speed) {
     if(this.longBuffer) {
-      let audioCtx = new AudioContext();
       let source = audioCtx.createBufferSource();
       source.buffer = this.longBuffer;
       source.playbackRate.value = speed;
@@ -69,8 +69,7 @@ class IpfsTTS {
     //let encodedData = new ArrayBuffer(file);
     //console.log('onRecieveClipData:: encodedData=<',encodedData,'>');
     let self = this;
-    let audioCtx = new AudioContext();
-    audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
+    this.audioCtx.decodeAudioData(encodedData.buffer, function(decodedData) {
       //console.log('createClipsElement decodedData=<',decodedData,'>');
       self.totalAudioBuffer.push(decodedData);
       if(decodedData.duration > self.baseDuration) {
@@ -91,8 +90,7 @@ class IpfsTTS {
     //console.log('createLongClip:totalAudioBuffer=<',this.totalAudioBuffer,'>');
     //console.log('createLongClip:totalDuration=<',this.totalDuration,'>');
     let frameCount = this.totalAudioBuffer[0].sampleRate * this.totalDuration;
-    let audioCtx = new AudioContext();
-    this.longBuffer = audioCtx.createBuffer(this.totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
+    this.longBuffer = this.audioCtx.createBuffer(this.totalAudioBuffer[0].numberOfChannels, frameCount, this.totalAudioBuffer[0].sampleRate);
     //console.log('createLongClip:longBuffer=<',longBuffer,'>');
     for(let channel = 0 ; channel < this.longBuffer.numberOfChannels;channel++) {
       //let longBuffering = this.longBuffer.getChannelData(channel);
