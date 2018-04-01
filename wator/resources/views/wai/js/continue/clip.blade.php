@@ -37,5 +37,10 @@ function clipPhoneme(data,waveEnergyMax,waveEnergyMaxIndex,sample) {
     mediaRecorder.stop();
   },1000);
 }
+
+function splitPhonemeClips(source) {
+  console.log('splitPhonemeClips source=<',source,'>');
+}
+
 </script>
 
