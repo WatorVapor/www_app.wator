@@ -41,9 +41,10 @@ class AudioFreqDemux {
     jsProcess.connect(audioCtx.destination);
     let self = this;
     this.rcvData = false;
-    let timer = setInterval(function(){
-      if(self.rcvData == false) {
-        clearInterval(timer);
+    let timerFinnish = setInterval(function(){
+      console.log('timerFinnish:self.rcvData=<',self.rcvData,'>');
+      if(self.rcvData === false) {
+        clearInterval(timerFinnish);
         self.onEnd();
       }
       self.rcvData = false;
