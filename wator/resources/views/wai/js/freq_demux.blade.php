@@ -40,7 +40,7 @@ class AudioFreqDemux {
     let audioData = evt.inputBuffer.getChannelData(0);
     //console.log('onData:audioData=<',audioData,'>');
     this.convolutionalBuffer.push(...audioData);
-    console.log('onData_:this.sampleRate=<',this.sampleRate,'>');
+    //console.log('onData_:this.sampleRate=<',this.sampleRate,'>');
     if(this.convolutionalBuffer.length > 2*FilterWindowSize) {
       this.convolutionalBuffer.splice(0,FilterWindowSize);
       let peaks = this.checkPeak2Peak(this.convolutionalBuffer,this.delta);
@@ -48,7 +48,7 @@ class AudioFreqDemux {
       //console.log('onData_:freq=<',freq,'>');
       this.cb(freq);
     }
-    console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
+    //console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
   }
 
 
