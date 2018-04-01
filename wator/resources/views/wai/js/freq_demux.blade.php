@@ -39,6 +39,7 @@ class AudioFreqDemux {
       this.source.connect(jsProcess);
     }
     jsProcess.connect(audioCtx.destination);
+    /*
     let self = this;
     this.rcvData = false;
     let timerFinnish = setInterval(function(){
@@ -49,6 +50,7 @@ class AudioFreqDemux {
       }
       self.rcvData = false;
     },500);
+    */
   }  
   onData_(evt){
     this.rcvData = true;
