@@ -39,7 +39,7 @@ function doLearAudio(phoneme) {
 function onMediaSuccess(stream,phoneme) {
   let audioCtx = new AudioContext();
   let source = audioCtx.createMediaStreamSource(stream);
-  splitPhonemeClips(source,phoneme);
+  splitPhonemeClips(audioCtx,source,phoneme);
 }
 
 function onMediaError(e) {
