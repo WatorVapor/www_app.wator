@@ -4,12 +4,13 @@
 let filterCounter = 0;
 const FilterWindowSize = 8192;
 class AudioFreqDemux {
-  constructor(audioCtx,source,delta,freqFrom,freqTo) {
+  constructor(audioCtx,source,delta,freqFrom,freqTo,cb) {
     this.audioCtx = audioCtx;
     this.source = source;
     this.freqFrom = freqFrom;
     this.freqTo = freqTo;
     this.delta = delta;
+    this.cb = cb;
     this.sampleRate = this.audioCtx.sampleRate;
 
     this.offset = filterCounter++;
@@ -44,7 +45,8 @@ class AudioFreqDemux {
       this.convolutionalBuffer.splice(0,FilterWindowSize);
       let peaks = this.checkPeak2Peak(this.convolutionalBuffer,this.delta);
       let freq = this.calFreq(peaks);
-      console.log('onData_:freq=<',freq,'>');
+      //console.log('onData_:freq=<',freq,'>');
+      this.cb(freq);
     }
     console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
   }
