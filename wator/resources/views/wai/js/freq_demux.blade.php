@@ -39,6 +39,7 @@ class AudioFreqDemux {
       this.source.connect(jsProcess);
     }
     jsProcess.connect(audioCtx.destination);
+    this.source.noteOn(0);
     /*
     let self = this;
     this.rcvData = false;
