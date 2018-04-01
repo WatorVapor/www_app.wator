@@ -8,7 +8,9 @@ const dMinDeltaHighFeqWave = 0.01;
 
 function splitPhonemeClips(audioCtx,source) {
   console.log('splitPhonemeClips source=<',source,'>');
-  let fraw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave);
+  let fraw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave,function(freqs){
+    console.log('splitPhonemeClips freqs=<',freqs,'>');
+  });
 /*
   let f100 = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,100,400);
 //  let f200 = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,200,300);
