@@ -77,6 +77,7 @@ function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
   let source = audioCtx.createMediaElementSource(audioElem);
   console.log('analyzeBlobWebm source=<',source,'>');
+  splitPhonemeClips(source);
 /*  
   let reader = new FileReader();
   reader.onload = function() {
