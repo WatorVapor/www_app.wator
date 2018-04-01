@@ -24,7 +24,6 @@ class AudioFreqDemux {
   createAudioPipe_() {
     let jsProcess = audioCtx.createScriptProcessor(16384, 1, 1);
     jsProcess.onaudioprocess = this.onData_.bind(this);
-    this.source.onended = this.onEnded_.bind(this);
     if(this.freqFrom && this.freqTo) {
       let filter = audioCtx.createBiquadFilter();
       filter.type = 'bandpass';
@@ -39,14 +38,24 @@ class AudioFreqDemux {
       this.source.connect(jsProcess);
     }
     jsProcess.connect(audioCtx.destination);
+    let self = this;
+    this.rcvData = false;
+    let timer = setInterval(function(){
+      if(self.rcvData == false) {
+        clearInterval(timer);
+        self.onEnd();
+      }
+      self.rcvData = false;
+    },500);
   }  
   onData_(evt){
+    this.rcvData = true;
     //console.log('onData:evt=<',evt,'>');
     let audioData = evt.inputBuffer.getChannelData(0);
     console.log('onData:audioData=<',audioData,'>');
     this.totalBuffer.push(...audioData);
   }
-  onEnded_(evt){
+  onEndedCheck_(evt){
     console.log('onEnded_:evt=<',evt,'>');
   }
 };
