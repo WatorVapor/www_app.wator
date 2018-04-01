@@ -30,7 +30,7 @@ class AudioFreqDemux {
     } else {
       this.source.connect(jsProcess);
     }
-    jsProcess.connect(audioCtx.destination);
+    jsProcess.connect(this.audioCtx.destination);
   }  
   onData_(evt){
     //console.log('onData_:evt=<',evt,'>');
