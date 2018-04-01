@@ -1,6 +1,8 @@
 <script type="text/javascript">
 
+
 class AudioFreqDemux {
+  filterCounter = 0;
   constructor(source,delta,freqFrom,freqTo) {
     this.totalBuffer = [];
     this.source = source;
