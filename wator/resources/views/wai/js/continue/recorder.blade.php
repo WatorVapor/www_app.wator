@@ -60,11 +60,14 @@ function onMediaSuccess(stream,phoneme) {
     mr.stop();
   },RECORD_TIME_MS);
 }
+
+
 function onMediaError(e) {
   console.error('media error e=<', e,'>');
 }
-let AudioContext = window.AudioContext || window.webkitAudioContext;
+
 let audioCtx = new AudioContext();
+
 function analyzeBlobWebm(chunks) {
   console.log('analyzeBlobWebm chunks=<',chunks,'>');
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -72,6 +75,7 @@ function analyzeBlobWebm(chunks) {
   let audioElem = document.getElementById('wai-recoder-audio-train');
   audioElem.src = urlBlob;
   console.log('analyzeBlobWebm audioElem=<',audioElem,'>');
+/*  
   let reader = new FileReader();
   reader.onload = function() {
     audioCtx.decodeAudioData(reader.result, function(decodedData) {
@@ -85,6 +89,7 @@ function analyzeBlobWebm(chunks) {
     });
   };
   reader.readAsArrayBuffer(blob);
+*/
 }
 </script>
 
