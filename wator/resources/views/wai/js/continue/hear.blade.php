@@ -1,5 +1,10 @@
 @php
-  $phonemesList = implode(',',$ipfs);
+  if(is_array($ipfs)) {
+    $phonemesList = implode(',',$ipfs);
+  }
+  if(is_string($ipfs)) {
+    $phonemesList = $ipfs;
+  }  
 @endphp
 
 <script type="text/javascript">
