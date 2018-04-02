@@ -9,7 +9,7 @@ let prevRawAudioBuffer = false;
 
 
 function isStongWave(wave) {
-  console.log('isStongWave:wave=<',wave,'>');
+  //console.log('isStongWave:wave=<',wave,'>');
   let energy = 0.0;
   for(let i = 0;i < wave.length ;i++) {
     let level = Math.abs(wave[i]);
@@ -17,6 +17,12 @@ function isStongWave(wave) {
     energy += level;
   }
   console.log('isStongWave:energy=<',energy,'>');
+  let avarageEnergy = energy/wave.length;
+  console.log('isStongWave:avarageEnergy=<',avarageEnergy,'>');
+  if(avarageEnergy > 0.01) {
+    return true;
+  }
+  retur false;
 }
 let filterCtx = new AudioContext();
 
