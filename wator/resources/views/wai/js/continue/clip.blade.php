@@ -16,10 +16,10 @@ function isStongWave(wave) {
     //console.log('isStongWave:level=<',level,'>');
     energy += level;
   }
-  console.log('isStongWave:energy=<',energy,'>');
+  //console.log('isStongWave:energy=<',energy,'>');
   let avarageEnergy = energy/wave.length;
-  console.log('isStongWave:avarageEnergy=<',avarageEnergy,'>');
-  if(avarageEnergy > 0.01) {
+  //console.log('isStongWave:avarageEnergy=<',avarageEnergy,'>');
+  if(avarageEnergy > 0.1) {
     return true;
   }
   return false;
