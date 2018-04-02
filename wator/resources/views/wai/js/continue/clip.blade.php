@@ -1,26 +1,24 @@
 <script type="text/javascript">
-
-
 const FilterWindowSize = 8192;
-
 const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.16;
 const dMinDeltaMiddleFeqWave = 0.04;
 const dMinDeltaHighFeqWave = 0.02;
+
+function onRawAudioData(evt) {
+  let audioBuffer = evt.inputBuffer;
+  console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
+}
 
 
 function splitPhonemeClips(audioCtx,source) {
   console.log('splitPhonemeClips source=<',source,'>');
   
   let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
-  jsProcess.onaudioprocess = function(evt) {
-    let audioBuffer = evt.inputBuffer
-    console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
-  };
+  jsProcess.onaudioprocess = onRawAudioData;
   source.connect(jsProcess);
 
 /*
-
   let fRaw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave,function(freqs){
     //console.log('fRaw freqs=<',freqs,'>');
   });
@@ -45,7 +43,6 @@ function splitPhonemeClips(audioCtx,source) {
   */
   
 }
-
 
 
 
