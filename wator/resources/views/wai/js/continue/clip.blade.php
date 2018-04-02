@@ -22,7 +22,7 @@ function isStongWave(wave) {
   if(avarageEnergy > 0.01) {
     return true;
   }
-  retur false;
+  return false;
 }
 let filterCtx = new AudioContext();
 
