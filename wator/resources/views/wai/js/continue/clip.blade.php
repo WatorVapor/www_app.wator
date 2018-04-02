@@ -25,9 +25,16 @@ function onRawAudioData(evt) {
     let source = audioCtx.createBufferSource();
     source.onended = function(evt) {
       console.log('onaudioprocess:onended evt=<',evt,'>');
+      source.disconnect();
     }
     source.buffer = myArrayBuffer;
-    source.connect(audioCtx.destination);
+    
+    let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
+    jsProcess.onaudioprocess = function(evt) {
+      console.log('onaudioprocess:onaudioprocess evt=<',evt,'>');
+    }
+    source.connect(jsProcess);
+    jsProcess.connect(audioCtx.destination);
     source.start();
   }
   prevRawAudioBuffer = audioBuffer;
