@@ -31,9 +31,9 @@ function onRawAudioData(evt) {
     let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
     
     let prevData = prevRawAudioBuffer.getChannelData(0);
-    myArrayBuffer.copyFromChannel(prevData,0,0);
+    myArrayBuffer.copyToChannel(prevData,0,0);
     let data = audioBuffer.getChannelData(0);
-    myArrayBuffer.copyFromChannel(data,0,prevData.length);
+    myArrayBuffer.copyToChannel(data,0,prevData.length);
     console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
     
     if(isStongWave(myArrayBuffer.getChannelData(0))) {
