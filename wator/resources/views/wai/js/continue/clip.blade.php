@@ -8,6 +8,8 @@ const dMinDeltaHighFeqWave = 0.02;
 let prevRawAudioBuffer = false;
 
 
+const dAvarageEnergyMin = 0.01;
+
 function isStongWave(wave) {
   //console.log('isStongWave:wave=<',wave,'>');
   let energy = 0.0;
@@ -19,7 +21,7 @@ function isStongWave(wave) {
   //console.log('isStongWave:energy=<',energy,'>');
   let avarageEnergy = energy/wave.length;
   //console.log('isStongWave:avarageEnergy=<',avarageEnergy,'>');
-  if(avarageEnergy > 0.1) {
+  if(avarageEnergy > dAvarageEnergyMin) {
     return true;
   }
   return false;
