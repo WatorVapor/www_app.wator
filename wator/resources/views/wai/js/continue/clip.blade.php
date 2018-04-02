@@ -12,7 +12,7 @@ function isStongWave(wave) {
   console.log('isStongWave:wave=<',wave,'>');
   let energy = 0.0;
   for(let i = 0;i < wave.length ;i++) {
-    let level = wave[i];
+    let level = Math.abs(wave[i]);
     //console.log('isStongWave:level=<',level,'>');
     energy += level;
   }
@@ -23,7 +23,7 @@ let filterCtx = new AudioContext();
 function onRawAudioData(evt) {
   let audioBuffer = evt.inputBuffer;
   //console.log('onaudioprocess:evt=<',evt,'>');
-  console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
+  //console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
   if(prevRawAudioBuffer) {
     let audioCtx = filterCtx;
     //console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
@@ -34,7 +34,7 @@ function onRawAudioData(evt) {
     myArrayBuffer.copyToChannel(prevData,0,0);
     let data = audioBuffer.getChannelData(0);
     myArrayBuffer.copyToChannel(data,0,prevData.length);
-    console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
+    //console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
     
     if(isStongWave(myArrayBuffer.getChannelData(0))) {
       let source = audioCtx.createBufferSource();
