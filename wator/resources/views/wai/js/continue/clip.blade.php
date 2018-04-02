@@ -8,7 +8,7 @@ const dMinDeltaHighFeqWave = 0.02;
 let prevRawAudioBuffer = false;
 
 
-const dAvarageEnergyMin = 0.01;
+const dAvarageEnergyMin = 0.05;
 
 function isStongWave(wave) {
   //console.log('isStongWave:wave=<',wave,'>');
