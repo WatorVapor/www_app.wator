@@ -21,6 +21,14 @@ function onRawAudioData(evt) {
     let data = audioBuffer.getChannelData(0);
     myArrayBuffer.copyFromChannel(data,0,prevData.length);
     console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
+    
+    let source = audioCtx.createBufferSource();
+    source.onended = function(evt) {
+      console.log('onaudioprocess:onended evt=<',evt,'>');
+    }
+    source.buffer = myArrayBuffer;
+    source.connect(audioCtx.destination);
+    source.start();
   }
   prevRawAudioBuffer = audioBuffer;
 }
