@@ -5,9 +5,13 @@ const dMinDeltaLowFeqWave = 0.16;
 const dMinDeltaMiddleFeqWave = 0.04;
 const dMinDeltaHighFeqWave = 0.02;
 
+let prevRawAudioBuffer = false;
 function onRawAudioData(evt) {
   let audioBuffer = evt.inputBuffer;
   console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
+  if(prevRawAudioBuffer) {
+  }
+  prevRawAudioBuffer = audioBuffer;
 }
 
 
