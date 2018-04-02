@@ -17,6 +17,7 @@ function splitPhonemeClips(audioCtx,source) {
   let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
   jsProcess.onaudioprocess = onRawAudioData;
   source.connect(jsProcess);
+  jsProcess.connect(audioCtx.destination);
 
 /*
   let fRaw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave,function(freqs){
