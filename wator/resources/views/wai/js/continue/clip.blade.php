@@ -15,7 +15,7 @@ function onRawAudioData(evt) {
     let audioCtx = evt.target.context;
     console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
     let frameCount = audioBuffer.length + prevRawAudioBuffer.length;
-    let myArrayBuffer = audioCtx.createBuffer(audioBuffer.channels, frameCount, audioCtx.sampleRate);
+    let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
     console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
   }
   prevRawAudioBuffer = audioBuffer;
