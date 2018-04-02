@@ -9,9 +9,10 @@ let prevRawAudioBuffer = false;
 
 
 function isStongWave(wave) {
-  console.log('isStongWave:wave=<',wave,'>');
+  //console.log('isStongWave:wave=<',wave,'>');
   let energy = 0.0;
   for(let level in wave) {
+    console.log('isStongWave:level=<',level,'>');
     energy += level;
   }
   console.log('isStongWave:energy=<',energy,'>');
