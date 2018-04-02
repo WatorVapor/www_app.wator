@@ -23,12 +23,13 @@ let filterCtx = new AudioContext();
 function onRawAudioData(evt) {
   let audioBuffer = evt.inputBuffer;
   //console.log('onaudioprocess:evt=<',evt,'>');
-  //console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
+  console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
   if(prevRawAudioBuffer) {
     let audioCtx = filterCtx;
     //console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
     let frameCount = audioBuffer.length + prevRawAudioBuffer.length;
     let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
+    
     let prevData = prevRawAudioBuffer.getChannelData(0);
     myArrayBuffer.copyFromChannel(prevData,0,0);
     let data = audioBuffer.getChannelData(0);
