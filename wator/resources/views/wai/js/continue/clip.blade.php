@@ -12,6 +12,8 @@ function onRawAudioData(evt) {
   console.log('onaudioprocess:evt=<',evt,'>');
   console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
   if(prevRawAudioBuffer) {
+    let audioCtx = evt.target.context;
+    console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
   }
   prevRawAudioBuffer = audioBuffer;
 }
