@@ -7,35 +7,41 @@ const dMinDeltaHighFeqWave = 0.02;
 
 let prevRawAudioBuffer = false;
 
+
+function isStongWave(wave) {
+  console.log('isStongWave:wave=<',wave,'>');
+}
+
 function onRawAudioData(evt) {
   let audioBuffer = evt.inputBuffer;
-  console.log('onaudioprocess:evt=<',evt,'>');
-  console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
+  //console.log('onaudioprocess:evt=<',evt,'>');
+  //console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
   if(prevRawAudioBuffer) {
     let audioCtx = evt.target.context;
-    console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
+    //console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
     let frameCount = audioBuffer.length + prevRawAudioBuffer.length;
     let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
     let prevData = prevRawAudioBuffer.getChannelData(0);
     myArrayBuffer.copyFromChannel(prevData,0,0);
     let data = audioBuffer.getChannelData(0);
     myArrayBuffer.copyFromChannel(data,0,prevData.length);
-    console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
-    
-    let source = audioCtx.createBufferSource();
-    source.onended = function(evt) {
-      console.log('onaudioprocess:onended evt=<',evt,'>');
-      source.disconnect();
-    }
-    source.buffer = myArrayBuffer;
-    
-    let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
-    jsProcess.onaudioprocess = function(evt) {
-      console.log('onaudioprocess:onaudioprocess evt=<',evt,'>');
-    }
-    source.connect(jsProcess);
-    jsProcess.connect(audioCtx.destination);
-    source.start();
+    //console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
+    if(isStongWave(myArrayBuffer.getChannelData(0))) {
+      let source = audioCtx.createBufferSource();
+      source.onended = function(evt) {
+        console.log('onaudioprocess:onended evt=<',evt,'>');
+        source.disconnect();
+      }
+      source.buffer = myArrayBuffer;
+
+      let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
+      jsProcess.onaudioprocess = function(evt) {
+        console.log('onaudioprocess:onaudioprocess evt=<',evt,'>');
+      }
+      source.connect(jsProcess);
+      jsProcess.connect(audioCtx.destination);
+      source.start();
+    }    
   }
   prevRawAudioBuffer = audioBuffer;
 }
