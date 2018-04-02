@@ -18,13 +18,14 @@ function isStongWave(wave) {
   }
   console.log('isStongWave:energy=<',energy,'>');
 }
+let filterCtx = new AudioContext();
 
 function onRawAudioData(evt) {
   let audioBuffer = evt.inputBuffer;
   //console.log('onaudioprocess:evt=<',evt,'>');
   //console.log('onaudioprocess:audioBuffer=<',audioBuffer,'>');
   if(prevRawAudioBuffer) {
-    let audioCtx = evt.target.context;
+    let audioCtx = filterCtx;
     //console.log('onaudioprocess:audioCtx=<',audioCtx,'>');
     let frameCount = audioBuffer.length + prevRawAudioBuffer.length;
     let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
