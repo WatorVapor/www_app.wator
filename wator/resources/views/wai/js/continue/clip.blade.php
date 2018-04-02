@@ -44,13 +44,14 @@ function onRawAudioData(evt) {
     
     if(isStongWave(myArrayBuffer.getChannelData(0))) {
       let source = audioCtx.createBufferSource();
+      let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
       source.onended = function(evt) {
         console.log('onaudioprocess:onended evt=<',evt,'>');
         source.disconnect();
+        jsProcess.disconnect();
       }
       source.buffer = myArrayBuffer;
 
-      let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
       jsProcess.onaudioprocess = function(evt) {
         console.log('onaudioprocess:onaudioprocess evt=<',evt,'>');
       }
