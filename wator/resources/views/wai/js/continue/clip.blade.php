@@ -32,7 +32,8 @@ function onRawAudioData(evt) {
     myArrayBuffer.copyFromChannel(prevData,0,0);
     let data = audioBuffer.getChannelData(0);
     myArrayBuffer.copyFromChannel(data,0,prevData.length);
-    //console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
+    console.log('onaudioprocess:myArrayBuffer=<',myArrayBuffer,'>');
+    
     if(isStongWave(myArrayBuffer.getChannelData(0))) {
       let source = audioCtx.createBufferSource();
       source.onended = function(evt) {
