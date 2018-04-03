@@ -117,7 +117,8 @@ function startDemuxFreqs(audioCtx,source) {
   freqDemux.push(fHigh);
 }
 function stopDemuxFreqs() {
-  for(let demu in freqDemux) {
+  for(let index in freqDemux) {
+    let demu = freqDemux[index];
     console.log('stopDemuxFreqs demu=<',demu,'>');
     demu.end();
   }
