@@ -18,22 +18,23 @@ class AudioFreqDemux {
     this.createAudioPipe_();
   }
   createAudioPipe_() {
-    let jsProcess = this.audioCtx.createScriptProcessor(2*FilterWindowSize, 1, 1);
-    jsProcess.onaudioprocess = this.onData_.bind(this);
+    this.jsProcess = this.audioCtx.createScriptProcessor(2*FilterWindowSize, 1, 1);
+    this.jsProcess.onaudioprocess = this.onData_.bind(this);
     if(this.freqFrom && this.freqTo) {
-      let filter = this.audioCtx.createBiquadFilter();
-      filter.type = 'bandpass';
+      this.filter = this.audioCtx.createBiquadFilter();
+      this.filter.type = 'bandpass';
       let from = this.freqFrom;
       let to = this.freqTo;
       let geometricMean = Math.sqrt(from * to);
-      filter.frequency.value = geometricMean;
-      filter.Q.value = geometricMean / (to - from);
-      this.source.connect(filter);
-      filter.connect(jsProcess);
+      this.filter.frequency.value = geometricMean;
+      this.filter.Q.value = geometricMean / (to - from);
+      this.source.connect(this.filter);
+      this.filter.connect(this.jsProcess);
     } else {
-      this.source.connect(jsProcess);
+      this.source.connect(this.jsProcess);
     }
-    jsProcess.connect(this.audioCtx.destination);
+    this.jsProcess.connect(this.audioCtx.destination);
+    this.source.onended = onSourceEnd_.bind(this);
   }  
   onData_(evt){
     //console.log('onData_:evt=<',evt,'>');
@@ -41,6 +42,8 @@ class AudioFreqDemux {
     //console.log('onData:audioData=<',audioData,'>');
     this.convolutionalBuffer.push(...audioData);
     //console.log('onData_:this.sampleRate=<',this.sampleRate,'>');
+    
+    /*
     if(this.convolutionalBuffer.length > 2*FilterWindowSize) {
       this.convolutionalBuffer.splice(0,FilterWindowSize);
       let peaks = this.checkPeak2Peak(this.convolutionalBuffer,this.delta);
@@ -48,7 +51,18 @@ class AudioFreqDemux {
       //console.log('onData_:freq=<',freq,'>');
       this.cb(freq);
     }
+    */
     //console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
+  }
+  
+  onSourceEnd_(evt) {
+    console.log('onSourceEnd_:evt=<',evt,'>');
+    if(this.filter) {
+      this.filter.disconnect();
+    }
+    if(this.jsProcess) {
+      this.jsProcess.disconnect();
+    }
   }
 
 
