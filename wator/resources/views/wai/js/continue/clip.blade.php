@@ -63,36 +63,10 @@ function onRawAudioData(evt) {
 
 function splitPhonemeClips(audioCtx,source) {
   console.log('splitPhonemeClips source=<',source,'>');
-  
   let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
   jsProcess.onaudioprocess = onRawAudioData;
   source.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
-
-/*
-  let fRaw = new AudioFreqDemux (audioCtx,source,dMinDeltaRawFeqWave,function(freqs){
-    //console.log('fRaw freqs=<',freqs,'>');
-  });
-  
-  let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
-    if(freqs.length > 5) {
-      console.log('fLow freqs=<',freqs,'>');
-    }
-  },50,500);
-  
-  let fMiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(freqs){
-    if(freqs.length > 5) {
-      console.log('fMiddle freqs=<',freqs,'>');
-    }
-  },500,1000);
-  
-  let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(freqs){
-    if(freqs.length > 5) {
-      console.log('fHigh freqs=<',freqs,'>');
-    }
-  },1000,1600);
-  */
-  
 }
 
 let freqDemux = [];
@@ -119,7 +93,7 @@ function startDemuxFreqs(audioCtx,source) {
 function stopDemuxFreqs() {
   for(let index in freqDemux) {
     let demu = freqDemux[index];
-    console.log('stopDemuxFreqs demu=<',demu,'>');
+    //console.log('stopDemuxFreqs demu=<',demu,'>');
     demu.end();
   }
   freqDemux = [];
