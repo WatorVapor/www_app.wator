@@ -1,5 +1,6 @@
 <script type="text/javascript">
-//const FilterWindowSize = 8192;
+
+
 const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.16;
 const dMinDeltaMiddleFeqWave = 0.04;
