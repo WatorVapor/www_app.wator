@@ -89,7 +89,7 @@ class AudioFreqDemux {
     for(let i = 1;i < peaks.length;i++) {
       let pk2pk = peaks[i][0] - peaks[i-1][0];
       let index = peaks[i][0];
-      let freq = 2* this.sampleRate/pk2pk;
+      let freq = this.sampleRate/(2*pk2pk);
       freqs.push([index,freq,peaks[i][1]]);
     }
     //console.log('calFreq:freqs=<',freqs,'>');
