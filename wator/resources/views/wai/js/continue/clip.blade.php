@@ -46,19 +46,8 @@ function onRawAudioData(evt) {
     
     if(isStongWave(myArrayBuffer.getChannelData(0))) {
       let source = audioCtx.createBufferSource();
-      let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
-      source.onended = function(evt) {
-        console.log('onaudioprocess:onended evt=<',evt,'>');
-        source.disconnect();
-        jsProcess.disconnect();
-      }
       source.buffer = myArrayBuffer;
-
-      jsProcess.onaudioprocess = function(evt) {
-        console.log('onaudioprocess:onaudioprocess evt=<',evt,'>');
-      }
-      source.connect(jsProcess);
-      jsProcess.connect(audioCtx.destination);
+      startDemuxFreqs(audioCtx,source);
       source.start();
     }    
   }
@@ -100,7 +89,25 @@ function splitPhonemeClips(audioCtx,source) {
   
 }
 
-
+function startDemuxFreqs(audioCtx,source) {
+  let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
+    if(freqs.length > 5) {
+      console.log('fLow freqs=<',freqs,'>');
+    }
+  },50,500);
+  
+  let fMiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(freqs){
+    if(freqs.length > 5) {
+      console.log('fMiddle freqs=<',freqs,'>');
+    }
+  },500,1000);
+  
+  let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(freqs){
+    if(freqs.length > 5) {
+      console.log('fHigh freqs=<',freqs,'>');
+    }
+  },1000,1600);
+}
 
 </script>
 
