@@ -52,6 +52,7 @@ class AudioFreqDemux {
       this.cb(freq);
     }
     */
+    console.log('onData_:this<',this,'>');
     console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
   }
   
