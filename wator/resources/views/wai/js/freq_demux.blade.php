@@ -55,9 +55,7 @@ class AudioFreqDemux {
     console.log('onData_:this.convolutionalBuffer.length=<',this.convolutionalBuffer.length,'>');
   }
   
-  onSourceEnd_(evt) {
-    console.log('onSourceEnd_:evt=<',evt,'>');
-    this.source.disconnect();
+  end() {
     if(this.filter) {
       this.filter.disconnect();
     }
