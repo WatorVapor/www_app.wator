@@ -18,7 +18,7 @@ class AudioFreqDemux {
     this.createAudioPipe_();
   }
   createAudioPipe_() {
-    let jsProcess = this.audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
+    let jsProcess = this.audioCtx.createScriptProcessor(2*FilterWindowSize, 1, 1);
     jsProcess.onaudioprocess = this.onData_.bind(this);
     if(this.freqFrom && this.freqTo) {
       let filter = this.audioCtx.createBiquadFilter();
