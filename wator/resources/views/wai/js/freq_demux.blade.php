@@ -57,6 +57,7 @@ class AudioFreqDemux {
   
   onSourceEnd_(evt) {
     console.log('onSourceEnd_:evt=<',evt,'>');
+    this.source.disconnect();
     if(this.filter) {
       this.filter.disconnect();
     }
