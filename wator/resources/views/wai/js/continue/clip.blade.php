@@ -71,6 +71,12 @@ function splitPhonemeClips(audioCtx,source) {
 
 let freqDemux = [];
 function startDemuxFreqs(audioCtx,source) {
+  let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
+    if(freqs.length > 5) {
+      console.log('startDemuxFreqs fRaw freqs=<',freqs,'>');
+    }
+  });
+  freqDemux.push(fRaw);
   let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fLow freqs=<',freqs,'>');
