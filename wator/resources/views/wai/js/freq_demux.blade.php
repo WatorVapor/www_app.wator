@@ -34,7 +34,6 @@ class AudioFreqDemux {
       this.source.connect(this.jsProcess);
     }
     this.jsProcess.connect(this.audioCtx.destination);
-    this.source.onended = this.onSourceEnd_.bind(this);
   }  
   onData_(evt){
     //console.log('onData_:evt=<',evt,'>');
