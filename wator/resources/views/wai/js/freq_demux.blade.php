@@ -41,7 +41,7 @@ class AudioFreqDemux {
     let peaks = this.checkPeak2Peak(audioData,this.delta);
     let freq = this.calFreq(peaks);
     //console.log('onData_:freq=<',freq,'>');
-    this.cb(freq);
+    this.cb(audioData,freq);
   }
   
   end() {
