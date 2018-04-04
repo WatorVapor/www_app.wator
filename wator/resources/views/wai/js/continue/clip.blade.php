@@ -111,7 +111,7 @@ function startDemuxFreqs(audioCtx,source) {
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fHigh freqs=<',freqs,'>');
     }
-    svgHigh = createWavePolyline(200,600,totalBufferHigh,peaks,freqs);
+    svgHigh = createWavePolyline(200,600,audio,peaks,freqs);
     if(svgRaw && svgLow && svgMiddle && svgHigh) {
       saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
     }
@@ -158,7 +158,7 @@ function createWavePolyline(height,offsetY,wave,peaks,freqs) {
   //console.log('createWavePolyline:wave=<',wave,'>');
   let peak = height/2;
   
-  svg += '<polyline points="';
+  let svg = '<polyline points="';
   for(let i = 0;i < wave.length ;i++) {
     let y = offsetY + peak - wave[i] * peak;
     let x = i;
