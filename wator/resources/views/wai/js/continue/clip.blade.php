@@ -71,25 +71,25 @@ function splitPhonemeClips(audioCtx,source) {
 
 let freqDemux = [];
 function startDemuxFreqs(audioCtx,source) {
-  let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
+  let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fRaw freqs=<',freqs,'>');
     }
   });
   freqDemux.push(fRaw);
-  let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(freqs){
+  let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fLow freqs=<',freqs,'>');
     }
   },50,500);
   freqDemux.push(fLow);
-  let fMiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(freqs){
+  let fMiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(audio,freqs){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fMiddle freqs=<',freqs,'>');
     }
   },500,1000);
   freqDemux.push(fMiddle);
-  let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(freqs){
+  let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(audio,freqs){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fHigh freqs=<',freqs,'>');
     }
