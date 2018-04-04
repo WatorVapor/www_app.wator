@@ -85,13 +85,13 @@ body {
 
     <div class="row">
       <div class="col  m-0 p-0">
-        <canvas id="wai-recoder-canvas-standard"></canvas>
+        <img  id="wai-recoder-canvas-standard"></img >
       </div>
     </div>
 
     <div class="row">
       <div class="col  m-0 p-0">
-        <canvas id="wai-recoder-canvas-train"></canvas>
+        <img  id="wai-recoder-canvas-train"></img >
       </div>
     </div>
 
