@@ -80,7 +80,10 @@ function startDemuxFreqs(audioCtx,source) {
   let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fRaw freqs=<',freqs,'>');
+      console.log('startDemuxFreqs fRaw peaks=<',peaks,'>');
+      console.log('startDemuxFreqs fRaw audio=<',audio,'>');
     }
+    console.log('startDemuxFreqs fRaw audio=<',audio,'>');
     svgRaw = createWavePolyline(200,0,audio,peaks,freqs);
     if(svgRaw && svgLow && svgMiddle && svgHigh) {
       saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
