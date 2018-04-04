@@ -80,43 +80,40 @@ function startDemuxFreqs(audioCtx,source) {
   let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fRaw freqs=<',freqs,'>');
-      console.log('startDemuxFreqs fRaw peaks=<',peaks,'>');
-      console.log('startDemuxFreqs fRaw audio=<',audio,'>');
-    }
-    console.log('startDemuxFreqs fRaw audio=<',audio,'>');
-    svgRaw = createWavePolyline(200,0,audio,peaks,freqs);
-    if(svgRaw && svgLow && svgMiddle && svgHigh) {
-      saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      svgRaw = createWavePolyline(200,0,audio,peaks,freqs);
+      if(svgRaw && svgLow && svgMiddle && svgHigh) {
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      }
     }
   });
   freqDemux.push(fRaw);
   let fLow = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fLow freqs=<',freqs,'>');
-    }
-    svgLow = createWavePolyline(200,200,audio,peaks,freqs);
-    if(svgRaw && svgLow && svgMiddle && svgHigh) {
-      saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      svgLow = createWavePolyline(200,200,audio,peaks,freqs);
+      if(svgRaw && svgLow && svgMiddle && svgHigh) {
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      }
     }
   },50,500);
   freqDemux.push(fLow);
   let fMiddle = new AudioFreqDemux(audioCtx,source,dMinDeltaMiddleFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fMiddle freqs=<',freqs,'>');
-    }
-    svgMiddle = createWavePolyline(200,400,audio,peaks,freqs);
-    if(svgRaw && svgLow && svgMiddle && svgHigh) {
-      saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      svgMiddle = createWavePolyline(200,400,audio,peaks,freqs);
+      if(svgRaw && svgLow && svgMiddle && svgHigh) {
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      }
     }
   },500,1000);
   freqDemux.push(fMiddle);
   let fHigh = new AudioFreqDemux(audioCtx,source,dMinDeltaHighFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fHigh freqs=<',freqs,'>');
-    }
-    svgHigh = createWavePolyline(200,600,audio,peaks,freqs);
-    if(svgRaw && svgLow && svgMiddle && svgHigh) {
-      saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      svgHigh = createWavePolyline(200,600,audio,peaks,freqs);
+      if(svgRaw && svgLow && svgMiddle && svgHigh) {
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+      }
     }
   },1000,1600);
   
