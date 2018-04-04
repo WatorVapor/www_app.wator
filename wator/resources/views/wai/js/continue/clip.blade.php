@@ -76,13 +76,18 @@ function startDemuxFreqs(audioCtx,source) {
   let svgLow = false;
   let svgMiddle = false;
   let svgHigh = false;
+  
+  let maxWidth = 0;
 
   let fRaw = new AudioFreqDemux(audioCtx,source,dMinDeltaLowFeqWave,function(audio,freqs,peaks){
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fRaw freqs=<',freqs,'>');
       svgRaw = createWavePolyline(200,0,audio,peaks,freqs);
+      if(maxWidth < audio.length) {
+        maxWidth = audio.length;
+      }
       if(svgRaw && svgLow && svgMiddle && svgHigh) {
-        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh,maxWidth);
       }
     }
   });
@@ -91,8 +96,11 @@ function startDemuxFreqs(audioCtx,source) {
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fLow freqs=<',freqs,'>');
       svgLow = createWavePolyline(200,200,audio,peaks,freqs);
+      if(maxWidth < audio.length) {
+        maxWidth = audio.length;
+      }
       if(svgRaw && svgLow && svgMiddle && svgHigh) {
-        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh,maxWidth);
       }
     }
   },50,500);
@@ -101,8 +109,11 @@ function startDemuxFreqs(audioCtx,source) {
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fMiddle freqs=<',freqs,'>');
       svgMiddle = createWavePolyline(200,400,audio,peaks,freqs);
+      if(maxWidth < audio.length) {
+        maxWidth = audio.length;
+      }
       if(svgRaw && svgLow && svgMiddle && svgHigh) {
-        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh,maxWidth);
       }
     }
   },500,1000);
@@ -111,8 +122,11 @@ function startDemuxFreqs(audioCtx,source) {
     if(freqs.length > 5) {
       console.log('startDemuxFreqs fHigh freqs=<',freqs,'>');
       svgHigh = createWavePolyline(200,600,audio,peaks,freqs);
+      if(maxWidth < audio.length) {
+        maxWidth = audio.length;
+      }
       if(svgRaw && svgLow && svgMiddle && svgHigh) {
-        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh);
+        saveAllSVG(200,4,svgRaw + svgLow + svgMiddle + svgHigh,maxWidth);
       }
     }
   },1000,1600);
