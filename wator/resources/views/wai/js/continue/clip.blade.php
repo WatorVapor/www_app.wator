@@ -74,6 +74,7 @@ let freqDemux = [];
 function startDemuxFreqs(audioCtx,source) {
 
   let svgRaw = false;
+  let svgLower = false;
   let svgLow = false;
   let svgMiddle = false;
   let svgHigh = false;
