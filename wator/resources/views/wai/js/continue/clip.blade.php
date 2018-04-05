@@ -5,6 +5,7 @@ const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.16;
 const dMinDeltaMiddleFeqWave = 0.04;
 const dMinDeltaHighFeqWave = 0.02;
+const RawWindowSize = 16384;
 
 let prevRawAudioBuffer = false;
 
@@ -63,7 +64,7 @@ function onRawAudioData(evt) {
 
 function splitPhonemeClips(audioCtx,source) {
   console.log('splitPhonemeClips source=<',source,'>');
-  let jsProcess = audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
+  let jsProcess = audioCtx.createScriptProcessor(RawWindowSize, 1, 1);
   jsProcess.onaudioprocess = onRawAudioData;
   source.connect(jsProcess);
   jsProcess.connect(audioCtx.destination);
