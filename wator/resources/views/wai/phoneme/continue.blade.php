@@ -89,9 +89,9 @@ body {
       </div>
     </div>
 
-    <div class="row">
-      <div class="col  m-0 p-0">
-        <img  id="wai-recoder-canvas-train"></img >
+    <div class="row justify-content-center">
+      <div class="col  m-0 p-0 justify-content-center ">
+        <img class="border border-success w-100" height="300px" id="wai-recoder-canvas-train"></img >
       </div>
     </div>
 
