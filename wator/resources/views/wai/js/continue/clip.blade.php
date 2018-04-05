@@ -10,7 +10,7 @@ const RawWindowSize = 16384;
 let prevRawAudioBuffer = false;
 
 
-const dAvarageEnergyMin = 0.1;
+const dAvarageEnergyMin = 0.02;
 
 function isStongWave(wave) {
   //console.log('isStongWave:wave=<',wave,'>');
