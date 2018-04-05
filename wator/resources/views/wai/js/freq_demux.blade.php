@@ -2,7 +2,7 @@
 
 
 let filterCounter = 0;
-const FilterWindowSize = 8192;
+const FilterWindowSize = 16384;
 class AudioFreqDemux {
   constructor(audioCtx,source,delta,cb,freqFrom,freqTo) {
     this.audioCtx = audioCtx;
@@ -18,7 +18,7 @@ class AudioFreqDemux {
     this.createAudioPipe_();
   }
   createAudioPipe_() {
-    this.jsProcess = this.audioCtx.createScriptProcessor(2*FilterWindowSize, 1, 1);
+    this.jsProcess = this.audioCtx.createScriptProcessor(FilterWindowSize, 1, 1);
     this.jsProcess.onaudioprocess = this.onData_.bind(this);
     if(this.freqFrom && this.freqTo) {
       this.filter = this.audioCtx.createBiquadFilter();
@@ -38,10 +38,13 @@ class AudioFreqDemux {
   onData_(evt){
     //console.log('onData_:evt=<',evt,'>');
     let audioData = evt.inputBuffer.getChannelData(0);
-    let peaks = this.checkPeak2Peak(audioData,this.delta);
-    let freq = this.calFreq(peaks);
-    //console.log('onData_:freq=<',freq,'>');
-    this.cb(audioData,freq,peaks);
+    this.convolutionalBuffer.push(...audioData);
+    if(this.convolutionalBuffer.length > FilterWindowSize) {
+      let peaks = this.checkPeak2Peak(this.convolutionalBuffer,this.delta);
+      let freq = this.calFreq(peaks);
+      //console.log('onData_:freq=<',freq,'>');
+      this.cb(this.convolutionalBuffer,freq,peaks);
+    }
   }
   
   end() {
