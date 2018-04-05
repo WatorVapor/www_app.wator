@@ -83,17 +83,20 @@ body {
     <hr/>
 
 
-    <div class="row">
-      <div class="col  m-0 p-0">
-        <img  id="wai-recoder-canvas-standard"></img >
-      </div>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col  m-0 p-0 justify-content-center ">
-        <img class="border border-success w-100" height="300px" id="wai-recoder-canvas-train"></img >
-      </div>
-    </div>
-
   </div>
 </div>
+
+
+<div class="row justify-content-center">
+  <div class="col  m-0 p-0 justify-content-center">
+    <img class="border border-success w-100" height="300px" id="wai-recoder-canvas-standard"></img >
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col  m-0 p-0 justify-content-center ">
+    <img class="border border-success w-100" height="300px" id="wai-recoder-canvas-train"></img >
+  </div>
+</div>
+
+
