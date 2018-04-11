@@ -25,6 +25,6 @@
     </div>
     <div id="rsa.login.session.auto" class="d-none"> {{ $RSAAuth_AutoLogin}} </div>
     <div id="rsa.login.session.access" class="d-none"> {{ $RSAAuth_Access}} </div>
-    <a class="d-none" href="/autolink"/>;
+    <a class="d-none" href="/search/link"/>;
   </body>
 </html>
