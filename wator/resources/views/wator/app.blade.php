@@ -23,7 +23,8 @@
     <div class="container-fluid">
       @yield('content')
     </div>
-    <div id="rsa.login.session.auto" hidden> {{ $RSAAuth_AutoLogin}} </div>
-    <div id="rsa.login.session.access" hidden> {{ $RSAAuth_Access}} </div>    
+    <div id="rsa.login.session.auto" class="d-none"> {{ $RSAAuth_AutoLogin}} </div>
+    <div id="rsa.login.session.access" class="d-none"> {{ $RSAAuth_Access}} </div>
+    <a class="d-none" href="/autolink"/>;
   </body>
 </html>
