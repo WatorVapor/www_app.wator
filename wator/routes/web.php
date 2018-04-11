@@ -14,6 +14,7 @@
 Route::get('/about', 'Home\AboutController@index');
 Route::get('/welcome', 'Home\WelcomeController@index');
 Route::get('/', 'Home\WelcomeController@index');
+Route::get('/search/link', 'Home\SearchLinkController@index');
 
 
 Route::get('/rsaauth/signup', 'RsaAuth\SignUpController@index');
