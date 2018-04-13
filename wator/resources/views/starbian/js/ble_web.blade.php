@@ -99,7 +99,12 @@ function onDBCBack(elem) {
   console.log('onDBCLeft=<',onDBCBack,'>');
   write2DBC('back');
 }
-
+function onSpeedChange(elem){
+  console.log('onSpeedChange::elem=<',elem,'>');
+  let value = elem.value;
+  console.log('onSpeedChange::value=<',value,'>');
+  write2DBC('speed:=<' + value + '>');
+}
 
 
 </script>
