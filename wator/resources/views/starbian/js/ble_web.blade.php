@@ -64,10 +64,12 @@ function onReadValue(characteristic) {
   });
 }
 
+
+
 function write2DBC(msg) {
   console.log('WATOR.characteristic=<',WATOR.characteristic,'>');
   if(WATOR.characteristic) {
-    let buffer = new Uint8Array(msg);
+    let buffer = new TextEncoder("utf-8").encode(msg);
     WATOR.characteristic.writeValue(buffer);
   }
 }
