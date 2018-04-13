@@ -53,7 +53,7 @@
 <!--
 <script src="/wator/starbian/js/ble.web.js" type="text/javascript"></script>
 -->
-@include('starbian.js.')
+@include('starbian.js.ble_web')
 
 <script type="text/javascript">
   function onBLESearch(element) {
