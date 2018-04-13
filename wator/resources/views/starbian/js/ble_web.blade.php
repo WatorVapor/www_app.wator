@@ -83,4 +83,26 @@ function onReadValue(characteristic) {
   });
 }
 
+function onDBCForward(elem) {
+  console.log('onDBCForward=<',onDBCForward,'>');
+}
+
+function onDBCLeft(elem) {
+  console.log('onDBCLeft=<',onDBCLeft,'>');
+}
+
+function onDBCStop(elem) {
+  console.log('onDBCStop=<',onDBCStop,'>');
+}
+
+function onDBCRight(elem) {
+  console.log('onDBCRight=<',onDBCRight,'>');
+}
+
+function onDBCBack(elem) {
+  console.log('onDBCLeft=<',onDBCBack,'>');
+}
+
+
+
 </script>
