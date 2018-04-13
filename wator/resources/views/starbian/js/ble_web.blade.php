@@ -75,23 +75,27 @@ function write2DBC(msg) {
 
 function onDBCForward(elem) {
   console.log('onDBCForward=<',onDBCForward,'>');
-  write2DBC('hello');
+  write2DBC('forword');
 }
 
 function onDBCLeft(elem) {
   console.log('onDBCLeft=<',onDBCLeft,'>');
+  write2DBC('left');
 }
 
 function onDBCStop(elem) {
   console.log('onDBCStop=<',onDBCStop,'>');
+  write2DBC('stop');
 }
 
 function onDBCRight(elem) {
   console.log('onDBCRight=<',onDBCRight,'>');
+  write2DBC('right');
 }
 
 function onDBCBack(elem) {
   console.log('onDBCLeft=<',onDBCBack,'>');
+  write2DBC('back');
 }
 
 
