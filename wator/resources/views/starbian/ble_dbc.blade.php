@@ -38,15 +38,15 @@
   <div class="row mt-lg-5 justify-content-center">
     <div class="col-10">
       <div class="row align-items-start justify-content-center">
-        <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_up</i></button>
+        <button type="submit" class="btn btn-lg btn-remote-controller btn-success" onclick="onDBCForward(this)"> <i class="material-icons md-48">keyboard_arrow_up</i></button>
       </div>
       <div class="row mt-lg-4 align-items-center justify-content-center">
-        <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_left</i></button>
-        <button type="submit" class="btn btn-lg ml-lg-4 mr-lg-4 btn-remote-controller btn-danger"><i class="material-icons md-48">stop</i></button>
-        <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_right</i></button>
+        <button type="submit" class="btn btn-lg btn-remote-controller btn-success" onclick="onDBCLeft(this)" ><i class="material-icons md-48">keyboard_arrow_left</i></button>
+        <button type="submit" class="btn btn-lg ml-lg-4 mr-lg-4 btn-remote-controller btn-danger" onclick="onDBCStop(this)"><i class="material-icons md-48">stop</i></button>
+        <button type="submit" class="btn btn-lg btn-remote-controller btn-success " onclick="onDBCRight(this)"><i class="material-icons md-48">keyboard_arrow_right</i></button>
       </div>
       <div class="row mt-lg-4 align-items-end justify-content-center">
-        <button type="submit" class="btn btn-lg btn-remote-controller btn-success"><i class="material-icons md-48">keyboard_arrow_down</i></button>
+        <button type="submit" class="btn btn-lg btn-remote-controller btn-success" onclick="onDBCBack(this)"><i class="material-icons md-48">keyboard_arrow_down</i></button>
       </div>
     </div>
   </div>
