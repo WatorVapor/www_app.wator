@@ -67,7 +67,8 @@ function onReadValue(characteristic) {
 function write2DBC(msg) {
   console.log('WATOR.characteristic=<',WATOR.characteristic,'>');
   if(WATOR.characteristic) {
-    WATOR.characteristic.writeValue(msg);
+    let buffer = new Uint8Array(msg);
+    WATOR.characteristic.writeValue(buffer);
   }
 }
 
