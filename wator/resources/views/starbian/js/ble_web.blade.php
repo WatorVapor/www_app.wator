@@ -4,29 +4,9 @@ var WATOR = WATOR || {};
 WATOR.WebBle = {};
 WATOR.WebBle.READ_INTERVAL = 20;
 WATOR.WebBle.serviceID = '9a10ba1d-cd1c-4f00-9cca-1f3178d5fe8a';
-
-function awaitCall() {
-/*
-  console.log(navigator.bluetooth);
-  console.log(BluetoothUUID);
-  let option = { acceptAllDevices:true,optionalServices:[0x00FF,0x00EE] };
-  const device = await navigator.bluetooth.requestDevice(option);
-  console.log('device=<',device,'>');
-  const server = await device.gatt.connect();
-  console.log('server=<',server,'>');
-  const service = await server.getPrimaryService(0x00FF);
-  console.log('service=<',service,'>');
-  const characteristics = await service.getCharacteristics();
-  console.log('characteristics=<',characteristics,'>');
-  for (const characteristic of characteristics) {
-    console.log('characteristic=<',characteristic,'>');
-    WATOR.WebBle.read_timer = setTimeout(onReadValue,WATOR.WebBle.READ_INTERVAL,characteristic);
-  }
- */
-}
+WATOR.gatt = false;
 
 function runBLESource(){
-  //awaitCall();
   thenCall();
 }
 
@@ -65,6 +45,7 @@ function doConnect(gatt) {
     characteristics.forEach(characteristic => {
       console.log('characteristic=<',characteristic,'>');
     });
+    WATOR.gatt = gatt;
   })
   gatt.connect();
 }
@@ -85,6 +66,7 @@ function onReadValue(characteristic) {
 
 function onDBCForward(elem) {
   console.log('onDBCForward=<',onDBCForward,'>');
+  console.log('WATOR.gatt=<',WATOR.gatt,'>');
 }
 
 function onDBCLeft(elem) {
