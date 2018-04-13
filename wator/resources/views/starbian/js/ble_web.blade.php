@@ -103,7 +103,7 @@ function onSpeedChange(elem){
   console.log('onSpeedChange::elem=<',elem,'>');
   let value = elem.value;
   console.log('onSpeedChange::value=<',value,'>');
-  write2DBC('speed:=<' + value + '>');
+  write2DBC('speed_' + value);
 }
 
 
