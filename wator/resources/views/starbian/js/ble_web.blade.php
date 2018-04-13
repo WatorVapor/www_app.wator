@@ -62,7 +62,7 @@ function doConnect(gatt) {
   })
   .then(characteristics => {
     characteristics.forEach(characteristic => {
-      WATOR.WebBle.read_timer = setTimeout(onReadValue,WATOR.WebBle.READ_INTERVAL,characteristic);
+      console.log('characteristic=<',characteristic,'>');
     });
   })
   gatt.connect();
