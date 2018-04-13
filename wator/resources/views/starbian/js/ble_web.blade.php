@@ -3,6 +3,7 @@
 var WATOR = WATOR || {};
 WATOR.WebBle = {};
 WATOR.WebBle.READ_INTERVAL = 20;
+WATOR.WebBle.serviceID = '9a10ba1d-cd1c-4f00-9cca-1f3178d5fe8a';
 
 function awaitCall() {
 /*
@@ -54,7 +55,7 @@ function doConnect(gatt) {
   console.log(gatt);
   gatt.connect().then(server => {
     console.log('server=<',server,'>');
-    return server.getPrimaryService(0x00FF);
+    return server.getPrimaryService(WATOR.WebBle.serviceID);
   })
   .then(service => {
     console.log('service=<',service,'>');
