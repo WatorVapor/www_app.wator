@@ -21,7 +21,7 @@
         <span class="input-group-btn">
           <button class="btn btn-primary" type="submit">1-255</button>
         </span>
-        <input type="text" class="form-control" name="speed" placeholder="50"  value="50" />
+        <input type="text" class="form-control" name="speed" placeholder="50"  value="50" onchange="onSpeedChange(this)"/>
     </div>
   </div>
 </div>
