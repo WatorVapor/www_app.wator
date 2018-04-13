@@ -29,9 +29,9 @@ function runBLESource(){
   thenCall();
 }
 
-setTimeout(function() {
+function onBLEConnect(){
   thenCall();
-},1000);
+}
 
 function thenCall() {
   console.log('navigator.bluetooth=<',navigator.bluetooth,'>');
