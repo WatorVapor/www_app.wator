@@ -29,6 +29,10 @@ function runBLESource(){
   thenCall();
 }
 
+setTimeout(function() {
+  thenCall();
+},1000);
+
 function thenCall() {
   console.log('navigator.bluetooth=<',navigator.bluetooth,'>');
   navigator.bluetooth.requestDevice({ acceptAllDevices:true,optionalServices:[0x00FF,0x00EE] })
