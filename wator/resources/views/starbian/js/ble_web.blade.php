@@ -4,7 +4,7 @@ var WATOR = WATOR || {};
 WATOR.WebBle = {};
 WATOR.WebBle.READ_INTERVAL = 20;
 WATOR.WebBle.serviceID = '9a10ba1d-cd1c-4f00-9cca-1f3178d5fe8a';
-WATOR.gatt = false;
+WATOR.characteristic = false;
 
 function runBLESource(){
   thenCall();
@@ -44,8 +44,8 @@ function doConnect(gatt) {
   .then(characteristics => {
     characteristics.forEach(characteristic => {
       console.log('characteristic=<',characteristic,'>');
+      WATOR.characteristic = characteristic;
     });
-    WATOR.gatt = gatt;
   })
   gatt.connect();
 }
@@ -64,9 +64,17 @@ function onReadValue(characteristic) {
   });
 }
 
+function write2DBC(msg) {
+  console.log('WATOR.characteristic=<',WATOR.characteristic,'>');
+  if(WATOR.characteristic) {
+    WATOR.characteristic.writeValue(msg);
+  }
+}
+
+
 function onDBCForward(elem) {
   console.log('onDBCForward=<',onDBCForward,'>');
-  console.log('WATOR.gatt=<',WATOR.gatt,'>');
+  write2DBC('hello');
 }
 
 function onDBCLeft(elem) {
