@@ -36,7 +36,7 @@ function onBLEConnect(){
 
 function thenCall() {
   console.log('navigator.bluetooth=<',navigator.bluetooth,'>');
-  navigator.bluetooth.requestDevice({ acceptAllDevices:true,optionalServices:[0x00FF,0x00EE] })
+  navigator.bluetooth.requestDevice({ acceptAllDevices:true,optionalServices:[WATOR.WebBle.serviceID] })
   .then(device => {
     console.log('device=<',device,'>');
     device.addEventListener('gattserverdisconnected', onDisconnected);
