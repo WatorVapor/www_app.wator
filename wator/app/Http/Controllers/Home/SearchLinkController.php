@@ -20,7 +20,7 @@ class SearchLinkController extends Controller
         {
             $urls[] = $value->getPath();
         }
-        var_dump($urls):
+        var_dump($urls);
         return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
     }
 }
