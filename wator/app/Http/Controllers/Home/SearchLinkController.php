@@ -26,6 +26,10 @@ class SearchLinkController extends Controller
                 }
             }
         }
+        $autoGenfiles = shell_exec('find /autogen/');
+        var_dump($autoGenfiles);
+        
+        
         //var_dump($urls);
         return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
     }
