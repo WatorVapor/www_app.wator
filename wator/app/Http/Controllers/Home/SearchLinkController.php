@@ -28,6 +28,12 @@ class SearchLinkController extends Controller
         }
         $autoGenfiles = shell_exec('find /autogen/wator/wai/static/*.html ');
         var_dump($autoGenfiles);
+        $autoGenArray = explode("\n", $autoGenfiles);
+        var_dump($autoGenfiles);
+        foreach ($autoGenfiles as $file)
+        {
+            $urls[] = $file;
+        }
         
         
         //var_dump($urls);
