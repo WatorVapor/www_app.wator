@@ -26,7 +26,7 @@ class SearchLinkController extends Controller
                 }
             }
         }
-        $autoGenfiles = shell_exec('find /autogen/');
+        $autoGenfiles = shell_exec('find /autogen/wator/wai/static/*.html ');
         var_dump($autoGenfiles);
         
         
