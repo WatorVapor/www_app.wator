@@ -8,5 +8,9 @@
     <title>Wator</title>
   </head>
   <body>
+    @foreach ($urls as $url)
+    <a href="/{{ $url }}" />
+    <br/>
+    @endforeach
   </body>
 </html>
