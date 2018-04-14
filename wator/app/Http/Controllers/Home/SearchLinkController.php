@@ -19,6 +19,7 @@ class SearchLinkController extends Controller
         foreach ($routeList as $value)
         {
             //var_dump($value->uri());
+            var_dump($value->methods());
             $urls[] = $value->uri();
         }
         //var_dump($urls);
