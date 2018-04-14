@@ -30,7 +30,7 @@ class SearchLinkController extends Controller
         //var_dump($autoGenArray);
         foreach ($autoGenArray as $file)
         {
-            $uri = str_replace('/wator/','/',$file);
+            $uri = str_replace('/autogen/wator','autogen',$file);
             $urls[] = $uri;
         }
         
