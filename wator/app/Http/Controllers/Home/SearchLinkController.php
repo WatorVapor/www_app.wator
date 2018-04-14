@@ -20,10 +20,24 @@ class SearchLinkController extends Controller
         {
             //var_dump($value->uri());
             if (in_array("GET", $value->methods())) {
-                $urls[] = $value->uri();
+                $uri =  $value->uri();
+                if(startsWith($uri,'rsaauth')) {
+                    $urls[] = $uri;
+                }
             }
         }
         //var_dump($urls);
         return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
     }
+    
+    
+    function startsWith($haystack, $needle)
+    {
+        return $needle === "" || strpos($haystack, $needle) === 0;
+    }
+    function endsWith($haystack, $needle)
+    {
+        return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
+    }
+    
 }
