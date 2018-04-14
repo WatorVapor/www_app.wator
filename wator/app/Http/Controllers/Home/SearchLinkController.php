@@ -30,23 +30,12 @@ class SearchLinkController extends Controller
         //var_dump($autoGenArray);
         foreach ($autoGenArray as $file)
         {
-            $uri = 'https://www.wator.xyz/' . str_replace('/wator/','/',$file);
+            $uri = str_replace('/wator/','/',$file);
             $urls[] = $uri;
         }
         
         
         //var_dump($urls);
         return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
-    }
-    
-    
-    function startsWith($haystack, $needle)
-    {
-        return $needle === "" || strpos($haystack, $needle) === 0;
-    }
-    function endsWith($haystack, $needle)
-    {
-        return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
-    }
-    
+    }    
 }
