@@ -18,10 +18,10 @@ class SearchLinkController extends Controller
         $urls = [];
         foreach ($routeList as $value)
         {
-            var_dump($value->uri());
+            //var_dump($value->uri());
             $urls[] = $value->uri();
         }
-        var_dump($urls);
+        //var_dump($urls);
         return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
     }
 }
