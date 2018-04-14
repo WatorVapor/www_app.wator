@@ -2,6 +2,8 @@
 namespace Wator\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use Wator\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+
 class SearchLinkController extends Controller
 {
     /**
@@ -12,6 +14,13 @@ class SearchLinkController extends Controller
     public function index()
     {
         //
-        return view('home.serch_link',['watorapp'=>'home']);
+        $routeList = Route::getRoutes();
+        $urls = [];
+        foreach ($routeList as $value)
+        {
+            $urls[] = $value->getPath();
+        }
+        var_dump($urls):
+        return view('home.serch_link',['watorapp'=>'home','urls'=>$urls]);
     }
 }
