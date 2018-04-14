@@ -9,7 +9,7 @@
   </head>
   <body>
     @foreach ($urls as $url)
-    <a href="/{{ $url }}" />
+    <a href="/{{ $url }}">{{ $url }}</a>
     <br/>
     @endforeach
   </body>
