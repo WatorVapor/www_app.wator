@@ -1,6 +1,8 @@
 <script type="text/javascript">
 
 
+
+
 const dMinDeltaRawFeqWave = 0.001;
 const dMinDeltaLowFeqWave = 0.16;
 const dMinDeltaMiddleFeqWave = 0.04;
