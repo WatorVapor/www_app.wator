@@ -1,9 +1,11 @@
 <script type="text/javascript">
+
 function splitPhonemeClips(audioCtx,source) {
   console.log('splitPhonemeClips source=<',source,'>');
-  let jsProcess = audioCtx.createScriptProcessor(RawWindowSize, 1, 1);
-  jsProcess.onaudioprocess = onRawAudioData;
-  source.connect(jsProcess);
-  jsProcess.connect(audioCtx.destination);
+  audioCtx.audioWorklet.addModule('/wator/wai/wai-audio-raw.js').then(() => {
+    let waiAudioRaw = new AudioWorkletNode(context, 'wai-audio-raw');
+    source.connect(waiAudioRaw);
+    waiAudioRaw.connect(audioCtx.destination);
+  });
 }
 </script>
