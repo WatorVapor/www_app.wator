@@ -63,7 +63,11 @@
 
 @include('wai.js.freq_demux')
 @include('wai.js.continue.recorder')
+<!--
 @include('wai.js.continue.clip')
+-->
+@include('wai.js.continue.clipWorklet')
+
 @include('wai.js.ws_upload')
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
