@@ -7,8 +7,10 @@ class WaiAudioRaw extends AudioWorkletProcessor {
   constructor() {
     super();
     this.buffer = [];
+    let self = this;
     this.port.onmessage = (event) => {
       console.log(event.data);
+      self.sampleRate = event.data;
     };
   }
   process(inputs, outputs) {
@@ -50,9 +52,9 @@ function isStongWave(wave) {
   return false;
 }
 
-let audioCtx = new AudioContext();
 
 function createRecognition(buffer,ctx) {
+  let audioCtx = new AudioContext();
   console.log('createRecognition buffer=<',buffer,'>');
   console.log('createRecognition ctx=<',ctx,'>');
   let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
