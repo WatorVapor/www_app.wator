@@ -1,12 +1,13 @@
 class WaiAudioRaw extends AudioWorkletProcessor {
   constructor() {
     super();
-    this.pro = new WaiAudioProcess();
+    //this.pro = new WaiAudioProcess();
   }
 
   process(inputs, outputs) {
     console.log('WaiAudioRaw:process inputs=<',inputs,'>');
-    this.pro.process(inputs,outputs);
+    processRaw(inputs,outputs);
+    //this.pro.process(inputs,outputs);
     /*
     let output = outputs[0];
     for (let channel = 0; channel < output.length; ++channel) {
