@@ -9,7 +9,7 @@ class WaiAudioRaw extends AudioWorkletProcessor {
   }
   process(inputs, outputs) {
     console.log('WaiAudioRaw:process inputs=<',inputs,'>');
-    let input = inputs[0];
+    let input = inputs[0][0];
     console.log('WaiAudioRaw:process input=<',input,'>');
     this.buffer.push(...input);
     //console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
