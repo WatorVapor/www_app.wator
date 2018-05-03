@@ -9,7 +9,8 @@ class WaiAudioRaw extends AudioWorkletProcessor {
   }
   process(inputs, outputs) {
     //console.log('WaiAudioRaw:process inputs=<',inputs,'>');
-    this.buffer.push(...inputs[0]);
+    let input = inputs[0];
+    this.buffer.push(...input);
     //console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
     if(this.buffer.length >= RawWindowSize) {
       console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
