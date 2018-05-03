@@ -4,12 +4,10 @@ const dAvarageEnergyMin = 0.02;
 
 
 class WaiAudioRaw extends AudioWorkletProcessor {
-  constructor(p1,p2,p3) {
-    console.log('WaiAudioRaw:constructor p1=<',p1,'>');
-    console.log('WaiAudioRaw:constructor p2=<',p2,'>');
-    console.log('WaiAudioRaw:constructor p3=<',p3,'>');
+  constructor() {
     super();
     this.buffer = [];
+    console.log('WaiAudioRaw:constructor this.context=<',this.context,'>');
   }
   process(inputs, outputs) {
     //console.log('WaiAudioRaw:process inputs=<',inputs,'>');
@@ -50,9 +48,21 @@ function isStongWave(wave) {
   return false;
 }
 
+let audioCtx = new AudioContext();
+
 function createRecognition(buffer,ctx) {
   console.log('createRecognition buffer=<',buffer,'>');
   console.log('createRecognition ctx=<',ctx,'>');
+  let myArrayBuffer = audioCtx.createBuffer(audioBuffer.numberOfChannels, frameCount, audioCtx.sampleRate);
+  let source = audioCtx.createBufferSource();
+  source.buffer = myArrayBuffer;
+  startDemuxFreqs(audioCtx,source);
+  source.start();
+  source.onended = function(evt) {
+    console.log('onaudioprocess:onended evt=<',evt,'>');
+    source.disconnect();
+    stopDemuxFreqs();
+  }
 }
 
 
