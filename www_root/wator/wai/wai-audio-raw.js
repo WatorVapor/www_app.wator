@@ -7,7 +7,9 @@ class WaiAudioRaw extends AudioWorkletProcessor {
   constructor() {
     super();
     this.buffer = [];
-    console.log('WaiAudioRaw:constructor this.context=<',this.context,'>');
+    this.port.onmessage = (event) => {
+      console.log(event.data);
+    };
   }
   process(inputs, outputs) {
     //console.log('WaiAudioRaw:process inputs=<',inputs,'>');
