@@ -4,7 +4,8 @@ const dAvarageEnergyMin = 0.02;
 
 
 class WaiAudioRaw extends AudioWorkletProcessor {
-  constructor() {
+  constructor(ctx) {
+    console.log('WaiAudioRaw:constructor ctx=<',ctx,'>');
     super();
     this.buffer = [];
   }
