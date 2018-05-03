@@ -66,6 +66,7 @@
 <!--
 @include('wai.js.continue.clip')
 -->
+@include('wai.js.continue.processWorklet')
 @include('wai.js.continue.clipWorklet')
 
 @include('wai.js.ws_upload')
