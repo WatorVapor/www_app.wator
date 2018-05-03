@@ -15,7 +15,7 @@ class WaiAudioRaw extends AudioWorkletProcessor {
     //console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
     if(this.buffer.length >= RawWindowSize) {
       console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
-      console.log('WaiAudioRaw:process this.buffer=<',this.buffer,'>');
+      //console.log('WaiAudioRaw:process this.buffer=<',this.buffer,'>');
       this.buffer.splice(0,RawConvSize);
     }
     return true;
