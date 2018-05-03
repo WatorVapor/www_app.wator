@@ -1,5 +1,6 @@
 const RawWindowSize = 16384;
 const RawConvSize = 16384/2;
+const dAvarageEnergyMin = 0.02;
 
 
 class WaiAudioRaw extends AudioWorkletProcessor {
