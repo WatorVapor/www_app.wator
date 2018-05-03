@@ -18,13 +18,15 @@ class WaiAudioRaw extends AudioWorkletProcessor {
       //console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
       //console.log('WaiAudioRaw:process this.buffer=<',this.buffer,'>');
       if(isStongWave(this.buffer)) {
-        console.log('WaiAudioRaw:process this.buffer=<',this.buffer,'>');
+        console.log('createRecognition this=<',this,'>');
+        createRecognition(this.buffer);
       }
       this.buffer.splice(0,RawConvSize);
     }
     return true;
   }
 }
+registerProcessor('wai-audio-raw', WaiAudioRaw);
 
 
 function isStongWave(wave) {
@@ -44,6 +46,11 @@ function isStongWave(wave) {
   return false;
 }
 
+function createRecognition(buffer,ctx) {
+  console.log('createRecognition buffer=<',buffer,'>');
+  console.log('createRecognition ctx=<',ctx,'>');
+}
 
 
-registerProcessor('wai-audio-raw', WaiAudioRaw);
+
+
