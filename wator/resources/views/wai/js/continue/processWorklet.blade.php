@@ -8,4 +8,7 @@ class WaiAudioProcess {
   }
 }
 
+function processRaw(inputs, outputs) {
+  console.log('processRaw:process inputs=<',inputs,'>');
+}
 </script>
