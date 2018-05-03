@@ -18,6 +18,7 @@ class WaiAudioRaw extends AudioWorkletProcessor {
       //console.log('WaiAudioRaw:process this.buffer.length=<',this.buffer.length,'>');
       //console.log('WaiAudioRaw:process this.buffer=<',this.buffer,'>');
       if(isStongWave(this.buffer)) {
+        console.log('WaiAudioRaw:process inputs=<',inputs,'>');
         console.log('createRecognition this=<',this,'>');
         createRecognition(this.buffer);
       }
