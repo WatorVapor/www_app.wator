@@ -3,6 +3,7 @@
 namespace Wator\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Redis;
 
 class WaiRedisNotify extends Command
 {
@@ -38,5 +39,8 @@ class WaiRedisNotify extends Command
     public function handle()
     {
         //
+        Redis::subscribe(['wai.train.response'], function ($message) {
+            echo $message;
+        });
     }
 }
