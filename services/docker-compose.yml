@@ -64,6 +64,15 @@ services:
     command: php artisan serve -vvv --host=127.0.0.1 --port=18083
     restart: always
 
+  wator-laravel-Schedule:
+    build: laravel-wator
+    network_mode: "host"
+    volumes:
+      - /watorvapor/app_www/wator:/opt/laravel
+    working_dir: "/opt/laravel"
+    command: ./startSchedule.sh
+    restart: always
+
   wator-ws-notify:
     image: node:slim
     network_mode: "host"
