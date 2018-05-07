@@ -75,3 +75,11 @@ services:
       - ./redis/data:/data
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     restart: always
+  wator-sns-bot:
+    image: node:slim
+    network_mode: "host"
+    volumes:
+      - /watorvapor/app_www/bot_service:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./wai.twitter.js
+    restart: always
