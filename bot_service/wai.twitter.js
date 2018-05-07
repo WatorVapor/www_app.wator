@@ -36,7 +36,7 @@ function postWaiSNS(msg) {
   };
   request.post(options, function(error, response, body){
     console.log('postWaiSNS error=<',error,'>');
-    console.log('postWaiSNS response=<',response,'>');
+    //console.log('postWaiSNS response=<',response,'>');
     console.log('postWaiSNS body=<',body,'>');
   });
 }
