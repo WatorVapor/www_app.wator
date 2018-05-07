@@ -28,7 +28,7 @@ const request = require('request');
 
 function postWaiSNS(msg) {
   let options = {
-    uri: "http://example.com/test",
+    uri: "https://www.wator.xyz/wai/text/participle/sns",
     headers: {
       "Content-type": "application/json",
     },
