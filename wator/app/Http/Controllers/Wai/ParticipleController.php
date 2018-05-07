@@ -95,11 +95,7 @@ class ParticipleController extends Controller
 
     public function sns(Request $request)
     {
-        $data =  $request->json()->all();
-        var_dump($data);
-        //
-        $response = session('wai_participle_cut_reponse');
-        session()->forget('wai_participle_cut_reponse');
+        $response =  $request->json()->all();
         //var_dump($response);
         $data = ['result'=>[]];
         if($response) {
@@ -112,9 +108,6 @@ class ParticipleController extends Controller
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
                 $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
                 $notify = $this->notify(new TwitterParticipleNotification($url_sns));
-                $data['url_sns'] = $url_sns;
-                //$notify2 = $this->notify(new FacebookParticipleNotification($url_sns));
-                //$notify3 = $this->notify(new WeiboParticipleNotification($url_sns));
             } catch (\Exception $e) {
                 var_dump($e->getMessage());
             }
