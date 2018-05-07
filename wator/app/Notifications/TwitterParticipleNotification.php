@@ -49,9 +49,9 @@ class TwitterParticipleNotification extends Notification
             $jsonRes = json_decode($response,true);
             $post = '' ;
             if (App::isLocale('ja')) {
-                $post .= '#人工知能 #形態素解析 #自然言語処理 #NLP' ;
+                $post .= '#人工知能 #形態素解析 #自然言語処理 #NLP #機械学習' ;
             } else {
-                $post .= '#人工智能 #AI #中文分词 #自然语言处理 #NLP' ;
+                $post .= '#人工智能 #AI #中文分词 #自然语言处理 #NLP #机器学习' ;
             }
             $post .= "\n" ;
             $post .= "\n" ;
