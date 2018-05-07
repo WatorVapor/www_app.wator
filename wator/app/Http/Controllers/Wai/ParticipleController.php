@@ -95,6 +95,8 @@ class ParticipleController extends Controller
 
     public function sns(Request $request)
     {
+        $data =  $request->json()->all();
+        var_dump($data);
         //
         $response = session('wai_participle_cut_reponse');
         session()->forget('wai_participle_cut_reponse');
