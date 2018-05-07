@@ -117,6 +117,9 @@ class ParticipleController extends Controller
                 var_dump($e->getMessage());
             }
         }
+        return response()->json([
+            'Success' => True
+        ]);
     }
 
 }
