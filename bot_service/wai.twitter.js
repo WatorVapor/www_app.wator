@@ -7,6 +7,10 @@ const sub = redis.createClient(redisOption);
 sub.on('message', function(channel, message) {
   console.log('sub::channel=<',channel,'>');
   console.log('sub::message=<',message,'>');
+  let jsonMsg = JSON.parse(message);
+  if(jsonMsg) {
+    postWaiSNS(jsonMsg);
+  }
 });
 
 sub.on('ready', function(evt) {
@@ -19,3 +23,20 @@ sub.on("subscribe", function (channel, count) {
 });
 
 sub.subscribe('wai.train.response');
+
+const request = require('request');
+
+function postWaiSNS(msg) {
+  let options = {
+    uri: "http://example.com/test",
+    headers: {
+      "Content-type": "application/json",
+    },
+    json: msg
+  };
+  request.post(options, function(error, response, body){
+    console.log('postWaiSNS error=<',error,'>');
+    console.log('postWaiSNS response=<',response,'>');
+    console.log('postWaiSNS body=<',body,'>');
+  });
+}
