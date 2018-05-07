@@ -91,4 +91,32 @@ class ParticipleController extends Controller
         }
         return redirect()->back();
     }
+
+
+    public function sns(Request $request)
+    {
+        //
+        $response = session('wai_participle_cut_reponse');
+        session()->forget('wai_participle_cut_reponse');
+        //var_dump($response);
+        $data = ['result'=>[]];
+        if($response) {
+            try {
+                $jsonRes = json_decode($response,true);
+                //var_dump($jsonRes);
+                $data = ['result'=>$jsonRes['wai']];
+                $staticHTML = view('wai.snsbot',$data)->__toString();
+                $htmlFileName = hash('sha256',$staticHTML) . '.html';
+                file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
+                $url_sns = 'https://www.wator.xyz//autogen/wai/static/' . $htmlFileName;
+                $notify = $this->notify(new TwitterParticipleNotification($url_sns));
+                $data['url_sns'] = $url_sns;
+                //$notify2 = $this->notify(new FacebookParticipleNotification($url_sns));
+                //$notify3 = $this->notify(new WeiboParticipleNotification($url_sns));
+            } catch (\Exception $e) {
+                var_dump($e->getMessage());
+            }
+        }
+    }
+
 }
