@@ -106,6 +106,7 @@ class ParticipleController extends Controller
                 $data = ['result'=>$jsonRes['wai']];
                 $localeOld = App::getLocale();
                 var_dump($localeOld);
+                var_dump($data);
                 if($data[0]['lang']) {
                     App::setLocale($data[0]['lang']);
                 }
