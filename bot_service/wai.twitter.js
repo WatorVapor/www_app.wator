@@ -8,5 +8,14 @@ sub.on('message', function(channel, message) {
   console.log('sub::channel=<',channel,'>');
   console.log('sub::message=<',message,'>');
 });
-sub.subscribe('wai.train.response');
 
+sub.on('ready', function(channel, message) {
+  console.log('sub::ready sub=<',sub,'>');
+});
+
+sub.on("subscribe", function (channel, count) {
+  console.log('sub::subscribe channel=<',channel,'>');
+  console.log('sub::subscribe count=<',count,'>');
+});
+
+sub.subscribe('wai.train.response');
