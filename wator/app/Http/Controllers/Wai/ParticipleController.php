@@ -106,9 +106,9 @@ class ParticipleController extends Controller
                 $data = ['result'=>$jsonRes['wai']];
                 $localeOld = App::getLocale();
                 var_dump($localeOld);
-                var_dump($data);
-                if($data[0]['lang']) {
-                    App::setLocale($data[0]['lang']);
+                var_dump($jsonRes['wai'][0]['lang']);
+                if(isset($jsonRes['wai'][0]['lang'])) {
+                    App::setLocale($jsonRes['wai'][0]['lang']);
                 }
                 $staticHTML = view('wai.snsbot',$data)->__toString();
                 $htmlFileName = hash('sha256',$staticHTML) . '.html';
