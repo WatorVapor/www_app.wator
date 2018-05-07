@@ -17,5 +17,6 @@ class VerifyCsrfToken extends Middleware
         '/wai/text/train/ostrich/*',
         '/wai/text/train/parrot/*',
         '/wai/text/train/phoenix/*',
+        '/wai/text/participle/sns',
     ];
 }
