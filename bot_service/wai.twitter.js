@@ -9,8 +9,8 @@ sub.on('message', function(channel, message) {
   console.log('sub::message=<',message,'>');
 });
 
-sub.on('ready', function(channel, message) {
-  console.log('sub::ready sub=<',sub,'>');
+sub.on('ready', function(evt) {
+  console.log('sub::ready evt=<',evt,'>');
 });
 
 sub.on("subscribe", function (channel, count) {
