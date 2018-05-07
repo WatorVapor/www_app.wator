@@ -42,6 +42,8 @@ Route::get('/wai/audio/share', 'Wai\AudioShareController@index');
 
 Route::get('/wai/text/participle', 'Wai\ParticipleController@index');
 Route::post('/wai/text/participle', 'Wai\ParticipleController@store');
+Route::post('/wai/text/participle/sns', 'Wai\ParticipleController@sns');
+
 
 Route::get('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@index');
 Route::post('/wai/text/record_voice/{name?}', 'Wai\RecordVoiceController@store');
