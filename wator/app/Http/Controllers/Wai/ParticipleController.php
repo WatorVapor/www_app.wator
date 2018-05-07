@@ -103,6 +103,11 @@ class ParticipleController extends Controller
                 $jsonRes = $response;
                 //var_dump($jsonRes);
                 $data = ['result'=>$jsonRes['wai']];
+                $localeOld = App::getLocale();
+                var_dump($localeOld);
+                if($data[0]['lang']) {
+                    App::setLocale($data[0]['lang']);
+                }
                 $staticHTML = view('wai.snsbot',$data)->__toString();
                 $htmlFileName = hash('sha256',$staticHTML) . '.html';
                 file_put_contents('/autogen/wator/wai/static/' . $htmlFileName,$staticHTML);
