@@ -100,7 +100,7 @@ class ParticipleController extends Controller
         $data = ['result'=>[]];
         if($response) {
             try {
-                $jsonRes = json_decode($response,true);
+                $jsonRes = $response;
                 //var_dump($jsonRes);
                 $data = ['result'=>$jsonRes['wai']];
                 $staticHTML = view('wai.snsbot',$data)->__toString();
