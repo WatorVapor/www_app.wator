@@ -3,6 +3,7 @@ namespace Wator\Http\Controllers\Wai;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 
 use Illuminate\Notifications\Notifiable;
