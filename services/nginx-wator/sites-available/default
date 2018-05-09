@@ -20,10 +20,10 @@ upstream storage.wator.xyz {
 }
 
 upstream local.api.ipfs.wator.xyz {
-  server wai.ipfs.wator.xyz:5002;
+  server ipfs.wator.xyz:5002;
 }
 upstream local.gw.ipfs.wator.xyz {
-  server wai.ipfs.wator.xyz:443;
+  server ipfs.wator.xyz:443;
 }
 
 
