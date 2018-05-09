@@ -33,8 +33,8 @@ server {
   listen       [::]:443 default_server ssl http2;
   server_name  www.watorvapor.com;
 
-  ssl_certificate      /etc/cert/live/www.wator.xyz/fullchain.pem;
-  ssl_certificate_key  /etc/cert/live/www.wator.xyz/privkey.pem;
+  ssl_certificate      /etc/cert/live/wator.xyz/fullchain.pem;
+  ssl_certificate_key  /etc/cert/live/wator.xyz/privkey.pem;
   ssl_session_timeout  30m;
 
   location / {
@@ -94,8 +94,8 @@ server {
     listen       [::]:5001 default_server ssl http2;
     server_name  www.wator.xyz;
 
-    ssl_certificate      /etc/cert/live/www.wator.xyz/fullchain.pem;
-    ssl_certificate_key  /etc/cert/live/www.wator.xyz/privkey.pem;
+    ssl_certificate      /etc/cert/live/wator.xyz/fullchain.pem;
+    ssl_certificate_key  /etc/cert/live/wator.xyz/privkey.pem;
 
     location / {
       proxy_pass       http://local.api.ipfs.wator.xyz;
