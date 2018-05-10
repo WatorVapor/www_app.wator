@@ -33,6 +33,7 @@ function bandFilter(audioCtx,freqFrom,freqTo,source){
   filter.frequency.value = geometricMean;
   filter.Q.value = geometricMean / (to - from);
   source.connect(filter);
+  return filter;
 }
 
 </script>
