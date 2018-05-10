@@ -14,8 +14,7 @@ function splitPhonemeClips(audioCtx,source) {
     
     audioCtx.audioWorklet.addModule('/wator/wai/wai-audio-filter.js').then(() => {
       let waiAudioFilter100 = new AudioWorkletNode(audioCtx, 'wai-audio-filter');
-      waiAudioFilter100.port.postMessage(audioCtx.sampleRate);
-      waiAudioFilter100.port.postMessage(100);
+      waiAudioFilter100.port.postMessage({sampleRate:audioCtx.sampleRate,delta:0.05});
       filter100.connect(waiAudioFilter100);
       
       waiAudioFilter100.connect(audioCtx.destination);
