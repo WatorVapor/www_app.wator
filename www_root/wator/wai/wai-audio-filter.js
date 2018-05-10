@@ -11,7 +11,7 @@ class WaiAudioFilter extends AudioWorkletProcessor {
     };
   }
   process(inputs, outputs) {
-    console.log('WaiAudioRaw:process inputs=<',inputs,'>');
+    //console.log('WaiAudioRaw:process inputs=<',inputs,'>');
     //console.log('WaiAudioRaw:process outputs=<',outputs,'>');
     return true;
   }
