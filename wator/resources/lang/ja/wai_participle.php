@@ -8,4 +8,5 @@ return [
     'card_result' => '出力',
     'card_input' => '入力',
     'facebook' => 'シェアfacebook',
+    'weibo' => 'シェア共享微博',
 ];
