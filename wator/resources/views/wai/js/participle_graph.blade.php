@@ -13,7 +13,7 @@
         target="_blank" class="btn btn-primary">
         ##wai_participle.facebook##
       </a>
-      <a href="http://service.weibo.com/share/share.php?url=https://www.wator.xyz/##graph##.png&appkey=4192536820&pic=https://www.wator.xyz/##graph##.png&title=#人工智能#" 
+      <a href="http://service.weibo.com/share/share.php?url=https://www.wator.xyz/##graph##.png&appkey=4192536820&title=##text##" 
         onclick="window.open(this.href, 'Weibo', 'width=600, height=400, menubar=no, toolbar=yes, scrollbars=yes'); return false;"
         target="_blank" class="btn btn-primary">
         ##wai_participle.weibo##
@@ -48,6 +48,8 @@
             new_graph_card = graph_card.replace(/##sentence##/g,wai.sentence);
           }
           new_graph_card = new_graph_card.replace(/##graph##/g,wai.graph);
+          let textWeiBo = '中文分词：' + wai.input + '=>' wai.sentence;
+          new_graph_card = new_graph_card.replace(/##text##/g,textWeiBo);
           let btn_text_opengraph = $("#ui-update-opengraph").text();
           new_graph_card = new_graph_card.replace('##wai_participle.opengraph##',btn_text_opengraph);
           let btn_text_facebook = $("#ui-update-facebook").text();
