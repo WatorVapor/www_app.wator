@@ -8,4 +8,5 @@ return [
     'card_result' => '分词结果',
     'card_input' => '原文',
     'facebook' => '共享facebook',
+    'weibo' => '共享微博',
 ];
