@@ -13,7 +13,7 @@
         target="_blank" class="btn btn-primary">
         ##wai_participle.facebook##
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/##graph##.png" 
+      <a href="http://service.weibo.com/share/share.php?url=https://www.wator.xyz/##graph##.png&appkey=4192536820&title=#人工智能&pic=https://www.wator.xyz/##graph##.png" 
         target="_blank" class="btn btn-primary">
         ##wai_participle.weibo##
       </a>
