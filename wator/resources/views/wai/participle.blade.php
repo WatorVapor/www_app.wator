@@ -81,26 +81,6 @@
 
 <div class="row justify-content-center">
   <div class="col-lg-10" id="ui-update-graph">
-    @foreach ($result as $sentence)
-    <div class="card card-default text-center border border-danger">
-      <div class="card-body">
-        <h4 class="card-title">{{ $sentence['sentence'] }}</h4>
-        <img class="card-img-bottom" src="{{ $sentence['graph'] }}.svg" alt="Card image cap">
-      </div>
-      <div class="card-footer">
-        <a href="{{ $sentence['graph'] }}.svg" target="_blank" class="btn btn-primary">
-          {{ trans('wai_participle.opengraph') }}
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/{{ $sentence['graph'] }}.png" 
-            target="_blank" class="btn btn-primary">
-            {{ trans('wai_participle.facebook') }}
-        </a>
-        <a href="http://service.weibo.com/share/share.php?url==https://www.wator.xyz/{{ $sentence['graph'] }}.png&appkey=4192536820&title=AI&pic=https://www.wator.xyz/{{ $sentence['graph'] }}.png"
-          target="_blank" class="btn btn-primary">{{ trans('wai_participle.weibo') }}
-        </a>
-      </div>
-    </div>
-    @endforeach
   </div>
 </div>
 
