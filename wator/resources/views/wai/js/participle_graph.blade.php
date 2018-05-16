@@ -13,6 +13,10 @@
         target="_blank" class="btn btn-primary">
         ##wai_participle.facebook##
       </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/##graph##.png" 
+        target="_blank" class="btn btn-primary">
+        ##wai_participle.weibo##
+      </a>
     </div>
   </div>`;
     
