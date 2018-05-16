@@ -6,8 +6,13 @@
       <img class="card-img-bottom" src="##graph##.svg" alt="Card image cap">
     </div>
     <div class="card-footer">
-      <a href="##graph##.svg" target="_blank" class="btn btn-primary">##wai_participle.opengraph##</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/##graph##.png" target="_blank" class="btn btn-primary">##wai_participle.facebook##</a>
+      <a href="##graph##.svg" target="_blank" class="btn btn-primary">
+        ##wai_participle.opengraph##
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.wator.xyz/##graph##.png" 
+        target="_blank" class="btn btn-primary">
+        ##wai_participle.facebook##
+      </a>
     </div>
   </div>`;
     
