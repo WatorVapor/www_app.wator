@@ -51,6 +51,8 @@
           new_graph_card = new_graph_card.replace('##wai_participle.opengraph##',btn_text_opengraph);
           let btn_text_facebook = $("#ui-update-facebook").text();
           new_graph_card = new_graph_card.replace('##wai_participle.facebook##',btn_text_facebook);
+          let btn_text_weibo = $("#ui-update-weibo").text();
+          new_graph_card = new_graph_card.replace('##wai_participle.weibo##',btn_text_weibo);
           $( "#ui-update-graph" ).append(new_graph_card);
         }
         if(wai.tts){
