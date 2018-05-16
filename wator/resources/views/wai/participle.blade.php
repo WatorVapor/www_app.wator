@@ -88,6 +88,7 @@
 
 <div class="d-none" id="ui-update-opengraph">{{ trans('wai_participle.opengraph') }}</div>
 <div class="d-none" id="ui-update-facebook">{{ trans('wai_participle.facebook') }}</div>
+<div class="d-none" id="ui-update-facebook">{{ trans('wai_participle.weibo') }}</div>
 
 
 <script src="/wator/wai/notify.js" type="text/javascript"></script>
