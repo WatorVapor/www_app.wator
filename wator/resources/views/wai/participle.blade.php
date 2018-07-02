@@ -56,7 +56,7 @@
     </div>
     <div class="row justify-content-center">
       <pre class="text-justify justify-content-center bg-warning" >
-        <h4 id="vue-ui-update-all-words" style="white-space:pre-wrap;">@{{ all-words }}</h4>
+        <h4 id="vue-ui-update-all-words" style="white-space:pre-wrap;">@{{ all_words }}</h4>
       </pre>
     </div>
     <div class="row justify-content-center">
