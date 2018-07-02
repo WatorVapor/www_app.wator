@@ -49,7 +49,7 @@
 <div class="row justify-content-center ui-update-toggle d-none">
   <div class="col-lg-10 justify-content-center ">
     <div class="row justify-content-center">
-      <a v-bind:href="" target="_blank" class="btn btn-primary">
+      <a id="vue-ui-update-sns-weibo" v-bind:href="weibo_url" target="_blank" class="btn btn-primary">
         {{ trans('wai_participle.weibo') }}
       </a>
     </div>
