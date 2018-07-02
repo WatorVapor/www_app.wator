@@ -53,6 +53,8 @@
         target="_blank" class="btn btn-primary">
         {{ trans('wai_participle.weibo') }}
       </a>
+    </div>
+    <div class="row justify-content-center">
       <pre class="text-justify justify-content-center bg-warning" >
         <h4 id="ui-update-all-words" style="white-space:pre-wrap;">@{{ all-words }}</h4>
       </pre>
