@@ -42,6 +42,7 @@
           if(wai.input) {
             let oldText = $( "#ui-update-all-words" ).text();
             $( "#ui-update-all-words" ).text(oldText + wai.input);
+            wordCut += '%' + wai.input;
           }
         }
         if(wai.input) {
