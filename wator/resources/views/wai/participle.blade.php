@@ -50,7 +50,7 @@
   <div class="col-lg-10 justify-content-center ">
     <div class="row justify-content-center">
       <pre class="text-justify justify-content-center bg-warning" >
-        <h4 id="ui-update-all-words" style="white-space:pre-wrap;">{{ message }}</h4>
+        <h4 id="ui-update-all-words" style="white-space:pre-wrap;">@{{ message }}</h4>
       </pre>
     </div>
     <div class="row justify-content-center">
