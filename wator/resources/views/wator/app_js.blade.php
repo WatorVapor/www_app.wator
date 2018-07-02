@@ -10,6 +10,7 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous">
 </script>
+<script src="//cdn.jsdelivr.net/npm/vue"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.4/jsrsasign-all-min.js" type="text/javascript"></script>
 <script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
 <script src="/wator/js/ga.js" type="text/javascript"></script>
