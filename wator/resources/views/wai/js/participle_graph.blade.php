@@ -24,7 +24,6 @@
   function onUpdateData(msg) {
     console.log('onUpdateData:msg=<',msg,'>');
     $( ".ui-update-toggle" ).toggleClass('d-none');
-    $( "#ui-update-all-words" ).text('');
     let input = '';
     let wordCut = '';
     if(msg.wai && typeof msg.wai === 'object') {
@@ -35,13 +34,9 @@
         //console.log('onUpdateData:index=<',index,'>');
         //console.log('onUpdateData:ar=<',ar,'>');
         if(wai.sentence) {
-          let oldText = $( "#ui-update-all-words" ).text();
-          $( "#ui-update-all-words" ).text(oldText + wai.sentence);
            wordCut += '%' + wai.sentence;
         } else {
           if(wai.input) {
-            let oldText = $( "#ui-update-all-words" ).text();
-            $( "#ui-update-all-words" ).text(oldText + wai.input);
             wordCut += '%' + wai.input;
           }
         }
