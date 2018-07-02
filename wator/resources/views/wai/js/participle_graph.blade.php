@@ -76,7 +76,7 @@
      let app1 = new Vue({
           el: '#vue-ui-update-all-words',
           data: {
-              all-words: wordCut
+              all_words: wordCut
           }
      })
      
