@@ -49,8 +49,7 @@
 <div class="row justify-content-center ui-update-toggle d-none">
   <div class="col-lg-10 justify-content-center ">
     <div class="row justify-content-center">
-      <a href="http://service.weibo.com/share/share.php?url=https://www.wator.xyz/wai/text/participle&appkey=4192536820&title=##text##" 
-        target="_blank" class="btn btn-primary">
+      <a v-bind:href="" target="_blank" class="btn btn-primary">
         {{ trans('wai_participle.weibo') }}
       </a>
     </div>
