@@ -25,6 +25,8 @@
     console.log('onUpdateData:msg=<',msg,'>');
     $( ".ui-update-toggle" ).toggleClass('d-none');
     $( "#ui-update-all-words" ).text('');
+    let input = '';
+    let wordCut = '';
     if(msg.wai && typeof msg.wai === 'object') {
       let ttsTotal = {list:[]};
       msg.wai.forEach(function(wai,index,ar){
@@ -35,10 +37,12 @@
         if(wai.sentence) {
           let oldText = $( "#ui-update-all-words" ).text();
           $( "#ui-update-all-words" ).text(oldText + wai.sentence);
+           wordCut += wai.sentence;
         } else {
           if(wai.input) {
             let oldText = $( "#ui-update-all-words" ).text();
             $( "#ui-update-all-words" ).text(oldText + wai.input);
+            input += wai.input;
           }
         }
         if(wai.graph){
@@ -64,7 +68,8 @@
           }
         }
      });
-     console.log('onUpdateData:ttsTotal=<',ttsTotal,'>');
+     console.log('onUpdateData:input=<',input,'>');
+     console.log('onUpdateData:wordCut=<',wordCut,'>');
      createTTS(ttsTotal);
     }
     if(msg.m3u8 && typeof msg.m3u8 === 'string') {
