@@ -37,13 +37,15 @@
         if(wai.sentence) {
           let oldText = $( "#ui-update-all-words" ).text();
           $( "#ui-update-all-words" ).text(oldText + wai.sentence);
-           wordCut += wai.sentence;
+           wordCut += '%' + wai.sentence;
         } else {
           if(wai.input) {
             let oldText = $( "#ui-update-all-words" ).text();
             $( "#ui-update-all-words" ).text(oldText + wai.input);
-            input += wai.input;
           }
+        }
+        if(wai.input) {
+          input += wai.input;
         }
         if(wai.graph){
           let new_graph_card = '';
