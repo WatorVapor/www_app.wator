@@ -73,6 +73,13 @@
      });
      console.log('onUpdateData:input=<',input,'>');
      console.log('onUpdateData:wordCut=<',wordCut,'>');
+     let app1 = new Vue({
+          el: '#vue-ui-update-all-words',
+          data: {
+              all-words: wordCut
+          }
+     })
+     
      createTTS(ttsTotal);
     }
     if(msg.m3u8 && typeof msg.m3u8 === 'string') {
