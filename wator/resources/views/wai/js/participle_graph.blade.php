@@ -73,7 +73,14 @@
           data: {
               all_words: wordCut
           }
-     })
+     });
+     let weibo = 'http://service.weibo.com/share/share.php?url=https://www.wator.xyz/wai/text/participle&appkey=4192536820&title=';
+     weibo += '中文分词：';
+     weibo += input;
+     weibo += '----------';
+     weibo += wordCut;
+     weibo += '';
+     console.log('onUpdateData:weibo=<',weibo,'>');
      
      createTTS(ttsTotal);
     }
