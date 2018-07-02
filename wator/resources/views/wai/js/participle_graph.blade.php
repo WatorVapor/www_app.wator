@@ -81,6 +81,12 @@
      weibo += wordCut;
      weibo += '';
      console.log('onUpdateData:weibo=<',weibo,'>');
+     let app2 = new Vue({
+          el: '#vue-ui-update-sns-weibo',
+          data: {
+              weibo_url: weibo
+          }
+     });
      
      createTTS(ttsTotal);
     }
