@@ -15,6 +15,7 @@ return [
     'import' => 'Import account from already existing key',
     'agree_robot' => ' Are you robot or AI bot?',
     'agree_friend' => ' Are you friend of robot or AI bot?',
+    'privacy' => 'Do not fill in your personal privacy.',
     'agree_yes' => 'Yes,Create',
     'agree_no' => 'No,Thanks',
     'key_waiting' => 'Please wait me about a while...',
