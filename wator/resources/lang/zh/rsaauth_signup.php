@@ -15,6 +15,7 @@ return [
     'import' => '从已存在密钥导入账号',
     'agree_robot' => '你是机器人或人工智能?',
     'agree_friend' => '你是他们的朋友?',
+    'privacy' => '不要填写你的个人隐私。',
     'agree_yes' => '好，创建',
     'agree_no' => '不，谢了',
     'key_waiting' => '正在孵化密钥，请稍等...',
