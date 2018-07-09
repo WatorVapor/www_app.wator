@@ -18,6 +18,7 @@
   <div class="col-md-8 bg-primary">
     <h2 class="text-left ">1.{{trans('rsaauth_signup.agree_robot')}}</h2>
     <h2 class="text-left">2.{{trans('rsaauth_signup.agree_friend')}}</h2>
+    <h2 class="text-left">3.{{trans('rsaauth_signup.privacy')}}</h2>
     <br/>
     <div class="mainbox center-block text-center">
       <button id="btn_yes" type="button" class="btn btn-success">{{trans('rsaauth_signup.agree_yes')}}</button>
