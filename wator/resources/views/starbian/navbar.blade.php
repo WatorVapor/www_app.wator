@@ -25,14 +25,8 @@
   $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/starbian/cloud/gofuro" role="button">';
   $clouds .= '<i class="material-icons md-48">hot_tub</i>';
   $clouds .= '</a>';
-  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/starbian/cloud/videocam" role="button">';
+  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 " href="/starbian/cloud/videocam" role="button">';
   $clouds .= '<i class="material-icons md-48">videocam</i>';
-  $clouds .= '</a>';
-  $clouds .= '</div>';
-  $clouds .= '<hr/>';
-  $clouds .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
-  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/starbian/cloud/chart" role="button">';
-  $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
   $clouds .= '</div>';
   $clouds .= '<hr/>';
@@ -41,6 +35,12 @@
   $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
   $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/starbian/cloud/raw" role="button">';
+  $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
+  $clouds .= '</a>';
+  $clouds .= '</div>';
+  $clouds .= '<hr/>';
+  $clouds .= '<div class="row justify-content-around mt-lg-3 ml-lg-4 mr-lg-4">';
+  $clouds .= '<a class="btn btn-lg btn-danger mr-lg-5 disabled" href="/starbian/cloud/chart" role="button">';
   $clouds .= '<i class="material-icons md-48">sentiment_very_dissatisfied</i>';
   $clouds .= '</a>';
   $clouds .= '</div>';
