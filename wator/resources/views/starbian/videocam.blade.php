@@ -6,7 +6,7 @@
 @section('content')
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-6">
-    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartGoFuro(this)">!!!HotUp!!!</button>
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
   </div>
 </div>
 
@@ -25,10 +25,10 @@
   <div class="col-4">
     <div class="card card-default text-center bg-info">
       <div class="card-header">
-        Go Furo Public key
+        Camera Public key
       </div>
       <div class="card-body">
-        <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for GoFuRo</button>
+        <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for Camera</button>
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" ></textarea>
       </div>
     </div>
