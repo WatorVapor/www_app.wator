@@ -10,6 +10,7 @@ ws.onerror = onNotifyError_;
 
 function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
+  console.log('onNotifyOpen_:WATOR.pubKey=<',WATOR.pubKey,'>');
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
