@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <pre class="card-text text-danger small" id="text-this-device-key" rows="40"></pre>
+        <pre class="card-text text-danger small" id="text-this-device-key" rows="40">@{{ pub_key }}</pre>
       </div>
     </div>
   </div>
@@ -42,6 +42,12 @@
 <script type="text/javascript">
   function onUpdatePublicKey(key) {
     console.log('onUpdatePublicKey key=<' , key , '>');
+    let app1 = new Vue({
+      el: '#text-this-device-key',
+      data: {
+          pub_key: key
+      }
+    });
   }
 </script>
 
