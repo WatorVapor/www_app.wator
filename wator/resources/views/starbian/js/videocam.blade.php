@@ -139,9 +139,9 @@ function buf2hex(buffer) { // buffer is an ArrayBuffer
 function getPubKey(key) {
   window.crypto.subtle.exportKey('raw',key)
   .then(function(keydata){
-    console.log('getPubKey keydata=<' , keydata , '>');
+    //console.log('getPubKey keydata=<' , keydata , '>');
     WATOR.pubKeyHex = buf2hex(keydata);
-    console.log('getPubKey WATOR.pubKeyHex=<' , WATOR.pubKeyHex , '>');
+    //console.log('getPubKey WATOR.pubKeyHex=<' , WATOR.pubKeyHex , '>');
   })
   .catch(function(err){
     console.error(err);
