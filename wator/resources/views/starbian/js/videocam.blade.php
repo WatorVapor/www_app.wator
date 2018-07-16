@@ -38,7 +38,7 @@ function subscribe() {
   console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
   if(WATOR.pubKeyHex) {
     let sentMsg = {
-      channel:channel,
+      channel:WATOR.pubKeyHex,
       subscribe:true
     };
     console.log('onNotifyOpen_:ws=<',ws,'>');
