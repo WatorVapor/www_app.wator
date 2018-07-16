@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <pre class="card-text text-danger small" id="text-this-device-key" rows="40">@{{ pub_key }}</pre>
+        <pre class="card-text text-danger small" id="text-this-device-key" rows="40" style="white-space: pre-wrap ;">@{{ pub_key }}</pre>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for Camera</button>
-        <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" style="white-space: pre-wrap ;"></textarea>
+        <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" ></textarea>
       </div>
     </div>
   </div>
