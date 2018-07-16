@@ -10,8 +10,7 @@ ws.onerror = onNotifyError_;
 
 function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
-  console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
-  subscribe(WATOR.pubKeyHex);
+  subscribe();
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
@@ -35,12 +34,18 @@ function sendMsg(channel,msg) {
   ws.send(JSON.stringify(sentMsg));
 }
 
-function subscribe(channel) {
-  let sentMsg = {
-    channel:channel,
-    subscribe:true
-  };
-  ws.send(JSON.stringify(sentMsg));
+function subscribe() {
+  console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
+  if(WATOR.pubKeyHex) {
+    let sentMsg = {
+      channel:channel,
+      subscribe:true
+    };
+    console.log('onNotifyOpen_:ws=<',ws,'>');
+    if(ws.isread) {
+      ws.send(JSON.stringify(sentMsg));
+    }
+  }
 }
 
 
@@ -158,6 +163,7 @@ function getPubKey(key) {
     //console.log('getPubKey keydata=<' , keydata , '>');
     WATOR.pubKeyHex = buf2hex(keydata);
     //console.log('getPubKey WATOR.pubKeyHex=<' , WATOR.pubKeyHex , '>');
+    subscribe();
   })
   .catch(function(err){
     console.error(err);
