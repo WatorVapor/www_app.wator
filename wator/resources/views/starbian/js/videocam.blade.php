@@ -140,7 +140,7 @@ function getPubKey(key) {
   window.crypto.subtle.exportKey('raw',key)
   .then(function(keydata){
     console.log('savePrivKey keydata=<' , keydata , '>');
-    console.log(buf2hex(keydata.buffer));
+    console.log(buf2hex(keydata));
   })
   .catch(function(err){
     console.error(err);
