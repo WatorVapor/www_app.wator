@@ -39,5 +39,12 @@
   new Clipboard('.btn-clipboard');
 </script>
 
+<script type="text/javascript">
+  function onUpdatePublicKey(key) {
+    console.log('onUpdatePublicKey key=<' , key , '>');
+  }
+</script>
+
+
 @include('starbian.js.videocam')
 @endsection
