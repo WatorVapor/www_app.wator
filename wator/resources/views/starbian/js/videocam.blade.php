@@ -61,6 +61,7 @@ function onCreateKey (){
   )
   .then(function(key){
     WATOR.pubKey = key.publicKey;
+    getPubKey(key.publicKey);
     WATOR.prvKey = key.privateKey;
     savePrivKey(key.privateKey);
   })
@@ -124,11 +125,21 @@ function onLoadSavedKey(privSave) {
   .then(function(publicKey){
     console.log('publicKey=<' , publicKey , '>');
     WATOR.pubKey = publicKey;
+    getPubKey(publicKey);
   })
   .catch(function(err){
     console.error(err);
   });
 }
 
+function getPubKey(key) {
+  window.crypto.subtle.exportKey('hex',key)
+  .then(function(keydata){
+    console.log('savePrivKey keydata=<' , keydata , '>');
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+}
 
 </script>
