@@ -133,7 +133,7 @@ function onLoadSavedKey(privSave) {
 }
 
 function getPubKey(key) {
-  window.crypto.subtle.exportKey('hex',key)
+  window.crypto.subtle.exportKey('raw',key)
   .then(function(keydata){
     console.log('savePrivKey keydata=<' , keydata , '>');
   })
