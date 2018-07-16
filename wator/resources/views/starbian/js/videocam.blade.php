@@ -132,10 +132,15 @@ function onLoadSavedKey(privSave) {
   });
 }
 
+function buf2hex(buffer) { // buffer is an ArrayBuffer
+  return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
+}
+
 function getPubKey(key) {
   window.crypto.subtle.exportKey('raw',key)
   .then(function(keydata){
     console.log('savePrivKey keydata=<' , keydata , '>');
+    console.log(buf2hex(keydata.buffer));
   })
   .catch(function(err){
     console.error(err);
