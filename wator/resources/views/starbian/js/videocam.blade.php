@@ -31,7 +31,9 @@ function sendMsg(channel,msg) {
     channel:channel,
     msg:msg
   };
-  ws.send(JSON.stringify(sentMsg));
+  if(ws.readyState) {
+    ws.send(JSON.stringify(sentMsg));
+  }
 }
 
 function subscribe() {
@@ -42,7 +44,7 @@ function subscribe() {
       subscribe:true
     };
     console.log('onNotifyOpen_:ws=<',ws,'>');
-    if(ws.isread) {
+    if(ws.readyState) {
       ws.send(JSON.stringify(sentMsg));
     }
   }
