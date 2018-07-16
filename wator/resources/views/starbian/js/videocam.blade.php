@@ -11,6 +11,7 @@ ws.onerror = onNotifyError_;
 function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
   console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
+  subscribe(WATOR.pubKeyHex);
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
@@ -26,6 +27,21 @@ function onNotifyError_(evt) {
   console.log('onNotifyError_:evt=<',evt,'>');
 }
 
+function sendMsg(channel,msg) {
+  let sentMsg = {
+    channel:channel,
+    msg:msg
+  };
+  ws.send(JSON.stringify(sentMsg));
+}
+
+function subscribe(channel) {
+  let sentMsg = {
+    channel:channel,
+    subscribe:true
+  };
+  ws.send(JSON.stringify(sentMsg));
+}
 
 
 
