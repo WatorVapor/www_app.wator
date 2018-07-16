@@ -53,7 +53,7 @@ function onCreateKey (){
   window.crypto.subtle.generateKey(
     {
       name: 'ECDSA',
-      namedCurve: 'P-521',
+      namedCurve: 'P-256',
     },
     true,
     ['sign','verify']
