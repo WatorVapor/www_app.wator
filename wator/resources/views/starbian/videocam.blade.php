@@ -80,6 +80,12 @@
   function onRemoteKeyRead() {
     let remotekeys = WATOR.getRemoteKeys();
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
+    let app2 = new Vue({
+      el: '#vue-ui-remote-device-keys',
+      data: {
+          remoteDeviceKeys: remotekeys
+      }
+    });
   }
   $(document).ready(function(){
     onRemoteKeyRead();
