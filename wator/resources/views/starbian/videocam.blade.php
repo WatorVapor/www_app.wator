@@ -97,7 +97,7 @@
   function onStartVidoeCam (elem) {
     try {
     console.log('onStartVidoeCam elem=<' , elem , '>');
-    let textKey = elem.value;
+    let textKey = elem.textContent;
     console.log('onStartVidoeCam textKey=<' , textKey , '>');
     if(textKey) {
     }
