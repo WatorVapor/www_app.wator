@@ -76,5 +76,14 @@
   }
 </script>
 
+<script type="text/javascript">
+  function onRemoteKeyRead() {
+    let remotekeys = WATOR.getRemoteKeys();
+    console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
+  }
+  onRemoteKeyRead();
+</script>
+
+
 @include('starbian.js.videocam')
 @endsection
