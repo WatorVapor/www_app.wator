@@ -61,7 +61,7 @@
     let textKey = root.getElementsByTagName('textarea')[0].value;
     console.log('onAddRemoteKey textKey=<' , textKey , '>');
     if(textKey) {
-      WATOR.addRemoteKey(textKey);
+      WATOR.addRemoteKey(textKey.trim());
     }
     } catch(e) {
       console.error(e);
