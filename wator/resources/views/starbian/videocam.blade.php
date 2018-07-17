@@ -52,5 +52,11 @@
 </script>
 
 
+<script type="text/javascript">
+  function onAddRemoteKey(elem) {
+    console.log('onAddRemoteKey elem=<' , elem , '>');
+  }
+</script>
+
 @include('starbian.js.videocam')
 @endsection
