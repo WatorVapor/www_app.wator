@@ -29,8 +29,9 @@
         Camera Public key
       </div>
       <div class="card-body">
+        <textarea class="form-control input-sm" id="text-remote-device-key" rows="4" ></textarea>
+        <br/>
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for Camera</button>
-        <textarea class="form-control input-sm" id="text-remote-device-key" rows="3" ></textarea>
       </div>
     </div>
   </div>
