@@ -81,7 +81,9 @@
     let remotekeys = WATOR.getRemoteKeys();
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
   }
-  onRemoteKeyRead();
+  $(document).ready(function(){
+    onRemoteKeyRead();
+  });
 </script>
 
 
