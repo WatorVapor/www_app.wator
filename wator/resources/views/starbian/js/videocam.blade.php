@@ -202,4 +202,9 @@ WATOR.getRemoteKeys = function() {
   let keyJson = JSON.parse(key);
   return keyJson;
 }
+
+WATOR.connect = function(pubKey) {
+  console.log('WATOR.connect pubKey=<' , pubKey , '>');
+}
+
 </script>
