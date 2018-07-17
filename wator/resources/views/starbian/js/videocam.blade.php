@@ -184,6 +184,7 @@ WATOR.addRemoteKey = function(pubKey) {
   let keyJson = JSON.parse(key);
   if(keyJson) {
     keyJson.push(pubKey);
+    keyJson = keyJson.filter( onlyUnique );
   } else {
     keyJson = [pubKey];
   }
@@ -191,5 +192,9 @@ WATOR.addRemoteKey = function(pubKey) {
   console.log('savePrivKey keyStr=<' , keyStr , '>');
   localStorage.setItem(KEY_REMOTE_NAME,keyStr);
 };
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
 
 </script>
