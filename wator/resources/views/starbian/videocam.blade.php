@@ -100,8 +100,8 @@
       let textContent = elem.textContent;
       console.log('onStartVidoeCam textContent=<' , textContent , '>');
       if(textContent) {
-        let keyText = textContent.replace('Connect to Camera ','');
-        console.log('onStartVidoeCam keyText=<' , keyText , '>');
+        let textKey = textContent.replace('Connect to Camera ','');
+        console.log('onStartVidoeCam textKey=<' , textKey , '>');
         WATOR.connect(textKey.trim());
       }
     } catch(e) {
