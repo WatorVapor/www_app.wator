@@ -36,7 +36,7 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <button v-for="key in remoteDeviceKeys" type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">
-      Connect to Camera... @{{ key }}
+      Connect to Camera @{{ key }}
     </button>
   </div>
 </div>
@@ -97,10 +97,12 @@
   function onStartVidoeCam (elem) {
     try {
     console.log('onStartVidoeCam elem=<' , elem , '>');
-    let textKey = elem.textContent;
-    console.log('onStartVidoeCam textKey=<' , textKey , '>');
-    if(textKey) {
-    }
+    let textContent = elem.textContent;
+    console.log('onStartVidoeCam textContent=<' , textContent , '>');
+    if(textContent) {
+      let keyText = textContent.replace('Connect to Camera ','');
+      console.log('onStartVidoeCam keyText=<' , keyText , '>');
+      WATOR.connect(textKey.trim());
     } catch(e) {
       console.error(e);
     }
