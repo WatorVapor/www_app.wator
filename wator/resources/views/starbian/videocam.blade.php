@@ -11,7 +11,7 @@
 </div>
 
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-4">
+  <div class="col-5">
     <div class="card card-default text-center bg-secondary">
       <div class="card-header">
         My Public key
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-5">
     <div class="card card-default text-center bg-info">
       <div class="card-header">
         Camera Public key
