@@ -34,9 +34,10 @@
 
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-10">
-    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
-    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
+  <div class="col-10" id="vue-ui-remote-device-keys">
+    <button v-for="key in remoteDeviceKeys" type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">
+      Connect to Camera @{{ key }}
+    </button>
   </div>
 </div>
 
