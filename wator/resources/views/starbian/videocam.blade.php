@@ -5,12 +5,6 @@
 
 @section('content')
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-6">
-    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
-  </div>
-</div>
-
-<div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
     <div class="card card-default text-center bg-secondary">
       <div class="card-header">
@@ -36,6 +30,13 @@
     </div>
   </div>
 </div>
+
+<div class="row mt-lg-5 justify-content-center">
+  <div class="col-6">
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
+  </div>
+</div>
+
 
 <script type="text/javascript">
   new Clipboard('.btn-clipboard');
