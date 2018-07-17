@@ -55,6 +55,10 @@
 <script type="text/javascript">
   function onAddRemoteKey(elem) {
     console.log('onAddRemoteKey elem=<' , elem , '>');
+    let root = elem.parentElement;
+    console.log('onAddRemoteKey root=<' , root , '>');
+    let textKey = root.getElementsByTagName('textarea')[0].value;
+    console.log('onAddRemoteKey textKey=<' , textKey , '>');
   }
 </script>
 
