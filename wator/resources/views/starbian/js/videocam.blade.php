@@ -175,4 +175,8 @@ function getPubKey(key) {
   });
 }
 
+WATOR.addRemoteKey(pubKey) {
+  console.log('WATOR.addRemoteKey pubKey=<' , pubKey , '>');
+}
+
 </script>
