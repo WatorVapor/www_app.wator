@@ -197,4 +197,9 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
+WATOR.getRemoteKeys = function() {
+  let key = localStorage.getItem(KEY_REMOTE_NAME);
+  let keyJson = JSON.parse(key);
+  return keyJson;
+}
 </script>
