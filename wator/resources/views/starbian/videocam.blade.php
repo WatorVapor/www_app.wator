@@ -36,6 +36,7 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-6">
     <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="onStartVidoeCam(this)">Connect to Camera</button>
   </div>
 </div>
 
