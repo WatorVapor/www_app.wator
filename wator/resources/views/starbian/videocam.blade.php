@@ -62,14 +62,14 @@
 <script type="text/javascript">
   function onAddRemoteKey(elem) {
     try {
-    console.log('onAddRemoteKey elem=<' , elem , '>');
-    let root = elem.parentElement;
-    console.log('onAddRemoteKey root=<' , root , '>');
-    let textKey = root.getElementsByTagName('textarea')[0].value;
-    console.log('onAddRemoteKey textKey=<' , textKey , '>');
-    if(textKey) {
-      WATOR.addRemoteKey(textKey.trim());
-    }
+      console.log('onAddRemoteKey elem=<' , elem , '>');
+      let root = elem.parentElement;
+      console.log('onAddRemoteKey root=<' , root , '>');
+      let textKey = root.getElementsByTagName('textarea')[0].value;
+      console.log('onAddRemoteKey textKey=<' , textKey , '>');
+      if(textKey) {
+        WATOR.addRemoteKey(textKey.trim());
+      }
     } catch(e) {
       console.error(e);
     }
@@ -96,13 +96,14 @@
 <script type="text/javascript">
   function onStartVidoeCam (elem) {
     try {
-    console.log('onStartVidoeCam elem=<' , elem , '>');
-    let textContent = elem.textContent;
-    console.log('onStartVidoeCam textContent=<' , textContent , '>');
-    if(textContent) {
-      let keyText = textContent.replace('Connect to Camera ','');
-      console.log('onStartVidoeCam keyText=<' , keyText , '>');
-      WATOR.connect(textKey.trim());
+      console.log('onStartVidoeCam elem=<' , elem , '>');
+      let textContent = elem.textContent;
+      console.log('onStartVidoeCam textContent=<' , textContent , '>');
+      if(textContent) {
+        let keyText = textContent.replace('Connect to Camera ','');
+        console.log('onStartVidoeCam keyText=<' , keyText , '>');
+        WATOR.connect(textKey.trim());
+      }
     } catch(e) {
       console.error(e);
     }
