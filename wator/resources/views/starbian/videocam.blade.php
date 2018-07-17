@@ -93,5 +93,20 @@
 </script>
 
 
+<script type="text/javascript">
+  function onStartVidoeCam (elem) {
+    try {
+    console.log('onStartVidoeCam elem=<' , elem , '>');
+    let textKey = elem.value;
+    console.log('onStartVidoeCam textKey=<' , textKey , '>');
+    if(textKey) {
+    }
+    } catch(e) {
+      console.error(e);
+    }
+  }
+</script>
+
+
 @include('starbian.js.videocam')
 @endsection
