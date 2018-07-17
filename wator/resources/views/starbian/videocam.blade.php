@@ -5,7 +5,6 @@
 
 @section('content')
 <div class="row mt-lg-5 justify-content-center">
-  <h1>Pairing new remote device.</h1>
   <div class="col-5">
     <div class="card card-default text-center bg-secondary">
       <div class="card-header">
