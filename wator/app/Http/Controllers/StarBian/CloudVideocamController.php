@@ -9,9 +9,13 @@ class CloudVideocamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($remote = null)
     {
         //
-        return view('starbian.videocam');
+        if(isset($remote)) {
+            return view('starbian.videocam_r');
+        } else {
+            return view('starbian.videocam');
+        }
     }
 }
