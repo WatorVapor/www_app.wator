@@ -37,7 +37,7 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div >
       <button type="button" v-for="key in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
-        v-bind:href="/starbian/cloud/videocam/@{{key}}">
+        v-bind:href="@{{key}}">
         Connect to Camera @{{ key }}
       </button>
     </div>  
