@@ -92,6 +92,8 @@
   }
   $(document).ready(function(){
     onRemoteKeyRead();
+    let elemBtn = document.getElementById('vue-ui-remote-device-keys');
+    console.log('onRemoteKeyRead elemBtn=<' , elemBtn , '>');
   });
 </script>
 
