@@ -35,9 +35,9 @@
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
-    <button type="button" v-for="key in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
-      v-bind:href="key">
-      Connect to Camera @{{ key }}
+    <button type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
+      v-bind:href="remote.url">
+      Connect to Camera @{{ remote.key }}
     </button>
   </div>
 </div>
@@ -80,11 +80,17 @@
 <script type="text/javascript">
   function onRemoteKeyRead() {
     let remotekeys = WATOR.getRemoteKeys();
+    let urls = [];
+    for(let i = 0;i < remotekeys.length ; i++) {
+      let url = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
+      let keyPairs = {key:remotekeys[i],url:url}
+      urls.push(keyPairs);
+    }
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let app2 = new Vue({
       el: '#vue-ui-remote-device-keys',
       data: {
-          remoteDeviceKeys: remotekeys
+          remoteDeviceKeys: urls
       }
     });
   }
