@@ -35,10 +35,10 @@
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
-    <button type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
+    <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
       v-bind:href="remote.url">
       Connect to Camera @{{ remote.key }}
-    </button>
+    </a>
   </div>
 </div>
 
