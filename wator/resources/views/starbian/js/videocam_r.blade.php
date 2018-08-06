@@ -18,7 +18,6 @@ function onNotifyReady() {
   
 }
 
-const configuration = {iceServers: [{urls: 'stuns:stun.example.org'}]};
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 
