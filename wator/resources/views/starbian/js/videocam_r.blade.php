@@ -3,6 +3,10 @@
 
 let keyChannel = false;
 
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+window.URL = window.URL || window.webkitURL;
+    
+
 function onNotifyReady() {
   let params = location.pathname.split('/');
   let key = params[params.length -1];
@@ -16,7 +20,16 @@ function onNotifyReady() {
 }
 
 function startCamera() {
-  console.log('startCamera:keyChannel=<',keyChannel,'>');
+  let option = {video: true, audio: true}
+  navigator.getUserMedia(option, onStreamGot,onStreamError)
+}
+
+function onStreamGot(stream) {
+  console.log('onStreamGot:stream=<',stream,'>');
+}
+
+function onStreamError(error) {
+  console.log('onStreamError:error=<',error,'>');
 }
 
 </script>
