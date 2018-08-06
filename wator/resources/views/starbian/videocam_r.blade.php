@@ -17,5 +17,7 @@
   new Clipboard('.btn-clipboard');
 </script>
 
+
+@include('starbian.js.keys')
 @include('starbian.js.videocam_r')
 @endsection
