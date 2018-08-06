@@ -33,6 +33,11 @@ const configuration = {iceServers: [
 
 const pc = new RTCPeerConnection(configuration);
 
+pc.onicecandidate = ({candidate}) => { 
+  console.log('onicecandidate:candidate=<',candidate,'>');
+}
+
+
 function startCamera() {
   let option = {video: true, audio: true}
   navigator.getUserMedia(option, onStreamGot,onStreamError)
