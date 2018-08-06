@@ -2,7 +2,7 @@
 
 
 function onNotifyReady() {
-  let key = location.href;
+  let key = location.pathname;
   console.log('onNotifyReady:key=<',key,'>');
 }
 
