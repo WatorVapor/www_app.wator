@@ -120,5 +120,6 @@
 </script>
 
 
+@include('starbian.js.keys')
 @include('starbian.js.videocam')
 @endsection
