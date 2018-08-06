@@ -7,7 +7,9 @@ ws.onclose = onNotifyClose_;
 ws.onerror = onNotifyError_;
 function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
-  subscribe();
+  setTimeout(function(){
+    subscribe();
+  },10);
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
