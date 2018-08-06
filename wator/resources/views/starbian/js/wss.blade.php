@@ -10,6 +10,11 @@ function onNotifyOpen_(evt) {
   setTimeout(function(){
     subscribe();
   },10);
+  setTimeout(function(){
+    if(typeof onNotifyReady === 'function') {
+      onNotifyReady();
+    }
+  },20);
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
