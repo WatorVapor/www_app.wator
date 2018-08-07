@@ -35,10 +35,7 @@
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
-    <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
-      v-bind:href="remote.url" target="_blank">
-      Connect to Camera @{{ remote.key }}
-    </a>
+    <span v-for="remote in remoteDeviceKeys" class="badge">@{{ remote.key }}</span>
     <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
       v-bind:href="remote.url" target="_blank">
       Connect to Camera @{{ remote.key }}
