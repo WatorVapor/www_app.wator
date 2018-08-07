@@ -55,7 +55,7 @@
         </a>
       </div>
       <div class="col-8">
-        <span class="badge label label-info d-inline-block text-truncate" style="max-width: 600px;">@{{ remote.key }}</span>
+        <span class="badge label label-info d-inline-block text-truncate" >@{{ remote.key }}</span>
       </div>
     </div>
   </div>
