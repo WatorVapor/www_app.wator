@@ -35,7 +35,7 @@
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
-    <div class="row ml-lg-5 justify-content-center">
+    <div class="row mt-lg-5 justify-content-center">
       <div class="col-8">
         <span v-for="remote in remoteDeviceKeys" class="badge label label-info">@{{ remote.key }}</span>
       </div>
