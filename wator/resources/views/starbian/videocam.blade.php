@@ -40,6 +40,14 @@
       v-bind:href="remote.url" target="_blank">
       <i class="material-icons">videocam</i>
     </a>
+    <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
+      v-bind:href="remote.url" target="_blank">
+      <i class="material-icons">video_call</i>
+    </a>
+    <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
+      v-bind:href="remote.url" target="_blank">
+      <i class="material-icons">remove_circle</i>
+    </a>
   </div>
 </div>
 
