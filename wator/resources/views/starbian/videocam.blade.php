@@ -39,6 +39,10 @@
       v-bind:href="remote.url" target="_blank">
       Connect to Camera @{{ remote.key }}
     </a>
+    <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-lg btn-block"
+      v-bind:href="remote.url" target="_blank">
+      Connect to Camera @{{ remote.key }}
+    </a>
   </div>
 </div>
 
