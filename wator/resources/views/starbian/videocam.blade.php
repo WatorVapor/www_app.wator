@@ -49,7 +49,7 @@
         </a>
       </div>
       <div class="col-1">
-        <a type="button" class="btn btn-success btn-block"
+        <a type="button" class="btn btn-danger btn-block"
           v-bind:href="remote.url" target="_blank">
           <i class="material-icons">remove_circle</i>
         </a>
