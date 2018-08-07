@@ -38,19 +38,18 @@
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
         <a type="button" class="btn btn-primary btn-block"
-          v-bind:href="remote.url" target="_blank">
+          v-bind:href="remote.casturl" target="_blank">
           <i class="material-icons">videocam</i>
         </a>
       </div>
       <div class="col-1">
         <a type="button" class="btn btn-success btn-block"
-          v-bind:href="remote.url" target="_blank">
+          v-bind:href="remote.rcvurl" target="_blank">
           <i class="material-icons">video_call</i>
         </a>
       </div>
       <div class="col-1">
-        <a type="button" class="btn btn-danger btn-block"
-          v-bind:href="remote.url" target="_blank">
+        <a type="button" class="btn btn-danger btn-block">
           <i class="material-icons">remove_circle</i>
         </a>
       </div>
@@ -101,8 +100,13 @@
     let remotekeys = WATOR.getRemoteKeys();
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
-      let url = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
-      let keyPairs = {key:remotekeys[i],url:url}
+      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
+      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_rcv/' + remotekeys[i];
+      let keyPairs = {
+          key:remotekeys[i],
+          casturl:casturl,
+          rcvurl:rcvurl,
+      };
       urls.push(keyPairs);
     }
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
