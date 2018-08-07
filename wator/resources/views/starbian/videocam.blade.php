@@ -39,6 +39,7 @@
       <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success "
         v-bind:href="remote.url" target="_blank">
         <i class="material-icons">videocam</i>
+        <span class="badge label label-info">@{{ remote.key }}</span>
       </a>
       <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success"
         v-bind:href="remote.url" target="_blank">
