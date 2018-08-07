@@ -37,7 +37,7 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
-        <a type="button" class="btn btn-success btn-block"
+        <a type="button" class="btn btn-primary btn-block"
           v-bind:href="remote.url" target="_blank">
           <i class="material-icons">videocam</i>
         </a>
