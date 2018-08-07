@@ -36,20 +36,27 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row ml-lg-5 justify-content-center">
-      <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success "
-        v-bind:href="remote.url" target="_blank">
-        <i class="material-icons">videocam</i>
-        <span class="badge label label-info">@{{ remote.key }}</span>
-      </a>
-      <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success"
-        v-bind:href="remote.url" target="_blank">
-        <i class="material-icons">video_call</i>
-      </a>
-      <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success"
-        v-bind:href="remote.url" target="_blank">
-        <i class="material-icons">remove_circle</i>
-      </a>
-      <span v-for="remote in remoteDeviceKeys" class="badge label label-info">@{{ remote.key }}</span>
+      <div class="col">
+        <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success "
+          v-bind:href="remote.url" target="_blank">
+          <i class="material-icons">videocam</i>
+        </a>
+      </div>
+      <div class="col">
+        <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success"
+          v-bind:href="remote.url" target="_blank">
+          <i class="material-icons">video_call</i>
+        </a>
+      </div>
+      <div class="col">
+        <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success"
+          v-bind:href="remote.url" target="_blank">
+          <i class="material-icons">remove_circle</i>
+        </a>
+      </div>
+      <div class="col">
+        <span v-for="remote in remoteDeviceKeys" class="badge label label-info">@{{ remote.key }}</span>
+      </div>
     </div>
   </div>
 </div>
