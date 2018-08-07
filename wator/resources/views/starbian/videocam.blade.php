@@ -37,7 +37,7 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-8">
-        <span class="badge label label-info d-inline-block text-truncate">@{{ remote.key }}</span>
+        <span class="badge label label-info d-inline-block text-truncate" style="max-width: 150px;">@{{ remote.key }}</span>
       </div>
       <div class="col-1">
         <a type="button" class="btn btn-success btn-block"
