@@ -39,6 +39,8 @@
       <div class="col-8">
         <span v-for="remote in remoteDeviceKeys" class="badge label label-info">@{{ remote.key }}</span>
       </div>
+    </div>
+    <div class="row ml-lg-5 justify-content-center">
       <div class="col-1">
         <a type="button" v-for="remote in remoteDeviceKeys" class="btn btn-success btn-block"
           v-bind:href="remote.url" target="_blank">
