@@ -21,5 +21,5 @@
 
 @include('starbian.js.wss')
 @include('starbian.js.keys')
-@include('starbian.js.videocam_r')
+@include('starbian.js.videocam_cast')
 @endsection
