@@ -143,6 +143,8 @@
   function onRemoveRemoteKey (elem) {
     try {
       console.log('onRemoveRemoteKey elem=<' , elem , '>');
+      let keyElem = elem.parentElement;
+      console.log('onRemoveRemoteKey keyElem=<' , keyElem , '>');
     } catch(e) {
       console.error(e);
     }
