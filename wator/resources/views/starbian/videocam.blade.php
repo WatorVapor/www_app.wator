@@ -49,7 +49,7 @@
         </a>
       </div>
       <div class="col-1">
-        <a type="button" class="btn btn-danger btn-block">
+        <a type="button" class="btn btn-danger btn-block" onclick="onRemoveRemoteKey(this)">
           <i class="material-icons">remove_circle</i>
         </a>
       </div>
@@ -136,6 +136,13 @@
         console.log('onStartVidoeCam textKey=<' , textKey , '>');
         WATOR.connect(textKey.trim());
       }
+    } catch(e) {
+      console.error(e);
+    }
+  }
+  function onRemoveRemoteKey (elem) {
+    try {
+      console.log('onRemoveRemoteKey elem=<' , elem , '>');
     } catch(e) {
       console.error(e);
     }
