@@ -25,7 +25,6 @@ function startCamera() {
   let option = {video: true, audio: true}
   navigator.getUserMedia(option, onStreamGot,onStreamError)
 }
-
 function onStreamGot(stream) {
   console.log('onStreamGot:stream=<',stream,'>');
   console.log('onStreamGot:pc=<',pc,'>');
