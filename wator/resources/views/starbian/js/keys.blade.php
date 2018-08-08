@@ -111,6 +111,8 @@ function getPubKey(key) {
     console.error(err);
   });
 }
+
+
 const KEY_REMOTE_NAME = 'starbian-ecdsa-remote-keys';
 WATOR.addRemoteKey = function(pubKey) {
   console.log('WATOR.addRemoteKey pubKey=<' , pubKey , '>');
@@ -139,5 +141,8 @@ WATOR.connect = function(pubKey) {
 }
 WATOR.removeKey = function(pubKey) {
   console.log('WATOR.removeKey pubKey=<' , pubKey , '>');
+  let key = localStorage.getItem(KEY_REMOTE_NAME);
+  let keyJson = JSON.parse(key);
+  console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
 }
 </script>
