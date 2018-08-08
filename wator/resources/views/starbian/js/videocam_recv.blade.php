@@ -1,6 +1,5 @@
 <script type="text/javascript">
 let keyChannel = false;
-    
 function onNotifyReady() {
   let params = location.pathname.split('/');
   let key = params[params.length -1];
@@ -9,14 +8,10 @@ function onNotifyReady() {
     keyChannel = key;
     sendMsg(key,{start:true});
     startCamera();
-  }
-  
+  }  
 }
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
-window.URL = window.URL || window.webkitURL;
-RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
-RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
-const configuration = {iceServers: [
+const configuration = {
+  iceServers: [
     {urls: 'stun:stun.l.google.com:19302'},
     {urls: 'stun:stun1.l.google.com:19302'},
     {urls: 'stun:stun2.l.google.com:19302'}
