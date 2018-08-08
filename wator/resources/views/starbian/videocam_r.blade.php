@@ -17,7 +17,7 @@
 <script type="text/javascript">
   new Clipboard('.btn-clipboard');
 </script>
-
+<script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
 
 @include('starbian.js.wss')
 @include('starbian.js.keys')
