@@ -145,6 +145,12 @@
       console.log('onRemoveRemoteKey elem=<' , elem , '>');
       let keyElem = elem.parentElement.parentElement.getElementsByTagName('span')[0];
       console.log('onRemoveRemoteKey keyElem=<' , keyElem , '>');
+      let textKey = keyElem.textContent;
+      console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
+      if(textKey) {
+        console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
+        WATOR.removeKey(textKey.trim());
+      }
     } catch(e) {
       console.error(e);
     }
