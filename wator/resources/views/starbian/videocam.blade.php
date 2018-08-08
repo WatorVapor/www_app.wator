@@ -101,7 +101,7 @@
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
       let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
-      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_rcv/' + remotekeys[i];
+      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
       let keyPairs = {
           key:remotekeys[i],
           casturl:casturl,
