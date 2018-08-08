@@ -137,4 +137,7 @@ WATOR.getRemoteKeys = function() {
 WATOR.connect = function(pubKey) {
   console.log('WATOR.connect pubKey=<' , pubKey , '>');
 }
+WATOR.removeKey = function(pubKey) {
+  console.log('WATOR.removeKey pubKey=<' , pubKey , '>');
+}
 </script>
