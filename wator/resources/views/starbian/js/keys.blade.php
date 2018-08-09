@@ -19,7 +19,7 @@ function onInitCrypto() {
   let keyRemote = localStorage.getItem(KEY_REMOTE_NAME);
   if(!keyRemote) {
     let keyStr = JSON.stringify([]);
-    console.log('addRemoteKey keyStr=<' , keyStr , '>');
+    //console.log('addRemoteKey keyStr=<' , keyStr , '>');
     localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
 }
