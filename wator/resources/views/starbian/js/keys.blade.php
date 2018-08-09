@@ -143,14 +143,10 @@ WATOR.removeKey = function(pubKey) {
   let key = localStorage.getItem(KEY_REMOTE_NAME);
   let keyJson = JSON.parse(key);
   console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
-  let index = keyJson.indexOf(pubKey);
-  console.log('WATOR.removeKey index=<' , index , '>');
-  if(index > -1) {
-    let newKeys = keyJson.splice(index,1);
-    console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
-    let keyStr = JSON.stringify(newKeys);
-    console.log('savePrivKey keyStr=<' , keyStr , '>');
-    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
-  }
+  let newKeys = keyJson.filter(key => pubKey === key);
+  console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
+  let keyStr = JSON.stringify(newKeys);
+  console.log('savePrivKey keyStr=<' , keyStr , '>');
+  localStorage.setItem(KEY_REMOTE_NAME,keyStr);
 }
 </script>
