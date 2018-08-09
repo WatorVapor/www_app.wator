@@ -143,7 +143,7 @@ WATOR.removeKey = function(pubKey) {
   let key = localStorage.getItem(KEY_REMOTE_NAME);
   let keyJson = JSON.parse(key);
   console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
-  let newKeys = keyJson.filter(key => pubKey === key);
+  let newKeys = keyJson.filter(key => pubKey !== key);
   console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
   let keyStr = JSON.stringify(newKeys);
   console.log('WATOR.removeKey keyStr=<' , keyStr , '>');
