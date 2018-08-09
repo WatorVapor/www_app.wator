@@ -146,7 +146,7 @@ WATOR.removeKey = function(pubKey) {
   let newKeys = keyJson.filter(key => pubKey === key);
   console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
   let keyStr = JSON.stringify(newKeys);
-  console.log('savePrivKey keyStr=<' , keyStr , '>');
+  console.log('WATOR.removeKey keyStr=<' , keyStr , '>');
   localStorage.setItem(KEY_REMOTE_NAME,keyStr);
 }
 </script>
