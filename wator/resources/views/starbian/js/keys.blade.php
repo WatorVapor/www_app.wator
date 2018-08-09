@@ -7,6 +7,7 @@ $(document).ready(function(){
 });
 var WATOR = {};
 const KEY_NAME = 'starbian-ecdsa-key';
+const KEY_REMOTE_NAME = 'starbian-ecdsa-remote-keys';
 function onInitCrypto() {
   let key = localStorage.getItem(KEY_NAME);
   //console.log('onInitCrypto:key=<',key,'>');
@@ -14,6 +15,12 @@ function onInitCrypto() {
     onLoadSavedKey(key);
   } else {
     onCreateKey();
+  }  
+  let keyRemote = localStorage.getItem(KEY_REMOTE_NAME);
+  if(!keyRemote) {
+    let keyStr = JSON.stringify([]);
+    console.log('addRemoteKey keyStr=<' , keyStr , '>');
+    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
 }
 function onCreateKey (){
@@ -112,7 +119,6 @@ function getPubKey(key) {
 }
 
 
-const KEY_REMOTE_NAME = 'starbian-ecdsa-remote-keys';
 WATOR.addRemoteKey = function(pubKey) {
   console.log('WATOR.addRemoteKey pubKey=<' , pubKey , '>');
   let key = localStorage.getItem(KEY_REMOTE_NAME);
@@ -124,7 +130,7 @@ WATOR.addRemoteKey = function(pubKey) {
     keyJson = [pubKey];
   }
   let keyStr = JSON.stringify(keyJson);
-  console.log('savePrivKey keyStr=<' , keyStr , '>');
+  console.log('addRemoteKey keyStr=<' , keyStr , '>');
   localStorage.setItem(KEY_REMOTE_NAME,keyStr);
 };
 function onlyUnique(value, index, self) { 
