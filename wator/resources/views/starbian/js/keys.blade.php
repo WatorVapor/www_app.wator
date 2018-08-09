@@ -145,7 +145,7 @@ WATOR.removeKey = function(pubKey) {
   console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
   let index = keyJson.indexOf(pubKey);
   console.log('WATOR.removeKey index=<' , index , '>');
-  if(index) {
+  if(index > -1) {
     let newKeys = keyJson.slice(index);
     console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
     let keyStr = JSON.stringify(newKeys);
