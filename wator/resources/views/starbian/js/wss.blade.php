@@ -41,9 +41,11 @@ function sendMsg(channel,msg) {
 
 function subscribe() {
   console.log('subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
-  if(WATOR.pubKeyHex) {
-    let subs = { ts:new Date()};
-    let sign = WATOR.sign(JSON.stringify(subs));
+  if(!WATOR.pubKeyHex) {
+    return;
+  } 
+  let subs = { ts:new Date()};
+  WATOR.sign(JSON.stringify(subs),function(sign) {
     let sentMsg = {
       channel:WATOR.pubKeyHex,
       sign:sign,
@@ -53,7 +55,7 @@ function subscribe() {
     if(ws.readyState) {
       ws.send(JSON.stringify(sentMsg));
     }
-  }
+  });
 }
 
 /**
