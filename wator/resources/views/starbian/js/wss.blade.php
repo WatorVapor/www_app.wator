@@ -40,14 +40,14 @@ function sendMsg(channel,msg) {
 }
 
 function subscribe() {
-  console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
+  console.log('subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
   if(WATOR.pubKeyHex) {
-    let subscribe = { ts:new Date()};
+    let subs = { ts:new Date()};
     let sign = WATOR.sign(JSON.stringify(subscribe));
     let sentMsg = {
       channel:WATOR.pubKeyHex,
       sign:sign,
-      subscribe: subscribe
+      subs:subs
     };
     //console.log('onNotifyOpen_:ws=<',ws,'>');
     if(ws.readyState) {
