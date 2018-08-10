@@ -38,17 +38,36 @@ function sendMsg(channel,msg) {
     ws.send(JSON.stringify(sentMsg));
   }
 }
+
 function subscribe() {
   console.log('onNotifyOpen_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
   if(WATOR.pubKeyHex) {
+    let subscribe = { ts:new Date()};
+    let sign = WATOR.sign(JSON.stringify(subscribe));
     let sentMsg = {
       channel:WATOR.pubKeyHex,
-      subscribe:true
+      sign:sign,
+      subscribe: subscribe
     };
-    console.log('onNotifyOpen_:ws=<',ws,'>');
+    //console.log('onNotifyOpen_:ws=<',ws,'>');
+    let 
     if(ws.readyState) {
       ws.send(JSON.stringify(sentMsg));
     }
   }
 }
+
+/**
+*/
+function _sendMsgPrivate(channel,msg) {
+  let sentMsg = {
+    channel:channel,
+    msg:msg
+  };
+  if(ws.readyState) {
+    ws.send(JSON.stringify(sentMsg));
+  }
+}
+
+
 </script>
