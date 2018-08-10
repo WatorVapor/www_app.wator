@@ -195,10 +195,15 @@ async function sha256(str) {
 
 WATOR.sign = async function(msg) {
   console.log('WATOR.sign msg=<' , msg , '>');
-  let hash = await sha256('SHA-1', msg);
+  let hash = await sha256(msg);
   console.log('WATOR.sign hash=<' , hash , '>');
-  signature = crypto.subtle.sign(algorithm, key, text2sign);
-  let signature = {};
+  let signatureStr = crypto.subtle.sign('ECDSA', WATOR.prvKey, hash);
+  console.log('WATOR.sign signatureStr=<' , signatureStr , '>');
+  let signature = {
+    pubKey:WATOR.pubKeyHex,
+    hash:hash,
+    sign:signatureStr
+  };
   return signature;
 }
 
