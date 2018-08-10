@@ -193,7 +193,7 @@ async function sha256(str) {
 }
 
 
-WATOR.sign = function(msg) {
+WATOR.sign = async function(msg) {
   console.log('WATOR.sign msg=<' , msg , '>');
   let hash = await sha256('SHA-1', msg);
   console.log('WATOR.sign hash=<' , hash , '>');
