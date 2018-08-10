@@ -193,18 +193,28 @@ async function sha256(str) {
 }
 
 
-WATOR.sign = async function(msg) {
+WATOR.sign = function(msg,cb) {
   console.log('WATOR.sign msg=<' , msg , '>');
-  let hash = await sha256(msg);
-  console.log('WATOR.sign hash=<' , hash , '>');
-  let signatureStr = await crypto.subtle.sign('ECDSA', WATOR.prvKey, new TextEncoder("utf-8").encode(hash));
-  console.log('WATOR.sign signatureStr=<' , signatureStr , '>');
-  let signature = {
-    pubKey:WATOR.pubKeyHex,
-    hash:hash,
-    sign:signatureStr
-  };
-  return signature;
+  crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
+  .then(function(hash) {
+    let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+    console.log('WATOR.sign hash=<' , hash , '>');
+    crypto.subtle.sign('ECDSA', WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
+    .then(function(signatureStr) {
+      let signature = {
+        pubKey:WATOR.pubKeyHex,
+        hash:hash,
+        sign:signatureStr
+      };
+      cb(signature);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  })
+  .catch(function(err){
+    console.error(err);
+  });
 }
 
 
