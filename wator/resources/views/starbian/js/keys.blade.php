@@ -187,5 +187,9 @@ function exportECDHPubKey(pubKey) {
 }
 
 
+WATOR.sign = function(msg) {
+  console.log('WATOR.sign msg=<' , msg , '>');
+}
+
 
 </script>
