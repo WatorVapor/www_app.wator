@@ -9,12 +9,12 @@ function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
   setTimeout(function(){
     subscribe();
-  },10);
+  },1000+10);
   setTimeout(function(){
     if(typeof onNotifyReady === 'function') {
       onNotifyReady();
     }
-  },20);
+  },1000+20);
 }
 function onNotifyMessage_(evt) {
   console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
