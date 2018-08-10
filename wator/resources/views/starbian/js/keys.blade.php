@@ -197,7 +197,7 @@ WATOR.sign = async function(msg) {
   console.log('WATOR.sign msg=<' , msg , '>');
   let hash = await sha256(msg);
   console.log('WATOR.sign hash=<' , hash , '>');
-  let signatureStr = crypto.subtle.sign('ECDSA', WATOR.prvKey, hash);
+  let signatureStr = await crypto.subtle.sign('ECDSA', WATOR.prvKey, new TextEncoder("utf-8").encode(hash));
   console.log('WATOR.sign signatureStr=<' , signatureStr , '>');
   let signature = {
     pubKey:WATOR.pubKeyHex,
