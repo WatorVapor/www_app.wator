@@ -199,7 +199,12 @@ WATOR.sign = function(msg,cb) {
   .then(function(buf) {
     let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
     console.log('WATOR.sign hash=<' , hash , '>');
-    crypto.subtle.sign('ECDSA', WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
+    let alg = {
+      name: "ECDSA",
+      hash: {name: "SHA-256"}, //can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
+    },
+    
+    crypto.subtle.sign(alg, WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
     .then(function(signatureStr) {
       let signature = {
         pubKey:WATOR.pubKeyHex,
