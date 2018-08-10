@@ -175,8 +175,8 @@ function createECDHKey () {
     console.error(err);
   });
 }
-function exportECDHPubKey () {
-  crypto.subtle.exportKey('jwk', keyPair.publicKey)
+function exportECDHPubKey(pubKey) {
+  crypto.subtle.exportKey('jwk', pubKey)
   .then(function(keydata){
     console.log('exportECDHPubKey keydata=<' , keydata , '>');
     WATOR.ECDHKeyPubJwk = keydata;
