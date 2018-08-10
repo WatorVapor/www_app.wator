@@ -204,12 +204,13 @@ WATOR.sign = function(msg,cb) {
       hash: {name: "SHA-256"}
     };
     crypto.subtle.sign(alg, WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
-    .then(function(signatureStr) {
-      console.log('WATOR.sign signatureStr=<' , signatureStr , '>');
+    .then(function(signatureBuf) {
+      console.log('WATOR.sign signatureBuf=<' , signatureBuf , '>');
+      let signatureHex = Array.prototype.map.call(new Uint8Array(signatureBuf), x=>(('00'+x.toString(16)).slice(-2))).join('');
       let signature = {
         pubKey:WATOR.pubKeyHex,
         hash:hash,
-        sign:signatureStr
+        sign:signatureHex
       };
       cb(signature);
     })
