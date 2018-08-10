@@ -22,6 +22,7 @@ function onInitCrypto() {
     //console.log('addRemoteKey keyStr=<' , keyStr , '>');
     localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
+  createECDHKey();
 }
 function onCreateKey (){
   window.crypto.subtle.generateKey(
@@ -155,4 +156,36 @@ WATOR.removeKey = function(pubKey) {
   console.log('WATOR.removeKey keyStr=<' , keyStr , '>');
   localStorage.setItem(KEY_REMOTE_NAME,keyStr);
 }
+
+
+function createECDHKey () {
+  window.crypto.subtle.generateKey(
+    {
+      name: 'ECDH',
+      namedCurve: 'P-256',
+    },
+    false,
+    ['deriveKey','deriveBits']
+  )
+  .then(function(key){
+    WATOR.ECDHKey = key;
+    exportECDHPubKey(key.publicKey);
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+}
+function exportECDHPubKey () {
+  crypto.subtle.exportKey('jwk', keyPair.publicKey)
+  .then(function(keydata){
+    console.log('exportECDHPubKey keydata=<' , keydata , '>');
+    WATOR.ECDHKeyPubJwk = keydata;
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+}
+
+
+
 </script>
