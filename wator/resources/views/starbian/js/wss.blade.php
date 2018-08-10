@@ -43,11 +43,11 @@ function subscribe() {
   console.log('subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
   if(WATOR.pubKeyHex) {
     let subs = { ts:new Date()};
-    let sign = WATOR.sign(JSON.stringify(subscribe));
+    let sign = WATOR.sign(JSON.stringify(subs));
     let sentMsg = {
       channel:WATOR.pubKeyHex,
       sign:sign,
-      subs:subs
+      subscribe:subs
     };
     //console.log('onNotifyOpen_:ws=<',ws,'>');
     if(ws.readyState) {
