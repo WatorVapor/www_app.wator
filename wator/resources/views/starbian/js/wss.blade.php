@@ -45,10 +45,10 @@ function subscribe() {
     return;
   } 
   let subs = { ts:new Date()};
-  WATOR.sign(JSON.stringify(subs),function(sign) {
+  WATOR.sign(JSON.stringify(subs),function(auth) {
     let sentMsg = {
       channel:WATOR.pubKeyHex,
-      sign:sign,
+      auth:auth,
       subscribe:subs
     };
     //console.log('onNotifyOpen_:ws=<',ws,'>');
