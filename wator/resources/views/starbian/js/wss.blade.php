@@ -50,7 +50,6 @@ function subscribe() {
       subscribe: subscribe
     };
     //console.log('onNotifyOpen_:ws=<',ws,'>');
-    let 
     if(ws.readyState) {
       ws.send(JSON.stringify(sentMsg));
     }
