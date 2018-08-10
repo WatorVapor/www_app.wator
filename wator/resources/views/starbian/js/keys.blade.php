@@ -202,9 +202,10 @@ WATOR.sign = function(msg,cb) {
     let alg = {
       name: "ECDSA",
       hash: {name: "SHA-256"}
-    }
+    };
     crypto.subtle.sign(alg, WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
     .then(function(signatureStr) {
+      console.log('WATOR.sign signatureStr=<' , signatureStr , '>');
       let signature = {
         pubKey:WATOR.pubKeyHex,
         hash:hash,
