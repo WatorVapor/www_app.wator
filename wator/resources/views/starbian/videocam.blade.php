@@ -98,6 +98,7 @@
 <script type="text/javascript">
   function onRemoteKeyRead() {
     let remotekeys = WATOR.getRemoteKeys();
+    console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
       let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
@@ -109,7 +110,6 @@
       };
       urls.push(keyPairs);
     }
-    console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let app2 = new Vue({
       el: '#vue-ui-remote-device-keys',
       data: {
