@@ -140,7 +140,11 @@ function onlyUnique(value, index, self) {
 WATOR.getRemoteKeys = function() {
   let key = localStorage.getItem(KEY_REMOTE_NAME);
   let keyJson = JSON.parse(key);
-  return keyJson;
+  if(keyJson) {
+    return keyJson;
+  } else {
+    return [];
+  }
 }
 WATOR.connect = function(pubKey) {
   console.log('WATOR.connect pubKey=<' , pubKey , '>');
