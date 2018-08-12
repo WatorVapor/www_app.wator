@@ -228,9 +228,11 @@ WATOR.sign = function(msg,cb) {
 };
 
 WATOR.verify = function(key,msg,sign) {
+  let keyBuff = new TextEncoder("utf-8").encode(key);
+  console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
   window.crypto.subtle.importKey(
     'raw',
-    new TextEncoder("utf-8").encode(key),
+    keyBuff,
     {
       name: 'ECDSA',
       namedCurve: 'P-256', 
