@@ -253,7 +253,14 @@ WATOR.verify = function(key,msg,sign) {
     ['verify']
   )
   .then(function(publicKey){
-    console.log('publicKey=<' , publicKey , '>');
+    console.log('WATOR.verify publicKey=<' , publicKey , '>');
+    window.crypto.subtle.verify('ECDSA',publicKey,sign,msg)
+    then(function(result){
+			console.log('WATOR.verify result=<' , result , '>');
+    })
+    .catch(function(err){
+    	console.error(err);
+    });
   })
   .catch(function(err){
     console.error(err);
