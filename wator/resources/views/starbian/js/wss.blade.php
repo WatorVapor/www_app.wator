@@ -81,15 +81,15 @@ function _sendMsgPrivate(channel,msg) {
 function _onWssMessage(msg) {
   console.log('_onWssMessage:msg=<',msg,'>');
   if(msg.auth) {
-    if(_verifyAuth(msg.auth)) {
-      _onGoodMessage(msg.msg);
-    }
+    _verifyAuth(msg.auth,function(good){
+      console.log('_onWssMessage:good=<',good,'>');
+    });
   }
 }
 
-function _verifyAuth(auth) {
+function _verifyAuth(auth,cb) {
   console.log('_verifyAuth:auth=<',auth,'>');
-  return WATOR.verify(auth.pubKey,auth.hash,auth.sign);
+  WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
 }
 
 function _onGoodMessage(msg) {
