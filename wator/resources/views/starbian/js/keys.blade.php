@@ -227,8 +227,20 @@ WATOR.sign = function(msg,cb) {
   });
 };
 
+function hex2buf(hex) {
+	var buffer = new ArrayBuffer(hex.length / 2);
+	var array = new Uint8Array(buffer);
+	var k = 0;
+	for (var i = 0; i < hex.length; i +=2 ) {
+		array[k] = parseInt(hex[i] + hex[i+1], 16);
+		k++;
+	}
+	
+	return buffer;
+}
+
 WATOR.verify = function(key,msg,sign) {
-  let keyBuff = new TextEncoder("utf-8").encode(key);
+  let keyBuff = hex2buf(key);
   console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
   window.crypto.subtle.importKey(
     'raw',
