@@ -31,7 +31,7 @@ function onNotifyError_(evt) {
 }
 
 function sendMsg(channel,msg) {
-  let msg.ts = new Date();
+  msg.ts = new Date();
   WATOR.sign(JSON.stringify(subs),function(auth) {
     let sentMsg = {
       channel:channel,
