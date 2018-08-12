@@ -17,10 +17,13 @@ function onNotifyOpen_(evt) {
   },1000+20);
 }
 function onNotifyMessage_(evt) {
-  console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
+  //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
   let jsonMsg = JSON.parse(evt.data);
-  console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
-  if(typeof onUpdateData === 'function' && jsonMsg) {
+  //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
+  if(jsonMsg && jsonMsg.msg) {
+    _onWssMessage(jsonMsg.msg);
+  } else {
+    console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
   }
 }
 function onNotifyClose_(evt) {
@@ -75,5 +78,21 @@ function _sendMsgPrivate(channel,msg) {
   }
 }
 
+function _onWssMessage(msg) {
+  console.log('_onWssMessage:msg=<',msg,'>');
+  if(msg.auth) {
+    if(_verifyAuth(msg.auth)) {
+      _onGoodMessage(msg.msg);
+    }
+  }
+}
 
+function _verifyAuth(auth) {
+  console.log('_verifyAuth:auth=<',auth,'>');
+  return WATOR.verify(auth.pubKey,auth.hash,auth.sign);
+}
+
+function _onGoodMessage(msg) {
+  console.log('_onGoodMessage:msg=<',msg,'>');
+}
 </script>
