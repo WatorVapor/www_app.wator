@@ -235,6 +235,7 @@ function hex2buf(hex) {
 		array[k] = parseInt(hex[i] + hex[i+1], 16);
 		k++;
 	}
+	
 	return buffer;
 }
 
