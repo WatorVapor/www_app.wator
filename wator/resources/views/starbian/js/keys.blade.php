@@ -265,6 +265,7 @@ WATOR.verify = function(key,msg,sign,cb) {
     window.crypto.subtle.verify(alg,publicKey,signBuff,msgBuff)
     .then(function(result){
 			console.log('WATOR.verify result=<' , result , '>');
+			
 			cb(result);
     })
     .catch(function(err){
