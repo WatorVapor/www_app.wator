@@ -83,6 +83,11 @@ function _onWssMessage(msg) {
   if(msg.auth) {
     _verifyAuth(msg.auth,function(good){
       console.log('_onWssMessage:good=<',good,'>');
+      if(good) {
+        _onGoodMessage(msg.msg);
+      } else {
+        console.log('_onWssMessage not auth :msg=<',msg,'>');
+      }
     });
   }
 }
@@ -93,7 +98,11 @@ function _verifyAuth(auth,cb) {
   let keys= WATOR.getRemoteKeys();
   let index = keys.indexOf(auth.pubKey);
   console.log('_verifyAuth:index=<',index,'>');
-  WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
+  if(index !== -1) {
+    WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
+  } else {
+    cb(false);
+  }
 }
 
 function _onGoodMessage(msg) {
