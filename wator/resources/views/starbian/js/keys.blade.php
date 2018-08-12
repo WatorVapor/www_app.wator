@@ -214,6 +214,7 @@ WATOR.sign = function(msg,cb) {
       let signature = {
         pubKey:WATOR.pubKeyHex,
         hash:hash,
+	enc:'hex',
         sign:signatureHex
       };
       cb(signature);
@@ -235,7 +236,6 @@ function hex2buf(hex) {
 		array[k] = parseInt(hex[i] + hex[i+1], 16);
 		k++;
 	}
-	
 	return buffer;
 }
 
