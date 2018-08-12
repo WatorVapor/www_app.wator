@@ -242,6 +242,10 @@ function hex2buf(hex) {
 WATOR.verify = function(key,msg,sign) {
   let keyBuff = hex2buf(key);
   console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
+  let msgBuff = hex2buf(msg);
+  console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
+  let signBuff = hex2buf(sign);
+  console.log('WATOR.verify signBuff=<' , signBuff , '>');
   window.crypto.subtle.importKey(
     'raw',
     keyBuff,
@@ -254,7 +258,7 @@ WATOR.verify = function(key,msg,sign) {
   )
   .then(function(publicKey){
     console.log('WATOR.verify publicKey=<' , publicKey , '>');
-    window.crypto.subtle.verify('ECDSA',publicKey,sign,msg)
+    window.crypto.subtle.verify('ECDSA',publicKey,signBuff,msgBuff)
     .then(function(result){
 			console.log('WATOR.verify result=<' , result , '>');
     })
