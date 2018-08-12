@@ -225,7 +225,26 @@ WATOR.sign = function(msg,cb) {
   .catch(function(err){
     console.error(err);
   });
-}
+};
 
+WATOR.verify = function(key,msg,sign) {
+  window.crypto.subtle.importKey(
+    'raw',
+    key,
+    {
+      name: 'ECDSA',
+      namedCurve: 'P-256', 
+    },
+    true, 
+    ['verify']
+  )
+  .then(function(publicKey){
+    console.log('publicKey=<' , publicKey , '>');
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+
+};
 
 </script>
