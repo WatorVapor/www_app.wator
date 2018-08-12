@@ -255,7 +255,7 @@ WATOR.verify = function(key,msg,sign) {
   .then(function(publicKey){
     console.log('WATOR.verify publicKey=<' , publicKey , '>');
     window.crypto.subtle.verify('ECDSA',publicKey,sign,msg)
-    then(function(result){
+    .then(function(result){
 			console.log('WATOR.verify result=<' , result , '>');
     })
     .catch(function(err){
