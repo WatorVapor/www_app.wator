@@ -230,7 +230,7 @@ WATOR.sign = function(msg,cb) {
 WATOR.verify = function(key,msg,sign) {
   window.crypto.subtle.importKey(
     'raw',
-    key,
+    new TextEncoder("utf-8").encode(key),
     {
       name: 'ECDSA',
       namedCurve: 'P-256', 
