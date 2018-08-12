@@ -29,14 +29,19 @@ function onNotifyClose_(evt) {
 function onNotifyError_(evt) {
   console.log('onNotifyError_:evt=<',evt,'>');
 }
+
 function sendMsg(channel,msg) {
-  let sentMsg = {
-    channel:channel,
-    msg:msg
-  };
-  if(ws.readyState) {
-    ws.send(JSON.stringify(sentMsg));
-  }
+  let msg.ts = new Date();
+  WATOR.sign(JSON.stringify(subs),function(auth) {
+    let sentMsg = {
+      channel:channel,
+      auth:auth,
+      msg:msg
+    };
+    if(ws.readyState) {
+      ws.send(JSON.stringify(sentMsg));
+    }
+  });
 }
 
 function subscribe() {
