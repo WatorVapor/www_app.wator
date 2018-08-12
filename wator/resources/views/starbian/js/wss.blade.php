@@ -89,6 +89,10 @@ function _onWssMessage(msg) {
 
 function _verifyAuth(auth,cb) {
   console.log('_verifyAuth:auth=<',auth,'>');
+  console.log('_verifyAuth:auth.pubKey=<',auth.pubKey,'>');
+  let keys= WATOR.getRemoteKeys();
+  let index = keys.indexOf(auth.pubKey);
+  console.log('_verifyAuth:index=<',index,'>');
   WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
 }
 
