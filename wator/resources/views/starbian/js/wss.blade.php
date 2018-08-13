@@ -32,6 +32,9 @@ class WatorNotify {
         self.onReady();
       }
     },1000+20);
+    setTimeout(function() {
+      self.tryExchangeKey_();
+    },1000+30);
   }
   
   onNotifyMessage_(evt) {
@@ -95,11 +98,42 @@ class WatorNotify {
         auth:auth,	
         subscribe:subs	
       };	
-      //console.log('subscribe_:ws=<',ws,'>');	
+      //console.log('subscribe_:self.ws_=<',self.ws_,'>');	
       if(self.ws_.readyState) {	
         self.ws_.send(JSON.stringify(sentMsg));	
       }	
     });	
+  }
+
+  sendMsg(channel,msg) {
+    msg.ts = new Date();
+    let self = this;
+    WATOR.sign(JSON.stringify(msg),function(auth) {
+      let sentMsg = {
+        channel:channel,
+        auth:auth,
+        msg:msg
+      };
+      if(self.ws_.readyState) {
+        self.ws_.send(JSON.stringify(sentMsg));
+      }
+    });
+  }
+  
+  tryExchangeKey_() {
+    let ecdh = { ts:new Date()};
+    let self = this;
+    WATOR.sign(JSON.stringify(subs),function(auth) {
+      let sentMsg = {
+        channel:self.channelKey_,
+        auth:auth,
+        ecdh:ecdh
+      };
+      //console.log('tryExchangeKey:self.ws_=<',self.ws_,'>');
+      if(self.ws_.readyState) {
+        self.ws_.send(JSON.stringify(sentMsg));
+      }
+    });
   }
 
 };
@@ -107,37 +141,9 @@ class WatorNotify {
 
 
 
-function sendMsg(channel,msg) {
-  msg.ts = new Date();
-  WATOR.sign(JSON.stringify(msg),function(auth) {
-    let sentMsg = {
-      channel:channel,
-      auth:auth,
-      msg:msg
-    };
-    if(ws.readyState) {
-      ws.send(JSON.stringify(sentMsg));
-    }
-  });
-}
 
 
-function tryExchangeKey(channel) {
-  let ecdh = { ts:new Date()};
-  WATOR.sign(JSON.stringify(subs),function(auth) {
-    let sentMsg = {
-      channel:channel,
-      auth:auth,
-      ecdh:subs
-    };
-    //console.log('tryExchangeKey:ws=<',ws,'>');
-    if(ws.readyState) {
-      ws.send(JSON.stringify(sentMsg));
-    }
-  });
 
-
-}
 
 
 /**
