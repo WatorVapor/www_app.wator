@@ -105,7 +105,7 @@ class WatorNotify {
     });	
   }
 
-  sendMsg(channel,msg) {
+  sendMsg(msg,channel) {
     msg.ts = new Date();
     let self = this;
     WATOR.sign(JSON.stringify(msg),function(auth) {
