@@ -8,16 +8,13 @@ ws.onerror = onNotifyError_;
 function onNotifyOpen_(evt) {
   console.log('onNotifyOpen_:evt=<',evt,'>');
   setTimeout(function(){
-    subscribe();
+    _subscribe();
   },1000+10);
   setTimeout(function() {
     if(typeof onNotifyReady === 'function') {
       onNotifyReady();
     }
   },1000+20);
-  setTimeout(function() {
-    tryExchangeKey();
-  },1000+30);
 }
 function onNotifyMessage_(evt) {
   //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
@@ -50,8 +47,8 @@ function sendMsg(channel,msg) {
   });
 }
 
-function subscribe() {
-  console.log('subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
+function _subscribe() {
+  console.log('_subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
   if(!WATOR.pubKeyHex) {
     return;
   } 
@@ -62,12 +59,28 @@ function subscribe() {
       auth:auth,
       subscribe:subs
     };
-    //console.log('onNotifyOpen_:ws=<',ws,'>');
+    //console.log('_subscribe:ws=<',ws,'>');
     if(ws.readyState) {
       ws.send(JSON.stringify(sentMsg));
     }
   });
 }
+
+function tryExchangeKey(channel) {
+  let ecdh = { ts:new Date()};
+  WATOR.sign(JSON.stringify(subs),function(auth) {
+    let sentMsg = {
+      channel:channel,
+      auth:auth,
+      ecdh:subs
+    };
+    //console.log('tryExchangeKey:ws=<',ws,'>');
+    if(ws.readyState) {
+      ws.send(JSON.stringify(sentMsg));
+    }
+  });
+}
+
 
 /**
 */
