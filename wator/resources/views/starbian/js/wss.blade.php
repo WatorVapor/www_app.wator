@@ -91,6 +91,10 @@ class WatorNotify {
   }
   onGoodECDH_(ecdh) {
     console.log('onGoodECDH_:ecdh=<',ecdh,'>');
+    if(!this.exchangeKeyDone_) {
+      this.tryExchangeKey_();
+    }
+    this.exchangeKeyDone_ = true;
   }
 
   subscribe_() {	
