@@ -96,8 +96,8 @@ class WatorNotify {
         subscribe:subs	
       };	
       //console.log('subscribe_:ws=<',ws,'>');	
-      if(self.ws.readyState) {	
-        self.ws.send(JSON.stringify(sentMsg));	
+      if(self.ws_.readyState) {	
+        self.ws_.send(JSON.stringify(sentMsg));	
       }	
     });	
   }
