@@ -95,6 +95,9 @@ class WatorNotify {
       this.tryExchangeKey_();
     }
     this.exchangeKeyDone_ = true;
+    WATOR.exchangeKey(ecdh.key,function(keyAes) {
+      console.log('onGoodECDH_:keyAes=<',keyAes,'>');
+    });
   }
 
   subscribe_() {	
