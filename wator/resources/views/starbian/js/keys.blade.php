@@ -280,7 +280,17 @@ WATOR.verify = function(key,msg,sign,cb) {
 
 
 WATOR.exchangeKey = function(pubKey,cb) {
-
+  console.log('WATOR.exchangeKey pubKey=<' , pubKey , '>');
+  crypto.subtle.importKey(
+    'jwk',
+    pubKey,
+    { name: 'ECDH', namedCurve: 'P-256'},
+    false,
+    []
+  ).then(key => {
+    let remotePublicKey = key;
+    console.log('WATOR.exchangeKey remotePublicKey=<' , remotePublicKey , '>');
+  });
 };
 
 </script>
