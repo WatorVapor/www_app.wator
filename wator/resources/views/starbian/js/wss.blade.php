@@ -81,6 +81,27 @@ class WatorNotify {
   onGoodMessage_(msg) {
     console.log('onGoodMessage_:msg=<',msg,'>');
   }
+
+  subscribe_() {	
+    console.log('subscribe_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
+    if(!WATOR.pubKeyHex) {	
+      return;	
+    } 	
+    let subs = { ts:new Date()};
+    let self = this;
+    WATOR.sign(JSON.stringify(subs),function(auth) {	
+      let sentMsg = {	
+        channel:WATOR.pubKeyHex,	
+        auth:auth,	
+        subscribe:subs	
+      };	
+      //console.log('subscribe_:ws=<',ws,'>');	
+      if(self.ws.readyState) {	
+        self.ws.send(JSON.stringify(sentMsg));	
+      }	
+    });	
+  }
+
 };
 
 
