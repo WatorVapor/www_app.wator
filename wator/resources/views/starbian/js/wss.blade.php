@@ -2,42 +2,58 @@
 
 class WatorNotify {
   constructor(key) {
+    let uri = "wss://www.wator.xyz/ws/starbian";
+    this.ws_ = new WebSocket(uri);
+    let self = this;
+    
+    this.ws_.onopen =  (evt) => {
+      self.onNotifyOpen_(evt);
+    };
+    this.ws_.onmessage = (evt) => {
+      self.onNotifyMessage_(evt);
+    };
+    this.ws_.onclose = (evt) => {
+      self.onNotifyClose_(evt);
+    };
+    this.ws_.onerror = (evt) => { 
+      self.onNotifyError_(evt);
+    };
   }
+  
+  onNotifyOpen_(evt) {
+    console.log('onNotifyOpen_:evt=<',evt,'>');
+    let self = this;
+    setTimeout(function(){
+      self._subscribe();
+    },1000+10);
+    setTimeout(function() {
+      if(typeof self.onReady === 'function') {
+        self.onReady();
+      }
+    },1000+20);
+  }
+  
+  onNotifyMessage_(evt) {
+    //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
+    let jsonMsg = JSON.parse(evt.data);
+    //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
+    if(jsonMsg && jsonMsg.msg) {
+      this._onWssMessage(jsonMsg.msg);
+    } else {
+      console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
+    }
+  }
+  onNotifyClose_(evt) {
+    console.log('onNotifyClose_:evt=<',evt,'>');
+  }
+  onNotifyError_(evt) {
+    console.log('onNotifyError_:evt=<',evt,'>');
+  }  
+  
 };
 
-let uri = "wss://www.wator.xyz/ws/starbian";
-let ws = new WebSocket(uri);
-ws.onopen = onNotifyOpen_;
-ws.onmessage = onNotifyMessage_;
-ws.onclose = onNotifyClose_;
-ws.onerror = onNotifyError_;
-function onNotifyOpen_(evt) {
-  console.log('onNotifyOpen_:evt=<',evt,'>');
-  setTimeout(function(){
-    _subscribe();
-  },1000+10);
-  setTimeout(function() {
-    if(typeof onNotifyReady === 'function') {
-      onNotifyReady();
-    }
-  },1000+20);
-}
-function onNotifyMessage_(evt) {
-  //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
-  let jsonMsg = JSON.parse(evt.data);
-  //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
-  if(jsonMsg && jsonMsg.msg) {
-    _onWssMessage(jsonMsg.msg);
-  } else {
-    console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
-  }
-}
-function onNotifyClose_(evt) {
-  console.log('onNotifyClose_:evt=<',evt,'>');
-}
-function onNotifyError_(evt) {
-  console.log('onNotifyError_:evt=<',evt,'>');
-}
+
+
 
 function sendMsg(channel,msg) {
   msg.ts = new Date();
@@ -53,24 +69,6 @@ function sendMsg(channel,msg) {
   });
 }
 
-function _subscribe() {
-  console.log('_subscribe:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');
-  if(!WATOR.pubKeyHex) {
-    return;
-  } 
-  let subs = { ts:new Date()};
-  WATOR.sign(JSON.stringify(subs),function(auth) {
-    let sentMsg = {
-      channel:WATOR.pubKeyHex,
-      auth:auth,
-      subscribe:subs
-    };
-    //console.log('_subscribe:ws=<',ws,'>');
-    if(ws.readyState) {
-      ws.send(JSON.stringify(sentMsg));
-    }
-  });
-}
 
 function tryExchangeKey(channel) {
   let ecdh = { ts:new Date()};
@@ -85,6 +83,8 @@ function tryExchangeKey(channel) {
       ws.send(JSON.stringify(sentMsg));
     }
   });
+
+
 }
 
 
