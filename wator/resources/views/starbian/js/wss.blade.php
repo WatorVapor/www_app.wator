@@ -123,7 +123,7 @@ class WatorNotify {
   tryExchangeKey_() {
     let ecdh = { ts:new Date()};
     let self = this;
-    WATOR.sign(JSON.stringify(subs),function(auth) {
+    WATOR.sign(JSON.stringify(ecdh),function(auth) {
       let sentMsg = {
         channel:self.channelKey_,
         auth:auth,
