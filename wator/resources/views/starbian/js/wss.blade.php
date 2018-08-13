@@ -1,4 +1,10 @@
 <script type="text/javascript">
+
+class WatorNotify {
+  constructor(key) {
+  }
+};
+
 let uri = "wss://www.wator.xyz/ws/starbian";
 let ws = new WebSocket(uri);
 ws.onopen = onNotifyOpen_;
