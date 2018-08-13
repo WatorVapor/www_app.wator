@@ -10,11 +10,14 @@ function onNotifyOpen_(evt) {
   setTimeout(function(){
     subscribe();
   },1000+10);
-  setTimeout(function(){
+  setTimeout(function() {
     if(typeof onNotifyReady === 'function') {
       onNotifyReady();
     }
   },1000+20);
+  setTimeout(function() {
+    tryExchangeKey();
+  },1000+30);
 }
 function onNotifyMessage_(evt) {
   //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
