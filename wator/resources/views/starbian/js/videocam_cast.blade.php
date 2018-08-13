@@ -7,16 +7,11 @@ let notify = new WatorNotify(keyChannel);
 console.log('notify=<',notify,'>');
 
 //let keyChannel = false;
-function onNotifyReady() {
-  let params = location.pathname.split('/');
-  let key = params[params.length -1];
-  console.log('onNotifyReady:key=<',key,'>');
-  if(key) {
-    keyChannel = key;
-    sendMsg(key,{start:true});
-    startCamera();
-  }  
-}
+notify.onReady = () => {
+  sendMsg(keyChannel,{start:true});
+  startCamera();
+};
+
 const configuration = {
   iceServers: [
     {urls: 'stun:stun.l.google.com:19302'},
