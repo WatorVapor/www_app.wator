@@ -40,7 +40,7 @@ class WatorNotify {
   onNotifyMessage_(evt) {
     //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     let jsonMsg = JSON.parse(evt.data);
-    console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
+    //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg) {
       this.onWssMessage_(jsonMsg.msg);
     } else {
@@ -61,7 +61,12 @@ class WatorNotify {
       this.verifyAuth_(msg.auth,function(good){
         console.log('onWssMessage_:good=<',good,'>');
         if(good) {
-          self.onGoodMessage_(msg.msg);
+          if(msg.msg) {
+            self.onGoodMessage_(msg.msg);
+          }
+          if(msg.ecdh) {
+            self.onGoodECDH_(msg.ecdh);
+          }
         } else {
           console.log('onWssMessage_ not auth :msg=<',msg,'>');
         }
@@ -83,6 +88,9 @@ class WatorNotify {
 
   onGoodMessage_(msg) {
     console.log('onGoodMessage_:msg=<',msg,'>');
+  }
+  onGoodECDH_(ecdh) {
+    console.log('onGoodECDH_:ecdh=<',ecdh,'>');
   }
 
   subscribe_() {	
