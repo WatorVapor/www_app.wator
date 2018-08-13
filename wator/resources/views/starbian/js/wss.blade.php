@@ -121,7 +121,10 @@ class WatorNotify {
   }
   
   tryExchangeKey_() {
-    let ecdh = { ts:new Date()};
+    let ecdh = {
+      key:WATOR.ECDHKeyPubJwk,
+      ts:new Date()
+    };
     let self = this;
     WATOR.sign(JSON.stringify(ecdh),function(auth) {
       let sentMsg = {
