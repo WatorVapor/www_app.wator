@@ -1,9 +1,10 @@
 <script type="text/javascript">
 
 class WatorNotify {
-  constructor(key) {
+  constructor(channelKey) {
     let uri = "wss://www.wator.xyz/ws/starbian";
     this.ws_ = new WebSocket(uri);
+    this.channelKey_ = channelKey;
     let self = this;
     
     this.ws_.onopen =  (evt) => {
@@ -24,7 +25,7 @@ class WatorNotify {
     console.log('onNotifyOpen_:evt=<',evt,'>');
     let self = this;
     setTimeout(function(){
-      self._subscribe();
+      self.subscribe_();
     },1000+10);
     setTimeout(function() {
       if(typeof self.onReady === 'function') {
@@ -38,7 +39,7 @@ class WatorNotify {
     let jsonMsg = JSON.parse(evt.data);
     //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg) {
-      this._onWssMessage(jsonMsg.msg);
+      this.onWssMessage_(jsonMsg.msg);
     } else {
       console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     }
