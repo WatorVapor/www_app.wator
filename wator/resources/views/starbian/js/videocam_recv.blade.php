@@ -1,15 +1,17 @@
 <script type="text/javascript">
-let keyChannel = false;
-function onNotifyReady() {
-  let params = location.pathname.split('/');
-  let key = params[params.length -1];
-  console.log('onNotifyReady:key=<',key,'>');
-  if(key) {
-    keyChannel = key;
-    sendMsg(key,{start:true});
-    startCamera();
-  }  
-}
+
+const params = location.pathname.split('/');
+const keyChannel = params[params.length -1];
+console.log('keyChannel=<',keyChannel,'>');
+let notify = new WatorNotify(keyChannel);
+notify.onReady = () => {
+  notify.sendMsg({start:true},keyChannel);
+  startCamera();
+};
+console.log('notify=<',notify,'>');
+
+
+
 const configuration = {
   iceServers: [
     {urls: 'stun:stun.l.google.com:19302'},
