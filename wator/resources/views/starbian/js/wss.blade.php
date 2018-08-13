@@ -50,7 +50,37 @@ class WatorNotify {
   onNotifyError_(evt) {
     console.log('onNotifyError_:evt=<',evt,'>');
   }  
-  
+
+  onWssMessage_(msg) {
+    console.log('onWssMessage_:msg=<',msg,'>');
+    if(msg.auth) {
+      let self = this;
+      this.verifyAuth_(msg.auth,function(good){
+        console.log('onWssMessage_:good=<',good,'>');
+        if(good) {
+          self.onGoodMessage_(msg.msg);
+        } else {
+          console.log('onWssMessage_ not auth :msg=<',msg,'>');
+        }
+      });
+    }
+  }
+  verifyAuth_(auth,cb) {
+    console.log('verifyAuth_:auth=<',auth,'>');
+    console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
+    let keys= WATOR.getRemoteKeys();
+    let index = keys.indexOf(auth.pubKey);
+    console.log('verifyAuth_:index=<',index,'>');
+    if(index !== -1) {
+      WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
+    } else {
+      cb(false);
+    }
+  }
+
+  onGoodMessage_(msg) {
+    console.log('onGoodMessage_:msg=<',msg,'>');
+  }
 };
 
 
@@ -101,34 +131,7 @@ function _sendMsgPrivate(channel,msg) {
   }
 }
 
-function _onWssMessage(msg) {
-  console.log('_onWssMessage:msg=<',msg,'>');
-  if(msg.auth) {
-    _verifyAuth(msg.auth,function(good){
-      console.log('_onWssMessage:good=<',good,'>');
-      if(good) {
-        _onGoodMessage(msg.msg);
-      } else {
-        console.log('_onWssMessage not auth :msg=<',msg,'>');
-      }
-    });
-  }
-}
 
-function _verifyAuth(auth,cb) {
-  console.log('_verifyAuth:auth=<',auth,'>');
-  console.log('_verifyAuth:auth.pubKey=<',auth.pubKey,'>');
-  let keys= WATOR.getRemoteKeys();
-  let index = keys.indexOf(auth.pubKey);
-  console.log('_verifyAuth:index=<',index,'>');
-  if(index !== -1) {
-    WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
-  } else {
-    cb(false);
-  }
-}
 
-function _onGoodMessage(msg) {
-  console.log('_onGoodMessage:msg=<',msg,'>');
-}
+
 </script>
