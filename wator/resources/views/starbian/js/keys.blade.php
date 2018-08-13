@@ -278,4 +278,9 @@ WATOR.verify = function(key,msg,sign,cb) {
 
 };
 
+
+WATOR.exchangeKey = function(pubKey,cb) {
+
+};
+
 </script>
