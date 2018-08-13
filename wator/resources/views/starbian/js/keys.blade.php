@@ -288,9 +288,21 @@ WATOR.exchangeKey = function(pubKey,cb) {
     false,
     []
   ).then(key => {
-    let remotePublicKey = key;
-    console.log('WATOR.exchangeKey remotePublicKey=<' , remotePublicKey , '>');
+    onExchangeKey(key,cb);
   });
 };
+
+function onExchangeKey(remotePubKey,cb) {
+  console.log('onExchangeKey remotePubKey=<' , remotePubKey , '>');
+  crypto.subtle.deriveKey( 
+    { name: 'ECDH', namedCurve: 'P-256', public: remotePubKey },
+    WATOR.ECDHKey.privateKey,
+    { name: 'AES-GCM', length: 128 },
+    false,
+    ['encrypt', 'decrypt']
+  ).then(keyAES => {
+    console.log('onExchangeKey keyAES=<' , keyAES , '>');
+  });
+}
 
 </script>
