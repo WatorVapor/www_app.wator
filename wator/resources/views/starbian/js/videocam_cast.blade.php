@@ -1,4 +1,11 @@
 <script type="text/javascript">
+
+const params = location.pathname.split('/');
+const keyChannel = params[params.length -1];
+console.log('keyChannel=<',keyChannel,'>');
+let notify = new WatorNotify(keyChannel);
+console.log('notify=<',notify,'>');
+
 let keyChannel = false;
 function onNotifyReady() {
   let params = location.pathname.split('/');
