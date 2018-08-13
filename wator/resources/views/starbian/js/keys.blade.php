@@ -214,7 +214,7 @@ WATOR.sign = function(msg,cb) {
       let signature = {
         pubKey:WATOR.pubKeyHex,
         hash:hash,
-	enc:'hex',
+  enc:'hex',
         sign:signatureHex
       };
       cb(signature);
@@ -229,14 +229,14 @@ WATOR.sign = function(msg,cb) {
 };
 
 function hex2buf(hex) {
-	let buffer = new ArrayBuffer(hex.length / 2);
-	let array = new Uint8Array(buffer);
-	let k = 0;
-	for (let i = 0; i < hex.length; i +=2 ) {
-		array[k] = parseInt(hex[i] + hex[i+1], 16);
-		k++;
-	}
-	return buffer;
+  let buffer = new ArrayBuffer(hex.length / 2);
+  let array = new Uint8Array(buffer);
+  let k = 0;
+  for (let i = 0; i < hex.length; i +=2 ) {
+    array[k] = parseInt(hex[i] + hex[i+1], 16);
+    k++;
+  }
+  return buffer;
 }
 
 WATOR.verify = function(key,msg,sign,cb) {
@@ -264,12 +264,12 @@ WATOR.verify = function(key,msg,sign,cb) {
     };
     window.crypto.subtle.verify(alg,publicKey,signBuff,msgBuff)
     .then(function(result){
-			console.log('WATOR.verify result=<' , result , '>');
-			
-			cb(result);
+      console.log('WATOR.verify result=<' , result , '>');
+      
+      cb(result);
     })
     .catch(function(err){
-    	console.error(err);
+      console.error(err);
     });
   })
   .catch(function(err){
