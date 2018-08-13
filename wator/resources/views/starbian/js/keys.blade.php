@@ -303,6 +303,7 @@ function onExchangeKey(remotePubKey,cb) {
   ).then(keyAES => {
     console.log('onExchangeKey keyAES=<' , keyAES , '>');
     WATOR.AESKey = keyAES;
+    cb(keyAES);
   });
 }
 
