@@ -77,6 +77,8 @@ function onLoadSavedKey(privSave) {
   .catch(function(err){
     console.error(err);
   });
+  WATOR.rsPrvKey = KEYUTIL.getKey(key);
+  console.log('WATOR.rsPrvKey=<',WATOR.rsPrvKey ,'>');
   //console.log('key=<',key ,'>');
   //let key
   delete key.d;
@@ -100,6 +102,8 @@ function onLoadSavedKey(privSave) {
   .catch(function(err){
     console.error(err);
   });
+  WATOR.rsPubKey = KEYUTIL.getKey(key);
+  console.log('WATOR.rsPubKey=<',WATOR.rsPubKey ,'>');
 }
 function buf2hex(buffer) { // buffer is an ArrayBuffer
   return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
