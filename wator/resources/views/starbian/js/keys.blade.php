@@ -73,7 +73,7 @@ function onLoadSavedKey(privSave) {
   .then(function(privateKey){
     console.log('privateKey=<' , privateKey , '>');
     WATOR.prvKey = privateKey;
-    getPrvKey(privateKey);
+    //getPrvKey(privateKey);
   })
   .catch(function(err){
     console.error(err);
@@ -261,7 +261,7 @@ WATOR.sign = function(msg,cb) {
     let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
     signEngine.init({d: WATOR.rsPrvKey, curve: 'secp256r1'});
     signEngine.updateString(hash);
-    let signatureHex = sig.sign();
+    let signatureHex = signEngine.sign();
     
     //let signatureHex = WATOR.rsPrvKey.signHex(hash);
     //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
