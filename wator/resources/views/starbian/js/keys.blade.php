@@ -267,7 +267,7 @@ WATOR.sign = function(msg,cb) {
     //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
     console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
-      pubKey:WATOR.pubKeyHex,
+      pubKey:WATOR.pubKeyJWK,
       hash:hash,
       enc:'hex',
       sign:signatureHex
