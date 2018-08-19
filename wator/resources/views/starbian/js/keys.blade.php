@@ -244,8 +244,15 @@ WATOR.sign = function(msg,cb) {
       name: "ECDSA",
       hash: {name: "SHA-256"}
     };
-    let signature = WATOR.rsPrvKey.sign(token,"sha256");
-    console.log('WATOR.sign signature=<' , signature , '>');
+    let signatureHex = WATOR.rsPrvKey.sign(hash,"sha256");
+    console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
+    let signature = {
+      pubKey:WATOR.pubKeyHex,
+      hash:hash,
+      enc:'hex',
+      sign:signatureHex
+    };
+    cb(signature);
   })
   .catch(function(err){
     console.error(err);
