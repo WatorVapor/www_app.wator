@@ -73,6 +73,7 @@ function onLoadSavedKey(privSave) {
   .then(function(privateKey){
     console.log('privateKey=<' , privateKey , '>');
     WATOR.prvKey = privateKey;
+    getPrvKey(privateKey);
   })
   .catch(function(err){
     console.error(err);
@@ -118,6 +119,18 @@ function getPubKey(key) {
     if(typeof onUpdatePublicKey === 'function') {
       onUpdatePublicKey(WATOR.pubKeyHex);
     }
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+}
+
+function getPrvKey(key) {
+  window.crypto.subtle.exportKey('raw',key)
+  .then(function(keydata){
+    //console.log('getPubKey keydata=<' , keydata , '>');
+    WATOR.prvKeyHex = buf2hex(keydata);
+    //console.log('getPubKey WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
   })
   .catch(function(err){
     console.error(err);
