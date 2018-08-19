@@ -258,7 +258,7 @@ WATOR.sign = function(msg,cb) {
     console.log('WATOR.sign ecSign=<' , ecSign , '>');
     console.log('WATOR.sign WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
     
-    let signEngine = new KJUR.Signature({alg: 'SHA256withECDSA'});
+    let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
     signEngine.init({d: WATOR.rsPrvKey, curve: 'secp256r1'});
     signEngine.updateString(hash);
     let signatureHex = signEngine.sign();
