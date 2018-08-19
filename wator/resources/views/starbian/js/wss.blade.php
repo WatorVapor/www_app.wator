@@ -75,11 +75,12 @@ class WatorNotify {
   }
   verifyAuth_(auth,cb) {
     console.log('verifyAuth_:auth=<',auth,'>');
-    console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
     let keys= WATOR.getRemoteKeys();
-    let index = keys.indexOf(auth.pubKey);
+    console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
+    let index = keys.indexOf(auth.pubKeyHex);
     console.log('verifyAuth_:index=<',index,'>');
     if(index !== -1) {
+      console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
       WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
     } else {
       cb(false);
