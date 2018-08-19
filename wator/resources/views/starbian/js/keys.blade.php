@@ -339,8 +339,15 @@ WATOR.verify = function(key,msg,sign,cb) {
   console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
   let signBuff = hex2buf(sign);
   console.log('WATOR.verify signBuff=<' , signBuff , '>');
-  let rsPubKey = KEYUTIL.getKey(key);
-  console.log('WATOR.verify rsPubKey=<' , rsPubKey , '>');
+  
+  let pubKey = KEYUTIL.getKey(key);
+  console.log('WATOR.verify pubKey=<' , pubKey , '>');
+  
+  let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+  signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
+  signEngine.updateString(msg);
+  let result = signEngine.verify(sign);
+  cb(result);
 };
 
 
