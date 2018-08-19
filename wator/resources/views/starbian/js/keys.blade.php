@@ -308,6 +308,18 @@ WATOR.verify = function(key,msg,sign,cb) {
 };
 */
 
+WATOR.verify = function(key,msg,sign,cb) {
+  let keyBuff = hex2buf(key);
+  console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
+  let msgBuff = new TextEncoder("utf-8").encode(msg)
+  console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
+  let signBuff = hex2buf(sign);
+  console.log('WATOR.verify signBuff=<' , signBuff , '>');
+  let rsPubKey = KEYUTIL.getKey(key);
+  console.log('WATOR.verify rsPubKey=<' , rsPubKey , '>');
+};
+
+
 
 WATOR.exchangeKey = function(pubKey,cb) {
   console.log('WATOR.exchangeKey pubKey=<' , pubKey , '>');
