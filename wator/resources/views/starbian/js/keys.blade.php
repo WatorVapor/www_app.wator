@@ -104,6 +104,7 @@ function onLoadSavedKey(privSave) {
   });
   WATOR.rsPubKey = KEYUTIL.getKey(key);
   console.log('WATOR.rsPubKey=<',WATOR.rsPubKey ,'>');
+  WATOR.pubKeyJWK = JSON.parse(JSON.stringify(key));
 }
 function buf2hex(buffer) { // buffer is an ArrayBuffer
   return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
@@ -243,7 +244,7 @@ WATOR.sign = function(msg,cb) {
     let signatureHex = WATOR.rsPrvKey.signHex(hash,'sha256');
     console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
-      pubKey:WATOR.pubKeyHex,
+      pubKey:WATOR.pubKeyJWK,
       hash:hash,
       enc:'hex',
       sign:signatureHex
