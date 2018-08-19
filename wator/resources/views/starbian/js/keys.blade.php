@@ -240,11 +240,7 @@ WATOR.sign = function(msg,cb) {
   .then(function(buf) {
     let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
     console.log('WATOR.sign hash=<' , hash , '>');
-    let alg = {
-      name: "ECDSA",
-      hash: {name: "SHA-256"}
-    };
-    let signatureHex = WATOR.rsPrvKey.sign(hash,"sha256");
+    let signatureHex = WATOR.rsPrvKey.sign(hash,'sha256');
     console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
       pubKey:WATOR.pubKeyHex,
