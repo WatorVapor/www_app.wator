@@ -128,9 +128,9 @@ function getPubKey(key) {
 function getPrvKey(key) {
   window.crypto.subtle.exportKey('raw',key)
   .then(function(keydata){
-    //console.log('getPubKey keydata=<' , keydata , '>');
+    //console.log('getPrvKey keydata=<' , keydata , '>');
     WATOR.prvKeyHex = buf2hex(keydata);
-    //console.log('getPubKey WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
+    //console.log('getPrvKey WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
   })
   .catch(function(err){
     console.error(err);
