@@ -381,4 +381,33 @@ function onExchangeKey(remotePubKey,cb) {
   });
 }
 
+WATOR.encrypt = function(msg,cb) {
+  console.log('WATOR.encrypt msg=<' , msg , '>');
+  const alg = { name: 'AES-GCM'};
+  const ptUint8 = new TextEncoder().encode(JSON.stringify(msg));
+  crypto.subtle.encrypt( 
+    alg,
+    WATOR.AESKey,
+    ptUint8
+  ).then(enMsg => {
+    console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
+    cb(enMsg);
+  });
+}
+
+WATOR.decrypt = function(msg,cb) {
+  console.log('WATOR.encrypt msg=<' , msg , '>');
+  const alg = { name: 'AES-GCM'};
+  const ptUint8 = new TextEncoder().encode(msg);
+  crypto.subtle.decrypt( 
+    alg,
+    WATOR.AESKey,
+    ptUint8
+  ).then(plainMsg => {
+    console.log('WATOR.encrypt plainMsg=<' , plainMsg , '>');
+    cb(enMsg);
+  });
+}
+
+
 </script>
