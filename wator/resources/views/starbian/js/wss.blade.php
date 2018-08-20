@@ -136,6 +136,21 @@ class WatorNotify {
     });
   }
   
+  publish(msg) {
+    msg.ts = new Date();
+    let self = this;
+    WATOR.sign(JSON.stringify(msg),function(auth) {
+      let sentMsg = {
+        channel:self.channelKey_,
+        auth:auth,
+        msg:msg
+      };
+      if(self.ws_.readyState) {
+        self.ws_.send(JSON.stringify(sentMsg));
+      }
+    });
+  }
+  
   tryExchangeKey_() {
     let ecdh = {
       key:WATOR.ECDHKeyPubJwk,
