@@ -58,9 +58,12 @@ class WatorNotify {
         if(good) {
           if(msg.msg) {
             self.onGoodMessage_(msg.msg);
-          }
-          if(msg.ecdh) {
+          } else if(msg.encrypt) {
+            self.onEncrypt_(msg.encrypt);
+          } else if(msg.ecdh) {
             self.onGoodECDH_(msg.ecdh);
+          } else {
+            console.log('onWssMessage_ not supported  :msg=<',msg,'>');
           }
         } else {
           console.log('onWssMessage_ not auth :msg=<',msg,'>');
@@ -103,6 +106,9 @@ class WatorNotify {
         }
       },0);
     });
+  }
+  onEncrypt_(encrypt) {
+    console.log('onEncrypt_:encrypt=<',encrypt,'>');
   }
 
   subscribeChannel_() {	
