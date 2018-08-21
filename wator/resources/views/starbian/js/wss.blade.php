@@ -84,7 +84,7 @@ class WatorNotify {
 
   onGoodMessage_(msg) {
     console.log('onGoodMessage_:msg=<',msg,'>');
-    if(typeof this.subscribe_ === 'fuction') {
+    if(typeof this.subscribe_ === 'function') {
       this.subscribe_(msg);
     }
   }
