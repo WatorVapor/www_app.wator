@@ -8,6 +8,10 @@ notify.onReady = () => {
   notify.publish({start:true});
   startCamera();
 };
+notify.onMessage = (msg) => {
+  console.log('onMessage:msg=<',msg,'>');
+};
+
 console.log('notify=<',notify,'>');
 
 
