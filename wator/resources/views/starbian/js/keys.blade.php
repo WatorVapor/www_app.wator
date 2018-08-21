@@ -292,6 +292,10 @@ function hex2buf(hex) {
   return buffer;
 }
 
+function buf2hex(buf) {
+  return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+}
+
 /*
 WATOR.verify = function(key,msg,sign,cb) {
   let keyBuff = hex2buf(key);
@@ -402,8 +406,8 @@ WATOR.encrypt = function(msg,cb) {
   ).then(enMsg => {
     console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
     let enObj = {
-      iv:new TextDecoder('hex').decode(iv),
-      encrypt:new TextDecoder('hex').decode(enMsg)
+      iv:buf2hex(iv),
+      encrypt:buf2hex(enMsg)
     };
     cb(enObj);
   })
