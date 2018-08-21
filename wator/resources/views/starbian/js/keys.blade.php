@@ -420,9 +420,9 @@ WATOR.decrypt = function(msg,cb) {
   console.log('WATOR.encrypt msg=<' , msg , '>');
   const alg = { 
     name: 'AES-GCM',
-    iv: msg.iv
+    iv: hex2buf(msg.iv)
   };
-  const ptUint8 = new TextEncoder().encode(msg.encrypt);
+  const ptUint8 = hex2buf(msg.encrypt);
   crypto.subtle.decrypt( 
     alg,
     WATOR.AESKey,
