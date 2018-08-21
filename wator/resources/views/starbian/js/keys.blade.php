@@ -389,9 +389,10 @@ function onExchangeKey(remotePubKey,cb) {
 
 WATOR.encrypt = function(msg,cb) {
   console.log('WATOR.encrypt msg=<' , msg , '>');
+  let iv = window.crypto.getRandomValues(new Uint8Array(12));
   const alg = { 
     name: 'AES-GCM',
-    iv: window.crypto.getRandomValues(new Uint8Array(12))
+    iv: iv
   };
   const ptUint8 = new TextEncoder().encode(JSON.stringify(msg));
   crypto.subtle.encrypt( 
