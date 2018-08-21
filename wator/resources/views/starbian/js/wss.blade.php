@@ -25,7 +25,7 @@ class WatorNotify {
     console.log('onNotifyOpen_:evt=<',evt,'>');
     let self = this;
     setTimeout(function(){
-      self.subscribe_();
+      self.subscribeChannel_();
     },1000+10);
     setTimeout(function() {
       self.tryExchangeKey_();
@@ -102,8 +102,8 @@ class WatorNotify {
     });
   }
 
-  subscribe_() {	
-    console.log('subscribe_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
+  subscribeChannel_() {	
+    console.log('subscribeChannel_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
     if(!WATOR.pubKeyHex) {	
       return;	
     } 	
@@ -115,7 +115,7 @@ class WatorNotify {
         auth:auth,	
         subscribe:subs	
       };	
-      //console.log('subscribe_:self.ws_=<',self.ws_,'>');	
+      //console.log('subscribeChannel_:self.ws_=<',self.ws_,'>');	
       if(self.ws_.readyState) {	
         self.ws_.send(JSON.stringify(sentMsg));	
       }	
