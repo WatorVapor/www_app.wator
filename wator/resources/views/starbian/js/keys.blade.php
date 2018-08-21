@@ -363,6 +363,9 @@ WATOR.exchangeKey = function(pubKey,cb) {
     []
   ).then(key => {
     onExchangeKey(key,cb);
+  })
+  .catch(function(err){
+    console.error(err);
   });
 };
 
@@ -378,6 +381,9 @@ function onExchangeKey(remotePubKey,cb) {
     console.log('onExchangeKey keyAES=<' , keyAES , '>');
     WATOR.AESKey = keyAES;
     cb(keyAES);
+  })
+  .catch(function(err){
+    console.error(err);
   });
 }
 
@@ -399,6 +405,9 @@ WATOR.encrypt = function(msg,cb) {
       encrypt:enMsg
     };
     cb(enObj);
+  })
+  .catch(function(err){
+    console.error(err);
   });
 }
 
@@ -416,6 +425,9 @@ WATOR.decrypt = function(msg,cb) {
   ).then(plainMsg => {
     console.log('WATOR.encrypt plainMsg=<' , plainMsg , '>');
     cb(enMsg);
+  })
+  .catch(function(err){
+    console.error(err);
   });
 }
 
