@@ -8,9 +8,9 @@ notify.onReady = () => {
   notify.publish({start:true});
   startCamera();
 };
-notify.onMessage = (msg) => {
-  console.log('onMessage:msg=<',msg,'>');
-};
+notify.subcribe( (msg) => {
+  console.log('notify.subcribe:msg=<',msg,'>');
+});
 
 console.log('notify=<',notify,'>');
 
