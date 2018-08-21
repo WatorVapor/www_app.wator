@@ -383,7 +383,10 @@ function onExchangeKey(remotePubKey,cb) {
 
 WATOR.encrypt = function(msg,cb) {
   console.log('WATOR.encrypt msg=<' , msg , '>');
-  const alg = { name: 'AES-GCM'};
+  const alg = { 
+    name: 'AES-GCM',
+    iv: window.crypto.getRandomValues(new Uint8Array(12))
+  };
   const ptUint8 = new TextEncoder().encode(JSON.stringify(msg));
   crypto.subtle.encrypt( 
     alg,
@@ -391,14 +394,21 @@ WATOR.encrypt = function(msg,cb) {
     ptUint8
   ).then(enMsg => {
     console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
-    cb(enMsg);
+    let enObj = {
+      iv:iv,
+      encrypt:enMsg
+    };
+    cb(enObj);
   });
 }
 
 WATOR.decrypt = function(msg,cb) {
   console.log('WATOR.encrypt msg=<' , msg , '>');
-  const alg = { name: 'AES-GCM'};
-  const ptUint8 = new TextEncoder().encode(msg);
+  const alg = { 
+    name: 'AES-GCM',
+    iv: msg.iv
+  };
+  const ptUint8 = new TextEncoder().encode(msg.encrypt);
   crypto.subtle.decrypt( 
     alg,
     WATOR.AESKey,
