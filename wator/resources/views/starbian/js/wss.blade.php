@@ -131,7 +131,7 @@ class WatorNotify {
     WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
       console.log('publish:encrypt=<',encrypt,'>');	
     });
-
+    /*
     WATOR.sign(JSON.stringify(msg),function(auth) {
       let sentMsg = {
         channel:self.channelKey_,
@@ -142,6 +142,7 @@ class WatorNotify {
         self.ws_.send(JSON.stringify(sentMsg));
       }
     });
+    */
   }
   subscribe(cb) {
     this.subscribe_ = cb;
