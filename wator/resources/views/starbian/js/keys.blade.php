@@ -417,18 +417,19 @@ WATOR.encrypt = function(msg,cb) {
 }
 
 WATOR.decrypt = function(msg,cb) {
-  console.log('WATOR.encrypt msg=<' , msg , '>');
+  console.log('WATOR.decrypt msg=<' , msg , '>');
   const alg = { 
     name: 'AES-GCM',
     iv: hex2buf(msg.iv)
   };
   const ptUint8 = hex2buf(msg.encrypt);
+  console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
   crypto.subtle.decrypt( 
     alg,
     WATOR.AESKey,
     ptUint8
   ).then(plainMsg => {
-    console.log('WATOR.encrypt plainMsg=<' , plainMsg , '>');
+    console.log('WATOR.decrypt plainMsg=<' , plainMsg , '>');
     cb(enMsg);
   })
   .catch(function(err){
