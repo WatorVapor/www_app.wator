@@ -28,7 +28,7 @@ class WatorNotify {
       self.subscribeChannel_();
     },1000+10);
     setTimeout(function() {
-      self.tryExchangeKey_();
+      self.tryExchangeKey_('request');
     },1000+30);
   }
   
@@ -93,8 +93,8 @@ class WatorNotify {
   }
   onGoodECDH_(ecdh) {
     console.log('onGoodECDH_:ecdh=<',ecdh,'>');
-    if(!this.exchangeKeyDone_) {
-      this.tryExchangeKey_();
+    if(ecdh.type === 'request') {
+      this.tryExchangeKey_('response');
     }
     this.exchangeKeyDone_ = true;
     let self = this;
@@ -160,9 +160,10 @@ class WatorNotify {
     this.subscribe_ = cb;
   }	
   
-  tryExchangeKey_() {
+  tryExchangeKey_(type) {
     let ecdh = {
       key:WATOR.ECDHKeyPubJwk,
+      type:type,
       ts:new Date()
     };
     let self = this;
