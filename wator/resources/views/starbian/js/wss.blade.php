@@ -128,6 +128,10 @@ class WatorNotify {
   publish(msg) {
     msg.ts = new Date();
     let self = this;
+    WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
+      console.log('publish:encrypt=<',encrypt,'>');	
+    });
+
     WATOR.sign(JSON.stringify(msg),function(auth) {
       let sentMsg = {
         channel:self.channelKey_,
