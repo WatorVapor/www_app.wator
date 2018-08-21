@@ -84,6 +84,9 @@ class WatorNotify {
 
   onGoodMessage_(msg) {
     console.log('onGoodMessage_:msg=<',msg,'>');
+    if(typeof this.subscribe_ === 'fuction') {
+      this.subscribe_(msg);
+    }
   }
   onGoodECDH_(ecdh) {
     console.log('onGoodECDH_:ecdh=<',ecdh,'>');
@@ -151,6 +154,9 @@ class WatorNotify {
       }
     });
   }
+  subscribe(cb) {
+    this.subscribe_ = cb;
+  }	
   
   tryExchangeKey_() {
     let ecdh = {
