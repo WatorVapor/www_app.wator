@@ -109,6 +109,9 @@ class WatorNotify {
   }
   onEncrypt_(encrypt) {
     console.log('onEncrypt_:encrypt=<',encrypt,'>');
+    WATOR.decrypt(encrypt,function(plainMsg) {
+      self.onGoodMessage_(plainMsg);
+    });
   }
 
   subscribeChannel_() {	
