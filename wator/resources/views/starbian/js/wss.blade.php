@@ -111,7 +111,11 @@ class WatorNotify {
     console.log('onEncrypt_:encrypt=<',encrypt,'>');
     let self = this;
     WATOR.decrypt(encrypt,function(plainMsg) {
-      self.onGoodMessage_(plainMsg);
+      if(plainMsg) {
+        self.onGoodMessage_(plainMsg);
+      } else {
+        console.log('onEncrypt_:plainMsg=<',plainMsg,'>');
+      }
     });
   }
 
