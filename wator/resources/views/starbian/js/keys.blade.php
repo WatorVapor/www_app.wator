@@ -432,9 +432,10 @@ WATOR.decrypt = function(msg,cb) {
     alg,
     WATOR.AESKey,
     ptUint8
-  ).then(plainMsg => {
-    console.log('WATOR.decrypt plainMsg=<' , plainMsg , '>');
-    cb(enMsg);
+  ).then(plainBuff => {
+    console.log('WATOR.decrypt plainBuff=<' , plainBuff , '>');
+    let plainText = new TextDecoder().decode(plainBuff);
+    cb(plainText);
   })
   .catch(function(err){
     console.error(err);
