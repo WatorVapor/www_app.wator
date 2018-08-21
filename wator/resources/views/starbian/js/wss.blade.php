@@ -28,11 +28,6 @@ class WatorNotify {
       self.subscribe_();
     },1000+10);
     setTimeout(function() {
-      if(typeof self.onReady === 'function') {
-        self.onReady();
-      }
-    },1000+20);
-    setTimeout(function() {
       self.tryExchangeKey_();
     },1000+30);
   }
@@ -98,6 +93,11 @@ class WatorNotify {
     this.exchangeKeyDone_ = true;
     WATOR.exchangeKey(ecdh.key,function(keyAes) {
       console.log('onGoodECDH_:keyAes=<',keyAes,'>');
+      setTimeout(function() {
+        if(typeof self.onReady === 'function') {
+          self.onReady();
+        }
+      },0);
     });
   }
 
