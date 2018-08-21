@@ -130,19 +130,17 @@ class WatorNotify {
     let self = this;
     WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
       console.log('publish:encrypt=<',encrypt,'>');	
+      WATOR.sign(JSON.stringify(encrypt),function(auth) {
+        let sentMsg = {
+          channel:self.channelKey_,
+          auth:auth,
+          encrypt:encrypt
+        };
+        if(self.ws_.readyState) {
+          self.ws_.send(JSON.stringify(sentMsg));
+        }
+      });
     });
-    /*
-    WATOR.sign(JSON.stringify(msg),function(auth) {
-      let sentMsg = {
-        channel:self.channelKey_,
-        auth:auth,
-        msg:msg
-      };
-      if(self.ws_.readyState) {
-        self.ws_.send(JSON.stringify(sentMsg));
-      }
-    });
-    */
   }
   subscribe(cb) {
     this.subscribe_ = cb;
