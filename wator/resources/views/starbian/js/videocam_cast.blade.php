@@ -6,7 +6,7 @@ console.log('keyChannel=<',keyChannel,'>');
 let notify = new WatorNotify(keyChannel);
 
 notify.onReady = () => {
-  notify.sendMsg({start:true},keyChannel);
+  notify.publish({start:true});
   startCamera();
 };
 console.log('notify=<',notify,'>');
