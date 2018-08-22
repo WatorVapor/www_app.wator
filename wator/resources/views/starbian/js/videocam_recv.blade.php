@@ -42,6 +42,7 @@ function onRemoteOffer(offer) {
   };
   pc.ontrack = (event) => {
     console.log('ontrack:event=<',event,'>');
+    document.getElementById("video").srcObject = event.streams[0];
   };
   console.log('onRemoteOffer:offer=<',offer,'>');
   let sdp = new RTCSessionDescription(offer);
