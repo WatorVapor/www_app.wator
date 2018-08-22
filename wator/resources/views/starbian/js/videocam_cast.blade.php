@@ -29,6 +29,7 @@ startCamera();
 
 function startCamera() {
   let option = {video: true, audio: true}
+  console.log('startCamera=<',option,'>');
   navigator.mediaDevices.getUserMedia(option, onStreamGot,onStreamError)
 }
 function onStreamGot(stream) {
