@@ -36,12 +36,24 @@ function startCamera() {
   pMedia.then(onStreamGot);
   pMedia.catch(onStreamError);
 }
+function onStreamError(error) {
+  console.log('onStreamError:error=<',error,'>');
+}
+
 function onStreamGot(stream) {
   console.log('onStreamGot:stream=<',stream,'>');
   console.log('onStreamGot:pc=<',pc,'>');
   pc.addStream(stream);
+  let pOffer = pc.createOffer();
+  pOffer.then(onOfferGot);
+  pOffer.catch(onOfferError);
 }
-function onStreamError(error) {
-  console.log('onStreamError:error=<',error,'>');
+function onOfferError(error) {
+  console.log('onOfferError:error=<',error,'>');
 }
+function onOfferGot(offer) {
+  console.log('onOfferGot:offer=<',offer,'>');
+}
+
+
 </script>
