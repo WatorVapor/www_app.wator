@@ -15,8 +15,11 @@ notify.subscribe( (msg) => {
   if(msg && msg.start) {
     sendLocalCache();
   }
+  if(msg && msg.answer) {
+    onRemoteAnswer(msg.answer);
+  }
   if(msg && msg.ice) {
-    onRemoteICE();
+    onRemoteICE(msg.ice);
   }
 });
 console.log('notify=<',notify,'>');
@@ -97,8 +100,23 @@ function sendICE(ice) {
   }
 }
 
+function onRemoteAnswer(answer) {
+  console.log('onRemoteAnswer:answer=<',answer,'>');  
+  let sdp = new RTCSessionDescription(answer);
+  console.log('onRemoteAnswer:sdp=<',sdp,'>');
+  let pRsdp =pc.setRemoteDescription(sdp);
+  pRsdp.then(onSetRemoteDescriptionGot);
+  pRsdp.catch(onSetRemoteDescriptionError);
+}
+function onSetRemoteDescriptionError(error) {
+  console.log('onSetRemoteDescriptionError:error=<',error,'>');
+}
+function onSetRemoteDescriptionGot() {
+}
+
 function onRemoteICE(ice) {
   console.log('onRemoteICE:ice=<',ice,'>');  
 }
+
 
 </script>
