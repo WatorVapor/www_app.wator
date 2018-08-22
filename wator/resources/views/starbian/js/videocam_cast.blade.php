@@ -9,6 +9,7 @@ notify.onReady = () => {
   notify.publish({start:true});
 };
 notify.subscribe( (msg) => {
+  console.log('notify.subcribe:typeof msg=<',typeof msg,'>');
   console.log('notify.subcribe:msg=<',msg,'>');
   console.log('notify.subcribe:msg.start=<',msg.start,'>');
   if(msg && msg.start) {
