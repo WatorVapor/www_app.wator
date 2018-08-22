@@ -56,6 +56,7 @@ function onOfferError(error) {
 }
 function onOfferGot(offer) {
   console.log('onOfferGot:offer=<',offer,'>');
+  pc.setLocalDescription(offer);
 }
 
 
