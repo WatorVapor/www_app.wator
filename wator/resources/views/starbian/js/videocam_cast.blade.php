@@ -32,13 +32,14 @@ pc.onicecandidate = ({candidate}) => {
 function startCamera() {
   let option = {video: true, audio: true}
   console.log('startCamera=<',option,'>');
-  let p = navigator.mediaDevices.getUserMedia(option);
-  p.then(onStreamGot);
-  p.catch(onStreamError);
+  let pMedia = navigator.mediaDevices.getUserMedia(option);
+  pMedia.then(onStreamGot);
+  pMedia.catch(onStreamError);
 }
 function onStreamGot(stream) {
   console.log('onStreamGot:stream=<',stream,'>');
   console.log('onStreamGot:pc=<',pc,'>');
+  pc.addStream(stream);
 }
 function onStreamError(error) {
   console.log('onStreamError:error=<',error,'>');
