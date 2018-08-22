@@ -4,12 +4,20 @@ const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
 console.log('keyChannel=<',keyChannel,'>');
 let notify = new WatorNotify(keyChannel);
+notify.isReady = false;
+
 notify.onReady = () => {
   notify.publish({start:true});
-  startCamera();
+  notify.isReady = true;
 };
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
+  if(msg && msg.offer) {
+    onRemoteOffer();
+  }
+  if(msg && msg.ice) {
+    onRemoteICE();
+  }
 });
 
 console.log('notify=<',notify,'>');
@@ -27,15 +35,13 @@ const pc = new RTCPeerConnection(configuration);
 pc.onicecandidate = ({candidate}) => { 
   console.log('onicecandidate:candidate=<',candidate,'>');
 }
-function startCamera() {
-  let option = {video: true, audio: true}
-  navigator.mediaDevices.getUserMedia(option, onStreamGot,onStreamError)
+
+function onRemoteOffer(offer) {
+  console.log('onRemoteOffer:offer=<',offer,'>');  
 }
-function onStreamGot(stream) {
-  console.log('onStreamGot:stream=<',stream,'>');
-  console.log('onStreamGot:pc=<',pc,'>');
+function onRemoteICE(ice) {
+  console.log('onRemoteICE:ice=<',ice,'>');  
 }
-function onStreamError(error) {
-  console.log('onStreamError:error=<',error,'>');
-}
+
+
 </script>
