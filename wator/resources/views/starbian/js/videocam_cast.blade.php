@@ -7,7 +7,6 @@ let notify = new WatorNotify(keyChannel);
 
 notify.onReady = () => {
   notify.publish({start:true});
-  startCamera();
 };
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
@@ -25,6 +24,9 @@ const pc = new RTCPeerConnection(configuration);
 pc.onicecandidate = ({candidate}) => { 
   console.log('onicecandidate:candidate=<',candidate,'>');
 }
+
+startCamera();
+
 function startCamera() {
   let option = {video: true, audio: true}
   navigator.mediaDevices.getUserMedia(option, onStreamGot,onStreamError)
