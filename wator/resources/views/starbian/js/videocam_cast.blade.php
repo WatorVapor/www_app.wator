@@ -115,6 +115,7 @@ function onSetRemoteDescriptionGot() {
 }
 
 function onRemoteICE(ice) {
+  console.log('onRemoteICE:typeof ice=<',typeof ice,'>');  
   console.log('onRemoteICE:ice=<',ice,'>');  
 }
 
