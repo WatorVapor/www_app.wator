@@ -10,6 +10,9 @@ notify.onReady = () => {
 };
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
+  if(msg && msg.start) {
+    startCamera();
+  }
 });
 console.log('notify=<',notify,'>');
 
@@ -25,7 +28,6 @@ pc.onicecandidate = ({candidate}) => {
   console.log('onicecandidate:candidate=<',candidate,'>');
 }
 
-startCamera();
 
 function startCamera() {
   let option = {video: true, audio: true}
