@@ -31,15 +31,15 @@ const configuration = {
     {urls: 'stun:stun2.l.google.com:19302'}
   ]
 };
-const pc = new RTCPeerConnection(configuration);
-pc.onicecandidate = ({candidate}) => { 
-  console.log('onicecandidate:candidate=<',candidate,'>');
-  if(candidate) {
-    sendICE(candidate);
-  }
-}
-
+let pc = false;
 function onRemoteOffer(offer) {
+  pc = new RTCPeerConnection(configuration);
+  pc.onicecandidate = ({candidate}) => { 
+    console.log('onicecandidate:candidate=<',candidate,'>');
+    if(candidate) {
+      sendICE(candidate);
+    }
+  }
   console.log('onRemoteOffer:offer=<',offer,'>');
   let sdp = new RTCSessionDescription(offer);
   console.log('onRemoteOffer:sdp=<',sdp,'>');
