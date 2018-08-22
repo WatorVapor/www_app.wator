@@ -10,9 +10,9 @@ notify.onReady = () => {
 };
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
-  startCamera();
+  console.log('notify.subcribe:msg.start=<',msg.start,'>');
   if(msg && msg.start) {
-    console.log('notify.subcribe:msg.start=<',msg.start,'>');
+    startCamera();
   }
 });
 console.log('notify=<',notify,'>');
