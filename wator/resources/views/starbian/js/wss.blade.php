@@ -50,11 +50,11 @@ class WatorNotify {
   }  
 
   onWssMessage_(msg) {
-    console.log('onWssMessage_:msg=<',msg,'>');
+    //console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
       let self = this;
       this.verifyAuth_(msg.auth,function(good){
-        console.log('onWssMessage_:good=<',good,'>');
+        //console.log('onWssMessage_:good=<',good,'>');
         if(good) {
           if(msg.msg) {
             self.onGoodMessage_(msg.msg);
@@ -72,13 +72,13 @@ class WatorNotify {
     }
   }
   verifyAuth_(auth,cb) {
-    console.log('verifyAuth_:auth=<',auth,'>');
+    //console.log('verifyAuth_:auth=<',auth,'>');
     let keys= WATOR.getRemoteKeys();
-    console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
+    //console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
     let index = keys.indexOf(auth.pubKeyHex);
-    console.log('verifyAuth_:index=<',index,'>');
+    //console.log('verifyAuth_:index=<',index,'>');
     if(index !== -1) {
-      console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
+      //console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
       WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
     } else {
       cb(false);
@@ -86,20 +86,20 @@ class WatorNotify {
   }
 
   onGoodMessage_(msg) {
-    console.log('onGoodMessage_:msg=<',msg,'>');
+    //console.log('onGoodMessage_:msg=<',msg,'>');
     if(typeof this.subscribe_ === 'function') {
       this.subscribe_(msg);
     }
   }
   onGoodECDH_(ecdh) {
-    console.log('onGoodECDH_:ecdh=<',ecdh,'>');
+    //console.log('onGoodECDH_:ecdh=<',ecdh,'>');
     if(ecdh.type === 'request') {
       this.tryExchangeKey_('response');
     }
     this.exchangeKeyDone_ = true;
     let self = this;
     WATOR.exchangeKey(ecdh.key,function(keyAes) {
-      console.log('onGoodECDH_:keyAes=<',keyAes,'>');
+      //console.log('onGoodECDH_:keyAes=<',keyAes,'>');
       setTimeout(function() {
         if(typeof self.onReady === 'function') {
           self.onReady();
@@ -108,10 +108,10 @@ class WatorNotify {
     });
   }
   onEncrypt_(encrypt) {
-    console.log('onEncrypt_:encrypt=<',encrypt,'>');
+    //console.log('onEncrypt_:encrypt=<',encrypt,'>');
     let self = this;
     WATOR.decrypt(encrypt,function(plainMsg) {
-      console.log('onEncrypt_:typeof plainMsg=<',typeof plainMsg,'>');
+      //console.log('onEncrypt_:typeof plainMsg=<',typeof plainMsg,'>');
       if(plainMsg) {
         if(typeof plainMsg === 'string') {
           self.onGoodMessage_(JSON.parse(plainMsg));
@@ -148,7 +148,7 @@ class WatorNotify {
     msg.ts = new Date();
     let self = this;
     WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
-      console.log('publish:encrypt=<',encrypt,'>');	
+      //console.log('publish:encrypt=<',encrypt,'>');	
       WATOR.sign(JSON.stringify(encrypt),function(auth) {
         let sentMsg = {
           channel:self.channelKey_,
