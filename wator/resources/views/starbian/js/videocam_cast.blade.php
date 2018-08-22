@@ -16,7 +16,7 @@ notify.subscribe( (msg) => {
     sendLocalCache();
   }
   if(msg && msg.ice) {
-    sendRemoteICE();
+    onRemoteICE();
   }
 });
 console.log('notify=<',notify,'>');
@@ -97,8 +97,8 @@ function sendICE(ice) {
   }
 }
 
-function sendRemoteICE(ice) {
-  console.log('sendRemoteICE:ice=<',ice,'>');  
+function onRemoteICE(ice) {
+  console.log('onRemoteICE:ice=<',ice,'>');  
 }
 
 </script>
