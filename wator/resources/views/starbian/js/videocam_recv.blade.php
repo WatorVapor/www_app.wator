@@ -46,17 +46,14 @@ function onRemoteOffer(offer) {
   let pRsdp =pc.setRemoteDescription(sdp);
   pRsdp.then(onSetRemoteDescriptionGot);
   pRsdp.catch(onSetRemoteDescriptionError);
-  /*
-  let pAnswer = pc.createAnswer();
-  pAnswer.then(onAnswerGot);
-  pAnswer.catch(onAnswerError);
-  */
 }
 function onSetRemoteDescriptionError(error) {
   console.log('onSetRemoteDescriptionError:error=<',error,'>');
 }
-function onSetRemoteDescriptionGot(dsp) {
-  console.log('onSetRemoteDescriptionGot:dsp=<',dsp,'>');
+function onSetRemoteDescriptionGot() {
+  let pAnswer = pc.createAnswer();
+  pAnswer.then(onAnswerGot);
+  pAnswer.catch(onAnswerError);
 }
 
 function onAnswerError(error) {
