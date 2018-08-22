@@ -11,10 +11,12 @@ notify.onReady = () => {
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
   if(msg && msg.start) {
-    startCamera();
   }
 });
 console.log('notify=<',notify,'>');
+
+
+
 
 const configuration = {
   iceServers: [
@@ -27,6 +29,7 @@ const pc = new RTCPeerConnection(configuration);
 pc.onicecandidate = ({candidate}) => { 
   console.log('onicecandidate:candidate=<',candidate,'>');
 }
+startCamera();
 
 
 function startCamera() {
