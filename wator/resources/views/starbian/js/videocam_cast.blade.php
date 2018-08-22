@@ -66,13 +66,17 @@ function onStreamGot(stream) {
   console.log('onStreamGot:stream=<',stream,'>');
   localStreamCache = stream;
 }
+
+
+
+
+
 let pc = false;
 function startWebRTC() {
-  if(localStreamCache) {
+  if(!localStreamCache) {
+    console.log('startWebRTC !!! eroor localStreamCache=<',localStreamCache,'>');
     return;
   }
-  console.log('startWebRTC:localStreamCache=<',localStreamCache,'>');
-
   pc = new RTCPeerConnection(configuration);
   pc.onicecandidate = ({candidate}) => { 
     console.log('onicecandidate:candidate=<',candidate,'>');
