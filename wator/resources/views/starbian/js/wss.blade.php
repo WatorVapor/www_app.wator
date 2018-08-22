@@ -113,7 +113,11 @@ class WatorNotify {
     WATOR.decrypt(encrypt,function(plainMsg) {
       console.log('onEncrypt_:typeof plainMsg=<',typeof plainMsg,'>');
       if(plainMsg) {
-        self.onGoodMessage_(JSON.parse(plainMsg));
+        if(typeof plainMsg === 'string') {
+          self.onGoodMessage_(JSON.parse(plainMsg));
+        } else {
+          self.onGoodMessage_(plainMsg);
+        }
       } else {
         console.log('onEncrypt_:plainMsg=<',plainMsg,'>');
       }
