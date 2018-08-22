@@ -13,10 +13,10 @@ notify.onReady = () => {
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
   if(msg && msg.offer) {
-    onRemoteOffer();
+    onRemoteOffer(msg.offer);
   }
   if(msg && msg.ice) {
-    onRemoteICE();
+    onRemoteICE(msg.ice);
   }
 });
 
