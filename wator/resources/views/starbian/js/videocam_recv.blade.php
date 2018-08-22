@@ -37,8 +37,42 @@ pc.onicecandidate = ({candidate}) => {
 }
 
 function onRemoteOffer(offer) {
-  console.log('onRemoteOffer:offer=<',offer,'>');  
+  console.log('onRemoteOffer:offer=<',offer,'>');
+  let sdp = new RTCSessionDescription(offer);
+  console.log('onRemoteOffer:sdp=<',sdp,'>');
+  let pRsdp =pc.setRemoteDescription(sdp);
+  pRsdp.then(onSetRemoteDescriptionGot);
+  pRsdp.catch(onSetRemoteDescriptionError);
+  /*
+  let pAnswer = pc.createAnswer();
+  pAnswer.then(onAnswerGot);
+  pAnswer.catch(onAnswerError);
+  */
 }
+function onSetRemoteDescriptionError(error) {
+  console.log('onSetRemoteDescriptionError:error=<',error,'>');
+}
+function onSetRemoteDescriptionGot(dsp) {
+  console.log('onSetRemoteDescriptionGot:dsp=<',dsp,'>');
+}
+
+function onAnswerError(error) {
+  console.log('onAnswerError:error=<',error,'>');
+}
+function onAnswerGot(answer) {
+  console.log('onAnswerGot:answer=<',answer,'>');
+  pc.setLocalDescription(answer);
+  sendAnswer(answer);
+}
+
+function sendAnswer(answer) {
+  if(notify.isReady) {
+    notify.publish({answer:answer});
+  } else {
+    console.log('sendAnswer wrong times!!!!:answer=<',answer,'>');
+  }
+}
+
 function onRemoteICE(ice) {
   console.log('onRemoteICE:ice=<',ice,'>');  
 }
