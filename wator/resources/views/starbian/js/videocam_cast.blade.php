@@ -46,14 +46,9 @@ const configuration = {
     {urls: 'stun:stun2.l.google.com:19302'}
   ]
 };
-const pc = new RTCPeerConnection(configuration);
-pc.onicecandidate = ({candidate}) => { 
-  console.log('onicecandidate:candidate=<',candidate,'>');
-  if(candidate) {
-    sendICE(candidate);
-  }
-}
 startCamera();
+
+let localStreamCache = false;
 
 
 function startCamera() {
@@ -69,12 +64,27 @@ function onStreamError(error) {
 
 function onStreamGot(stream) {
   console.log('onStreamGot:stream=<',stream,'>');
+  localStreamCache = stream;
+}
+let pc = false;
+function startWebRTC() {
   console.log('onStreamGot:pc=<',pc,'>');
+  if(localStreamCache) {
+  }
+
+  pc = new RTCPeerConnection(configuration);
+  pc.onicecandidate = ({candidate}) => { 
+    console.log('onicecandidate:candidate=<',candidate,'>');
+    if(candidate) {
+      sendICE(candidate);
+    }
+  }
   pc.addStream(stream);
   let pOffer = pc.createOffer();
   pOffer.then(onOfferGot);
   pOffer.catch(onOfferError);
 }
+
 function onOfferError(error) {
   console.log('onOfferError:error=<',error,'>');
 }
