@@ -34,6 +34,9 @@ const configuration = {
 const pc = new RTCPeerConnection(configuration);
 pc.onicecandidate = ({candidate}) => { 
   console.log('onicecandidate:candidate=<',candidate,'>');
+  if(candidate) {
+    sendICE(candidate);
+  }
 }
 
 function onRemoteOffer(offer) {
@@ -77,5 +80,12 @@ function onRemoteICE(ice) {
   console.log('onRemoteICE:ice=<',ice,'>');  
 }
 
+function sendICE(ice) {
+  if(notify.isReady) {
+    notify.publish({ice:ice});
+  } else {
+    console.log('sendICE wrong times!!!!:ice=<',ice,'>');
+  }
+}
 
 </script>
