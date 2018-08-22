@@ -249,14 +249,14 @@ WATOR.sign = function(msg,cb) {
 */
 
 WATOR.sign = function(msg,cb) {
-  console.log('WATOR.sign msg=<' , msg , '>');
+  //console.log('WATOR.sign msg=<' , msg , '>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
   .then(function(buf) {
     let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    console.log('WATOR.sign hash=<' , hash , '>');
+    //console.log('WATOR.sign hash=<' , hash , '>');
     let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
-    console.log('WATOR.sign ecSign=<' , ecSign , '>');
-    console.log('WATOR.sign WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
+    //console.log('WATOR.sign ecSign=<' , ecSign , '>');
+    //console.log('WATOR.sign WATOR.prvKeyHex=<' , WATOR.prvKeyHex , '>');
     
     let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
     signEngine.init({d: WATOR.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
@@ -265,7 +265,7 @@ WATOR.sign = function(msg,cb) {
     
     //let signatureHex = WATOR.rsPrvKey.signHex(hash);
     //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
-    console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
+    //console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
       pubKey:WATOR.pubKeyJWK,
       pubKeyHex:WATOR.pubKeyHex,
@@ -339,14 +339,14 @@ WATOR.verify = function(key,msg,sign,cb) {
 
 WATOR.verify = function(key,msg,sign,cb) {
   let keyBuff = hex2buf(key);
-  console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
+  //console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
   let msgBuff = new TextEncoder("utf-8").encode(msg)
-  console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
+  //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
   let signBuff = hex2buf(sign);
-  console.log('WATOR.verify signBuff=<' , signBuff , '>');
+  //console.log('WATOR.verify signBuff=<' , signBuff , '>');
   
   let pubKey = KEYUTIL.getKey(key);
-  console.log('WATOR.verify pubKey=<' , pubKey , '>');
+  //console.log('WATOR.verify pubKey=<' , pubKey , '>');
   
   let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
   signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
@@ -392,7 +392,7 @@ function onExchangeKey(remotePubKey,cb) {
 }
 
 WATOR.encrypt = function(msg,cb) {
-  console.log('WATOR.encrypt msg=<' , msg , '>');
+  //console.log('WATOR.encrypt msg=<' , msg , '>');
   let iv = window.crypto.getRandomValues(new Uint8Array(12));
   const alg = { 
     name: 'AES-GCM',
@@ -404,7 +404,7 @@ WATOR.encrypt = function(msg,cb) {
     WATOR.AESKey,
     ptUint8
   ).then(enMsg => {
-    console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
+    //console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
     let enObj = {
       iv:buf2hex(iv),
       encrypt:buf2hex(enMsg)
@@ -417,7 +417,7 @@ WATOR.encrypt = function(msg,cb) {
 }
 
 WATOR.decrypt = function(msg,cb) {
-  console.log('WATOR.decrypt msg=<' , msg , '>');
+  //console.log('WATOR.decrypt msg=<' , msg , '>');
   if(!WATOR.AESKey) {
     cb({});
     return;
@@ -427,17 +427,17 @@ WATOR.decrypt = function(msg,cb) {
     iv: hex2buf(msg.iv)
   };
   const ptUint8 = hex2buf(msg.encrypt);
-  console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
+  //console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
   crypto.subtle.decrypt( 
     alg,
     WATOR.AESKey,
     ptUint8
   ).then(plainBuff => {
-    console.log('WATOR.decrypt plainBuff=<' , plainBuff , '>');
+    //console.log('WATOR.decrypt plainBuff=<' , plainBuff , '>');
     let plainText = new TextDecoder().decode(plainBuff);
-    console.log('WATOR.decrypt plainText=<' , plainText , '>');
+    //console.log('WATOR.decrypt plainText=<' , plainText , '>');
     let plainJson = JSON.parse(plainText);
-    console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
+    //console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
     cb(plainJson);
   })
   .catch(function(err){
