@@ -85,6 +85,7 @@ function sendICE(ice) {
 function onRemoteICE(ice) {
   console.log('onRemoteICE:typeof ice=<',typeof ice,'>');  
   console.log('onRemoteICE:ice=<',ice,'>');  
+  pc.addIceCandidate( new RTCIceCandidate(ice));
 }
 
 
