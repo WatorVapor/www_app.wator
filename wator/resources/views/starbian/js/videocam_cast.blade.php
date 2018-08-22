@@ -13,7 +13,7 @@ notify.onReady = () => {
 notify.subscribe( (msg) => {
   console.log('notify.subcribe:msg=<',msg,'>');
   if(msg && msg.start) {
-    sendLocalCache();
+    startWebRTC();
   }
   if(msg && msg.answer) {
     onRemoteAnswer(msg.answer);
