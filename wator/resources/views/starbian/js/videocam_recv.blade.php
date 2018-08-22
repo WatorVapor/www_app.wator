@@ -39,7 +39,10 @@ function onRemoteOffer(offer) {
     if(candidate) {
       sendICE(candidate);
     }
-  }
+  };
+  pc.ontrack = (event) => {
+    console.log('ontrack:event=<',event,'>');
+  };
   console.log('onRemoteOffer:offer=<',offer,'>');
   let sdp = new RTCSessionDescription(offer);
   console.log('onRemoteOffer:sdp=<',sdp,'>');
