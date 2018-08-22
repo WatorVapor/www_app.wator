@@ -73,9 +73,6 @@ function sendAnswer(answer) {
   }
 }
 
-function onRemoteICE(ice) {
-  console.log('onRemoteICE:ice=<',ice,'>');  
-}
 
 function sendICE(ice) {
   if(notify.isReady) {
@@ -84,5 +81,11 @@ function sendICE(ice) {
     console.log('sendICE wrong times!!!!:ice=<',ice,'>');
   }
 }
+
+function onRemoteICE(ice) {
+  console.log('onRemoteICE:typeof ice=<',typeof ice,'>');  
+  console.log('onRemoteICE:ice=<',ice,'>');  
+}
+
 
 </script>
