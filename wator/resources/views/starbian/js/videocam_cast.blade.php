@@ -68,9 +68,10 @@ function onStreamGot(stream) {
 }
 let pc = false;
 function startWebRTC() {
-  console.log('onStreamGot:pc=<',pc,'>');
   if(localStreamCache) {
+    return;
   }
+  console.log('startWebRTC:localStreamCache=<',localStreamCache,'>');
 
   pc = new RTCPeerConnection(configuration);
   pc.onicecandidate = ({candidate}) => { 
@@ -79,7 +80,7 @@ function startWebRTC() {
       sendICE(candidate);
     }
   }
-  pc.addStream(stream);
+  pc.addStream(localStreamCache);
   let pOffer = pc.createOffer();
   pOffer.then(onOfferGot);
   pOffer.catch(onOfferError);
