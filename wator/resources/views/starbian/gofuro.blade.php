@@ -21,7 +21,7 @@
   <div class="col-5">
     <div class="card card-default text-center bg-info">
       <div class="card-header">
-        Camera Public key
+        GoFuro Public key
       </div>
       <div class="card-body">
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="3" ></textarea>
