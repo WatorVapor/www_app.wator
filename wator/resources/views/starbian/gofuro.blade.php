@@ -131,6 +131,7 @@
 </script>
 
 
+@include('starbian.js.wss')
 @include('starbian.js.keys')
 @include('starbian.js.gofuro')
 @endsection
