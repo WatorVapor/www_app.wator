@@ -38,7 +38,7 @@
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
         <a type="button" class="btn btn-primary btn-block" onclick="onHotupRemoteKey(this)">
-          <i class="material-icons">videocam</i>
+          <i class="material-icons">hot_tub</i>
         </a>
       </div>
       <div class="col-1">
