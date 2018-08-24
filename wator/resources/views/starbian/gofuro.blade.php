@@ -37,15 +37,8 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
-        <a type="button" class="btn btn-primary btn-block"
-          v-bind:href="remote.casturl" target="_blank">
+        <a type="button" class="btn btn-primary btn-block" onclick="onHotupRemoteKey(this)">
           <i class="material-icons">videocam</i>
-        </a>
-      </div>
-      <div class="col-1">
-        <a type="button" class="btn btn-success btn-block"
-          v-bind:href="remote.rcvurl" target="_blank">
-          <i class="material-icons">video_call</i>
         </a>
       </div>
       <div class="col-1">
@@ -79,34 +72,13 @@
 
 
 <script type="text/javascript">
-  function onAddRemoteKey(elem) {
-    try {
-      console.log('onAddRemoteKey elem=<' , elem , '>');
-      let root = elem.parentElement;
-      console.log('onAddRemoteKey root=<' , root , '>');
-      let textKey = root.getElementsByTagName('textarea')[0].value;
-      console.log('onAddRemoteKey textKey=<' , textKey , '>');
-      if(textKey) {
-        WATOR.addRemoteKey(textKey.trim());
-      }
-    } catch(e) {
-      console.error(e);
-    }
-  }
-</script>
-
-<script type="text/javascript">
   function onRemoteKeyRead() {
     let remotekeys = WATOR.getRemoteKeys();
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
-      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
-      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
       let keyPairs = {
-          key:remotekeys[i],
-          casturl:casturl,
-          rcvurl:rcvurl,
+          key:remotekeys[i]
       };
       urls.push(keyPairs);
     }
@@ -126,20 +98,20 @@
 
 
 <script type="text/javascript">
-  function onStartVidoeCam (elem) {
+  function onHotupRemoteKey (elem) {
     try {
-      console.log('onStartVidoeCam elem=<' , elem , '>');
-      let textContent = elem.textContent;
-      console.log('onStartVidoeCam textContent=<' , textContent , '>');
-      if(textContent) {
-        let textKey = textContent.replace('Connect to Camera ','');
-        console.log('onStartVidoeCam textKey=<' , textKey , '>');
-        WATOR.connect(textKey.trim());
+      console.log('onHotupRemoteKey elem=<' , elem , '>');
+      let keyElem = elem.parentElement.parentElement.getElementsByTagName('span')[0];
+      console.log('onHotupRemoteKey keyElem=<' , keyElem , '>');
+      let textKey = keyElem.textContent;
+      console.log('onHotupRemoteKey textKey=<' , textKey , '>');
+      if(textKey) {
+        console.log('onHotupRemoteKey textKey=<' , textKey , '>');
+        WATOR.publish({hotup},textKey.trim());
       }
     } catch(e) {
       console.error(e);
     }
-  }
   function onRemoveRemoteKey (elem) {
     try {
       console.log('onRemoveRemoteKey elem=<' , elem , '>');
