@@ -112,6 +112,7 @@
     } catch(e) {
       console.error(e);
     }
+  }
   function onRemoveRemoteKey (elem) {
     try {
       console.log('onRemoveRemoteKey elem=<' , elem , '>');
