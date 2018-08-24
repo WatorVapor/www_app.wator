@@ -107,7 +107,7 @@
       console.log('onHotupRemoteKey textKey=<' , textKey , '>');
       if(textKey) {
         console.log('onHotupRemoteKey textKey=<' , textKey , '>');
-        WATOR.publish({hotup},textKey.trim());
+        publishHotUpGofuro(textKey.trim());
       }
     } catch(e) {
       console.error(e);
