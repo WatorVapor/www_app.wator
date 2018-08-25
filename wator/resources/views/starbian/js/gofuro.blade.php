@@ -14,15 +14,6 @@ function publishHotUpGofuro(keyChannel) {
   };
   notify.subscribe( (msg) => {
     console.log('notify.subcribe:msg=<',msg,'>');
-    if(msg && msg.start) {
-      startWebRTC();
-    }
-    if(msg && msg.answer) {
-      onRemoteAnswer(msg.answer);
-    }
-    if(msg && msg.ice) {
-      onRemoteICE(msg.ice);
-    }
   });
   console.log('notify=<',notify,'>');
 }
