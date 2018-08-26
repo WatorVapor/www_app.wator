@@ -231,7 +231,8 @@ WATOR.sign = function(msg,cb) {
       console.log('WATOR.sign signatureBuf=<' , signatureBuf , '>');
       let signatureHex = Array.prototype.map.call(new Uint8Array(signatureBuf), x=>(('00'+x.toString(16)).slice(-2))).join('');
       let signature = {
-        pubKey:WATOR.pubKeyHex,
+        pubKey:WATOR.pubKeyJWK,
+        pubKeyHex:WATOR.pubKeyHex,
         hash:hash,
         enc:'hex',
         sign:signatureHex
