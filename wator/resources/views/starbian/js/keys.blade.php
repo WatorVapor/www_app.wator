@@ -215,7 +215,7 @@ async function sha256(str) {
 }
 
 
-/*
+
 WATOR.sign = function(msg,cb) {
   console.log('WATOR.sign msg=<' , msg , '>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
@@ -246,8 +246,8 @@ WATOR.sign = function(msg,cb) {
     console.error(err);
   });
 };
-*/
 
+/*
 WATOR.sign = function(msg,cb) {
   //console.log('WATOR.sign msg=<' , msg , '>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
@@ -279,7 +279,7 @@ WATOR.sign = function(msg,cb) {
     console.error(err);
   });
 };
-
+*/
 
 function hex2buf(hex) {
   let buffer = new ArrayBuffer(hex.length / 2);
@@ -296,7 +296,7 @@ function buf2hex(buf) {
   return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
 }
 
-/*
+
 WATOR.verify = function(key,msg,sign,cb) {
   let keyBuff = hex2buf(key);
   console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
@@ -305,7 +305,7 @@ WATOR.verify = function(key,msg,sign,cb) {
   let signBuff = hex2buf(sign);
   console.log('WATOR.verify signBuff=<' , signBuff , '>');
   window.crypto.subtle.importKey(
-    'raw',
+    'jwk',
     keyBuff,
     {
       name: 'ECDSA',
@@ -335,8 +335,9 @@ WATOR.verify = function(key,msg,sign,cb) {
   });
 
 };
-*/
 
+
+/*
 WATOR.verify = function(key,msg,sign,cb) {
   let keyBuff = hex2buf(key);
   //console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
@@ -354,7 +355,7 @@ WATOR.verify = function(key,msg,sign,cb) {
   let result = signEngine.verify(sign);
   cb(result);
 };
-
+*/
 
 
 WATOR.exchangeKey = function(pubKey,cb) {
