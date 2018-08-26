@@ -436,9 +436,9 @@ WATOR.decrypt = function(msg,cb) {
   ).then(plainBuff => {
     //console.log('WATOR.decrypt plainBuff=<' , plainBuff , '>');
     let plainText = new TextDecoder().decode(plainBuff);
-    //console.log('WATOR.decrypt plainText=<' , plainText , '>');
+    console.log('WATOR.decrypt plainText=<' , plainText , '>');
     let plainJson = JSON.parse(plainText);
-    //console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
+    console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
     cb(plainJson);
   })
   .catch(function(err){
