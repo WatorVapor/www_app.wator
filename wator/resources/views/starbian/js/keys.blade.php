@@ -418,7 +418,7 @@ WATOR.encrypt = function(msg,cb) {
 }
 
 WATOR.decrypt = function(msg,cb) {
-  //console.log('WATOR.decrypt msg=<' , msg , '>');
+  console.log('WATOR.decrypt msg=<' , msg , '>');
   if(!WATOR.AESKey) {
     cb({});
     return;
