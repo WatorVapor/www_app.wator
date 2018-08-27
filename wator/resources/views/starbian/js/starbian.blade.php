@@ -45,7 +45,7 @@ class StarBian {
     this.OneTimeCB_ = cb;
     let self = this;
     setTimeout(function() {
-      self.OneTimeCB_(this.counter,this.OneTimePassword_);
+      self.OneTimeCB_(self.counter,self.OneTimePassword_);
       self.sharePubKeyTimeOut_();
     },0);
   }
