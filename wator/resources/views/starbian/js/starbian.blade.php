@@ -46,6 +46,10 @@ class StarBian {
       self.sharePubKeyTimeOut_(cb);
     },0);
   }
+  
+  
+  
+  // private..
   sharePubKeyTimeOut_(cb) {
     this.sharePubKeyInside_(cb);
     cb(this.counter);
@@ -59,7 +63,6 @@ class StarBian {
   }
   
   
-  // private..
   onNotifyOpen_(evt) {
     console.log('onNotifyOpen_:evt=<',evt,'>');
     let self = this;
