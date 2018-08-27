@@ -3,15 +3,15 @@
 const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
 console.log('keyChannel=<',keyChannel,'>');
-let notify = new WatorNotify(keyChannel);
-notify.isReady = false;
+let starbian = new StarBian(keyChannel);
+starbian.isReady = false;
 
-notify.onReady = () => {
-  notify.publish({start:true});
-  notify.isReady = true;
+starbian.onReady = () => {
+  starbian.publish({start:true});
+  starbian.isReady = true;
 };
-notify.subscribe( (msg) => {
-  console.log('notify.subcribe:msg=<',msg,'>');
+starbian.subscribe( (msg) => {
+  console.log('starbian.subcribe:msg=<',msg,'>');
   if(msg && msg.offer) {
     onRemoteOffer(msg.offer);
   }
@@ -20,7 +20,7 @@ notify.subscribe( (msg) => {
   }
 });
 
-console.log('notify=<',notify,'>');
+console.log('starbian=<',starbian,'>');
 
 
 
