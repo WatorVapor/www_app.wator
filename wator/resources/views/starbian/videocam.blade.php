@@ -15,6 +15,8 @@
         <pre class="card-text text-danger" id="text-this-device-key" rows="40" style="white-space: pre-wrap ;">@{{ pub_key }}</pre>
         <br/>
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
+      </div>
+      <div class="card-body">
         <button type="button" class="btn btn-primary btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
           <i class="material-icons">dialpad</i><i class="material-icons">share</i>
         </button>
