@@ -39,6 +39,24 @@ class StarBian {
   subscribe(cb) {
     this.subscribe_ = cb;
   }	
+  sharePubKey(cb) {
+    this.counter = 10;
+    let self = this;
+    setTimeout(function() {
+      self.sharePubKeyTimeOut_(cb);
+    },0);
+  }
+  sharePubKeyTimeOut_(cb) {
+    this.sharePubKeyInside_(cb);
+    cb(this.counter);
+    this.counter--;
+    if(this.counter > 0) {
+      let self = this;
+      setTimeout(function() {
+        self.sharePubKeyTimeOut_(cb);
+      },10000);
+    }
+  }
   
   
   // private..
@@ -164,7 +182,30 @@ class StarBian {
       }	
     });	
   }
- 
+
+  sharePubKeyInside_() {	
+    console.log('sharePubKeyInside_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
+    if(!WATOR.pubKeyHex) {	
+      return;	
+    } 	
+    let shareKey = { 
+      pubkey:WATOR.pubKeyHex,
+      ts:new Date()
+    };
+    let self = this;
+    WATOR.sign(JSON.stringify(shareKey),function(auth) {	
+      let sentMsg = {	
+        channel:'broadcast',	
+        auth:auth,
+        shareKey:shareKey	
+      };	
+      //console.log('sharePubKeyInside_:self.ws_=<',self.ws_,'>');	
+      if(self.ws_.readyState) {	
+        self.ws_.send(JSON.stringify(sentMsg));	
+      }	
+    });	
+  }
+
   
   tryExchangeKey_(type) {
     let ecdh = {
