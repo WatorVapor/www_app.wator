@@ -1,21 +1,21 @@
 <script type="text/javascript">
 
-let notify = false;
+let starbian = false;
 function publishHotUpGofuro(keyChannel) {
-  if(notify && notify.isReady) {
-    notify.publish({hotup:true});
+  if(starbian && starbian.isReady) {
+    starbian.publish({hotup:true});
     return;
   }
-  notify = new WatorNotify(keyChannel);
-  notify.isReady = false;
-  notify.onReady = () => {
-    notify.publish({hotup:true});
-    notify.isReady = true;
+  starbian = new StarBian(keyChannel);
+  starbian.isReady = false;
+  starbian.onReady = () => {
+    starbian.publish({hotup:true});
+    starbian.isReady = true;
   };
-  notify.subscribe( (msg) => {
-    console.log('notify.subcribe:msg=<',msg,'>');
+  starbian.subscribe( (msg) => {
+    console.log('starbian.subcribe:msg=<',msg,'>');
   });
-  console.log('notify=<',notify,'>');
+  console.log('starbian=<',notify,'>');
 }
 
 
