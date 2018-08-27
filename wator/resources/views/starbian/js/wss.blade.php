@@ -20,7 +20,28 @@ class WatorNotify {
       self.onNotifyError_(evt);
     };
   }
+  publish(msg) {
+    let self = this;
+    WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
+      //console.log('publish:encrypt=<',encrypt,'>');	
+      WATOR.sign(JSON.stringify(encrypt),function(auth) {
+        let sentMsg = {
+          channel:self.channelKey_,
+          auth:auth,
+          encrypt:encrypt
+        };
+        if(self.ws_.readyState) {
+          self.ws_.send(JSON.stringify(sentMsg));
+        }
+      });
+    });
+  }
+  subscribe(cb) {
+    this.subscribe_ = cb;
+  }	
   
+  
+  // private..
   onNotifyOpen_(evt) {
     console.log('onNotifyOpen_:evt=<',evt,'>');
     let self = this;
@@ -144,26 +165,6 @@ class WatorNotify {
     });	
   }
  
-  publish(msg) {
-    msg.ts = new Date();
-    let self = this;
-    WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
-      //console.log('publish:encrypt=<',encrypt,'>');	
-      WATOR.sign(JSON.stringify(encrypt),function(auth) {
-        let sentMsg = {
-          channel:self.channelKey_,
-          auth:auth,
-          encrypt:encrypt
-        };
-        if(self.ws_.readyState) {
-          self.ws_.send(JSON.stringify(sentMsg));
-        }
-      });
-    });
-  }
-  subscribe(cb) {
-    this.subscribe_ = cb;
-  }	
   
   tryExchangeKey_(type) {
     let ecdh = {
@@ -186,28 +187,5 @@ class WatorNotify {
   }
 
 };
-
-
-
-
-
-
-
-
-
-/**
-*/
-function _sendMsgPrivate(channel,msg) {
-  let sentMsg = {
-    channel:channel,
-    msg:msg
-  };
-  if(ws.readyState) {
-    ws.send(JSON.stringify(sentMsg));
-  }
-}
-
-
-
 
 </script>
