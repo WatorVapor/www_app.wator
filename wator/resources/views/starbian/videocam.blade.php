@@ -15,7 +15,9 @@
         <pre class="card-text text-danger" id="text-this-device-key" rows="40" style="white-space: pre-wrap ;">@{{ pub_key }}</pre>
         <br/>
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <button type="button" class="btn btn-primary btn-sm  pull-left" id="btn-share-key" >Share Key</button>
+        <button type="button" class="btn btn-primary btn-sm  pull-left" id="btn-share-key" >
+          Share Key <i class="material-icons">share</i>
+        </button>
       </div>
     </div>
   </div>
