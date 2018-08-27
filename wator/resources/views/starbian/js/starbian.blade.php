@@ -196,7 +196,7 @@ class StarBian {
     } 	
     let shareKey = { 
       pubkey:WATOR.pubKeyHex,
-      ts:new Date()
+      password:this.OneTimePassword_
     };
     let self = this;
     WATOR.sign(JSON.stringify(shareKey),function(auth) {	
@@ -205,9 +205,9 @@ class StarBian {
         auth:auth,
         shareKey:shareKey	
       };	
-      console.log('sharePubKeyInside_:self.ws_.readyState=<',self.ws_.readyState,'>');	
+      //console.log('sharePubKeyInside_:self.ws_.readyState=<',self.ws_.readyState,'>');	
       if(self.ws_.readyState) {	
-        console.log('sharePubKeyInside_:sentMsg=<',sentMsg,'>');	
+        //console.log('sharePubKeyInside_:sentMsg=<',sentMsg,'>');	
         self.ws_.send(JSON.stringify(sentMsg));	
       }	
     });	
