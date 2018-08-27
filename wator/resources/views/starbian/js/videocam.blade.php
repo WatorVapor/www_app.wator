@@ -14,6 +14,10 @@ function onSharedPubKey (elem) {
     console.log('onSharedPubKey  elem=<' , elem , '>');
     let root = elem.parentElement;
     console.log('onSharedPubKey root=<' , root , '>');
+    starbian.sharePubKey( (status,password) => {
+      console.log('onSharedPubKey status=<' , status , '>');
+      console.log('onSharedPubKey password=<' , password , '>');
+    });
   } catch(e) {
     console.error(e);
   }
