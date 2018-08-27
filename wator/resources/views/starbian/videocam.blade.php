@@ -20,7 +20,7 @@
         </button>
         <h3 class="ml-lg-3 pull-left bg-success text-danger" id="text-share-key-onetime-password">8182</h3>
         <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
         </div>
       </div>
     </div>
