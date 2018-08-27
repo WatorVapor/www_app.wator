@@ -19,7 +19,7 @@
 </script>
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
 
-@include('starbian.js.wss')
+@include('starbian.js.starbian')
 @include('starbian.js.keys')
 @include('starbian.js.videocam_recv')
 @endsection
