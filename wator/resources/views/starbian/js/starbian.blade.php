@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-class WatorNotify {
+class StarBian {
   constructor(channelKey) {
     let uri = "wss://www.wator.xyz/ws/starbian";
     this.ws_ = new WebSocket(uri);
