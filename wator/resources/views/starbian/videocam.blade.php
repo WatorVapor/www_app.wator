@@ -20,6 +20,11 @@
         </button>
         <h3 class="ml-lg-5 pull-left bg-success text-danger" id="text-share-key-onetime-password">8182</h3>
         <h4 class="ml-lg-1 pull-left" id="text-share-key-count-down">100</h4>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+
       </div>
     </div>
   </div>
