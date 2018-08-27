@@ -19,7 +19,7 @@
           <i class="material-icons">dialpad</i><i class="material-icons">share</i>
         </button>
         <pre class="ml-lg-5 pull-left" id="text-share-key-count-down" style="white-space: pre-wrap ;">timeout at 100</pre>
-        <pre class="ml-lg-1 pull-left" id="text-share-key-onetime-password" style="white-space: pre-wrap ;">8182</pre>
+        <pre class="ml-lg-1 pull-left bg-success text-danger" id="text-share-key-onetime-password" style="white-space: pre-wrap ;">8182</pre>
       </div>
     </div>
   </div>
