@@ -15,7 +15,7 @@ function publishHotUpGofuro(keyChannel) {
   starbian.subscribe( (msg) => {
     console.log('starbian.subcribe:msg=<',msg,'>');
   });
-  console.log('starbian=<',notify,'>');
+  console.log('starbian=<',starbian,'>');
 }
 
 
