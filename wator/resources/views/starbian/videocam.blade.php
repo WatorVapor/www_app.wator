@@ -168,5 +168,6 @@
 
 
 @include('starbian.js.keys')
+@include('starbian.js.starbian')
 @include('starbian.js.videocam')
 @endsection
