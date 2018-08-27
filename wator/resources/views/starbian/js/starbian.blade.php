@@ -214,6 +214,10 @@ class StarBian {
 
   
   tryExchangeKey_(type) {
+    if(!this.channelKey_) {
+      console.log('tryExchangeKey: can not do it !!! this.channelKey_=<',this.channelKey_,'>');
+      return;
+    }
     let ecdh = {
       key:WATOR.ECDHKeyPubJwk,
       type:type,
