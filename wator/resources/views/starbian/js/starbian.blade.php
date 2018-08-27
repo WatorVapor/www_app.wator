@@ -205,7 +205,7 @@ class StarBian {
         auth:auth,
         shareKey:shareKey	
       };	
-      //console.log('sharePubKeyInside_:self.ws_=<',self.ws_,'>');	
+      console.log('sharePubKeyInside_:sentMsg=<',sentMsg,'>');	
       if(self.ws_.readyState) {	
         self.ws_.send(JSON.stringify(sentMsg));	
       }	
