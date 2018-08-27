@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
       </div>
       <div class="card-body">
-        <button type="button" class="btn btn-primary btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
+        <button type="button" class="btn btn-primary btn-warning btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
           <i class="material-icons">dialpad</i><i class="material-icons">share</i>
         </button>
         <h3 class="ml-lg-3 pull-left bg-success text-danger" id="text-share-key-onetime-password">8182</h3>
