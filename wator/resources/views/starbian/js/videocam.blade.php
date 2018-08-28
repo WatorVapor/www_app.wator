@@ -43,6 +43,8 @@ function onSearchPubKey (elem) {
   try {
     console.log('onSearchPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
+    let root = elem.parentElement;
+    console.log('onSearchPubKey root=<' , root , '>');
     starbian.searchPubKey(password, (pubKey) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
     });
