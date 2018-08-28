@@ -45,7 +45,12 @@ function onSearchPubKey (elem) {
     elem.setAttribute('disabled','true');
     let root = elem.parentElement;
     console.log('onSearchPubKey root=<' , root , '>');
-    starbian.searchPubKey(password, (pubKey) => {
+    let textPassword = root.getElementsByTagName('textarea')[0].value;
+    console.log('onSearchPubKey textPassword=<' , textPassword , '>');
+    if(!textPassword) {
+      return;
+    }
+    starbian.searchPubKey(textPassword.trim(), (pubKey) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
     });
   } catch(e) {
