@@ -70,8 +70,8 @@ function onAnswerGot(answer) {
 }
 
 function sendAnswer(answer) {
-  if(notify.isReady) {
-    notify.publish({answer:answer});
+  if(starbian.isReady) {
+    starbian.publish({answer:answer});
   } else {
     console.log('sendAnswer wrong times!!!!:answer=<',answer,'>');
   }
@@ -79,8 +79,8 @@ function sendAnswer(answer) {
 
 
 function sendICE(ice) {
-  if(notify.isReady) {
-    notify.publish({ice:ice});
+  if(starbian.isReady) {
+    starbian.publish({ice:ice});
   } else {
     console.log('sendICE wrong times!!!!:ice=<',ice,'>');
   }
