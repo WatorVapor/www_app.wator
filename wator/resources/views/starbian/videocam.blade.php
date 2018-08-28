@@ -20,9 +20,11 @@
         <button type="button" class="btn btn-primary btn-warning btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
           <i class="material-icons">dialpad</i><i class="material-icons">share</i>
         </button>
-        <h3 class="ml-lg-3 pull-left bg-success text-danger" id="text-share-key-onetime-password">8182</h3>
+        <h3 class="ml-lg-3 pull-left bg-success text-danger d-none" id="text-share-key-onetime-password">8182</h3>
         <div class="progress mr-lg-3">
-          <div class="progress-bar progress-bar-striped progress-bar-animated w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+          <div id="text-share-key-onetime-progress" class="d-none progress-bar progress-bar-striped progress-bar-animated w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            100
+          </div>
         </div>
       </div>
     </div>
