@@ -343,8 +343,8 @@ WATOR.verify = function(content,key,msg,sign,cb) {
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
   .then(function(buf){
     let hashCal = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    console.log('WATOR.verify hashCal=<' , hashCal , '>');
-    console.log('WATOR.verify msg=<' , msg , '>');
+    //console.log('WATOR.verify hashCal=<' , hashCal , '>');
+    //console.log('WATOR.verify msg=<' , msg , '>');
     if(hashCal !== msg) {
       cb(false);
     } else {
