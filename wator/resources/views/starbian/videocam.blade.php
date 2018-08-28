@@ -44,7 +44,7 @@
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="password show on remote device" aria-label="one time password" aria-describedby="button-addon2">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" onclick="onSearchPubKey(this)" id="button-addon2"><i class="material-icons">search</i></button>
+            <button class="btn btn-danger" type="button" onclick="onSearchPubKey(this)" id="button-addon2"><i class="material-icons">search</i></button>
           </div>
         </div>
       </div>
