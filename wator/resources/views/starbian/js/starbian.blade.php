@@ -57,7 +57,7 @@ class StarBian {
     this.sharePubKeyInside_();
     this.OneTimeCB_(this.counter);
     this.counter--;
-    if(this.counter > 0) {
+    if(this.counter >= 0) {
       let self = this;
       setTimeout(function() {
         self.sharePubKeyTimeOut_(cb);
