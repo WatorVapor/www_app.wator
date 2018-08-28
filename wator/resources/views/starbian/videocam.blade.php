@@ -42,10 +42,10 @@
       </div>
       <div class="card-body">
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><i class="material-icons">search</i></span>
+          <input type="text" class="form-control" placeholder="one time password" aria-label="one time password" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" onclick="onSearchPubKey(this)" id="button-addon2"><i class="material-icons">search</i></button>
           </div>
-          <input type="text" class="form-control" placeholder="one time password" aria-label="Username" aria-describedby="basic-addon1">
         </div>
       </div>
     </div>
