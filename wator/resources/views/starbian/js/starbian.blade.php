@@ -247,9 +247,9 @@ class StarBian {
   }
 
   onShareKey_(shareKey) {
-    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
-    console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
+    //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
+    //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
     if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
       if(typeof this.targetPubKeyCallback_ === 'function') {
         this.targetPubKeyCallback_(shareKey.pubkey);
