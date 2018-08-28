@@ -43,7 +43,7 @@
       <div class="card-body">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">one time password</span>
+            <span class="input-group-text" id="basic-addon1"><i class="material-icons">dialpad</i></span>
           </div>
           <input type="text" class="form-control" placeholder="one time password" aria-label="Username" aria-describedby="basic-addon1">
         </div>
