@@ -51,6 +51,7 @@ function onSearchPubKey (elem) {
     }
     starbian.searchPubKey(textPassword.trim(), (pubKey) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
+      $("#text-remote-device-key").text(pubKey);
     });
   } catch(e) {
     console.error(e);
