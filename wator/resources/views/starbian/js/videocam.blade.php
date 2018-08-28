@@ -14,6 +14,9 @@ function onSharedPubKey (elem) {
     console.log('onSharedPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
     starbian.sharePubKey( (status,password) => {
+      if(status < 1) {
+        elem.setAttribute('disabled','false');
+      }
       console.log('onSharedPubKey status=<' , status , '>');
       console.log('onSharedPubKey password=<' , password , '>');
     });
