@@ -43,9 +43,9 @@ function onSearchPubKey (elem) {
   try {
     console.log('onSearchPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
-    let root = elem.parentElement;
+    let root = elem.parentElement.parentElement;
     console.log('onSearchPubKey root=<' , root , '>');
-    let textPassword = root.getElementsByTagName('textarea')[0].value;
+    let textPassword = root.getElementsByTagName('input')[0].value;
     console.log('onSearchPubKey textPassword=<' , textPassword , '>');
     if(!textPassword) {
       return;
