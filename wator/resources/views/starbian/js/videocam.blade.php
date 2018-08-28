@@ -29,6 +29,8 @@ function onSharedPubKey (elem) {
       
       
       $("#text-share-key-onetime-progress").text(status *10);
+      $("#text-share-key-onetime-progress").attr('style','width: ' + status *10 + '%');
+      $("#text-share-key-onetime-progress").attr('aria-valuenow',status *10);
       $("#top-share-key-onetime-progress").removeClass("d-none");
       console.log('onSharedPubKey password=<' , password , '>');
     });
