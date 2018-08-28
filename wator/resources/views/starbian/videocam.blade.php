@@ -33,7 +33,7 @@
   <div class="col-5">
     <div class="card card-default text-center bg-info">
       <div class="card-header">
-        Camera Public key
+        Remote Device Public key
       </div>
       <div class="card-body">
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="3" ></textarea>
@@ -42,7 +42,7 @@
       </div>
       <div class="card-body">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="one time password" aria-label="one time password" aria-describedby="button-addon2">
+          <input type="text" class="form-control" placeholder="password show on remote device" aria-label="one time password" aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" onclick="onSearchPubKey(this)" id="button-addon2"><i class="material-icons">search</i></button>
           </div>
