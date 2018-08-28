@@ -82,7 +82,7 @@ class StarBian {
     let jsonMsg = JSON.parse(evt.data);
     //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg) {
-      this.onWssMessage_(jsonMsg.msg);
+      this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
     } else {
       console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     }
@@ -94,12 +94,12 @@ class StarBian {
     console.log('onNotifyError_:evt=<',evt,'>');
   }  
 
-  onWssMessage_(msg) {
+  onWssMessage_(msg,channel) {
     //console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
       let self = this;
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
-      this.verifyAuth_(msg.auth,content,function(good){
+      this.verifyAuth_(msg.auth,content,channel,function(good){
         //console.log('onWssMessage_:good=<',good,'>');
         if(good) {
           if(msg.msg) {
@@ -117,14 +117,14 @@ class StarBian {
       });
     }
   }
-  verifyAuth_(auth,content,cb) {
+  verifyAuth_(auth,content,channel,cb) {
     //console.log('verifyAuth_:auth=<',auth,'>');
     //console.log('verifyAuth_:content=<',content,'>');
     let keys= WATOR.getRemoteKeys();
     //console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
     let index = keys.indexOf(auth.pubKeyHex);
     //console.log('verifyAuth_:index=<',index,'>');
-    if(index !== -1) {
+    if(index !== -1 || channel === 'broadcast') {
       //console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
       WATOR.verify(content,auth.pubKey,auth.hash,auth.sign,cb);
     } else {
