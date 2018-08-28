@@ -100,16 +100,16 @@ function onOfferGot(offer) {
 }
 
 function sendOffer(offer) {
-  if(notify.isReady) {
-    notify.publish({offer:offer});
+  if(starbian.isReady) {
+    starbian.publish({offer:offer});
   } else {
     localOfferCache = offer;
   }
 }
 
 function sendICE(ice) {
-  if(notify.isReady) {
-    notify.publish({ice:ice});
+  if(starbian.isReady) {
+    starbian.publish({ice:ice});
   } else {
     localICECache.push(ice);
   }
