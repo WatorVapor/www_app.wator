@@ -41,7 +41,7 @@ class StarBian {
   }	
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
-    this.OneTimePassword_ = Math.floor(Math.random()*(999999-111111)+111111);
+    this.OneTimePassword_ = Math.floor(Math.random()*(9999-1111)+1111);
     this.OneTimeCB_ = cb;
     let self = this;
     setTimeout(function() {
