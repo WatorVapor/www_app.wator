@@ -40,12 +40,12 @@ class StarBian {
     this.subscribe_ = cb;
   }	
   sharePubKey(cb) {
-    this.counter = 10;
+    this.sharePubKeyCounter = 10;
     this.OneTimePassword_ = Math.floor(Math.random()*(999999-111111)+111111);
     this.OneTimeCB_ = cb;
     let self = this;
     setTimeout(function() {
-      self.OneTimeCB_(self.counter,self.OneTimePassword_);
+      self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
       self.sharePubKeyTimeOut_();
     },0);
   }
@@ -59,9 +59,9 @@ class StarBian {
   // private..
   sharePubKeyTimeOut_(cb) {
     this.sharePubKeyInside_();
-    this.OneTimeCB_(this.counter);
-    this.counter--;
-    if(this.counter >= 0) {
+    this.OneTimeCB_(this.sharePubKeyCounter);
+    this.sharePubKeyCounter--;
+    if(this.sharePubKeyCounter >= 0) {
       let self = this;
       setTimeout(function() {
         self.sharePubKeyTimeOut_(cb);
@@ -251,6 +251,7 @@ class StarBian {
     if(this.targetPubKeyPassword_ === shareKey.password) {
       if(typeof this.targetPubKeyCallback_ == 'function') {
         this.targetPubKeyCallback_(shareKey.pubkey);
+        this.sharePubKeyCounter = 0;
       }
     }
   }
