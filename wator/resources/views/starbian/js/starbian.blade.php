@@ -108,6 +108,8 @@ class StarBian {
             self.onEncrypt_(msg.encrypt);
           } else if(msg.ecdh) {
             self.onGoodECDH_(msg.ecdh);
+          } else if(msg.shareKey) {
+            self.onShareKey_(msg.shareKey);
           } else {
             console.log('onWssMessage_ not supported  :msg=<',msg,'>');
           }
@@ -238,6 +240,10 @@ class StarBian {
         self.ws_.send(JSON.stringify(sentMsg));
       }
     });
+  }
+
+  onShareKey_(shareKey) {
+    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
   }
 
 };
