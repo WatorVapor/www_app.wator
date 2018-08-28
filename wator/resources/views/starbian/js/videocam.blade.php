@@ -25,6 +25,9 @@ function onSharedPubKey (elem) {
         $("#text-share-key-onetime-password").text(password);
       }
       $("#text-share-key-onetime-password").removeClass("d-none");
+      $("#text-share-key-onetime-password").toggleClass('bg-success');
+      
+      
       $("#top-share-key-onetime-progress").removeClass("d-none");
       console.log('onSharedPubKey password=<' , password , '>');
     });
