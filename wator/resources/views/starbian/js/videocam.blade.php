@@ -39,12 +39,12 @@ function onSharedPubKey (elem) {
   }
 }
 
-function onCatchPubKey (elem) {
+function onSearchPubKey (elem) {
   try {
-    console.log('onCatchPubKey  elem=<' , elem , '>');
+    console.log('onSearchPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
-    starbian.catchPubKey(password, (pubKey) => {
-      console.log('onCatchPubKey pubKey=<' , pubKey , '>');
+    starbian.searchPubKey(password, (pubKey) => {
+      console.log('onSearchPubKey pubKey=<' , pubKey , '>');
     });
   } catch(e) {
     console.error(e);
