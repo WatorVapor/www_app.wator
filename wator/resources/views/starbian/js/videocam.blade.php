@@ -38,4 +38,17 @@ function onSharedPubKey (elem) {
     console.error(e);
   }
 }
+
+function onCatchPubKey (elem) {
+  try {
+    console.log('onCatchPubKey  elem=<' , elem , '>');
+    elem.setAttribute('disabled','true');
+    starbian.catchPubKey(password, (pubKey) => {
+      console.log('onCatchPubKey pubKey=<' , pubKey , '>');
+    });
+  } catch(e) {
+    console.error(e);
+  }
+}
+
 </script>
