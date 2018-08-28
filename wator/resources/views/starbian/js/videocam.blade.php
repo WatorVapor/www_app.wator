@@ -12,8 +12,7 @@ starbian.subscribe( (msg) => {
 function onSharedPubKey (elem) {
   try {
     console.log('onSharedPubKey  elem=<' , elem , '>');
-    let root = elem.parentElement;
-    console.log('onSharedPubKey root=<' , root , '>');
+    elem.setAttribute('disabled');
     starbian.sharePubKey( (status,password) => {
       console.log('onSharedPubKey status=<' , status , '>');
       console.log('onSharedPubKey password=<' , password , '>');
