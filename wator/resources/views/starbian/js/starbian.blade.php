@@ -49,6 +49,10 @@ class StarBian {
       self.sharePubKeyTimeOut_();
     },0);
   }
+  searchPubKey(password,cb) {
+    this.targetPubKeyPassword_ = password;
+    this.targetPubKeyCallback_ = cb;
+  }
   
   
   
@@ -244,6 +248,11 @@ class StarBian {
 
   onShareKey_(shareKey) {
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    if(this.targetPubKeyPassword_ === shareKey.password) {
+      if(typeof this.targetPubKeyCallback_ == 'function') {
+        this.targetPubKeyCallback_(shareKey.pubkey);
+      }
+    }
   }
 
 };
