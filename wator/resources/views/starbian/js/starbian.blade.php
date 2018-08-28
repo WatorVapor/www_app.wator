@@ -98,7 +98,8 @@ class StarBian {
     //console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
       let self = this;
-      this.verifyAuth_(msg.auth,function(good){
+      let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
+      this.verifyAuth_(msg.auth,content,function(good){
         //console.log('onWssMessage_:good=<',good,'>');
         if(good) {
           if(msg.msg) {
@@ -116,15 +117,16 @@ class StarBian {
       });
     }
   }
-  verifyAuth_(auth,cb) {
+  verifyAuth_(auth,content,cb) {
     //console.log('verifyAuth_:auth=<',auth,'>');
+    //console.log('verifyAuth_:content=<',content,'>');
     let keys= WATOR.getRemoteKeys();
     //console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
     let index = keys.indexOf(auth.pubKeyHex);
     //console.log('verifyAuth_:index=<',index,'>');
     if(index !== -1) {
       //console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
-      WATOR.verify(auth.pubKey,auth.hash,auth.sign,cb);
+      WATOR.verify(content,auth.pubKey,auth.hash,auth.sign,cb);
     } else {
       cb(false);
     }
