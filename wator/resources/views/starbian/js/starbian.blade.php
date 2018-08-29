@@ -124,14 +124,14 @@ class StarBian {
     }
   }
   verifyAuth_(auth,content,channel,cb) {
-    //console.log('verifyAuth_:auth=<',auth,'>');
-    //console.log('verifyAuth_:content=<',content,'>');
+    console.log('verifyAuth_:auth=<',auth,'>');
+    console.log('verifyAuth_:content=<',content,'>');
     let keys= WATOR.getRemoteKeys();
-    //console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
+    console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
     let index = keys.indexOf(auth.pubKeyHex);
-    //console.log('verifyAuth_:index=<',index,'>');
+    console.log('verifyAuth_:index=<',index,'>');
     if(index !== -1 || channel === 'broadcast') {
-      //console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
+      console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
       WATOR.verify(content,auth.pubKey,auth.hash,auth.sign,cb);
     } else {
       cb(false);
