@@ -340,24 +340,24 @@ WATOR.verify = function(content,key,msg,sign,cb) {
 
 
 WATOR.verify = function(content,key,msg,sign,cb) {
-  console.log('WATOR.verify JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
+  //console.log('WATOR.verify JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
   .then(function(buf){
     let hashCal = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    console.log('WATOR.verify hashCal=<' , hashCal , '>');
-    console.log('WATOR.verify msg=<' , msg , '>');
+    //console.log('WATOR.verify hashCal=<' , hashCal , '>');
+    //console.log('WATOR.verify msg=<' , msg , '>');
     if(hashCal !== msg) {
       cb(false);
     } else {
       let keyBuff = hex2buf(key);
-      console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
+      //console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
       let msgBuff = new TextEncoder("utf-8").encode(msg)
-      console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
+      //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
       let signBuff = hex2buf(sign);
-      console.log('WATOR.verify signBuff=<' , signBuff , '>');
+      //console.log('WATOR.verify signBuff=<' , signBuff , '>');
 
       let pubKey = KEYUTIL.getKey(key);
-      console.log('WATOR.verify pubKey=<' , pubKey , '>');
+      //console.log('WATOR.verify pubKey=<' , pubKey , '>');
 
       let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
       signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
