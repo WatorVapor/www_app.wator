@@ -126,6 +126,7 @@ class StarBian {
   verifyAuth_(auth,content,channel,cb) {
     console.log('verifyAuth_:auth=<',auth,'>');
     console.log('verifyAuth_:content=<',content,'>');
+    console.log('verifyAuth_:channel=<',channel,'>');
     let keys= WATOR.getRemoteKeys();
     console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
     let index = keys.indexOf(auth.pubKeyHex);
