@@ -82,7 +82,7 @@
 
 
 <script type="text/javascript">
-  new Clipboard('.btn-clipboard');
+  new ClipboardJS('.btn-clipboard');
 </script>
 
 <script type="text/javascript">
