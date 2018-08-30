@@ -179,8 +179,8 @@ class StarBian {
   }
 
   subscribeChannel_() {	
-    console.log('subscribeChannel_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
-    if(!WATOR.pubKeyHex) {	
+    console.log('subscribeChannel_:WATOR.pubKeyB64=<',WATOR.pubKeyB64,'>');	
+    if(!WATOR.pubKeyB64) {	
       return;	
     } 	
     let subs = { ts:new Date()};
@@ -199,7 +199,7 @@ class StarBian {
   }
 
   sharePubKeyInside_() {	
-    console.log('sharePubKeyInside_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
+    console.log('sharePubKeyInside_:WATOR.pubKeyB64=<',WATOR.pubKeyB64,'>');	
     if(!WATOR.pubKeyB64) {	
       return;	
     } 	
