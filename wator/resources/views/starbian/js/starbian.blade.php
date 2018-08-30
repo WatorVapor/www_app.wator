@@ -128,8 +128,8 @@ class StarBian {
     //console.log('verifyAuth_:content=<',content,'>');
     //console.log('verifyAuth_:channel=<',channel,'>');
     let keys= WATOR.getRemoteKeys();
-    //console.log('verifyAuth_:auth.pubKeyHex=<',auth.pubKeyHex,'>');
-    let index = keys.indexOf(auth.pubKeyHex);
+    //console.log('verifyAuth_:auth.pubKeyB58=<',auth.pubKeyB58,'>');
+    let index = keys.indexOf(auth.pubKeyB58);
     //console.log('verifyAuth_:index=<',index,'>');
     if(index !== -1 || channel === 'broadcast') {
       //console.log('verifyAuth_:auth.pubKey=<',auth.pubKey,'>');
