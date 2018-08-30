@@ -187,7 +187,7 @@ class StarBian {
     let self = this;
     WATOR.sign(JSON.stringify(subs),function(auth) {	
       let sentMsg = {	
-        channel:WATOR.pubKeyHex,	
+        channel:WATOR.pubKeyB64,	
         auth:auth,	
         subscribe:subs	
       };	
@@ -200,11 +200,11 @@ class StarBian {
 
   sharePubKeyInside_() {	
     console.log('sharePubKeyInside_:WATOR.pubKeyHex=<',WATOR.pubKeyHex,'>');	
-    if(!WATOR.pubKeyHex) {	
+    if(!WATOR.pubKeyB64) {	
       return;	
     } 	
     let shareKey = { 
-      pubkey:WATOR.pubKeyHex,
+      pubkey:WATOR.pubKeyB64,
       password:this.OneTimePassword_
     };
     let self = this;
