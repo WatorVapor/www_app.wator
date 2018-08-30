@@ -10,8 +10,8 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.1/base64.min.js" 
-  integrity="sha256-TIM6MO3yNF4Lvw+A1XLEyy/qiHW4MAjQCjJIqIhHKyY=" 
+<script src="https://cdn.jsdelivr.net/npm/base64-js@1.3.0/base64js.min.js" 
+  integrity="sha256-6Nq3ERANZFF5/7q3A7vSDHKttstfHieUf5+eFo9W4I0="
   crossorigin="anonymous">
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js" 
