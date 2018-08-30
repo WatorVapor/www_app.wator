@@ -10,10 +10,6 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/base64-js@1.3.0/base64js.min.js" 
-  integrity="sha256-6Nq3ERANZFF5/7q3A7vSDHKttstfHieUf5+eFo9W4I0="
-  crossorigin="anonymous">
-</script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js" 
   integrity="sha256-EI1piDYqyKFAy+ykWQZRjH5kkw9eIYE/IahQWg1rXt0=" 
   crossorigin="anonymous">
@@ -27,6 +23,12 @@
   crossorigin="anonymous">
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/base64-js@1.3.0/base64js.min.js" 
+  integrity="sha256-6Nq3ERANZFF5/7q3A7vSDHKttstfHieUf5+eFo9W4I0="
+  crossorigin="anonymous">
+</script>
+
+<script src="/wator/js/base58.js" type="text/javascript"></script>
 <script src="/wator/js/ga.js" type="text/javascript"></script>
 <script src="/wator/js/login.js" type="text/javascript"></script>
 <script src="/wator/js/lang.js" type="text/javascript"></script>
