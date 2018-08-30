@@ -399,9 +399,9 @@ WATOR.decrypt = function(msg,cb) {
 
 
 WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
-  //console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
+  console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
   const pubKeyBuff = from_b58(bs58Key);
-  //console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
+  console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
   crypto.subtle.importKey(
     'raw',
     pubKeyBuff,
@@ -413,12 +413,12 @@ WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
     ['sign']
   )
   .then(function(pubKey){
-    //console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
+    console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
     crypto.subtle.exportKey('jwk', pubKey)
     .then(function(keydata){
-      //console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
+      console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
       let rsKey = KEYUTIL.getKey(keydata);	
-      //console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
+      console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
       cb(rsKey);
     })
     .catch(function(err){
