@@ -411,7 +411,7 @@ WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
       namedCurve: 'P-256', 
     },
     true, 
-    ['sign']
+    ['verify']
   )
   .then(function(pubKey){
     console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
