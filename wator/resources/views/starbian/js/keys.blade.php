@@ -296,7 +296,7 @@ WATOR.verify = function(content,auth,channel,cb) {
       let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
       signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
       signEngine.updateString(auth.hash);
-      let result = signEngine.verify(sign);
+      let result = signEngine.verify(auth.sign);
       cb(result);
     }
   })
