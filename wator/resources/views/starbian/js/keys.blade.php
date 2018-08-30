@@ -217,39 +217,6 @@ async function sha256(str) {
 }
 
 
-/*
-WATOR.sign = function(msg,cb) {
-  console.log('WATOR.sign msg=<' , msg , '>');
-  crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
-  .then(function(buf) {
-    let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    console.log('WATOR.sign hash=<' , hash , '>');
-    let alg = {
-      name: "ECDSA",
-      hash: {name: "SHA-256"}
-    };
-    crypto.subtle.sign(alg, WATOR.prvKey, new TextEncoder("utf-8").encode(hash))
-    .then(function(signatureBuf) {
-      console.log('WATOR.sign signatureBuf=<' , signatureBuf , '>');
-      let signatureHex = Array.prototype.map.call(new Uint8Array(signatureBuf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-      let signature = {
-        pubKey:WATOR.pubKeyJWK,
-        pubKeyB58:WATOR.pubKeyB58,
-        hash:hash,
-        enc:'hex',
-        sign:signatureHex
-      };
-      cb(signature);
-    })
-    .catch(function(err){
-      console.error(err);
-    });
-  })
-  .catch(function(err){
-    console.error(err);
-  });
-};
-*/
 
 WATOR.sign = function(msg,cb) {
   //console.log('WATOR.sign msg=<' , msg , '>');
@@ -299,71 +266,36 @@ function buf2hex(buf) {
 }
 
 
-/*
-WATOR.verify = function(content,key,msg,sign,cb) {
-  let keyBuff = hex2buf(key);
-  console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
-  let msgBuff = new TextEncoder("utf-8").encode(msg)
-  console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
-  let signBuff = hex2buf(sign);
-  console.log('WATOR.verify signBuff=<' , signBuff , '>');
-  window.crypto.subtle.importKey(
-    'jwk',
-    keyBuff,
-    {
-      name: 'ECDSA',
-      namedCurve: 'P-256', 
-    },
-    true, 
-    ['verify']
-  )
-  .then(function(publicKey){
-    console.log('WATOR.verify publicKey=<' , publicKey , '>');
-    let alg = {
-      name: "ECDSA",
-      hash: {name: "SHA-256"}
-    };
-    window.crypto.subtle.verify(alg,publicKey,signBuff,msgBuff)
-    .then(function(result){
-      console.log('WATOR.verify result=<' , result , '>');
-      
-      cb(result);
-    })
-    .catch(function(err){
-      console.error(err);
-    });
-  })
-  .catch(function(err){
-    console.error(err);
-  });
-
-};
-*/
 
 
-WATOR.verify = function(content,key,msg,sign,cb) {
+WATOR.verify = function(content,auth,channel,cb) {
+  let keys= WATOR.getRemoteKeys();
+  //console.log('WATOR.verify:auth.pubKeyB58=<',auth.pubKeyB58,'>');
+  let index = keys.indexOf(auth.pubKeyB58);
+  //console.log('WATOR.verify:index=<',index,'>');
+  if(index === -1 && channel !== 'broadcast') {
+    cb(false);
+    return;
+  }
+
   //console.log('WATOR.verify JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
   .then(function(buf){
     let hashCal = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
     //console.log('WATOR.verify hashCal=<' , hashCal , '>');
-    //console.log('WATOR.verify msg=<' , msg , '>');
-    if(hashCal !== msg) {
+    //console.log('WATOR.verify auth.hash=<' , auth.hash , '>');
+    if(hashCal !== auth.hash) {
       cb(false);
     } else {
-      let keyBuff = hex2buf(key);
-      //console.log('WATOR.verify keyBuff=<' , keyBuff , '>');
-      let msgBuff = new TextEncoder("utf-8").encode(msg)
+      let msgBuff = new TextEncoder("utf-8").encode(auth.hash)
       //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
-      let signBuff = hex2buf(sign);
+      let signBuff = hex2buf(auth.sign);
       //console.log('WATOR.verify signBuff=<' , signBuff , '>');
-
-      let pubKey = KEYUTIL.getKey(key);
+      let pubKey = KEYUTIL.getKey(auth.pubKey);
       //console.log('WATOR.verify pubKey=<' , pubKey , '>');
-
       let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
       signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
-      signEngine.updateString(msg);
+      signEngine.updateString(auth.hash);
       let result = signEngine.verify(sign);
       cb(result);
     }
