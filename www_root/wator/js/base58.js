@@ -1,45 +1,5 @@
-/*
- * base58.js
- *  - encodes integers to and decodes from a base58 (or your own) base58 alphabet
- *  - based on Flickr's url shortening
- * 
- * usage:
- *   base58.encode(integer);
- *   base58.decode(string);
- * 
- * (c) 2012 inflammable/raromachine
- * Licensed under the MIT License.
- * 
- */
-
-var base58 = (function(alpha) {
-    var alphabet = alpha || '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ',
-        base = alphabet.length;
-    return {
-        encode: function(enc) {
-            if(typeof enc!=='number' || enc !== parseInt(enc))
-                throw '"encode" only accepts integers.';
-            var encoded = '';
-            while(enc) {
-                var remainder = enc % base;
-                enc = Math.floor(enc / base);
-                encoded = alphabet[remainder].toString() + encoded;        
-            }
-            return encoded;
-        },
-        decode: function(dec) {
-            if(typeof dec!=='string')
-                throw '"decode" only accepts strings.';            
-            var decoded = 0;
-            while(dec) {
-                var alphabetPosition = alphabet.indexOf(dec[0]);
-                if (alphabetPosition < 0)
-                    throw '"decode" can\'t find "' + dec[0] + '" in the alphabet: "' + alphabet + '"';
-                var powerOf = dec.length - 1;
-                decoded += alphabetPosition * (Math.pow(base, powerOf));
-                dec = dec.substring(1);
-            }
-            return decoded;
-        }
-    };
-})();
+const b58_map = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+var to_b58_inside = function(B,A){var d=[],s="",i,j,c,n;for(i in B){j=0,c=B[i];s+=c||s.length^i?"":1;while(j in d||c){n=d[j];n=n?n*256+c:c;c=n/58|0;d[j]=n%58;j++}}while(j--)s+=A[d[j]];return s};
+var from_b58_inside = function(S,A){var d=[],b=[],i,j,c,n;for(i in S){j=0,c=A.indexOf(S[i]);if(c<0)return undefined;c||b.length^i?i:b.push(0);while(j in d||c){n=d[j];n=n?n*58+c:c;c=n>>8;d[j]=n%256;j++}}while(j--)b.push(d[j]);return new Uint8Array(b)};
+var to_b58 = function(B) { return to_b58_inside(B,b58_map);}
+var from_b58 = function(S){return to_b58_inside(S,b58_map);}
