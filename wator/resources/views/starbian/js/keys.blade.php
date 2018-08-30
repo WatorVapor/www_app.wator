@@ -116,7 +116,7 @@ function getPubKey(key) {
     console.log('getPubKey keydata=<' , keydata , '>');
     WATOR.pubKeyHex = buf2hex(keydata);
     //console.log('getPubKey WATOR.pubKeyHex=<' , WATOR.pubKeyHex , '>');
-    WATOR.pubKeyB64 = base64js.fromByteArray(keydata);
+    WATOR.pubKeyB64 = base64js.fromByteArray(new Uint8Array(keydata));
     console.log('getPubKey WATOR.pubKeyB64=<' , WATOR.pubKeyB64 , '>');
     if(typeof onUpdatePublicKey === 'function') {
       onUpdatePublicKey(WATOR.pubKeyHex);
