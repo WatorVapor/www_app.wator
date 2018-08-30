@@ -285,20 +285,22 @@ WATOR.verify = function(content,auth,channel,cb) {
     if(hashCal !== auth.hash) {
       cb(false);
     } else {
-      let pubKeyBuff = from_b58(auth.pubKeyB58);
-      //console.log('WATOR.verify pubKeyBuff=<' , pubKeyBuff , '>');
-
-      let msgBuff = new TextEncoder("utf-8").encode(auth.hash)
-      //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
-      let signBuff = hex2buf(auth.sign);
-      //console.log('WATOR.verify signBuff=<' , signBuff , '>');
-      let pubKey = KEYUTIL.getKey(auth.pubKey);
-      //console.log('WATOR.verify pubKey=<' , pubKey , '>');
-      let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
-      signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
-      signEngine.updateString(auth.hash);
-      let result = signEngine.verify(auth.sign);
-      cb(result);
+      WATOR.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
+        if(!pubKey) {
+          cb(false);
+          return;
+        }
+        let msgBuff = new TextEncoder("utf-8").encode(auth.hash)
+        //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
+        let signBuff = hex2buf(auth.sign);
+        //console.log('WATOR.verify signBuff=<' , signBuff , '>');
+        //console.log('WATOR.verify pubKey=<' , pubKey , '>');
+        let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+        signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
+        signEngine.updateString(auth.hash);
+        let result = signEngine.verify(auth.sign);
+        cb(result);
+      });
     }
   })
   .catch(function(err){
@@ -392,6 +394,41 @@ WATOR.decrypt = function(msg,cb) {
   })
   .catch(function(err){
     console.error(err);
+  });
+}
+
+
+WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
+  //console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
+  const pubKeyBuff = bs58.decode(bs58Key);
+  //console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
+  crypto.subtle.importKey(
+    'raw',
+    pubKeyBuff,
+    {
+      name: 'ECDSA',
+      namedCurve: 'P-256', 
+    },
+    true, 
+    ['sign']
+  )
+  .then(function(pubKey){
+    //console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
+    crypto.subtle.exportKey('jwk', pubKey)
+    .then(function(keydata){
+      //console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
+      let rsKey = KEYUTIL.getKey(keydata);	
+      //console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
+      cb(rsKey);
+    })
+    .catch(function(err){
+      console.error(err);
+      cb();
+    });
+  })
+  .catch(function(err){
+    console.error(err);
+    cb();
   });
 }
 
