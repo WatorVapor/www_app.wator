@@ -8,7 +8,7 @@ $(document).ready(function(){
 var WATOR = {};
 const KEY_NAME = 'starbian-ecdsa-key';
 const KEY_REMOTE_NAME = 'starbian-ecdsa-remote-keys';
-const b58 = new base58();
+//const b58 = new base58();
 function onInitCrypto() {
   let key = localStorage.getItem(KEY_NAME);
   //console.log('onInitCrypto:key=<',key,'>');
@@ -117,7 +117,7 @@ function getPubKey(key) {
     console.log('getPubKey keydata=<' , keydata , '>');
     WATOR.pubKeyHex = buf2hex(keydata);
     //console.log('getPubKey WATOR.pubKeyHex=<' , WATOR.pubKeyHex , '>');
-    WATOR.pubKeyB58 = b58.encode(new Uint8Array(keydata));
+    WATOR.pubKeyB58 = base58.encode(new Uint8Array(keydata));
     console.log('getPubKey WATOR.pubKeyB58=<' , WATOR.pubKeyB58 , '>');
     if(typeof onUpdatePublicKey === 'function') {
       onUpdatePublicKey(WATOR.pubKeyB58);
