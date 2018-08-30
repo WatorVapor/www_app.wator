@@ -119,7 +119,7 @@ function getPubKey(key) {
     WATOR.pubKeyB64 = base64js.fromByteArray(new Uint8Array(keydata));
     console.log('getPubKey WATOR.pubKeyB64=<' , WATOR.pubKeyB64 , '>');
     if(typeof onUpdatePublicKey === 'function') {
-      onUpdatePublicKey(WATOR.pubKeyHex);
+      onUpdatePublicKey(WATOR.pubKeyB64);
     }
   })
   .catch(function(err){
