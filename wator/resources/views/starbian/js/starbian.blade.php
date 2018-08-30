@@ -179,15 +179,15 @@ class StarBian {
   }
 
   subscribeChannel_() {	
-    console.log('subscribeChannel_:WATOR.pubKeyB64=<',WATOR.pubKeyB64,'>');	
-    if(!WATOR.pubKeyB64) {	
+    console.log('subscribeChannel_:WATOR.pubKeyB58=<',WATOR.pubKeyB58,'>');	
+    if(!WATOR.pubKeyB58) {	
       return;	
     } 	
     let subs = { ts:new Date()};
     let self = this;
     WATOR.sign(JSON.stringify(subs),function(auth) {	
       let sentMsg = {	
-        channel:WATOR.pubKeyB64,	
+        channel:WATOR.pubKeyB58,	
         auth:auth,	
         subscribe:subs	
       };	
@@ -199,12 +199,12 @@ class StarBian {
   }
 
   sharePubKeyInside_() {	
-    console.log('sharePubKeyInside_:WATOR.pubKeyB64=<',WATOR.pubKeyB64,'>');	
-    if(!WATOR.pubKeyB64) {	
+    console.log('sharePubKeyInside_:WATOR.pubKeyB58=<',WATOR.pubKeyB58,'>');	
+    if(!WATOR.pubKeyB58) {	
       return;	
     } 	
     let shareKey = { 
-      pubkey:WATOR.pubKeyB64,
+      pubkey:WATOR.pubKeyB58,
       password:this.OneTimePassword_
     };
     let self = this;
