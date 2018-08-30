@@ -28,6 +28,9 @@
   crossorigin="anonymous">
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
+
+
 <script src="/wator/js/base58.js" type="text/javascript"></script>
 <script src="/wator/js/ga.js" type="text/javascript"></script>
 <script src="/wator/js/login.js" type="text/javascript"></script>
