@@ -237,7 +237,6 @@ WATOR.sign = function(msg,cb) {
     //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
     //console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
-      pubKey:WATOR.pubKeyJWK,
       pubKeyB58:WATOR.pubKeyB58,
       hash:hash,
       enc:'hex',
@@ -287,6 +286,9 @@ WATOR.verify = function(content,auth,channel,cb) {
     if(hashCal !== auth.hash) {
       cb(false);
     } else {
+      let pubKeyBuff = from_b58(auth.pubKeyB58);
+      //console.log('WATOR.verify pubKeyBuff=<' , pubKeyBuff , '>');
+
       let msgBuff = new TextEncoder("utf-8").encode(auth.hash)
       //console.log('WATOR.verify msgBuff=<' , msgBuff , '>');
       let signBuff = hex2buf(auth.sign);
