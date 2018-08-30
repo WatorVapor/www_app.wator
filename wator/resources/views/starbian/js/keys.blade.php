@@ -400,7 +400,7 @@ WATOR.decrypt = function(msg,cb) {
 
 WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
   //console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
-  const pubKeyBuff = bs58.decode(bs58Key);
+  const pubKeyBuff = from_b58(bs58Key);
   //console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
   crypto.subtle.importKey(
     'raw',
