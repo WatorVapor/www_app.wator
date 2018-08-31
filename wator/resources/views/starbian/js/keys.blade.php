@@ -247,11 +247,8 @@ WATOR.sign = function(msg,cb) {
     signEngine.init({d: WATOR.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
     signEngine.updateString(hash);
     let signatureHex = signEngine.sign();
-    let signatureB64 = base64js.fromByteArray(hex2buf(signatureHex));
-    
-    //let signatureHex = WATOR.rsPrvKey.signHex(hash);
-    //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
     //console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
+    let signatureB64 = base64js.fromByteArray(new TextEncoder('hex').encode(signatureHex));
     let signature = {
       pubKeyB58:WATOR.pubKeyB58,
       hash:hash,
