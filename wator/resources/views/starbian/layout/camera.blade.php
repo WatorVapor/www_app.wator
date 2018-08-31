@@ -26,6 +26,36 @@
 </div>
 
 <script type="text/javascript">
+  function onRemoteKeyRead() {
+    let remotekeys = WATOR.getRemoteKeys();
+    console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
+    let urls = [];
+    for(let i = 0;i < remotekeys.length ; i++) {
+      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
+      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
+      let keyPairs = {
+          key:remotekeys[i],
+          casturl:casturl,
+          rcvurl:rcvurl,
+      };
+      urls.push(keyPairs);
+    }
+    let app2 = new Vue({
+      el: '#vue-ui-remote-device-keys',
+      data: {
+          remoteDeviceKeys: urls
+      }
+    });
+  }
+  $(document).ready(function(){
+    onRemoteKeyRead();
+    let elemBtn = document.getElementById('vue-ui-remote-device-keys');
+    console.log('onRemoteKeyRead elemBtn=<' , elemBtn , '>');
+  });
+</script>
+
+
+<script type="text/javascript">
   function onStartVidoeCam (elem) {
     try {
       console.log('onStartVidoeCam elem=<' , elem , '>');
