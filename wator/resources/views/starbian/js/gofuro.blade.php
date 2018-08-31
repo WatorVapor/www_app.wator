@@ -18,11 +18,21 @@ function publishHotUpGofuro(keyChannel) {
   console.log('starbian=<',starbian,'>');
 }
 
+let starbianKey = new StarBian();
+starbianKey.isReady = false;
+starbianKey.onReady = () => {
+  starbianKey.isReady = true;
+};
+starbianKey.subscribe( (msg) => {
+  console.log('starbianKey.subcribe:msg=<',msg,'>');
+});
+
+
 function onSharedPubKey (elem) {
   try {
     console.log('onSharedPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
-    starbian.sharePubKey( (status,password) => {
+    starbianKey.sharePubKey( (status,password) => {
       console.log('onSharedPubKey status=<' , status , '>');
       if(status < 1) {
         elem.setAttribute('disabled','false');
@@ -57,7 +67,7 @@ function onSearchPubKey (elem) {
     if(!textPassword) {
       return;
     }
-    starbian.searchPubKey(textPassword.trim(), (pubKey) => {
+    starbianKey.searchPubKey(textPassword.trim(), (pubKey) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
       $("#text-remote-device-key").text(pubKey);
     });
