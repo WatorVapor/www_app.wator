@@ -365,17 +365,16 @@ WATOR.encrypt = function(msg,cb) {
 }
 
 WATOR.decrypt = function(msg,cb) {
-  console.log('WATOR.decrypt msg=<' , msg , '>');
   if(!WATOR.AESKey) {
-    cb({});
+    console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
+    console.log('WATOR.decrypt msg=<' , msg , '>');
     return;
   }
   const alg = { 
     name: 'AES-GCM',
-    iv: new TextEncoder().encode(msg.iv)
+    iv: base64js.toByteArray(msg.iv)
   };
-  const ptUint8 = new TextEncoder().encode(msg.encrypt);
-  //console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
+  const ptUint8 = base64js.toByteArray(msg.encrypt);
   crypto.subtle.decrypt( 
     alg,
     WATOR.AESKey,
