@@ -223,7 +223,7 @@ WATOR.sign = function(msg,cb) {
   //console.log('WATOR.sign msg=<' , msg , '>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
   .then(function(buf) {
-    let hash = Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+    let hash = fromByteArray(new Uint8Array(buf));
     //console.log('WATOR.sign hash=<' , hash , '>');
     let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
     //console.log('WATOR.sign ecSign=<' , ecSign , '>');
