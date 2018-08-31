@@ -275,24 +275,19 @@ WATOR.verify = function(content,auth,channel,cb) {
   let index = keys.indexOf(auth.pubKeyB58);
   //console.log('WATOR.verify:index=<',index,'>');
   if(index === -1 && channel !== 'broadcast') {
-    cb(false);
+    console.log('WATOR.verify: not authed !!! index=<',index,'>');
+    console.log('WATOR.verify: not authed !!!  channel=<',channel,'>');
     return;
   }
-
   //console.log('WATOR.verify JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
   crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
   .then(function(buf){
     let hashCal = base64js.fromByteArray(new Uint8Array(buf));
     if(hashCal !== auth.hash) {
-      console.log('WATOR.verify hashCal=<' , hashCal , '>');
-      console.log('WATOR.verify auth.hash=<' , auth.hash , '>');
-      cb(false);
+      console.log('WATOR.verify  not authed !!! hashCal=<' , hashCal , '>');
+      console.log('WATOR.verify  not authed !!! auth.hash=<' , auth.hash , '>');
     } else {
       WATOR.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
-        if(!pubKey) {
-          cb(false);
-          return;
-        }
         let signBuff = base64js.fromByteArray(auth.sign);
         //console.log('WATOR.verify signBuff=<' , signBuff , '>');
         //console.log('WATOR.verify pubKey=<' , pubKey , '>');
@@ -425,12 +420,10 @@ WATOR.Bs58Key2RsKey = function (bs58Key,cb) {
     })
     .catch(function(err){
       console.error(err);
-      cb();
     });
   })
   .catch(function(err){
     console.error(err);
-    cb();
   });
 }
 
