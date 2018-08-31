@@ -247,14 +247,11 @@ WATOR.sign = function(msg,cb) {
     signEngine.init({d: WATOR.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
     signEngine.updateString(hash);
     let signatureHex = signEngine.sign();
-    console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
-    let signatureBuff = new TextEncoder('hex').encode(signatureHex);
-    console.log('WATOR.sign signatureBuff=<' , signatureBuff , '>');
-    let signatureB64 = base64js.fromByteArray(signatureBuff);
+    //console.log('WATOR.sign signatureHex=<' , signatureHex , '>');
     let signature = {
       pubKeyB58:WATOR.pubKeyB58,
       hash:hash,
-      sign:signatureB64
+      sign:signatureHex
     };
     cb(signature);
   })
@@ -287,15 +284,17 @@ WATOR.verify = function(content,auth,channel,cb) {
       console.log('WATOR.verify  not authed !!! auth.hash=<' , auth.hash , '>');
     } else {
       WATOR.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
-        let signBuff = base64js.fromByteArray(auth.sign);
-        //console.log('WATOR.verify signBuff=<' , signBuff , '>');
         //console.log('WATOR.verify pubKey=<' , pubKey , '>');
         let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
         signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
         signEngine.updateString(auth.hash);
-        let result = signEngine.verify(signBuff);
-        console.log('WATOR.verify result=<' , result , '>');
-        cb(result);
+        let result = signEngine.verify(auth.sign);
+        if(result) {
+          cb(result);
+        } else {
+          console.log('WATOR.verify not authed !!! result=<' , result , '>');
+          console.log('WATOR.verify not authed !!! auth=<' , auth , '>');
+        }
       });
     }
   })
