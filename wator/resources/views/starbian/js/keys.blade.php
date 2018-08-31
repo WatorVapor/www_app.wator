@@ -353,8 +353,8 @@ WATOR.encrypt = function(msg,cb) {
   ).then(enMsg => {
     //console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
     let enObj = {
-      iv:buf2hex(iv),
-      encrypt:buf2hex(enMsg)
+      iv:base64js.fromByteArray(iv),
+      encrypt:base64js.fromByteArray(enMsg)
     };
     cb(enObj);
   })
@@ -371,9 +371,9 @@ WATOR.decrypt = function(msg,cb) {
   }
   const alg = { 
     name: 'AES-GCM',
-    iv: hex2buf(msg.iv)
+    iv: base64js.toByteArray(msg.iv)
   };
-  const ptUint8 = hex2buf(msg.encrypt);
+  const ptUint8 = base64js.toByteArray(msg.encrypt);
   //console.log('WATOR.decrypt WATOR.AESKey=<' , WATOR.AESKey , '>');
   crypto.subtle.decrypt( 
     alg,
