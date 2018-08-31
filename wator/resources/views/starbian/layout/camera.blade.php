@@ -24,3 +24,20 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function onStartVidoeCam (elem) {
+    try {
+      console.log('onStartVidoeCam elem=<' , elem , '>');
+      let textContent = elem.textContent;
+      console.log('onStartVidoeCam textContent=<' , textContent , '>');
+      if(textContent) {
+        let textKey = textContent.replace('Connect to Camera ','');
+        console.log('onStartVidoeCam textKey=<' , textKey , '>');
+        WATOR.connect(textKey.trim());
+      }
+    } catch(e) {
+      console.error(e);
+    }
+  }
+</script>
