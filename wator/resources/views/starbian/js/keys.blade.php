@@ -354,8 +354,9 @@ WATOR.encrypt = function(msg,cb) {
     console.log('WATOR.encrypt enMsg=<' , enMsg , '>');
     let enObj = {
       iv:new TextDecoder().decode(iv),
-      encrypt:new TextDecoder().decode(enMsg)
+      encrypt:new TextDecoder().decode(new Uint8Array(enMsg));
     };
+    console.log('WATOR.encrypt enObj=<' , enObj , '>');
     cb(enObj);
   })
   .catch(function(err){
