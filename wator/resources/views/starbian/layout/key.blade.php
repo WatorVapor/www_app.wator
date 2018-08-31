@@ -44,3 +44,85 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  new ClipboardJS('.btn-clipboard');
+</script>
+<script type="text/javascript">
+  function onUpdatePublicKey(key) {
+    console.log('onUpdatePublicKey key=<' , key , '>');
+    let app1 = new Vue({
+      el: '#text-this-device-key',
+      data: {
+          pub_key: key
+      }
+    });
+  }
+</script>
+
+
+<script type="text/javascript">
+  function onAddRemoteKey(elem) {
+    try {
+      console.log('onAddRemoteKey elem=<' , elem , '>');
+      let root = elem.parentElement;
+      console.log('onAddRemoteKey root=<' , root , '>');
+      let textKey = root.getElementsByTagName('textarea')[0].value;
+      console.log('onAddRemoteKey textKey=<' , textKey , '>');
+      if(textKey) {
+        WATOR.addRemoteKey(textKey.trim());
+      }
+    } catch(e) {
+      console.error(e);
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  function onRemoteKeyRead() {
+    let remotekeys = WATOR.getRemoteKeys();
+    console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
+    let urls = [];
+    for(let i = 0;i < remotekeys.length ; i++) {
+      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam/' + remotekeys[i];
+      let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
+      let keyPairs = {
+          key:remotekeys[i],
+          casturl:casturl,
+          rcvurl:rcvurl,
+      };
+      urls.push(keyPairs);
+    }
+    let app2 = new Vue({
+      el: '#vue-ui-remote-device-keys',
+      data: {
+          remoteDeviceKeys: urls
+      }
+    });
+  }
+  $(document).ready(function(){
+    onRemoteKeyRead();
+    let elemBtn = document.getElementById('vue-ui-remote-device-keys');
+    console.log('onRemoteKeyRead elemBtn=<' , elemBtn , '>');
+  });
+</script>
+
+
+<script type="text/javascript">
+  function onRemoveRemoteKey (elem) {
+    try {
+      console.log('onRemoveRemoteKey elem=<' , elem , '>');
+      let keyElem = elem.parentElement.parentElement.getElementsByTagName('span')[0];
+      console.log('onRemoveRemoteKey keyElem=<' , keyElem , '>');
+      let textKey = keyElem.textContent;
+      console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
+      if(textKey) {
+        console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
+        WATOR.removeKey(textKey.trim());
+      }
+    } catch(e) {
+      console.error(e);
+    }
+  }
+</script>
+
