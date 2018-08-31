@@ -103,22 +103,17 @@ class StarBian {
     if(msg.auth) {
       let self = this;
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
-      this.verifyAuth_(msg.auth,content,channel,function(good){
-        //console.log('onWssMessage_:good=<',good,'>');
-        if(good) {
-          if(msg.msg) {
-            self.onGoodMessage_(msg.msg);
-          } else if(msg.encrypt) {
-            self.onEncrypt_(msg.encrypt);
-          } else if(msg.ecdh) {
-            self.onGoodECDH_(msg.ecdh);
-          } else if(msg.shareKey) {
-            self.onShareKey_(msg.shareKey);
-          } else {
-            console.log('onWssMessage_ not supported  :msg=<',msg,'>');
-          }
+      this.verifyAuth_(msg.auth,content,channel,() => {
+        if(msg.msg) {
+          self.onGoodMessage_(msg.msg);
+        } else if(msg.encrypt) {
+          self.onEncrypt_(msg.encrypt);
+        } else if(msg.ecdh) {
+          self.onGoodECDH_(msg.ecdh);
+        } else if(msg.shareKey) {
+          self.onShareKey_(msg.shareKey);
         } else {
-          console.log('onWssMessage_ not auth :msg=<',msg,'>');
+          console.log('onWssMessage_ not supported  :msg=<',msg,'>');
         }
       });
     }
