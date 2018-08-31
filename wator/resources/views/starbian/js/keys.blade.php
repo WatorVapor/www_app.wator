@@ -217,6 +217,20 @@ async function sha256(str) {
   return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
 }
 
+function hex2buf(hex) {
+  let buffer = new ArrayBuffer(hex.length / 2);
+  let array = new Uint8Array(buffer);
+  let k = 0;
+  for (let i = 0; i < hex.length; i +=2 ) {
+    array[k] = parseInt(hex[i] + hex[i+1], 16);
+    k++;
+  }
+  return buffer;
+}
+function buf2hex(buf) {
+  return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+}
+
 
 
 WATOR.sign = function(msg,cb) {
@@ -233,6 +247,7 @@ WATOR.sign = function(msg,cb) {
     signEngine.init({d: WATOR.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
     signEngine.updateString(hash);
     let signatureHex = signEngine.sign();
+    let signatureB64 = base64js.fromByteArray(hex2buf(signatureHex));
     
     //let signatureHex = WATOR.rsPrvKey.signHex(hash);
     //let signatureHex = ecSign.signHex(hash,WATOR.prvKeyHex);
@@ -240,7 +255,7 @@ WATOR.sign = function(msg,cb) {
     let signature = {
       pubKeyB58:WATOR.pubKeyB58,
       hash:hash,
-      sign:signatureHex
+      sign:signatureB64
     };
     cb(signature);
   })
@@ -249,20 +264,7 @@ WATOR.sign = function(msg,cb) {
   });
 };
 
-function hex2buf(hex) {
-  let buffer = new ArrayBuffer(hex.length / 2);
-  let array = new Uint8Array(buffer);
-  let k = 0;
-  for (let i = 0; i < hex.length; i +=2 ) {
-    array[k] = parseInt(hex[i] + hex[i+1], 16);
-    k++;
-  }
-  return buffer;
-}
 
-function buf2hex(buf) {
-  return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-}
 
 
 
