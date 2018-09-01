@@ -5,7 +5,7 @@
         My Public key
       </div>
       <div class="card-body">
-        <pre class="card-text text-success" id="text-this-device-key" rows="40" style="white-space: pre-wrap ; font-size: xx-large;">
+        <pre class="card-text text-success" id="text-this-device-key" style="white-space: pre-wrap ; font-size: xx-large;">
           @{{ pub_key }}
         </pre>
         <br/>
@@ -31,7 +31,7 @@
         Remote Device Public key
       </div>
       <div class="card-body">
-        <textarea class="form-control input-sm" id="text-remote-device-key" rows="6" ></textarea>
+        <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" ></textarea>
         <br/>
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key for remote for Camera</button>
       </div>
