@@ -2,7 +2,7 @@
 
 class StarBian {
   constructor(channelKey) {
-    let uri = "wss://www.wator.xyz/ws/starbian";
+    let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
     this.ws_ = new WebSocket(uri);
     this.channelKey_ = channelKey;
     let self = this;
