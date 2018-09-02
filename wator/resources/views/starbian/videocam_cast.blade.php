@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-6" id="vue-ui-camera-devices">
+  <div class="col-4" id="vue-ui-camera-devices">
     <div class="form-check" v-for="camera in allCamera">
       <input class="form-check-input" type="radio" name="camera" v-bind:value="camera.name">
       <label class="form-check-label" >
@@ -14,7 +14,7 @@
       </label>
     </div>
   </div>
-  <div class="col-6" id="vue-ui-mic-devices">
+  <div class="col-4" id="vue-ui-mic-devices">
     <div class="form-check" v-for="mic in allMic">
       <input class="form-check-input" type="radio" name="mic" v-bind:value="mic.name">
       <label class="form-check-label" >
@@ -46,6 +46,9 @@
       let name = device.label;
       if(!name) {
         name = device.deviceId;
+      }
+      if(name.length > 16) {
+        name = name.slice(0,16);
       }
       let deviceUI = {name:name};
       if(device.kind === 'audioinput') {
