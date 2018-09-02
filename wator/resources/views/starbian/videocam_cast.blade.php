@@ -47,8 +47,8 @@
       if(!name) {
         name = device.deviceId;
       }
-      if(name.length > 16) {
-        name = name.slice(0,16);
+      if(name.length > 32) {
+        name = name.slice(0,32);
       }
       let deviceUI = {name:name};
       if(device.kind === 'audioinput') {
