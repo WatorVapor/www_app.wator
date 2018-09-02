@@ -52,8 +52,8 @@
 </script>
 
 <script type="text/javascript">
-  StarBian_.onReadOfKey = (key) => {
-    console.log('StarBian_.onKeyRead key=<' , key , '>');
+  StarBian_.onReadyOfKey = (key) => {
+    console.log('StarBian_.onReadyOfKey key=<' , key , '>');
   };
 </script>
 
