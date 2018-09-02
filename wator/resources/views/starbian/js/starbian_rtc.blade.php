@@ -45,14 +45,14 @@ class StarBianRtc {
   */
   static getStream(config,cb) {
     let self = this;
-    let pMedia = navigator.mediaDevices.getUserMedia(config);
-    pMedia.then( (stream) => {
+    navigator.mediaDevices.getUserMedia(config)
+    .then( (stream) => {
       if(typeof cb === 'function') {
         cb(stream);
       }
       self._onStreamGot(stream);
-    });
-    pMedia.catch( (err) => {
+    })
+    .catch( (err) => {
       self._onStreamError(err);
     });
   }
