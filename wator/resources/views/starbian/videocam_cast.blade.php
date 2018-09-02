@@ -91,7 +91,7 @@
       let id = idElem.textContent;
       if(id) {
         config.video.deviceId = id.trim();
-        StarBianRtc.getStream(config,true);
+        StarBianRtc.getStream(config,onTestStream);
       }
     }
   }
@@ -103,9 +103,12 @@
       let id = idElem.textContent;
       if(id) {
         config.audio.deviceId = id.trim();
-        StarBianRtc.getStream(config,true);
+        StarBianRtc.getStream(config,onTestStream);
       }
     }
+  }
+  function onTestStream(stream) {
+    console.log('onTestStream :stream=<',stream,'>');
   }
 </script>
 
