@@ -1,26 +1,44 @@
 <script type="text/javascript">
-const params = location.pathname.split('/');
-const keyChannel = params[params.length -1];
-console.log('keyChannel=<',keyChannel,'>');
-let starbian = new StarBian(keyChannel);
-starbian.isReady = false;
-starbian.onReady = () => {
-  starbian.publish({start:true});
-  starbian.isReady = true;
-};
-starbian.subscribe( (msg) => {
-  console.log('starbian.subcribe:msg=<',msg,'>');
-  if(msg && msg.start) {
-    startWebRTC();
+
+/**
+* @classdesc This is StarBianRtc.
+* @constructor
+* @param {string} channelKey
+* @param {string} stream
+*/
+class StarBianRtc {
+  constructor(channelKey,stream) {
+    if(!channelKey) {
+      throw 'please give me a dist device.';
+      return;
+    }
+    this._createStarBian(keyChannel);
   }
-  if(msg && msg.answer) {
-    onRemoteAnswer(msg.answer);
+
+  _createStarBian(keyChannel) {
+    this.starbian_ = new StarBian(keyChannel);
+    this.starbian_.isReady = false;
+    let self = this;
+    this.starbian_.onReady = () => {
+      self.starbian_.publish({start:true});
+      self.starbian_.isReady = true;
+    };
+    this.starbian_.subscribe( (msg) => {
+      console.log('starbian.subcribe:msg=<',msg,'>');
+      if(msg && msg.start) {
+        startWebRTC();
+      }
+      if(msg && msg.answer) {
+        onRemoteAnswer(msg.answer);
+      }
+      if(msg && msg.ice) {
+        onRemoteICE(msg.ice);
+      }
+    });
   }
-  if(msg && msg.ice) {
-    onRemoteICE(msg.ice);
-  }
-});
-console.log('starbian=<',starbian,'>');
+  
+}
+
 let localOfferCache = false;
 let localICECache = [];
 function sendLocalCache() {
