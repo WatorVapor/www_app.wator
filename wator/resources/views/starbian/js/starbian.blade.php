@@ -294,7 +294,7 @@ class StarBianCrypto {
       console.log('verifyAuth: not authed !!! index=<',index,'>');
       console.log('verifyAuth: not authed !!!  channel=<',channel,'>');
       console.log('verifyAuth: not authed !!! content=<',content,'>');
-      console.log('verifyAuth: not auth !!!  channel=<',auth,'>');
+      console.log('verifyAuth: not auth !!!  auth=<',auth,'>');
       return;
     }
     //console.log('verifyAuth JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
@@ -306,7 +306,7 @@ class StarBianCrypto {
         console.log('verifyAuth  not authed !!! hashCal=<' , hashCal , '>');
         console.log('verifyAuth  not authed !!! auth.hash=<' , auth.hash , '>');
         console.log('verifyAuth: not authed !!! content=<',content,'>');
-        console.log('verifyAuth: not auth !!!  channel=<',auth,'>');
+        console.log('verifyAuth: not auth !!!  auth=<',auth,'>');
       } else {
         self.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
           //console.log('verifyAuth pubKey=<' , pubKey , '>');
