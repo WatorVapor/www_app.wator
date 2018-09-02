@@ -257,6 +257,34 @@ class StarBianCrypto {
     this.pubKeyJWK = JSON.parse(JSON.stringify(key));
   }
 
+  signAuth(msg,cb) {
+    //console.log('signAuth msg=<' , msg , '>');
+    let self= this;
+    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
+    .then(function(buf) {
+      let hash = base64js.fromByteArray(new Uint8Array(buf));
+      //console.log('signAuth hash=<' , hash , '>');
+      let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+      //console.log('signAuth ecSign=<' , ecSign , '>');
+      //console.log('signAuth self.prvKeyHex=<' , self.prvKeyHex , '>');
+
+      let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+      signEngine.init({d: self.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
+      signEngine.updateString(hash);
+      let signatureHex = signEngine.sign();
+      //console.log('signAuth signatureHex=<' , signatureHex , '>');
+      let signature = {
+        pubKeyB58:self.pubKeyB58,
+        hash:hash,
+        sign:signatureHex
+      };
+      cb(signature);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  };
+
 }
 let _insideCrypto = false; 
 
@@ -286,7 +314,7 @@ class StarBianIpfsProxy {
     let self = this;
     _insideCrypto.encrypt(JSON.stringify(msg),function(encrypt) {
       //console.log('publish:encrypt=<',encrypt,'>');	
-      _insideCrypto.sign(JSON.stringify(encrypt),function(auth) {
+      _insideCrypto.signAuth(JSON.stringify(encrypt),function(auth) {
         let sentMsg = {
           channel:self.channelKey_,
           auth:auth,
@@ -434,7 +462,7 @@ class StarBianIpfsProxy {
     } 	
     let subs = { ts:new Date()};
     let self = this;
-    _insideCrypto.sign(JSON.stringify(subs),function(auth) {	
+    _insideCrypto.signAuth(JSON.stringify(subs),function(auth) {	
       let sentMsg = {	
         channel:_insideCrypto.pubKeyB58,	
         auth:auth,	
@@ -457,7 +485,7 @@ class StarBianIpfsProxy {
       password:this.OneTimePassword_
     };
     let self = this;
-    _insideCrypto.sign(JSON.stringify(shareKey),function(auth) {	
+    _insideCrypto.signAuth(JSON.stringify(shareKey),function(auth) {	
       let sentMsg = {	
         channel:'broadcast',	
         auth:auth,
@@ -483,7 +511,7 @@ class StarBianIpfsProxy {
       ts:new Date()
     };
     let self = this;
-    _insideCrypto.sign(JSON.stringify(ecdh),function(auth) {
+    _insideCrypto.signAuth(JSON.stringify(ecdh),function(auth) {
       let sentMsg = {
         channel:self.channelKey_,
         auth:auth,
