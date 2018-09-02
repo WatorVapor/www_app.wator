@@ -106,7 +106,7 @@ class StarBianCrypto {
     });
   }
 
-  function getPubKey(key) {
+  getPubKey(key) {
     window.crypto.subtle.exportKey('raw',key)
     .then(function(keydata){
       console.log('getPubKey keydata=<' , keydata , '>');
