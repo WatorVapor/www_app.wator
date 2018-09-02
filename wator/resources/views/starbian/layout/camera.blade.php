@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
   function onRemoteKeyRead() {
-    let remotekeys = WATOR.getRemoteKeys();
+    let remotekeys = StarBian.getRemoteKeys();
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
@@ -54,20 +54,3 @@
   });
 </script>
 
-
-<script type="text/javascript">
-  function onStartVidoeCam (elem) {
-    try {
-      console.log('onStartVidoeCam elem=<' , elem , '>');
-      let textContent = elem.textContent;
-      console.log('onStartVidoeCam textContent=<' , textContent , '>');
-      if(textContent) {
-        let textKey = textContent.replace('Connect to Camera ','');
-        console.log('onStartVidoeCam textKey=<' , textKey , '>');
-        WATOR.connect(textKey.trim());
-      }
-    } catch(e) {
-      console.error(e);
-    }
-  }
-</script>
