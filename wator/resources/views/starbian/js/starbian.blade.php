@@ -7,6 +7,8 @@ $(document).ready(function(){
   },0);
 });
 
+const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 
 
 /**
@@ -53,16 +55,44 @@ class StarBian {
   * @return {array} key
   */
   static getRemoteKey() {
+    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let keyJson = JSON.parse(key);
+    if(keyJson) {
+      return keyJson;
+    } else {
+      return [];
+    }
   }
   /**
   * @param {string} key
   */
   static addRemoteKey(key) {
+    console.log('WATOR.addRemoteKey pubKey=<' , pubKey , '>');
+    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let keyJson = JSON.parse(key);
+    if(keyJson) {
+      keyJson.push(pubKey);
+      keyJson = keyJson.filter( onlyUnique );
+    } else {
+      keyJson = [pubKey];
+    }
+    let keyStr = JSON.stringify(keyJson);
+    console.log('addRemoteKey keyStr=<' , keyStr , '>');
+    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
   /**
   * @param {string} key
   */
   static removeRemoteKey(key) {
+    console.log('WATOR.removeKey pubKey=<' , pubKey , '>');
+    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let keyJson = JSON.parse(key);
+    console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
+    let newKeys = keyJson.filter(key => pubKey !== key);
+    console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
+    let keyStr = JSON.stringify(newKeys);
+    console.log('WATOR.removeKey keyStr=<' , keyStr , '>');
+    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
   
   
@@ -75,10 +105,6 @@ class StarBian {
 }
 
 // private class
-
-const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
-const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-
 class StarBianCrypto {
   constructor() {
     this.onReadyKey = StarBian.onReadyOfKey;
