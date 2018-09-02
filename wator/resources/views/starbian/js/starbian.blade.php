@@ -5,11 +5,7 @@
 var WATOR = WATOR || {
 };
 
-$(document).ready(function(){
-  setTimeout(function(){
-    StarBian.InitCrypto_();
-  },0);
-});
+
 
 
 /**
@@ -284,5 +280,11 @@ class StarBian {
   }
 
 };
+
+$(document).ready(function(){
+  setTimeout(function(){
+    StarBian.InitCrypto_();
+  },0);
+});
 
 </script>
