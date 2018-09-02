@@ -426,7 +426,7 @@ class StarBianCrypto {
     });
   }
 
-  encrypt function(msg,cb) {
+  encrypt (msg,cb) {
     if(!this.AESKey) {
       console.log('encrypt this.AESKey=<' , this.AESKey , '>');
       console.log('encrypt msg=<' , msg , '>');
