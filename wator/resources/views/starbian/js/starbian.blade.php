@@ -1,15 +1,6 @@
 <script type="text/javascript">
 'use strict'
 
-$(document).ready(function(){
-  setTimeout(function(){
-    StarBian.InitCrypto_();
-  },0);
-});
-
-const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
-const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-
 
 /**
 * @classdesc This is StarBian.
@@ -44,6 +35,71 @@ class StarBian {
   */
   searchPubKey(password,cb) {
     this.ipfsProxy.searchPubKey(password,cb);
+  }
+
+  /**
+  * @return {string} key
+  */
+  static getPubKey() {
+    return StarBianCrypto.getPubKey();
+  }
+  /**
+  * @return {array} key
+  */
+  static getRemoteKey() {
+    return StarBianCrypto.getRemoteKey();
+  }
+  /**
+  * @param {string} pubKey
+  */
+  static addRemoteKey(pubKey) {
+    StarBianCrypto.addRemoteKey(pubKey);
+  }
+  /**
+  * @param {string} pubKey
+  */
+  static removeRemoteKey(pubKey) {
+    StarBianCrypto.removeRemoteKey(pubKey);
+  }
+  
+  
+  // private..
+  static InitCrypto_(evt) {
+    if(!_insideCrypto) {
+      _insideCrypto = new StarBianCrypto();
+    }
+  }
+}
+
+$(document).ready(function(){
+  setTimeout(function(){
+    StarBian.InitCrypto_();
+  },0);
+});
+
+const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+
+
+// private class
+class StarBianCrypto {
+  constructor() {
+    this.onReadyKey = StarBian.onReadyOfKey;
+    //console.log('StarBianCrypto');	
+    let key = localStorage.getItem(LS_KEY_NAME);
+    //console.log('StarBianCrypto:key=<',key,'>');
+    if(key) {
+      this.onLoadSavedKey(key);
+    } else {
+      this.onCreateKey();
+    }  
+    let keyRemote = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    if(!keyRemote) {
+      let keyStr = JSON.stringify([]);
+      //console.log('StarBianCrypto keyStr=<' , keyStr , '>');
+      localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
+    }
+    this.createECDHKey();  
   }
 
   /**
@@ -96,36 +152,7 @@ class StarBian {
     console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
     localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
   }
-  
-  
-  // private..
-  static InitCrypto_(evt) {
-    if(!_insideCrypto) {
-      _insideCrypto = new StarBianCrypto();
-    }
-  }
-}
 
-// private class
-class StarBianCrypto {
-  constructor() {
-    this.onReadyKey = StarBian.onReadyOfKey;
-    //console.log('StarBianCrypto');	
-    let key = localStorage.getItem(LS_KEY_NAME);
-    //console.log('StarBianCrypto:key=<',key,'>');
-    if(key) {
-      this.onLoadSavedKey(key);
-    } else {
-      this.onCreateKey();
-    }  
-    let keyRemote = localStorage.getItem(LS_KEY_REMOTE_NAME);
-    if(!keyRemote) {
-      let keyStr = JSON.stringify([]);
-      //console.log('StarBianCrypto keyStr=<' , keyStr , '>');
-      localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
-    }
-    this.createECDHKey();  
-  }
   onCreateKey () {
     let self = this;
     window.crypto.subtle.generateKey(
