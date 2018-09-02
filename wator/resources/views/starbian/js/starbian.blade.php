@@ -164,7 +164,7 @@ class StarBianCrypto {
       console.log('getPubKey keydata=<' , keydata , '>');
       self.pubKeyB58 = Base58.encode(new Uint8Array(keydata));
       console.log('getPubKey self.pubKeyB58=<' , self.pubKeyB58 , '>');
-      if(typeof self.onReadKey === 'function') {
+      if(typeof self.onReadyKey === 'function') {
         self.onReadyKey(self.pubKeyB58);
       }
     })
