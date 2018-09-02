@@ -63,7 +63,7 @@ const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 
 class StarBianCrypto {
   constructor() {
-    this.onReadyKey = StarBian_.onReadyOfKey;
+    this.onReadyKey = StarBian.onReadyOfKey;
     //console.log('StarBianCrypto');	
     let key = localStorage.getItem(LS_KEY_NAME);
     //console.log('StarBianCrypto:key=<',key,'>');
