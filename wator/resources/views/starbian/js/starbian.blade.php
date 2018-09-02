@@ -67,7 +67,7 @@ class StarBian {
   * @param {string} key
   */
   static addRemoteKey(key) {
-    console.log('WATOR.addRemoteKey pubKey=<' , pubKey , '>');
+    console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
@@ -77,21 +77,21 @@ class StarBian {
       keyJson = [pubKey];
     }
     let keyStr = JSON.stringify(keyJson);
-    console.log('addRemoteKey keyStr=<' , keyStr , '>');
+    console.log('StarBian addRemoteKey keyStr=<' , keyStr , '>');
     localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
   /**
   * @param {string} key
   */
   static removeRemoteKey(key) {
-    console.log('WATOR.removeKey pubKey=<' , pubKey , '>');
+    console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
-    console.log('WATOR.removeKey keyJson=<' , keyJson , '>');
+    console.log('StarBian.removeKey keyJson=<' , keyJson , '>');
     let newKeys = keyJson.filter(key => pubKey !== key);
-    console.log('WATOR.removeKey newKeys=<' , newKeys , '>');
+    console.log('StarBian.removeKey newKeys=<' , newKeys , '>');
     let keyStr = JSON.stringify(newKeys);
-    console.log('WATOR.removeKey keyStr=<' , keyStr , '>');
+    console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
     localStorage.setItem(KEY_REMOTE_NAME,keyStr);
   }
   
