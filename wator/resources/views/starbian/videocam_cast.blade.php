@@ -7,6 +7,10 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-1">
+  </div>
+  <div class="col-1">
+  </div>
+  <div class="col-1">
     <a type="button" class="btn btn-success btn-block" onclick="onTestDeviceKey(this)">
       <i class="material-icons">settings</i>
     </a>
