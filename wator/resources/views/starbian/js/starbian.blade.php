@@ -426,6 +426,59 @@ class StarBianCrypto {
     });
   }
 
+  encrypt function(msg,cb) {
+    //console.log('encrypt msg=<' , msg , '>');
+    let self = this;
+    let iv = window.crypto.getRandomValues(new Uint8Array(12));
+    const alg = { 
+      name: 'AES-GCM',
+      iv: iv
+    };
+    const ptUint8 = new TextEncoder().encode(JSON.stringify(msg));
+    crypto.subtle.encrypt( 
+      alg,
+      self.AESKey,
+      ptUint8
+    ).then(enMsg => {
+      console.log('encrypt enMsg=<' , enMsg , '>');
+      let enObj = {
+        iv:base64js.fromByteArray(iv),
+        encrypt:base64js.fromByteArray(new Uint8Array(enMsg))
+      };
+      console.log('encrypt enObj=<' , enObj , '>');
+      cb(enObj);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+  decrypt (msg,cb) {
+    if(!this.AESKey) {
+      console.log('decrypt this.AESKey=<' , this.AESKey , '>');
+      console.log('decrypt msg=<' , msg , '>');
+      return;
+    }
+    const alg = { 
+      name: 'AES-GCM',
+      iv: base64js.toByteArray(msg.iv)
+    };
+    const ptUint8 = base64js.toByteArray(msg.encrypt);
+    crypto.subtle.decrypt( 
+      alg,
+      this.AESKey,
+      ptUint8
+    ).then(plainBuff => {
+      console.log('decrypt plainBuff=<' , plainBuff , '>');
+      let plainText = new TextDecoder().decode(plainBuff);
+      console.log('decrypt plainText=<' , plainText , '>');
+      let plainJson = JSON.parse(plainText);
+      console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
+      cb(plainJson);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
 
 }
 let _insideCrypto = false; 
