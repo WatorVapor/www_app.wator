@@ -283,7 +283,46 @@ class StarBianCrypto {
     .catch(function(err){
       console.error(err);
     });
-  };
+  }
+
+  verifyAuth(content,auth,channel,cb) {
+    let keys= this.getRemoteKey();
+    //console.log('verifyAuth:auth.pubKeyB58=<',auth.pubKeyB58,'>');
+    let index = keys.indexOf(auth.pubKeyB58);
+    //console.log('verifyAuth:index=<',index,'>');
+    if(index === -1 && channel !== 'broadcast') {
+      console.log('verifyAuthy: not authed !!! index=<',index,'>');
+      console.log('verifyAuth: not authed !!!  channel=<',channel,'>');
+      return;
+    }
+    //console.log('verifyAuth JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
+    let self = this;
+    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
+    .then(function(buf){
+      let hashCal = base64js.fromByteArray(new Uint8Array(buf));
+      if(hashCal !== auth.hash) {
+        console.log('verifyAuth  not authed !!! hashCal=<' , hashCal , '>');
+        console.log('verifyAuth  not authed !!! auth.hash=<' , auth.hash , '>');
+      } else {
+        self.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
+          //console.log('verifyAuth pubKey=<' , pubKey , '>');
+          let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+          signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
+          signEngine.updateString(auth.hash);
+          let result = signEngine.verify(auth.sign);
+          if(result) {
+            cb(result);
+          } else {
+            console.log('verifyAuth not authed !!! result=<' , result , '>');
+            console.log('verifyAuth not authed !!! auth=<' , auth , '>');
+          }
+        });
+      }
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
 
 }
 let _insideCrypto = false; 
@@ -394,7 +433,7 @@ class StarBianIpfsProxy {
     if(msg.auth) {
       let self = this;
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
-      this.verifyAuth_(msg.auth,content,channel,() => {
+      _insideCrypto.verifyAuth(msg.auth,content,channel,() => {
         if(msg.msg) {
           self.onGoodMessage_(msg.msg);
         } else if(msg.encrypt) {
@@ -408,12 +447,6 @@ class StarBianIpfsProxy {
         }
       });
     }
-  }
-  verifyAuth_(auth,content,channel,cb) {
-    //console.log('verifyAuth_:auth=<',auth,'>');
-    //console.log('verifyAuth_:content=<',content,'>');
-    //console.log('verifyAuth_:channel=<',channel,'>');
-    _insideCrypto.verify(content,auth,channel,cb);
   }
 
   onGoodMessage_(msg) {
