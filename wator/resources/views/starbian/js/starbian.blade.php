@@ -24,7 +24,25 @@ class StarBian {
   publish(msg) {
     this.ipfsProxy.publish(msg);
   }
-
+  /**
+  * @param {function} cb
+  */
+  subscribe(cb) {
+    this.ipfsProxy.subscribe(cb);
+  }	
+  /**
+  * @param {function} cb
+  */
+  sharePubKey(cb) {
+    this.ipfsProxy.sharePubKey(cb);
+  }
+  /**
+  * @param {string} password
+  * @param {function} cb
+  */
+  searchPubKey(password,cb) {
+    this.ipfsProxy.searchPubKey(password,cb);
+  }
 
   /**
   * @return {string} key
