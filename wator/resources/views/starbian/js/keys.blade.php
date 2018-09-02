@@ -5,7 +5,10 @@ $(document).ready(function(){
     onInitCrypto();
   },0);
 });
-var WATOR = {};
+
+var WATOR = WATOR || {
+};
+
 const KEY_NAME = 'starbian-ecdsa-key';
 const KEY_REMOTE_NAME = 'starbian-ecdsa-remote-keys';
 function onInitCrypto() {
