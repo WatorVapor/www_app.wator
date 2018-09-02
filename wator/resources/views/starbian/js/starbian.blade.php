@@ -175,7 +175,7 @@ class StarBianCrypto {
       console.error(err);
     });
     self.rsPrvKey = KEYUTIL.getKey(key);
-    console.log('WATOR.rsPrvKey=<',WATOR.rsPrvKey ,'>');
+    console.log('self.rsPrvKey=<',self.rsPrvKey ,'>');
     //console.log('key=<',key ,'>');
     //let key
     delete key.d;
