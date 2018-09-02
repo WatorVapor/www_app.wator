@@ -286,7 +286,7 @@ class StarBianCrypto {
   }
 
   verifyAuth(content,auth,channel,cb) {
-    let keys= this.getRemoteKey();
+    let keys= StarBian.getRemoteKey();
     //console.log('verifyAuth:auth.pubKeyB58=<',auth.pubKeyB58,'>');
     let index = keys.indexOf(auth.pubKeyB58);
     //console.log('verifyAuth:index=<',index,'>');
