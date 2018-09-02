@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
   setTimeout(function(){
-    StarBian_.InitCrypto_();
+    StarBian.InitCrypto_();
   },0);
 });
 
