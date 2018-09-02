@@ -10,7 +10,7 @@
     <div class="row" v-for="camera in allCamera">
       <a class="btn btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
         @{{camera.name}}
-        <p class="d-none">@{{camera.id}}</p>
+        <p class="">@{{camera.id}}</p>
       </a>
     </div>
   </div>
