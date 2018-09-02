@@ -8,10 +8,8 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4" id="vue-ui-camera-devices">
     <div class="form-check" v-for="camera in allCamera">
-      <input class="form-check-input" type="radio" name="camera" v-bind:value="camera.name" onChange="onClickCameraTest(this)">
-      <label class="form-check-label" >
-        @{{camera.name}}
-      </label>
+      <input class="form-check-input btn-block" type="button" name="camera" v-bind:value="camera.name" onclick="onClickCameraTest(this)">
+      @{{camera.name}}
       <p class="d-none">@{{camera.id}}</p>
     </div>
   </div>
