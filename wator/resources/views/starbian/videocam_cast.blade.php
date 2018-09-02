@@ -81,6 +81,8 @@
 <script type="text/javascript">
   function onClickCameraTest(elem) {
     console.log('onClickCameraTest :elem=<',elem,'>');
+    let idElem = elem.parentElement.parentElement.getElementsByTagName('p')[0];
+    console.log('onClickCameraTest idElem=<' , idElem , '>');
   }
 </script>
 
