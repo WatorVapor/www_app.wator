@@ -284,9 +284,9 @@ class StarBianIpfsProxy {
 
   publish(msg) {
     let self = this;
-    WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
+    _insideCrypto.encrypt(JSON.stringify(msg),function(encrypt) {
       //console.log('publish:encrypt=<',encrypt,'>');	
-      WATOR.sign(JSON.stringify(encrypt),function(auth) {
+      _insideCrypto.sign(JSON.stringify(encrypt),function(auth) {
         let sentMsg = {
           channel:self.channelKey_,
           auth:auth,
@@ -385,7 +385,7 @@ class StarBianIpfsProxy {
     //console.log('verifyAuth_:auth=<',auth,'>');
     //console.log('verifyAuth_:content=<',content,'>');
     //console.log('verifyAuth_:channel=<',channel,'>');
-    WATOR.verify(content,auth,channel,cb);
+    _insideCrypto.verify(content,auth,channel,cb);
   }
 
   onGoodMessage_(msg) {
@@ -401,7 +401,7 @@ class StarBianIpfsProxy {
     }
     this.exchangeKeyDone_ = true;
     let self = this;
-    WATOR.exchangeKey(ecdh.key,function(keyAes) {
+    _insideCrypto.exchangeKey(ecdh.key,function(keyAes) {
       //console.log('onGoodECDH_:keyAes=<',keyAes,'>');
       setTimeout(function() {
         if(typeof self.onReady === 'function') {
@@ -413,7 +413,7 @@ class StarBianIpfsProxy {
   onEncrypt_(encrypt) {
     //console.log('onEncrypt_:encrypt=<',encrypt,'>');
     let self = this;
-    WATOR.decrypt(encrypt,function(plainMsg) {
+    _insideCrypto.decrypt(encrypt,function(plainMsg) {
       //console.log('onEncrypt_:typeof plainMsg=<',typeof plainMsg,'>');
       if(plainMsg) {
         if(typeof plainMsg === 'string') {
@@ -428,15 +428,15 @@ class StarBianIpfsProxy {
   }
 
   subscribeChannel_() {	
-    console.log('subscribeChannel_:WATOR.pubKeyB58=<',WATOR.pubKeyB58,'>');	
-    if(!WATOR.pubKeyB58) {	
+    console.log('subscribeChannel_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
+    if(!_insideCrypto.pubKeyB58) {	
       return;	
     } 	
     let subs = { ts:new Date()};
     let self = this;
-    WATOR.sign(JSON.stringify(subs),function(auth) {	
+    _insideCrypto.sign(JSON.stringify(subs),function(auth) {	
       let sentMsg = {	
-        channel:WATOR.pubKeyB58,	
+        channel:_insideCrypto.pubKeyB58,	
         auth:auth,	
         subscribe:subs	
       };	
@@ -448,16 +448,16 @@ class StarBianIpfsProxy {
   }
 
   sharePubKeyInside_() {	
-    console.log('sharePubKeyInside_:WATOR.pubKeyB58=<',WATOR.pubKeyB58,'>');	
-    if(!WATOR.pubKeyB58) {	
+    console.log('sharePubKeyInside_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
+    if(!_insideCrypto.pubKeyB58) {	
       return;	
     } 	
     let shareKey = { 
-      pubkey:WATOR.pubKeyB58,
+      pubkey:_insideCrypto.pubKeyB58,
       password:this.OneTimePassword_
     };
     let self = this;
-    WATOR.sign(JSON.stringify(shareKey),function(auth) {	
+    _insideCrypto.sign(JSON.stringify(shareKey),function(auth) {	
       let sentMsg = {	
         channel:'broadcast',	
         auth:auth,
@@ -478,12 +478,12 @@ class StarBianIpfsProxy {
       return;
     }
     let ecdh = {
-      key:WATOR.ECDHKeyPubJwk,
+      key:_insideCrypto.ECDHKeyPubJwk,
       type:type,
       ts:new Date()
     };
     let self = this;
-    WATOR.sign(JSON.stringify(ecdh),function(auth) {
+    _insideCrypto.sign(JSON.stringify(ecdh),function(auth) {
       let sentMsg = {
         channel:self.channelKey_,
         auth:auth,
