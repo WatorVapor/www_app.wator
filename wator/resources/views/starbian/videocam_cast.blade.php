@@ -108,7 +108,7 @@
   function onTestStream(stream) {
     console.log('onTestStream :stream=<',stream,'>');
     let mediaTag = document.getElementById('video');
-    mediaTag.src = URL.createObjectURL(stream);
+    mediaTag.srcObject = stream;
     mediaTag.play();
   }
 </script>
