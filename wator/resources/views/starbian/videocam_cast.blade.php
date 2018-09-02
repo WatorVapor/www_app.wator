@@ -36,13 +36,13 @@
 @include('starbian.js.videocam_cast')
 
 <script type="text/javascript">
-  StarBianRtc.getDevice( (devices) => {
-    console.log('StarBianRtc.getDevice :devices=<',devices,'>');
+  DeviceSetting.getDevice( (devices) => {
+    console.log('DeviceSetting.getDevice :devices=<',devices,'>');
     let mic = [];
     let camera = [];
     for(let i = 0;i < devices.length;i++) {
       let device = devices[i];
-      console.log('StarBianRtc.getDevice :device=<',device,'>');
+      console.log('DeviceSetting.getDevice :device=<',device,'>');
       let name = device.label;
       if(!name) {
         name = device.deviceId;
@@ -89,7 +89,7 @@
       let id = idElem.textContent;
       if(id) {
         config.video.deviceId = id.trim();
-        StarBianRtc.getStream(config,onTestStream);
+        DeviceSetting.getStream(config,onTestStream);
       }
     }
   }
@@ -101,7 +101,7 @@
       let id = idElem.textContent;
       if(id) {
         config.audio.deviceId = id.trim();
-        StarBianRtc.getStream(config,onTestStream);
+        DeviceSetting.getStream(config,onTestStream);
       }
     }
   }
