@@ -41,6 +41,17 @@
     for(let i = 0;i < devices.length;i++) {
       let device = devices[i];
       console.log('StarBianRtc.getDevice :device=<',device,'>');
+      let name = device.label;
+      if(!name) {
+        name = device.deviceId;
+      }
+      let deviceUI = {name:name};
+      if(device.kind === 'audioinput') {
+        mic.push(deviceUI);
+      }
+      if(device.kind === 'videoinput') {
+        camera.push(deviceUI);
+      }
     }
 
     let cameraApp = new Vue({
