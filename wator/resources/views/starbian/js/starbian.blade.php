@@ -390,6 +390,43 @@ class StarBianCrypto {
     });
   }
 
+  exchangeKey (pubKey,cb) {
+    console.log('exchangeKey pubKey=<' , pubKey , '>');
+    let self = this;
+    crypto.subtle.importKey(
+      'jwk',
+      pubKey,
+      { name: 'ECDH', namedCurve: 'P-256'},
+      false,
+      []
+    ).then(key => {
+      self.onExchangeKey(key,cb);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  };
+
+  onExchangeKey(remotePubKey,cb) {
+    console.log('onExchangeKey remotePubKey=<' , remotePubKey , '>');
+    let self = this;
+    crypto.subtle.deriveKey( 
+      { name: 'ECDH', namedCurve: 'P-256', public: remotePubKey },
+      self.ECDHKey.privateKey,
+      { name: 'AES-GCM', length: 128 },
+      false,
+      ['encrypt', 'decrypt']
+    ).then(keyAES => {
+      console.log('onExchangeKey keyAES=<' , keyAES , '>');
+      self.AESKey = keyAES;
+      cb(keyAES);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+
+
 }
 let _insideCrypto = false; 
 
