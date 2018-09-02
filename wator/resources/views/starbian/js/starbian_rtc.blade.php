@@ -62,6 +62,7 @@ class StarBianRtc {
   
 }
 
+/*
 let localOfferCache = false;
 let localICECache = [];
 function sendLocalCache() {
@@ -153,4 +154,7 @@ function onRemoteICE(ice) {
   console.log('onRemoteICE:ice=<',ice,'>');
   pc.addIceCandidate( new RTCIceCandidate(ice));
 }
+*/
+
+
 </script>
