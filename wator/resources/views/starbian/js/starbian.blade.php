@@ -1,15 +1,12 @@
 <script type="text/javascript">
 'use strict'
 
-
-var WATOR = WATOR || {
-};
-
 $(document).ready(function(){
   setTimeout(function(){
     StarBian_.InitCrypto_();
   },0);
 });
+
 
 
 /**
@@ -45,12 +42,22 @@ class StarBian_ {
   
   // private..
   static InitCrypto_(evt) {
-    console.log('StarBian:InitCrypto_ evt=<',evt,'>');
+    if(!_insideCrypto) {
+      _insideCrypto = new StarBianCrypto();
+    }
+  }
+}
+
+// private class
+class StarBianCrypto {
+  constructor() {
+    console.log('StarBianCrypto');	
     if(typeof StarBian_.onReadOfKey === 'function') {
       StarBian_.onReadOfKey('ok');
     }
   }
-};
+}
+let _insideCrypto = false; 
 
 /**
 * @classdesc This is StarBian.
