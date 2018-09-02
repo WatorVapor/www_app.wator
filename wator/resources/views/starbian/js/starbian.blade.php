@@ -55,7 +55,7 @@ const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 
 class StarBianCrypto {
   constructor() {
-    this.onReadKey = StarBian_.onReadOfKey;
+    this.onReadyKey = StarBian_.onReadyOfKey;
     //console.log('StarBianCrypto');	
     let key = localStorage.getItem(LS_KEY_NAME);
     //console.log('StarBianCrypto:key=<',key,'>');
@@ -84,7 +84,7 @@ class StarBianCrypto {
     )
     .then(function(key){
       self.pubKey = key.publicKey;
-      self.savePubKey(key.publicKey);
+      self.notifyPubKey(key.publicKey);
       self.prvKey = key.privateKey;
       self.savePrivKey(key.privateKey);
     })
@@ -106,14 +106,14 @@ class StarBianCrypto {
     });
   }
 
-  savePubKey(key) {
+  notifyPubKey(key) {
     window.crypto.subtle.exportKey('raw',key)
     .then(function(keydata){
       console.log('getPubKey keydata=<' , keydata , '>');
       self.pubKeyB58 = Base58.encode(new Uint8Array(keydata));
       console.log('getPubKey self.pubKeyB58=<' , self.pubKeyB58 , '>');
       if(typeof self.onReadKey === 'function') {
-        self.onReadKey(self.pubKeyB58);
+        self.onReadyKey(self.pubKeyB58);
       }
     })
     .catch(function(err){
@@ -151,6 +151,58 @@ class StarBianCrypto {
     });
   }
 
+  onLoadSavedKey(privSave) {
+    let key = JSON.parse(privSave);
+    if(!key) {
+      return;
+    }
+    let self = this;
+    window.crypto.subtle.importKey(
+      'jwk',
+      key,
+      {
+        name: 'ECDSA',
+        namedCurve: 'P-256', 
+      },
+      true, 
+      ['sign']
+    )
+    .then(function(privateKey){
+      console.log('privateKey=<' , privateKey , '>');
+      self.prvKey = privateKey;
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+    self.rsPrvKey = KEYUTIL.getKey(key);
+    console.log('WATOR.rsPrvKey=<',WATOR.rsPrvKey ,'>');
+    //console.log('key=<',key ,'>');
+    //let key
+    delete key.d;
+    key.key_ops[0] = 'verify';
+    //console.log('key=<',key ,'>');
+    window.crypto.subtle.importKey(
+      'jwk',
+      key,
+      {
+        name: 'ECDSA',
+        namedCurve: 'P-256', 
+      },
+      true, 
+      ['verify']
+    )
+    .then(function(publicKey){
+      console.log('publicKey=<' , publicKey , '>');
+      self.pubKey = publicKey;
+      self.notifyPubKey(publicKey);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+    this.rsPubKey = KEYUTIL.getKey(key);
+    console.log('this.rsPubKey=<',this.rsPubKey ,'>');
+    this.pubKeyJWK = JSON.parse(JSON.stringify(key));
+  }
 
 }
 let _insideCrypto = false; 
