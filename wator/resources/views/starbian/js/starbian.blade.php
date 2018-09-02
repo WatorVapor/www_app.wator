@@ -159,6 +159,7 @@ class StarBianCrypto {
   }
 
   notifyPubKey(key) {
+    let self = this;
     window.crypto.subtle.exportKey('raw',key)
     .then(function(keydata){
       console.log('getPubKey keydata=<' , keydata , '>');
