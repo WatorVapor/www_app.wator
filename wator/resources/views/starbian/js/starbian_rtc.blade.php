@@ -31,6 +31,14 @@ class StarBianRtc {
   * @param {function} cb
   */
   static getDevice(cb) {
+    navigator.mediaDevices.enumerateDevices()
+    .then(function(devices) {
+        cb(devices);
+      });
+    })
+    .catch(function(err) {
+      console.log('getDevice:err=<',err,'>');
+    });
   }
   /**
   * @param {object} config
