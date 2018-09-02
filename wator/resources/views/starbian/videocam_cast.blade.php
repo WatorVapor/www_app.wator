@@ -79,10 +79,33 @@
   });
 </script>
 <script type="text/javascript">
+  let config = {
+    audio:{},
+    video:{}
+  }; 
   function onClickCameraTest(elem) {
     console.log('onClickCameraTest :elem=<',elem,'>');
     let idElem = elem.parentElement.parentElement.getElementsByTagName('p')[0];
     console.log('onClickCameraTest idElem=<' , idElem , '>');
+    if(idElem) {
+      let id = idElem.textContent;
+      if(id) {
+        config.video.deviceId = id.trim();
+        StarBianRtc.getStream(config,true);
+      }
+    }
+  }
+  function onClickMicTest(elem) {
+    console.log('onClickCameraTest :elem=<',elem,'>');
+    let idElem = elem.parentElement.parentElement.getElementsByTagName('p')[0];
+    console.log('onClickCameraTest idElem=<' , idElem , '>');
+    if(idElem) {
+      let id = idElem.textContent;
+      if(id) {
+        config.audio.deviceId = id.trim();
+        StarBianRtc.getStream(config,true);
+      }
+    }
   }
 </script>
 
