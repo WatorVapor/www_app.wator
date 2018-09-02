@@ -1,8 +1,14 @@
 <script type="text/javascript">
+'use strict'
+
 
 var WATOR = WATOR || {
 };
 
+/**
+* @classdesc This is StarBian.
+* @constructor
+*/
 class StarBian {
   constructor(channelKey) {
     let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
@@ -23,6 +29,23 @@ class StarBian {
       self.onNotifyError_(evt);
     };
   }
+
+  /**
+  * @return {string} key
+  */
+  static getPubKey() {
+  }
+  /**
+  * @param {string} key
+  */
+  static addRemoteKey(key) {
+  }
+  /**
+  * @param {string} key
+  */
+  static removeRemoteKey(key) {
+  }
+
   publish(msg) {
     let self = this;
     WATOR.encrypt(JSON.stringify(msg),function(encrypt) {
