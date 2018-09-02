@@ -84,7 +84,7 @@ class StarBianCrypto {
     )
     .then(function(key){
       self.pubKey = key.publicKey;
-      self.getPubKey(key.publicKey);
+      self.savePubKey(key.publicKey);
       self.prvKey = key.privateKey;
       self.savePrivKey(key.privateKey);
     })
@@ -106,7 +106,7 @@ class StarBianCrypto {
     });
   }
 
-  getPubKey(key) {
+  savePubKey(key) {
     window.crypto.subtle.exportKey('raw',key)
     .then(function(keydata){
       console.log('getPubKey keydata=<' , keydata , '>');
@@ -115,6 +115,36 @@ class StarBianCrypto {
       if(typeof self.onReadKey === 'function') {
         self.onReadKey(self.pubKeyB58);
       }
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+
+  createECDHKey () {
+    let self = this;
+    window.crypto.subtle.generateKey(
+      {
+        name: 'ECDH',
+        namedCurve: 'P-256',
+      },
+      false,
+      ['deriveKey','deriveBits']
+    )
+    .then(function(key){
+      self.ECDHKey = key;
+      self.exportECDHPubKey(key.publicKey);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+  exportECDHPubKey(pubKey) {
+    let self = this;
+    crypto.subtle.exportKey('jwk', pubKey)
+    .then(function(keydata){
+      console.log('exportECDHPubKey keydata=<' , keydata , '>');
+      self.ECDHKeyPubJwk = keydata;
     })
     .catch(function(err){
       console.error(err);
