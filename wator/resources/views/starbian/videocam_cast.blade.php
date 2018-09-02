@@ -32,4 +32,27 @@
 @include('starbian.js.starbian')
 @include('starbian.js.starbian_rtc')
 @include('starbian.js.videocam_cast')
+
+<script type="text/javascript">
+  StarBianRtc.getDevice( (devices) => {
+    console.log('StarBianRtc.getDevice :devices=<',devices,'>');
+    let mic = [];
+    let camera = [];
+
+    let audio = new Vue({
+      el: '#vue-ui-camera-devices',
+      data: {
+          allCamera: camera
+      }
+    });
+    let audio = new Vue({
+      el: '#vue-ui-mic-devices',
+      data: {
+          allMic: mic
+      }
+    });
+  });
+
+  
+</script>
 @endsection
