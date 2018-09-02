@@ -2,8 +2,11 @@
 
 const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
-console.log('keyChannel=<',keyChannel,'>');
-let starbian = new StarBian(keyChannel);
+
+
+let rtc = new StarBianRtc(keyChannel);
+
+/*
 starbian.isReady = false;
 
 starbian.onReady = () => {
@@ -91,6 +94,7 @@ function onRemoteICE(ice) {
   console.log('onRemoteICE:ice=<',ice,'>');  
   pc.addIceCandidate( new RTCIceCandidate(ice));
 }
+*/
 
 
 </script>
