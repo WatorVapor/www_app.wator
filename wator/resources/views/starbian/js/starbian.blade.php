@@ -291,8 +291,10 @@ class StarBianCrypto {
     let index = keys.indexOf(auth.pubKeyB58);
     //console.log('verifyAuth:index=<',index,'>');
     if(index === -1 && channel !== 'broadcast') {
-      console.log('verifyAuthy: not authed !!! index=<',index,'>');
+      console.log('verifyAuth: not authed !!! index=<',index,'>');
       console.log('verifyAuth: not authed !!!  channel=<',channel,'>');
+      console.log('verifyAuth: not authed !!! content=<',content,'>');
+      console.log('verifyAuth: not auth !!!  channel=<',auth,'>');
       return;
     }
     //console.log('verifyAuth JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
@@ -303,6 +305,8 @@ class StarBianCrypto {
       if(hashCal !== auth.hash) {
         console.log('verifyAuth  not authed !!! hashCal=<' , hashCal , '>');
         console.log('verifyAuth  not authed !!! auth.hash=<' , auth.hash , '>');
+        console.log('verifyAuth: not authed !!! content=<',content,'>');
+        console.log('verifyAuth: not auth !!!  channel=<',auth,'>');
       } else {
         self.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
           //console.log('verifyAuth pubKey=<' , pubKey , '>');
