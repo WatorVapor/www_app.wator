@@ -15,14 +15,21 @@ $(document).ready(function(){
 /**
 * @classdesc This is StarBian_.
 * @constructor
+* @param {string} channelKey
 */
 class StarBian_ {
   constructor(channelKey) {
+    this.ipfsProxy = new StarBianIpfsProxy(channelKey);
   }
   /**
   * @return {string} key
   */
   static getPubKey() {
+  }
+  /**
+  * @return {array} key
+  */
+  static getRemoteKey() {
   }
   /**
   * @param {string} key
