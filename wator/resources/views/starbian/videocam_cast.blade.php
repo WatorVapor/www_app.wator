@@ -12,7 +12,7 @@
       <label class="form-check-label" >
         @{{camera.name}}
       </label>
-      <p class="d-none">@{{camera.id}}<p/>
+      <p class="d-none">@{{camera.id}}</p>
     </div>
   </div>
   <div class="col-4" id="vue-ui-mic-devices">
@@ -21,7 +21,7 @@
       <label class="form-check-label" >
         @{{mic.name}}
       </label>
-      <p class="d-none">@{{mic.id}}<p/>
+      <p class="d-none">@{{mic.id}}</p>
     </div>
   </div>
 </div>
