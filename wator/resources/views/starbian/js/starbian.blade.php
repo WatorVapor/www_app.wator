@@ -427,6 +427,11 @@ class StarBianCrypto {
   }
 
   encrypt function(msg,cb) {
+    if(!this.AESKey) {
+      console.log('encrypt this.AESKey=<' , this.AESKey , '>');
+      console.log('encrypt msg=<' , msg , '>');
+      return;
+    }
     //console.log('encrypt msg=<' , msg , '>');
     let self = this;
     let iv = window.crypto.getRandomValues(new Uint8Array(12));
