@@ -10,14 +10,22 @@ $(document).ready(function(){
 
 
 /**
-* @classdesc This is StarBian_.
+* @classdesc This is StarBian.
 * @constructor
 * @param {string} channelKey
 */
-class StarBian_ {
+class StarBian {
   constructor(channelKey) {
     this.ipfsProxy = new StarBianIpfsProxy(channelKey);
   }
+  /**
+  * @param {string} msg
+  */
+  publish(msg) {
+    this.ipfsProxy.publish(msg);
+  }
+
+
   /**
   * @return {string} key
   */
@@ -207,11 +215,7 @@ class StarBianCrypto {
 }
 let _insideCrypto = false; 
 
-/**
-* @classdesc This is StarBian.
-* @constructor
-*/
-class StarBian {
+class StarBianIpfsProxy {
   constructor(channelKey) {
     let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
     this.ws_ = new WebSocket(uri);
