@@ -4,7 +4,7 @@
 * @classdesc This is StarBianRtc.
 * @constructor
 * @param {string} channelKey
-* @param {string} stream
+* @param {object} stream
 */
 class StarBianRtc {
   constructor(channelKey,stream) {
@@ -12,7 +12,30 @@ class StarBianRtc {
       throw 'please give me a dist device.';
       return;
     }
+    this.wait_ = false;
+    this.call_ = false;
     this._createStarBian(keyChannel);
+  }
+  /**
+  */
+  waitPeer() {
+    this.wait_ = true;
+  }
+  /**
+  */
+  callPeer() {
+    this.call_ = true;
+  }
+
+  /**
+  * @param {function} cb
+  */
+  static getDevice(cb) {
+  }
+  /**
+  * @param {object} config
+  */
+  static getStream(config) {
   }
 
   _createStarBian(keyChannel) {
