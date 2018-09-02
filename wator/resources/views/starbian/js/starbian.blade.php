@@ -55,13 +55,14 @@ const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 
 class StarBianCrypto {
   constructor() {
+    this.onReadKey = StarBian_.onReadOfKey;
     //console.log('StarBianCrypto');	
     let key = localStorage.getItem(LS_KEY_NAME);
     //console.log('StarBianCrypto:key=<',key,'>');
     if(key) {
-      onLoadSavedKey(key);
+      this.onLoadSavedKey(key);
     } else {
-      onCreateKey();
+      this.onCreateKey();
     }  
     let keyRemote = localStorage.getItem(LS_KEY_REMOTE_NAME);
     if(!keyRemote) {
@@ -69,12 +70,7 @@ class StarBianCrypto {
       //console.log('StarBianCrypto keyStr=<' , keyStr , '>');
       localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
     }
-    createECDHKey();
-    /*
-    if(typeof StarBian_.onReadOfKey === 'function') {
-      StarBian_.onReadOfKey('ok');
-    }
-    */
+    this.createECDHKey();  
   }
   onCreateKey () {
     let self = this;
@@ -88,15 +84,44 @@ class StarBianCrypto {
     )
     .then(function(key){
       self.pubKey = key.publicKey;
-      getPubKey(key.publicKey);
+      self.getPubKey(key.publicKey);
       self.prvKey = key.privateKey;
-      savePrivKey(key.privateKey);
+      self.savePrivKey(key.privateKey);
     })
     .catch(function(err){
       console.error(err);
     });
   }
-  
+
+  savePrivKey(key) {
+    window.crypto.subtle.exportKey('jwk',key)
+    .then(function(keydata){
+      console.log('savePrivKey keydata=<' , keydata , '>');
+      let keyStr = JSON.stringify(keydata);
+      console.log('savePrivKey keyStr=<' , keyStr , '>');
+      localStorage.setItem(LS_KEY_NAME,keyStr);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+
+  function getPubKey(key) {
+    window.crypto.subtle.exportKey('raw',key)
+    .then(function(keydata){
+      console.log('getPubKey keydata=<' , keydata , '>');
+      self.pubKeyB58 = Base58.encode(new Uint8Array(keydata));
+      console.log('getPubKey self.pubKeyB58=<' , self.pubKeyB58 , '>');
+      if(typeof self.onReadKey === 'function') {
+        self.onReadKey(self.pubKeyB58);
+      }
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+
+
 }
 let _insideCrypto = false; 
 
