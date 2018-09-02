@@ -7,10 +7,10 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-2">
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
-        Default radio
+    <div class="form-check" v-for="camera in allCamera">
+      <input class="form-check-input" type="radio" v-bind:value="camera.name">
+      <label class="form-check-label" >
+        @{{camera.name}}
       </label>
     </div>
   </div>
