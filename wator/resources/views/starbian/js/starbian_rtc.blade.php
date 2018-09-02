@@ -7,7 +7,7 @@
 * @param {object} stream
 */
 class StarBianRtc {
-  constructor(channelKey,stream) {
+  constructor(channelKey) {
     if(!channelKey) {
       throw 'please give me a dist device.';
       return;
@@ -25,38 +25,6 @@ class StarBianRtc {
   */
   callPeer() {
     this.call_ = true;
-  }
-
-  /**
-  * @param {function} cb
-  */
-  static getDevice(cb) {
-    navigator.mediaDevices.enumerateDevices()
-    .then(function(devices) {
-      cb(devices);
-    })
-    .catch(function(err) {
-      console.log('getDevice:err=<',err,'>');
-    });
-  }
-  /**
-  * @param {object} config
-  * @param {function} cb
-  */
-  static getStream(config,cb) {
-    let self = this;
-    navigator.mediaDevices.getUserMedia(config)
-    .then( (stream) => {
-      if(typeof cb === 'function') {
-        cb(stream);
-      }
-      self.localStreamCache = stream;
-      //self._onStreamGot(stream);
-    })
-    .catch( (err) => {
-      //self._onStreamError(err);
-      console.log('getStream:err=<',err,'>');
-    });
   }
 
   _createStarBian(keyChannel) {
@@ -89,6 +57,40 @@ class StarBianRtc {
     console.log('_onStreamGot:this=<',this,'>');
     this.localStreamCache = stream;
   }  
+}
+
+
+class DeviceSetting {
+  constructor() {
+  }
+  /**
+  * @param {function} cb
+  */
+  static getDevice(cb) {
+    navigator.mediaDevices.enumerateDevices()
+    .then(function(devices) {
+      cb(devices);
+    })
+    .catch(function(err) {
+      console.log('getDevice:err=<',err,'>');
+    });
+  }
+  /**
+  * @param {object} config
+  * @param {function} cb
+  */
+  static getStream(config,cb) {
+    let self = this;
+    navigator.mediaDevices.getUserMedia(config)
+    .then( (stream) => {
+      if(typeof cb === 'function') {
+        cb(stream);
+      }
+    })
+    .catch( (err) => {
+      console.log('getStream:err=<',err,'>');
+    });
+  }
 }
 
 /*
