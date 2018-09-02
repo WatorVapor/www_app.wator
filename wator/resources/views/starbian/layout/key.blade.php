@@ -54,6 +54,7 @@
 <script type="text/javascript">
   StarBian.onReadyOfKey = (key) => {
     console.log('StarBian.onReadyOfKey key=<' , key , '>');
+    onUpdatePublicKey(key);
   };
 </script>
 
@@ -79,7 +80,7 @@
       let textKey = root.getElementsByTagName('textarea')[0].value;
       console.log('onAddRemoteKey textKey=<' , textKey , '>');
       if(textKey) {
-        WATOR.addRemoteKey(textKey.trim());
+        StarBian.addRemoteKey(textKey.trim());
       }
     } catch(e) {
       console.error(e);
@@ -98,7 +99,7 @@
       console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
       if(textKey) {
         console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
-        WATOR.removeKey(textKey.trim());
+        StarBian.removeKey(textKey.trim());
       }
     } catch(e) {
       console.error(e);
