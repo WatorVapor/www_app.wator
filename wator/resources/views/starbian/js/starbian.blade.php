@@ -328,6 +328,39 @@ class StarBianCrypto {
     });
   }
 
+
+  Bs58Key2RsKey(bs58Key,cb) {
+    console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
+    const pubKeyBuff = Base58.decode(bs58Key);
+    console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
+    crypto.subtle.importKey(
+      'raw',
+      pubKeyBuff,
+      {
+        name: 'ECDSA',
+        namedCurve: 'P-256', 
+      },
+      true, 
+      ['verify']
+    )
+    .then(function(pubKey){
+      console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
+      crypto.subtle.exportKey('jwk', pubKey)
+      .then(function(keydata){
+        console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
+        let rsKey = KEYUTIL.getKey(keydata);	
+        console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
+        cb(rsKey);
+      })
+      .catch(function(err){
+        console.error(err);
+      });
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+
 }
 let _insideCrypto = false; 
 
