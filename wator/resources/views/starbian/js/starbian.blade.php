@@ -1,5 +1,8 @@
 <script type="text/javascript">
 
+var WATOR = WATOR || {
+};
+
 class StarBian {
   constructor(channelKey) {
     let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
