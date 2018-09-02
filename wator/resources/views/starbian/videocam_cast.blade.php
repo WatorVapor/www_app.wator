@@ -39,13 +39,13 @@
     let mic = [];
     let camera = [];
 
-    let audio = new Vue({
+    let cameraApp = new Vue({
       el: '#vue-ui-camera-devices',
       data: {
           allCamera: camera
       }
     });
-    let audio = new Vue({
+    let audioApp = new Vue({
       el: '#vue-ui-mic-devices',
       data: {
           allMic: mic
