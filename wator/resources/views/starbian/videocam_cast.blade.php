@@ -38,6 +38,10 @@
     console.log('StarBianRtc.getDevice :devices=<',devices,'>');
     let mic = [];
     let camera = [];
+    for(let i = 0;i < devices.length;i++) {
+      let device = devices[i];
+      console.log('StarBianRtc.getDevice :device=<',device,'>');
+    }
 
     let cameraApp = new Vue({
       el: '#vue-ui-camera-devices',
