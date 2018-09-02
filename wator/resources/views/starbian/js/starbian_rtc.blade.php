@@ -47,7 +47,9 @@ class StarBianRtc {
     let pMedia = navigator.mediaDevices.getUserMedia(config);
     let self = this;
     pMedia.then( (stream) => {
-      cb(stream);
+      if(typeof cb === 'function') {
+        cb(stream);
+      }
       self._onStreamGot(stream);
     });
     pMedia.catch( (err) => {
