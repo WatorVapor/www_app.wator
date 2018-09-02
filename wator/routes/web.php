@@ -88,6 +88,7 @@ Route::get('/starbian/ble/chart', 'StarBian\BLEChartController@index');
 
 Route::get('/starbian/cloud/gofuro', 'StarBian\CloudGoFuroController@index');
 Route::get('/starbian/cloud/videocam/{remote?}', 'StarBian\CloudVideocamController@index');
+Route::get('/starbian/cloud/videocam_cast/{remote?}', 'StarBian\CloudVideocamController@index_cast');
 Route::get('/starbian/cloud/videocam_recv/{remote?}', 'StarBian\CloudVideocamController@index_recv');
 
 Route::get('/starbian/msgchain/entry', 'StarBian\WorldEntryController@index');
