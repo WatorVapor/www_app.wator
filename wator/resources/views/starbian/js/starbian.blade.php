@@ -7,11 +7,40 @@ var WATOR = WATOR || {
 
 $(document).ready(function(){
   setTimeout(function(){
-    StarBian.InitCrypto_();
+    StarBian_.InitCrypto_();
   },0);
 });
 
 
+/**
+* @classdesc This is StarBian_.
+* @constructor
+*/
+class StarBian {
+  constructor(channelKey) {
+  }
+  /**
+  * @return {string} key
+  */
+  static getPubKey() {
+  }
+  /**
+  * @param {string} key
+  */
+  static addRemoteKey(key) {
+  }
+  /**
+  * @param {string} key
+  */
+  static removeRemoteKey(key) {
+  }
+  
+  
+  // private..
+  static InitCrypto_(evt) {
+    console.log('StarBian:InitCrypto_ evt=<',evt,'>');
+  }
+};
 
 /**
 * @classdesc This is StarBian.
@@ -38,21 +67,6 @@ class StarBian {
     };
   }
 
-  /**
-  * @return {string} key
-  */
-  static getPubKey() {
-  }
-  /**
-  * @param {string} key
-  */
-  static addRemoteKey(key) {
-  }
-  /**
-  * @param {string} key
-  */
-  static removeRemoteKey(key) {
-  }
 
   publish(msg) {
     let self = this;
@@ -89,10 +103,6 @@ class StarBian {
   }
   
   
-  // private..
-  static InitCrypto_(evt) {
-    console.log('StarBian:InitCrypto_ evt=<',evt,'>');
-  }
 
   
   // private..
