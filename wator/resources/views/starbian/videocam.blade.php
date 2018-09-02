@@ -8,7 +8,5 @@
 @include('starbian.layout.key')
 <hr/>
 @include('starbian.layout.camera')
-
-@include('starbian.js.keys')
 @include('starbian.js.videocam')
 @endsection
