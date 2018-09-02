@@ -50,10 +50,12 @@ class StarBianRtc {
       if(typeof cb === 'function') {
         cb(stream);
       }
-      self._onStreamGot(stream);
+      self.localStreamCache = stream;
+      //self._onStreamGot(stream);
     })
     .catch( (err) => {
-      self._onStreamError(err);
+      //self._onStreamError(err);
+      console.log('getStream:err=<',err,'>');
     });
   }
 
