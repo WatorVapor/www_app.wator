@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
   function onRemoteKeyRead() {
-    let remotekeys = WATOR.getRemoteKeys();
+    let remotekeys = StarBian.getRemoteKey();
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
