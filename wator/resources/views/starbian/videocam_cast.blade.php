@@ -12,7 +12,7 @@
     </a>
   </div>
   <div class="col-5">
-    <video id="video" autoplay controls width="80" height="60"></video>
+    <video id="video" autoplay controls width="320" height="240"></video>
   </div>
 </div>
 
