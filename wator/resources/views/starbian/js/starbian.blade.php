@@ -5,6 +5,13 @@
 var WATOR = WATOR || {
 };
 
+$(document).ready(function(){
+  setTimeout(function(){
+    StarBian.InitCrypto_();
+  },0);
+});
+
+
 /**
 * @classdesc This is StarBian.
 * @constructor
@@ -81,6 +88,11 @@ class StarBian {
   }
   
   
+  // private..
+  static InitCrypto_() {
+    console.log('StarBian:InitCrypto_=<',InitCrypto_,'>');
+  }
+
   
   // private..
   sharePubKeyTimeOut_(cb) {
