@@ -16,7 +16,7 @@ $(document).ready(function(){
 * @classdesc This is StarBian_.
 * @constructor
 */
-class StarBian {
+class StarBian_ {
   constructor(channelKey) {
   }
   /**
