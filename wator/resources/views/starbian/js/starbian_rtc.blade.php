@@ -44,8 +44,8 @@ class StarBianRtc {
   * @param {function} cb
   */
   static getStream(config,cb) {
-    let pMedia = navigator.mediaDevices.getUserMedia(config);
     let self = this;
+    let pMedia = navigator.mediaDevices.getUserMedia(config);
     pMedia.then( (stream) => {
       if(typeof cb === 'function') {
         cb(stream);
@@ -53,7 +53,7 @@ class StarBianRtc {
       self._onStreamGot(stream);
     });
     pMedia.catch( (err) => {
-      this._onStreamError(err);
+      self._onStreamError(err);
     });
   }
 
@@ -84,6 +84,7 @@ class StarBianRtc {
   }
   _onStreamGot(stream) {
     console.log('_onStreamGot:stream=<',stream,'>');
+    console.log('_onStreamGot:this=<',this,'>');
     this.localStreamCache = stream;
   }  
 }
