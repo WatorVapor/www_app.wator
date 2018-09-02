@@ -52,7 +52,7 @@
 </script>
 
 <script type="text/javascript">
-  StarBian_.onKeyRead = (key) => {
+  StarBian_.onReadOfKey = (key) => {
     console.log('StarBian_.onKeyRead key=<' , key , '>');
   };
 </script>
