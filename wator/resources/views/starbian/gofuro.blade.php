@@ -8,7 +8,5 @@
 @include('starbian.layout.key')
 <hr/>
 @include('starbian.layout.iot')
-
-@include('starbian.js.keys')
 @include('starbian.js.gofuro')
 @endsection
