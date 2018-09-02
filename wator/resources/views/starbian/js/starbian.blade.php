@@ -64,9 +64,9 @@ class StarBian {
     }
   }
   /**
-  * @param {string} key
+  * @param {string} pubKey
   */
-  static addRemoteKey(key) {
+  static addRemoteKey(pubKey) {
     console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
@@ -81,9 +81,9 @@ class StarBian {
     localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
   }
   /**
-  * @param {string} key
+  * @param {string} pubKey
   */
-  static removeRemoteKey(key) {
+  static removeRemoteKey(pubKey) {
     console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
