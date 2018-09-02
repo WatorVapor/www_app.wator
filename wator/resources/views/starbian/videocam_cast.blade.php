@@ -7,19 +7,19 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4" id="vue-ui-camera-devices">
-    <div class="form-check" v-for="camera in allCamera">
-      <input class="btn btn-block" type="button" name="camera" v-bind:value="camera.name" onclick="onClickCameraTest(this)">
+    <div class="row" v-for="camera in allCamera">
+      <a class="btn btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
         @{{camera.name}}
         <p class="d-none">@{{camera.id}}</p>
-      </input>
+      </a>
     </div>
   </div>
   <div class="col-4" id="vue-ui-mic-devices">
-    <div class="form-check" v-for="mic in allMic">
-      <input class="btn btn-block" type="button" name="mic" v-bind:value="mic.name" onclick="onClickMicTest(this)">
+    <div class="row" v-for="mic in allMic">
+      <a class="btn btn-block" type="button" name="mic" onclick="onClickMicTest(this)">
          @{{mic.name}}
         <p class="d-none">@{{mic.id}}</p>
-      </input>
+      </a>
     </div>
   </div>
 </div>
