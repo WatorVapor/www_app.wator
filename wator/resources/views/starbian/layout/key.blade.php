@@ -50,6 +50,13 @@
 <script type="text/javascript">
   new ClipboardJS('.btn-clipboard');
 </script>
+
+<script type="text/javascript">
+  StarBian_.onKeyRead = (key) => {
+    console.log('StarBian_.onKeyRead key=<' , key , '>');
+  };
+</script>
+
 <script type="text/javascript">
   function onUpdatePublicKey(key) {
     console.log('onUpdatePublicKey key=<' , key , '>');
