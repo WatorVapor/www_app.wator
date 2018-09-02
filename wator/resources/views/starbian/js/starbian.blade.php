@@ -46,6 +46,9 @@ class StarBian_ {
   // private..
   static InitCrypto_(evt) {
     console.log('StarBian:InitCrypto_ evt=<',evt,'>');
+    if(typeof StarBian_.onKeyRead === 'function') {
+      StarBian_.onKeyRead('ok');
+    }
   }
 };
 
