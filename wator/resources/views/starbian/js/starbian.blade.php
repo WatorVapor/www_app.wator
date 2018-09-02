@@ -10,6 +10,11 @@
 class StarBian {
   constructor(channelKey) {
     this.ipfsProxy = new StarBianIpfsProxy(channelKey);
+    this.ipfsProxy.onReady = () => {
+      if(typeof this.onReady === 'function') {
+        this.onReady();
+      }
+    }
   }
   /**
   * @param {string} msg
