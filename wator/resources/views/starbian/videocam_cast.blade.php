@@ -8,17 +8,15 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4" id="vue-ui-camera-devices">
     <div class="form-check" v-for="camera in allCamera">
-      <input class="form-check-input btn-block" type="button" name="camera" v-bind:value="camera.name" onclick="onClickCameraTest(this)">
+      <input class="btn btn-block" type="button" name="camera" v-bind:value="camera.name" onclick="onClickCameraTest(this)">
       @{{camera.name}}
       <p class="d-none">@{{camera.id}}</p>
     </div>
   </div>
   <div class="col-4" id="vue-ui-mic-devices">
     <div class="form-check" v-for="mic in allMic">
-      <input class="form-check-input" type="radio" name="mic" v-bind:value="mic.name" onChange="onClickMicTest(this)">
-      <label class="form-check-label" >
-        @{{mic.name}}
-      </label>
+      <input class="btn btn-block" type="button" name="mic" v-bind:value="mic.name" onclick="onClickMicTest(this)">
+       @{{mic.name}}
       <p class="d-none">@{{mic.id}}</p>
     </div>
   </div>
