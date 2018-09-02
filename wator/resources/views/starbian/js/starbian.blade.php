@@ -72,7 +72,9 @@ class StarBian {
     let keyJson = JSON.parse(key);
     if(keyJson) {
       keyJson.push(pubKey);
-      keyJson = keyJson.filter( onlyUnique );
+      keyJson = keyJson.filter( (value, index, self) => { 
+        return self.indexOf(value) === index;
+      });
     } else {
       keyJson = [pubKey];
     }
