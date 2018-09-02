@@ -49,13 +49,54 @@ class StarBian_ {
 }
 
 // private class
+
+const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+
 class StarBianCrypto {
   constructor() {
-    console.log('StarBianCrypto');	
+    //console.log('StarBianCrypto');	
+    let key = localStorage.getItem(LS_KEY_NAME);
+    //console.log('StarBianCrypto:key=<',key,'>');
+    if(key) {
+      onLoadSavedKey(key);
+    } else {
+      onCreateKey();
+    }  
+    let keyRemote = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    if(!keyRemote) {
+      let keyStr = JSON.stringify([]);
+      //console.log('StarBianCrypto keyStr=<' , keyStr , '>');
+      localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
+    }
+    createECDHKey();
+    /*
     if(typeof StarBian_.onReadOfKey === 'function') {
       StarBian_.onReadOfKey('ok');
     }
+    */
   }
+  onCreateKey () {
+    let self = this;
+    window.crypto.subtle.generateKey(
+      {
+        name: 'ECDSA',
+        namedCurve: 'P-256',
+      },
+      true,
+      ['sign','verify']
+    )
+    .then(function(key){
+      self.pubKey = key.publicKey;
+      getPubKey(key.publicKey);
+      self.prvKey = key.privateKey;
+      savePrivKey(key.privateKey);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+  
 }
 let _insideCrypto = false; 
 
