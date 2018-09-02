@@ -55,7 +55,7 @@ class StarBian {
   * @return {array} key
   */
   static getRemoteKey() {
-    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
       return keyJson;
@@ -68,7 +68,7 @@ class StarBian {
   */
   static addRemoteKey(key) {
     console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
-    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
       keyJson.push(pubKey);
@@ -78,21 +78,21 @@ class StarBian {
     }
     let keyStr = JSON.stringify(keyJson);
     console.log('StarBian addRemoteKey keyStr=<' , keyStr , '>');
-    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
+    localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
   }
   /**
   * @param {string} key
   */
   static removeRemoteKey(key) {
     console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
-    let key = localStorage.getItem(KEY_REMOTE_NAME);
+    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     console.log('StarBian.removeKey keyJson=<' , keyJson , '>');
     let newKeys = keyJson.filter(key => pubKey !== key);
     console.log('StarBian.removeKey newKeys=<' , newKeys , '>');
     let keyStr = JSON.stringify(newKeys);
     console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
-    localStorage.setItem(KEY_REMOTE_NAME,keyStr);
+    localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
   }
   
   
