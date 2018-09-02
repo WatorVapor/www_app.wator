@@ -7,13 +7,12 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-1">
-  </div>
-  <div class="col-1">
-  </div>
-  <div class="col-1">
-    <a type="button" class="btn btn-success btn-block" onclick="onTestDeviceKey(this)">
-      <i class="material-icons">settings</i>
-    </a>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        Default radio
+      </label>
+    </div>
   </div>
   <div class="col-5">
     <video id="video" autoplay controls width="320" height="240"></video>
