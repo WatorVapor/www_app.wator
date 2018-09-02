@@ -41,8 +41,18 @@ class StarBianRtc {
   }
   /**
   * @param {object} config
+  * @param {function} cb
   */
-  static getStream(config) {
+  static getStream(config,cb) {
+    let pMedia = navigator.mediaDevices.getUserMedia(config);
+    let self = this;
+    pMedia.then( (stream) => {
+      cb(stream);
+      self._onStreamGot(stream);
+    });
+    pMedia.catch( (err) => {
+      this._onStreamError(err);
+    });
   }
 
   _createStarBian(keyChannel) {
@@ -67,6 +77,13 @@ class StarBianRtc {
     });
   }
   
+  _onStreamError(error) {
+    console.log('_onStreamError:error=<',error,'>');
+  }
+  _onStreamGot(stream) {
+    console.log('_onStreamGot:stream=<',stream,'>');
+    this.localStreamCache = stream;
+  }  
 }
 
 /*
