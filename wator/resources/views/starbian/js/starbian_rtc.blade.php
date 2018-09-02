@@ -34,7 +34,7 @@ class StarBianRtc {
     navigator.mediaDevices.enumerateDevices()
     .then(function(devices) {
         cb(devices);
-      });
+      })
     })
     .catch(function(err) {
       console.log('getDevice:err=<',err,'>');
