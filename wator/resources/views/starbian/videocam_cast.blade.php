@@ -7,7 +7,7 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4" id="vue-ui-camera-devices">
-    <div class="row " v-for="camera in allCamera">
+    <div class="row mt-lg-3" v-for="camera in allCamera">
       <a class="btn btn-success btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
         @{{camera.name}}
         <p class="d-none">@{{camera.id}}</p>
