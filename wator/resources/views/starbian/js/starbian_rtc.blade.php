@@ -105,8 +105,6 @@ class StarBianRtc {
     this.sendOffer_(offer);
   }
 
-
-onOfferGot_()
 }
 
 $(document).ready(function(){
