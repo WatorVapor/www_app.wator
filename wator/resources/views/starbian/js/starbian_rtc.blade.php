@@ -1,5 +1,7 @@
 <script type="text/javascript">
 
+const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
+
 /**
 * @classdesc This is StarBianRtc.
 * @constructor
@@ -71,6 +73,9 @@ class DeviceSetting {
   * @param {function} cb
   */
   static getStream(config,cb) {
+    let configStr = JSON.stringify(config);
+    console.log('getStream:configStr=<',configStr,'>');
+    localStorage.setItem(LS_KEY_CAMERA_SETTING,configStr);
     let self = this;
     navigator.mediaDevices.getUserMedia(config)
     .then( (stream) => {
