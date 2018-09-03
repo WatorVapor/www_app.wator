@@ -6,12 +6,12 @@
 @section('content')
 
 <div class="row justify-content-center">
-  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse_setting_device" role="button" aria-expanded="false" aria-controls="collapse_setting_device">
+    Setting of Camera & Micphone Devices
   </a>
 </div>
 
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="collapse_setting_device">
   <div class="row justify-content-center">
     <div class="col-4" id="vue-ui-camera-devices">
       <div class="row mt-lg-5" v-for="camera in allCamera">
