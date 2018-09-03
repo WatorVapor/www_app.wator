@@ -37,6 +37,7 @@
     </div>
   </div>
 </div>
+<hr/>
 
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
 
