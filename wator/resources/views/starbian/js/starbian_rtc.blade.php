@@ -130,7 +130,7 @@ class StarBianRtc {
     console.error('onAnswerSetRemoteDescriptionError_:error=<',error,'>');
   }
   onAnswerSetRemoteDescriptionGot_(evt) {
-    console.error('onAnswerSetRemoteDescriptionGot_:evt=<',evt,'>');
+    console.log('onAnswerSetRemoteDescriptionGot_:evt=<',evt,'>');
   }
 
 
