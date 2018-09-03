@@ -47,15 +47,6 @@ class StarBianRtc {
         onRemoteICE(msg.ice);
       }
     });
-  }
-  
-  _onStreamError(error) {
-    console.log('_onStreamError:error=<',error,'>');
-  }
-  _onStreamGot(stream) {
-    console.log('_onStreamGot:stream=<',stream,'>');
-    console.log('_onStreamGot:this=<',this,'>');
-    this.localStreamCache = stream;
   }  
 }
 
@@ -88,7 +79,7 @@ class DeviceSetting {
       }
     })
     .catch( (err) => {
-      console.log('getStream:err=<',err,'>');
+      console.error('DeviceSetting::getStream:err=<',err,'>');
     });
   }
 }
