@@ -82,6 +82,10 @@
     video:{}
   }; 
   function onClickCameraTest(elem) {
+    let mediaTag = document.getElementById('video');
+    mediaTag.stop();
+    mediaTag.srcObject = null;
+
     console.log('onClickCameraTest :elem=<',elem,'>');
     let idElem = elem.getElementsByTagName('p')[0];
     console.log('onClickCameraTest idElem=<' , idElem , '>');
@@ -94,6 +98,10 @@
     }
   }
   function onClickMicTest(elem) {
+    let mediaTag = document.getElementById('video');
+    mediaTag.stop();
+    mediaTag.srcObject = null;
+
     console.log('onClickCameraTest :elem=<',elem,'>');
     let idElem = elem.getElementsByTagName('p')[0];
     console.log('onClickCameraTest idElem=<' , idElem , '>');
