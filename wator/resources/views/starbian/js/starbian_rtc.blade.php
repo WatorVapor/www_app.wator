@@ -92,6 +92,11 @@ $(document).ready(function(){
 });
 let localStreamCache = false;
 
+StarBian.onReadyOfKey = (key) => {
+  console.log('StarBian.onReadyOfKey key=<' , key , '>');
+};
+
+
 class DeviceSetting {
   constructor() {
   }
