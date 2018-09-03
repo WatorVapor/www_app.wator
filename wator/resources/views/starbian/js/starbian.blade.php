@@ -45,8 +45,8 @@ class StarBian {
   /**
   * @return {string} key
   */
-  static getPubKey() {
-    return StarBianCrypto.getPubKey();
+  getPubKey() {
+    return _insideCrypto.getPubKey();
   }
   /**
   * @return {array} key
@@ -110,8 +110,10 @@ class StarBianCrypto {
   /**
   * @return {string} key
   */
-  static getPubKey() {
+  getPubKey() {
+    return this.pubKeyB58;
   }
+  
   /**
   * @return {array} key
   */
