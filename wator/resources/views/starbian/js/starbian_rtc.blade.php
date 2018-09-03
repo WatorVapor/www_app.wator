@@ -35,7 +35,7 @@ class StarBianRtc {
     this.starbian_.isReady = false;
     let self = this;
     this.starbian_.onReady = () => {
-      self.myPubKey_ = self.starbian_getPubKey().
+      self.myPubKey_ = self.starbian_.getPubKey();
       self.starbian_.publish({start:true,key:self.myPubKey_});
       self.starbian_.isReady = true;
     };
