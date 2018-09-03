@@ -600,10 +600,8 @@ class StarBianIpfsProxy {
       let self = this;
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
       _insideCrypto.verifyAuth(content,msg.auth,channel,() => {
-        if(msg.msg) {
-          self.onGoodMessage_(msg.msg);
-        } else if(msg.encrypt) {
-          self.onEncrypt_(msg.encrypt);
+        if(msg.encrypt) {
+          self.onEncrypt_(msg.encrypt,channel);
         } else if(msg.ecdh) {
           self.onGoodECDH_(msg.ecdh);
         } else if(msg.shareKey) {
@@ -615,10 +613,10 @@ class StarBianIpfsProxy {
     }
   }
 
-  onGoodMessage_(msg) {
+  onGoodMessage_(msg,channel) {
     //console.log('onGoodMessage_:msg=<',msg,'>');
     if(typeof this.subscribe_ === 'function') {
-      this.subscribe_(msg);
+      this.subscribe_(msg,channel);
     }
   }
   onGoodECDH_(ecdh) {
@@ -637,16 +635,16 @@ class StarBianIpfsProxy {
       },0);
     });
   }
-  onEncrypt_(encrypt) {
+  onEncrypt_(encrypt,channel) {
     //console.log('onEncrypt_:encrypt=<',encrypt,'>');
     let self = this;
     _insideCrypto.decrypt(encrypt,function(plainMsg) {
       //console.log('onEncrypt_:typeof plainMsg=<',typeof plainMsg,'>');
       if(plainMsg) {
         if(typeof plainMsg === 'string') {
-          self.onGoodMessage_(JSON.parse(plainMsg));
+          self.onGoodMessage_(JSON.parse(plainMsg),channel);
         } else {
-          self.onGoodMessage_(plainMsg);
+          self.onGoodMessage_(plainMsg,channel);
         }
       } else {
         console.log('onEncrypt_:plainMsg=<',plainMsg,'>');
