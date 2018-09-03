@@ -13,6 +13,7 @@
         <p class="d-none">@{{camera.id}}</p>
       </a>
     </div>
+    <br/>
   </div>
   <div class="col-4" id="vue-ui-mic-devices">
     <div class="row" v-for="mic in allMic">
@@ -21,6 +22,7 @@
         <p class="d-none">@{{mic.id}}</p>
       </a>
     </div>
+    <br/>
   </div>
 </div>
 <div class="row mt-lg-5 justify-content-center">
