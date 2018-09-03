@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="row mt-lg-5 justify-content-center">
+<div class="row justify-content-center">
   <div class="col-4" id="vue-ui-camera-devices">
     <div class="row mt-lg-5" v-for="camera in allCamera">
       <a class="btn btn-success btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
@@ -23,6 +23,7 @@
     </div>
   </div>
 </div>
+
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
     <video id="video" autoplay controls width="320" height="240"></video>
