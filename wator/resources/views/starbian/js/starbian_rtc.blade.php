@@ -115,7 +115,7 @@ class StarBianRtc {
     }
   }
   sendICE_(ice) {
-    if(starbian_.isReady) {
+    if(this.starbian_.isReady) {
       this.starbian_.publish({ice:ice});
     } else {
       this.localICECache_.push(ice);
