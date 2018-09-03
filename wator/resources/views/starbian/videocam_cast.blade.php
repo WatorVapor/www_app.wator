@@ -10,7 +10,7 @@
     <div class="row" v-for="camera in allCamera">
       <a class="btn btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
         @{{camera.name}}
-        <p class="">@{{camera.id}}</p>
+        <p class="d-none">@{{camera.id}}</p>
       </a>
     </div>
   </div>
@@ -83,7 +83,7 @@
   }; 
   function onClickCameraTest(elem) {
     console.log('onClickCameraTest :elem=<',elem,'>');
-    let idElem = elem.parentElement.parentElement.getElementsByTagName('p')[0];
+    let idElem = elem.getElementsByTagName('p')[0];
     console.log('onClickCameraTest idElem=<' , idElem , '>');
     if(idElem) {
       let id = idElem.textContent;
@@ -95,7 +95,7 @@
   }
   function onClickMicTest(elem) {
     console.log('onClickCameraTest :elem=<',elem,'>');
-    let idElem = elem.parentElement.parentElement.getElementsByTagName('p')[0];
+    let idElem = elem.getElementsByTagName('p')[0];
     console.log('onClickCameraTest idElem=<' , idElem , '>');
     if(idElem) {
       let id = idElem.textContent;
