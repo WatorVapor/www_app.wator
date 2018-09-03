@@ -97,12 +97,27 @@ class StarBianRtc {
   }
 
   onOfferError_(error) {
-    console.log('onOfferError:error=<',error,'>');
+    console.error('onOfferError_:error=<',error,'>');
   }
   onOfferGot_(offer) {
-    console.log('onOfferGot:offer=<',offer,'>');
+    console.log('onOfferGot_:offer=<',offer,'>');
     this.pc.setLocalDescription(offer);
     this.sendOffer_(offer);
+  }
+
+  sendOffer_(offer) {
+    if(starbian_.isReady) {
+      starbian_.publish({offer:offer});
+    } else {
+      localOfferCache = offer;
+    }
+  }
+  sendICE_(ice) {
+    if(starbian_.isReady) {
+      starbian_.publish({ice:ice});
+    } else {
+      localICECache.push(ice);
+    }
   }
 
 }
