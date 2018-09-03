@@ -53,6 +53,9 @@ class StarBianRtc {
   static createRTCStreaming_() {
     let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
     console.log('_createRTCStreaming:configStr=<',configStr,'>');
+    if(!configStr) {
+      return;
+    }
     let config = JSON.parse(configStr);
     if(!config) {
       return;
