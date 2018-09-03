@@ -19,6 +19,8 @@ class StarBianRtc {
         {urls: 'stun:stun2.l.google.com:19302'}
       ]
     };
+    this.localOfferCache_ = false;
+    this.localICECache_ = [];
     this.createStarBian_(keyChannel);
   }
   
@@ -106,17 +108,17 @@ class StarBianRtc {
   }
 
   sendOffer_(offer) {
-    if(starbian_.isReady) {
-      starbian_.publish({offer:offer});
+    if(this.starbian_.isReady) {
+      this.starbian_.publish({offer:offer});
     } else {
-      localOfferCache = offer;
+      this.localOfferCache_ = offer;
     }
   }
   sendICE_(ice) {
     if(starbian_.isReady) {
-      starbian_.publish({ice:ice});
+      this.starbian_.publish({ice:ice});
     } else {
-      localICECache.push(ice);
+      this.localICECache_.push(ice);
     }
   }
 
