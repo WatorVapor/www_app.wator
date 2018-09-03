@@ -54,6 +54,9 @@ class StarBianRtc {
     let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
     console.log('_createRTCStreaming:configStr=<',configStr,'>');
     let config = JSON.parse(configStr);
+    if(!config) {
+      return;
+    }
     navigator.mediaDevices.getUserMedia(config)
     .then( (stream) => {
       console.log('_createRTCStreaming:stream=<',stream,'>');
