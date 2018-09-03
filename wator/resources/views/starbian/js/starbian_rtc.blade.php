@@ -123,13 +123,14 @@ class StarBianRtc {
     let sdp = new RTCSessionDescription(answer);
     console.log('onRemoteAnswer_:sdp=<',sdp,'>');
     let pRsdp = this.pc.setRemoteDescription(sdp);
-    pRsdp.then(this.onSetRemoteDescriptionGot_.bind(this));
-    pRsdp.catch(this.onSetRemoteDescriptionError_.bind(this));
+    pRsdp.then(this.onAnswerSetRemoteDescriptionGot_.bind(this));
+    pRsdp.catch(this.onAnswerSetRemoteDescriptionError_.bind(this));
   }
-  onSetRemoteDescriptionError_(error) {
-    console.error('onSetRemoteDescriptionError:error=<',error,'>');
+  onAnswerSetRemoteDescriptionError_(error) {
+    console.error('onAnswerSetRemoteDescriptionError_:error=<',error,'>');
   }
-  onSetRemoteDescriptionGot_() {
+  onAnswerSetRemoteDescriptionGot_(evt) {
+    console.error('onAnswerSetRemoteDescriptionGot_:evt=<',evt,'>');
   }
 
 
@@ -151,14 +152,14 @@ class StarBianRtc {
     let sdp = new RTCSessionDescription(offer);
     console.log('onRemoteOffer_:sdp=<',sdp,'>');
     let pRsdp = this.pc.setRemoteDescription(sdp);
-    pRsdp.then(this.onSetRemoteDescriptionGot_.bind(this));
-    pRsdp.catch(this.onSetRemoteDescriptionError_.bind(this));
+    pRsdp.then(this.onOfferSetRemoteDescriptionGot_.bind(this));
+    pRsdp.catch(this.onOfferSetRemoteDescriptionError_.bind(this));
   }  
   
-  onSetRemoteDescriptionError_(error) {
-    console.error('onSetRemoteDescriptionError_:error=<',error,'>');
+  onOfferSetRemoteDescriptionError_(error) {
+    console.error('onOfferSetRemoteDescriptionError_:error=<',error,'>');
   }
-  onSetRemoteDescriptionGot_() {
+  onOfferSetRemoteDescriptionGot_() {
     let pAnswer = this.pc.createAnswer();
     pAnswer.then(this.onAnswerGot_.bind(this));
     pAnswer.catch(this.onAnswerError_.bind(this));
