@@ -117,7 +117,23 @@ class StarBianRtc {
       this.localOfferCache_ = offer;
     }
   }
-  
+
+  onRemoteAnswer_(answer) {
+    console.log('onRemoteAnswer_:answer=<',answer,'>');  
+    let sdp = new RTCSessionDescription(answer);
+    console.log('onRemoteAnswer_:sdp=<',sdp,'>');
+    let pRsdp = this.pc.setRemoteDescription(sdp);
+    pRsdp.then(this.onSetRemoteDescriptionGot_.bind(this));
+    pRsdp.catch(this.onSetRemoteDescriptionError_.bind(this));
+  }
+  onSetRemoteDescriptionError_(error) {
+    console.error('onSetRemoteDescriptionError:error=<',error,'>');
+  }
+  onSetRemoteDescriptionGot_() {
+  }
+
+
+
   onRemoteOffer_(offer) {
     this.pc = new RTCPeerConnection(this.configuration);
     let self = this;
