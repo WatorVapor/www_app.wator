@@ -109,7 +109,7 @@
   }
   function onClickMicTest(elem) {
     let mediaTag = document.getElementById('video');
-    mediaTag.stop();
+    mediaTag.pause();
     mediaTag.srcObject = null;
 
     console.log('onClickCameraTest :elem=<',elem,'>');
