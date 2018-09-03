@@ -117,12 +117,65 @@ class StarBianRtc {
       this.localOfferCache_ = offer;
     }
   }
+  
+  onRemoteOffer_(offer) {
+    this.pc = new RTCPeerConnection(this.configuration);
+    let self = this;
+    this.pc.onicecandidate = ({candidate}) => { 
+      console.log('onRemoteOffer_ onicecandidate:candidate=<',candidate,'>');
+      if(candidate) {
+        self.sendICE_(candidate);
+      }
+    };
+    this.pc.ontrack = (event) => {
+      console.log('onRemoteOffer_ ontrack:event=<',event,'>');
+      document.getElementById("video").srcObject = event.streams[0];
+    };
+    console.log('onRemoteOffer_:offer=<',offer,'>');
+    let sdp = new RTCSessionDescription(offer);
+    console.log('onRemoteOffer_:sdp=<',sdp,'>');
+    let pRsdp = this.pc.setRemoteDescription(sdp);
+    pRsdp.then(this.onSetRemoteDescriptionGot_.bind(this));
+    pRsdp.catch(this.onSetRemoteDescriptionError_.bind(this));
+  }  
+  
+  onSetRemoteDescriptionError_(error) {
+    console.error('onSetRemoteDescriptionError_:error=<',error,'>');
+  }
+  onSetRemoteDescriptionGot_() {
+    let pAnswer = this.pc.createAnswer();
+    pAnswer.then(this.onAnswerGot_.bind(this));
+    pAnswer.catch(this.onAnswerError_.bind(this));
+  } 
+  
+  onAnswerError_(error) {
+    console.error('onAnswerError_:error=<',error,'>');
+  }
+  onAnswerGot_(answer) {
+    console.log('onAnswerGot_:answer=<',answer,'>');
+    this.pc.setLocalDescription(answer);
+    this.sendAnswer_(answer);
+  }
+  
+  sendAnswer_(answer) {
+    if(this.starbian_.isReady) {
+      this.starbian_.publish({answer:answer});
+    } else {
+      console.log('sendAnswer_ wrong times!!!!:answer=<',answer,'>');
+    }
+  }  
+
   sendICE_(ice) {
     if(this.starbian_.isReady) {
       this.starbian_.publish({ice:ice});
     } else {
       this.localICECache_.push(ice);
     }
+  }
+  onRemoteICE_(ice) {
+    console.log('onRemoteICE_:typeof ice=<',typeof ice,'>');  
+    console.log('onRemoteICE_:ice=<',ice,'>');  
+    this.pc.addIceCandidate( new RTCIceCandidate(ice));
   }
 
 }
