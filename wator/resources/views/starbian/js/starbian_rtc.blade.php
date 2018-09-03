@@ -50,7 +50,27 @@ class StarBianRtc {
       }
     });
   }  
+
+  static createRTCStreaming_() {
+    let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
+    console.log('_createRTCStreaming:configStr=<',configStr,'>');
+    let config = JSON.parse(configStr);
+    navigator.mediaDevices.getUserMedia(config)
+    .then( (stream) => {
+      console.log('_createRTCStreaming:stream=<',stream,'>');
+    })
+    .catch( (err) => {
+      console.error('_createRTCStreaming:err=<',err,'>');
+    });
+  }
+  
 }
+
+$(document).ready(function(){
+  setTimeout(function(){
+    StarBianRtc.createRTCStreaming_();
+  },0);
+});
 
 
 class DeviceSetting {
