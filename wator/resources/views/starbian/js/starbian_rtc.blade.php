@@ -211,10 +211,11 @@ class StarBianRtc {
     console.log('onOfferAndAnswerStatus_:status=<',status,'>');
     this.iceAddReady_ = status;
     if(status) {
-      for(let i = 0; i < remoteIceCache_.length;i++) {
-        let ice = remoteIceCache_[i];
+      for(let i = 0; i < this.remoteIceCache_.length;i++) {
+        let ice = this.remoteIceCache_[i];
         this.pc.addIceCandidate( new RTCIceCandidate(ice));
      }
+     this.remoteIceCache_ = [];
     }
   }
 
