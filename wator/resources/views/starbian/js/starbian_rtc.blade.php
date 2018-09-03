@@ -6,7 +6,6 @@ const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
 * @classdesc This is StarBianRtc.
 * @constructor
 * @param {string} channelKey
-* @param {object} stream
 */
 class StarBianRtc {
   constructor(channelKey) {
@@ -58,6 +57,7 @@ class StarBianRtc {
     navigator.mediaDevices.getUserMedia(config)
     .then( (stream) => {
       console.log('_createRTCStreaming:stream=<',stream,'>');
+      localStreamCache = stream;
     })
     .catch( (err) => {
       console.error('_createRTCStreaming:err=<',err,'>');
@@ -71,7 +71,7 @@ $(document).ready(function(){
     StarBianRtc.createRTCStreaming_();
   },0);
 });
-
+let localStreamCache = false;
 
 class DeviceSetting {
   constructor() {
