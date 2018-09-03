@@ -15,7 +15,7 @@ class StarBianRtc {
     }
     this.wait_ = false;
     this.call_ = false;
-    this._createStarBian(keyChannel);
+    this.createStarBian_(keyChannel);
   }
   /**
   */
@@ -27,8 +27,10 @@ class StarBianRtc {
   callPeer() {
     this.call_ = true;
   }
+  
+  // private
 
-  _createStarBian(keyChannel) {
+  createStarBian_(keyChannel) {
     this.starbian_ = new StarBian(keyChannel);
     this.starbian_.isReady = false;
     let self = this;
@@ -37,19 +39,30 @@ class StarBianRtc {
       self.starbian_.isReady = true;
     };
     this.starbian_.subscribe( (msg) => {
-      console.log('starbian.subcribe:msg=<',msg,'>');
-      if(msg && msg.start) {
-        startWebRTC();
-      }
-      if(msg && msg.answer) {
-        onRemoteAnswer(msg.answer);
-      }
-      if(msg && msg.ice) {
-        onRemoteICE(msg.ice);
-      }
+      try {
+        self.onIpfsMessage_(msg);
+      } catch( err ) {
+        console.error('starbian_.subscribe:err=<',err,'>');
+      };
     });
-  }  
+  }
+  
+  // private
+  onIpfsMessage_(msg) {
+    console.log('onIpfsMessage_:msg=<',msg,'>');
+    console.log('starbian.subcribe:msg=<',msg,'>');
+    if(msg && msg.start) {
+      startWebRTC();
+    }
+    if(msg && msg.answer) {
+      onRemoteAnswer(msg.answer);
+    }
+    if(msg && msg.ice) {
+      onRemoteICE(msg.ice);
+    }
+  }
 
+  // private
   static createRTCStreaming_() {
     let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
     console.log('_createRTCStreaming:configStr=<',configStr,'>');
