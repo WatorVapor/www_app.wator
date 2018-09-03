@@ -80,8 +80,33 @@ class StarBianRtc {
     });
   }
   startWebRTCOffer_ () {
+    this.pc = new RTCPeerConnection(this.configuration);
+    let self = this;
+    this.pc.onicecandidate = ({candidate}) => { 
+      console.log('onicecandidate:candidate=<',candidate,'>');
+      if(candidate) {
+        self.sendICE_(candidate);
+      }
+    }
+    if(localStreamCache) {
+      this.pc.addStream(localStreamCache);
+    }
+    let pOffer = this.pc.createOffer();
+    pOffer.then(this.onOfferGot_.bind(this));
+    pOffer.catch(this.onOfferError_.bind(this));
   }
-  
+
+  onOfferError_(error) {
+    console.log('onOfferError:error=<',error,'>');
+  }
+  onOfferGot_(offer) {
+    console.log('onOfferGot:offer=<',offer,'>');
+    this.pc.setLocalDescription(offer);
+    this.sendOffer_(offer);
+  }
+
+
+onOfferGot_()
 }
 
 $(document).ready(function(){
