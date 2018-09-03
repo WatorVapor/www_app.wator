@@ -38,9 +38,9 @@ class StarBianRtc {
       self.starbian_.publish({start:true});
       self.starbian_.isReady = true;
     };
-    this.starbian_.subscribe( (msg) => {
+    this.starbian_.subscribe( (msg,channel) => {
       try {
-        self.onIpfsMessage_(msg);
+        self.onIpfsMessage_(msg,channel);
       } catch( err ) {
         console.error('starbian_.subscribe:err=<',err,'>');
       };
@@ -48,9 +48,9 @@ class StarBianRtc {
   }
   
   // private
-  onIpfsMessage_(msg) {
+  onIpfsMessage_(msg,channel) {
     console.log('onIpfsMessage_:msg=<',msg,'>');
-    console.log('starbian.subcribe:msg=<',msg,'>');
+    console.log('onIpfsMessage_:channel=<',channel,'>');
     if(msg && msg.start) {
       startWebRTC();
     }
