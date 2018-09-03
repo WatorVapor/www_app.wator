@@ -87,7 +87,11 @@ class StarBianRtc {
       console.error('_createRTCStreaming:err=<',err,'>');
     });
   }
+  
+  
+  
   startWebRTCOffer_ () {
+    this.remoteIceCache_ = [];
     this.pc = new RTCPeerConnection(this.configuration);
     let self = this;
     this.pc.onicecandidate = ({candidate}) => { 
@@ -141,6 +145,7 @@ class StarBianRtc {
 
 
   onRemoteOffer_(offer) {
+    this.remoteIceCache_ = [];
     this.pc = new RTCPeerConnection(this.configuration);
     let self = this;
     this.pc.onicecandidate = ({candidate}) => { 
@@ -203,13 +208,24 @@ class StarBianRtc {
     }
   }
   onOfferAndAnswerStatus_(status) {
-    console.log('onOfferAndAnswerStatus_:status=<',status,'>');  
+    console.log('onOfferAndAnswerStatus_:status=<',status,'>');
+    this.iceAddReady_ = status;
+    if(status) {
+      for(let i = 0; i < remoteIceCache_.length;i++) {
+        let ice = remoteIceCache_[i];
+        this.pc.addIceCandidate( new RTCIceCandidate(ice));
+     }
+    }
   }
 
   onRemoteICE_(ice) {
     console.log('onRemoteICE_:typeof ice=<',typeof ice,'>');  
-    console.log('onRemoteICE_:ice=<',ice,'>');  
-    this.pc.addIceCandidate( new RTCIceCandidate(ice));
+    console.log('onRemoteICE_:ice=<',ice,'>');
+    if(this.iceAddReady_) {
+      this.pc.addIceCandidate( new RTCIceCandidate(ice));
+    } else {
+      this.remoteIceCache_.push(ice);
+    }
   }
 
 }
