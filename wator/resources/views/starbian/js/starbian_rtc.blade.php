@@ -128,9 +128,11 @@ class StarBianRtc {
   }
   onAnswerSetRemoteDescriptionError_(error) {
     console.error('onAnswerSetRemoteDescriptionError_:error=<',error,'>');
+    this.sendOfferAnswerStatus_(false);
   }
-  onAnswerSetRemoteDescriptionGot_(evt) {
-    console.log('onAnswerSetRemoteDescriptionGot_:evt=<',evt,'>');
+  onAnswerSetRemoteDescriptionGot_() {
+    console.log('onAnswerSetRemoteDescriptionGot_');
+    this.sendOfferAnswerStatus_(true);
   }
 
 
@@ -167,11 +169,13 @@ class StarBianRtc {
   
   onAnswerError_(error) {
     console.error('onAnswerError_:error=<',error,'>');
+    this.sendOfferAnswerStatus_(false);
   }
   onAnswerGot_(answer) {
     console.log('onAnswerGot_:answer=<',answer,'>');
     this.pc.setLocalDescription(answer);
     this.sendAnswer_(answer);
+    this.sendOfferAnswerStatus_(true);
   }
   
   sendAnswer_(answer) {
@@ -181,6 +185,12 @@ class StarBianRtc {
       console.log('sendAnswer_ wrong times!!!!:answer=<',answer,'>');
     }
   }  
+
+  sendOfferAnswerStatus_(status) {
+    if(this.starbian_.isReady) {
+      this.starbian_.publish({offer_answer:status});
+    }
+  }
 
   sendICE_(ice) {
     if(this.starbian_.isReady) {
