@@ -1,7 +1,6 @@
 <script type="text/javascript">
 
 const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
-
 /**
 * @classdesc This is StarBianRtc.
 * @constructor
@@ -13,19 +12,14 @@ class StarBianRtc {
       throw 'please give me a dist device.';
       return;
     }
-    this.wait_ = false;
-    this.call_ = false;
     this.createStarBian_(keyChannel);
-  }
-  /**
-  */
-  waitPeer() {
-    this.wait_ = true;
-  }
-  /**
-  */
-  callPeer() {
-    this.call_ = true;
+    const this.configuration_ = {
+      iceServers: [
+        {urls: 'stun:stun.l.google.com:19302'},
+        {urls: 'stun:stun1.l.google.com:19302'},
+        {urls: 'stun:stun2.l.google.com:19302'}
+      ]
+    };
   }
   
   // private
@@ -54,7 +48,7 @@ class StarBianRtc {
     console.log('onIpfsMessage_:channel=<',channel,'>');
     if(msg && msg.start) {
       if(msg.key > channel) {
-        this.startWebRTCOffer();
+        this.startWebRTCOffer_();
       }
     }
     if(msg && msg.answer) {
@@ -84,6 +78,8 @@ class StarBianRtc {
     .catch( (err) => {
       console.error('_createRTCStreaming:err=<',err,'>');
     });
+  }
+  startWebRTCOffer_ () {
   }
   
 }
