@@ -54,10 +54,13 @@ class StarBianRtc {
       }
     }
     if(msg && msg.answer) {
-      onRemoteAnswer(msg.answer);
+      this.onRemoteAnswer_(msg.answer);
     }
     if(msg && msg.ice) {
-      onRemoteICE(msg.ice);
+      this.onRemoteICE_(msg.ice);
+    }
+    if(msg && msg.offer) {
+      this.onRemoteOffer_(msg.offer);
     }
   }
 
