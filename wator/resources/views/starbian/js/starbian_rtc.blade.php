@@ -53,7 +53,9 @@ class StarBianRtc {
     console.log('onIpfsMessage_:msg=<',msg,'>');
     console.log('onIpfsMessage_:channel=<',channel,'>');
     if(msg && msg.start) {
-      startWebRTC();
+      if(msg.key > channel) {
+        this.startWebRTCOffer();
+      }
     }
     if(msg && msg.answer) {
       onRemoteAnswer(msg.answer);
