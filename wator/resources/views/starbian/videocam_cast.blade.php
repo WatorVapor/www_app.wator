@@ -6,27 +6,35 @@
 @section('content')
 
 <div class="row justify-content-center">
-  <div class="col-4" id="vue-ui-camera-devices">
-    <div class="row mt-lg-5" v-for="camera in allCamera">
-      <a class="btn btn-success btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
-        @{{camera.name}}
-        <p class="d-none">@{{camera.id}}</p>
-      </a>
-    </div>
-  </div>
-  <div class="col-4 ml-lg-5" id="vue-ui-mic-devices">
-    <div class="row mt-lg-5" v-for="mic in allMic">
-      <a class="btn btn-success btn-block" type="button" name="mic" onclick="onClickMicTest(this)">
-         @{{mic.name}}
-        <p class="d-none">@{{mic.id}}</p>
-      </a>
-    </div>
-  </div>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
 </div>
 
-<div class="row mt-lg-5 justify-content-center">
-  <div class="col-5">
-    <video id="video" autoplay controls width="320" height="240"></video>
+<div class="collapse" id="collapseExample">
+  <div class="row justify-content-center">
+    <div class="col-4" id="vue-ui-camera-devices">
+      <div class="row mt-lg-5" v-for="camera in allCamera">
+        <a class="btn btn-success btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
+          @{{camera.name}}
+          <p class="d-none">@{{camera.id}}</p>
+        </a>
+      </div>
+    </div>
+    <div class="col-4 ml-lg-5" id="vue-ui-mic-devices">
+      <div class="row mt-lg-5" v-for="mic in allMic">
+        <a class="btn btn-success btn-block" type="button" name="mic" onclick="onClickMicTest(this)">
+           @{{mic.name}}
+          <p class="d-none">@{{mic.id}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-lg-5 justify-content-center">
+    <div class="col-5">
+      <video id="video" autoplay controls width="320" height="240"></video>
+    </div>
   </div>
 </div>
 
