@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-lg-5">
   <a class="btn btn-primary" data-toggle="collapse" href="#collapse_setting_device" role="button" aria-expanded="false" aria-controls="collapse_setting_device">
     Setting of Camera & Micphone Devices
   </a>
@@ -15,7 +15,7 @@
   <div class="row justify-content-center">
     <div class="col-4" id="vue-ui-camera-devices">
       <div class="row mt-lg-5" v-for="camera in allCamera">
-        <a class="btn btn-success btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
+        <a class="btn btn-primary btn-block" type="button" name="camera" onclick="onClickCameraTest(this)">
           @{{camera.name}}
           <p class="d-none">@{{camera.id}}</p>
         </a>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-4 ml-lg-5" id="vue-ui-mic-devices">
       <div class="row mt-lg-5" v-for="mic in allMic">
-        <a class="btn btn-success btn-block" type="button" name="mic" onclick="onClickMicTest(this)">
+        <a class="btn btn-primary btn-block" type="button" name="mic" onclick="onClickMicTest(this)">
            @{{mic.name}}
           <p class="d-none">@{{mic.id}}</p>
         </a>
