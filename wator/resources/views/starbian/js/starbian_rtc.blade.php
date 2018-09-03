@@ -12,14 +12,14 @@ class StarBianRtc {
       throw 'please give me a dist device.';
       return;
     }
-    this.createStarBian_(keyChannel);
-    const this.configuration_ = {
+    this.configuration_ = {
       iceServers: [
         {urls: 'stun:stun.l.google.com:19302'},
         {urls: 'stun:stun1.l.google.com:19302'},
         {urls: 'stun:stun2.l.google.com:19302'}
       ]
     };
+    this.createStarBian_(keyChannel);
   }
   
   // private
