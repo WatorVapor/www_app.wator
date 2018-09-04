@@ -93,10 +93,6 @@
   });
 </script>
 <script type="text/javascript">
-  let config = {
-    audio:{},
-    video:{}
-  }; 
   function onClickCameraTest(elem) {
     let mediaTag = document.getElementById('video');
     mediaTag.pause();
@@ -108,8 +104,7 @@
     if(idElem) {
       let id = idElem.textContent;
       if(id) {
-        config.video.deviceId = id.trim();
-        DeviceSetting.getStream(config,onTestStream);
+        DeviceSetting.changeCamera(id.trim(),onTestStream);
       }
     }
   }
@@ -125,7 +120,7 @@
       let id = idElem.textContent;
       if(id) {
         config.audio.deviceId = id.trim();
-        DeviceSetting.getStream(config,onTestStream);
+        DeviceSetting.getStream(id.trim(),onTestStream);
       }
     }
   }
