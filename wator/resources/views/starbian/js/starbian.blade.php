@@ -538,7 +538,7 @@ class StarBianIpfsProxy {
   }	
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
-    this.OneTimePassword_ = Math.floor(Math.random()*(999999-111111)+111111);
+    this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
     this.OneTimeCB_ = cb;
     let self = this;
     setTimeout(function() {
