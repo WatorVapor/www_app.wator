@@ -540,11 +540,14 @@ class StarBianIpfsProxy {
     this.sharePubKeyCounter = 10;
     this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
     this.OneTimeCB_ = cb;
+    this.sharePubKeyMining_();
     let self = this;
+    /*
     setTimeout(function() {
       self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
       self.sharePubKeyTimeOut_();
     },0);
+    */
   }
   searchPubKey(password,cb) {
     this.targetPubKeyPassword_ = password;
@@ -722,6 +725,28 @@ class StarBianIpfsProxy {
       }	
     });	
   }
+
+  sharePubKeyMining_() {	
+    console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
+    if(!_insideCrypto.pubKeyB58) {	
+      return;	
+    } 	
+    let shareKey = { 
+      ts:new Date(),
+      pubkey:_insideCrypto.pubKeyB58,
+      password:this.OneTimePassword_
+    };
+    let self = this;
+    _insideCrypto.signAuth(JSON.stringify(shareKey),function(auth) {	
+      let sentMsg = {	
+        channel:'broadcast',	
+        auth:auth,
+        shareKey:shareKey	
+      };
+      console.log('sharePubKeyMining_:auth.hash=<',auth.hash,'>');	
+    });	
+  }
+
 
   onShareKey_(shareKey) {
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
