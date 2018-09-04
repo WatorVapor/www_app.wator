@@ -764,47 +764,44 @@ class StarBianIpfsProxy {
       this.sharedKeyMsg = false;
     }	
   }
+  
+  sharePubKeyMining_out_(auth,cb) {
+  }
 
   sharePubKeyMining_(cb) {	
     console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
     if(!_insideCrypto.pubKeyB58) {	
       return;	
     }
-    /*
-    let finnish = false;
     let self = this;
-    while(true) {
-      let now = new Date();
-      let ts = now.toISOString();
-      this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
-      let shareKey = { 
-        ts:ts,
-        pubkey:_insideCrypto.pubKeyB58,
-        password:this.OneTimePassword_
-      };
-      _insideCrypto.miningAuth(JSON.stringify(shareKey),(auth)=> {
-        const diffculty = '00';
-        if(auth.hashSign.startsWith(diffculty)) {
-          console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-          console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-          self.sharedKeyMsg =  {	
-            channel:'broadcast',	
-            auth:auth,
-            shareKey:shareKey	
-          };	
-          finnish = true;
-          cb(true);
-        } else {
-          //console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-          //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-          cb(false);
-        }
-      });
-      if(finnish) {
-        break;
+    let now = new Date();
+    let ts = now.toISOString();
+    this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
+    let shareKey = { 
+      ts:ts,
+      pubkey:_insideCrypto.pubKeyB58,
+      password:this.OneTimePassword_
+    };
+    _insideCrypto.miningAuth(JSON.stringify(shareKey),(auth)=> {
+      const diffculty = '00';
+      if(auth.hashSign.startsWith(diffculty)) {
+        console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        self.sharedKeyMsg =  {	
+          channel:'broadcast',	
+          auth:auth,
+          shareKey:shareKey	
+        };	
+        cb(true);
+      } else {
+        console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        cb(false);
+        sharePubKeyMining_(cb);
       }
-    }
-    */
+    });
+    
+    /*
     while(true) {
       let now = new Date();
       let ts = now.toISOString();
@@ -814,12 +811,7 @@ class StarBianIpfsProxy {
         pubkey:_insideCrypto.pubKeyB58,
         password:this.OneTimePassword_
       };
-      let authPromise = _insideCrypto.miningAuth(JSON.stringify(shareKey));
-      authPromise.then(auth => {
-        console.log('sharePubKeyMining_:auth=<',auth,'>');
-        const diffculty = '00';
-      });
-      /*
+      let auth = _insideCrypto.miningAuth(JSON.stringify(shareKey));
       console.log('sharePubKeyMining_:auth=<',auth,'>');
       const diffculty = '00';
       if(auth.hashSign.startsWith(diffculty)) {
@@ -836,9 +828,9 @@ class StarBianIpfsProxy {
         //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         cb(false);
       }
-      */
     }
     cb(true);
+    */
 
   }
 
