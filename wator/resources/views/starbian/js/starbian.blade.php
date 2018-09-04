@@ -766,9 +766,11 @@ class StarBianIpfsProxy {
       const diffculty = '00';
       if(auth.hashSign.startsWith(diffculty)) {
         console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         break;
       } else {
         console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
       }
     }
   }
