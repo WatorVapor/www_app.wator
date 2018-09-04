@@ -119,8 +119,7 @@
     if(idElem) {
       let id = idElem.textContent;
       if(id) {
-        config.audio.deviceId = id.trim();
-        DeviceSetting.getStream(id.trim(),onTestStream);
+        DeviceSetting.changeMic(id.trim(),onTestStream);
       }
     }
   }
