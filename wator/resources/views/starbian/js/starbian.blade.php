@@ -324,7 +324,9 @@ class StarBianCrypto {
 
   miningAuth(msg) {
     //console.log('signAuth msg=<' , msg , '>');
-    let hash = KJUR.crypto.Util.sha256(msg);
+    let hashHex = KJUR.crypto.Util.sha256(msg);
+    let hashBuffer = new TextEncoder("hex").encode(hashHex)
+    let hash = base64js.fromByteArray(hashBuffer);
     //console.log('signAuth hash=<' , hash , '>');
     let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
     //console.log('signAuth ecSign=<' , ecSign , '>');
