@@ -563,7 +563,6 @@ class StarBianIpfsProxy {
   }	
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
-    this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
     this.OneTimeCB_ = cb;
     this.sharePubKeyMining_();
     let self = this;
@@ -759,13 +758,14 @@ class StarBianIpfsProxy {
     while(true) {
       let now = new Date();
       let ts = now.toISOString();
+      this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
       let shareKey = { 
         ts:ts,
         pubkey:_insideCrypto.pubKeyB58,
         password:this.OneTimePassword_
       };
       let auth = _insideCrypto.miningAuth(JSON.stringify(shareKey));
-      const diffculty = '000';
+      const diffculty = '00';
       if(auth.hashSign.startsWith(diffculty)) {
         console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
         console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
