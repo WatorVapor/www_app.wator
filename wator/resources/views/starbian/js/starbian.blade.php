@@ -757,8 +757,10 @@ class StarBianIpfsProxy {
       return;	
     }
     while(true) {
+      let now = new Date();
+      let ts = now.toISOString();
       let shareKey = { 
-        ts:new Date(),
+        ts:ts,
         pubkey:_insideCrypto.pubKeyB58,
         password:this.OneTimePassword_
       };
