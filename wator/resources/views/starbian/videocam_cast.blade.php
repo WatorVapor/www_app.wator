@@ -72,10 +72,10 @@
       }
     }
     if(mic.length < 1) {
-      mic.push({name:'none',id:''})
+      mic.push({name:'no camera found',id:''})
     }
     if(camera.length < 1) {
-      camera.push({name:'none',id:''})
+      camera.push({name:'no mic found',id:''})
     }
 
     let cameraApp = new Vue({
