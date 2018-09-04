@@ -727,28 +727,11 @@ class StarBianIpfsProxy {
   }
 
   sharePubKeyInside_() {	
-    console.log('sharePubKeyInside_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
-    if(!_insideCrypto.pubKeyB58) {	
-      return;	
-    } 	
-    let shareKey = { 
-      ts:new Date(),
-      pubkey:_insideCrypto.pubKeyB58,
-      password:this.OneTimePassword_
-    };
-    let self = this;
-    _insideCrypto.signAuth(JSON.stringify(shareKey),function(auth) {	
-      let sentMsg = {	
-        channel:'broadcast',	
-        auth:auth,
-        shareKey:shareKey	
-      };	
-      //console.log('sharePubKeyInside_:self.ws_.readyState=<',self.ws_.readyState,'>');	
-      if(self.ws_.readyState) {	
-        //console.log('sharePubKeyInside_:sentMsg=<',sentMsg,'>');	
-        self.ws_.send(JSON.stringify(sentMsg));	
-      }	
-    });	
+    if(this.ws_.readyState) {	
+      //console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
+      this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
+      this.sharedKeyMsg = false;
+    }	
   }
 
   sharePubKeyMining_(cb) {	
