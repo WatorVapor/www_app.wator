@@ -328,17 +328,19 @@ class StarBianCrypto {
     //console.log('signAuth hash=<' , hash , '>');
     let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
     //console.log('signAuth ecSign=<' , ecSign , '>');
-    //console.log('signAuth self.prvKeyHex=<' , self.prvKeyHex , '>');
+    //console.log('signAuth this.prvKeyHex=<' , this.prvKeyHex , '>');
 
     let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
-    signEngine.init({d: self.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
+    signEngine.init({d: this.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
     signEngine.updateString(hash);
     let signatureHex = signEngine.sign();
     //console.log('signAuth signatureHex=<' , signatureHex , '>');
+    let hashSign = KJUR.crypto.Util.sha256(signatureHex);
     let signature = {
-      pubKeyB58:self.pubKeyB58,
+      pubKeyB58:this.pubKeyB58,
       hash:hash,
-      sign:signatureHex
+      sign:signatureHex,
+      hashSign:hashSign
     };
     return signature;
   }
