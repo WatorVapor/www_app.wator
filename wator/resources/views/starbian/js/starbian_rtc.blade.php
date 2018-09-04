@@ -289,6 +289,9 @@ class DeviceSetting {
         config.video = {};
       }
       config.video.deviceId = camera;
+    } else {
+      config.video = {};
+      config.video.deviceId = mic;
     }
 
     configStr = JSON.stringify(config);
@@ -322,6 +325,9 @@ class DeviceSetting {
       if(!config.audio) {
         config.audio = {};
       }
+      config.audio.deviceId = mic;
+    } else {
+      config.audio = {};
       config.audio.deviceId = mic;
     }
     configStr = JSON.stringify(config);
