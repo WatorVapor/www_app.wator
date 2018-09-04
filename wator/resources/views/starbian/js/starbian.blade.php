@@ -794,6 +794,7 @@ class StarBianIpfsProxy {
     if(!_insideCrypto.pubKeyB58) {	
       return;	
     }
+    /*
     let finnish = false;
     let self = this;
     while(true) {
@@ -827,7 +828,7 @@ class StarBianIpfsProxy {
         break;
       }
     }
-    /*
+    */
     while(true) {
       let now = new Date();
       let ts = now.toISOString();
@@ -855,7 +856,7 @@ class StarBianIpfsProxy {
       }
     }
     cb(true);
-    */
+
   }
 
 
