@@ -84,6 +84,7 @@ $(document).ready(function(){
 
 const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+const SHARE_PUBKEY_DIFFCULTY = '00';
 
 
 // private class
@@ -351,32 +352,7 @@ class StarBianCrypto {
       console.error(err);
     });
   }
-/*
-  miningAuth(msg) {
-    //console.log('signAuth msg=<' , msg , '>');
-    let hashHex = KJUR.crypto.Util.sha256(msg);
-    let hashBuffer = new TextEncoder("hex").encode(hashHex)
-    let hash = base64js.fromByteArray(hashBuffer);
-    //console.log('signAuth hash=<' , hash , '>');
-    let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
-    //console.log('signAuth ecSign=<' , ecSign , '>');
-    //console.log('signAuth this.prvKeyHex=<' , this.prvKeyHex , '>');
 
-    let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
-    signEngine.init({d: this.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
-    signEngine.updateString(hash);
-    let signatureHex = signEngine.sign();
-    //console.log('signAuth signatureHex=<' , signatureHex , '>');
-    let hashSign = KJUR.crypto.Util.sha256(signatureHex);
-    let signature = {
-      pubKeyB58:this.pubKeyB58,
-      hash:hash,
-      sign:signatureHex,
-      hashSign:hashSign
-    };
-    return signature;
-  }
-*/
 
   verifyAuth(content,auth,channel,cb) {
     let keys= StarBian.getRemoteKey();
@@ -765,8 +741,6 @@ class StarBianIpfsProxy {
     }	
   }
   
-  sharePubKeyMining_out_(auth,cb) {
-  }
 
   sharePubKeyMining_(cb) {	
     console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
@@ -783,10 +757,9 @@ class StarBianIpfsProxy {
       password:this.OneTimePassword_
     };
     _insideCrypto.miningAuth(JSON.stringify(shareKey),(auth)=> {
-      const diffculty = '00';
-      if(auth.hashSign.startsWith(diffculty)) {
-        console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+      if(auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
+        //console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        //console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         self.sharedKeyMsg =  {	
           channel:'broadcast',	
           auth:auth,
@@ -794,50 +767,22 @@ class StarBianIpfsProxy {
         };	
         cb(true);
       } else {
-        console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-        cb(false);
-        self.sharePubKeyMining_(cb);
-      }
-    });
-    
-    /*
-    while(true) {
-      let now = new Date();
-      let ts = now.toISOString();
-      this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
-      let shareKey = { 
-        ts:ts,
-        pubkey:_insideCrypto.pubKeyB58,
-        password:this.OneTimePassword_
-      };
-      let auth = _insideCrypto.miningAuth(JSON.stringify(shareKey));
-      console.log('sharePubKeyMining_:auth=<',auth,'>');
-      const diffculty = '00';
-      if(auth.hashSign.startsWith(diffculty)) {
-        console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-        this.sharedKeyMsg =  {	
-          channel:'broadcast',	
-          auth:auth,
-          shareKey:shareKey	
-        };	
-        break;
-      } else {
         //console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
         //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         cb(false);
+        self.sharePubKeyMining_(cb);
       }
-    }
-    cb(true);
-    */
-
+    }); 
   }
 
 
   onShareKey_(shareKey,auth) {
-    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    console.log('onShareKey_ auth =<' , auth ,'>');
+    //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    //console.log('onShareKey_ auth =<' , auth ,'>');
+    if(!auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
+      console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
+      return ;
+    }
     //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
     //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
     if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
