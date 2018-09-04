@@ -838,7 +838,12 @@ class StarBianIpfsProxy {
         pubkey:_insideCrypto.pubKeyB58,
         password:this.OneTimePassword_
       };
-      let auth = _insideCrypto.miningAuth(JSON.stringify(shareKey));
+      let authPromise = _insideCrypto.miningAuth(JSON.stringify(shareKey));
+      authPromise.then(auth => {
+        console.log('sharePubKeyMining_:auth=<',auth,'>');
+        const diffculty = '00';
+      });
+      /*
       console.log('sharePubKeyMining_:auth=<',auth,'>');
       const diffculty = '00';
       if(auth.hashSign.startsWith(diffculty)) {
@@ -855,6 +860,7 @@ class StarBianIpfsProxy {
         //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         cb(false);
       }
+      */
     }
     cb(true);
 
