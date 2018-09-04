@@ -322,7 +322,7 @@ class StarBianCrypto {
   }
 
 
-  miningAuth(msg) {
+  miningAuth(msg,cb) {
     //console.log('signAuth msg=<' , msg , '>');
     let self = this;
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
