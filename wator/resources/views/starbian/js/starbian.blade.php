@@ -324,6 +324,7 @@ class StarBianCrypto {
 
   miningAuth(msg) {
     //console.log('signAuth msg=<' , msg , '>');
+    let self = this;
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
     .then(function(buf) {
       let hash = base64js.fromByteArray(new Uint8Array(buf));
