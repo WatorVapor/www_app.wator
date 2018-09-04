@@ -322,9 +322,31 @@ class StarBianCrypto {
   }
 
 
-  miningAuth(msg,cb) {
+  async miningAuth(msg) {
     //console.log('signAuth msg=<' , msg , '>');
     let self= this;
+    let buf = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg));
+    let hash = base64js.fromByteArray(new Uint8Array(buf));
+
+    let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+    //console.log('signAuth ecSign=<' , ecSign , '>');
+    //console.log('signAuth self.prvKeyHex=<' , self.prvKeyHex , '>');
+
+    let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+    signEngine.init({d: self.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
+    signEngine.updateString(hash);
+    let signatureHex = signEngine.sign();
+    //console.log('signAuth signatureHex=<' , signatureHex , '>');
+    let hashSign = KJUR.crypto.Util.sha256(signatureHex);
+    let signature = {
+      pubKeyB58:self.pubKeyB58,
+      hash:hash,
+      sign:signatureHex,
+      hashSign:hashSign
+    };
+    return signature;
+    
+    /*
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
     .then(function(buf) {
       let hash = base64js.fromByteArray(new Uint8Array(buf));
@@ -350,6 +372,7 @@ class StarBianCrypto {
     .catch(function(err){
       console.error(err);
     });
+    */
   }
 /*
   miningAuth(msg) {
