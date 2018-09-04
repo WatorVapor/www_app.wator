@@ -300,7 +300,7 @@ class StarBianCrypto {
     .then(function(buf) {
       let hash = base64js.fromByteArray(new Uint8Array(buf));
       console.log('signAuth hash=<' , hash , '>');
-      let hashKJUR = KJUR.crypto.Util.sha256(msg);
+      let hashKJUR = base64js.fromByteArray(new TextEncoder("hex").encode(KJUR.crypto.Util.sha256(msg)));
       console.log('signAuth hashKJUR=<' , hashKJUR , '>');
       let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
       //console.log('signAuth ecSign=<' , ecSign , '>');
