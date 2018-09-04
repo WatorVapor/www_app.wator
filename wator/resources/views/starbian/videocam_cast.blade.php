@@ -71,6 +71,12 @@
         camera.push(deviceUI);
       }
     }
+    if(mic.length < 1) {
+      mic.push({name:'none',id:''})
+    }
+    if(camera.length < 1) {
+      camera.push({name:'none',id:''})
+    }
 
     let cameraApp = new Vue({
       el: '#vue-ui-camera-devices',
