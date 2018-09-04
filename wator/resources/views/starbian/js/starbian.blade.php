@@ -738,16 +738,11 @@ class StarBianIpfsProxy {
     };
     let self = this;
     _insideCrypto.signAuth(JSON.stringify(shareKey),function(auth) {	
-      let sentMsg = {	
-        channel:'broadcast',	
-        auth:auth,
-        shareKey:shareKey	
-      };
       const diffculty = '11';
       if(auth.hash.startsWith(diffculty)) {
-        console.log('sharePubKeyMining_:auth.hash=<',auth.hash,'>');
+        console.log('good lucky !!! sharePubKeyMining_:auth.hash=<',auth.hash,'>');
       } else {
-        console.log('sharePubKeyMining_:auth.hash=<',auth.hash,'>');
+        console.log('bad lucky !!! sharePubKeyMining_:auth.hash=<',auth.hash,'>');
         setTimeout(self.sharePubKeyMining_,0);
       }
     });	
