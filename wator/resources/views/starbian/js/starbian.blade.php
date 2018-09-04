@@ -762,7 +762,6 @@ class StarBianIpfsProxy {
     if(this.ws_.readyState) {	
       console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
       this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
-      this.sharedKeyMsg = false;
     }	
   }
   
