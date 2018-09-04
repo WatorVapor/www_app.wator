@@ -285,7 +285,10 @@ class DeviceSetting {
       if(!config) {
         config = {};
       }
-      config.video = camera;
+      if(!config.video) {
+        config.video = {};
+      }
+      config.video.deviceId = camera;
     }
 
     configStr = JSON.stringify(config);
@@ -311,12 +314,15 @@ class DeviceSetting {
     let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
     let config = {}
     if(configStr) {
-      console.log('changeCamera:configStr=<',configStr,'>');
+      console.log('changeMic:configStr=<',configStr,'>');
       config = JSON.parse(configStr);
       if(!config) {
         config = {};
       }
-      config.audio = camera;
+      if(!config.audio) {
+        config.audio = {};
+      }
+      config.audio.deviceId = mic;
     }
     configStr = JSON.stringify(config);
     console.log('changeMic:configStr=<',configStr,'>');
