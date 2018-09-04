@@ -797,7 +797,7 @@ class StarBianIpfsProxy {
         console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
         console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
         cb(false);
-        sharePubKeyMining_(cb);
+        self.sharePubKeyMining_(cb);
       }
     });
     
