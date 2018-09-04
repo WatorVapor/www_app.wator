@@ -272,6 +272,67 @@ class DeviceSetting {
       console.error('DeviceSetting::getStream:err=<',err,'>');
     });
   }
+  /**
+  * @param {string} camera
+  * @param {function} cb
+  */
+  static changeCamera(camera,cb) {
+    let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
+    let config = {}
+    if(configStr) {
+      console.log('changeCamera:configStr=<',configStr,'>');
+      config = JSON.parse(configStr);
+      if(!config) {
+        config = {};
+      }
+      config.video = camera;
+    }
+
+    configStr = JSON.stringify(config);
+    console.log('changeCamera:configStr=<',configStr,'>');
+    localStorage.setItem(LS_KEY_CAMERA_SETTING,configStr);
+    let self = this;
+    navigator.mediaDevices.getUserMedia(config)
+    .then( (stream) => {
+      if(typeof cb === 'function') {
+        cb(stream);
+      }
+    })
+    .catch( (err) => {
+      console.error('DeviceSetting::changeCamera:err=<',err,'>');
+    });
+  }
+
+  /**
+  * @param {object} mic
+  * @param {function} cb
+  */
+  static changeMic(mic,cb) {
+    let configStr =  localStorage.getItem(LS_KEY_CAMERA_SETTING);
+    let config = {}
+    if(configStr) {
+      console.log('changeCamera:configStr=<',configStr,'>');
+      config = JSON.parse(configStr);
+      if(!config) {
+        config = {};
+      }
+      config.audio = camera;
+    }
+    configStr = JSON.stringify(config);
+    console.log('changeMic:configStr=<',configStr,'>');
+    localStorage.setItem(LS_KEY_CAMERA_SETTING,configStr);
+    let self = this;
+    navigator.mediaDevices.getUserMedia(config)
+    .then( (stream) => {
+      if(typeof cb === 'function') {
+        cb(stream);
+      }
+    })
+    .catch( (err) => {
+      console.error('DeviceSetting::changeMic:err=<',err,'>');
+    });
+  }
+
 }
 
 </script>
