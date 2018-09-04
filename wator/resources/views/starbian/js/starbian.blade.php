@@ -564,14 +564,15 @@ class StarBianIpfsProxy {
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
     this.OneTimeCB_ = cb;
-    this.sharePubKeyMining_();
     let self = this;
-    /*
-    setTimeout(function() {
-      self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
-      self.sharePubKeyTimeOut_();
-    },0);
-    */
+    this.sharePubKeyMining_( (finnish) => {
+      if(finnish) {
+        self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
+        self.sharePubKeyTimeOut_();
+      } else {
+        self.OneTimeCB_(10,'-----');
+      }
+    });
   }
   searchPubKey(password,cb) {
     this.targetPubKeyPassword_ = password;
@@ -750,7 +751,7 @@ class StarBianIpfsProxy {
     });	
   }
 
-  sharePubKeyMining_() {	
+  sharePubKeyMining_(cb) {	
     console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
     if(!_insideCrypto.pubKeyB58) {	
       return;	
@@ -769,12 +770,19 @@ class StarBianIpfsProxy {
       if(auth.hashSign.startsWith(diffculty)) {
         console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
         console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        this.sharedKeyMsg =  {	
+          channel:'broadcast',	
+          auth:auth,
+          shareKey:shareKey	
+        };	
         break;
       } else {
-        console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        //console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        cb(false);
       }
     }
+    cb(true);
   }
 
 
