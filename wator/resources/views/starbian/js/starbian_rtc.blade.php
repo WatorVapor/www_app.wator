@@ -294,7 +294,7 @@ class DeviceSetting {
       config.video.deviceId = camera;
     } else {
       config.video = {};
-      config.video.deviceId = mic;
+      config.video.deviceId = camera;
     }
 
     configStr = JSON.stringify(config);
