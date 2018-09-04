@@ -299,9 +299,7 @@ class StarBianCrypto {
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
     .then(function(buf) {
       let hash = base64js.fromByteArray(new Uint8Array(buf));
-      console.log('signAuth hash=<' , hash , '>');
-      let hashKJUR = base64js.fromByteArray(new TextEncoder("hex").encode(KJUR.crypto.Util.sha256(msg)));
-      console.log('signAuth hashKJUR=<' , hashKJUR , '>');
+      //console.log('signAuth hash=<' , hash , '>');
       let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
       //console.log('signAuth ecSign=<' , ecSign , '>');
       //console.log('signAuth self.prvKeyHex=<' , self.prvKeyHex , '>');
@@ -322,6 +320,29 @@ class StarBianCrypto {
       console.error(err);
     });
   }
+
+
+  miningAuth(msg) {
+    //console.log('signAuth msg=<' , msg , '>');
+    let hash = KJUR.crypto.Util.sha256(msg);
+    //console.log('signAuth hash=<' , hash , '>');
+    let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+    //console.log('signAuth ecSign=<' , ecSign , '>');
+    //console.log('signAuth self.prvKeyHex=<' , self.prvKeyHex , '>');
+
+    let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+    signEngine.init({d: self.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
+    signEngine.updateString(hash);
+    let signatureHex = signEngine.sign();
+    //console.log('signAuth signatureHex=<' , signatureHex , '>');
+    let signature = {
+      pubKeyB58:self.pubKeyB58,
+      hash:hash,
+      sign:signatureHex
+    };
+    return signature;
+  }
+
 
   verifyAuth(content,auth,channel,cb) {
     let keys= StarBian.getRemoteKey();
@@ -732,22 +753,23 @@ class StarBianIpfsProxy {
     console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
     if(!_insideCrypto.pubKeyB58) {	
       return;	
-    } 	
-    let shareKey = { 
-      ts:new Date(),
-      pubkey:_insideCrypto.pubKeyB58,
-      password:this.OneTimePassword_
-    };
-    let self = this;
-    _insideCrypto.signAuth(JSON.stringify(shareKey),function(auth) {	
+    }
+    while(true) {
+      let shareKey = { 
+        ts:new Date(),
+        pubkey:_insideCrypto.pubKeyB58,
+        password:this.OneTimePassword_
+      };
+      let auth = _insideCrypto.miningAuth(JSON.stringify(shareKey));
       const diffculty = '11';
       if(auth.hash.startsWith(diffculty)) {
         console.log('good lucky !!! sharePubKeyMining_:auth.hash=<',auth.hash,'>');
+        break;
       } else {
         console.log('bad lucky !!! sharePubKeyMining_:auth.hash=<',auth.hash,'>');
         setTimeout(self.sharePubKeyMining_,0);
       }
-    });	
+    }
   }
 
 
