@@ -355,10 +355,6 @@ class StarBianCrypto {
 
   signAssist(auth,cb) {
     console.log('signAssist auth=<' , auth , '>');
-    if(auth.pubKeyB58 === this.pubKeyB58) {
-      console.log('signAssist do not sign assist for my self!!!!!!!!!!!!');
-      return;
-    }
     let now = new Date();
     let ts = now.toISOString();
     let msgJson = {orig:auth.hash,ts:ts};
@@ -819,7 +815,13 @@ class StarBianIpfsProxy {
     if(!assist) {
       let self = this;
       _insideCrypto.signAssist(auth,(assisted) => {
-       console.log('onShareKey_ assisted =<' , assisted ,'>');
+        console.log('onShareKey_ assisted =<' , assisted ,'>');
+        if(assisted.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
+          //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
+        } else {
+          //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
+          self.onShareKey_(shareKey,auth);
+        }
      })
      return;
     }
