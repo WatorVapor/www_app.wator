@@ -630,13 +630,17 @@ class StarBianIpfsProxy {
   }
   sharePubKeyTimeOut_(cb) {
     this.sharePubKeyInside_();
-    this.OneTimeCB_(this.sharePubKeyCounter);
-    this.sharePubKeyCounter--;
-    if(this.sharePubKeyCounter >= 0) {
-      let self = this;
-      setTimeout(function() {
-        self.sharePubKeyTimeOut_(cb);
-      },10000);
+    if(typeof this.OneTimeCB_ === 'function') {
+      this.OneTimeCB_(this.sharePubKeyCounter);
+      this.sharePubKeyCounter--;
+      if(this.sharePubKeyCounter >= 0) {
+        let self = this;
+        setTimeout(function() {
+          self.sharePubKeyTimeOut_(cb);
+        },10000);
+      } else {
+        this.OneTimeCB_ = false;
+      }
     }
   }
   
