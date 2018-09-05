@@ -610,7 +610,7 @@ class StarBianIpfsProxy {
     this.sharePubKeyMining_( (finnish) => {
       if(finnish) {
         self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
-        self.sharePubKeyTimeOut_();
+        self.sharePubKeyTimeOutPreStage_();
       } else {
         self.OneTimeCB_(10,'-----');
       }
@@ -625,6 +625,9 @@ class StarBianIpfsProxy {
 
   
   // private..
+  sharePubKeyTimeOutPreStage_(cb) {
+    this.sharePubKeyInsidePreStage_();
+  }
   sharePubKeyTimeOut_(cb) {
     this.sharePubKeyInside_();
     this.OneTimeCB_(this.sharePubKeyCounter);
@@ -768,6 +771,13 @@ class StarBianIpfsProxy {
     });
   }
 
+  sharePubKeyTimeOutPreStage_() {	
+    if(this.ws_.readyState) {	
+      console.log('sharePubKeyInside_:this.sharedKeyMsgPreStage=<',this.sharedKeyMsgPreStage,'>');	
+      this.ws_.send(JSON.stringify(this.sharedKeyMsgPreStage));	
+    }	
+  }
+
   sharePubKeyInside_() {	
     if(this.ws_.readyState) {	
       console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
@@ -794,7 +804,7 @@ class StarBianIpfsProxy {
       if(auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
         //console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
         //console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-        self.sharedKeyMsg =  {	
+        self.sharedKeyMsgPreStage =  {	
           channel:'broadcast',	
           auth:auth,
           shareKey:shareKey	
@@ -822,7 +832,8 @@ class StarBianIpfsProxy {
             auth:auth,
             assist:assisted,
             shareKey:shareKey	
-          };	
+          };
+          self.sharePubKeyTimeOut_();
         } else {
           //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
           self.onShareKey_(shareKey,auth);
