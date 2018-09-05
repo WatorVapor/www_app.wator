@@ -811,13 +811,18 @@ class StarBianIpfsProxy {
 
 
   onShareKey_(shareKey,auth,assist) {
-    console.log('onShareKey_ assist =<' , assist ,'>');
     if(!assist) {
       let self = this;
       _insideCrypto.signAssist(auth,(assisted) => {
         console.log('onShareKey_ assisted =<' , assisted ,'>');
         if(assisted.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
           //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
+          self.sharedKeyMsg =  {	
+            channel:'broadcast',	
+            auth:auth,
+            assist:assisted,
+            shareKey:shareKey	
+          };	
         } else {
           //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
           self.onShareKey_(shareKey,auth);
@@ -827,6 +832,7 @@ class StarBianIpfsProxy {
     }
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
     console.log('onShareKey_ auth =<' , auth ,'>');
+    console.log('onShareKey_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
       console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
       return ;
