@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-const SHARE_PUBKEY_DIFFCULTY = '00';
+const SHARE_PUBKEY_DIFFCULTY = '0';
 
 
 // private class
