@@ -643,7 +643,7 @@ class StarBianIpfsProxy {
         } else if(msg.ecdh) {
           self.onGoodECDH_(msg.ecdh);
         } else if(msg.shareKey) {
-          self.onShareKey_(msg.shareKey,msg.auth);
+          self.onShareKey_(msg.shareKey,msg.auth,msg.assist);
         } else {
           console.log('onWssMessage_ not supported  :msg=<',msg,'>');
         }
@@ -776,9 +776,10 @@ class StarBianIpfsProxy {
   }
 
 
-  onShareKey_(shareKey,auth) {
-    //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    //console.log('onShareKey_ auth =<' , auth ,'>');
+  onShareKey_(shareKey,auth,assist) {
+    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    console.log('onShareKey_ auth =<' , auth ,'>');
+    console.log('onShareKey_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
       console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
       return ;
