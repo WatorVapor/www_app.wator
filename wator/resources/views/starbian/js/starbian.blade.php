@@ -2,6 +2,11 @@
 'use strict'
 
 
+const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+const SHARE_PUBKEY_DIFFCULTY = '00';
+
+
 /**
 * @classdesc This is StarBian.
 * @constructor
@@ -81,10 +86,6 @@ $(document).ready(function(){
     StarBian.InitCrypto_();
   },0);
 });
-
-const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
-const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-const SHARE_PUBKEY_DIFFCULTY = '0';
 
 
 // private class
