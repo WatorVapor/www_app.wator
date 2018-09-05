@@ -353,6 +353,44 @@ class StarBianCrypto {
     });
   }
 
+  signAssist(auth,cb) {
+    console.log('signAssist auth=<' , auth , '>');
+    if(auth.pubKeyB58 === this.pubKeyB58) {
+      console.log('signAssist do not sign assist for my self!!!!!!!!!!!!');
+      return;
+    }
+    let now = new Date();
+    let ts = now.toISOString();
+    let msgJson = {orig:auth.hash,ts:ts};
+    let msg = JSON.stringify(msgJson);
+    let self = this;
+    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(msg))
+    .then(function(buf) {
+      let hash = base64js.fromByteArray(new Uint8Array(buf));
+      //console.log('signAssist hash=<' , hash , '>');
+      let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+      //console.log('signAssist ecSign=<' , ecSign , '>');
+      //console.log('signAssist self.prvKeyHex=<' , self.prvKeyHex , '>');
+
+      let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+      signEngine.init({d: self.rsPrvKey.prvKeyHex, curve: 'secp256r1'});
+      signEngine.updateString(hash);
+      let signatureHex = signEngine.sign();
+      //console.log('signAssist signatureHex=<' , signatureHex , '>');
+      let hashSign = KJUR.crypto.Util.sha256(signatureHex);
+      let signature = {
+        pubKeyB58:self.pubKeyB58,
+        hash:hash,
+        orig:msgJson,
+        sign:signatureHex,
+        hashSign:hashSign
+      };
+      cb(signature);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
 
   verifyAuth(content,auth,channel,cb) {
     let keys= StarBian.getRemoteKey();
@@ -777,9 +815,16 @@ class StarBianIpfsProxy {
 
 
   onShareKey_(shareKey,auth,assist) {
+    console.log('onShareKey_ assist =<' , assist ,'>');
+    if(!assist) {
+      let self = this;
+      _insideCrypto.signAssist(auth,(assisted) => {
+       console.log('onShareKey_ assisted =<' , assisted ,'>');
+     })
+     return;
+    }
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
     console.log('onShareKey_ auth =<' , auth ,'>');
-    console.log('onShareKey_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
       console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
       return ;
