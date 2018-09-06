@@ -789,7 +789,7 @@ class StarBianIpfsProxy {
   }  
 
   onWssMessage_(msg,channel) {
-    //console.log('onWssMessage_:msg=<',msg,'>');
+    console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.broadcast;
       let self = this;
