@@ -84,7 +84,6 @@ StarBian.Peer = class StarBianPeer {
   }
 }
 
-//StarBian.Peer = StarBianPeer;
 
 /**
 * @classdesc This is StarBianBroadCast.
@@ -230,27 +229,6 @@ StarBian.BroadCast = class StarBianBroadCast {
       }
     }
   }   
-
-
-
-  sharePubKey(cb) {
-    this.sharePubKeyCounter = 10;
-    this.OneTimeCB_ = cb;
-    let self = this;
-    this.sharePubKeyMining_( (finnish) => {
-      if(finnish) {
-        self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
-        self.sharePubKeyTimeOutPreStage_();
-      } else {
-        self.OneTimeCB_(10,'-----');
-      }
-    });
-  }
-  searchPubKey(password,cb) {
-    this.targetPubKeyPassword_ = password;
-    this.targetPubKeyCallback_ = cb;
-  }
-
 
 }
 
