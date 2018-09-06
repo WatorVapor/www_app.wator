@@ -236,11 +236,20 @@ StarBian.BroadCast = class StarBianBroadCast {
     //console.log('verifyAssist_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
       console.log('verifyAssist_ !!! bad hash auth =<' , auth ,'>');
-      return ;
+      return;
+    }
+    if(!assist.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
+      console.log('verifyAssist_ !!! bad hash assist =<' , assist ,'>');
+      return;
+    }
+    if(auth.hash !== assist.orig.orig ) {
+      console.log('verifyAssist_ !!! bad hash auth.hash =<' , auth.hash ,'>');
+      console.log('verifyAssist_ !!! bad hash assist.orig.orig =<' , assist.orig.orig ,'>');
+      return;
     }
     let self = this;
-    _insideCrypto.verifyAssist(auth,assist,() => {
-      
+    _insideCrypto.verifyAssist(assist,() => {
+      cb();
     });
   }
 
@@ -581,30 +590,28 @@ class StarBianCrypto {
   }
   
   
-  verifyAssist(auth,assist,cb) {
-    console.log('verifyAssist auth=<' , auth ,'>');
+  verifyAssist(assist,cb) {
     console.log('verifyAssist assist=<' , assist ,'>');
     let self = this;
-    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
+    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(assist.orig)))
     .then(function(buf){
       let hashCal = base64js.fromByteArray(new Uint8Array(buf));
-      if(hashCal !== auth.hash) {
+      if(hashCal !== assist.hash) {
         console.log('verifyAssist  not authed !!! hashCal=<' , hashCal , '>');
-        console.log('verifyAssist  not authed !!! auth.hash=<' , auth.hash , '>');
-        console.log('verifyAssist: not authed !!! content=<',content,'>');
-        console.log('verifyAssist: not auth !!!  auth=<',auth,'>');
+        console.log('verifyAssist  not authed !!! assist.hash=<' , assist.hash , '>');
+        console.log('verifyAssist: not authed !!! assist.orig=<',assist.orig,'>');
       } else {
-        self.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
+        self.Bs58Key2RsKey(assist.pubKeyB58,(pubKey) => {
           //console.log('verifyAssist pubKey=<' , pubKey , '>');
           let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
           signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
-          signEngine.updateString(auth.hash);
-          let result = signEngine.verify(auth.sign);
+          signEngine.updateString(assist.hash);
+          let result = signEngine.verify(assist.sign);
           if(result) {
             cb(result);
           } else {
             console.log('verifyAssist not authed !!! result=<' , result , '>');
-            console.log('verifyAssist not authed !!! auth=<' , auth , '>');
+            console.log('verifyAssist not authed !!! assist=<' , assist , '>');
           }
         });
       }
