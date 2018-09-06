@@ -229,6 +229,31 @@ StarBian.BroadCast = class StarBianBroadCast {
       }
     }
   }   
+
+
+  subscribe(cb) {
+    this.subscribe_ = cb;
+  }	
+
+  sharePubKey(cb) {
+    this.sharePubKeyCounter = 10;
+    this.OneTimeCB_ = cb;
+    let self = this;
+    this.sharePubKeyMining_( (finnish) => {
+      if(finnish) {
+        self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
+        self.sharePubKeyTimeOutPreStage_();
+      } else {
+        self.OneTimeCB_(10,'-----');
+      }
+    });
+  }
+  searchPubKey(password,cb) {
+    this.targetPubKeyPassword_ = password;
+    this.targetPubKeyCallback_ = cb;
+  }
+
+
 }
 
 
@@ -734,27 +759,7 @@ class StarBianIpfsProxy {
       });
     });
   }
-  subscribe(cb) {
-    this.subscribe_ = cb;
-  }	
-
-  sharePubKey(cb) {
-    this.sharePubKeyCounter = 10;
-    this.OneTimeCB_ = cb;
-    let self = this;
-    this.sharePubKeyMining_( (finnish) => {
-      if(finnish) {
-        self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
-        self.sharePubKeyTimeOutPreStage_();
-      } else {
-        self.OneTimeCB_(10,'-----');
-      }
-    });
-  }
-  searchPubKey(password,cb) {
-    this.targetPubKeyPassword_ = password;
-    this.targetPubKeyCallback_ = cb;
-  }
+  
     
   onNotifyOpen_(evt) {
     console.log('onNotifyOpen_:evt=<',evt,'>');
@@ -799,7 +804,7 @@ class StarBianIpfsProxy {
         } else if(msg.ecdh) {
           self.onGoodECDH_(msg.ecdh);
         } else if(msg.broadcast) {
-          self.onBroadCast_(msg.broadcast);
+          self.onBroadCast_(msg);
         } else {
           console.log('onWssMessage_ not supported  :msg=<',msg,'>');
         }
@@ -807,7 +812,7 @@ class StarBianIpfsProxy {
     }
   }
   onBroadCast_(msg) {
-    //console.log('onBroadCast_:msg=<',msg,'>');
+    console.log('onBroadCast_:msg=<',msg,'>');
     if(typeof this.subscribe_ === 'function') {
       this.subscribe_(msg);
     }
