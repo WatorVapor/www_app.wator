@@ -1,11 +1,31 @@
 <script type="text/javascript">
-
 const StarBian = {};
 StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
+/**
+* @return {array} key
+*/
+StarBian.getRemoteKey = () => {
+  return StarBianCrypto.getRemoteKey();
+}
+/**
+* @param {string} pubKey
+*/
+StarBian.addRemoteKey(pubKey) {
+  StarBianCrypto.addRemoteKey(pubKey);
+}
+/**
+* @param {string} pubKey
+*/
+StarBian.removeRemoteKey(pubKey) {
+  StarBianCrypto.removeRemoteKey(pubKey);
+}
 
-// override this if you what see public key of mine.
+/**
+* override this if you what see public key of mine.
+* @param {string} pubKey
+*/
 StarBian.onReadyOfKey = () =>{
 };
 
@@ -50,25 +70,6 @@ StarBian.Peer = class StarBianPeer {
   getPubKey() {
     return _insideCrypto.getPubKey();
   }
-  /**
-  * @return {array} key
-  */
-  static getRemoteKey() {
-    return StarBianCrypto.getRemoteKey();
-  }
-  /**
-  * @param {string} pubKey
-  */
-  static addRemoteKey(pubKey) {
-    StarBianCrypto.addRemoteKey(pubKey);
-  }
-  /**
-  * @param {string} pubKey
-  */
-  static removeRemoteKey(pubKey) {
-    StarBianCrypto.removeRemoteKey(pubKey);
-  }
-  
   
   // private..
   static InitCrypto_(evt) {
