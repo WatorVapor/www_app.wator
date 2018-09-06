@@ -231,9 +231,6 @@ StarBian.BroadCast = class StarBianBroadCast {
   }   
 
 
-  subscribe(cb) {
-    this.subscribe_ = cb;
-  }	
 
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
@@ -759,6 +756,10 @@ class StarBianIpfsProxy {
       });
     });
   }
+  
+  subscribe(cb) {
+    this.subscribe_ = cb;
+  }	
   
     
   onNotifyOpen_(evt) {
