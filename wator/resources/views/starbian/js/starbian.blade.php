@@ -194,41 +194,54 @@ StarBian.BroadCast = class StarBianBroadCast {
   }
   onShareKey_(shareKey,auth,assist) {
     if(!assist) {
-      let self = this;
-      _insideCrypto.signAssist(auth,(assisted) => {
-        console.log('onShareKey_ assisted =<' , assisted ,'>');
-        if(assisted.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
-          //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
-          self.sharedKeyMsg =  {	
-            channel:'broadcast',	
-            auth:auth,
-            assist:assisted,
-            broadcast:shareKey	
-          };
-          self.sharePubKeyTimeOut_();
-        } else {
-          //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
-          self.onShareKey_(shareKey,auth);
-        }
-     })
-     return;
+      this.mineAssist_(shareKey,auth);
+      return;
     }
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    console.log('onShareKey_ auth =<' , auth ,'>');
-    console.log('onShareKey_ assist =<' , assist ,'>');
+    verifyAssist_(auth,assist,() => {
+      //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
+      //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
+      if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
+        if(typeof this.targetPubKeyCallback_ === 'function') {
+          this.targetPubKeyCallback_(shareKey.pubkey);
+          this.sharePubKeyCounter = 0;
+        }
+      }
+    });
+  }
+  
+  mineAssist_(shareKey,auth) {
+    let self = this;
+    _insideCrypto.signAssist(auth,(assisted) => {
+      console.log('onShareKey_ assisted =<' , assisted ,'>');
+      if(assisted.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
+        //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
+        self.sharedKeyMsg =  {	
+          channel:'broadcast',	
+          auth:auth,
+          assist:assisted,
+          broadcast:shareKey	
+        };
+        self.sharePubKeyTimeOut_();
+      } else {
+        //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
+        self.onShareKey_(shareKey,auth);
+      }
+   })
+  }
+
+  verifyAssist_(auth,assist,cb) {
+    console.log('verifyAssist_ auth =<' , auth ,'>');
+    console.log('verifyAssist_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
-      console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
+      console.log('verifyAssist_ !!! bad hash auth =<' , auth ,'>');
       return ;
     }
-    //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
-    //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
-    if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
-      if(typeof this.targetPubKeyCallback_ === 'function') {
-        this.targetPubKeyCallback_(shareKey.pubkey);
-        this.sharePubKeyCounter = 0;
-      }
-    }
-  }   
+    let self = this;
+    _insideCrypto.verifyAssist(auth,assist,() => {
+      
+    });
+  }
 
 }
 
@@ -557,6 +570,40 @@ class StarBianCrypto {
           } else {
             console.log('verifyAuth not authed !!! result=<' , result , '>');
             console.log('verifyAuth not authed !!! auth=<' , auth , '>');
+          }
+        });
+      }
+    })
+    .catch(function(err){
+      console.error(err);
+    });
+  }
+  
+  
+  verifyAssist(auth,assist,cb) {
+    console.log('verifyAssist assist=<' , assist ,'>');
+    console.log('verifyAssist assist=<' , assist ,'>');
+    let self = this;
+    crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
+    .then(function(buf){
+      let hashCal = base64js.fromByteArray(new Uint8Array(buf));
+      if(hashCal !== auth.hash) {
+        console.log('verifyAssist  not authed !!! hashCal=<' , hashCal , '>');
+        console.log('verifyAssist  not authed !!! auth.hash=<' , auth.hash , '>');
+        console.log('verifyAssist: not authed !!! content=<',content,'>');
+        console.log('verifyAssist: not auth !!!  auth=<',auth,'>');
+      } else {
+        self.Bs58Key2RsKey(auth.pubKeyB58,(pubKey) => {
+          //console.log('verifyAssist pubKey=<' , pubKey , '>');
+          let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+          signEngine.init({xy: pubKey.pubKeyHex, curve: 'secp256r1'});
+          signEngine.updateString(auth.hash);
+          let result = signEngine.verify(auth.sign);
+          if(result) {
+            cb(result);
+          } else {
+            console.log('verifyAssist not authed !!! result=<' , result , '>');
+            console.log('verifyAssist not authed !!! auth=<' , auth , '>');
           }
         });
       }
