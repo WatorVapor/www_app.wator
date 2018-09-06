@@ -1,11 +1,20 @@
 <script type="text/javascript">
-'use strict'
 
-const StarBian = {
+const StarBian = {};
+StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
+
+// override this if you what see public key of mine.
+StarBian.onReadyOfKey = () =>{
 };
-const StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
-const StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-const StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
+
+document.addEventListener('DOMContentLoaded', () =>{
+  setTimeout(function(){
+    StarBian.Peer.InitCrypto_();
+  },0);
+}, false);
+
 
 
 /**
@@ -33,19 +42,6 @@ StarBian.Peer = class StarBianPeer {
   */
   subscribe(cb) {
     this.ipfsProxy.subscribe(cb);
-  }	
-  /**
-  * @param {function} cb
-  */
-  sharePubKey(cb) {
-    this.ipfsProxy.sharePubKey(cb);
-  }
-  /**
-  * @param {string} password
-  * @param {function} cb
-  */
-  searchPubKey(password,cb) {
-    this.ipfsProxy.searchPubKey(password,cb);
   }
 
   /**
@@ -82,11 +78,145 @@ StarBian.Peer = class StarBianPeer {
   }
 }
 
-$(document).ready(function(){
-  setTimeout(function(){
-    StarBian.InitCrypto_();
-  },0);
-});
+//StarBian.Peer = StarBianPeer;
+
+/**
+* @classdesc This is StarBianBroadCast.
+* @constructor
+* @param {string} channelKey
+*/
+StarBian.BroadCast = class StarBianBroadCast {
+  constructor() {
+    this.castPeer_ = StarBian.StarBianPeer('broadcast');
+    let self = this;
+    this.castPeer_.onReady = () => {
+    };
+    this.castPeer_.subscribe = (msg) => {
+      self.onBroadCast_(msg)
+    }
+  }
+  /**
+  * @param {function} cb
+  */
+  broadcastPubKey(cb) {
+    //this.ipfsProxy.sharePubKey(cb);
+  }
+  /**
+  * @param {string} password
+  * @param {function} cb
+  */
+  listenPubKey(password,cb) {
+    //this.ipfsProxy.searchPubKey(password,cb);
+  }
+  
+  
+  // private
+  onBroadCast_(msg) {
+    console.log('onBroadCast_:: msg=<',msg,'>');
+  }
+
+  // private..
+  sharePubKeyTimeOutPreStage_(cb) {
+    this.sharePubKeyInsidePreStage_();
+  }
+  sharePubKeyTimeOut_(cb) {
+    this.sharePubKeyInside_();
+    if(typeof this.OneTimeCB_ === 'function') {
+      this.OneTimeCB_(this.sharePubKeyCounter);
+      this.sharePubKeyCounter--;
+      if(this.sharePubKeyCounter >= 0) {
+        let self = this;
+        setTimeout(function() {
+          self.sharePubKeyTimeOut_(cb);
+        },10000);
+      } else {
+        this.OneTimeCB_ = false;
+      }
+    }
+  }
+  sharePubKeyTimeOutPreStage_() {	
+    if(this.ws_.readyState) {	
+      console.log('sharePubKeyInside_:this.sharedKeyMsgPreStage=<',this.sharedKeyMsgPreStage,'>');	
+      this.ws_.send(JSON.stringify(this.sharedKeyMsgPreStage));	
+    }	
+  }
+
+  sharePubKeyInside_() {	
+    if(this.ws_.readyState) {	
+      console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
+      this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
+    }	
+  }
+  sharePubKeyMining_(cb) {	
+    console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
+    if(!_insideCrypto.pubKeyB58) {	
+      return;	
+    }
+    let self = this;
+    let now = new Date();
+    let ts = now.toISOString();
+    this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
+    let shareKey = { 
+      ts:ts,
+      pubkey:_insideCrypto.pubKeyB58,
+      password:this.OneTimePassword_
+    };
+    _insideCrypto.miningAuth(JSON.stringify(shareKey),(auth)=> {
+      if(auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
+        //console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        //console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        self.sharedKeyMsgPreStage =  {	
+          channel:'broadcast',	
+          auth:auth,
+          shareKey:shareKey	
+        };	
+        cb(true);
+      } else {
+        //console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
+        //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
+        cb(false);
+        self.sharePubKeyMining_(cb);
+      }
+    }); 
+  }
+  onShareKey_(shareKey,auth,assist) {
+    if(!assist) {
+      let self = this;
+      _insideCrypto.signAssist(auth,(assisted) => {
+        console.log('onShareKey_ assisted =<' , assisted ,'>');
+        if(assisted.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
+          //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
+          self.sharedKeyMsg =  {	
+            channel:'broadcast',	
+            auth:auth,
+            assist:assisted,
+            shareKey:shareKey	
+          };
+          self.sharePubKeyTimeOut_();
+        } else {
+          //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
+          self.onShareKey_(shareKey,auth);
+        }
+     })
+     return;
+    }
+    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    console.log('onShareKey_ auth =<' , auth ,'>');
+    console.log('onShareKey_ assist =<' , assist ,'>');
+    if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
+      console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
+      return ;
+    }
+    //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
+    //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
+    if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
+      if(typeof this.targetPubKeyCallback_ === 'function') {
+        this.targetPubKeyCallback_(shareKey.pubkey);
+        this.sharePubKeyCounter = 0;
+      }
+    }
+  }   
+}
 
 
 // private class
@@ -94,18 +224,18 @@ class StarBianCrypto {
   constructor() {
     this.onReadyKey = StarBian.onReadyOfKey;
     //console.log('StarBianCrypto');	
-    let key = localStorage.getItem(LS_KEY_NAME);
+    let key = localStorage.getItem(StarBian.LS_KEY_NAME);
     //console.log('StarBianCrypto:key=<',key,'>');
     if(key) {
       this.onLoadSavedKey(key);
     } else {
       this.onCreateKey();
     }  
-    let keyRemote = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    let keyRemote = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     if(!keyRemote) {
       let keyStr = JSON.stringify([]);
       //console.log('StarBianCrypto keyStr=<' , keyStr , '>');
-      localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
+      localStorage.setItem(StarBian.LS_KEY_REMOTE_NAME,keyStr);
     }
     this.createECDHKey();  
   }
@@ -121,7 +251,7 @@ class StarBianCrypto {
   * @return {array} key
   */
   static getRemoteKey() {
-    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    let key = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
       return keyJson;
@@ -134,7 +264,7 @@ class StarBianCrypto {
   */
   static addRemoteKey(pubKey) {
     console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
-    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    let key = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
       keyJson.push(pubKey);
@@ -146,21 +276,21 @@ class StarBianCrypto {
     }
     let keyStr = JSON.stringify(keyJson);
     console.log('StarBian addRemoteKey keyStr=<' , keyStr , '>');
-    localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
+    localStorage.setItem(StarBian.LS_KEY_REMOTE_NAME,keyStr);
   }
   /**
   * @param {string} pubKey
   */
   static removeRemoteKey(pubKey) {
     console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
-    let key = localStorage.getItem(LS_KEY_REMOTE_NAME);
+    let key = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     console.log('StarBian.removeKey keyJson=<' , keyJson , '>');
     let newKeys = keyJson.filter(key => pubKey !== key);
     console.log('StarBian.removeKey newKeys=<' , newKeys , '>');
     let keyStr = JSON.stringify(newKeys);
     console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
-    localStorage.setItem(LS_KEY_REMOTE_NAME,keyStr);
+    localStorage.setItem(StarBian.LS_KEY_REMOTE_NAME,keyStr);
   }
 
   onCreateKey () {
@@ -190,7 +320,7 @@ class StarBianCrypto {
       console.log('savePrivKey keydata=<' , keydata , '>');
       let keyStr = JSON.stringify(keydata);
       console.log('savePrivKey keyStr=<' , keyStr , '>');
-      localStorage.setItem(LS_KEY_NAME,keyStr);
+      localStorage.setItem(StarBian.LS_KEY_NAME,keyStr);
     })
     .catch(function(err){
       console.error(err);
@@ -391,17 +521,6 @@ class StarBianCrypto {
   }
 
   verifyAuth(content,auth,channel,cb) {
-    let keys= StarBian.getRemoteKey();
-    //console.log('verifyAuth:auth.pubKeyB58=<',auth.pubKeyB58,'>');
-    let index = keys.indexOf(auth.pubKeyB58);
-    //console.log('verifyAuth:index=<',index,'>');
-    if(index === -1 && channel !== 'broadcast') {
-      console.log('verifyAuth: not authed !!! index=<',index,'>');
-      console.log('verifyAuth: not authed !!!  channel=<',channel,'>');
-      console.log('verifyAuth: not authed !!! content=<',content,'>');
-      console.log('verifyAuth: not auth !!!  auth=<',auth,'>');
-      return;
-    }
     //console.log('verifyAuth JSON.stringify(content)=<' , JSON.stringify(content) ,'>');
     let self = this;
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
@@ -605,6 +724,7 @@ class StarBianIpfsProxy {
   subscribe(cb) {
     this.subscribe_ = cb;
   }	
+
   sharePubKey(cb) {
     this.sharePubKeyCounter = 10;
     this.OneTimeCB_ = cb;
@@ -622,31 +742,7 @@ class StarBianIpfsProxy {
     this.targetPubKeyPassword_ = password;
     this.targetPubKeyCallback_ = cb;
   }
-  
-  
-
-  
-  // private..
-  sharePubKeyTimeOutPreStage_(cb) {
-    this.sharePubKeyInsidePreStage_();
-  }
-  sharePubKeyTimeOut_(cb) {
-    this.sharePubKeyInside_();
-    if(typeof this.OneTimeCB_ === 'function') {
-      this.OneTimeCB_(this.sharePubKeyCounter);
-      this.sharePubKeyCounter--;
-      if(this.sharePubKeyCounter >= 0) {
-        let self = this;
-        setTimeout(function() {
-          self.sharePubKeyTimeOut_(cb);
-        },10000);
-      } else {
-        this.OneTimeCB_ = false;
-      }
-    }
-  }
-  
-  
+    
   onNotifyOpen_(evt) {
     console.log('onNotifyOpen_:evt=<',evt,'>');
     let self = this;
@@ -662,10 +758,14 @@ class StarBianIpfsProxy {
     //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     let jsonMsg = JSON.parse(evt.data);
     //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
-    if(jsonMsg && jsonMsg.msg) {
-      this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
+    if(jsonMsg && jsonMsg.msg ) {
+      if(this.channelKey_ === jsonMsg.channel) {
+        this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
+      } else {
+        console.warn('onNotifyMessage_:!!! data out of my eye evt.data=<',evt.data,'>');
+      }
     } else {
-      console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
+      console.warn('onNotifyMessage_: !!! bad format evt.data=<',evt.data,'>');
     }
   }
   onNotifyClose_(evt) {
@@ -678,19 +778,25 @@ class StarBianIpfsProxy {
   onWssMessage_(msg,channel) {
     //console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
+      let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.broadcast;
       let self = this;
-      let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.shareKey;
       _insideCrypto.verifyAuth(content,msg.auth,channel,() => {
         if(msg.encrypt) {
           self.onEncrypt_(msg.encrypt,channel);
         } else if(msg.ecdh) {
           self.onGoodECDH_(msg.ecdh);
-        } else if(msg.shareKey) {
-          self.onShareKey_(msg.shareKey,msg.auth,msg.assist);
+        } else if(msg.broadcast) {
+          self.onBroadCast_(msg.broadcast);
         } else {
           console.log('onWssMessage_ not supported  :msg=<',msg,'>');
         }
       });
+    }
+  }
+  onBroadCast_(msg) {
+    //console.log('onBroadCast_:msg=<',msg,'>');
+    if(typeof this.subscribe_ === 'function') {
+      this.subscribe_(msg);
     }
   }
 
@@ -777,94 +883,6 @@ class StarBianIpfsProxy {
     });
   }
 
-  sharePubKeyTimeOutPreStage_() {	
-    if(this.ws_.readyState) {	
-      console.log('sharePubKeyInside_:this.sharedKeyMsgPreStage=<',this.sharedKeyMsgPreStage,'>');	
-      this.ws_.send(JSON.stringify(this.sharedKeyMsgPreStage));	
-    }	
-  }
-
-  sharePubKeyInside_() {	
-    if(this.ws_.readyState) {	
-      console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
-      this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
-    }	
-  }
-  
-
-  sharePubKeyMining_(cb) {	
-    console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
-    if(!_insideCrypto.pubKeyB58) {	
-      return;	
-    }
-    let self = this;
-    let now = new Date();
-    let ts = now.toISOString();
-    this.OneTimePassword_ = Math.floor(Math.random()*(99999-11111)+11111);
-    let shareKey = { 
-      ts:ts,
-      pubkey:_insideCrypto.pubKeyB58,
-      password:this.OneTimePassword_
-    };
-    _insideCrypto.miningAuth(JSON.stringify(shareKey),(auth)=> {
-      if(auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
-        //console.log('good lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        //console.log('good lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-        self.sharedKeyMsgPreStage =  {	
-          channel:'broadcast',	
-          auth:auth,
-          shareKey:shareKey	
-        };	
-        cb(true);
-      } else {
-        //console.log('bad lucky !!! sharePubKeyMining_:auth=<',auth,'>');
-        //console.log('bad lucky !!! sharePubKeyMining_:shareKey=<',shareKey,'>');
-        cb(false);
-        self.sharePubKeyMining_(cb);
-      }
-    }); 
-  }
-
-
-  onShareKey_(shareKey,auth,assist) {
-    if(!assist) {
-      let self = this;
-      _insideCrypto.signAssist(auth,(assisted) => {
-        console.log('onShareKey_ assisted =<' , assisted ,'>');
-        if(assisted.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
-          //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
-          self.sharedKeyMsg =  {	
-            channel:'broadcast',	
-            auth:auth,
-            assist:assisted,
-            shareKey:shareKey	
-          };
-          self.sharePubKeyTimeOut_();
-        } else {
-          //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
-          self.onShareKey_(shareKey,auth);
-        }
-     })
-     return;
-    }
-    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    console.log('onShareKey_ auth =<' , auth ,'>');
-    console.log('onShareKey_ assist =<' , assist ,'>');
-    if(!auth.hashSign.startsWith(SHARE_PUBKEY_DIFFCULTY)) {
-      console.log('onShareKey_ !!! bad hash auth =<' , auth ,'>');
-      return ;
-    }
-    //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
-    //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
-    if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
-      if(typeof this.targetPubKeyCallback_ === 'function') {
-        this.targetPubKeyCallback_(shareKey.pubkey);
-        this.sharePubKeyCounter = 0;
-      }
-    }
-  }
-
 };
-
 
 </script>
