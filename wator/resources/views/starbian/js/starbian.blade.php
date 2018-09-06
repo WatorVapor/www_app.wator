@@ -88,7 +88,7 @@ StarBian.Peer = class StarBianPeer {
 */
 StarBian.BroadCast = class StarBianBroadCast {
   constructor() {
-    this.castPeer_ = StarBian.StarBianPeer('broadcast');
+    this.castPeer_ = new StarBian.StarBianPeer('broadcast');
     let self = this;
     this.castPeer_.onReady = () => {
     };
