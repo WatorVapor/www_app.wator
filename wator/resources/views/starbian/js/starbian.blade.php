@@ -181,7 +181,7 @@ StarBian.BroadCast = class StarBianBroadCast {
         self.sharedKeyMsgPreStage =  {	
           channel:'broadcast',	
           auth:auth,
-          shareKey:shareKey	
+          broadcast:shareKey	
         };	
         cb(true);
       } else {
