@@ -204,7 +204,7 @@ StarBian.BroadCast = class StarBianBroadCast {
             channel:'broadcast',	
             auth:auth,
             assist:assisted,
-            shareKey:shareKey	
+            broadcast:shareKey	
           };
           self.sharePubKeyTimeOut_();
         } else {
