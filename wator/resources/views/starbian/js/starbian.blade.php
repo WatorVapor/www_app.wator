@@ -757,7 +757,9 @@ class StarBianIpfsProxy {
     let jsonMsg = JSON.parse(evt.data);
     console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg ) {
-      if(jsonMsg.auth && jsonMsg.auth.pubKeyB58 === this.channelKey_) {
+      if(this.channelKey_ === 'broadcast' && jsonMsg.channel === 'broadcast') {
+        this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
+      } else if(jsonMsg.auth && jsonMsg.auth.pubKeyB58 === this.channelKey_) {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
       } else {
         console.warn('onNotifyMessage_:!!! data out of my eye evt.data=<',evt.data,'>');
