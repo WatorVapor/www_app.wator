@@ -755,7 +755,7 @@ class StarBianIpfsProxy {
   onNotifyMessage_(evt) {
     //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     let jsonMsg = JSON.parse(evt.data);
-    //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
+    console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg ) {
       if(this.channelKey_ === jsonMsg.channel) {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
