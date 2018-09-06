@@ -77,6 +77,11 @@ StarBian.Peer = class StarBianPeer {
       _insideCrypto = new StarBianCrypto();
     }
   }
+  
+  // private..
+  sendThough_(msg) {
+    this.ipfsProxy.sendThough_(msg);
+  }
 }
 
 //StarBian.Peer = StarBianPeer;
@@ -145,10 +150,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     }
   }
   sharePubKeyTimeOutPreStage_() {	
-    if(this.ws_.readyState) {	
-      console.log('sharePubKeyInside_:this.sharedKeyMsgPreStage=<',this.sharedKeyMsgPreStage,'>');	
-      this.ws_.send(JSON.stringify(this.sharedKeyMsgPreStage));	
-    }	
+    this.cast_.sendThough_(JSON.stringify(this.sharedKeyMsgPreStage));
   }
 
   sharePubKeyInside_() {	
@@ -893,6 +895,14 @@ class StarBianIpfsProxy {
       }
     });
   }
+
+  // private..
+  sendThough_(msg) {
+    if(self.ws_.readyState) {
+      self.ws_.send(msg);
+    }
+  }
+
 
 };
 
