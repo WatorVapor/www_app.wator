@@ -156,11 +156,8 @@ StarBian.BroadCast = class StarBianBroadCast {
     this.cast_.sendThough_(JSON.stringify(this.sharedKeyMsgPreStage));
   }
 
-  sharePubKeyInside_() {	
-    if(this.ws_.readyState) {	
-      console.log('sharePubKeyInside_:this.sharedKeyMsg=<',this.sharedKeyMsg,'>');	
-      this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
-    }	
+  sharePubKeyInside_() {
+    this.cast_.sendThough_(JSON.stringify(this.sharedKeyMsg));
   }
   
   sharePubKeyMining_(cb) {	
