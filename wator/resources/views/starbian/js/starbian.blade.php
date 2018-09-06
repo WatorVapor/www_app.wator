@@ -759,7 +759,7 @@ class StarBianIpfsProxy {
     if(jsonMsg && jsonMsg.msg ) {
       if(this.channelKey_ === 'broadcast' && jsonMsg.channel === 'broadcast') {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
-      } else if(jsonMsg.auth && jsonMsg.auth.pubKeyB58 === this.channelKey_) {
+      } else if(jsonMsg.msg.auth && jsonMsg.msg.auth.pubKeyB58 === this.channelKey_) {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
       } else {
         console.warn('onNotifyMessage_:!!! data out of my eye evt.data=<',evt.data,'>');
