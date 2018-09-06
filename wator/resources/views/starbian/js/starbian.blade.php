@@ -1,18 +1,19 @@
 <script type="text/javascript">
 'use strict'
 
-
-const LS_KEY_NAME = 'wator-starbian-ecdsa-key';
-const LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-const SHARE_PUBKEY_DIFFCULTY = '00';
+const StarBian = {
+};
+const StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+const StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
+const StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
 
 
 /**
-* @classdesc This is StarBian.
+* @classdesc This is StarBianPeer.
 * @constructor
 * @param {string} channelKey
 */
-class StarBian {
+StarBian.Peer = class StarBianPeer {
   constructor(channelKey) {
     this.ipfsProxy = new StarBianIpfsProxy(channelKey);
     this.ipfsProxy.onReady = () => {
