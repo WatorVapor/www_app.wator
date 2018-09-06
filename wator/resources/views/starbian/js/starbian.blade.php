@@ -232,8 +232,8 @@ StarBian.BroadCast = class StarBianBroadCast {
   }
 
   verifyAssist_(auth,assist,cb) {
-    console.log('verifyAssist_ auth =<' , auth ,'>');
-    console.log('verifyAssist_ assist =<' , assist ,'>');
+    //console.log('verifyAssist_ auth =<' , auth ,'>');
+    //console.log('verifyAssist_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
       console.log('verifyAssist_ !!! bad hash auth =<' , auth ,'>');
       return ;
@@ -582,7 +582,7 @@ class StarBianCrypto {
   
   
   verifyAssist(auth,assist,cb) {
-    console.log('verifyAssist assist=<' , assist ,'>');
+    console.log('verifyAssist auth=<' , auth ,'>');
     console.log('verifyAssist assist=<' , assist ,'>');
     let self = this;
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(content)))
