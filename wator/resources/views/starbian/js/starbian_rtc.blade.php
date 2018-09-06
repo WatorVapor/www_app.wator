@@ -27,7 +27,7 @@ class StarBianRtc {
   // private
 
   createStarBian_(keyChannel) {
-    this.starbian_ = new StarBian(keyChannel);
+    this.starbian_ = new StarBian.Peer(keyChannel);
     this.starbian_.isReady = false;
     let self = this;
     this.starbian_.onReady = () => {
