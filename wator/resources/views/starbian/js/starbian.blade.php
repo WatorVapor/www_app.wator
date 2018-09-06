@@ -100,7 +100,15 @@ StarBian.BroadCast = class StarBianBroadCast {
   * @param {function} cb
   */
   broadcastPubKey(cb) {
-    //this.ipfsProxy.sharePubKey(cb);
+    this.OneTimeCB_ = cb;
+    let self = this;
+    this.sharePubKeyMining_((finnish) => {
+      if(finnish) {
+        self.OneTimeCB_(10,self.OneTimePassword_);
+      } else {
+        self.OneTimeCB_(10,'-----');
+      }
+    });
   }
   /**
   * @param {string} password
@@ -148,6 +156,7 @@ StarBian.BroadCast = class StarBianBroadCast {
       this.ws_.send(JSON.stringify(this.sharedKeyMsg));	
     }	
   }
+  
   sharePubKeyMining_(cb) {	
     console.log('sharePubKeyMining_:_insideCrypto.pubKeyB58=<',_insideCrypto.pubKeyB58,'>');	
     if(!_insideCrypto.pubKeyB58) {	
