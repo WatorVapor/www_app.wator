@@ -879,7 +879,7 @@ class StarBianIpfsProxy {
   }
 
   tryExchangeKey_(type) {
-    if(!this.channelKey_) {
+    if(!this.channelKey_ || this.channelKey_ === 'broadcast') {
       console.log('tryExchangeKey: can not do it !!! this.channelKey_=<',this.channelKey_,'>');
       return;
     }
