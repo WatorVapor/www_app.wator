@@ -198,13 +198,14 @@ StarBian.BroadCast = class StarBianBroadCast {
       return;
     }
     console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    verifyAssist_(auth,assist,() => {
-      //console.log('onShareKey_ this.targetPubKeyPassword_ =<' , this.targetPubKeyPassword_ ,'>');
-      //console.log('onShareKey_ typeof this.targetPubKeyCallback_ =<' , typeof this.targetPubKeyCallback_,'>');
-      if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
+    let self = this;
+    this.verifyAssist_(auth,assist,() => {
+      //console.log('onShareKey_ self.targetPubKeyPassword_ =<' , self.targetPubKeyPassword_ ,'>');
+      //console.log('onShareKey_ typeof self.targetPubKeyCallback_ =<' , typeof self.targetPubKeyCallback_,'>');
+      if(self.targetPubKeyPassword_ === shareKey.password.toString()) {
         if(typeof this.targetPubKeyCallback_ === 'function') {
-          this.targetPubKeyCallback_(shareKey.pubkey);
-          this.sharePubKeyCounter = 0;
+          self.targetPubKeyCallback_(shareKey.pubkey);
+          self.sharePubKeyCounter = 0;
         }
       }
     });
