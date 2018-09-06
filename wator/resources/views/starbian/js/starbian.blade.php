@@ -248,7 +248,8 @@ StarBian.BroadCast = class StarBianBroadCast {
       return;
     }
     let self = this;
-    _insideCrypto.verifyAssist(assist,() => {
+    _insideCrypto.verifyAssist(assist,(result) => {
+      console.log('verifyAssist_ result =<' , result ,'>');
       cb();
     });
   }
