@@ -88,11 +88,11 @@ StarBian.Peer = class StarBianPeer {
 */
 StarBian.BroadCast = class StarBianBroadCast {
   constructor() {
-    this.castPeer_ = new StarBian.StarBianPeer('broadcast');
+    this.cast_ = new StarBian.Peer('broadcast');
     let self = this;
-    this.castPeer_.onReady = () => {
+    this.cast_.onReady = () => {
     };
-    this.castPeer_.subscribe = (msg) => {
+    this.cast_.subscribe = (msg) => {
       self.onBroadCast_(msg)
     }
   }
