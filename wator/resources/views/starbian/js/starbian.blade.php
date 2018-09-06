@@ -97,9 +97,9 @@ StarBian.BroadCast = class StarBianBroadCast {
     let self = this;
     this.cast_.onReady = () => {
     };
-    this.cast_.subscribe = (msg) => {
+    this.cast_.subscribe( (msg) => {
       self.onBroadCast_(msg)
-    }
+    });
   }
   /**
   * @param {function} cb
@@ -127,7 +127,7 @@ StarBian.BroadCast = class StarBianBroadCast {
   
   // private
   onBroadCast_(msg) {
-    console.log('onBroadCast_:: msg=<',msg,'>');
+    console.log('StarBian.BroadCast onBroadCast_:: msg=<',msg,'>');
   }
 
   // private..
