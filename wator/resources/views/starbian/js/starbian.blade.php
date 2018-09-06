@@ -2,7 +2,7 @@
 const StarBian = {};
 StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
+StarBian.SHARE_PUBKEY_DIFFCULTY = '0';
 /**
 * @return {array} key
 */
