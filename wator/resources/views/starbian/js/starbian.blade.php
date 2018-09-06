@@ -105,11 +105,12 @@ StarBian.BroadCast = class StarBianBroadCast {
   * @param {function} cb
   */
   broadcastPubKey(cb) {
+    this.sharePubKeyCounter = 10;
     this.OneTimeCB_ = cb;
     let self = this;
     this.sharePubKeyMining_((finnish) => {
       if(finnish) {
-        self.OneTimeCB_(10,self.OneTimePassword_);
+        self.OneTimeCB_(self.sharePubKeyCounter,self.OneTimePassword_);
         self.sharePubKeyTimeOutPreStage_();
       } else {
         self.OneTimeCB_(10,'-----');
@@ -121,7 +122,8 @@ StarBian.BroadCast = class StarBianBroadCast {
   * @param {function} cb
   */
   listenPubKey(password,cb) {
-    //this.ipfsProxy.searchPubKey(password,cb);
+    this.targetPubKeyPassword_ = password;
+    this.targetPubKeyCallback_ = cb;
   }
   
   
@@ -155,7 +157,6 @@ StarBian.BroadCast = class StarBianBroadCast {
   sharePubKeyTimeOutPreStage_() {	
     this.cast_.sendThough_(JSON.stringify(this.sharedKeyMsgPreStage));
   }
-
   sharePubKeyInside_() {
     this.cast_.sendThough_(JSON.stringify(this.sharedKeyMsg));
   }
