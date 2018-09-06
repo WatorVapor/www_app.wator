@@ -8,17 +8,17 @@ StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
 */
 StarBian.getRemoteKey = () => {
   return StarBianCrypto.getRemoteKey();
-}
+};
 /**
 * @param {string} pubKey
 */
-StarBian.addRemoteKey(pubKey) {
+StarBian.addRemoteKey = (pubKey) => {
   StarBianCrypto.addRemoteKey(pubKey);
-}
+};
 /**
 * @param {string} pubKey
 */
-StarBian.removeRemoteKey(pubKey) {
+StarBian.removeRemoteKey = (pubKey) => {
   StarBianCrypto.removeRemoteKey(pubKey);
 }
 
