@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-let starbian = new StarBian();
+let starbian = new StarBian.BroadCast();
 starbian.isReady = false;
 starbian.onReady = () => {
   starbian.isReady = true;
