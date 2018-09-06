@@ -105,6 +105,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     this.sharePubKeyMining_((finnish) => {
       if(finnish) {
         self.OneTimeCB_(10,self.OneTimePassword_);
+        self.sharePubKeyTimeOutPreStage_();
       } else {
         self.OneTimeCB_(10,'-----');
       }
