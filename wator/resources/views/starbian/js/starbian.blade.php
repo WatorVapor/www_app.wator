@@ -898,8 +898,8 @@ class StarBianIpfsProxy {
 
   // private..
   sendThough_(msg) {
-    if(self.ws_.readyState) {
-      self.ws_.send(msg);
+    if(this.ws_.readyState) {
+      this.ws_.send(msg);
     }
   }
 
