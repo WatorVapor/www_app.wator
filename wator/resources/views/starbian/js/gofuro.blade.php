@@ -6,7 +6,7 @@ function publishHotUpGofuro(keyChannel) {
     starbian.publish({hotup:true});
     return;
   }
-  starbian = new StarBian(keyChannel);
+  starbian = new StarBian.Peer(keyChannel);
   starbian.isReady = false;
   starbian.onReady = () => {
     starbian.publish({hotup:true});
@@ -18,21 +18,18 @@ function publishHotUpGofuro(keyChannel) {
   console.log('starbian=<',starbian,'>');
 }
 
-let starbianKey = new StarBian();
+let starbianKey = new StarBian.BroadCast();
 starbianKey.isReady = false;
 starbianKey.onReady = () => {
   starbianKey.isReady = true;
 };
-starbianKey.subscribe( (msg) => {
-  console.log('starbianKey.subcribe:msg=<',msg,'>');
-});
 
 
 function onSharedPubKey (elem) {
   try {
     console.log('onSharedPubKey  elem=<' , elem , '>');
     elem.setAttribute('disabled','true');
-    starbianKey.sharePubKey( (status,password) => {
+    starbianKey.broadcastPubKey( (status,password) => {
       console.log('onSharedPubKey status=<' , status , '>');
       if(status < 1) {
         elem.setAttribute('disabled','false');
@@ -67,7 +64,7 @@ function onSearchPubKey (elem) {
     if(!textPassword) {
       return;
     }
-    starbianKey.searchPubKey(textPassword.trim(), (pubKey) => {
+    starbianKey.listenPubKey(textPassword.trim(), (pubKey) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
       $("#text-remote-device-key").text(pubKey);
     });
