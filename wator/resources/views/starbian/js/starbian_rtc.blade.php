@@ -102,7 +102,7 @@ class StarBianRtc {
   
   startWebRTCOffer_ () {
     this.remoteIceCache_ = [];
-    this.pc = new RTCPeerConnection(this.configuration);
+    this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
     this.pc.onicecandidate = ({candidate}) => { 
       console.log('onicecandidate:candidate=<',candidate,'>');
@@ -161,7 +161,7 @@ class StarBianRtc {
 
   onRemoteOffer_(offer) {
     this.remoteIceCache_ = [];
-    this.pc = new RTCPeerConnection(this.configuration);
+    this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
     this.pc.onicecandidate = ({candidate}) => { 
       console.log('onRemoteOffer_ onicecandidate:candidate=<',candidate,'>');
