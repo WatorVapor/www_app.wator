@@ -241,6 +241,10 @@ class StarBianRtc {
     if(this.iceAddReady_) {
       this.pc.addIceCandidate( new RTCIceCandidate(ice));
     } else {
+      console.log('onRemoteICE_:this.remoteIceCache_=<',this.remoteIceCache_,'>');
+      if(!this.remoteIceCache_) {
+        this.remoteIceCache_ = [];
+      }
       this.remoteIceCache_.push(ice);
     }
   }
