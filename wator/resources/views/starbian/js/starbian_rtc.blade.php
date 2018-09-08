@@ -110,6 +110,11 @@ class StarBianRtc {
         self.sendICE_(candidate);
       }
     }
+    this.pc.ontrack = (event) => {
+      if(typeof self.mediaCB_ === 'function') {
+        self.mediaCB_(event);
+      }
+    };
     if(localStreamCache) {
       this.pc.addStream(localStreamCache);
     }
