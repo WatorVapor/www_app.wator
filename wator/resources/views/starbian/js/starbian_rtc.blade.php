@@ -24,6 +24,13 @@ class StarBianRtc {
     this.createStarBian_(keyChannel);
   }
   
+  subscribeMedia(cb) {
+    this.mediaCB_ = cb;
+  }
+  subscribeData(cb) {
+    this.dataCB_ = cb;
+  }
+  
   // private
 
   createStarBian_(keyChannel) {
@@ -158,8 +165,9 @@ class StarBianRtc {
       }
     };
     this.pc.ontrack = (event) => {
-      console.log('onRemoteOffer_ ontrack:event=<',event,'>');
-      document.getElementById("video").srcObject = event.streams[0];
+      if(typeof self.mediaCB_ === 'function') {
+        self.mediaCB_(event);
+      }
     };
     console.log('onRemoteOffer_:offer=<',offer,'>');
     let sdp = new RTCSessionDescription(offer);
