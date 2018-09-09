@@ -19,7 +19,7 @@
         </a>
       </div>
       <div class="col-8">
-        <pre class="card-text text-success" style="white-space: pre-wrap ; font-size: xx-small;">
+        <pre class="text-truncate" style="white-space: pre-wrap ; font-size: xx-small;">
           @{{ remote.key }}
         </pre>
         <span class="label label-info d-inline-block text-truncate" >@{{ remote.key }}</span>
