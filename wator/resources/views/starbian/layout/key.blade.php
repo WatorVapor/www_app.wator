@@ -31,7 +31,7 @@
         Remote Device Public key
       </div>
       <div class="card-body">
-        <textarea class="form-control input-sm" id="text-remote-device-key" rows="10" ></textarea>
+        <textarea class="form-control input-sm" id="text-remote-device-key" rows="8" ></textarea>
         <br/>
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
       </div>
