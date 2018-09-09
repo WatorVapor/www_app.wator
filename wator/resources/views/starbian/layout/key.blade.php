@@ -5,7 +5,7 @@
         My Public key
       </div>
       <div class="card-body">
-        <pre class="card-text text-success" id="text-this-device-key" style="white-space: pre-wrap ; font-size: large;">
+        <pre class="card-text text-success" id="text-this-device-key" style="white-space: pre-wrap ; font-size: x-large;">
           @{{ pub_key }}
         </pre>
         <br/>
