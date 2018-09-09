@@ -1,4 +1,4 @@
-<div class="row mt-lg-5 justify-content-center">
+<div class="row mt-lg-2 justify-content-center">
   <div class="col-5">
     <div class="card card-default text-center bg-secondary">
       <div class="card-header">
@@ -9,7 +9,7 @@
           @{{ pub_key }}
         </pre>
         <br/>
-        <button type="button" class="btn btn-primary btn-sm  pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
+        <button type="button" class="btn btn-primary btn-sm mt-sm-1 pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-primary btn-warning btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
