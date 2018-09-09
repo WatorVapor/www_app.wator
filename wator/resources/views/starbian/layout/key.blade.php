@@ -34,7 +34,7 @@
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
       </div>
       <div class="card-body">
-        <div class="input-group mb-0">
+        <div class="input-group mb-xs-1">
           <input type="text" class="form-control" placeholder="password show on remote device" aria-label="one time password" aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-danger btn-sm" type="button" onclick="onSearchPubKey(this)" id="button-addon2"><i class="material-icons">search</i></button>
