@@ -1,5 +1,5 @@
 <div class="row mt-lg-2 justify-content-center">
-  <div class="col-5 mt-lg-1">
+  <div class="col-5">
     <div class="card card-default text-center bg-secondary">
       <div class="card-header">
         My Public key
