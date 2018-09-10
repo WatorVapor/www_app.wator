@@ -11,6 +11,8 @@
 </div>
 
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
 
 @include('starbian.js.starbian')
 @include('starbian.js.starbian_rtc')
