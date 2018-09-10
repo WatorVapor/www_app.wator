@@ -215,6 +215,8 @@ StarBian.BroadCast = class StarBianBroadCast {
       //console.log('onShareKey_ typeof self.targetPubKeyCallback_ =<' , typeof self.targetPubKeyCallback_,'>');
       //console.log('onShareKey_ auth =<' , auth ,'>');
       //console.log('onShareKey_ assist =<' , assist ,'>');
+      self.addSharedKey2Cache(shareKey,auth,assist);
+      console.log('onShareKey_ self.sharedKeyCache_ =<' , self.sharedKeyCache_ ,'>');
       if(self.targetPubKeyPassword_ === shareKey.password.toString()) {
         if(typeof this.targetPubKeyCallback_ === 'function') {
           self.targetPubKeyCallback_(shareKey.pubkey);
@@ -249,7 +251,7 @@ StarBian.BroadCast = class StarBianBroadCast {
       cacheKey.assist[assist.pubKeyB58] = Object.assign(assist);
       this.sharedKeyCache_[indexKey] = cacheKey;
     } else {
-      
+      console.log('addSharedKey2Cache savedCachedKey =<' , savedCachedKey ,'>');
     }
     console.log('addSharedKey2Cache this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
   }
