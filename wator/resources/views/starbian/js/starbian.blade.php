@@ -99,7 +99,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     this.cast_.subscribe( (msg) => {
       self.onBroadCast_(msg)
     });
-    this.sharedKey_ = {};
+    this.sharedKeyCache_ = {};
   }
   /**
   * @param {function} cb
@@ -198,11 +198,14 @@ StarBian.BroadCast = class StarBianBroadCast {
       this.mineAssist_(shareKey,auth);
       return;
     }
-    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
     let self = this;
     this.verifyAssist_(auth,assist,() => {
       //console.log('onShareKey_ self.targetPubKeyPassword_ =<' , self.targetPubKeyPassword_ ,'>');
       //console.log('onShareKey_ typeof self.targetPubKeyCallback_ =<' , typeof self.targetPubKeyCallback_,'>');
+      console.log('onShareKey_ auth =<' , auth ,'>');
+      console.log('onShareKey_ assist =<' , assist ,'>');
+      //self.sharedKeyCache_;
       if(self.targetPubKeyPassword_ === shareKey.password.toString()) {
         if(typeof this.targetPubKeyCallback_ === 'function') {
           self.targetPubKeyCallback_(shareKey.pubkey);
@@ -233,8 +236,8 @@ StarBian.BroadCast = class StarBianBroadCast {
   }
 
   verifyAssist_(auth,assist,cb) {
-    //console.log('verifyAssist_ auth =<' , auth ,'>');
-    //console.log('verifyAssist_ assist =<' , assist ,'>');
+    console.log('verifyAssist_ auth =<' , auth ,'>');
+    console.log('verifyAssist_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
       console.log('verifyAssist_ !!! bad hash auth =<' , auth ,'>');
       return;
@@ -251,7 +254,6 @@ StarBian.BroadCast = class StarBianBroadCast {
     let self = this;
     _insideCrypto.verifyAssist(assist,(result) => {
       console.log('verifyAssist_ result =<' , result ,'>');
-      //this.sharedKey_;
       cb();
     });
   }
