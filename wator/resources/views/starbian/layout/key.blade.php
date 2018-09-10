@@ -145,16 +145,17 @@ function onSharedPubKey (elem) {
 
 function onSearchPubKey (elem) {
   try {
-    console.log('onSearchPubKey  elem=<' , elem , '>');
+    //console.log('onSearchPubKey  elem=<' , elem , '>');
     let root = elem.parentElement.parentElement;
-    console.log('onSearchPubKey root=<' , root , '>');
+    //console.log('onSearchPubKey root=<' , root , '>');
     let textPassword = root.getElementsByTagName('input')[0].value;
-    console.log('onSearchPubKey textPassword=<' , textPassword , '>');
+    //console.log('onSearchPubKey textPassword=<' , textPassword , '>');
     if(!textPassword) {
       return;
     }
-    broadcastKey.listenPubKey(textPassword.trim(), (pubKey) => {
+    broadcastKey.listenPubKey(textPassword.trim(), (pubKey,verified) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
+      console.log('onSearchPubKey verified=<' , verified , '>');
       $("#text-remote-device-key").text(pubKey);
     });
   } catch(e) {
