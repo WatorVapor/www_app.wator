@@ -278,20 +278,29 @@ StarBian.BroadCast = class StarBianBroadCast {
     if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
       let passwordCounter = 0;
       for (let key in this.sharedKeyCache_) {
-        console.log('reportListenKey key =<' , key ,'>');
+        //console.log('reportListenKey key =<' , key ,'>');
         if (this.sharedKeyCache_.hasOwnProperty(key)) {
           let cacheKey = this.sharedKeyCache_[key];
-          console.log('reportListenKey cacheKey =<' , cacheKey ,'>');
+          //console.log('reportListenKey cacheKey =<' , cacheKey ,'>');
           if(cacheKey.password === shareKey.password) {
             passwordCounter++;
           }
         }
       }
-      console.log('reportListenKey passwordCounter =<' , passwordCounter ,'>');
+      if(passwordCounter > 1) {
+        console.warn('reportListenKey not uniqe pay attention !!!!!!!!!! passwordCounter =<' , passwordCounter ,'>');
+        this.targetPubKeyCallback_(shareKey.pubkey,-1);
+        return;
+      }
       // all node is good fellow
-      if(typeof this.targetPubKeyCallback_ === 'function') {
-        this.targetPubKeyCallback_(shareKey.pubkey);
-        this.sharePubKeyCounter = 0;
+      // no body throw out bad copy of the same password
+      if(this.sharedKeyCache_[shareKey.pubkey] && this.sharedKeyCache_[shareKey.pubkey].assist) {
+        let assistCounter = Object.keys(this.sharedKeyCache_[shareKey.pubkey].assist).length;
+        console.log('reportListenKey assistCounter =<' , assistCounter ,'>');
+        if(typeof this.targetPubKeyCallback_ === 'function') {
+          this.targetPubKeyCallback_(shareKey.pubkey,assistCounter);
+          this.sharePubKeyCounter = 0;
+        }
       }
     }
   }
