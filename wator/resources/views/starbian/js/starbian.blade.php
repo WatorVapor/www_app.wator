@@ -215,7 +215,7 @@ StarBian.BroadCast = class StarBianBroadCast {
   mineAssist_(shareKey,auth) {
     let self = this;
     _insideCrypto.signAssist(auth,(assisted) => {
-      console.log('onShareKey_ assisted =<' , assisted ,'>');
+      //console.log('mineAssist_ assisted =<' , assisted ,'>');
       if(assisted.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
         //console.log('good lucky !!! onShareKey_:assisted=<',assisted,'>');
         self.sharedKeyMsg =  {	
