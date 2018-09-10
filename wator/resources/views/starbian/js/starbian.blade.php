@@ -288,7 +288,7 @@ StarBian.BroadCast = class StarBianBroadCast {
           assist:assisted,
           broadcast:shareKey	
         };
-        self.addSharedKey2Cache(shareKey,auth,assisted);
+        //self.addSharedKey2Cache(shareKey,auth,assisted);
         self.sharePubKeyTimeOut_();
       } else {
         //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
