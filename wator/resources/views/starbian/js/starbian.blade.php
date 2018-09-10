@@ -205,7 +205,7 @@ StarBian.BroadCast = class StarBianBroadCast {
       return;
     }
     if(!assist) {
-      this.mineAssist_(shareKey.,auth);
+      this.mineAssist_(shareKey,auth);
       return;
     }
     //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
