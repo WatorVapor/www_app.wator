@@ -236,17 +236,24 @@ StarBian.BroadCast = class StarBianBroadCast {
         }
       }
     }
-    /*
-    let indexKey = shareKey.pubkey;
-    let savedCachedKey = this.sharedKeyCache_[indexKey];
-    if(savedCachedKey) {
-      console.log('checkSharedKeyInCache_ savedCachedKey =<' , savedCachedKey ,'>');
-    } else {
-      this.sharedKeyCache_[indexKey] = Object.assign(shareKey);
-    }
-    */
     return false;
   }
+  
+  addSharedKey2Cache(shareKey,auth,assist) {
+    let indexKey = shareKey.pubkey;
+    let savedCachedKey = this.sharedKeyCache_[indexKey];
+    if(!savedCachedKey) {
+      let cacheKey = Object.assign(shareKey);
+      cacheKey.owner = Object.assign(auth);
+      cacheKey.assist = {};
+      cacheKey.assist[assist.pubKeyB58] = Object.assign(assist);
+      this.sharedKeyCache_[indexKey] = cacheKey;
+    } else {
+      
+    }
+    console.log('addSharedKey2Cache this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
+  }
+  
   
   cleanOldSharedKeyInCache_() {
     let oldSharedKeys = [];
@@ -264,6 +271,7 @@ StarBian.BroadCast = class StarBianBroadCast {
       delete this.sharedKeyCache_[key];
     }
   }
+  
 
   mineAssist_(shareKey,auth) {
     let self = this;
@@ -277,6 +285,7 @@ StarBian.BroadCast = class StarBianBroadCast {
           assist:assisted,
           broadcast:shareKey	
         };
+        self.addSharedKey2Cache(shareKey,auth,assisted);
         self.sharePubKeyTimeOut_();
       } else {
         //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
