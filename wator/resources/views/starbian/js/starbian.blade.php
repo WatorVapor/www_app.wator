@@ -194,6 +194,10 @@ StarBian.BroadCast = class StarBianBroadCast {
     }); 
   }
   onShareKey_(shareKey,auth,assist) {
+    console.log('onShareKey_ this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
+    console.log('onShareKey_ auth =<' , auth ,'>');
+    console.log('onShareKey_ assist =<' , assist ,'>');
+    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
     if(!assist) {
       this.mineAssist_(shareKey,auth);
       return;
@@ -203,9 +207,8 @@ StarBian.BroadCast = class StarBianBroadCast {
     this.verifyAssist_(auth,assist,() => {
       //console.log('onShareKey_ self.targetPubKeyPassword_ =<' , self.targetPubKeyPassword_ ,'>');
       //console.log('onShareKey_ typeof self.targetPubKeyCallback_ =<' , typeof self.targetPubKeyCallback_,'>');
-      console.log('onShareKey_ auth =<' , auth ,'>');
-      console.log('onShareKey_ assist =<' , assist ,'>');
-      //self.sharedKeyCache_;
+      //console.log('onShareKey_ auth =<' , auth ,'>');
+      //console.log('onShareKey_ assist =<' , assist ,'>');
       if(self.targetPubKeyPassword_ === shareKey.password.toString()) {
         if(typeof this.targetPubKeyCallback_ === 'function') {
           self.targetPubKeyCallback_(shareKey.pubkey);
