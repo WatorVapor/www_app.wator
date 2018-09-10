@@ -305,7 +305,7 @@ class StarBianCrypto {
   * @param {string} pubKey
   */
   static addRemoteKey(pubKey) {
-    console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
+    //console.log('StarBian.addRemoteKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
     if(keyJson) {
@@ -317,21 +317,21 @@ class StarBianCrypto {
       keyJson = [pubKey];
     }
     let keyStr = JSON.stringify(keyJson);
-    console.log('StarBian addRemoteKey keyStr=<' , keyStr , '>');
+    //console.log('StarBian addRemoteKey keyStr=<' , keyStr , '>');
     localStorage.setItem(StarBian.LS_KEY_REMOTE_NAME,keyStr);
   }
   /**
   * @param {string} pubKey
   */
   static removeRemoteKey(pubKey) {
-    console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
+    //console.log('StarBian.removeKey pubKey=<' , pubKey , '>');
     let key = localStorage.getItem(StarBian.LS_KEY_REMOTE_NAME);
     let keyJson = JSON.parse(key);
-    console.log('StarBian.removeKey keyJson=<' , keyJson , '>');
+    //console.log('StarBian.removeKey keyJson=<' , keyJson , '>');
     let newKeys = keyJson.filter(key => pubKey !== key);
-    console.log('StarBian.removeKey newKeys=<' , newKeys , '>');
+    //console.log('StarBian.removeKey newKeys=<' , newKeys , '>');
     let keyStr = JSON.stringify(newKeys);
-    console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
+    //console.log('StarBian.removeKey keyStr=<' , keyStr , '>');
     localStorage.setItem(StarBian.LS_KEY_REMOTE_NAME,keyStr);
   }
 
@@ -359,9 +359,9 @@ class StarBianCrypto {
   savePrivKey(key) {
     window.crypto.subtle.exportKey('jwk',key)
     .then(function(keydata){
-      console.log('savePrivKey keydata=<' , keydata , '>');
+      //console.log('savePrivKey keydata=<' , keydata , '>');
       let keyStr = JSON.stringify(keydata);
-      console.log('savePrivKey keyStr=<' , keyStr , '>');
+      //console.log('savePrivKey keyStr=<' , keyStr , '>');
       localStorage.setItem(StarBian.LS_KEY_NAME,keyStr);
     })
     .catch(function(err){
@@ -373,9 +373,9 @@ class StarBianCrypto {
     let self = this;
     window.crypto.subtle.exportKey('raw',key)
     .then(function(keydata){
-      console.log('getPubKey keydata=<' , keydata , '>');
+      //console.log('getPubKey keydata=<' , keydata , '>');
       self.pubKeyB58 = Base58.encode(new Uint8Array(keydata));
-      console.log('getPubKey self.pubKeyB58=<' , self.pubKeyB58 , '>');
+      //console.log('getPubKey self.pubKeyB58=<' , self.pubKeyB58 , '>');
       if(typeof self.onReadyKey === 'function') {
         self.onReadyKey(self.pubKeyB58);
       }
@@ -407,7 +407,7 @@ class StarBianCrypto {
     let self = this;
     crypto.subtle.exportKey('jwk', pubKey)
     .then(function(keydata){
-      console.log('exportECDHPubKey keydata=<' , keydata , '>');
+      //console.log('exportECDHPubKey keydata=<' , keydata , '>');
       self.ECDHKeyPubJwk = keydata;
     })
     .catch(function(err){
@@ -432,14 +432,14 @@ class StarBianCrypto {
       ['sign']
     )
     .then(function(privateKey){
-      console.log('privateKey=<' , privateKey , '>');
+      //console.log('privateKey=<' , privateKey , '>');
       self.prvKey = privateKey;
     })
     .catch(function(err){
       console.error(err);
     });
     self.rsPrvKey = KEYUTIL.getKey(key);
-    console.log('self.rsPrvKey=<',self.rsPrvKey ,'>');
+    //console.log('self.rsPrvKey=<',self.rsPrvKey ,'>');
     //console.log('key=<',key ,'>');
     //let key
     delete key.d;
@@ -456,7 +456,7 @@ class StarBianCrypto {
       ['verify']
     )
     .then(function(publicKey){
-      console.log('publicKey=<' , publicKey , '>');
+      //console.log('publicKey=<' , publicKey , '>');
       self.pubKey = publicKey;
       self.notifyPubKey(publicKey);
     })
@@ -464,7 +464,7 @@ class StarBianCrypto {
       console.error(err);
     });
     this.rsPubKey = KEYUTIL.getKey(key);
-    console.log('this.rsPubKey=<',this.rsPubKey ,'>');
+    //console.log('this.rsPubKey=<',this.rsPubKey ,'>');
     this.pubKeyJWK = JSON.parse(JSON.stringify(key));
   }
 
