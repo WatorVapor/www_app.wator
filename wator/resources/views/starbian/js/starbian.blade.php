@@ -273,7 +273,7 @@ StarBian.BroadCast = class StarBianBroadCast {
   }
   
   reportListenKey(shareKey) {
-    //console.log('reportListenKey this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
+    console.log('reportListenKey this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
     if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
       if(typeof this.targetPubKeyCallback_ === 'function') {
         this.targetPubKeyCallback_(shareKey.pubkey);
