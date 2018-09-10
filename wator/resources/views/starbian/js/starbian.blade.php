@@ -4,6 +4,7 @@ StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 StarBian.SHARE_PUBKEY_DIFFCULTY = '0';
 StarBian.SHARE_PUBKEY_TIMEOUT = 100;
+StarBian.SHARE_PUBKEY_TIMEOUT_WARN = 100 +10;
 
 /**
 * @return {array} key
@@ -322,8 +323,8 @@ StarBian.BroadCast = class StarBianBroadCast {
     }
     let dateAssist = new Date(assist.orig.ts);
     let escapeSeconds  = (new Date() - dateAssist)/1000;
-    if(escapeSeconds > StarBian.SHARE_PUBKEY_TIMEOUT ) {
-      console.log('verifyAssist_ !!! too old message escapeSeconds =<' , escapeSeconds ,'>');
+    if(escapeSeconds > StarBian.SHARE_PUBKEY_TIMEOUT_WARN ) {
+      console.warn('verifyAssist_ !!! too old message escapeSeconds =<' , escapeSeconds ,'>');
       return ;
     }
     let self = this;
