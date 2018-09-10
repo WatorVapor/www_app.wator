@@ -246,10 +246,10 @@ StarBian.BroadCast = class StarBianBroadCast {
     let indexKey = shareKey.pubkey;
     let savedCachedKey = this.sharedKeyCache_[indexKey];
     if(!savedCachedKey) {
-      let cacheKey = Object.assign(shareKey);
-      cacheKey.owner = Object.assign(auth);
+      let cacheKey = JSON.parse(JSON.stringify(shareKey));
+      cacheKey.owner = JSON.parse(JSON.stringify(auth));
       cacheKey.assist = {};
-      cacheKey.assist[assist.pubKeyB58] = Object.assign(assist);
+      cacheKey.assist[assist.pubKeyB58] = JSON.parse(JSON.stringify(assist));
       this.sharedKeyCache_[indexKey] = cacheKey;
     } else {
       console.log('addSharedKey2Cache savedCachedKey =<' , savedCachedKey ,'>');
@@ -288,7 +288,7 @@ StarBian.BroadCast = class StarBianBroadCast {
           assist:assisted,
           broadcast:shareKey	
         };
-        //self.addSharedKey2Cache(shareKey,auth,assisted);
+        self.addSharedKey2Cache(shareKey,auth,assisted);
         self.sharePubKeyTimeOut_();
       } else {
         //console.log('bad lucky !!! onShareKey_:assisted=<',assisted,'>');
