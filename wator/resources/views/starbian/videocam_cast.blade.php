@@ -43,10 +43,6 @@
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
 <script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
 
-@include('starbian.js.starbian')
-@include('starbian.js.starbian_rtc')
-@include('starbian.js.videocam_cast')
-
 <script type="text/javascript">
   DeviceSetting.getDevice( (devices) => {
     console.log('DeviceSetting.getDevice :devices=<',devices,'>');
