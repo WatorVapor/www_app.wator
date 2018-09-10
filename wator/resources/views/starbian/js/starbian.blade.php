@@ -281,6 +281,7 @@ StarBian.BroadCast = class StarBianBroadCast {
         console.log('reportListenKey key =<' , key ,'>');
         if (this.sharedKeyCache_.hasOwnProperty(key)) {
           let cacheKey = this.sharedKeyCache_[key];
+          console.log('reportListenKey cacheKey =<' , cacheKey ,'>');
           if(cacheKey.password === this.targetPubKeyPassword_) {
             passwordCounter++;
           }
