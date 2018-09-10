@@ -31,6 +31,7 @@
       <div class="card-body">
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="5" ></textarea>
         <br/>
+        <p class="d-none" id="text-share-key-onetime-password-verified-counter"></p>
         <button type="button" class="btn btn-success btn-sm" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
       </div>
       <div class="card-body">
@@ -156,6 +157,8 @@ function onSearchPubKey (elem) {
     broadcastKey.listenPubKey(textPassword.trim(), (pubKey,verified) => {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
       console.log('onSearchPubKey verified=<' , verified , '>');
+      $("#text-share-key-onetime-password-verified-counter").removeClass("d-none");
+      $("#text-share-key-onetime-password-verified-counter").text(verified);
       $("#text-remote-device-key").text(pubKey);
     });
   } catch(e) {
