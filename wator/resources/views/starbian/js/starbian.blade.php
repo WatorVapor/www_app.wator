@@ -301,8 +301,8 @@ StarBian.BroadCast = class StarBianBroadCast {
   }
 
   verifyAssist_(auth,assist,cb) {
-    console.log('verifyAssist_ auth =<' , auth ,'>');
-    console.log('verifyAssist_ assist =<' , assist ,'>');
+    //console.log('verifyAssist_ auth =<' , auth ,'>');
+    //console.log('verifyAssist_ assist =<' , assist ,'>');
     if(!auth.hashSign.startsWith(StarBian.SHARE_PUBKEY_DIFFCULTY)) {
       console.log('verifyAssist_ !!! bad hash auth =<' , auth ,'>');
       return;
@@ -599,7 +599,7 @@ class StarBianCrypto {
   }
 
   signAssist(auth,cb) {
-    console.log('signAssist auth=<' , auth , '>');
+    //console.log('signAssist auth=<' , auth , '>');
     let now = new Date();
     let ts = now.toISOString();
     let msgJson = {orig:auth.hash,ts:ts};
