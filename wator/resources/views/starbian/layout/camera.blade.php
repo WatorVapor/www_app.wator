@@ -1,4 +1,13 @@
 <div class="row mt-lg-5 justify-content-center">
+  <div class="col-1">
+    <a type="button" class="btn btn-success btn-block"
+      href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
+      <i class="material-icons">video_call</i>
+      <b>Cast to Authed Keys</b>
+    </a>
+  </div>
+</div>
+<div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
