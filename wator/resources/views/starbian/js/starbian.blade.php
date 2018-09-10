@@ -99,6 +99,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     this.cast_.subscribe( (msg) => {
       self.onBroadCast_(msg)
     });
+    this.sharedKey_ = {};
   }
   /**
   * @param {function} cb
@@ -250,6 +251,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     let self = this;
     _insideCrypto.verifyAssist(assist,(result) => {
       console.log('verifyAssist_ result =<' , result ,'>');
+      //this.sharedKey_;
       cb();
     });
   }
