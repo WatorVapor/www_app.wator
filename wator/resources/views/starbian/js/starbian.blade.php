@@ -276,6 +276,17 @@ StarBian.BroadCast = class StarBianBroadCast {
   reportListenKey(shareKey) {
     console.log('reportListenKey this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
     if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
+      let passwordCounter = 0;
+      for (let key in this.sharedKeyCache_) {
+        if (this.sharedKeyCache_.hasOwnProperty(key)) {
+          let cacheKey = this.sharedKeyCache_[key];
+          if(cacheKey.password === this.targetPubKeyPassword_) {
+            passwordCounter++;
+          }
+        }
+      }
+      console.log('reportListenKey passwordCounter =<' , passwordCounter ,'>');
+      // all node is good fellow
       if(typeof this.targetPubKeyCallback_ === 'function') {
         this.targetPubKeyCallback_(shareKey.pubkey);
         this.sharePubKeyCounter = 0;
