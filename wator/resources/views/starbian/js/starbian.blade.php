@@ -596,7 +596,7 @@ class StarBianCrypto {
   
   
   verifyAssist(assist,cb) {
-    console.log('verifyAssist assist=<' , assist ,'>');
+    //console.log('verifyAssist assist=<' , assist ,'>');
     let self = this;
     crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(JSON.stringify(assist.orig)))
     .then(function(buf){
@@ -628,9 +628,9 @@ class StarBianCrypto {
 
 
   Bs58Key2RsKey(bs58Key,cb) {
-    console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
-    const pubKeyBuff = Base58.decode(bs58Key);
-    console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
+    //console.log('Bs58Key2RsKey bs58Key=<',bs58Key,'>');
+    //const pubKeyBuff = Base58.decode(bs58Key);
+    //console.log('Bs58Key2RsKey pubKeyBuff=<',pubKeyBuff,'>');  
     crypto.subtle.importKey(
       'raw',
       pubKeyBuff,
@@ -642,12 +642,12 @@ class StarBianCrypto {
       ['verify']
     )
     .then(function(pubKey){
-      console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
+      //console.log('Bs58Key2RsKey:pubKey=<' , pubKey , '>');
       crypto.subtle.exportKey('jwk', pubKey)
       .then(function(keydata){
-        console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
+        //console.log('Bs58Key2RsKey keydata=<' , keydata , '>');
         let rsKey = KEYUTIL.getKey(keydata);	
-        console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
+        //console.log('Bs58Key2RsKey rsKey=<',rsKey,'>');
         cb(rsKey);
       })
       .catch(function(err){
