@@ -31,7 +31,7 @@
       <div class="card-body">
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="5" ></textarea>
         <br/>
-        <p class="d-none pull-left" id="text-share-key-onetime-password-verified-counter"></p>
+        <p class="d-none pull-left bg-warning" id="text-share-key-onetime-password-verified-counter"></p>
         <button type="button" class="btn btn-success btn-sm pull-right" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
       </div>
       <div class="card-body">
