@@ -3,6 +3,8 @@ const StarBian = {};
 StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 StarBian.SHARE_PUBKEY_DIFFCULTY = '0';
+StarBian.SHARE_PUBKEY_TIMEOUT = 100;
+
 /**
 * @return {array} key
 */
@@ -193,13 +195,17 @@ StarBian.BroadCast = class StarBianBroadCast {
       }
     }); 
   }
+  
   onShareKey_(shareKey,auth,assist) {
-    console.log('onShareKey_ this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
-    console.log('onShareKey_ auth =<' , auth ,'>');
-    console.log('onShareKey_ assist =<' , assist ,'>');
-    console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    //console.log('onShareKey_ this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
+    //console.log('onShareKey_ auth =<' , auth ,'>');
+    //console.log('onShareKey_ assist =<' , assist ,'>');
+    //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
+    if(!this.checkSharedKeyInCache_(shareKey,auth,assist)) {
+      return;
+    }
     if(!assist) {
-      this.mineAssist_(shareKey,auth);
+      this.mineAssist_(shareKey.,auth);
       return;
     }
     //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
@@ -218,6 +224,45 @@ StarBian.BroadCast = class StarBianBroadCast {
     });
   }
   
+  checkSharedKeyInCache_(shareKey,auth,assist) {
+    this.cleanOldSharedKeyInCache_();
+    for (let key in this.sharedKeyCache_) {
+      if (this.sharedKeyCache_.hasOwnProperty(key)) {
+        let cacheKey = this.sharedKeyCache_[key];
+        if(cacheKey.password === shareKey.password && key !== shareKey.pubkey) {
+          console.log('checkSharedKeyInCache_ !!!! find a same password cacheKey =<' , cacheKey ,'>');
+          console.log('checkSharedKeyInCache_ !!!! find a same password shareKey =<' , shareKey ,'>');
+          return false;
+        }
+      }
+    }
+    let indexKey = shareKey.pubkey;
+    let savedCachedKey = this.sharedKeyCache_[indexKey];
+    if(savedCachedKey) {
+      console.log('checkSharedKeyInCache_ savedCachedKey =<' , savedCachedKey ,'>');
+    } else {
+      this.sharedKeyCache_[indexKey] = Object.assign(shareKey);
+    }
+    return true;
+  }
+  
+  cleanOldSharedKeyInCache_() {
+    let oldSharedKeys = [];
+    for (let key in this.sharedKeyCache_) {
+      if (this.sharedKeyCache_.hasOwnProperty(key)) {
+        let cacheKey = this.sharedKeyCache_[key];
+        let dateAssist = new Date(cacheKey.ts);
+        let escapeSeconds  = (new Date() - dateAssist)/1000;
+        if(escapeSeconds > StarBian.SHARE_PUBKEY_TIMEOUT ) {
+          oldSharedKeys.push(key);
+        }
+      }
+    }
+    for(let key in oldSharedKeys) {
+      delete this.sharedKeyCache_[key];
+    }
+  }
+
   mineAssist_(shareKey,auth) {
     let self = this;
     _insideCrypto.signAssist(auth,(assisted) => {
@@ -256,7 +301,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     }
     let dateAssist = new Date(assist.orig.ts);
     let escapeSeconds  = (new Date() - dateAssist)/1000;
-    if(escapeSeconds > 100 ) {
+    if(escapeSeconds > StarBian.SHARE_PUBKEY_TIMEOUT ) {
       console.log('verifyAssist_ !!! too old message escapeSeconds =<' , escapeSeconds ,'>');
       return ;
     }
