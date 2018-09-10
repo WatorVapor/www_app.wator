@@ -252,8 +252,11 @@ StarBian.BroadCast = class StarBianBroadCast {
       return;
     }
     let dateAssist = new Date(assist.orig.ts);
-    let escapeTime  = new Date() - dateAssist;
-    console.log('verifyAssist_ escapeTime =<' , escapeTime ,'>');
+    let escapeSeconds  = (new Date() - dateAssist)/1000;
+    if(escapeSeconds > 100 ) {
+      console.log('verifyAssist_ !!! too old message escapeSeconds =<' , escapeSeconds ,'>');
+      return ;
+    }
     let self = this;
     _insideCrypto.verifyAssist(assist,(result) => {
       console.log('verifyAssist_ result =<' , result ,'>');
