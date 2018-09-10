@@ -201,7 +201,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     //console.log('onShareKey_ auth =<' , auth ,'>');
     //console.log('onShareKey_ assist =<' , assist ,'>');
     //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
-    if(!this.checkSharedKeyInCache_(shareKey,auth,assist)) {
+    if(this.hasSamePasswordInCache_(shareKey,auth,assist)) {
       return;
     }
     if(!assist) {
@@ -224,7 +224,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     });
   }
   
-  checkSharedKeyInCache_(shareKey,auth,assist) {
+  hasSamePasswordInCache_(shareKey,auth,assist) {
     this.cleanOldSharedKeyInCache_();
     for (let key in this.sharedKeyCache_) {
       if (this.sharedKeyCache_.hasOwnProperty(key)) {
@@ -232,10 +232,11 @@ StarBian.BroadCast = class StarBianBroadCast {
         if(cacheKey.password === shareKey.password && key !== shareKey.pubkey) {
           console.log('checkSharedKeyInCache_ !!!! find a same password cacheKey =<' , cacheKey ,'>');
           console.log('checkSharedKeyInCache_ !!!! find a same password shareKey =<' , shareKey ,'>');
-          return false;
+          return true;
         }
       }
     }
+    /*
     let indexKey = shareKey.pubkey;
     let savedCachedKey = this.sharedKeyCache_[indexKey];
     if(savedCachedKey) {
@@ -243,7 +244,8 @@ StarBian.BroadCast = class StarBianBroadCast {
     } else {
       this.sharedKeyCache_[indexKey] = Object.assign(shareKey);
     }
-    return true;
+    */
+    return false;
   }
   
   cleanOldSharedKeyInCache_() {
