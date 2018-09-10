@@ -31,8 +31,8 @@
       <div class="card-body">
         <textarea class="form-control input-sm" id="text-remote-device-key" rows="5" ></textarea>
         <br/>
-        <p class="d-none pull-right" id="text-share-key-onetime-password-verified-counter"></p>
-        <button type="button" class="btn btn-success btn-sm pull-left" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
+        <p class="d-none pull-left" id="text-share-key-onetime-password-verified-counter"></p>
+        <button type="button" class="btn btn-success btn-sm pull-right" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
       </div>
       <div class="card-body">
         <div class="input-group mb-xs-1">
@@ -158,7 +158,7 @@ function onSearchPubKey (elem) {
       console.log('onSearchPubKey pubKey=<' , pubKey , '>');
       console.log('onSearchPubKey verified=<' , verified , '>');
       $("#text-share-key-onetime-password-verified-counter").removeClass("d-none");
-      $("#text-share-key-onetime-password-verified-counter").text(verified);
+      $("#text-share-key-onetime-password-verified-counter").text( 'This password  is verified ' + verified + ' Times');
       $("#text-remote-device-key").text(pubKey);
     });
   } catch(e) {
