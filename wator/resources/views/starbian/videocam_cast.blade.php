@@ -42,6 +42,7 @@
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
 <script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
+@include('starbian.js.videocam_cast')
 
 <script type="text/javascript">
   DeviceSetting.getDevice( (devices) => {
