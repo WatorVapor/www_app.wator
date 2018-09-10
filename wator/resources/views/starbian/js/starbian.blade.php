@@ -202,6 +202,7 @@ StarBian.BroadCast = class StarBianBroadCast {
     //console.log('onShareKey_ assist =<' , assist ,'>');
     //console.log('onShareKey_ shareKey =<' , shareKey ,'>');
     if(this.hasSamePasswordInCache_(shareKey,auth,assist)) {
+      console.log('onShareKey_ !!! find same password !!! shareKey =<' , shareKey ,'>');
       return;
     }
     if(!assist) {
