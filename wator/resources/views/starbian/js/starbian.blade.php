@@ -252,7 +252,10 @@ StarBian.BroadCast = class StarBianBroadCast {
       cacheKey.assist[assist.pubKeyB58] = JSON.parse(JSON.stringify(assist));
       this.sharedKeyCache_[indexKey] = cacheKey;
     } else {
-      console.log('addSharedKey2Cache savedCachedKey =<' , savedCachedKey ,'>');
+      if(!cacheKey.assist) {
+        cacheKey.assist = {};
+      }
+      cacheKey.assist[assist.pubKeyB58] = JSON.parse(JSON.stringify(assist));
     }
     console.log('addSharedKey2Cache this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
   }
