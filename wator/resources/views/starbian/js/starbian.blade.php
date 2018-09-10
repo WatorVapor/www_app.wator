@@ -217,13 +217,7 @@ StarBian.BroadCast = class StarBianBroadCast {
       //console.log('onShareKey_ auth =<' , auth ,'>');
       //console.log('onShareKey_ assist =<' , assist ,'>');
       self.addSharedKey2Cache(shareKey,auth,assist);
-      console.log('onShareKey_ self.sharedKeyCache_ =<' , self.sharedKeyCache_ ,'>');
-      if(self.targetPubKeyPassword_ === shareKey.password.toString()) {
-        if(typeof this.targetPubKeyCallback_ === 'function') {
-          self.targetPubKeyCallback_(shareKey.pubkey);
-          self.sharePubKeyCounter = 0;
-        }
-      }
+      self.reportListenKey(shareKey);
     });
   }
   
@@ -275,6 +269,16 @@ StarBian.BroadCast = class StarBianBroadCast {
     }
     for(let key in oldSharedKeys) {
       delete this.sharedKeyCache_[key];
+    }
+  }
+  
+  reportListenKey(shareKey) {
+    //console.log('reportListenKey this.sharedKeyCache_ =<' , this.sharedKeyCache_ ,'>');
+    if(this.targetPubKeyPassword_ === shareKey.password.toString()) {
+      if(typeof this.targetPubKeyCallback_ === 'function') {
+        this.targetPubKeyCallback_(shareKey.pubkey);
+        this.sharePubKeyCounter = 0;
+      }
     }
   }
   
