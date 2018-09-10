@@ -251,6 +251,9 @@ StarBian.BroadCast = class StarBianBroadCast {
       console.log('verifyAssist_ !!! bad hash assist.orig.orig =<' , assist.orig.orig ,'>');
       return;
     }
+    let dateAssist = new Date(assist.orig.ts);
+    let escapeTime  = new Date() - dateAssist;
+    console.log('verifyAssist_ escapeTime =<' , escapeTime ,'>');
     let self = this;
     _insideCrypto.verifyAssist(assist,(result) => {
       console.log('verifyAssist_ result =<' , result ,'>');
