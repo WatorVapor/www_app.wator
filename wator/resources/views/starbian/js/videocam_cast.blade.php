@@ -2,13 +2,16 @@
 
 const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
-let rtc = new StarBianRtc(keyChannel,'offer');
-rtc.subscribeMedia( (event) => {
-  console.log('subscribeMedia event=<',event,'>');
-  //document.getElementById("video").srcObject = event.streams[0];
-});
+if(keyChannel) {
+  let rtc = new StarBianRtc(keyChannel,'offer');
+  rtc.subscribeMedia( (event) => {
+    console.log('subscribeMedia event=<',event,'>');
+    //document.getElementById("video").srcObject = event.streams[0];
+  });
+}
 
 const ctracker = new clm.tracker();
 ctracker.init();
+console.log('ctracker=<',ctracker,'>');
 
 </script>
