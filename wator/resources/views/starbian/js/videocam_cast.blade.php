@@ -11,8 +11,10 @@ if(keyChannel) {
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
     if(!ctracker.localStreamStarbian) {
+      let clmVideo = document.getElementById("video-clmtrackr");
+      clmVideo.srcObject = localStream;
       ctracker.localStreamStarbian = localStream;
-      ctracker.start(localStream);
+      ctracker.start(clmVideo);
       setInterval(onGetFaceDectectCheck,5000);
     }
   });
