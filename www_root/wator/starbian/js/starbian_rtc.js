@@ -5,7 +5,7 @@ const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
 * @param {string} channelKey
 */
 class StarBianRtc {
-  constructor(channelKey) {
+  constructor(channelKey,role) {
     if(!channelKey) {
       throw 'please give me a dist device.';
       return;
@@ -19,6 +19,11 @@ class StarBianRtc {
     };
     this.localOfferCache_ = false;
     this.localICECache_ = [];
+    if(role === 'offer') {
+      this.isOffer_ = true;
+    } else {
+      this.isOffer_ = false;
+    }
     this.createStarBian_(keyChannel);
   }
   
@@ -53,7 +58,7 @@ class StarBianRtc {
     console.log('onIpfsMessage_:msg=<',msg,'>');
     console.log('onIpfsMessage_:channel=<',channel,'>');
     if(msg && msg.start) {
-      if(msg.key > channel) {
+      if(this.isOffer_) {
         this.startWebRTCOffer_();
       }
     }
