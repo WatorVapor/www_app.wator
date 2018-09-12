@@ -3,6 +3,7 @@ const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
 * @classdesc This is StarBianRtc.
 * @constructor
 * @param {string} channelKey
+* @param {string} role 'offer' ? 'answer'
 */
 class StarBianRtc {
   constructor(channelKey,role) {
