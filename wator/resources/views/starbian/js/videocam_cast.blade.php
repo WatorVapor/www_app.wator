@@ -10,6 +10,7 @@ if(keyChannel) {
   });
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
+    /*
     if(!ctracker.localStreamStarbian) {
       let clmVideo = document.getElementById("video-clmtrackr");
       clmVideo.srcObject = localStream;
@@ -17,6 +18,7 @@ if(keyChannel) {
       ctracker.start(clmVideo);
       setInterval(onGetFaceDectectCheck,5000);
     }
+    */
   });
 }
 
@@ -26,7 +28,7 @@ console.log('ctracker=<',ctracker,'>');
 
 onGetFaceDectectCheck = () => {
   let positions = ctracker.getCurrentPosition();
-  console.log('onGetFaceDectectCheck: positions=<',positions,'>');
+  //console.log('onGetFaceDectectCheck: positions=<',positions,'>');
   if(positions && positions.length) {
     let sum = 0;
     for(let i = 1;i < positions.length ;i++) {
