@@ -441,6 +441,7 @@ class StarBianCrypto {
       //console.log('savePrivKey keydata=<' , keydata , '>');
       let keyStr = JSON.stringify(keydata);
       //console.log('savePrivKey keyStr=<' , keyStr , '>');
+      this.rsPrvKey = KEYUTIL.getKey(keydata);
       localStorage.setItem(StarBian.LS_KEY_NAME,keyStr);
     })
     .catch(function(err){
