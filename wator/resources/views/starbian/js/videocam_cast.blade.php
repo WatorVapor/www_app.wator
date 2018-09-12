@@ -27,6 +27,14 @@ console.log('ctracker=<',ctracker,'>');
 onGetFaceDectectCheck = () => {
   let positions = ctracker.getCurrentPosition();
   console.log('onGetFaceDectectCheck: positions=<',positions,'>');
+  if(positions && positions.length) {
+    for(let i = 1;i < positions.length ;i++) {
+      let pos1 = positions[i -1];
+      let pos2 = positions[i];
+      console.log('onGetFaceDectectCheck: pos1=<',pos1,'>');
+      console.log('onGetFaceDectectCheck: pos2=<',pos2,'>');
+    }
+  }
 };
 
 </script>
