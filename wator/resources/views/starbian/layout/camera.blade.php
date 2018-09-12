@@ -29,7 +29,7 @@
         </a>
       </div>
       <div class="col-8">
-        <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: small;">@{{ remote.key }}</span>
+        <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
       </div>
     </div>
   </div>
