@@ -164,6 +164,9 @@ class StarBianRtc {
         self.mediaCB_(event);
       }
     };
+    if(localStreamCache) {
+      this.pc.addStream(localStreamCache);
+    }
     console.log('onRemoteOffer_:offer=<',offer,'>');
     let sdp = new RTCSessionDescription(offer);
     console.log('onRemoteOffer_:sdp=<',sdp,'>');
