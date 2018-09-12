@@ -10,6 +10,7 @@ if(keyChannel) {
   });
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
+    ctracker.start(localStream);
   });
 }
 
