@@ -8,10 +8,14 @@ if(keyChannel) {
     console.log('subscribeMedia event=<',event,'>');
     //document.getElementById("video").srcObject = event.streams[0];
   });
+  rtc.subscribeLocalMedia((localStream) => {
+    console.log('subscribeMedia localStream=<',localStream,'>');
+  });
 }
 
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
+DeviceSetting.
 
 </script>
