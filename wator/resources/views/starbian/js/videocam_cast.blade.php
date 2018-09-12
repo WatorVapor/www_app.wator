@@ -8,4 +8,7 @@ rtc.subscribeMedia( (event) => {
   //document.getElementById("video").srcObject = event.streams[0];
 });
 
+const ctracker = new clm.tracker();
+ctracker.init();
+
 </script>
