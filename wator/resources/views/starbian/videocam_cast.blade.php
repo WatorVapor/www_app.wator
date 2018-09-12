@@ -43,7 +43,7 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
-    <video id="video-clmtrackr" autoplay controls width="320" height="240"></video>
+    <video id="video-clmtrackr" autoplay controls width="320" height="240" muted></video>
   </div>
 </div>
 
