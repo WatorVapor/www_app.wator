@@ -42,6 +42,11 @@
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
 <script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js" 
+  integrity="sha256-4xZV6lGNXLV/Q2SiD5s/M7WppGI6bcF2yfW9X7EMOY0="
+  crossorigin="anonymous">
+</script>
+
 @include('starbian.js.videocam_cast')
 
 <script type="text/javascript">
