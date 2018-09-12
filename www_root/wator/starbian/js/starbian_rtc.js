@@ -215,6 +215,7 @@ class StarBianRtc {
     console.log('onOfferAndAnswerStatus_:status=<',status,'>');
     this.iceAddReady_ = status;
     if(status) {
+      console.log('onOfferAndAnswerStatus_:this.remoteIceCache_=<',this.remoteIceCache_,'>');
       for(let i = 0; i < this.remoteIceCache_.length;i++) {
         let ice = this.remoteIceCache_[i];
         this.pc.addIceCandidate( new RTCIceCandidate(ice));
