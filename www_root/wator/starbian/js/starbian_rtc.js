@@ -34,6 +34,16 @@ class StarBianRtc {
   subscribeData(cb) {
     this.dataCB_ = cb;
   }
+  subscribeLocalMedia(cb) {
+    let self = this;
+    setTimeout( ()=> {
+      if(localStreamCache && typeof cb === 'function') {
+        cb(localStreamCache);
+      } else {
+        self.subscribeLocalMedia(cb);
+      }
+    },5000);
+  }
   
   // private
   createStarBian_(keyChannel) {
