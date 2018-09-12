@@ -100,12 +100,15 @@ class StarBianRtc {
     this.remoteIceCache_ = [];
     this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
+    this.pc.onnegotiationneeded = (evt) => {
+      console.log('startWebRTCOffer_::onnegotiationneeded:evt=<',evt,'>');
+    };
     this.pc.onicecandidate = ({candidate}) => { 
       console.log('onicecandidate:candidate=<',candidate,'>');
       if(candidate) {
         self.sendICE_(candidate);
       }
-    }
+    };
     this.pc.ontrack = (event) => {
       if(typeof self.mediaCB_ === 'function') {
         self.mediaCB_(event);
@@ -153,6 +156,9 @@ class StarBianRtc {
     this.remoteIceCache_ = [];
     this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
+    this.pc.onnegotiationneeded = (evt) => {
+      console.log('onRemoteOffer_::onnegotiationneeded:evt=<',evt,'>');
+    };
     this.pc.onicecandidate = ({candidate}) => { 
       console.log('onRemoteOffer_ onicecandidate:candidate=<',candidate,'>');
       if(candidate) {
