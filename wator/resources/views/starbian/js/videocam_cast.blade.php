@@ -60,7 +60,7 @@ sayHello = () => {
   let voices = speechSynthesis.getVoices();
   console.log('sayHello: voices=<',voices,'>');
   isSpeaking = true;
-  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length -1;
+  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
   let uttr = new SpeechSynthesisUtterance(txt);
