@@ -446,12 +446,13 @@ class StarBianCrypto {
     });
   }
   savePrivKey(key) {
+    let self = this;
     window.crypto.subtle.exportKey('jwk',key)
     .then(function(keydata){
       //console.log('savePrivKey keydata=<' , keydata , '>');
       let keyStr = JSON.stringify(keydata);
       //console.log('savePrivKey keyStr=<' , keyStr , '>');
-      this.rsPrvKey = KEYUTIL.getKey(keydata);
+      self.rsPrvKey = KEYUTIL.getKey(keydata);
       localStorage.setItem(StarBian.LS_KEY_NAME,keyStr);
     })
     .catch(function(err){
