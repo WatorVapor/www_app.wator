@@ -66,11 +66,14 @@ sayHello = () => {
   uttr.onstart = (evt) => {
     console.log('sayHello uttr.onstart evt=<',evt,'>');
   };
-  uttr.onpause  = (evt) => {
+  uttr.onpause = (evt) => {
     console.log('sayHello uttr.onpause evt=<',evt,'>');
   };
-  uttr.onerror   = (evt) => {
+  uttr.onerror = (evt) => {
     console.log('sayHello uttr.onerror evt=<',evt,'>');
+  };
+  uttr.onboundary = (evt) => {
+    console.log('sayHello uttr.onboundary evt=<',evt,'>');
   };
 
   uttr.onend　=　(evt) => {
