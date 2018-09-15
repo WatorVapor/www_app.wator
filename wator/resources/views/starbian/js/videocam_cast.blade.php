@@ -53,6 +53,10 @@ const STAIBIAN_CAMERA_HELLO_TEXT = [
 ];
 
 sayHello = () => {
+  if(!speechSynthesis) {
+    sayHelloAndroid();
+    return;
+  }
   if(speechSynthesis.speaking) {
     console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
@@ -60,7 +64,6 @@ sayHello = () => {
   }
   let voices = speechSynthesis.getVoices();
   //console.log('sayHello: voices=<',voices,'>');
-  isSpeaking = true;
   let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
@@ -87,8 +90,13 @@ sayHello = () => {
   uttr.onend　=　(evt) => {
     //console.log('sayHello uttr.onend evt=<',evt,'>');
   };
-  
   speechSynthesis.speak(uttr);
+}
+sayHelloAndroid = () => {
+  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
+  let index = Math.floor(Math.random()*(maxRandom));
+  let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
+  androidTTS.say(txt);
 }
 
 </script>
