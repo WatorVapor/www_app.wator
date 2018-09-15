@@ -14,5 +14,6 @@
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
 <script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
 @include('starbian.js.videocam_recv')
+@include('starbian.js.m_localstorage')
 
 @endsection
