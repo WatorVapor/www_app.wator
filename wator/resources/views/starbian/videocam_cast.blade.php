@@ -40,7 +40,7 @@
 <hr/>
 
 
-<!--
+
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
     <video id="video-clmtrackr" autoplay controls width="320" height="240" muted></video>
@@ -55,7 +55,7 @@
   integrity="sha256-w18wRgyjiwCT5LLFkh2eCEIRJlw0U7+oJF0zjkhIgt4="
   crossorigin="anonymous">
 </script>
--->
+
 
 
 <script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
