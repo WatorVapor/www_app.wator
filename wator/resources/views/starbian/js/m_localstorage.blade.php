@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', () =>{
 }, false);
 
 saveLocalStorage = () => {
-  console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
   console.log('saveLocalStorage: localStorage=<',localStorage,'>');
   let keys = Object.keys(localStorage);
   console.log('saveLocalStorage: keys=<',keys,'>');
   for (let key in keys){
-   console.log('saveLocalStorage: key=<',key,'>');
-   let value = localStorage.getItem(key);
-   console.log('saveLocalStorage: value=<',value,'>');
-   WebViewLocalStorage.setItem(key,value);
+    console.log('saveLocalStorage: key=<',key,'>');
+    let value = localStorage.getItem(key);
+    console.log('saveLocalStorage: value=<',value,'>');
+    if(WebViewLocalStorage) {
+      console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+      WebViewLocalStorage.setItem(key,value);
+    }
   }
 };
 
