@@ -46,6 +46,11 @@ onGetFaceDectectCheck = () => {
   }
 };
 
+const STAIBIAN_CAMERA_HELLO_TEXT = [
+  'こんにちは、呼び出します。',
+  '少々お待ちください。'
+];
+
 sayHello = () => {
   if(speechSynthesis.speaking) {
     console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
@@ -55,7 +60,9 @@ sayHello = () => {
   let voices = speechSynthesis.getVoices();
   console.log('sayHello: voices=<',voices,'>');
   isSpeaking = true;
-  let txt = 'こんにちは、呼び出します。';
+  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length -1;
+  let index = Math.floor(Math.random()*(maxRandom));
+  let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
   uttr.pitch  = 1.3;
