@@ -52,6 +52,8 @@ sayHello = () => {
     console.warn('sayHello: isSpeaking=<',isSpeaking,'>');
     return;
   }
+  let voices = speechSynthesis.getVoices();
+  console.log('sayHello: voices=<',voices,'>');
   isSpeaking = true;
   let txt = 'こんにちは、呼び出します。';
   let uttr = new SpeechSynthesisUtterance(txt);
