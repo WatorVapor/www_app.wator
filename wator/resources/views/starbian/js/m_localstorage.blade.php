@@ -14,7 +14,8 @@ saveLocalStorage = () => {
   console.log('saveLocalStorage: localStorage=<',localStorage,'>');
   let keys = Object.keys(localStorage);
   console.log('saveLocalStorage: keys=<',keys,'>');
-  for (let key in localStorage){
+  for (let i = 0;i < keys.length ;i++){
+    let key = keys[i];
     console.log('saveLocalStorage: key=<',key,'>');
     let value = localStorage.getItem(key);
     console.log('saveLocalStorage: value=<',value,'>');
