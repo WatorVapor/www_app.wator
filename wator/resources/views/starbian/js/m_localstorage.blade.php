@@ -8,6 +8,9 @@ loadLocalStorage = () => {
 
 saveLocalStorage = () => {
   console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+  for (let key in localStorage){
+   console.log('saveLocalStorage: key=<',key,'>');
+  }
 };
 
 </script>
