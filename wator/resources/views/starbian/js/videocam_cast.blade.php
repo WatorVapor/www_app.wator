@@ -46,10 +46,9 @@ onGetFaceDectectCheck = () => {
   }
 };
 
-let isSpeaking = false;
 sayHello = () => {
-  if(isSpeaking) {
-    console.warn('sayHello: isSpeaking=<',isSpeaking,'>');
+  if(speechSynthesis.speaking) {
+    console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
     return;
   }
@@ -79,7 +78,6 @@ sayHello = () => {
 
   uttr.onend　=　(evt) => {
     console.log('sayHello uttr.onend evt=<',evt,'>');
-    isSpeaking = false;
   };
   
   speechSynthesis.speak(uttr);
