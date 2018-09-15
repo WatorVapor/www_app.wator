@@ -62,6 +62,7 @@
 
 
 @include('starbian.js.videocam_cast')
+@include('starbian.js.m_localstorage')
 
 <script type="text/javascript">
   DeviceSetting.getDevice( (devices) => {
