@@ -6,6 +6,10 @@ loadLocalStorage = () => {
   console.log('WebViewJS.loadLocalStorage: keys=<',keys,'>');
 };
 
+document.addEventListener('DOMContentLoaded', () =>{
+  setTimeout(saveLocalStorage,5000);
+}, false);
+
 saveLocalStorage = () => {
   console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
   console.log('saveLocalStorage: localStorage=<',localStorage,'>');
