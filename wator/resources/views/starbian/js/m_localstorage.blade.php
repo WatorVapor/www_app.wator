@@ -1,10 +1,11 @@
 <script type="text/javascript">
-loadLocalStorage = () => {
-  console.log('loadLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+var WebViewJS = {};
+WebViewJS.loadLocalStorage = () => {
+  console.log('WebViewJS.loadLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
 };
 
-saveLocalStorage = () => {
-  console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+WebViewJS.saveLocalStorage = () => {
+  console.log('WebViewJS.saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
 };
 
 </script>
