@@ -48,7 +48,7 @@ onGetFaceDectectCheck = () => {
 
 
 sayHello = () => {
-  let txt = 'こんにちは、主人を呼び出します。';
+  let txt = 'こんにちは、呼び出します。';
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
   speechSynthesis.speak(uttr);
