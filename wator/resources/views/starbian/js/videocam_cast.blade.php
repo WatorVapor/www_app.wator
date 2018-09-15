@@ -10,7 +10,7 @@ if(keyChannel) {
   });
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
-    /*
+    
     if(!ctracker.localStreamStarbian) {
       let clmVideo = document.getElementById("video-clmtrackr");
       clmVideo.srcObject = localStream;
@@ -18,11 +18,11 @@ if(keyChannel) {
       ctracker.start(clmVideo);
       setInterval(onGetFaceDectectCheck,5000);
     }
-    */
+    
   });
 }
 
-/*
+
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
@@ -42,6 +42,6 @@ onGetFaceDectectCheck = () => {
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
   }
 };
-*/
+
 
 </script>
