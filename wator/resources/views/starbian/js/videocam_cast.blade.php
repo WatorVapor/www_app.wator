@@ -48,6 +48,7 @@ onGetFaceDectectCheck = () => {
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
   'こんにちは、呼び出します。',
+  '毎度お疲れ様です。呼び出します',
   '少々お待ちください。'
 ];
 
