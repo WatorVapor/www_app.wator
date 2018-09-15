@@ -1,13 +1,13 @@
 <script type="text/javascript">
-var WebViewJS = {};
-WebViewJS.loadLocalStorage = () => {
-  console.log('WebViewJS.loadLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+
+loadLocalStorage = () => {
+  console.log('loadLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
   let keys = WebViewLocalStorage.keys();
   console.log('WebViewJS.loadLocalStorage: keys=<',keys,'>');
 };
 
-WebViewJS.saveLocalStorage = () => {
-  console.log('WebViewJS.saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+saveLocalStorage = () => {
+  console.log('saveLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
 };
 
 </script>
