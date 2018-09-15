@@ -5,8 +5,8 @@ StarBian.SHARE_PUBKEY_DIFFCULTY = '0';
 StarBian.SHARE_PUBKEY_TIMEOUT = 100;
 StarBian.SHARE_PUBKEY_TIMEOUT_WARN = 100 +10;
 
-console.log('androidLocalStorage=<',androidLocalStorage,'>');
-console.log('localStorage=<',localStorage,'>');
+//console.log('androidLocalStorage=<',androidLocalStorage,'>');
+//console.log('localStorage=<',localStorage,'>');
 
 localStorage = localStorage || androidLocalStorage;
 console.log('localStorage=<',localStorage,'>');
