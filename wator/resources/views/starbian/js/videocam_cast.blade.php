@@ -56,10 +56,15 @@ sayHello = () => {
   let txt = 'こんにちは、呼び出します。';
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
-  speechSynthesis.speak(uttr);
+  uttr.pitch  = 1;
+  uttr.rate   = 1;
+  uttr.volume = 1;
+  uttr.voice = null;
+
   uttr.onend　=　(evt) => {
     isSpeaking = false;
   };
+  speechSynthesis.speak(uttr);
 }
 
 </script>
