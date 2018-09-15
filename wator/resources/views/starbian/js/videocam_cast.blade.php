@@ -64,6 +64,7 @@ sayHello = () => {
   uttr.voice = null;
 
   uttr.onend　=　(evt) => {
+    console.log('sayHello uttr.onend evt=<',evt,'>');
     isSpeaking = false;
   };
   speechSynthesis.speak(uttr);
