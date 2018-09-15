@@ -58,7 +58,7 @@ sayHello = () => {
     return;
   }
   let voices = speechSynthesis.getVoices();
-  console.log('sayHello: voices=<',voices,'>');
+  //console.log('sayHello: voices=<',voices,'>');
   isSpeaking = true;
   let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
   let index = Math.floor(Math.random()*(maxRandom));
@@ -71,20 +71,20 @@ sayHello = () => {
   uttr.voice = null;
 
   uttr.onstart = (evt) => {
-    console.log('sayHello uttr.onstart evt=<',evt,'>');
+    //console.log('sayHello uttr.onstart evt=<',evt,'>');
   };
   uttr.onpause = (evt) => {
-    console.log('sayHello uttr.onpause evt=<',evt,'>');
+    //console.log('sayHello uttr.onpause evt=<',evt,'>');
   };
   uttr.onerror = (evt) => {
-    console.log('sayHello uttr.onerror evt=<',evt,'>');
+    //console.log('sayHello uttr.onerror evt=<',evt,'>');
   };
   uttr.onboundary = (evt) => {
-    console.log('sayHello uttr.onboundary evt=<',evt,'>');
+    //console.log('sayHello uttr.onboundary evt=<',evt,'>');
   };
 
   uttr.onend　=　(evt) => {
-    console.log('sayHello uttr.onend evt=<',evt,'>');
+    //console.log('sayHello uttr.onend evt=<',evt,'>');
   };
   
   speechSynthesis.speak(uttr);
