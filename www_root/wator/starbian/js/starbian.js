@@ -464,6 +464,9 @@ class StarBianCrypto {
       if(typeof self.onReadyKey === 'function') {
         self.onReadyKey(self.pubKeyB58);
       }
+      if(typeof saveLocalStorage === 'function') {
+        saveLocalStorage();
+      }
     })
     .catch(function(err){
       console.error(err);
