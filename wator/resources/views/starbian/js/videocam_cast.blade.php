@@ -66,6 +66,12 @@ sayHello = () => {
   uttr.onstart = (evt) => {
     console.log('sayHello uttr.onstart evt=<',evt,'>');
   };
+  uttr.onpause  = (evt) => {
+    console.log('sayHello uttr.onpause evt=<',evt,'>');
+  };
+  uttr.onerror   = (evt) => {
+    console.log('sayHello uttr.onerror evt=<',evt,'>');
+  };
 
   uttr.onend　=　(evt) => {
     console.log('sayHello uttr.onend evt=<',evt,'>');
