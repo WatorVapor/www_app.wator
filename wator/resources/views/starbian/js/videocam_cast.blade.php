@@ -58,7 +58,7 @@ sayHello = () => {
   let txt = 'こんにちは、呼び出します。';
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
-  uttr.pitch  = 2.0;
+  uttr.pitch  = 1.3;
   uttr.rate   = 1;
   uttr.volume = 1;
   uttr.voice = null;
