@@ -8,4 +8,5 @@
 @include('starbian.layout.key')
 <hr/>
 @include('starbian.layout.camera')
+@include('starbian.js.m_localstorage')
 @endsection
