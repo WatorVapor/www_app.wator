@@ -40,8 +40,18 @@ onGetFaceDectectCheck = () => {
       sum += Math.abs(pos2[0] - pos1[0]) + Math.abs(pos2[1] - pos1[1])
     }
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
+    if(sum > 100) {
+      sayHello();
+    } 
   }
 };
 
+
+sayHello = () => {
+  let txt = 'こんにちは、主人を呼び出します。';
+  let uttr = new SpeechSynthesisUtterance(txt);
+  uttr.lang = 'ja-JP';
+  speechSynthesis.speak(uttr);
+}
 
 </script>
