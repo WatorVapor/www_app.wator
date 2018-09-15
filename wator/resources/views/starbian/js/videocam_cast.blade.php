@@ -22,6 +22,7 @@ if(keyChannel) {
   });
 }
 
+/*
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
@@ -41,5 +42,6 @@ onGetFaceDectectCheck = () => {
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
   }
 };
+*/
 
 </script>
