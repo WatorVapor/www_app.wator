@@ -2,6 +2,8 @@
 var WebViewJS = {};
 WebViewJS.loadLocalStorage = () => {
   console.log('WebViewJS.loadLocalStorage: WebViewLocalStorage=<',WebViewLocalStorage,'>');
+  let keys = WebViewLocalStorage.keys();
+  console.log('WebViewJS.loadLocalStorage: keys=<',keys,'>');
 };
 
 WebViewJS.saveLocalStorage = () => {
