@@ -40,17 +40,13 @@
 <hr/>
 
 
-
+<!--
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
     <video id="video-clmtrackr" autoplay controls width="320" height="240" muted></video>
   </div>
 </div>
 
-
-<script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
-<script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
-<script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js" 
   integrity="sha256-4xZV6lGNXLV/Q2SiD5s/M7WppGI6bcF2yfW9X7EMOY0="
   crossorigin="anonymous">
@@ -59,6 +55,12 @@
   integrity="sha256-w18wRgyjiwCT5LLFkh2eCEIRJlw0U7+oJF0zjkhIgt4="
   crossorigin="anonymous">
 </script>
+-->
+
+
+<script src="//webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
 
 
 @include('starbian.js.videocam_cast')
