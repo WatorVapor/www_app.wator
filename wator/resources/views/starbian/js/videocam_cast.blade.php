@@ -53,7 +53,12 @@ const STAIBIAN_CAMERA_HELLO_TEXT = [
 ];
 
 sayHello = () => {
-  if(!speechSynthesis) {
+  try {
+    if(!speechSynthesis) {
+      sayHelloAndroid();
+    }
+    return;
+  } catch(e) {
     sayHelloAndroid();
     return;
   }
