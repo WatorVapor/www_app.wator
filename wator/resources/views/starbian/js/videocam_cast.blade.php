@@ -63,10 +63,15 @@ sayHello = () => {
   uttr.volume = 1;
   uttr.voice = null;
 
+  uttr.onstart = (evt) => {
+    console.log('sayHello uttr.onstart evt=<',evt,'>');
+  };
+
   uttr.onend　=　(evt) => {
     console.log('sayHello uttr.onend evt=<',evt,'>');
     isSpeaking = false;
   };
+  
   speechSynthesis.speak(uttr);
 }
 
