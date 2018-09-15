@@ -46,12 +46,20 @@ onGetFaceDectectCheck = () => {
   }
 };
 
-
+let isSpeaking = false;
 sayHello = () => {
+  isSpeaking = true;
+  if(isSpeaking) {
+    console.warn('sayHello: isSpeaking=<',isSpeaking,'>');
+    return;
+  }
   let txt = 'こんにちは、呼び出します。';
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
   speechSynthesis.speak(uttr);
+  uttr.onend　=　(evt) {
+    isSpeaking = false;
+  };
 }
 
 </script>
