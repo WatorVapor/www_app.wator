@@ -48,6 +48,7 @@ onGetFaceDectectCheck = () => {
 
 let isSpeaking = false;
 sayHello = () => {
+  speechSynthesis.cancel();
   if(isSpeaking) {
     console.warn('sayHello: isSpeaking=<',isSpeaking,'>');
     return;
