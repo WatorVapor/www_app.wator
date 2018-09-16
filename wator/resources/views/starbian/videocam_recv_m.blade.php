@@ -1,4 +1,4 @@
-@extends('wator_m.app')
+@extends('wator.app_m')
 
 @section('content')
 <div class="row mt-lg-5 justify-content-center">
