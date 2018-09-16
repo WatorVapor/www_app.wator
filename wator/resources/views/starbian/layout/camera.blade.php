@@ -1,5 +1,5 @@
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-3">
+  <div class="col-4">
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
@@ -16,7 +16,7 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
-      <div class="col-1">
+      <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-primary btn-lg btn-block"
         @else
@@ -26,7 +26,7 @@
           <i class="material-icons">videocam</i>
         </a>
       </div>
-      <div class="col-1">
+      <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-success btn-lg btn-block"
         @else
@@ -36,7 +36,7 @@
           <i class="material-icons">video_call</i>
         </a>
       </div>
-      <div class="col-1">
+      <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRemoveRemoteKey(this)">
         @else
