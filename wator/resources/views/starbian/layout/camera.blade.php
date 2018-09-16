@@ -4,7 +4,7 @@
     <a type="button" class="btn btn-primary btn-lg btn-block"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
     @else
-    <a type="button" class="btn btn-primary  btn-block"
+    <a type="button" class="btn btn-primary btn-block"
       href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
     @endif
       <i class="material-icons">videocam</i>
