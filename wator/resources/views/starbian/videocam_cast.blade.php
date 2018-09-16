@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+<div class="d-none" id="wator-remote-key">
+  {{ $remote }}
+</div>
 
 <div class="row justify-content-center mt-lg-5">
   <a class="btn btn-primary" data-toggle="collapse" href="#collapse_setting_device" role="button" aria-expanded="false" aria-controls="collapse_setting_device">
