@@ -3,13 +3,16 @@
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
-    @else
-    <a type="button" class="btn btn-primary btn-block"
-      href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
-    @endif
       <i class="material-icons">videocam</i>
       <b>Cast to Authed Keys</b>
     </a>
+    @else
+    <a type="button" class="btn btn-primary btn-block"
+      href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
+      <i class="material-icons">videocam</i>
+      <b>Cast to Authed Keys</b>
+    </a>
+    @endif
   </div>
 </div>
 <hr/>
@@ -19,12 +22,15 @@
       <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-primary btn-lg btn-block"
-        @else
-        <a type="button" class="btn btn-primary btn-block"
-        @endif
           v-bind:href="remote.casturl" target="_blank">
           <i class="material-icons">videocam</i>
         </a>
+        @else
+        <a type="button" class="btn btn-primary btn-block"
+          v-bind:href="remote.casturl" target="_blank">
+          <i class="material-icons">videocam</i>
+        </a>
+        @endif
       </div>
       <div class="col-2">
         @if (isset($mobile))
