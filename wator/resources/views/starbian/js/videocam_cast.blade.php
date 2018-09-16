@@ -13,6 +13,9 @@ onInitVideoCam = () => {
   } else {
     let remotekeys = StarBian.getRemoteKey();
     console.log('remotekeys=<' , remotekeys , '>');
+    for(let i = 0;i < remotekeys.length;i++) {
+      createWebRTCConnection(remotekeys[i]);
+    }
   }
 }
 
@@ -24,7 +27,6 @@ createWebRTCConnection = (keyChannel) => {
   });
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
-
     if(!ctracker.localStreamStarbian) {
       let clmVideo = document.getElementById("video-clmtrackr");
       clmVideo.srcObject = localStream;
@@ -32,7 +34,6 @@ createWebRTCConnection = (keyChannel) => {
       ctracker.start(clmVideo);
       setInterval(onGetFaceDectectCheck,5000);
     }
-
   });
 }
 
