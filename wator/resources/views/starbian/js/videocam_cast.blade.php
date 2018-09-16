@@ -37,6 +37,9 @@ createWebRTCConnection = (keyChannel) => {
       setInterval(onGetFaceDectectCheck,5000);
     }
   });
+  rtc.subscribeMsg( (msg) => {
+    console.log('subscribeMsg msg=<',msg,'>');
+  });
   rtcConnectionList.push(rtc);
 }
 
