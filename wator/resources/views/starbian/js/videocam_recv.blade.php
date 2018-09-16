@@ -46,7 +46,7 @@ sayCheckDoorCamera = () => {
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
   let uttr = new SpeechSynthesisUtterance(txt);
-  uttr.lang = 'ja-JP';
+  uttr.lang = 'zh-CN';
   uttr.pitch  = 1.3;
   uttr.rate   = 1;
   uttr.volume = 1;
