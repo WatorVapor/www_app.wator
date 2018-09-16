@@ -84,8 +84,9 @@ class StarBianRtc {
     } else if(msg && msg.offer_answer) {
       this.onOfferAndAnswerStatus_(msg.offer_answer);
     } else {
+      console.log('onIpfsMessage_:msg=<',msg,'>');
       if(typeof this.msgCB_ === 'function') {
-        this.msgCB_(msg);
+        this.msgCB_(msg,channel);
       }
     }
   }
