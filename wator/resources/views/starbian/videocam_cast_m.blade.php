@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-none" id="wator-remote-key">
-  {{ remote }}
+  {{ $remote }}
 </div>
 
 <div class="row justify-content-center mt-lg-5">
