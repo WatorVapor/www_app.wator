@@ -9,5 +9,10 @@ rtc.subscribeMedia( (event) => {
   document.getElementById("video").srcObject = event.streams[0];
 });
 
+rtc.subscribeMsg( (msg,channel) => {
+  console.log('subscribeMsg msg=<',msg,'>');
+  console.log('subscribeMsg channel=<',channel,'>');
+});
+
 
 </script>
