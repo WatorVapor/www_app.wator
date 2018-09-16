@@ -45,8 +45,13 @@
     console.log('onRemoteKeyRead remotekeys=<' , remotekeys , '>');
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
+      @if (isset($mobile))
+      let casturl = 'https://www.wator.xyz/starbian/cloud/m/videocam_cast/' + remotekeys[i];
+      let rcvurl = 'https://www.wator.xyz/starbian/cloud/m/videocam_recv/' + remotekeys[i];
+      @else
       let casturl = 'https://www.wator.xyz/starbian/cloud/videocam_cast/' + remotekeys[i];
       let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
+      @endif
       let keyPairs = {
           key:remotekeys[i],
           casturl:casturl,
