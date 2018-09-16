@@ -17,19 +17,31 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="col-1">
+        @if (isset($mobile))
+        <a type="button" class="btn btn-primary btn-lg btn-block"
+        @else
         <a type="button" class="btn btn-primary btn-block"
+        @endif
           v-bind:href="remote.casturl" target="_blank">
           <i class="material-icons">videocam</i>
         </a>
       </div>
       <div class="col-1">
+        @if (isset($mobile))
+        <a type="button" class="btn btn-success btn-lg btn-block"
+        @else
         <a type="button" class="btn btn-success btn-block"
+        @endif
           v-bind:href="remote.rcvurl" target="_blank">
           <i class="material-icons">video_call</i>
         </a>
       </div>
       <div class="col-1">
+        @if (isset($mobile))
+        <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRemoveRemoteKey(this)">
+        @else
         <a type="button" class="btn btn-danger btn-block" onclick="onRemoveRemoteKey(this)">
+        @endif
           <i class="material-icons">remove_circle</i>
         </a>
       </div>
