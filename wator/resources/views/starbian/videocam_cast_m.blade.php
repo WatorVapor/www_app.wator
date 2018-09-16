@@ -1,7 +1,4 @@
-@extends('wator.app')
-@section('appnavbar')
-  @include('starbian.navbar')
-@endsection
+@extends('wator_m.app')
 
 @section('content')
 
