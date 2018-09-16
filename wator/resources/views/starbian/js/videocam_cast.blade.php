@@ -75,11 +75,13 @@ const STAIBIAN_CAMERA_HELLO_TEXT = [
 ];
 
 sayHello = () => {
+  //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   try {
+    //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     if(!speechSynthesis) {
       sayHelloAndroid();
+      return;
     }
-    return;
   } catch(e) {
     sayHelloAndroid();
     return;
