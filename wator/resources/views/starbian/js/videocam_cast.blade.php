@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 onInitVideoCam = () => {
   let elemKey = document.getElementById('wator-remote-key');
-  const keyChannel = elemKey.textContent;
+  const keyChannel = elemKey.textContent.trim();
   console.log('keyChannel=<' , keyChannel , '>');
   if(keyChannel) {
     let rtc = new StarBianRtc(keyChannel,'offer');
