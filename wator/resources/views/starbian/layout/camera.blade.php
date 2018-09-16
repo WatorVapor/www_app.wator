@@ -1,7 +1,11 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-3">
     <a type="button" class="btn btn-primary  btn-block"
+      @if (isset($mobile))
+      href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
+      @else
       href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
+      @endif
       <i class="material-icons">videocam</i>
       <b>Cast to Authed Keys</b>
     </a>
