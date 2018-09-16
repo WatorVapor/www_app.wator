@@ -44,6 +44,9 @@ class StarBianRtc {
       }
     },5000);
   }
+  subscribeMsg(cb) {
+    this.msgCB_ = cb;
+  }
   
   // private
   createStarBian_(keyChannel) {
@@ -72,18 +75,18 @@ class StarBianRtc {
       if(this.isOffer_) {
         this.startWebRTCOffer_();
       }
-    }
-    if(msg && msg.answer) {
+    } else if(msg && msg.answer) {
       this.onRemoteAnswer_(msg.answer);
-    }
-    if(msg && msg.ice) {
+    } else if(msg && msg.ice) {
       this.onRemoteICE_(msg.ice);
-    }
-    if(msg && msg.offer) {
+    } else if(msg && msg.offer) {
       this.onRemoteOffer_(msg.offer);
-    }
-    if(msg && msg.offer_answer) {
+    } else if(msg && msg.offer_answer) {
       this.onOfferAndAnswerStatus_(msg.offer_answer);
+    } else {
+      if(typeof this.msgCB_ === 'function') {
+        this.msgCB_(msg);
+      }
     }
   }
   // private
