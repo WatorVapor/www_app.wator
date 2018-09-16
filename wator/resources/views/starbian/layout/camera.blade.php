@@ -35,12 +35,15 @@
       <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-success btn-lg btn-block"
-        @else
-        <a type="button" class="btn btn-success btn-block"
-        @endif
           v-bind:href="remote.rcvurl" target="_blank">
           <i class="material-icons">video_call</i>
         </a>
+        @else
+        <a type="button" class="btn btn-success btn-block"
+          v-bind:href="remote.rcvurl" target="_blank">
+          <i class="material-icons">video_call</i>
+        </a>
+        @endif
       </div>
       <div class="col-2">
         @if (isset($mobile))
