@@ -20,6 +20,9 @@ if(keyChannel) {
     }
     
   });
+} else {
+  let remotekeys = StarBian.getRemoteKey();
+  console.log('remotekeys=<' , remotekeys , '>');
 }
 
 
