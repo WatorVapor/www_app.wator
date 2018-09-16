@@ -1,4 +1,4 @@
-@extends('wator_m.app')
+@extends('wator.app_m')
 
 @section('content')
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
