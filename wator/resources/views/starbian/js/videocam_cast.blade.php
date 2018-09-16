@@ -84,6 +84,7 @@ sayHello = () => {
     sayHelloAndroid();
     return;
   }
+  console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
     console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
