@@ -2,6 +2,7 @@
 
 const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
+console.log('keyChannel=<' , keyChannel , '>');
 if(keyChannel) {
   let rtc = new StarBianRtc(keyChannel,'offer');
   rtc.subscribeMedia( (event) => {
