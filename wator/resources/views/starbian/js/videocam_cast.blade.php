@@ -19,6 +19,8 @@ onInitVideoCam = () => {
   }
 }
 
+let rtcConnectionList = [];
+
 createWebRTCConnection = (keyChannel) => {
   let rtc = new StarBianRtc(keyChannel,'offer');
   rtc.subscribeMedia( (event) => {
@@ -35,6 +37,11 @@ createWebRTCConnection = (keyChannel) => {
       setInterval(onGetFaceDectectCheck,5000);
     }
   });
+  rtcConnectionList.push(rtc);
+}
+
+callMaster = () => {
+  console.log('callMaster rtcConnectionList=<',rtcConnectionList,'>');
 }
 
 const ctracker = new clm.tracker();
@@ -56,6 +63,7 @@ onGetFaceDectectCheck = () => {
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
     if(sum > 100) {
       sayHello();
+      callMaster();
     } 
   }
 };
