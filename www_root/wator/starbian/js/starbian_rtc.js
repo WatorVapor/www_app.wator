@@ -25,7 +25,7 @@ class StarBianRtc {
     } else {
       this.isOffer_ = false;
     }
-    this.createStarBian_(keyChannel);
+    this.createStarBian_(channelKey);
   }
   
   subscribeMedia(cb) {
