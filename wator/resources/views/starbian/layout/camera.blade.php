@@ -99,6 +99,7 @@
 
   function onClickAutoGotoCast(elem) {
     console.log('onClickAutoGotoCast elem=<' , elem , '>');
+    console.log('onClickAutoGotoCast elem.value=<' , elem.value , '>');
   }
 </script>
 
