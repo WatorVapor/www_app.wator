@@ -4,7 +4,7 @@
     <a type="button" class="btn btn-primary btn-lg btn-block"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
       <i class="material-icons">videocam</i>
-      <b>Cast to Authed Keys</b>
+      <b>Cast to All Authed Keys</b>
     </a>
     @else
     <a type="button" class="btn btn-primary btn-block"
