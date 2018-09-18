@@ -1,5 +1,8 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4">
+    <label class="checkbox-inline"><input type="checkbox" value="">Auto Goto Cast</label>
+  </div>
+  <div class="col-4">
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
