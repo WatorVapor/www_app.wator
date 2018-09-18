@@ -105,7 +105,7 @@
   $(document).ready(function() {
     let autogotoCast = localStorage.getItem(LS_AUTO_GOTO_CAST_NAME);
     let elemCheck = document.getElementById('ui-auto-goto-cast');
-    if(autogotoCast) {
+    if(autogotoCast === 'true') {
       elemCheck.checked = true;
       setTimeout(() => {
         GotoCast();
