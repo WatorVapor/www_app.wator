@@ -1,6 +1,6 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-4">
-    <label class="checkbox-inline"><input type="checkbox" value="">Auto Goto Cast</label>
+    <label class="checkbox-inline"><input type="checkbox" value="" onclick="onClickAutoGotoCast(this)">Auto Goto Cast</label>
   </div>
   <div class="col-4">
     @if (isset($mobile))
@@ -96,5 +96,9 @@
     let elemBtn = document.getElementById('vue-ui-remote-device-keys');
     console.log('onRemoteKeyRead elemBtn=<' , elemBtn , '>');
   });
+
+  function onClickAutoGotoCast(elem) {
+    console.log('onClickAutoGotoCast elem=<' , elem , '>');
+  }
 </script>
 
