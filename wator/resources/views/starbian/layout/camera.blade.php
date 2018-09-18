@@ -1,16 +1,19 @@
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-4">
-    <label class="checkbox-inline"><input type="checkbox" value="" onclick="onClickAutoGotoCast(this)">Auto Goto Cast</label>
+  <div class="col-4" >
+    <label class="checkbox-inline">
+      <input type="checkbox" id="ui-auto-goto-cast"  value="" onclick="onClickAutoGotoCast(this)">
+      Auto Goto Cast
+    </label>
   </div>
   <div class="col-4">
     @if (isset($mobile))
-    <a type="button" class="btn btn-primary btn-lg btn-block"
+    <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-cast"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
       <i class="material-icons">videocam</i>
       <b>Cast to All Authed Keys</b>
     </a>
     @else
-    <a type="button" class="btn btn-primary btn-block"
+    <a type="button" class="btn btn-primary btn-block" id="ui-btn-goto-cast"
       href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
       <i class="material-icons">videocam</i>
       <b>Cast to All Authed Keys</b>
@@ -97,9 +100,31 @@
     console.log('onRemoteKeyRead elemBtn=<' , elemBtn , '>');
   });
 
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    let autogotoCast = localStorage.getItem(LS_AUTO_GOTO_CAST_NAME);
+    let elemCheck = document.getElementById('ui-auto-goto-cast');
+    if(autogotoCast) {
+      elemCheck.checked = true;
+      setTimeout(() => {
+        GotoCast();
+      },30000)
+    } else {
+      elemCheck.checked = false;
+    }
+  });
+  const LS_AUTO_GOTO_CAST_NAME = 'wator-starbian-auto-goto-cast';
   function onClickAutoGotoCast(elem) {
     console.log('onClickAutoGotoCast elem=<' , elem , '>');
     console.log('onClickAutoGotoCast elem.checked=<' , elem.checked , '>');
+    localStorage.setItem(LS_AUTO_GOTO_CAST_NAME,elem.checked);
+  }
+  function GotoCast() {
+    let elemBtn = document.getElementById('ui-btn-goto-cast');
+    if(elemBtn) {
+      elemBtn.click();
+    }
   }
 </script>
 
