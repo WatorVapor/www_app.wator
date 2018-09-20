@@ -10,13 +10,13 @@
     <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-cast"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
       <i class="material-icons">videocam</i>
-      <b>Cast to All Authed Keys</b>
+      <b>Cast to All</b>
     </a>
     @else
     <a type="button" class="btn btn-primary btn-block" id="ui-btn-goto-cast"
       href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
       <i class="material-icons">videocam</i>
-      <b>Cast to All Authed Keys</b>
+      <b>Cast to All</b>
     </a>
     @endif
   </div>
@@ -25,13 +25,13 @@
     <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-monitor"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_monitor" target="_blank">
       <i class="material-icons">ring_volume</i>
-      <b>Wait From All Authed Keys</b>
+      <b>Wait From All</b>
     </a>
     @else
     <a type="button" class="btn btn-primary btn-block" id="ui-btn-goto-monitor"
       href="https://www.wator.xyz/starbian/cloud/videocam_monitor" target="_blank">
       <i class="material-icons">ring_volume</i>
-      <b>Wait From All Authed Keys</b>
+      <b>Wait From All</b>
     </a>
     @endif
   </div>
