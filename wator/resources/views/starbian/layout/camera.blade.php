@@ -20,6 +20,21 @@
     </a>
     @endif
   </div>
+  <div class="col-4">
+    @if (isset($mobile))
+    <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-monitor"
+      href="https://www.wator.xyz/starbian/cloud/m/videocam_monitor" target="_blank">
+      <i class="material-icons">ring_volume</i>
+      <b>Wait From All Authed Keys</b>
+    </a>
+    @else
+    <a type="button" class="btn btn-primary btn-block" id="ui-btn-goto-monitor"
+      href="https://www.wator.xyz/starbian/cloud/videocam_monitor" target="_blank">
+      <i class="material-icons">ring_volume</i>
+      <b>Wait From All Authed Keys</b>
+    </a>
+    @endif
+  </div>
 </div>
 <hr/>
 <div class="row mt-lg-5 justify-content-center">
