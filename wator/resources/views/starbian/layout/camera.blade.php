@@ -1,11 +1,11 @@
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-4" >
+  <div class="col-3" >
     <label class="checkbox-inline">
       <input type="checkbox" id="ui-auto-goto-cast"  value="" onclick="onClickAutoGotoCast(this)">
       Auto Goto Cast
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-cast"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
@@ -20,7 +20,7 @@
     </a>
     @endif
   </div>
-  <div class="col-4">
+  <div class="col-3">
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-monitor"
       href="https://www.wator.xyz/starbian/cloud/m/videocam_monitor" target="_blank">
