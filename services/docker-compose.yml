@@ -4,8 +4,9 @@ services:
     image: nginx
     volumes:
       - ../www_root:/www_root
-      - ./nginx-wator/sites-available:/etc/nginx/sites-available
-      - ./nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf/conf.d:/etc/nginx/conf.d
+      - ./nginx/conf/tcp.conf.d:/etc/nginx/tcp.conf.d
       - /watorvapor/cert:/etc/cert
       - /watorvapor/autogen:/autogen
       - /watorvapor/log/nginx:/log
