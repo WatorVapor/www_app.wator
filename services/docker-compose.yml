@@ -3,10 +3,10 @@ services:
   wator-nginx:
     image: nginx
     volumes:
+      - ../www_root:/www_root
       - ./nginx-wator/sites-available:/etc/nginx/sites-available
       - ./nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
       - /watorvapor/cert:/etc/cert
-      - ../www_root:/www_root
       - /watorvapor/autogen:/autogen
       - /watorvapor/log/nginx:/log
     networks:
