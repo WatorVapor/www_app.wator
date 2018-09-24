@@ -23,7 +23,7 @@ services:
   wator-laravel:
     image: watorvapor/laravel
     volumes:
-      - ../app_www/wator:/opt/laravel
+      - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
@@ -83,7 +83,7 @@ services:
   wator-laravel-clone:
     image: watorvapor/laravel
     volumes:
-      - ../app_www/wator:/opt/laravel
+      - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
