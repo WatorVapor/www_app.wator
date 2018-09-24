@@ -1,85 +1,153 @@
 version: '3'
 services:
   wator-nginx:
-    build: nginx-wator
-    network_mode: "host"
+    image: nginx
     volumes:
-      - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
-      - /watorvapor/app_www/services/nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
+      - ./nginx-wator/sites-available:/etc/nginx/sites-available
+      - ./nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
       - /watorvapor/cert:/etc/cert
-      - /watorvapor/app_www/www_root:/www_root
+      - ../www_root:/www_root
       - /watorvapor/autogen:/autogen
       - /watorvapor/log/nginx:/log
-    command: nginx
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-laravel:
     build: laravel-wator
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/wator:/opt/laravel
+      - ../app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18080
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-laravel-shadow:
     build: laravel-wator
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/wator:/opt/laravel
+      - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18081
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-laravel-ghost:
     build: laravel-wator
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/wator:/opt/laravel
+      - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18082
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-laravel-clone:
     build: laravel-wator
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/wator:/opt/laravel
+      - ../app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
     working_dir: "/opt/laravel"
     command: php artisan serve -vvv --host=127.0.0.1 --port=18083
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-ws-notify:
     image: node:slim
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/ws_service:/opt/wc
+      - ../ws_service:/opt/wc
     working_dir: "/opt/wc"
     command: node ./notify.js
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   redis:
     image: redis
-    network_mode: "host"
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
       - ./redis/data:/data
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wator-sns-bot:
     image: node:slim
-    network_mode: "host"
     volumes:
-      - /watorvapor/app_www/bot_service:/opt/wc
+      - ../bot_service:/opt/wc
     working_dir: "/opt/wc"
     command: node ./wai.twitter.js
-    restart: always
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+networks:
+  outside:
+    external:
+      name: "host"
