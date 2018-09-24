@@ -20,7 +20,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-laravel:
-    image: wator/laravel
+    image: watorvapor/laravel
     volumes:
       - ../app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
@@ -40,7 +40,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-laravel-shadow:
-    image: wator/laravel
+    image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
@@ -60,7 +60,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-laravel-ghost:
-    image: wator/laravel
+    image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
@@ -80,7 +80,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-laravel-clone:
-    image: wator/laravel
+    image: watorvapor/laravel
     volumes:
       - ../app_www/wator:/opt/laravel
       - /watorvapor/rsaauth/wator:/opt/rsaauth
