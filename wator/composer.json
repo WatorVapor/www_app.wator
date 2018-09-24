@@ -6,19 +6,19 @@
     "type": "project",
     "require": {
         "php": ">=7.2.0",
-        "fideloper/proxy": "~4.0",
+        "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "predis/predis":"^1.1",
-        "laravel/tinker": "~1.0",
+        "laravel/tinker": "^1.0",
         "laravel-notification-channels/twitter": "*",
         "laravel-notification-channels/facebook": "*",
         "socialiteproviders/weibo": "*"
     },
     "require-dev": {
-        "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "classmap": [
