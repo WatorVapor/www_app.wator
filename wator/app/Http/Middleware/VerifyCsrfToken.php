@@ -20,5 +20,10 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        '/wai/text/train/crawler',
+        '/wai/text/train/ostrich/*',
+        '/wai/text/train/parrot/*',
+        '/wai/text/train/phoenix/*',
+        '/wai/text/participle/sns',
     ];
 }
