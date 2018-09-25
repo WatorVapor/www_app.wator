@@ -1,5 +1,5 @@
 <script type="text/javascript">
-const FACE_LINE_POINT_SUM_MIN = 50;
+const FACE_LINE_POINT_SUM_MIN = 80;
 
 $(document).ready(function(){
   onInitVideoCam();
