@@ -55,13 +55,13 @@
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
-    <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $bluetooths }}">
-      <i class="material-icons md-48">bluetooth</i>
+    <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $clouds }}">
+      <i class="material-icons md-48">cloud</i>
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
-    <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $clouds }}">
-      <i class="material-icons md-48">cloud</i>
+    <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $bluetooths }}">
+      <i class="material-icons md-48">bluetooth</i>
     </a>
   </li>
 </ul>
