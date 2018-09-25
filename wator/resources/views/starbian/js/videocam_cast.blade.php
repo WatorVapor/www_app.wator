@@ -1,4 +1,5 @@
 <script type="text/javascript">
+const FACE_LINE_POINT_SUM_MIN = 50;
 
 $(document).ready(function(){
   onInitVideoCam();
@@ -72,7 +73,7 @@ onGetFaceDectectCheck = () => {
       sum += Math.abs(pos2[0] - pos1[0]) + Math.abs(pos2[1] - pos1[1])
     }
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
-    if(sum > 100) {
+    if(sum > FACE_LINE_POINT_SUM_MIN) {
       sayHello();
       callMaster();
     } 
