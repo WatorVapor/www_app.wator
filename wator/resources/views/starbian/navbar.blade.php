@@ -63,6 +63,7 @@
   <li class="nav-item active ml-lg-3">
     <a tabindex="0" href="#" class="btn btn-lg btn-danger nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $bluetooths }}">
       <i class="material-icons md-48">bluetooth</i>
+      <i class="material-icons md-48">toys</i>
     </a>
   </li>
 </ul>
