@@ -31,6 +31,22 @@
 </div>
 
 <script type="text/javascript">
+  onShowLinkOfDetectedCam = (channelKey) => {
+    @if (isset($mobile))
+    let rcvurl = 'https://www.wator.xyz/starbian/cloud/m/videocam_recv/' + channelKey;
+    @else
+    let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + channelKey;
+    @endif
+    let app2 = new Vue({
+      el: '#vue-ui-detect-person',
+      data: {
+        rcvurl: rcvurl
+      }
+    });
+  }
+</script>
+
+<script type="text/javascript">
 
 $(document).ready(function(){
   onInitMonitor();
@@ -62,19 +78,6 @@ createStarBian = (keyChannel) => {
   sbConnectionList.push(starbian);
 }
 
-onShowLinkOfDetectedCam = (channelKey) => {
-  @if (isset($mobile))
-  let rcvurl = 'https://www.wator.xyz/starbian/cloud/m/videocam_recv/' + channelKey;
-  @else
-  let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + channelKey;
-  @endif
-  let app2 = new Vue({
-    el: '#vue-ui-detect-person',
-    data: {
-      rcvurl: urls
-    }
-  });
-}
 </script>
 
 
