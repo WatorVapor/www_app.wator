@@ -5,11 +5,17 @@
 
 <script type="text/javascript">
 
+$(document).ready(function(){
+  onInitMonitor();
+});
+
+onInitMonitor = () => {
 let remotekeys = StarBian.getRemoteKey();
-console.log('remotekeys=<' , remotekeys , '>');
-for(let i = 0;i < remotekeys.length;i++) {
-  createStarBian(remotekeys[i]);
-  
+  console.log('remotekeys=<' , remotekeys , '>');
+  for(let i = 0;i < remotekeys.length;i++) {
+    createStarBian(remotekeys[i]);
+
+  }
 }
 let sbConnectionList = []; 
 createStarBian = (keyChannel) => {
