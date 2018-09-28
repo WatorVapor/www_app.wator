@@ -29,6 +29,10 @@ class CloudVideocamController extends Controller
             return view('starbian.videocam_recv',['remote'=>'']);
         }
     }
+    public function monitor($remote = null)
+    {
+        return view('starbian.videocam_monitor');
+    }
     
     public function index_m($remote = null)
     {
@@ -49,5 +53,9 @@ class CloudVideocamController extends Controller
         } else {
              return view('starbian.videocam_recv_m',['remote'=>'']);
        }
+    }
+    public function monitor_m($remote = null)
+    {
+        return view('starbian.videocam_monitor_m');
     }
 }
