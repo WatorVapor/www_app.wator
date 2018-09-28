@@ -91,11 +91,11 @@ Route::get('/starbian/cloud/gofuro', 'StarBian\CloudGoFuroController@index');
 Route::get('/starbian/cloud/videocam/{remote?}', 'StarBian\CloudVideocamController@index');
 Route::get('/starbian/cloud/videocam_cast/{remote?}', 'StarBian\CloudVideocamController@index_cast');
 Route::get('/starbian/cloud/videocam_recv/{remote?}', 'StarBian\CloudVideocamController@index_recv');
-Route::get('/starbian/cloud/monitor', 'StarBian\CloudVideocamController@monitor');
+Route::get('/starbian/cloud/videocam_monitor', 'StarBian\CloudVideocamController@monitor');
 Route::get('/starbian/cloud/m/videocam/{remote?}', 'StarBian\CloudVideocamController@index_m');
 Route::get('/starbian/cloud/m/videocam_cast/{remote?}', 'StarBian\CloudVideocamController@index_cast_m');
 Route::get('/starbian/cloud/m/videocam_recv/{remote?}', 'StarBian\CloudVideocamController@index_recv_m');
-Route::get('/starbian/cloud/m/monitor', 'StarBian\CloudVideocamController@monitor_m');
+Route::get('/starbian/cloud/m/videocam_monitor', 'StarBian\CloudVideocamController@monitor_m');
 
 
 Route::get('/starbian/msgchain/entry', 'StarBian\WorldEntryController@index');
