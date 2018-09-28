@@ -12,18 +12,18 @@
       <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-success btn-lg btn-block"
-          v-bind:href="rcvurl" target="_blank">
+          v-bind:href="from.rcvurl" target="_blank">
           <i class="material-icons">video_call</i>
         </a>
         @else
         <a type="button" class="btn btn-success btn-block"
-          v-bind:href="rcvurl" target="_blank">
+          v-bind:href="from.rcvurl" target="_blank">
           <i class="material-icons">video_call</i>
         </a>
         @endif
       </div>
       <div class="col-6">
-        <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
+        <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ from.key }}</span>
       </div>
     </div>
   </div>
@@ -40,7 +40,10 @@
     let app2 = new Vue({
       el: '#vue-ui-detect-person',
       data: {
-        rcvurl: rcvurl
+        from: { 
+          rcvurl:rcvurl,
+          key:channelKey
+        }
       }
     });
   }
