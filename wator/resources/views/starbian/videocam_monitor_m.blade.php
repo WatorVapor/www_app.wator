@@ -2,6 +2,7 @@
 @section('content')
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
 @include('starbian.js.m_localstorage')
+@include('starbian.js.starbian_tts')
 
 <script type="text/javascript">
 
