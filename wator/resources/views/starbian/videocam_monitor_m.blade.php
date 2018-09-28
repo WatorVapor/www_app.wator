@@ -8,7 +8,23 @@
 let remotekeys = StarBian.getRemoteKey();
 console.log('remotekeys=<' , remotekeys , '>');
 for(let i = 0;i < remotekeys.length;i++) {
+  createStarBian(remotekeys[i]);
+  
 }
+let sbConnectionList = []; 
+createStarBian = (keyChannel) => {
+
+  let starbian = new StarBian.Peer(keyChannel);
+  starbian.isReady = false;
+  starbian.onReady = () => {
+  };
+  starbian.subscribe( (msg) => {
+    console.log('starbian.subcribe:msg=<',msg,'>');
+  });
+  console.log('starbian=<',starbian,'>');
+  sbConnectionList.push(starbian);
+}
+
 
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
