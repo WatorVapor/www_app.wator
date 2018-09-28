@@ -916,7 +916,7 @@ class StarBianIpfsProxy {
       let self = this;
       _insideCrypto.verifyAuth(content,msg.auth,channel,() => {
         if(msg.encrypt) {
-          self.onEncrypt_(msg.encrypt,msg.auth.pubKeyB58,,channel);
+          self.onEncrypt_(msg.encrypt,msg.auth.pubKeyB58,channel);
         } else if(msg.ecdh) {
           self.onGoodECDH_(msg.ecdh);
         } else if(msg.broadcast) {
