@@ -26,6 +26,9 @@ createStarBian = (keyChannel) => {
   };
   starbian.subscribe( (msg) => {
     console.log('starbian.subcribe:msg=<',msg,'>');
+    if(msg && msg.detect && msg.detect.persion) {
+      sayCheckDoorCamera();
+    }
   });
   console.log('starbian=<',starbian,'>');
   sbConnectionList.push(starbian);
