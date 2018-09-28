@@ -24,8 +24,9 @@ createStarBian = (keyChannel) => {
   starbian.isReady = false;
   starbian.onReady = () => {
   };
-  starbian.subscribe( (msg) => {
+  starbian.subscribe( (msg,channel) => {
     console.log('starbian.subcribe:msg=<',msg,'>');
+    console.log('starbian.subcribe:channel=<',channel,'>');
     if(msg && msg.detect && msg.detect.persion) {
       sayCheckDoorCamera();
     }
