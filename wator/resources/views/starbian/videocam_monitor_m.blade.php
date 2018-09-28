@@ -5,6 +5,12 @@
 
 <script type="text/javascript">
 
+let remotekeys = StarBian.getRemoteKey();
+console.log('remotekeys=<' , remotekeys , '>');
+for(let i = 0;i < remotekeys.length;i++) {
+}
+
+
 const STAIBIAN_CAMERA_HELLO_TEXT = [
   '门口来人了，快看看去。',
   '主人，来客人了。'
