@@ -897,6 +897,7 @@ class StarBianIpfsProxy {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
       } else {
         console.warn('onNotifyMessage_:!!! data out of my eye evt.data=<',evt.data,'>');
+        console.warn('onNotifyMessage_:!!! data out of my eye this.channelKey_=<',this.channelKey_,'>');
       }
     } else {
       console.warn('onNotifyMessage_: !!! bad format evt.data=<',evt.data,'>');
