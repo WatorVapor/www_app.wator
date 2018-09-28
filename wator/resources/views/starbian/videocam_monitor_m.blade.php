@@ -4,6 +4,32 @@
 @include('starbian.js.m_localstorage')
 @include('starbian.js.starbian_tts')
 
+
+<div class="row mt-lg-5 justify-content-center">
+
+  <div class="col-10" id="vue-ui-detect-person">
+    <div class="row mt-lg-5 justify-content-center">
+      <div class="col-2">
+        @if (isset($mobile))
+        <a type="button" class="btn btn-success btn-lg btn-block"
+          v-bind:href="rcvurl" target="_blank">
+          <i class="material-icons">video_call</i>
+        </a>
+        @else
+        <a type="button" class="btn btn-success btn-block"
+          v-bind:href="rcvurl" target="_blank">
+          <i class="material-icons">video_call</i>
+        </a>
+        @endif
+      </div>
+      <div class="col-6">
+        <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script type="text/javascript">
 
 $(document).ready(function(){
