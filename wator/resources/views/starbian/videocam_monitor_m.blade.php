@@ -54,6 +54,7 @@ createStarBian = (keyChannel) => {
     console.log('starbian.subcribe:msg=<',msg,'>');
     console.log('starbian.subcribe:from=<',from,'>');
     if(msg && msg.detect && msg.detect.persion) {
+      onShowLinkOfDetectedCam(from);
       sayCheckDoorCamera();
     }
   });
@@ -61,6 +62,19 @@ createStarBian = (keyChannel) => {
   sbConnectionList.push(starbian);
 }
 
+onShowLinkOfDetectedCam = (channelKey) => {
+  @if (isset($mobile))
+  let rcvurl = 'https://www.wator.xyz/starbian/cloud/m/videocam_recv/' + channelKey;
+  @else
+  let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + channelKey;
+  @endif
+  let app2 = new Vue({
+    el: '#vue-ui-detect-person',
+    data: {
+      rcvurl: urls
+    }
+  });
+}
 </script>
 
 
