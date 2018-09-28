@@ -1,7 +1,6 @@
 @extends('wator.app')
 @section('content')
 <script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
-<hr/>
 @include('starbian.js.m_localstorage')
 
 <script type="text/javascript">
@@ -62,6 +61,7 @@ sayCheckDoorCameraAndroid = () => {
   let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
   androidTTS.say(txt);
 }
+
 </script>
 
 
