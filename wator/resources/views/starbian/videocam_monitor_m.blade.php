@@ -14,12 +14,11 @@ let remotekeys = StarBian.getRemoteKey();
   console.log('remotekeys=<' , remotekeys , '>');
   for(let i = 0;i < remotekeys.length;i++) {
     createStarBian(remotekeys[i]);
-
   }
+  console.log('sbConnectionList=<' , sbConnectionList , '>');
 }
 let sbConnectionList = []; 
 createStarBian = (keyChannel) => {
-
   let starbian = new StarBian.Peer(keyChannel);
   starbian.isReady = false;
   starbian.onReady = () => {
