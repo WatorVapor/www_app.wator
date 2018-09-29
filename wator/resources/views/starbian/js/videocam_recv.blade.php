@@ -20,6 +20,13 @@ rtc.subscribeMsg( (msg,channel) => {
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
   '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
+  '主人，来客人了。'
   '懒鬼，有人来了。',
 ];
 sayCheckDoorCamera = () => {
