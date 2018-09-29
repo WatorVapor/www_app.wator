@@ -19,8 +19,8 @@ rtc.subscribeMsg( (msg,channel) => {
 
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
-  '门口来人了，快看看去。',
   '主人，来客人了。'
+  '懒鬼，有人来了。',
 ];
 sayCheckDoorCamera = () => {
   //console.log('sayCheckDoorCamera: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
