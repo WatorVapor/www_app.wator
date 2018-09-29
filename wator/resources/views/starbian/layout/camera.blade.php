@@ -136,6 +136,10 @@
     localStorage.setItem(LS_AUTO_GOTO_CAST_NAME,elem.checked);
   }
   function GotoCast() {
+    let autogotoCast = localStorage.getItem(LS_AUTO_GOTO_CAST_NAME);
+    if(autogotoCast !== 'true') {
+      return;
+    }
     let elemBtn = document.getElementById('ui-btn-goto-cast');
     if(elemBtn) {
       elemBtn.click();
