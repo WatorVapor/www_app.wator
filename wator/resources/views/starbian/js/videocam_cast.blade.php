@@ -35,7 +35,7 @@ createWebRTCConnection = (keyChannel) => {
       clmVideo.srcObject = localStream;
       ctracker.localStreamStarbian = localStream;
       ctracker.start(clmVideo);
-      setInterval(onGetFaceDectectCheck,5000);
+      setInterval(onGetFaceDectectCheck,2000);
     }
   });
   rtc.subscribeMsg( (msg,channel) => {
@@ -59,8 +59,12 @@ callMaster = () => {
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
-const FaceTrackIntervalMS = 1000 * 100;
-let prevFaceDetectTime = false;
+const FaceDetectNotifyIntervalMS = 1000 * 5;
+let prevFaceDetectTime = new Date();
+let sayByebyeTimeout = false;
+let ForbiddenTalking = false;
+const FaceDetectSayByeIntervalMS = 1000 * 100;
+
 
 onGetFaceDectectCheck = () => {
   let positions = ctracker.getCurrentPosition();
@@ -77,20 +81,26 @@ onGetFaceDectectCheck = () => {
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
     if(sum > FACE_LINE_POINT_SUM_MIN) {
       let now = new Date();
-      if(prevFaceDetectTime) {
-        let diff = now - prevFaceDetectTime;
-        if(diff < FaceTrackIntervalMS) {
-          return;
-        }
-        prevFaceDetectTime = now;
-      } else {
-        prevFaceDetectTime = now;
+      let diff = now - prevFaceDetectTime;
+      if(diff < FaceDetectNotifyIntervalMS) {
+        return;
       }
-      sayHello();
-      callMaster();
-    } 
+      prevFaceDetectTime = now;
+      if(!ForbiddenTalking) {
+        sayHello();
+        callMaster();
+      }
+      if(!sayByebyeTimeout) {
+        sayByebyeTimeout = setTimeout(onSayByeBye,FaceDetectSayByeIntervalMS);
+      }
+    }
   }
 };
+
+onSayByeBye = () => {
+  sayByeBye();
+  ForbiddenTalking = false;
+}
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
   'こんにちは、呼び出します。',
