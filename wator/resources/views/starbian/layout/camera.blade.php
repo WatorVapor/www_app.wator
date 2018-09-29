@@ -138,6 +138,7 @@
   function GotoCast() {
     let autogotoCast = localStorage.getItem(LS_AUTO_GOTO_CAST_NAME);
     if(autogotoCast !== 'true') {
+      console.log('GotoCast autogotoCast=<' , autogotoCast , '>');
       return;
     }
     let elemBtn = document.getElementById('ui-btn-goto-cast');
