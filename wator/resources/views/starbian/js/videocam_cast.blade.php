@@ -59,6 +59,8 @@ callMaster = () => {
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
+const FaceTrackIntervalMS = 1000 * 100;
+let prevFaceDetectTime = false;
 
 onGetFaceDectectCheck = () => {
   let positions = ctracker.getCurrentPosition();
@@ -74,6 +76,16 @@ onGetFaceDectectCheck = () => {
     }
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
     if(sum > FACE_LINE_POINT_SUM_MIN) {
+      let now = new Date();
+      if(prevFaceDetectTime) {
+        let diff = now - prevFaceDetectTime;
+        if(diff < FaceTrackIntervalMS) {
+          return;
+        }
+        prevFaceDetectTime = now;
+      } else {
+        prevFaceDetectTime = now;
+      }
       sayHello();
       callMaster();
     } 
