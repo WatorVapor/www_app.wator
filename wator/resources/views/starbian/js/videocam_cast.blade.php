@@ -132,11 +132,11 @@ sayTTS = (text_array) => {
   try {
     //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     if(!speechSynthesis) {
-      sayHelloAndroid();
+      sayHelloAndroid(text_array);
       return;
     }
   } catch(e) {
-    sayHelloAndroid();
+    sayHelloAndroid(text_array);
     return;
   }
   console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
