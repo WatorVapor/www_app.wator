@@ -159,7 +159,9 @@ return [
         // Wator\Providers\BroadcastServiceProvider::class,
         Wator\Providers\EventServiceProvider::class,
         Wator\Providers\RouteServiceProvider::class,
-
+        NotificationChannels\Twitter\TwitterServiceProvider::class,
+        NotificationChannels\Facebook\FacebookServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*
