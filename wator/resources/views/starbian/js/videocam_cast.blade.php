@@ -64,6 +64,7 @@ let prevFaceDetectTime = new Date();
 let sayByebyeTimeout = false;
 let ForbiddenTalking = false;
 const FaceDetectSayByeIntervalMS = 1000 * 100;
+const FaceDetectForbiddenIntervalMS= 1000 * 100;
 
 
 onGetFaceDectectCheck = () => {
@@ -99,7 +100,10 @@ onGetFaceDectectCheck = () => {
 
 onSayByeBye = () => {
   sayByeBye();
-  ForbiddenTalking = false;
+  ForbiddenTalking = true;
+  setTimeout(() => {
+    ForbiddenTalking = false;
+  },FaceDetectForbiddenIntervalMS)
 }
 
 const STAIBIAN_CAMERA_HELLO_TEXT = [
@@ -108,7 +112,22 @@ const STAIBIAN_CAMERA_HELLO_TEXT = [
   '少々お待ちください。'
 ];
 
+
 sayHello = () => {
+  sayTTS(STAIBIAN_CAMERA_HELLO_TEXT);
+}
+
+const STAIBIAN_CAMERA_BYE_TEXT = [
+  '主人は、不在と思います',
+];
+
+
+sayByeBye = () => {
+  sayTTS(STAIBIAN_CAMERA_BYE_TEXT);
+}
+
+
+sayTTS = (text_array) => {
   //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   try {
     //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
@@ -128,9 +147,9 @@ sayHello = () => {
   }
   let voices = speechSynthesis.getVoices();
   //console.log('sayHello: voices=<',voices,'>');
-  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
+  let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
-  let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
+  let txt = text_array[index];
   let uttr = new SpeechSynthesisUtterance(txt);
   uttr.lang = 'ja-JP';
   uttr.pitch  = 1.3;
@@ -157,9 +176,9 @@ sayHello = () => {
   speechSynthesis.speak(uttr);
 }
 sayHelloAndroid = () => {
-  let maxRandom = STAIBIAN_CAMERA_HELLO_TEXT.length;
+  let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
-  let txt = STAIBIAN_CAMERA_HELLO_TEXT[index];
+  let txt = text_array[index];
   androidTTS.say(txt);
 }
 
