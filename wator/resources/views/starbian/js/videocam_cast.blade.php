@@ -175,7 +175,7 @@ sayTTS = (text_array) => {
   };
   speechSynthesis.speak(uttr);
 }
-sayHelloAndroid = () => {
+sayHelloAndroid = (text_array) => {
   let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = text_array[index];
