@@ -75,8 +75,8 @@ onGetFaceDectectCheck = () => {
     for(let i = 1;i < positions.length ;i++) {
       let pos1 = positions[i -1];
       let pos2 = positions[i];
-      console.log('onGetFaceDectectCheck: pos1=<',pos1,'>');
-      console.log('onGetFaceDectectCheck: pos2=<',pos2,'>');
+      //console.log('onGetFaceDectectCheck: pos1=<',pos1,'>');
+      //console.log('onGetFaceDectectCheck: pos2=<',pos2,'>');
       sum += Math.abs(pos2[0] - pos1[0]) + Math.abs(pos2[1] - pos1[1])
     }
     console.log('onGetFaceDectectCheck: sum=<',sum,'>');
