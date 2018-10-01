@@ -1,7 +1,7 @@
 const StarBian = {};
 StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
-StarBian.SHARE_PUBKEY_DIFFCULTY = '0';
+StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
 StarBian.SHARE_PUBKEY_TIMEOUT = 100;
 StarBian.SHARE_PUBKEY_TIMEOUT_WARN = 100 +10;
 
@@ -835,23 +835,8 @@ class StarBianCrypto {
 let _insideCrypto = false; 
 class StarBianIpfsProxy {
   constructor(channelKey) {
-    let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
-    this.ws_ = new WebSocket(uri);
     this.channelKey_ = channelKey;
-    let self = this;
-    
-    this.ws_.onopen =  (evt) => {
-      self.onNotifyOpen_(evt);
-    };
-    this.ws_.onmessage = (evt) => {
-      self.onNotifyMessage_(evt);
-    };
-    this.ws_.onclose = (evt) => {
-      self.onNotifyClose_(evt);
-    };
-    this.ws_.onerror = (evt) => { 
-      self.onNotifyError_(evt);
-    };
+    this.connectWS_();
   }
   publish(msg) {
     let self = this;
@@ -905,10 +890,38 @@ class StarBianIpfsProxy {
   }
   onNotifyClose_(evt) {
     console.log('onNotifyClose_:evt=<',evt,'>');
+    let self = this;
+    setTimeout(()=> {
+      self.reconnect_();
+    },10000)
   }
   onNotifyError_(evt) {
     console.log('onNotifyError_:evt=<',evt,'>');
-  }  
+    let self = this;
+    setTimeout(()=> {
+      self.reconnect_();
+    },10000)
+  } 
+  connectWS_() {
+    let uri = "wss://www.wator.xyz/starbian/ipfs/wss";
+    let self = this;   
+    this.ws_ = new WebSocket(uri);
+    this.ws_.onopen =  (evt) => {
+      self.onNotifyOpen_(evt);
+    };
+    this.ws_.onmessage = (evt) => {
+      self.onNotifyMessage_(evt);
+    };
+    this.ws_.onclose = (evt) => {
+      self.onNotifyClose_(evt);
+    };
+    this.ws_.onerror = (evt) => { 
+      self.onNotifyError_(evt);
+    };
+  }
+  reconnect_() {
+    this.connectWS_();
+  }
   onWssMessage_(msg,channel) {
     console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
