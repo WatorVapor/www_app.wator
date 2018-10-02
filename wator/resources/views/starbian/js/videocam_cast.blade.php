@@ -42,6 +42,11 @@ createWebRTCConnection = (keyChannel) => {
   rtc.subscribeMsg( (msg,channel) => {
     console.log('subscribeMsg msg=<',msg,'>');
     console.log('subscribeMsg channel=<',channel,'>');
+    if(msg && msg.app === 'restart') {
+      if(androidAPP) {
+        androidAPP.restart();
+      }
+    }
   });
   rtcConnectionList.push(rtc);
 }
