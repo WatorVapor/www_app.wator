@@ -50,14 +50,6 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js" 
-  integrity="sha256-4xZV6lGNXLV/Q2SiD5s/M7WppGI6bcF2yfW9X7EMOY0="
-  crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/models/model_pca_20_svm.js"
-  integrity="sha256-w18wRgyjiwCT5LLFkh2eCEIRJlw0U7+oJF0zjkhIgt4="
-  crossorigin="anonymous">
-</script>
 
 
 
