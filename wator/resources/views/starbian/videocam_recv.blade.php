@@ -4,16 +4,19 @@
 @endsection
 
 @section('content')
+
+<div class="row mt-lg-5 justify-content-center">
+  <div class="col-1">
+    <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRestartRemoteApp(this)">
+      <i class="material-icons">ren</i>
+    </a>
+  </div>
+</div>
+<hr/>
+
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
     <video id="video" autoplay controls width="640" height="480"></video>
-  </div>
-</div>
-<div class="row mt-lg-5 justify-content-center">
-  <div class="col-5">
-    <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRestartRemoteApp(this)">
-      <i class="material-icons">remove_circle</i>
-    </a>
   </div>
 </div>
 
