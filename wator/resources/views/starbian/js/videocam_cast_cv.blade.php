@@ -9,6 +9,8 @@
   };
 </script>
 
+<script async src="https://huningxin.github.io/opencv.js/build/asm.js/opencv.js"></script>
+
 
 <script type="text/javascript">
 const FACE_LINE_POINT_SUM_MIN = 80;
