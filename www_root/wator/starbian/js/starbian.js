@@ -920,7 +920,7 @@ class StarBianIpfsProxy {
     };
   }
   reconnect_() {
-    this.connectWS_();
+    window.location.reload(true);
   }
   onWssMessage_(msg,channel) {
     console.log('onWssMessage_:msg=<',msg,'>');
