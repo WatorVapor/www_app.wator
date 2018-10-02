@@ -39,7 +39,7 @@ sayCheckDoorCamera = () => {
   uttr.lang = 'zh-CN';
   uttr.pitch  = 1.3;
   uttr.rate   = 1;
-  uttr.volume = 1;
+  uttr.volume = 0.5;
   uttr.voice = null;
   uttr.onstart = (evt) => {
     //console.log('sayCheckDoorCamera uttr.onstart evt=<',evt,'>');
