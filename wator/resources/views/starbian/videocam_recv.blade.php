@@ -8,7 +8,7 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-1">
     <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRestartRemoteApp(this)">
-      <i class="material-icons">ren</i>
+      <i class="material-icons">autorenew</i>
     </a>
   </div>
 </div>
