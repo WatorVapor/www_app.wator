@@ -36,7 +36,7 @@ createWebRTCConnection = (keyChannel) => {
       clmVideo.play();
       ctracker.localStreamStarbian = localStream;
       ctracker.start(clmVideo);
-      setInterval(onGetFaceDectectCheck,2000);
+      setInterval(onGetFaceDectectCheck,5000);
     }
   });
   rtc.subscribeMsg( (msg,channel) => {
@@ -60,7 +60,7 @@ callMaster = () => {
 const ctracker = new clm.tracker();
 ctracker.init();
 console.log('ctracker=<',ctracker,'>');
-const FaceDetectNotifyIntervalMS = 1000 * 5;
+const FaceDetectNotifyIntervalMS = 1000 * 10;
 let prevFaceDetectTime = new Date();
 let sayByebyeTimeout = false;
 let ForbiddenTalking = false;
