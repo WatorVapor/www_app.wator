@@ -33,6 +33,7 @@ createWebRTCConnection = (keyChannel) => {
     if(!ctracker.localStreamStarbian) {
       let clmVideo = document.getElementById("video-clmtrackr");
       clmVideo.srcObject = localStream;
+      clmVideo.play();
       ctracker.localStreamStarbian = localStream;
       ctracker.start(clmVideo);
       setInterval(onGetFaceDectectCheck,2000);
