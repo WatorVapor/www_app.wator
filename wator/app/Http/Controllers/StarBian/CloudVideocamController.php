@@ -21,6 +21,14 @@ class CloudVideocamController extends Controller
             return view('starbian.videocam_cast',['remote'=>'']);
         }
     }
+    public function index_cast_opencv($remote = null)
+    {
+        if(isset($remote)) {
+            return view('starbian.videocam_cast_opencv',['remote'=>$remote]);
+        } else {
+            return view('starbian.videocam_cast_opencv',['remote'=>'']);
+        }
+    }
     public function index_recv($remote = null)
     {
         if(isset($remote)) {
