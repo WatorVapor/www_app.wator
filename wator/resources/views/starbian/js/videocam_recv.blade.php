@@ -17,4 +17,9 @@ rtc.subscribeMsg( (msg,channel) => {
   }
 });
 
+onRestartRemoteApp = (elem) => {
+  console.log('onRestartRemoteApp elem=<',elem,'>');
+  rtc.publish({app:'restart'});
+}
+
 </script>
