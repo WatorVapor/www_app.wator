@@ -47,6 +47,9 @@ class StarBianRtc {
   subscribeMsg(cb) {
     this.msgCB_ = cb;
   }
+  publish(msg) {
+    this.starbian_.publish(msg);
+  }
   
   // private
   createStarBian_(keyChannel) {
