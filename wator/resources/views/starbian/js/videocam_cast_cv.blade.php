@@ -11,7 +11,7 @@ function processVideo() {
         cv.cvtColor(srcCV, gray, cv.COLOR_RGBA2GRAY, 0);
         // detect faces.
         let faces = new cv.RectVector();
-        classifier.detectMultiScale(gray, faces, 1.1, 3, 0);
+        classifierCV.detectMultiScale(gray, faces, 1.1, 3, 0);
         // draw faces.
         console.log('processVideo faces=<' , faces , '>');
         let delay = 1000/FPS - (Date.now() - begin);
