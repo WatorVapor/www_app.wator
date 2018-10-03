@@ -16,6 +16,7 @@ function processVideo() {
         classifierCV.detectMultiScale(gray, faces, 1.1, 3, 0);
         // draw faces.
         console.log('processVideo faces=<' , faces , '>');
+        console.log('processVideo faces.size()=<' , faces.size() , '>');
         let delay = 1000/FPS - (Date.now() - begin);
         setTimeout(processVideo, delay);
     } catch (err) {
