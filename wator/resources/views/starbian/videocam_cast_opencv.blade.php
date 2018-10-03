@@ -46,7 +46,7 @@
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
-    <video id="video-face" autoplay controls width="40" height="30" muted></video>
+    <video id="video-face" autoplay controls width="320" height="240" muted></video>
   </div>
 </div>
 
