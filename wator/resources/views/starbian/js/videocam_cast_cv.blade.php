@@ -3,6 +3,7 @@
 let capCV = false;
 let srcCV = false;
 let classifierCV = false;
+const FPS = 30;
 function processVideo() {
     try {
         // start processing.
