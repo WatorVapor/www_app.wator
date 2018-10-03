@@ -6,6 +6,7 @@ let classifierCV = false;
 const FPS = 30;
 function processVideo() {
     try {
+        let begin = Date.now();
         // start processing.
         capCV.read(srcCV);
         let gray = new cv.Mat();
