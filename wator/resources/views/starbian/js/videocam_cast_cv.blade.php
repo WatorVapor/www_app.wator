@@ -8,6 +8,7 @@
     _main: function() {opencvIsReady();}
   };
 </script>
+<script async src="https://huningxin.github.io/opencv.js/build/asm.js/opencv.js"></script>
 
 
 
