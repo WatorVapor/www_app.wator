@@ -9,7 +9,11 @@
     _main: function() {opencvIsReady();}
   };
 </script>
-<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js">
+    function opencvIsReady() {
+        console.log('opencvIsReady');
+    }
+</script>
 
 
 
