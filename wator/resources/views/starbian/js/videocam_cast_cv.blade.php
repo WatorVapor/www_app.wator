@@ -8,12 +8,11 @@
     }],
     _main: function() {opencvIsReady();}
   };
+  function opencvIsReady() {
+    console.log('opencvIsReady');
+  }
 </script>
-<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js">
-    function opencvIsReady() {
-        console.log('opencvIsReady');
-    }
-</script>
+<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
 
 
 
