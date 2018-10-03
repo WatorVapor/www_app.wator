@@ -9,6 +9,7 @@
   };
   function opencvIsReady() {
     console.log('OpenCV.js is ready for worker');
+    workerInit();
   }
 </script>
 
