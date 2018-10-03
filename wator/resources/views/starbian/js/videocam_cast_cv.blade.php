@@ -33,10 +33,6 @@ function GotDetect() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
-  if (!featuresReady) {
-    console.log('Requred features are not ready.');
-    return;
-  }
   GotDetect();
 }
 
@@ -87,11 +83,8 @@ createWebRTCConnection = (keyChannel) => {
   });
   rtc.subscribeLocalMedia((localStream) => {
     console.log('subscribeMedia localStream=<',localStream,'>');
-    if(!ctracker.localStreamStarbian) {
-      let cvVideo = document.getElementById("video-opencv");
-      cvVideo.srcObject = localStream;
-      setInterval(onGetFaceDectectCheck,2000);
-    }
+    let cvVideo = document.getElementById("video-face");
+    cvVideo.srcObject = localStream;
   });
   rtc.subscribeMsg( (msg,channel) => {
     console.log('subscribeMsg msg=<',msg,'>');
