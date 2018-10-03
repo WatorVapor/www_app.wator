@@ -18,6 +18,7 @@ function processVideo() {
         setTimeout(processVideo, delay);
     } catch (err) {
         utils.printError(err);
+        console.error('processVideo err=<',err,'>');
     }
 };
 
