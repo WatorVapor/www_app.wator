@@ -4,6 +4,7 @@ let capCV = false;
 let srcCV = false;
 let classifierCV = false;
 const FPS = 1;
+const FACE_AREA_SUM_MIN = 4000;
 function processVideo() {
     try {
         let begin = Date.now();
@@ -15,15 +16,18 @@ function processVideo() {
         let faces = new cv.RectVector();
         classifierCV.detectMultiScale(gray, faces, 1.1, 3, 0);
         // draw faces.
-        console.log('processVideo faces=<' , faces , '>');
-        console.log('processVideo faces.size()=<' , faces.size() , '>');
+        //console.log('processVideo faces=<' , faces , '>');
+        //console.log('processVideo faces.size()=<' , faces.size() , '>');
         let sum = 0;
         for(let i = 0;i < faces.size();i++) {
             let face = faces.get(i);
             //console.log('processVideo face=<' , face , '>');
             sum += face.width * face.height;
         }
-        console.log('processVideo sum=<' , sum , '>');
+        //console.log('processVideo sum=<' , sum , '>');
+        if(sum > FACE_AREA_SUM_MIN) {
+            onFaceDectect();
+        }
         let delay = 1000/FPS - (Date.now() - begin);
         setTimeout(processVideo, delay);
     } catch (err) {
@@ -119,6 +123,22 @@ let sayByebyeTimeout = false;
 let ForbiddenTalking = false;
 const FaceDetectSayByeIntervalMS = 1000 * 100;
 const FaceDetectForbiddenIntervalMS= 1000 * 100;
-onGetFaceDectectCheck = () => {
+
+onFaceDectect = () => {
+  let now = new Date();
+  let diff = now - prevFaceDetectTime;
+  if(diff < FaceDetectNotifyIntervalMS) {
+    return;
+  }
+  prevFaceDetectTime = now;
+  if(!ForbiddenTalking) {
+    sayHello();
+    callMaster();
+  }
+  if(!sayByebyeTimeout) {
+    sayByebyeTimeout = setTimeout(onSayByeBye,FaceDetectSayByeIntervalMS);
+  }
 };
+
+
 </script>
