@@ -17,10 +17,13 @@ function processVideo() {
         // draw faces.
         console.log('processVideo faces=<' , faces , '>');
         console.log('processVideo faces.size()=<' , faces.size() , '>');
+        let sum = 0;
         for(let i = 0;i < faces.size();i++) {
             let face = faces.get(i);
-            console.log('processVideo face=<' , face , '>');
+            //console.log('processVideo face=<' , face , '>');
+            sum += face.width * face.height;
         }
+        console.log('processVideo sum=<' , sum , '>');
         let delay = 1000/FPS - (Date.now() - begin);
         setTimeout(processVideo, delay);
     } catch (err) {
