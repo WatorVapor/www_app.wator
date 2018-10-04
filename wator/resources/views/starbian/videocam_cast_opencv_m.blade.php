@@ -1,4 +1,4 @@
-@extends('wator.app')
+@extends('wator.app_m')
 
 @section('content')
 <div class="d-none" id="wator-remote-key">
