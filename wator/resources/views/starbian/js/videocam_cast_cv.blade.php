@@ -3,7 +3,7 @@
 let capCV = false;
 let srcCV = false;
 let classifierCV = false;
-const FPS = 30;
+const FPS = 1;
 function processVideo() {
     try {
         let begin = Date.now();
