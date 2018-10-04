@@ -18,7 +18,7 @@ function processVideo() {
         console.log('processVideo faces=<' , faces , '>');
         console.log('processVideo faces.size()=<' , faces.size() , '>');
         for(let i = 0;i < faces.size();i++) {
-            let face = faces[i];
+            let face = faces.get(i);
             console.log('processVideo face=<' , face , '>');
         }
         let delay = 1000/FPS - (Date.now() - begin);
