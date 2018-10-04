@@ -62,7 +62,7 @@ sayCheckDoorCameraAndroid = () => {
   let maxRandom = STAIBIAN_CAMERA_HELLO_RECV_TEXT.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = STAIBIAN_CAMERA_HELLO_RECV_TEXT[index];
-  androidTTS.say(txt);
+  androidTTS.say(txt,0.5);
 }
 
 
@@ -147,7 +147,7 @@ sayHelloAndroid = (text_array) => {
   let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = text_array[index];
-  androidTTS.say(txt);
+  androidTTS.say(txt,0.5);
 }
 
 </script>
