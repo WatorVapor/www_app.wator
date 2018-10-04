@@ -8,13 +8,13 @@
   <div class="col-3">
     @if (isset($mobile))
     <a type="button" class="btn btn-primary btn-lg btn-block" id="ui-btn-goto-cast"
-      href="https://www.wator.xyz/starbian/cloud/m/videocam_cast" target="_blank">
+      href="https://www.wator.xyz/starbian/cloud/m/videocam_cast_opencv" target="_blank">
       <i class="material-icons">videocam</i>
       <b>Cast to All</b>
     </a>
     @else
     <a type="button" class="btn btn-primary btn-block" id="ui-btn-goto-cast"
-      href="https://www.wator.xyz/starbian/cloud/videocam_cast" target="_blank">
+      href="https://www.wator.xyz/starbian/cloud/videocam_cast_opencv" target="_blank">
       <i class="material-icons">videocam</i>
       <b>Cast to All</b>
     </a>
@@ -89,10 +89,10 @@
     let urls = [];
     for(let i = 0;i < remotekeys.length ; i++) {
       @if (isset($mobile))
-      let casturl = 'https://www.wator.xyz/starbian/cloud/m/videocam_cast/' + remotekeys[i];
+      let casturl = 'https://www.wator.xyz/starbian/cloud/m/videocam_cast_opencv/' + remotekeys[i];
       let rcvurl = 'https://www.wator.xyz/starbian/cloud/m/videocam_recv/' + remotekeys[i];
       @else
-      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam_cast/' + remotekeys[i];
+      let casturl = 'https://www.wator.xyz/starbian/cloud/videocam_cast_opencv/' + remotekeys[i];
       let rcvurl = 'https://www.wator.xyz/starbian/cloud/videocam_recv/' + remotekeys[i];
       @endif
       let keyPairs = {
