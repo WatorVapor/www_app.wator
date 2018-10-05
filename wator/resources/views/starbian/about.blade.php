@@ -42,9 +42,9 @@
   <div class="col">
     <div class="card card-default text-center">
       <div class="card-body">
-        <h4 class="card-title">RSA</h4>
+        <h4 class="card-title">IPFS</h4>
       </div>
-      <img class="card-img-top" src="/wator/images/ppio/eCCob.png" alt="Card image cap">
+      <img class="card-img-top" src="https://en.wikipedia.org/wiki/InterPlanetary_File_System#/media/File:Ipfs-logo-1024-ice-text.png" alt="Card image cap">
     </div>
   </div>
   <div class="col">
