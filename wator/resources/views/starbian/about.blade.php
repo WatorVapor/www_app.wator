@@ -44,7 +44,7 @@
       <div class="card-body">
         <h4 class="card-title">IPFS</h4>
       </div>
-      <img class="card-img-top" src="https://en.wikipedia.org/wiki/InterPlanetary_File_System#/media/File:Ipfs-logo-1024-ice-text.png" alt="Card image cap">
+      <img class="card-img-top" src="/wator/images/starbian/ipfs.top.png" alt="Card image cap">
     </div>
   </div>
   <div class="col">
@@ -52,7 +52,7 @@
       <div class="card-body">
         <h4 class="card-title">Web Bluetooth</h4>
       </div>
-      <img class="card-img-top" src="/wator/images/ppio/Web-Bluetooth-1-768x454.jpg" alt="Card image cap">
+      <img class="card-img-top" src="/wator/images/starbian/ipfs.pubsub.png" alt="Card image cap">
     </div>
   </div>
 </div>
