@@ -1,4 +1,4 @@
-const LS_KEY_CAMERA_SETTING = 'wator-starbian-camera-setting';
+const LS_KEY_CAMERA_SETTING = 'wator-starbian-rtc-media-setting';
 /**
 * @classdesc This is StarBianRtc.
 * @constructor
