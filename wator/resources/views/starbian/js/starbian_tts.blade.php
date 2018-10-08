@@ -1,6 +1,6 @@
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 <script type="text/javascript">
-  SayResponsiveVoice(text,lang) {
+  SayResponsiveVoice = (text,lang) => {
     responsiveVoice.speak(text, lang);
   }
 </script>
