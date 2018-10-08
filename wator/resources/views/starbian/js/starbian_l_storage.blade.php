@@ -11,6 +11,8 @@ try {
   };
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
+    let jsonMsg = JSON.parse(evt.data);
+    console.log('onmessage:jsonMsg=<',jsonMsg,'>');
   };
   ws.onclose = (evt) => {
     console.log('evt=<' , evt , '>');
