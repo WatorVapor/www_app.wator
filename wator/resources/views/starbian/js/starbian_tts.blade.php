@@ -151,3 +151,8 @@ sayHelloAndroid = (text_array) => {
 }
 
 </script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script type="text/javascript">
+    responsiveVoice.speak("hello world", "UK English Male");
+</script>
+
