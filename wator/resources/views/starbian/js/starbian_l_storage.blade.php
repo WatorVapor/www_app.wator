@@ -25,4 +25,9 @@ readAllSettings = () => {
     gWS.send(JSON.stringify({cmd:'readall'}));
   }
 }
+
+StarBian.onReadyOfKey = (key) => {
+  console.log('StarBian.onReadyOfKey key=<' , key , '>');
+};
+
 </script>
