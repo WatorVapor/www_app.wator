@@ -4,7 +4,7 @@ let capCV = false;
 let srcCV = false;
 let classifierCV = false;
 const FPS = 1;
-const FACE_AREA_SUM_MIN = 4000;
+const FACE_AREA_SUM_MIN = 6000;
 function processVideo() {
     try {
         let begin = Date.now();
@@ -70,7 +70,6 @@ function opencvIsReady() {
 
 
 <script type="text/javascript">
-const FACE_LINE_POINT_SUM_MIN = 80;
 $(document).ready(function(){
   onInitVideoCam();
 });
@@ -117,7 +116,8 @@ callMaster = () => {
   }
 }
 
-const FaceDetectNotifyIntervalMS = 1000 * 5;
+const FaceDetectNotifyIntervalMS = 1000 * 10;
+let faceDectectedCounter = 0;
 let prevFaceDetectTime = new Date();
 let sayByebyeTimeout = false;
 let ForbiddenTalking = false;
@@ -127,14 +127,16 @@ const FaceDetectForbiddenIntervalMS= 1000 * 100;
 onFaceDectect = () => {
   let now = new Date();
   let diff = now - prevFaceDetectTime;
+  faceDectectedCounter++;
   if(diff < FaceDetectNotifyIntervalMS) {
     return;
   }
   prevFaceDetectTime = now;
-  if(!ForbiddenTalking) {
+  if(!ForbiddenTalking && faceDectectedCounter > 5) {
     sayHello();
     callMaster();
   }
+  faceDectectedCounter = 0;
   if(!sayByebyeTimeout) {
     sayByebyeTimeout = setTimeout(onSayByeBye,FaceDetectSayByeIntervalMS);
   }
