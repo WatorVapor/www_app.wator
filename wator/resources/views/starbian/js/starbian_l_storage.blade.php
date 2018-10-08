@@ -33,7 +33,11 @@ onSettingRead = (jsonMsg) => {
   console.log('onSettingRead:jsonMsg=<',jsonMsg,'>');
   for(let i = 0;i < jsonMsg.length ;i++) {
     let storage = jsonMsg[i];
-    console.log('onSettingRead:storage=<',storage,'>');  
+    console.log('onSettingRead:storage=<',storage,'>');
+    let key = storage.key;
+    console.log('onSettingRead:key=<',key,'>');
+    let value = JSON.stringify(storage.value);
+    console.log('onSettingRead:value=<',value,'>');
   }
 }
 
