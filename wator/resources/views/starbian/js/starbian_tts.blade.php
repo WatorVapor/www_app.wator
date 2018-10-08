@@ -39,7 +39,7 @@ sayCheckDoorCamera = () => {
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = STAIBIAN_CAMERA_HELLO_RECV_TEXT[index];
     SayResponsiveVoice(txt,"Chinese Male");
-    retrun
+    return;
   }
   console.log('sayCheckDoorCamera: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
@@ -129,7 +129,7 @@ sayTTS = (text_array) => {
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = text_array[index];
     SayResponsiveVoice(txt,"Japanese Male");
-    retrun
+    return;
   }
   console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
