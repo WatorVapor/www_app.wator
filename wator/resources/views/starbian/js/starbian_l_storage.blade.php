@@ -64,7 +64,7 @@ class DoLinuxTTS {
     constructor() {
     }
     say(text,volume) {
-        gWS.send(JSON.stringify({cmd:'tts',volume:volume}));
+        gWS.send(JSON.stringify({cmd:'tts',text:text,volume:volume}));
     }
 };
 
