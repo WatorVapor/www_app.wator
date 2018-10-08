@@ -115,6 +115,8 @@ class StarBianRtc {
     })
     .catch( (err) => {
       console.error('_createRTCStreaming:err=<',err,'>');
+      configStr = JSON.stringify({});
+      localStorage.setItem(LS_KEY_CAMERA_SETTING,configStr);
     });
   }
   
