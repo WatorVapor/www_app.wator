@@ -4,7 +4,7 @@ let capCV = false;
 let srcCV = false;
 let classifierCV = false;
 const FPS = 1;
-const FACE_AREA_SUM_MIN = 6000;
+const FACE_AREA_SUM_MIN = 4000;
 function processVideo() {
     try {
         let begin = Date.now();
@@ -116,7 +116,7 @@ callMaster = () => {
   }
 }
 
-const FaceDetectNotifyIntervalMS = 1000 * 10;
+const FaceDetectNotifyIntervalMS = 1000 * 5;
 let faceDectectedCounter = 0;
 let prevFaceDetectTime = new Date();
 let sayByebyeTimeout = false;
@@ -132,7 +132,7 @@ onFaceDectect = () => {
     return;
   }
   prevFaceDetectTime = now;
-  if(!ForbiddenTalking && faceDectectedCounter > 5) {
+  if(!ForbiddenTalking && faceDectectedCounter > 1) {
     sayHello();
     callMaster();
   }
