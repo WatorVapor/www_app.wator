@@ -114,7 +114,7 @@ sayTTS = (text_array) => {
     return;
   }
   let voices = speechSynthesis.getVoices();
-  //console.log('sayHello: voices=<',voices,'>');
+  console.log('sayHello: voices=<',voices,'>');
   let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = text_array[index];
