@@ -38,6 +38,7 @@ onSettingRead = (jsonMsg) => {
     console.log('onSettingRead:key=<',key,'>');
     let value = JSON.stringify(storage.value);
     console.log('onSettingRead:value=<',value,'>');
+    localStorage.setItem(key,value);
   }
 }
 
