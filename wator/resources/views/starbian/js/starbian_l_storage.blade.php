@@ -1,11 +1,13 @@
 <script type="text/javascript">
 let gWS = false;
+let gLinuxTTS = false;
 try {    
   let uri = "ws://127.0.0.1:18080";
   let ws = new WebSocket(uri);
   ws.onopen =  (evt) => {
     console.log('evt=<' , evt , '>');
     gWS = ws;
+    gLinuxTTS = new DoLinuxTTS();
     setTimeout(readAllSettings,0);
     setTimeout(setMyKey,0);
   };
@@ -56,6 +58,14 @@ StarBian.onReadyOfKey = (key) => {
   if(gWS) {
     gWS.send(JSON.stringify({cmd:'set',myKey:myKey}));
   }
+};
+
+class DoLinuxTTS {
+    constructor() {
+    }
+    say(text,volume) {
+        gWS.send(JSON.stringify({cmd:'tts',volume:volume}));
+    }
 };
 
 </script>
