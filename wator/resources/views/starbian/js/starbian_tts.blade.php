@@ -1,9 +1,11 @@
+<!--
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 <script type="text/javascript">
   SayResponsiveVoice = (text,lang) => {
     responsiveVoice.speak(text, lang);
   }
 </script>
+-->
 
 
 <script type="text/javascript">
@@ -38,7 +40,9 @@ sayCheckDoorCamera = () => {
     let maxRandom = STAIBIAN_CAMERA_HELLO_RECV_TEXT.length;
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = STAIBIAN_CAMERA_HELLO_RECV_TEXT[index];
-    SayResponsiveVoice(txt,"Chinese Male");
+    if(gLinuxTTS) {
+      gLinuxTTS.say(txt,"Chinese Male");
+    }
     return;
   }
   console.log('sayCheckDoorCamera: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
@@ -128,7 +132,9 @@ sayTTS = (text_array) => {
     let maxRandom = text_array.length;
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = text_array[index];
-    SayResponsiveVoice(txt,"Japanese Male");
+    if(gLinuxTTS) {
+      gLinuxTTS.say(txt,"Japanese Male");
+    }
     return;
   }
   console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
