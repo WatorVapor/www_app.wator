@@ -7,6 +7,7 @@ try {
     console.log('evt=<' , evt , '>');
     gWS = ws;
     setTimeout(readAllSettings,0);
+    setTimeout(setMyKey,0);
   };
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
@@ -21,13 +22,23 @@ try {
   console.error('e=<' , e , '>');
 }
 readAllSettings = () => {
-  if(gWS) {
-    gWS.send(JSON.stringify({cmd:'readall'}));
+  gWS.send(JSON.stringify({cmd:'readall'}));
+}
+
+setMyKey = () => {
+  if(myKey) {
+    gWS.send(JSON.stringify({cmd:'set',myKey:myKey}));
   }
 }
 
+
+let myKey = false;
 StarBian.onReadyOfKey = (key) => {
   console.log('StarBian.onReadyOfKey key=<' , key , '>');
+  myKey = key;
+  if(gWS) {
+    gWS.send(JSON.stringify({cmd:'set',myKey:myKey}));
+  }
 };
 
 </script>
