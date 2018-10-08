@@ -1,3 +1,11 @@
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script type="text/javascript">
+  SayResponsiveVoice(text,lang) {
+    responsiveVoice.speak(text, lang);
+  }
+</script>
+
+
 <script type="text/javascript">
 
 const STAIBIAN_CAMERA_HELLO_RECV_TEXT = [
@@ -24,14 +32,21 @@ sayCheckDoorCamera = () => {
     sayCheckDoorCameraAndroid();
     return;
   }
+  let voices = speechSynthesis.getVoices();
+  console.log('sayHello: voices=<',voices,'>');
+  if(voices.length < 1) {
+    let maxRandom = STAIBIAN_CAMERA_HELLO_RECV_TEXT.length;
+    let index = Math.floor(Math.random()*(maxRandom));
+    let txt = STAIBIAN_CAMERA_HELLO_RECV_TEXT[index];
+    SayResponsiveVoice(txt,"Chinese Male");
+    retrun
+  }
   console.log('sayCheckDoorCamera: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
     console.warn('sayCheckDoorCamera: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
     return;
   }
-  let voices = speechSynthesis.getVoices();
-  console.log('sayCheckDoorCamera: voices=<',voices,'>');
   let maxRandom = STAIBIAN_CAMERA_HELLO_RECV_TEXT.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = STAIBIAN_CAMERA_HELLO_RECV_TEXT[index];
@@ -107,14 +122,22 @@ sayTTS = (text_array) => {
     sayHelloAndroid(text_array);
     return;
   }
+  let voices = speechSynthesis.getVoices();
+  console.log('sayHello: voices=<',voices,'>');
+  if(voices.length < 1) {
+    let maxRandom = text_array.length;
+    let index = Math.floor(Math.random()*(maxRandom));
+    let txt = text_array[index];
+    SayResponsiveVoice(txt,"Japanese Male");
+    retrun
+  }
   console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
     console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
     return;
   }
-  let voices = speechSynthesis.getVoices();
-  console.log('sayHello: voices=<',voices,'>');
+  
   let maxRandom = text_array.length;
   let index = Math.floor(Math.random()*(maxRandom));
   let txt = text_array[index];
@@ -124,23 +147,6 @@ sayTTS = (text_array) => {
   uttr.rate   = 1;
   uttr.volume = 0.5;
   uttr.voice = null;
-
-  uttr.onstart = (evt) => {
-    //console.log('sayHello uttr.onstart evt=<',evt,'>');
-  };
-  uttr.onpause = (evt) => {
-    //console.log('sayHello uttr.onpause evt=<',evt,'>');
-  };
-  uttr.onerror = (evt) => {
-    //console.log('sayHello uttr.onerror evt=<',evt,'>');
-  };
-  uttr.onboundary = (evt) => {
-    //console.log('sayHello uttr.onboundary evt=<',evt,'>');
-  };
-
-  uttr.onend　=　(evt) => {
-    //console.log('sayHello uttr.onend evt=<',evt,'>');
-  };
   speechSynthesis.speak(uttr);
 }
 sayHelloAndroid = (text_array) => {
@@ -150,9 +156,5 @@ sayHelloAndroid = (text_array) => {
   androidTTS.say(txt,0.1);
 }
 
-</script>
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-<script type="text/javascript">
-    responsiveVoice.speak("こんにちは", "Japanese Male");
 </script>
 
