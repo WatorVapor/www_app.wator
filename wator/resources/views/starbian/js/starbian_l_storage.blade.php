@@ -12,7 +12,9 @@ try {
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
     let jsonMsg = JSON.parse(evt.data);
-    console.log('onmessage:jsonMsg=<',jsonMsg,'>');
+    if(jsonMsg) {
+      onSettingRead(jsonMsg);
+    }
   };
   ws.onclose = (evt) => {
     console.log('evt=<' , evt , '>');
@@ -25,6 +27,14 @@ try {
 }
 readAllSettings = () => {
   gWS.send(JSON.stringify({cmd:'readall'}));
+}
+
+onSettingRead = (jsonMsg) => {
+  console.log('onSettingRead:jsonMsg=<',jsonMsg,'>');
+  for(let i = 0;i < jsonMsg.length ;i++) {
+    let storage = jsonMsg[i];
+    console.log('onSettingRead:storage=<',storage,'>');  
+  }
 }
 
 setMyKey = () => {
