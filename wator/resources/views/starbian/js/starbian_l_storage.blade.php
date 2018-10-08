@@ -4,6 +4,7 @@ try {
   let ws = new WebSocket(uri);
   ws.onopen =  (evt) => {
     console.log('evt=<' , evt , '>');
+    setTimeOut(readAllSettings,0);
   };
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
@@ -16,5 +17,8 @@ try {
   };
 } catch (e) {
   console.error('e=<' , e , '>');
+}
+readAllSettings = () => {
+  ws.send(JSON.stringify({cmd:'readall'}));
 }
 </script>
