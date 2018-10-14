@@ -9,10 +9,7 @@
           @{{ pub_key }}
         </pre>
         <button type="button" class="btn btn-primary btn-sm mt-sm-1 pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <button type="button" class="btn btn-success btn-sm mt-sm-1 pull-right" id="btn-qrcode-key" 
-          data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="left"
-          data-content=""
-        >
+        <button type="button" class="btn btn-success btn-sm mt-sm-1 pull-right" id="btn-qrcode-key" onclick="onQRCodePubKey(this)">
           QRCode
         </button>
         <br/>
@@ -171,6 +168,14 @@ function onSearchPubKey (elem) {
       $("#text-share-key-onetime-password-verified-counter").text( 'This password  is verified ' + verified + ' Times');
       $("#text-remote-device-key").text(pubKey);
     });
+  } catch(e) {
+    console.error(e);
+  }
+}
+
+function onQRCodePubKey (elem) {
+  try {
+    console.log('onQRCodePubKey  elem=<' , elem , '>');
   } catch(e) {
     console.error(e);
   }
