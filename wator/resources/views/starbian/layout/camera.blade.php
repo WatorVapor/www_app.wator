@@ -85,7 +85,7 @@
           <i class="fas fa-qrcode"></i>
         </a>
       </div>
-      <div class="col-6">
+      <div class="col-4">
         <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
       </div>
     </div>
