@@ -170,7 +170,7 @@
 function onQRCodeRemoteKey (elem) {
   try {
     console.log('onQRCodeRemoteKey  elem=<' , elem , '>');
-    let root = elem.parentElement.parentElement;
+    let root = elem.parentElement.parentElement.parentElement;
     console.log('onQRCodeRemoteKey root=<' , root , '>');
     
     let pubKey = $('#text-this-device-key').text().trim();
