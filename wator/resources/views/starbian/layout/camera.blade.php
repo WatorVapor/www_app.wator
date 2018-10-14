@@ -166,3 +166,19 @@
   }
 </script>
 
+<script type="text/javascript">
+function onQRCodeRemoteKey (elem) {
+  try {
+    console.log('onQRCodeRemoteKey  elem=<' , elem , '>');
+    let root = elem.parentElement.parentElement;
+    console.log('onQRCodeRemoteKey root=<' , root , '>');
+    
+    let pubKey = $('#text-this-device-key').text().trim();
+    console.log('onQRCodePubKey pubKey=<' , pubKey , '>');
+    $( '#qrcode-pubkey' ).empty();
+    jQuery('#qrcode-pubkey').qrcode(pubKey);
+  } catch(e) {
+    console.error(e);
+  }
+}
+</script>
