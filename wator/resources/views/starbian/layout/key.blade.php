@@ -176,6 +176,8 @@ function onSearchPubKey (elem) {
 function onQRCodePubKey (elem) {
   try {
     console.log('onQRCodePubKey  elem=<' , elem , '>');
+    let pubKey = $('#text-this-device-key').text();
+    console.log('onQRCodePubKey  pubKey=<' , pubKey , '>');
   } catch(e) {
     console.error(e);
   }
