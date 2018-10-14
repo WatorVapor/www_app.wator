@@ -41,7 +41,7 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
-      <div class="card card-default text-center bg-secondary">
+      <div class="card card-default text-center">
         <div class="card-body">
           <h6 class="card-title"><small>@{{ remote.key }}</small></h6>
           <div class="row mt-lg-5 justify-content-center">
