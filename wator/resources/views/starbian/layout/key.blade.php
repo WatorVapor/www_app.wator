@@ -9,8 +9,7 @@
           @{{ pub_key }}
         </pre>
         <button type="button" class="btn btn-primary btn-sm mt-sm-1 pull-right btn-clipboard" id="btn-copy-key" data-clipboard-target="#text-this-device-key">Copy</button>
-        <br/>
-        <button type="button" class="btn btn-primary btn-sm mt-sm-1 pull-right" id="btn-qrcode-key" onclick="onSharedPubKey(this)" >QRCode</button>
+        <button type="button" class="btn btn-success btn-sm mt-sm-1 pull-right" id="btn-qrcode-key" onclick="onQRCodePubKey(this)" >QRCode</button>
         <br/>
         <button type="button" class="btn btn-primary btn-warning btn-sm  pull-left" id="btn-share-key" onclick="onSharedPubKey(this)">
           <i class="material-icons">dialpad</i><i class="material-icons">share</i>
