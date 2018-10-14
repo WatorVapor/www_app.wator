@@ -89,7 +89,9 @@
                 <i class="fas fa-qrcode"></i>
               </a>
             </div>
-          
+          </div>
+          <div class="row mt-lg-5 justify-content-center">
+            <div class="qrcode-remote-key"></div>
           </div>
         </div>
 
