@@ -48,12 +48,11 @@
     </div>
   </div>
 
-
 </div>
+
 <div class="row mt-lg-2 justify-content-center">
-  <div id="qrcode-pubkey"></div>
   <div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
-    <div id="qrcode"></div>
+    <div id="qrcode-pubkey"></div>
   </div>
 </div>
 
