@@ -186,10 +186,11 @@ function onQRCodePubKey (elem) {
     //console.log('onQRCodePubKey  elem=<' , elem , '>');
     let pubKey = $('#text-this-device-key').text().trim();
     console.log('onQRCodePubKey pubKey=<' , pubKey , '>');
+    $( '#qrcode-pubkey' ).empty();
     jQuery('#qrcode-pubkey').qrcode(pubKey);
-    $('.alert').alert();
   } catch(e) {
     console.error(e);
   }
 }
+
 </script>
