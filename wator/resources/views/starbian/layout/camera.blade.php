@@ -43,7 +43,7 @@
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="card card-default text-center bg-secondary">
         <div class="card-body">
-          <h5 class="card-title">@{{ remote.key }}</h5>
+          <h6 class="card-title"><small>@{{ remote.key }}</small></h6>
           <div class="row mt-lg-5 justify-content-center">
             <div class="col-2">
               @if (isset($mobile))
