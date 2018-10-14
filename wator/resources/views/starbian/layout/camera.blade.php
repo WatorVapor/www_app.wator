@@ -174,7 +174,7 @@ function onQRCodeRemoteKey (elem) {
     console.log('onQRCodeRemoteKey root=<' , root , '>');
     let keyElem = root.getElementsByClassName('remote-key')[0];
     console.log('onQRCodeRemoteKey keyElem=<' , keyElem , '>');
-    let pubKey = keyElem.contentText.trim();
+    let pubKey = keyElem.textContent.trim();
     console.log('onQRCodePubKey pubKey=<' , pubKey , '>');
     let qrElem = root.getElementsByClassName('qrcode-remote-key')[0];
     console.log('onQRCodeRemoteKey qrElem=<' , qrElem , '>');
