@@ -94,60 +94,6 @@
         </div>
 
       </div>
-      <!--
-      <div class="col-2">
-        @if (isset($mobile))
-        <a type="button" class="btn btn-primary btn-lg btn-block"
-          v-bind:href="remote.casturl" target="_blank">
-          <i class="material-icons">videocam</i>
-        </a>
-        @else
-        <a type="button" class="btn btn-primary btn-block"
-          v-bind:href="remote.casturl" target="_blank">
-          <i class="material-icons">videocam</i>
-        </a>
-        @endif
-      </div>
-      <div class="col-2">
-        @if (isset($mobile))
-        <a type="button" class="btn btn-success btn-lg btn-block"
-          v-bind:href="remote.rcvurl" target="_blank">
-          <i class="material-icons">video_call</i>
-        </a>
-        @else
-        <a type="button" class="btn btn-success btn-block"
-          v-bind:href="remote.rcvurl" target="_blank">
-          <i class="material-icons">video_call</i>
-        </a>
-        @endif
-      </div>
-      <div class="col-2">
-        @if (isset($mobile))
-        <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRemoveRemoteKey(this)">
-        @else
-        <a type="button" class="btn btn-danger btn-block" onclick="onRemoveRemoteKey(this)">
-        @endif
-          <i class="material-icons">remove_circle</i>
-        </a>
-      </div>
-      <div class="col-2">
-        @if (isset($mobile))
-        <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onQRCodeRemoteKey(this)">
-        @else
-        <a type="button" class="btn btn-danger btn-block" onclick="onQRCodeRemoteKey(this)">
-        @endif
-          <i class="fas fa-qrcode"></i>
-        </a>
-      </div>
-      <div class="col-4">
-        <pre class="card-text text-success" id="text-this-device-key" style="white-space: pre-wrap ; font-size: x-small;">
-          @{{ remote.key }}
-         </pre>
-         <!--
-         <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
-         -->
-      </div>
-      -->
     </div>
   </div>
 </div>
