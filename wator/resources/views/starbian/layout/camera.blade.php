@@ -172,13 +172,15 @@ function onQRCodeRemoteKey (elem) {
     console.log('onQRCodeRemoteKey  elem=<' , elem , '>');
     let root = elem.parentElement.parentElement.parentElement;
     console.log('onQRCodeRemoteKey root=<' , root , '>');
-    let keyElem = root.getElementsByClassName('remote-key');
+    let keyElem = root.getElementsByClassName('remote-key')[0];
     console.log('onQRCodeRemoteKey keyElem=<' , keyElem , '>');
-    
-    let pubKey = $('#text-this-device-key').text().trim();
+    let pubKey = keyElem.contentText.trim();
     console.log('onQRCodePubKey pubKey=<' , pubKey , '>');
-    $( '#qrcode-pubkey' ).empty();
-    jQuery('#qrcode-pubkey').qrcode(pubKey);
+    let qrElem = root.getElementsByClassName('qrcode-remote-key')[0];
+    console.log('onQRCodeRemoteKey qrElem=<' , qrElem , '>');
+    let jElem = jQuery(qrElem);
+    jElem.empty();
+    jElem.qrcode(pubKey);
   } catch(e) {
     console.error(e);
   }
