@@ -51,8 +51,9 @@
 
 </div>
 <div class="row mt-lg-2 justify-content-center">
+  <div id="qrcode-pubkey"></div>
   <div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
-    <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+    <div id="qrcode"></div>
   </div>
 </div>
 
@@ -187,7 +188,8 @@ function onQRCodePubKey (elem) {
   try {
     //console.log('onQRCodePubKey  elem=<' , elem , '>');
     let pubKey = $('#text-this-device-key').text().trim();
-    console.log('onQRCodePubKey  pubKey=<' , pubKey , '>');
+    console.log('onQRCodePubKey pubKey=<' , pubKey , '>');
+    jQuery('#qrcode-pubkey').qrcode(pubKey);
     $('.alert').alert();
   } catch(e) {
     console.error(e);
