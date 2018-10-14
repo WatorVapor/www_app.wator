@@ -49,6 +49,12 @@
   </div>
 </div>
 
+<div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
+    <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+</div>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" 
   integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous">
 </script>
@@ -175,7 +181,7 @@ function onSearchPubKey (elem) {
 
 function onQRCodePubKey (elem) {
   try {
-    console.log('onQRCodePubKey  elem=<' , elem , '>');
+    //console.log('onQRCodePubKey  elem=<' , elem , '>');
     let pubKey = $('#text-this-device-key').text().trim();
     console.log('onQRCodePubKey  pubKey=<' , pubKey , '>');
   } catch(e) {
