@@ -47,11 +47,15 @@
       </div>
     </div>
   </div>
+
+
+</div>
+<div class="row mt-lg-2 justify-content-center">
+  <div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
+    <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+  </div>
 </div>
 
-<div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
-    <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
-</div>
 
 
 
