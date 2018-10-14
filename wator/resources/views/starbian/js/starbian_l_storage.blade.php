@@ -20,9 +20,11 @@ try {
   };
   ws.onclose = (evt) => {
     console.log('evt=<' , evt , '>');
+    window.location.reload(true);
   };
   ws.onerror = (evt) => { 
     console.log('evt=<' , evt , '>');
+    window.location.reload(true);
   };
 } catch (e) {
   console.error('e=<' , e , '>');
