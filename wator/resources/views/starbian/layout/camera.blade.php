@@ -94,6 +94,10 @@
           
           </div>
         </div>
+        <div class="card-footer text-muted">
+          @{{ remote.key }}
+        </div>
+
       </div>
       <!--
       <div class="col-2">
