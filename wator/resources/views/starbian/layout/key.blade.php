@@ -46,6 +46,10 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" 
+  integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous">
+</script>
+
 <script type="text/javascript">
   new ClipboardJS('.btn-clipboard');
 </script>
