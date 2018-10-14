@@ -42,10 +42,8 @@
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
       <div class="card card-default text-center bg-secondary">
-        <div class="card-header">
-          <h6>@{{ remote.key }}</h6>
-        </div>
         <div class="card-body">
+          <h5 class="card-title">@{{ remote.key }}</h5>
           <div class="row mt-lg-5 justify-content-center">
             <div class="col-2">
               @if (isset($mobile))
@@ -93,9 +91,6 @@
             </div>
           
           </div>
-        </div>
-        <div class="card-footer text-muted">
-          @{{ remote.key }}
         </div>
 
       </div>
