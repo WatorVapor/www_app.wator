@@ -41,6 +41,12 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-10" id="vue-ui-remote-device-keys">
     <div class="row mt-lg-5 justify-content-center" v-for="remote in remoteDeviceKeys">
+      <div class="card card-default text-center bg-secondary">
+        <div class="card-header">
+          <h6>@{{ remote.key }}</h6>
+        </div>
+      </div>
+      <!--
       <div class="col-2">
         @if (isset($mobile))
         <a type="button" class="btn btn-primary btn-lg btn-block"
@@ -93,6 +99,7 @@
          <span class="label label-info d-inline-block text-truncate" style="white-space: pre-wrap ; font-size: large;">@{{ remote.key }}</span>
          -->
       </div>
+      -->
     </div>
   </div>
 </div>
