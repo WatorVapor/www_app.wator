@@ -51,9 +51,7 @@
 </div>
 
 <div class="row mt-lg-2 justify-content-center">
-  <div class="alert alert-warning alert-dismissible fade in text-center" role="alert">
-    <div id="qrcode-pubkey"></div>
-  </div>
+  <div id="qrcode-pubkey"></div>
 </div>
 
 
