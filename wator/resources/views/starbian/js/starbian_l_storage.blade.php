@@ -14,17 +14,21 @@ try {
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
     let jsonMsg = JSON.parse(evt.data);
-    if(jsonMsg) {
+    if(jsonMsg ) {
       onSettingRead(jsonMsg);
     }
   };
   ws.onclose = (evt) => {
     console.log('evt=<' , evt , '>');
-    window.location.reload(true);
+    if(gLinuxTTS) {
+      window.location.reload(true);
+    }
   };
   ws.onerror = (evt) => { 
     console.log('evt=<' , evt , '>');
-    window.location.reload(true);
+    if(gLinuxTTS) {
+      window.location.reload(true);
+    }
   };
 } catch (e) {
   console.error('e=<' , e , '>');
