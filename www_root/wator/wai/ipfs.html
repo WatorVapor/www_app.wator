@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <title>IPFS</title>
+    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.js" defer>
+    </script>
+    
+   <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  
+  </head>
+  <body>
+    <script type="text/javascript">
+      const rtcNode = {
+        EXPERIMENTAL: {
+          pubsub: true
+        },
+        config: {
+          Addresses: {
+            Swarm: [
+              '/dns4/wrtc-star.discovery.libp2p.io/tcp/443/wss/p2p-webrtc-star'
+            ]
+          }
+        }
+      };
+      $(document).ready( ()=> {
+        const node = new window.Ipfs(rtcNode);
+        node.on('ready', () => {
+          //console.log('node.pubsub=<',node.pubsub,'>');
+          //node.start();
+          node.id( (err,id)=>{
+            console.log('node.id:err=<',err,'>');
+            console.log('node.id:id=<',id,'>');
+          });
+          const topic = 'fruit-of-the-day';
+          node.pubsub.subscribe(topic, receiveMsg, (err) => {
+            if (err) {
+              return console.error(`failed to subscribe to ${topic}`, err)
+            }
+            console.log(`subscribed to ${topic}`)
+          });
+          //console.log('node=<',node,'>');
+          const msg = node.types.Buffer.from('banana');
+          setTimeout(()=>{
+            node.pubsub.publish(topic, msg, (err) => {
+              if (err) {
+                return console.error(`failed to publish to ${topic}`, err)
+              }
+              // msg was broadcasted
+              console.log(`published to ${topic}`)
+            })            
+          },1000);
+          
+          setInterval(()=>{
+            node.pubsub.peers(topic,(err, peerIds) => {
+              if (err) {
+                return console.error(`failed to get peers subscribed to ${topic}`, err)
+              }
+              console.log(peerIds)
+            });
+          },5000);
+        });
+      });
+      
+      const receiveMsg = (msg) => {
+        console.log('receiveMsg:msg.data.toString()=<',msg.data.toString(),'>');
+      };
+    </script>
+  </body>
+</html>
