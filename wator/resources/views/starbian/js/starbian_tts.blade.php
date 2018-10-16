@@ -133,9 +133,13 @@ sayTTS = (text_array) => {
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = text_array[index];
     console.log('sayTTS: txt=<',txt,'>');
-    console.log('sayTTS: gLinuxTTS=<',gLinuxTTS,'>');
-    if(gLinuxTTS) {
-      gLinuxTTS.say(txt,"Japanese Male");
+    try {
+      if(gLinuxTTS) {
+        console.log('sayTTS: gLinuxTTS=<',gLinuxTTS,'>');
+        gLinuxTTS.say(txt,"Japanese Male");
+      }
+    } catch(e) {
+      console.error('sayTTS: e=<',e,'>');
     }
     return;
   }
