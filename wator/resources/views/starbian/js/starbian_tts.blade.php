@@ -115,9 +115,9 @@ sayByeBye = () => {
 
 
 sayTTS = (text_array) => {
-  //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
+  //console.log('sayTTS: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   try {
-    //console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
+    //console.log('sayTTS: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     if(!speechSynthesis) {
       sayHelloAndroid(text_array);
       return;
@@ -127,7 +127,7 @@ sayTTS = (text_array) => {
     return;
   }
   let voices = speechSynthesis.getVoices();
-  console.log('sayHello: voices=<',voices,'>');
+  console.log('sayTTS: voices=<',voices,'>');
   if(voices.length < 1) {
     let maxRandom = text_array.length;
     let index = Math.floor(Math.random()*(maxRandom));
@@ -137,9 +137,9 @@ sayTTS = (text_array) => {
     }
     return;
   }
-  console.log('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
+  console.log('sayTTS: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
   if(speechSynthesis.speaking) {
-    console.warn('sayHello: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
+    console.warn('sayTTS: speechSynthesis.speaking=<',speechSynthesis.speaking,'>');
     speechSynthesis.cancel();
     return;
   }
