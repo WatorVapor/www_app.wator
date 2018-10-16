@@ -115,7 +115,7 @@
       console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
       if(textKey) {
         console.log('onRemoveRemoteKey textKey=<' , textKey , '>');
-        StarBian.removeKey(textKey.trim());
+        StarBian.removeRemoteKey(textKey.trim());
       }
     } catch(e) {
       console.error(e);
