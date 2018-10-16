@@ -132,6 +132,8 @@ sayTTS = (text_array) => {
     let maxRandom = text_array.length;
     let index = Math.floor(Math.random()*(maxRandom));
     let txt = text_array[index];
+    console.log('sayTTS: txt=<',txt,'>');
+    console.log('sayTTS: gLinuxTTS=<',gLinuxTTS,'>');
     if(gLinuxTTS) {
       gLinuxTTS.say(txt,"Japanese Male");
     }
