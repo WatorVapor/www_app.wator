@@ -36,7 +36,7 @@
         <br/>
         <p class="d-none pull-left bg-warning" id="text-share-key-onetime-password-verified-counter"></p>
         <button type="button" class="btn btn-success btn-sm pull-right" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
-        <button type="button" class="btn btn-warn btn-sm pull-right" id="btn-read-qrcode" onclick="onReadQRCode(this)">ReadQRCode</button>
+        <button type="button" class="btn btn-warning btn-sm pull-right" id="btn-read-qrcode" onclick="onReadQRCode(this)">ReadQRCode</button>
       </div>
       <div class="card-body">
         <div class="input-group mb-xs-1">
