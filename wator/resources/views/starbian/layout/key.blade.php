@@ -208,7 +208,7 @@ function onReadQRCode (elem) {
         let index = 0;
         for(let i = 0 ;i < cameras.length;i++) {
           console.log('onReadQRCode  cameras[i].name=<' , cameras[i].name , '>');
-          if(cameras[i].name.includes('facing back')) {
+          if( cameras[i].name.includes('facing back') ) {
             index = i;
             //break;
           }
@@ -222,6 +222,9 @@ function onReadQRCode (elem) {
     });
     scanner.addListener('scan', function (content, image) {
       console.log('onQRCodePubKey  content=<' , content , '>');
+      if(content) {
+        $("#text-remote-device-key").text(content);
+      }
     });
   } catch(e) {
     console.error(e);
