@@ -208,7 +208,7 @@ function onReadQRCode (elem) {
         let index = 0;
         for(let i = 0 ;i < cameras.length;i++) {
           console.log('onReadQRCode  cameras[i].name=<' , cameras[i].name , '>');
-          if(cameras[i].name.includes('facing front')) {
+          if(cameras[i].name.includes('facing back')) {
             index = i;
             //break;
           }
