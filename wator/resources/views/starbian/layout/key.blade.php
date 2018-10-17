@@ -210,7 +210,7 @@ function onReadQRCode (elem) {
           console.log('onReadQRCode  cameras[i].name=<' , cameras[i].name , '>');
           if(cameras[i].name.includes('facing front')) {
             index = i;
-            break;
+            //break;
           }
         }
         scanner.start(cameras[index]);
