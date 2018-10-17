@@ -205,6 +205,7 @@ function onReadQRCode (elem) {
     let scanner = new Instascan.Scanner({ video: document.getElementById('qrcode-preview'), scanPeriod: 5 });
     Instascan.Camera.getCameras().then(function (cameras) {
       if (cameras.length > 0) {
+        console.log('onReadQRCode  cameras[0]=<' , cameras[0] , '>');
         scanner.start(cameras[0]);
       } else {
         console.error('No cameras found.');
