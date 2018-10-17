@@ -36,6 +36,7 @@
         <br/>
         <p class="d-none pull-left bg-warning" id="text-share-key-onetime-password-verified-counter"></p>
         <button type="button" class="btn btn-success btn-sm pull-right" id="btn-add-key" onclick="onAddRemoteKey(this)">+ Key of remote Device</button>
+        <button type="button" class="btn btn-success btn-sm pull-right" id="btn-read-qrcode" onclick="onReadQRCode(this)">ReadQRCode</button>
       </div>
       <div class="card-body">
         <div class="input-group mb-xs-1">
@@ -60,6 +61,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" 
   integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/instascan@1.0.0/index.min.js"></script>
 
 <script type="text/javascript">
   new ClipboardJS('.btn-clipboard');
@@ -194,5 +196,11 @@ function onQRCodePubKey (elem) {
     console.error(e);
   }
 }
-
+function onReadQRCode (elem) {
+  try {
+    console.log('onReadQRCode  elem=<' , elem , '>');
+  } catch(e) {
+    console.error(e);
+  }
+}
 </script>
