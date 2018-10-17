@@ -61,7 +61,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" 
   integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/instascan@1.0.0/index.min.js"></script>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 <script type="text/javascript">
   new ClipboardJS('.btn-clipboard');
