@@ -202,7 +202,7 @@ function onQRCodePubKey (elem) {
 function onReadQRCode (elem) {
   try {
     console.log('onReadQRCode  elem=<' , elem , '>');
-    let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5 });
+    let scanner = new Instascan.Scanner({ video: document.getElementById('qrcode-preview'), scanPeriod: 5 });
     Instascan.Camera.getCameras().then(function (cameras) {
       if (cameras.length > 0) {
         scanner.start(cameras[0]);
