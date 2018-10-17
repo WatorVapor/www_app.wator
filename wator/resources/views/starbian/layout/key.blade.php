@@ -53,6 +53,9 @@
 
 <div class="row mt-lg-2 justify-content-center">
   <div id="qrcode-pubkey"></div>
+  <div class="preview-container">
+    <video id="qrcode-preview"></video>
+  </div>
 </div>
 
 
@@ -199,6 +202,19 @@ function onQRCodePubKey (elem) {
 function onReadQRCode (elem) {
   try {
     console.log('onReadQRCode  elem=<' , elem , '>');
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5 });
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+      } else {
+        console.error('No cameras found.');
+      }
+    }).catch(function (e) {
+      console.error(e);
+    });
+    scanner.addListener('scan', function (content, image) {
+      console.log('onQRCodePubKey  content=<' , content , '>');
+    });
   } catch(e) {
     console.error(e);
   }
