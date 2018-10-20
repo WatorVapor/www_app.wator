@@ -108,6 +108,7 @@ class StarBianRtc {
     if(!config.video && !config.audio ) {
       return;
     }
+    console.log('_createRTCStreaming:config=<',config,'>');
     navigator.mediaDevices.getUserMedia(config)
     .then( (stream) => {
       console.log('_createRTCStreaming:stream=<',stream,'>');
