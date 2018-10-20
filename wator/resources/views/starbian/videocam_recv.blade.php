@@ -5,6 +5,7 @@
 
 @section('content')
 
+<!--
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-3">
     <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRestartRemoteApp(this)">
@@ -13,6 +14,8 @@
   </div>
 </div>
 <hr/>
+-->
+
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
