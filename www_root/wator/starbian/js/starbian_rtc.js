@@ -109,12 +109,13 @@ class StarBianRtc {
       return;
     }
     console.log('_createRTCStreaming:config=<',config,'>');
-    navigator.mediaDevices.getUserMedia(config)
-    .then( (stream) => {
+    let pUM = navigator.mediaDevices.getUserMedia(config);
+    console.log('_createRTCStreaming:pUM=<',pUM,'>');
+    pUM.then( (stream) => {
       console.log('_createRTCStreaming:stream=<',stream,'>');
       localStreamCache = stream;
-    })
-    .catch( (err) => {
+    });
+    pUM.catch( (err) => {
       console.error('_createRTCStreaming:err=<',err,'>');
       configStr = JSON.stringify({});
       localStorage.setItem(LS_KEY_CAMERA_SETTING,configStr);
