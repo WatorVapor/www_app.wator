@@ -117,6 +117,7 @@ callMaster = () => {
 }
 
 const FaceDetectNotifyIntervalMS = 1000 * 10;
+const FaceDetectNotifyCounter = 2;
 let faceDectectedCounter = 0;
 let prevFaceDetectTime = new Date();
 let sayByebyeTimeout = false;
@@ -133,7 +134,7 @@ onFaceDectect = () => {
   }
   prevFaceDetectTime = now;
   console.log('onFaceDectect faceDectectedCounter=<',faceDectectedCounter,'>');
-  if(!ForbiddenTalking && faceDectectedCounter > 5) {
+  if(!ForbiddenTalking && faceDectectedCounter > FaceDetectNotifyCounter) {
     sayHello();
     callMaster();
   }
