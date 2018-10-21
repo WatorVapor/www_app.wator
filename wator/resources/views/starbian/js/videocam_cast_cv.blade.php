@@ -134,6 +134,7 @@ onFaceDectect = () => {
   }
   prevFaceDetectTime = now;
   console.log('onFaceDectect faceDectectedCounter=<',faceDectectedCounter,'>');
+  console.log('onFaceDectect ForbiddenTalking=<',ForbiddenTalking,'>');
   if(!ForbiddenTalking && faceDectectedCounter > FaceDetectNotifyCounter) {
     sayHello();
     callMaster();
