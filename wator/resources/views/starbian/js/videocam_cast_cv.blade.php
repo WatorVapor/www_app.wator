@@ -31,6 +31,7 @@ function processVideo() {
         let delay = 1000/FPS - (Date.now() - begin);
         setTimeout(processVideo, delay);
     } catch (err) {
+        setTimeout(processVideo, delay);
         console.error('processVideo err=<',JSON.stringify(err),'>');
     }
 };
