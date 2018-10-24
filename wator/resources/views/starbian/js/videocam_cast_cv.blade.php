@@ -15,6 +15,7 @@ function processVideo() {
         // detect faces.
         let faces = new cv.RectVector();
         classifierCV.detectMultiScale(gray, faces, 1.1, 3, 0);
+        let delay = 1000/FPS - (Date.now() - begin);
         // draw faces.
         //console.log('processVideo faces=<' , faces , '>');
         //console.log('processVideo faces.size()=<' , faces.size() , '>');
@@ -28,9 +29,9 @@ function processVideo() {
         if(sum > FACE_AREA_SUM_MIN) {
             onFaceDectect();
         }
-        let delay = 1000/FPS - (Date.now() - begin);
         setTimeout(processVideo, delay);
     } catch (err) {
+        let delay = 1000/FPS;
         setTimeout(processVideo, delay);
         console.error('processVideo err=<',JSON.stringify(err),'>');
     }
