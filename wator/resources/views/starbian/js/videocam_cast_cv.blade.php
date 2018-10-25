@@ -129,23 +129,27 @@ const FaceDetectSayByeIntervalMS = 1000 * 100;
 const FaceDetectForbiddenIntervalMS= 1000 * 100;
 
 onFaceDectect = () => {
-  let now = new Date();
-  let diff = now - prevFaceDetectTime;
-  faceDectectedCounter++;
-  if(diff < FaceDetectNotifyIntervalMS) {
-    return;
-  }
-  prevFaceDetectTime = now;
-  console.log('onFaceDectect faceDectectedCounter=<',faceDectectedCounter,'>');
-  console.log('onFaceDectect ForbiddenTalking=<',ForbiddenTalking,'>');
-  if(!ForbiddenTalking && faceDectectedCounter > FaceDetectNotifyCounter) {
-    sayHello();
-    callMaster();
-  }
-  faceDectectedCounter = 0;
-  if(!sayByebyeTimeout) {
-    sayByebyeTimeout = setTimeout(onSayByeBye,FaceDetectSayByeIntervalMS);
-  }
+  try {
+      let now = new Date();
+      let diff = now - prevFaceDetectTime;
+      faceDectectedCounter++;
+      if(diff < FaceDetectNotifyIntervalMS) {
+        return;
+      }
+      prevFaceDetectTime = now;
+      console.log('onFaceDectect faceDectectedCounter=<',faceDectectedCounter,'>');
+      console.log('onFaceDectect ForbiddenTalking=<',ForbiddenTalking,'>');
+      if(!ForbiddenTalking && faceDectectedCounter > FaceDetectNotifyCounter) {
+        sayHello();
+        callMaster();
+      }
+      faceDectectedCounter = 0;
+      if(!sayByebyeTimeout) {
+        sayByebyeTimeout = setTimeout(onSayByeBye,FaceDetectSayByeIntervalMS);
+      }
+    } catch (err) {
+        console.error('onFaceDectect err=<',err,'>');
+    }
 };
 
 
