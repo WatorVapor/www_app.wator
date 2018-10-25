@@ -31,9 +31,10 @@ function processVideo() {
         console.log('processVideo delay=<' , delay , '>');
         setTimeout(processVideo, delay);
     } catch (err) {
-        let delay = 1000/FPS;
-        setTimeout(processVideo, delay);
+        //let delay = 1000/FPS;
+        //setTimeout(processVideo, delay);
         console.error('processVideo err=<',err,'>');
+        window.location.reload(true);
     }
 };
 
