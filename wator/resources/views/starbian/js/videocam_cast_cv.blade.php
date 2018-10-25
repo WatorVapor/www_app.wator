@@ -32,7 +32,7 @@ function processVideo() {
     } catch (err) {
         let delay = 1000/FPS;
         setTimeout(processVideo, delay);
-        console.error('processVideo err=<',JSON.stringify(err),'>');
+        console.error('processVideo err=<',err,'>');
     }
 };
 
