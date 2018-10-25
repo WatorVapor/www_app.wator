@@ -28,6 +28,7 @@ function processVideo() {
         if(sum > FACE_AREA_SUM_MIN) {
             onFaceDectect();
         }
+        console.log('processVideo delay=<' , delay , '>');
         setTimeout(processVideo, delay);
     } catch (err) {
         let delay = 1000/FPS;
