@@ -3,7 +3,7 @@
 let capCV = false;
 let srcCV = false;
 let classifierCV = false;
-const FPS = 0.5;
+const FPS = 0.33;
 const FACE_AREA_SUM_MIN = 4000;
 function processVideo() {
     try {
