@@ -80,8 +80,8 @@ class DoLinuxTTS {
 class DoLinuxPicture {
     constructor() {
     }
-    picture(bianry) {
-        gWS.send(JSON.stringify({cmd:'png',bianry:bianry}));
+    picture(binary) {
+        gWS.send(JSON.stringify({cmd:'png',binary:binary}));
     }
 };
 
