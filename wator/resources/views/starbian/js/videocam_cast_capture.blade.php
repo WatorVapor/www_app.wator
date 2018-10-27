@@ -13,12 +13,14 @@
     img = document.createElement("img");
     img.src = canvas.toDataURL("image/png");
     document.body.appendChild(img);
-    */
     let link = document.createElement('a');
     link.href = canvas.toDataURL("image/png");
     link.download = 'Download.jpg';
     document.body.appendChild(link);
     //link.click();
+    */
+    let dateURL = canvas.toDataURL("image/png");
+    console.log('GotCapture dateURL=<',dateURL,'>');
   }
 </script>
 
