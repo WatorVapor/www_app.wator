@@ -7,7 +7,7 @@
     let width = video.getAttribute('width');
     let height = video.getAttribute('height');
     canvas.width = width;
-    canvas.height = width;
+    canvas.height = height;
     canvas.getContext('2d').drawImage(video, 0, 0, width, height);
     /*
     img = document.createElement("img");
