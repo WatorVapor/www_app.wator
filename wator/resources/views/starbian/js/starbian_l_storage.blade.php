@@ -20,6 +20,9 @@ try {
     if(jsonMsg && jsonMsg.setting) {
       onSettingRead(jsonMsg.setting);
     }
+    if(jsonMsg && jsonMsg.face) {
+      onFaceDetected(jsonMsg.face);
+    }
   };
   ws.onclose = (evt) => {
     console.log('evt=<' , evt , '>');
@@ -84,5 +87,10 @@ class DoLinuxPicture {
         gWS.send(JSON.stringify({cmd:'png',binary:binary}));
     }
 };
+
+onFaceDetected = (result) => {
+    console.log('onFaceDetected result=<' , result , '>');
+};
+
 
 </script>
