@@ -90,6 +90,9 @@ class DoLinuxPicture {
 
 onFaceDetected = (result) => {
     console.log('onFaceDetected result=<' , result , '>');
+    if(typeof callMaster === 'function') {
+        callMaster();
+    }
 };
 
 
