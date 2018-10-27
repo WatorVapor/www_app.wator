@@ -2,8 +2,8 @@
   function GotCapture() {
     let video = document.getElementById('video-face');
     console.log('GotCapture video=<',video,'>');
-    let video = document.getElementById('video-face');
-    console.log('GotCapture video=<',video,'>');
+    let canvas = document.getElementById('canvas-face');
+    console.log('GotCapture canvas=<',canvas,'>');
   }
 </script>
 
