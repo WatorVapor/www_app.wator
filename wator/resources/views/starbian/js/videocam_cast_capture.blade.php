@@ -1,5 +1,6 @@
 <script type="text/javascript">
 
+
 function GotCapture() {
   let video = document.getElementById('video-face');
   console.log('GotCapture video=<',video,'>');
