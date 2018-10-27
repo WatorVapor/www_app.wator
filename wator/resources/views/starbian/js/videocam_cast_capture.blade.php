@@ -65,4 +65,15 @@
     });
     rtcConnectionList.push(rtc);
   }
+  
+  callMaster = () => {
+    console.log('callMaster rtcConnectionList=<',rtcConnectionList,'>');
+    for(let i = 0;i < rtcConnectionList.length;i++) {
+      let rtc = rtcConnectionList[i];
+      if(rtc.starbian_ && rtc.starbian_.isReady ) {
+        let msg = {detect:{persion:true}};
+        rtc.starbian_.publish(msg);
+      }
+    }
+  }  
 </script>
