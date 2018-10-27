@@ -17,8 +17,8 @@ try {
   ws.onmessage = (evt) => {
     console.log('evt=<' , evt , '>');
     let jsonMsg = JSON.parse(evt.data);
-    if(jsonMsg ) {
-      onSettingRead(jsonMsg);
+    if(jsonMsg && jsonMsg.setting) {
+      onSettingRead(jsonMsg.setting);
     }
   };
   ws.onclose = (evt) => {
