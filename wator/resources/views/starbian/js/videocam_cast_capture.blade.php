@@ -18,7 +18,7 @@
     link.href = canvas.toDataURL("image/png");
     link.download = 'Download.jpg';
     document.body.appendChild(link);
-    link.click();
+    //link.click();
   }
 </script>
 
