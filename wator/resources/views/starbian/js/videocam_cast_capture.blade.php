@@ -4,6 +4,9 @@
     console.log('GotCapture video=<',video,'>');
     let canvas = document.getElementById('canvas-face');
     console.log('GotCapture canvas=<',canvas,'>');
+    canvas.width = video.width;
+    canvas.height = video.height;
+    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
   }
 </script>
 
