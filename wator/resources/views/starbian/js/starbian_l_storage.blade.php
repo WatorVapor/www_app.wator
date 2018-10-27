@@ -1,6 +1,8 @@
 <script type="text/javascript">
 let gWS = false;
 let gLinuxTTS = false;
+let gLinuxPicture = false;
+
 try {    
   let uri = "ws://127.0.0.1:18080";
   let ws = new WebSocket(uri);
@@ -8,6 +10,7 @@ try {
     console.log('evt=<' , evt , '>');
     gWS = ws;
     gLinuxTTS = new DoLinuxTTS();
+    gLinuxPicture = new DoLinuxPicture();
     setTimeout(readAllSettings,0);
     setTimeout(setMyKey,0);
   };
@@ -71,6 +74,14 @@ class DoLinuxTTS {
     }
     say(text,volume) {
         gWS.send(JSON.stringify({cmd:'tts',text:text,volume:volume}));
+    }
+};
+
+class DoLinuxPicture {
+    constructor() {
+    }
+    picture(bianry) {
+        gWS.send(JSON.stringify({cmd:'png',bianry:bianry}));
     }
 };
 
