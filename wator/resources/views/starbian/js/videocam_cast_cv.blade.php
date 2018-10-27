@@ -119,7 +119,7 @@ callMaster = () => {
   }
 }
 
-const FaceDetectNotifyIntervalMS = 1000 * 5;
+const FaceDetectNotifyIntervalMS = 1000 * 10;
 const FaceDetectNotifyCounter = 1;
 let faceDectectedCounter = 0;
 let prevFaceDetectTime = new Date();
