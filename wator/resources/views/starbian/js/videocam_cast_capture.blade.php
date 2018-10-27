@@ -20,7 +20,10 @@
     //link.click();
     */
     let dateURL = canvas.toDataURL("image/png");
-    console.log('GotCapture dateURL=<',dateURL,'>');
+    //console.log('GotCapture dateURL=<',dateURL,'>');
+    if(gLinuxPicture) {
+        gLinuxPicture.picture(dateURL);
+    }
   }
 </script>
 
