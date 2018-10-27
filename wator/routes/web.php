@@ -100,6 +100,8 @@ Route::get('/starbian/cloud/m/videocam_monitor', 'StarBian\CloudVideocamControll
 Route::get('/starbian/cloud/videocam_cast_opencv/{remote?}', 'StarBian\CloudVideocamController@index_cast_opencv');
 Route::get('/starbian/cloud/m/videocam_cast_opencv/{remote?}', 'StarBian\CloudVideocamController@index_cast_opencv_m');
 Route::get('/starbian/cloud/l/videocam_cast_opencv/{remote?}', 'StarBian\CloudVideocamController@index_cast_opencv_l');
+Route::get('/starbian/cloud/videocam_cast_capture/{remote?}', 'StarBian\CloudVideocamController@index_cast_capture');
+
 
 
 Route::get('/starbian/msgchain/entry', 'StarBian\WorldEntryController@index');
