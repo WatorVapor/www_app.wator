@@ -21,7 +21,7 @@
     */
     let dateURL = canvas.toDataURL("image/png");
     //console.log('GotCapture dateURL=<',dateURL,'>');
-    if(gLinuxPicture) {
+    if(typeof gLinuxPicture === 'object') {
         gLinuxPicture.picture(dateURL);
     }
   }
