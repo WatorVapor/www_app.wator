@@ -1,9 +1,9 @@
 <script type="text/javascript">
   function GotCapture() {
     let video = document.getElementById('video-face');
-    console.log('GotCapture video=<',video,'>');
+    //console.log('GotCapture video=<',video,'>');
     let canvas = document.getElementById('canvas-face');
-    console.log('GotCapture canvas=<',canvas,'>');
+    //console.log('GotCapture canvas=<',canvas,'>');
     let width = video.getAttribute('width');
     let height = video.getAttribute('height');
     canvas.width = width;
