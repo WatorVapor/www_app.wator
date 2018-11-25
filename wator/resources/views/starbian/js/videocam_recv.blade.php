@@ -22,4 +22,14 @@ onRestartRemoteApp = (elem) => {
   rtc.publish({app:'restart'});
 }
 
+onStartStream = (elem) => {
+  console.log('onStartStream elem=<',elem,'>');
+  rtc.publish({camera:'unmute'});
+}
+
+onStopStream = (elem) => {
+  console.log('onStopStream elem=<',elem,'>');
+  rtc.publish({camera:'mute'});
+}
+
 </script>
