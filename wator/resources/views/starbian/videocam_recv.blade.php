@@ -5,17 +5,18 @@
 
 @section('content')
 
-<!--
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-3">
-    <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onRestartRemoteApp(this)">
-      <i class="material-icons">autorenew</i> mobile app
+    <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onStartStream(this)">
+      <i class="material-icons">play_arrow</i>
+    </a>
+  </div>
+  <div class="col-3">
+    <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onStopStream(this)">
+      <i class="material-icons">stop</i>
     </a>
   </div>
 </div>
-<hr/>
--->
-
 
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-5">
