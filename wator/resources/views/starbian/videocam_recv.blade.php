@@ -8,12 +8,12 @@
 <div class="row mt-lg-5 justify-content-center">
   <div class="col-3">
     <a type="button" class="btn btn-success btn-lg btn-block" onclick="onStartStream(this)">
-      <i class="material-icons">play_arrow</i>
+      <i class="material-icons">play_arrow</i>打开摄像头
     </a>
   </div>
   <div class="col-3">
     <a type="button" class="btn btn-danger btn-lg btn-block" onclick="onStopStream(this)">
-      <i class="material-icons">stop</i>
+      <i class="material-icons">stop</i>关闭摄像头
     </a>
   </div>
 </div>
