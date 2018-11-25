@@ -27,7 +27,7 @@ onRestartRemoteApp = (elem) => {
 onStartStream = (elem) => {
   console.log('onStartStream elem=<',elem,'>');
   if(remoteStream) {
-    document.getElementById("video").srcObject = event.streams[0];
+    document.getElementById("video").srcObject = remoteStream;
   }
 }
 
