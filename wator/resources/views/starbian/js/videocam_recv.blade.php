@@ -4,9 +4,11 @@ const params = location.pathname.split('/');
 const keyChannel = params[params.length -1];
 let rtc = new StarBianRtc(keyChannel);
 
+let remoteStream = false;
 rtc.subscribeMedia( (event) => {
   console.log('subscribeMedia event=<',event,'>');
   document.getElementById("video").srcObject = event.streams[0];
+  remoteStream = event.streams[0];
 });
 
 rtc.subscribeMsg( (msg,channel) => {
@@ -24,12 +26,14 @@ onRestartRemoteApp = (elem) => {
 
 onStartStream = (elem) => {
   console.log('onStartStream elem=<',elem,'>');
-  rtc.publish({camera:'unmute'});
+  if(remoteStream) {
+    document.getElementById("video").srcObject = event.streams[0];
+  }
 }
 
 onStopStream = (elem) => {
   console.log('onStopStream elem=<',elem,'>');
-  rtc.publish({camera:'mute'});
+  document.getElementById("video").srcObject = null;
 }
 
 </script>
