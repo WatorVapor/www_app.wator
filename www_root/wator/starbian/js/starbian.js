@@ -792,12 +792,12 @@ class StarBianCrypto {
       self.AESKey,
       ptUint8
     ).then(enMsg => {
-      console.log('encrypt enMsg=<' , enMsg , '>');
+      //console.log('encrypt enMsg=<' , enMsg , '>');
       let enObj = {
         iv:base64js.fromByteArray(iv),
         encrypt:base64js.fromByteArray(new Uint8Array(enMsg))
       };
-      console.log('encrypt enObj=<' , enObj , '>');
+      //console.log('encrypt enObj=<' , enObj , '>');
       cb(enObj);
     })
     .catch(function(err){
@@ -820,11 +820,11 @@ class StarBianCrypto {
       this.AESKey,
       ptUint8
     ).then(plainBuff => {
-      console.log('decrypt plainBuff=<' , plainBuff , '>');
+      //console.log('decrypt plainBuff=<' , plainBuff , '>');
       let plainText = new TextDecoder().decode(plainBuff);
-      console.log('decrypt plainText=<' , plainText , '>');
+      //console.log('decrypt plainText=<' , plainText , '>');
       let plainJson = JSON.parse(plainText);
-      console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
+      //console.log('WATOR.decrypt plainJson=<' , plainJson , '>');
       cb(plainJson);
     })
     .catch(function(err){
@@ -874,7 +874,7 @@ class StarBianIpfsProxy {
   onNotifyMessage_(evt) {
     //console.log('onNotifyMessage_:evt.data=<',evt.data,'>');
     let jsonMsg = JSON.parse(evt.data);
-    console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
+    //console.log('onNotifyMessage_:jsonMsg=<',jsonMsg,'>');
     if(jsonMsg && jsonMsg.msg ) {
       if(this.channelKey_ === 'broadcast' && jsonMsg.channel === 'broadcast') {
         this.onWssMessage_(jsonMsg.msg,jsonMsg.channel);
@@ -923,7 +923,7 @@ class StarBianIpfsProxy {
     window.location.reload(true);
   }
   onWssMessage_(msg,channel) {
-    console.log('onWssMessage_:msg=<',msg,'>');
+    //console.log('onWssMessage_:msg=<',msg,'>');
     if(msg.auth) {
       let content = msg.encrypt || msg.ecdh || msg.subscribe || msg.broadcast;
       let self = this;
