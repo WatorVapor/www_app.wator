@@ -29,6 +29,7 @@ onStartStream = (elem) => {
   if(remoteStream) {
     document.getElementById("video").srcObject = remoteStream;
   }
+  Push.create('Push 通知だよ！');
 }
 
 onStopStream = (elem) => {
