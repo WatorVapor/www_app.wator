@@ -16,6 +16,7 @@ rtc.subscribeMsg( (msg,channel) => {
   console.log('subscribeMsg channel=<',channel,'>');
   if(msg && msg.detect && msg.detect.persion) {
     sayCheckDoorCamera();
+    Push.create('！！！家里有人来了！！！');
   }
 });
 
@@ -29,7 +30,6 @@ onStartStream = (elem) => {
   if(remoteStream) {
     document.getElementById("video").srcObject = remoteStream;
   }
-  Push.create('Push 通知だよ！');
 }
 
 onStopStream = (elem) => {
