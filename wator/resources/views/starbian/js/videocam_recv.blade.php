@@ -30,6 +30,7 @@ onStartStream = (elem) => {
   if(remoteStream) {
     document.getElementById("video").srcObject = remoteStream;
   }
+  Push.create('打开摄像头');
 }
 
 onStopStream = (elem) => {
