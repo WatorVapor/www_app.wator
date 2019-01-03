@@ -1,5 +1,6 @@
 const StarBian = {};
 StarBian.LS_KEY_NAME = 'wator-starbian-ecdsa-key';
+StarBian.LS_KEY_PUBLIC_NAME = 'wator-starbian-ecdsa-public-key';
 StarBian.LS_KEY_REMOTE_NAME = 'wator-starbian-ecdsa-remote-keys';
 StarBian.SHARE_PUBKEY_DIFFCULTY = '00';
 StarBian.SHARE_PUBKEY_TIMEOUT = 100;
@@ -21,7 +22,7 @@ try {
 * @return {array} key
 */
 StarBian.getPubKey = () => {
-  return StarBianCrypto.getPubKey();
+  return _insideCrypto.getPubKey();
 };
 
 /**
@@ -386,7 +387,7 @@ class StarBianCrypto {
   /**
   * @return {string} key
   */
-  static getPubKey() {
+  getPubKey() {
     return this.pubKeyB58;
   }
   
@@ -839,6 +840,15 @@ class StarBianCrypto {
     });
   }
 }
+
+
+
+
+
+
+
+
+
 let _insideCrypto = false; 
 class StarBianIpfsProxy {
   constructor(channelKey) {
