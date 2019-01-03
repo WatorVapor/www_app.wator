@@ -19,7 +19,7 @@ try {
 */
 
 /**
-* @return {array} key
+* @return {string} key
 */
 StarBian.getPubKey = () => {
   return _insideCrypto.getPubKey();
