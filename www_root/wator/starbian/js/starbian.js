@@ -20,7 +20,7 @@ try {
 /**
 * @return {array} key
 */
-StarBian.getMineKey = () => {
+StarBian.getPubKey = () => {
   return StarBianCrypto.getPubKey();
 };
 
