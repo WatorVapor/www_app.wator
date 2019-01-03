@@ -20,6 +20,13 @@ try {
 /**
 * @return {array} key
 */
+StarBian.getMineKey = () => {
+  return StarBianCrypto.getPubKey();
+};
+
+/**
+* @return {array} key
+*/
 StarBian.getRemoteKey = () => {
   return StarBianCrypto.getRemoteKey();
 };
