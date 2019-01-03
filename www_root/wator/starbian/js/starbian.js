@@ -386,7 +386,7 @@ class StarBianCrypto {
   /**
   * @return {string} key
   */
-  getPubKey() {
+  static getPubKey() {
     return this.pubKeyB58;
   }
   
