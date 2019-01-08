@@ -101,7 +101,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-ws-notify:
-    image: node:slim
+    image: node:10
     volumes:
       - ../ws_service:/opt/wc
     working_dir: "/opt/wc"
@@ -133,7 +133,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-sns-bot:
-    image: node:slim
+    image: node:10
     volumes:
       - ../bot_service:/opt/wc
     working_dir: "/opt/wc"
