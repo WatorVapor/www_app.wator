@@ -19,7 +19,7 @@
 </div>
 
 <div class="row mt-lg-5 justify-content-center">
-  <div class="col-5">
+  <div class="col-6">
     <video id="video" autoplay controls width="640" height="480"></video>
   </div>
 </div>
