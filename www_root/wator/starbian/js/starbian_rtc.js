@@ -63,6 +63,9 @@ class StarBianRtc {
       if(self.localOfferCache_) {
         self.starbian_.publish({offer:self.localOfferCache_});
       }
+      for (let ice of self.localICECache_) {
+        self.starbian_.publish({ice:ice});
+      }
     };
     this.starbian_.subscribe( (msg,channel) => {
       try {
