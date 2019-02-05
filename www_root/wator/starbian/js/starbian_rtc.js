@@ -60,6 +60,9 @@ class StarBianRtc {
       self.myPubKey_ = self.starbian_.getPubKey();
       self.starbian_.publish({start:true,key:self.myPubKey_});
       self.starbian_.isReady = true;
+      if(self.localOfferCache_) {
+        self.starbian_.publish({offer:self.localOfferCache_});
+      }
     };
     this.starbian_.subscribe( (msg,channel) => {
       try {
