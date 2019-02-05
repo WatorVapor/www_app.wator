@@ -132,6 +132,7 @@ class StarBianRtc {
   
   startWebRTCOffer_ () {
     this.remoteIceCache_ = [];
+    this.iceAddReady_ = false;
     this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
     this.pc.onnegotiationneeded = (evt) => {
@@ -188,6 +189,7 @@ class StarBianRtc {
   }
   onRemoteOffer_(offer) {
     this.remoteIceCache_ = [];
+    this.iceAddReady_ = false;
     this.pc = new RTCPeerConnection(this.configuration_);
     let self = this;
     this.pc.onnegotiationneeded = (evt) => {
