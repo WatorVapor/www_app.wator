@@ -25,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.3/jsrsasign-all-min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
     <script src="/wator/js/base58.js" type="text/javascript"></script>
     <script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
     <script src="/wator/js/ga.js" type="text/javascript"></script>
