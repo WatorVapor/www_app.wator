@@ -9,12 +9,12 @@ const server = http.createServer( (req, res) => {
   const urls = req.url.split('/');
   console.log('urls=<',urls,'>');
   let result = {};
-  if(urls.length < 3) {
+  if(urls.length < 4) {
     result.good = false;
   } else {
-    let key = urls[0];
-    let orig = urls[1];
-    let signature = urls[2];
+    let key = urls[1];
+    let orig = urls[2];
+    let signature = urls[3];
     result.good = doSign(key,orig,signature);
   }
   let json = JSON.stringify(result);
