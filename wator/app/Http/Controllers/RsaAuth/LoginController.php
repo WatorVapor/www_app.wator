@@ -77,13 +77,16 @@ class LoginController extends Controller
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.b58';
             //var_dump($keyPath);
             if (file_exists($keyPath)) {
-                var_dump($keyPath);
+                //var_dump($keyPath);
                 $ecdsaURI = 'http://127.0.0.1:17263/' . $accessToken . '/' . $access . '/' . $signature;
-                var_dump($ecdsaURI);
+                //var_dump($ecdsaURI);
                 $ecdsaVerifyStr = file_get_contents($ecdsaURI);
-                var_dump($ecdsaVerifyStr);
+                //var_dump($ecdsaVerifyStr);
                 $ecdsaVerify = json_decode($ecdsaVerifyStr);
                 var_dump($ecdsaVerify);
+                if($ecdsaVerify && $ecdsaVerify->good) {
+                    var_dump($ecdsaVerify->good);
+                }
             }
             /*
             var_dump($keyPath);
