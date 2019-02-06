@@ -29,8 +29,12 @@ RSAAuth.clearAccess = function() {
 * inner function
 */
 RSAAuth.createKeyPair_ = function(cb) {
-  const ecKeypair = KEYUTIL.generateKeypair("EC", "secp256r1");
-  console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
+  const ecKeypair = KEYUTIL.generateKeypair("EC", "P-256");
+  //console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
+  let jwkPrv = KEYUTIL.getJWKFromKey(ecKeypair.prvKeyObj);
+  console.log('RSAAuth.createKeyPair_:: jwkPrv=<',jwkPrv,'>');
+  let jwkPub = KEYUTIL.getJWKFromKey(ecKeypair.pubKeyObj);
+  console.log('RSAAuth.createKeyPair_:: jwkPub=<',jwkPub,'>');
 }
 /*
 RSAAuth.createKeyPair_ = function(cb) {
