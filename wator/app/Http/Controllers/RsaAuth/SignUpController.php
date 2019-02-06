@@ -45,12 +45,12 @@ class SignUpController extends Controller
     {
         //
         $bodyContent = $request->getContent();
-        //var_dump($bodyContent);
+        var_dump($bodyContent);
         $bodyJson = json_decode($bodyContent);
-        //var_dump($bodyJson);
+        var_dump($bodyJson);
         $keyPath = $this->keyRoot_ . $bodyJson->token . '/';
         File::makeDirectory($keyPath, 0777, true, true);
-        //var_dump($keyPath);
+        var_dump($keyPath);
         file_put_contents($keyPath . '/pubKey.pem', $bodyJson->pubKey);
         return response()->json(['status'=>'success']);
     }
