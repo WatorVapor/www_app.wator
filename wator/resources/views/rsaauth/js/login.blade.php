@@ -53,13 +53,9 @@ $(document).ready(function(){
     signEngine.updateString(access);
     let signatureHex = signEngine.sign();
     console.log('signatureHex=<',signatureHex,'>');
-    
-    let signature = prvKey.sign(access,"sha256");
-    console.log('access=<',access,'>');
-    console.log('signature=<',signature,'>');
     let elemSign = document.getElementById("rsa.login.signature");
     if(elemSign) {
-      elemSign.value = signature;
+      elemSign.value = signatureHex;
       let elemAuto = document.getElementById("rsa.login.auto");
       if(elemAuto) {
         if(elemAuto.value === 'true') {
