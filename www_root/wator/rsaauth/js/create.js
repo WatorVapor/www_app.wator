@@ -32,9 +32,14 @@ RSAAuth.createKeyPair_ = function(cb) {
   const ecKeypair = KEYUTIL.generateKeypair("EC", "P-256");
   console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
   let jwkPrv = KEYUTIL.getJWKFromKey(ecKeypair.prvKeyObj);
+  localStorage.setItem('auth.rsa.key.private',JSON.stringify(jwkPrv));
+  /*
   console.log('RSAAuth.createKeyPair_:: jwkPrv=<',jwkPrv,'>');
   let jwkPub = KEYUTIL.getJWKFromKey(ecKeypair.pubKeyObj);
   console.log('RSAAuth.createKeyPair_:: jwkPub=<',jwkPub,'>');
+  */
+  let pubHex = ecKeypair.pubKeyObj.pubKeyHex;
+  console.log('RSAAuth.createKeyPair_:: pubHex=<',pubHex,'>');
 }
 /*
 RSAAuth.createKeyPair_ = function(cb) {
