@@ -47,14 +47,24 @@ RSAAuth.getAccess_ = function() {
 
 
 RSAAuth.signLogin_ = function(privateKey,token,access) {
-  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
-  //console.log(rsaKey);
-  let signature = rsaKey.sign(access,"sha256");
-  //console.log(signature);
+  const jwkPrv = JSON.parse(privateKey);
+  if(!jwkPrv) {
+    return;
+  }
+  console.log('jwkPrv=<',jwkPrv,'>');
+  let prvKey = KEYUTIL.getKey(jwkPrv);
+  console.log('prvKey=<',prvKey,'>');
+  let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+  let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+  signEngine.init({d: prvKey.prvKeyHex, curve: 'secp256r1'});
+  signEngine.updateString(access);
+  let signatureHex = signEngine.sign();
+  console.log('signatureHex=<',signatureHex,'>');
+  
   let JSONdata ={};
   JSONdata.accessToken = token;
   JSONdata.access = access;
-  JSONdata.signature = signature;
+  JSONdata.signature = signatureHex;
   let url = '/rsaauth/login';
   $.ajax({
     type : 'post',
