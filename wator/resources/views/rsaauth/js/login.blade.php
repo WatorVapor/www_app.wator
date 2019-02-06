@@ -37,8 +37,12 @@ $(document).ready(function(){
     elemToken.value = token;
     console.log('elemToken.value=<',elemToken.value,'>');
   }
-  
-  let prvKey = KEYUTIL.getKey(privateKey);
+  const jwkPrv = JSON.parse(privateKey);
+  if(!jwkPrv) {
+    return;
+  }
+  console.log('jwkPrv=<',jwkPrv,'>');
+  let prvKey = KEYUTIL.getKey(jwkPrv);
   console.log('prvKey=<',prvKey,'>');
   let elemAccess = document.getElementById("rsa.login.access");
   if(elemAccess) {
