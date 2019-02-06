@@ -47,6 +47,13 @@ $(document).ready(function(){
   let elemAccess = document.getElementById("rsa.login.access");
   if(elemAccess) {
     let access = elemAccess.value;
+    let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+    let signEngine = new KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+    signEngine.init({d: prvKey.prvKeyHex, curve: 'secp256r1'});
+    signEngine.updateString(access);
+    let signatureHex = signEngine.sign();
+    console.log('signatureHex=<',signatureHex,'>');
+    
     let signature = prvKey.sign(access,"sha256");
     console.log('access=<',access,'>');
     console.log('signature=<',signature,'>');
