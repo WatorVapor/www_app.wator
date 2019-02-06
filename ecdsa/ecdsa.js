@@ -9,7 +9,14 @@ const server = http.createServer( (req, res) => {
   const urls = req.url.split('/');
   console.log('urls=<',urls,'>');
   let result = {};
-  result.good = true;
+  if(urls.length < 3) {
+    result.good = false;
+  } else {
+    let key = urls[0];
+    let orig = urls[1];
+    let signature = urls[2];
+    result.good = doSign(key,orig,signature);
+  }
   let json = JSON.stringify(result);
   res.end(json);
 });
@@ -18,3 +25,10 @@ server.listen(PORT, HOSTNAME, () => {
   console.log('listen PORT=<',PORT,'>');
   console.log('listen HOSTNAME=<',HOSTNAME,'>');
 });
+
+function doSign(pubB58,orig,sign) {
+  console.log('doSign::pubB58=<',pubB58,'>');
+  console.log('doSign::orig=<',orig,'>');
+  console.log('doSign::sign=<',sign,'>');
+  return false;
+}
