@@ -71,11 +71,11 @@ class LoginController extends Controller
                 $access = $bodyJson->access;
                 $signature = $bodyJson->signature;
             }
-            var_dump($accessToken);
-            var_dump($access);
-            var_dump($signature);
+            //var_dump($accessToken);
+            //var_dump($access);
+            //var_dump($signature);
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.b58';
-            var_dump($keyPath);
+            //var_dump($keyPath);
             if (file_exists($keyPath)) {
                 var_dump($keyPath);
             }
