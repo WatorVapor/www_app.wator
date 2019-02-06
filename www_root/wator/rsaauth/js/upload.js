@@ -18,10 +18,10 @@ RSAAuth.upPubKey = function(cb) {
   //console.log('RSAAuth.upPubKey::pubKey=<' , pubKey , '>');
   const token = RSAAuth.getToken();
   console.log('RSAAuth.upPubKey::token=<' , token , '>');
-  if (pubKey && token) {
-    var JSONdata ={};
+  if (token) {
+    let JSONdata ={};
     JSONdata.token = token;
-    var url = window.location.href;
+    let url = window.location.href;
     $.ajax({
       type : 'post',
       url : url,
