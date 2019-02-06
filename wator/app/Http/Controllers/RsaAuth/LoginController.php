@@ -59,11 +59,11 @@ class LoginController extends Controller
             //$input = $request->all();
             //var_dump($input);
             $accessToken = $request->input('accessToken');
-            //var_dump($accessToken);
+            var_dump($accessToken);
             $access = $request->input('access');
-            //var_dump($access);
+            var_dump($access);
             $signature = $request->input('signature');
-            //var_dump($signature);
+            var_dump($signature);
             if(!isset($accessToken) || !isset($access) || !isset($signature)) {
                 $bodyContent = $request->getContent();
                 $bodyJson = json_decode($bodyContent);
