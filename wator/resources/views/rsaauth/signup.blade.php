@@ -58,9 +58,6 @@
 <div class="row justify-content-md-center">
   <div class="col-md-8 bg-info">
     <pre id="privateKey" class="text-left small" rows="40">
-      -----BEGIN PRIVATE KEY-----
-
-      -----BEGIN PUBLIC KEY-----
     </pre>
    </div>
 </div>
