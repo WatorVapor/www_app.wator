@@ -80,7 +80,7 @@ class LoginController extends Controller
                 var_dump($keyPath);
                 $ecdsaURI = 'http://127.0.0.1:17263/' . $accessToken . '/' . $access . '/' . $signature;
                 var_dump($ecdsaURI);
-                $ecdsaVerifyStr = $file_get_contents($ecdsaURI);
+                $ecdsaVerifyStr = file_get_contents($ecdsaURI);
                 var_dump($ecdsaVerifyStr);
             }
             /*
