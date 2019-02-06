@@ -37,6 +37,4 @@
   </div>
 </div>
 
-@include('rsaauth.js.login')
-
 @endsection
