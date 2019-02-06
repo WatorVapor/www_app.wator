@@ -4,8 +4,10 @@ const PORT = 17263;
 const HOSTNAME = '127.0.0.1';
 
 const server = http.createServer( (req, res) => {
-  console.log('req.url=<',req.url,'>');
   res.writeHead(200, {"Content-Type": "application/json"});
+  console.log('req.url=<',req.url,'>');
+  const urls = req.url.split('/');
+  console.log('urls=<',urls,'>');
   let result = {};
   result.good = true;
   let json = JSON.stringify(result);
