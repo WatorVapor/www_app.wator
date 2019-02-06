@@ -59,11 +59,11 @@ class LoginController extends Controller
             //$input = $request->all();
             //var_dump($input);
             $accessToken = $request->input('accessToken');
-            var_dump($accessToken);
+            //var_dump($accessToken);
             $access = $request->input('access');
-            var_dump($access);
+            //var_dump($access);
             $signature = $request->input('signature');
-            var_dump($signature);
+            //var_dump($signature);
             if(!isset($accessToken) || !isset($access) || !isset($signature)) {
                 $bodyContent = $request->getContent();
                 $bodyJson = json_decode($bodyContent);
@@ -71,9 +71,16 @@ class LoginController extends Controller
                 $access = $bodyJson->access;
                 $signature = $bodyJson->signature;
             }
-            
-            $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.pem';
-            //var_dump($keyPath);
+            var_dump($accessToken);
+            var_dump($access);
+            var_dump($signature);
+            $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.b58';
+            var_dump($keyPath);
+            if (file_exists($keyPath)) {
+                var_dump($keyPath);
+            }
+            /*
+            var_dump($keyPath);
             $fp = fopen($keyPath, 'r');
             $pubKeyMem = fread($fp, 8192);
             fclose($fp);
@@ -104,6 +111,7 @@ class LoginController extends Controller
                 $request->session()->put('account.rsa.login.access',$access);
                 return response()->json(['status'=>'failure']);
             }
+            */
         } catch (\Exception $e) {
             //var_dump($e);
             $request->session()->put('account.rsa.login.status','failure');
