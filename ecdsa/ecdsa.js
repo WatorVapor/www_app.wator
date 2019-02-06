@@ -34,5 +34,8 @@ function doSign(pubB58,orig,sign) {
   console.log('doSign::sign=<',sign,'>');
   const pubKeyBuff = bs58.decode(pubB58);
   console.log('doSign::pubKeyBuff=<',pubKeyBuff,'>');
+  const pubKeyHex = pubKeyBuff.toString('hex');
+  console.log('doSign::pubKeyHex=<',pubKeyHex,'>');
+  let signEngine = new rs.KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
   return false;
 }
