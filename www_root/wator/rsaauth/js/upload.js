@@ -14,8 +14,10 @@ RSAAuth.getToken = function() {
 
 
 RSAAuth.upPubKey = function(cb) {
-  var pubKey = RSAAuth.getPubKey();
-  var token = RSAAuth.getToken();
+  const pubKey = RSAAuth.getPubKey();
+  console.log('RSAAuth.upPubKey::pubKey=<' , pubKey , '>');
+  const token = RSAAuth.getToken();
+  console.log('RSAAuth.upPubKey::token=<' , token , '>');
   if (pubKey && token) {
     var JSONdata ={};
     JSONdata.token = token;
