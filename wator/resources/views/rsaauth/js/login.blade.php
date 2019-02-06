@@ -38,8 +38,8 @@ $(document).ready(function(){
     console.log('elemToken.value=<',elemToken.value,'>');
   }
   
-  let rsaKey = KEYUTIL.getKeyFromPlainPrivatePKCS8PEM(privateKey);
-  console.log('rsaKey=<',rsaKey,'>');
+  let prvKey = KEYUTIL.getKey(privateKey);
+  console.log('prvKey=<',prvKey,'>');
   let elemAccess = document.getElementById("rsa.login.access");
   if(elemAccess) {
     let access = elemAccess.value;
