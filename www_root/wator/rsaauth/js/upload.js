@@ -1,7 +1,21 @@
 var RSAAuth = RSAAuth || {};
+RSAAuth.LS_AUTH_KEY_PRV = 'wator.auth.ecdsa.key.private';
+RSAAuth.LS_AUTH_KEY_PUB = 'wator.auth.ecdsa.key.public';
+RSAAuth.LS_AUTH_KEY_TOKEN = 'wator.auth.ecdsa.key.token';
+RSAAuth.getPubKey = function() {
+  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_PUB);
+}
+RSAAuth.getPriKey = function() {
+  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_PRV);
+}
+RSAAuth.getToken = function() {
+  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_TOKEN);
+}
+
+
 RSAAuth.upPubKey = function(cb) {
-  var pubKey = localStorage.getItem('auth.rsa.key.public');
-  var token = localStorage.getItem('auth.rsa.token');
+  var pubKey = RSAAuth.getPubKey();
+  var token = RSAAuth.getToken();
   if (pubKey && token) {
     var JSONdata ={};
     JSONdata.token = token;
