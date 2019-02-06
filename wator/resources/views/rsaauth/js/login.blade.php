@@ -47,7 +47,7 @@ $(document).ready(function(){
   let elemAccess = document.getElementById("rsa.login.access");
   if(elemAccess) {
     let access = elemAccess.value;
-    let signature = rsaKey.sign(access,"sha256");
+    let signature = prvKey.sign(access,"sha256");
     console.log('access=<',access,'>');
     console.log('signature=<',signature,'>');
     let elemSign = document.getElementById("rsa.login.signature");
