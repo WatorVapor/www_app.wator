@@ -82,6 +82,8 @@ class LoginController extends Controller
                 var_dump($ecdsaURI);
                 $ecdsaVerifyStr = file_get_contents($ecdsaURI);
                 var_dump($ecdsaVerifyStr);
+                $ecdsaVerify = json_decode($ecdsaVerifyStr);
+                var_dump($ecdsaVerify);
             }
             /*
             var_dump($keyPath);
