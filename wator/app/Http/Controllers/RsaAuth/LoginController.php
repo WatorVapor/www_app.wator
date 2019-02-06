@@ -83,9 +83,29 @@ class LoginController extends Controller
                 $ecdsaVerifyStr = file_get_contents($ecdsaURI);
                 //var_dump($ecdsaVerifyStr);
                 $ecdsaVerify = json_decode($ecdsaVerifyStr);
-                var_dump($ecdsaVerify);
+                //var_dump($ecdsaVerify);
                 if($ecdsaVerify && $ecdsaVerify->good) {
-                    var_dump($ecdsaVerify->good);
+                    //var_dump($ecdsaVerify->good);
+                    $request->session()->put('account.rsa.login.status','success');
+                    $request->session()->put('account.rsa.login.token',$accessToken);
+                    $request->session()->put('account.rsa.login.access',$access);
+                    $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
+                    if (file_exists($profilePath)) {
+                        $profileStr = file_get_contents($profilePath);
+                        $profileJson = json_decode($profileStr, true);
+                        if(isset($profileJson['user_name'])) {
+                            $request->session()->put('account.rsa.login.name',$profileJson['user_name']);
+                        } else {
+                            $request->session()->forget('account.rsa.login.name');
+                        }
+                    } else {
+                        $request->session()->forget('account.rsa.login.name');
+                    } 
+                } else {
+                    $request->session()->put('account.rsa.login.status','failure');
+                    $request->session()->put('account.rsa.login.token',$accessToken);
+                    $request->session()->put('account.rsa.login.access',$access);
+                    return response()->json(['status'=>'failure']);
                 }
             }
             /*
