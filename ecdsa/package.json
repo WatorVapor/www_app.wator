@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bs58": "^4.0.1",
     "jsrsasign": "^8.0.12"
   }
 }
