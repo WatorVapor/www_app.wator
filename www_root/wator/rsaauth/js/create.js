@@ -43,6 +43,9 @@ RSAAuth.createKeyPair_ = function(cb) {
   const token = KJUR.crypto.Util.sha256(pubHex);
   console.log('RSAAuth.createKeyPair_:: token=<',token,'>');
   localStorage.setItem('auth.rsa.token',token);
+  if (typeof cb == 'function') {
+    cb('success');
+  }
 }
 /*
 RSAAuth.createKeyPair_ = function(cb) {
