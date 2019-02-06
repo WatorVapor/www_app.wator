@@ -29,6 +29,11 @@ RSAAuth.clearAccess = function() {
 * inner function
 */
 RSAAuth.createKeyPair_ = function(cb) {
+  const ecKeypair = KEYUTIL.generateKeypair("EC", "secp256r1");
+  console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
+}
+/*
+RSAAuth.createKeyPair_ = function(cb) {
   console.log(window.crypto.subtle);
   window.crypto.subtle.generateKey(
   {
@@ -119,3 +124,5 @@ RSAAuth.createKeyPair_ = function(cb) {
     }
   });
 }
+*/
+
