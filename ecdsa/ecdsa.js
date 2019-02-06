@@ -26,9 +26,13 @@ server.listen(PORT, HOSTNAME, () => {
 });
 
 const rs = require('jsrsasign');
+const bs58 = require('bs58');
+
 function doSign(pubB58,orig,sign) {
   console.log('doSign::pubB58=<',pubB58,'>');
   console.log('doSign::orig=<',orig,'>');
   console.log('doSign::sign=<',sign,'>');
+  const pubKeyBuff = bs58.decode(pubB58);
+  console.log('doSign::pubKeyBuff=<',pubKeyBuff,'>');
   return false;
 }
