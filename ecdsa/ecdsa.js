@@ -12,5 +12,7 @@ const server = http.createServer( (req, res) => {
   res.end(json);
 });
 
-server.listen(PORT, HOSTNAME, function () {
+server.listen(PORT, HOSTNAME, () => {
+  console.log('listen PORT=<',PORT,'>');
+  console.log('listen HOSTNAME=<',HOSTNAME,'>');
 });
