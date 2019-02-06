@@ -4,9 +4,9 @@ const HOSTNAME = '127.0.0.1';
 
 const server = http.createServer( (req, res) => {
   res.writeHead(200, {"Content-Type": "application/json"});
-  console.log('req.url=<',req.url,'>');
+  //console.log('req.url=<',req.url,'>');
   const urls = req.url.split('/');
-  console.log('urls=<',urls,'>');
+  //console.log('urls=<',urls,'>');
   let result = {};
   if(urls.length < 4) {
     result.good = false;
@@ -35,11 +35,11 @@ function verifyAuth(pubB58,orig,sign) {
   const pubKeyBuff = bs58.decode(pubB58);
   //console.log('verifyAuth::pubKeyBuff=<',pubKeyBuff,'>');
   const pubKeyHex = pubKeyBuff.toString('hex');
-  console.log('verifyAuth::pubKeyHex=<',pubKeyHex,'>');
+  //console.log('verifyAuth::pubKeyHex=<',pubKeyHex,'>');
   let signEngine = new rs.KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
   signEngine.init({xy: pubKeyHex, curve: 'secp256r1'});
   signEngine.updateString(orig);
   let result = signEngine.verify(sign);
-  console.log('verifyAuth result=<',result,'>');
-  return false;
+  //console.log('verifyAuth result=<',result,'>');
+  return result;
 }
