@@ -5,7 +5,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-
+var RSAAuth = RSAAuth || {};
 RSAAuth.LS_AUTH_KEY_PRV = 'wator.auth.ecdsa.key.private';
 RSAAuth.LS_AUTH_KEY_PUB = 'wator.auth.ecdsa.key.public';
 RSAAuth.LS_AUTH_KEY_TOKEN = 'wator.auth.ecdsa.key.token';
