@@ -33,6 +33,13 @@ RSAAuth.clearAccess = function() {
   sessionStorage.removeItem(RSAAuth.SS_AUTH_ACCESS);
 }
 
+const fromHexString = hexString =>
+  new Uint8Array(hexString.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+
+const toHexString = bytes =>
+  bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
+
+
 /*
 * inner function
 */
@@ -46,11 +53,15 @@ RSAAuth.createKeyPair_ = function(cb) {
   //console.log('RSAAuth.createKeyPair_:: jwkPub=<',jwkPub,'>');
   localStorage.setItem(RSAAuth.LS_AUTH_KEY_PUB,JSON.stringify(jwkPub));
   
-  let pubHex = ecKeypair.pubKeyObj.pubKeyHex;
+  const pubHex = ecKeypair.pubKeyObj.pubKeyHex;
   //console.log('RSAAuth.createKeyPair_:: pubHex=<',pubHex,'>');
-  const token = KJUR.crypto.Util.sha256(pubHex);
+  const pubBuff = fromHexString(pubHex);
+  console.log('RSAAuth.createKeyPair_:: pubBuff=<',pubBuff,'>');
+  const pubB58 = Base58.encode(pubBuff);
+  console.log('RSAAuth.createKeyPair_:: pubB58=<',pubB58,'>');
+  //const token = KJUR.crypto.Util.sha256(pubHex);
   //console.log('RSAAuth.createKeyPair_:: token=<',token,'>');
-  localStorage.setItem(RSAAuth.LS_AUTH_KEY_TOKEN,token);
+  localStorage.setItem(RSAAuth.LS_AUTH_KEY_TOKEN,pubB58);
   if (typeof cb == 'function') {
     cb('success');
   }
