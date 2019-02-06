@@ -30,7 +30,7 @@ RSAAuth.clearAccess = function() {
 */
 RSAAuth.createKeyPair_ = function(cb) {
   const ecKeypair = KEYUTIL.generateKeypair("EC", "P-256");
-  //console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
+  console.log('RSAAuth.createKeyPair_:: ecKeypair=<',ecKeypair,'>');
   let jwkPrv = KEYUTIL.getJWKFromKey(ecKeypair.prvKeyObj);
   console.log('RSAAuth.createKeyPair_:: jwkPrv=<',jwkPrv,'>');
   let jwkPub = KEYUTIL.getJWKFromKey(ecKeypair.pubKeyObj);
