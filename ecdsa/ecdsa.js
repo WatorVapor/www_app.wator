@@ -1,4 +1,3 @@
-const rs = require('jsrsasign');
 const http = require('http');
 const PORT = 17263;
 const HOSTNAME = '127.0.0.1';
@@ -26,6 +25,7 @@ server.listen(PORT, HOSTNAME, () => {
   console.log('listen HOSTNAME=<',HOSTNAME,'>');
 });
 
+const rs = require('jsrsasign');
 function doSign(pubB58,orig,sign) {
   console.log('doSign::pubB58=<',pubB58,'>');
   console.log('doSign::orig=<',orig,'>');
