@@ -14,7 +14,7 @@ const server = http.createServer( (req, res) => {
     let key = urls[1];
     let orig = urls[2];
     let signature = urls[3];
-    result.good = doSign(key,orig,signature);
+    result.good = verifyAuth(key,orig,signature);
   }
   let json = JSON.stringify(result);
   res.end(json);
@@ -28,14 +28,18 @@ server.listen(PORT, HOSTNAME, () => {
 const rs = require('jsrsasign');
 const bs58 = require('bs58');
 
-function doSign(pubB58,orig,sign) {
-  console.log('doSign::pubB58=<',pubB58,'>');
-  console.log('doSign::orig=<',orig,'>');
-  console.log('doSign::sign=<',sign,'>');
+function verifyAuth(pubB58,orig,sign) {
+  //console.log('verifyAuth::pubB58=<',pubB58,'>');
+  //console.log('verifyAuth::orig=<',orig,'>');
+  //console.log('verifyAuth::sign=<',sign,'>');
   const pubKeyBuff = bs58.decode(pubB58);
-  console.log('doSign::pubKeyBuff=<',pubKeyBuff,'>');
+  //console.log('verifyAuth::pubKeyBuff=<',pubKeyBuff,'>');
   const pubKeyHex = pubKeyBuff.toString('hex');
-  console.log('doSign::pubKeyHex=<',pubKeyHex,'>');
+  console.log('verifyAuth::pubKeyHex=<',pubKeyHex,'>');
   let signEngine = new rs.KJUR.crypto.Signature({alg: 'SHA256withECDSA'});
+  signEngine.init({xy: pubKeyHex, curve: 'secp256r1'});
+  signEngine.updateString(orig);
+  let result = signEngine.verify(sign);
+  console.log('verifyAuth result=<',result,'>');
   return false;
 }
