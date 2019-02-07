@@ -24,7 +24,7 @@ services:
     image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
-      - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/secauth/wator:/opt/secauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
@@ -44,7 +44,7 @@ services:
     image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
-      - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/secauth/wator:/opt/secauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
@@ -64,7 +64,7 @@ services:
     image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
-      - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/secauth/wator:/opt/secauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
@@ -84,7 +84,7 @@ services:
     image: watorvapor/laravel
     volumes:
       - ../wator:/opt/laravel
-      - /watorvapor/rsaauth/wator:/opt/rsaauth
+      - /watorvapor/secauth/wator:/opt/secauth
       - /watorvapor/wai.storage/conf:/nativeapi
       - /watorvapor/autogen:/autogen
       - /watorvapor/story.storage/repository.wator:/repository
