@@ -31,7 +31,7 @@ $(document).ready(function(){
   if(!token) {
     return;
   }
-  let elemToken = document.getElementById("rsa.login.accessToken");
+  let elemToken = document.getElementById("sec.login.accessToken");
   console.log('elemToken=<',elemToken,'>');
   if(elemToken) {
     elemToken.value = token;
@@ -44,7 +44,7 @@ $(document).ready(function(){
   console.log('jwkPrv=<',jwkPrv,'>');
   let prvKey = KEYUTIL.getKey(jwkPrv);
   console.log('prvKey=<',prvKey,'>');
-  let elemAccess = document.getElementById("rsa.login.access");
+  let elemAccess = document.getElementById("sec.login.access");
   if(elemAccess) {
     let access = elemAccess.value;
     let ecSign = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
@@ -53,10 +53,10 @@ $(document).ready(function(){
     signEngine.updateString(access);
     let signatureHex = signEngine.sign();
     console.log('signatureHex=<',signatureHex,'>');
-    let elemSign = document.getElementById("rsa.login.signature");
+    let elemSign = document.getElementById("sec.login.signature");
     if(elemSign) {
       elemSign.value = signatureHex;
-      let elemAuto = document.getElementById("rsa.login.auto");
+      let elemAuto = document.getElementById("sec.login.auto");
       if(elemAuto) {
         if(elemAuto.value === 'true') {
           doAutoLogin();
@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 });
 function doAutoLogin() {
-  document.forms['rsaauth_login_form'].submit();
+  document.forms['secauth_login_form'].submit();
 }
 
 </script>
