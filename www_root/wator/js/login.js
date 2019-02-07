@@ -65,7 +65,7 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
   JSONdata.accessToken = token;
   JSONdata.access = access;
   JSONdata.signature = signatureHex;
-  let url = '/rsaauth/login';
+  let url = '/secauth/login';
   $.ajax({
     type : 'post',
     url : url,
@@ -83,14 +83,14 @@ RSAAuth.signLogin_ = function(privateKey,token,access) {
       // Error
       console.log('data=<',data,'>');
       sessionStorage.setItem('auth.rsa.run.error',JSON.stringify(data));
-      window.location.href = '/rsaauth/error';
+      window.location.href = '/secauth/error';
     }
   });
 }
 
 RSAAuth.clear = function() {
   let JSONdata ={};
-  let url = '/rsaauth/login';
+  let url = '/secauth/login';
   $.ajax({
     type : 'post',
     url : url,
@@ -108,7 +108,7 @@ RSAAuth.clear = function() {
       // Error
       console.log(data);
       sessionStorage.setItem('auth.rsa.run.error',JSON.stringify(data));
-      window.location.href = '/rsaauth/error';
+      window.location.href = '/secauth/error';
     }
   });
 }
