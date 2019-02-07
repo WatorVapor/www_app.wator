@@ -1,7 +1,7 @@
-@extends('rsaauth.app')
+@extends('secauth.app')
 
 @section('appnavbar')
-  @include('rsaauth.navbar')
+  @include('secauth.navbar')
 @endsection
 
 
@@ -9,16 +9,16 @@
 
 <div class="row justify-content-md-center mt-md-5">
   <div class="col-md-8">
-      <a href="/rsaauth/import" class="btn btn-danger btn-lg btn-block" role="button">{{trans('rsaauth_signup.import')}}</a>
+      <a href="/secauth/import" class="btn btn-danger btn-lg btn-block" role="button">{{trans('secauth_signup.import')}}</a>
    </div>
 </div>
 <br/>
 <br/>
 <div class="row justify-content-md-center">
   <div class="col-md-8 bg-primary">
-    <h2 class="text-left ">1.{{trans('rsaauth_signup.agree_robot')}}</h2>
-    <h2 class="text-left">2.{{trans('rsaauth_signup.agree_friend')}}</h2>
-    <h2 class="text-left">3.{{trans('rsaauth_signup.privacy')}}</h2>
+    <h2 class="text-left ">1.{{trans('secauth_signup.agree_robot')}}</h2>
+    <h2 class="text-left">2.{{trans('secauth_signup.agree_friend')}}</h2>
+    <h2 class="text-left">3.{{trans('secauth_signup.privacy')}}</h2>
     <br/>
     <div class="mainbox center-block text-center">
       <button id="btn_yes" type="button" class="btn btn-success">{{trans('rsaauth_signup.agree_yes')}}</button>
@@ -28,7 +28,7 @@
     <div id="progressBox" class="mainbox center-block text-left">
       <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-          {{trans('rsaauth_signup.key_waiting')}}
+          {{trans('secauth_signup.key_waiting')}}
         </div>
       </div>
     </div>
@@ -40,15 +40,15 @@
 <div class="row  justify-content-md-center" id="operate_key">
   <div class="col-md-8 bg-warning">
     <pre id="noticeBox" class="text-left text-danger ">
-      {{trans('rsaauth_signup.key_important')}}
+      {{trans('secauth_signup.key_important')}}
     </pre>
     <div class="mainbox center-block text-center">
-      <a id="savefile" href="#" type="button" download="wator.rsaauth.key" class="btn btn-primary">{{trans('rsaauth_signup.key_save_file')}}</a>
-      <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{trans('rsaauth_signup.key_copy')}}</button>
+      <a id="savefile" href="#" type="button" download="wator.rsaauth.key" class="btn btn-primary">{{trans('secauth_signup.key_save_file')}}</a>
+      <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{trans('secauth_signup.key_copy')}}</button>
       <!--
-      <button id="sendmail" type="button" class="btn btn-info">{{trans('rsaauth_signup.key_send_mail')}}</button>
+      <button id="sendmail" type="button" class="btn btn-info">{{trans('secauth_signup.key_send_mail')}}</button>
       -->
-      <a href="/rsaauth/profile" id="next_step" class="btn btn-info" role="button">{{trans('rsaauth_signup.key_next')}}</a>
+      <a href="/secauth/profile" id="next_step" class="btn btn-info" role="button">{{trans('secauth_signup.key_next')}}</a>
     </div>
   </div>
 </div>
@@ -63,8 +63,8 @@
 </div>
 
 
-<script src="/wator/rsaauth/js/create.js" type="text/javascript"></script>
-<script src="/wator/rsaauth/js/upload.js" type="text/javascript"></script>
+<script src="/wator/secauth/js/create.js" type="text/javascript"></script>
+<script src="/wator/secauth/js/upload.js" type="text/javascript"></script>
 <script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
