@@ -19,20 +19,29 @@ Route::get('/search/link', 'Home\SearchLinkController@index');
 
 Route::get('/secauth/signup', 'SecAuth\SignUpController@index');
 Route::post('/secauth/signup', 'SecAuth\SignUpController@store');
+
 Route::get('/secauth/import', 'SecAuth\ImportController@index');
 Route::post('/secauth/import', 'SecAuth\ImportController@store');
+
 Route::get('/secauth/profile', 'SecAuth\ProfileController@index');
 Route::post('/secauth/profile', 'SecAuth\ProfileController@store');
+
 Route::get('/secauth/login', 'SecAuth\LoginController@index');
-Route::post('/secauth/login', 'SecAuth\LoginController@store');
+Route::get('/secauth/login/auto', 'SecAuth\LoginController@auto_login');
+Route::post('/secauth/login/auto', 'SecAuth\LoginController@auto_store');
+
 Route::get('/secauth/logout', 'SecAuth\LogoutController@index');
 Route::post('/secauth/logout', 'SecAuth\LogoutController@store');
+
 Route::get('/secauth/fix', 'SecAuth\FixController@index');
 Route::post('/secauth/fix', 'SecAuth\FixController@store');
+
 Route::get('/secauth/access', 'SecAuth\AccessController@index');
 Route::post('/secauth/access', 'SecAuth\AccessController@store');
+
 Route::get('/secauth/language', 'SecAuth\LanguageController@index');
 Route::post('/secauth/language', 'SecAuth\LanguageController@store');
+
 Route::get('/secauth', 'SecAuth\LoginController@index');
 
 

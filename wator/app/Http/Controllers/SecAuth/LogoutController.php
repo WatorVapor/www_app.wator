@@ -20,11 +20,12 @@ class LogoutController extends Controller
     {
         //var_dump($auto);
         //
-        $request->session()->forget('account.rsa.login.status');
-        $request->session()->forget('account.rsa.login.name');
-        $request->session()->forget('account.rsa.login.token');
-        $request->session()->forget('account.rsa.login.access');
-        return redirect()->back();
+        $request->session()->forget('account.sec.login.status');
+        $request->session()->forget('account.sec.login.name');
+        $request->session()->forget('account.sec.login.token');
+        $request->session()->forget('account.sec.login.access');
+        $request->session()->forget('account.sec.login.redirecting');
+        //return redirect()->back();
     }
     /**
      * Show the form for creating a new resource.
@@ -43,11 +44,12 @@ class LogoutController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->forget('account.rsa.login.status');
-        $request->session()->forget('account.rsa.login.name');
-        $request->session()->forget('account.rsa.login.token');
-        $request->session()->forget('account.rsa.login.access');
-        return redirect()->back();
+        $request->session()->forget('account.sec.login.status');
+        $request->session()->forget('account.sec.login.name');
+        $request->session()->forget('account.sec.login.token');
+        $request->session()->forget('account.sec.login.access');
+        $request->session()->forget('account.sec.login.redirecting');
+        //return redirect()->back();
     }
     /**
      * Display the specified resource.

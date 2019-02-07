@@ -58,7 +58,7 @@ $(document).ready(function(){
       elemSign.value = signatureHex;
       let elemAuto = document.getElementById("sec.login.auto");
       if(elemAuto) {
-        if(elemAuto.value === 'true') {
+        if(elemAuto.textContent.trim() === 'true') {
           doAutoLogin();
         }
       }

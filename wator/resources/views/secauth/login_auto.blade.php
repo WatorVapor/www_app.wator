@@ -14,7 +14,7 @@
     <div class="card mt-5 text-center text-white bg-dark bg-success">
       <div class="card-header">{{trans('secauth_login.title')}}</div>
       <div class="card-body">
-        <form  id="secauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
+        <form  id="secauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login/auto">
           <button type="submit" class="btn btn-success">
             <spam>{{trans('secauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
           </button>

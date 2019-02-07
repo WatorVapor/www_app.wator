@@ -35,7 +35,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Wator\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Wator\Http\Middleware\RSAAuth::class,
+            \Wator\Http\Middleware\SecAuth::class,
             \Wator\Http\Middleware\Lang::class,
         ],
 

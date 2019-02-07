@@ -64,7 +64,7 @@
       <i class="material-icons md-48">language</i>
     </a>
   </li>
-  @if($RSAAuth_Passed)
+  @if($SecAuth_Passed)
   <li class="nav-item active">
     <a tabindex="2" href="#" role="button" class="btn btn-lg btn-warning" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="{{ trans($user_title) }}" data-content="{{ $user }}">
       <i class="material-icons md-48">person</i>
