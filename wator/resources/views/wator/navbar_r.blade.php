@@ -44,10 +44,10 @@
     $user_title = $nav_login_show_name;
   }
   $user = '';
-  $user .= '<a class="btn btn-lg btn-info mr-lg-5" href="/rsaauth/profile" role="button">';
+  $user .= '<a class="btn btn-lg btn-info mr-lg-5" href="/secauth/profile" role="button">';
   $user .= '<i class="material-icons md-48">account_box</i>';
   $user .= '</a>';
-  $user .= '<a class="btn btn-lg btn-danger" href="/rsaauth/logout" role="button">';
+  $user .= '<a class="btn btn-lg btn-danger" href="/secauth/logout" role="button">';
   $user .= '<i class="material-icons md-48">exit_to_app</i>';
   $user .= '</a>';
 ?>
@@ -73,12 +73,12 @@
   </li>
   @else
   <li class="nav-item active">
-    <a role="button" class="btn btn-warning btn-lg mr-lg-5" href="/rsaauth/login" role="button">
+    <a role="button" class="btn btn-warning btn-lg mr-lg-5" href="/secauth/login" role="button">
       <i class="material-icons md-48">person</i>
     </a>
   </li>
   <li class="nav-item active">
-    <a role="button" class="btn btn-warning btn-lg" href="/rsaauth/signup" role="button">
+    <a role="button" class="btn btn-warning btn-lg" href="/secauth/signup" role="button">
       <i class="material-icons md-48">person_add</i>
     </a>
   </li>
