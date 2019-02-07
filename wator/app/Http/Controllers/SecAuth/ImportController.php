@@ -1,6 +1,6 @@
 <?php
 
-namespace Wator\Http\Controllers\RsaAuth;
+namespace Wator\Http\Controllers\SecAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class ImportController extends Controller
 {
     protected $keyRoot_;
     public function __construct() {
-        $this->keyRoot_ = storage_path() . '/pubKeys/';
+        $this->keyRoot_ = '/opt/secauth/pubKeys/';
         File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     /**
