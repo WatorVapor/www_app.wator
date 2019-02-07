@@ -21,8 +21,8 @@
     <h2 class="text-left">3.{{trans('secauth_signup.privacy')}}</h2>
     <br/>
     <div class="mainbox center-block text-center">
-      <button id="btn_yes" type="button" class="btn btn-success">{{trans('rsaauth_signup.agree_yes')}}</button>
-      <button id="btn_no" type="button" class="btn btn-danger">{{trans('rsaauth_signup.agree_no')}}</button>
+      <button id="btn_yes" type="button" class="btn btn-success">{{trans('secauth_signup.agree_yes')}}</button>
+      <button id="btn_no" type="button" class="btn btn-danger">{{trans('secauth_signup.agree_no')}}</button>
     </div>
     <br/>
     <div id="progressBox" class="mainbox center-block text-left">
@@ -43,7 +43,7 @@
       {{trans('secauth_signup.key_important')}}
     </pre>
     <div class="mainbox center-block text-center">
-      <a id="savefile" href="#" type="button" download="wator.rsaauth.key" class="btn btn-primary">{{trans('secauth_signup.key_save_file')}}</a>
+      <a id="savefile" href="#" type="button" download="wator.secauth.key" class="btn btn-primary">{{trans('secauth_signup.key_save_file')}}</a>
       <button type="button" class="btn btn-success btn-clipboard" data-clipboard-target="#privateKey">{{trans('secauth_signup.key_copy')}}</button>
       <!--
       <button id="sendmail" type="button" class="btn btn-info">{{trans('secauth_signup.key_send_mail')}}</button>
