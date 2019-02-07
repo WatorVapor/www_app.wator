@@ -26,7 +26,7 @@ function onClickLanguage(lang) {
 function updateLanguage() {
   var lang = localStorage.getItem('operation.lang')
   if(lang && typeof lang === 'string') {
-    var url = '/rsaauth/language';
+    var url = '/secauth/language';
     var JSONdata ={lang:lang};
     $.ajax({
       type : 'post',
