@@ -7,14 +7,14 @@
 
 @section('content')
 
-<div id="rsa.login.auto" hidden> {{ $auto}} </div>
+<div id="sec.login.auto" hidden> {{ $auto}} </div>
 
 <div class="row justify-content-md-center">
   <div class="col-lg-8">
     <div class="card mt-5 text-center text-white bg-dark bg-success">
       <div class="card-header">{{trans('secauth_login.title')}}</div>
       <div class="card-body">
-        <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
+        <form  id="secauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
           <button type="submit" class="btn btn-success">
             <spam>{{trans('secauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
           </button>
@@ -25,7 +25,7 @@
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="sec.login.access">{{trans('secauth_login.access')}}</span>
-             <textarea type="text" id="rsa.login.access" name="access" class="form-control" cols="40" rows="3" readonly>{{ $RsaLoginAccessKey }}</textarea>
+             <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="3" readonly>{{ $RsaLoginAccessKey }}</textarea>
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="sec.login.signature">{{trans('secauth_login.signature')}}</span>
