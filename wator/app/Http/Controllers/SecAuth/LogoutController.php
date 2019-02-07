@@ -8,7 +8,7 @@ class LogoutController extends Controller
 {
     protected $keyRoot_;
     public function __construct() {
-        $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
+        $this->keyRoot_ = '/opt/secauth/pubKeys/';
         File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     /**
