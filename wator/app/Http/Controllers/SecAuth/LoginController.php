@@ -34,7 +34,7 @@ class LoginController extends Controller
         if($auto == 'auto') {
             $autoFlags = 'true';
         }
-        return view('rsaauth.login',['RsaLoginAccessKey'=>$id,'auto'=> $autoFlags]);
+        return view('secauth.login',['RsaLoginAccessKey'=>$id,'auto'=> $autoFlags]);
     }
 
     /**
