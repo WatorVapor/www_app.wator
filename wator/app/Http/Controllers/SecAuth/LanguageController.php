@@ -1,6 +1,6 @@
 <?php
 
-namespace Wator\Http\Controllers\RsaAuth;
+namespace Wator\Http\Controllers\SecAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
