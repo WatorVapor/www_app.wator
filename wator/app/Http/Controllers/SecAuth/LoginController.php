@@ -1,6 +1,6 @@
 <?php
 
-namespace Wator\Http\Controllers\RsaAuth;
+namespace Wator\Http\Controllers\SecAuth;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     protected $keyRoot_;
     public function __construct() {
-        $this->keyRoot_ = '/opt/rsaauth/pubKeys/';
+        $this->keyRoot_ = '/opt/secauth/pubKeys/';
         File::makeDirectory($this->keyRoot_, 0775, true, true);
     }
     /**
@@ -28,7 +28,7 @@ class LoginController extends Controller
         $request->session()->forget('account.rsa.login.access');
         $strRequest = uniqid();
         //var_dump($strRequest);
-        $id  = hash('sha512',$strRequest);
+        $id  = hash('sha256',$strRequest);
         $request->session()->put('account.rsa.login.access',$id);
         $autoFlags = 'false';
         if($auto == 'auto') {
@@ -108,39 +108,6 @@ class LoginController extends Controller
                     return response()->json(['status'=>'failure']);
                 }
             }
-            /*
-            var_dump($keyPath);
-            $fp = fopen($keyPath, 'r');
-            $pubKeyMem = fread($fp, 8192);
-            fclose($fp);
-            $pubkeyid = openssl_pkey_get_public($pubKeyMem);
-            //var_dump($pubkeyid);
-            $ok = openssl_verify($access,hex2bin($signature) , $pubkeyid,"sha256");
-            //var_dump($ok);
-            if ($ok == 1) {
-                $request->session()->put('account.rsa.login.status','success');
-                $request->session()->put('account.rsa.login.token',$accessToken);
-                $request->session()->put('account.rsa.login.access',$access);
-
-                $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
-                if (file_exists($profilePath)) {
-                    $profileStr = file_get_contents($profilePath);
-                    $profileJson = json_decode($profileStr, true);
-                    if(isset($profileJson['user_name'])) {
-                        $request->session()->put('account.rsa.login.name',$profileJson['user_name']);
-                    } else {
-                        $request->session()->forget('account.rsa.login.name');
-                    }
-                } else {
-                    $request->session()->forget('account.rsa.login.name');
-                }                    
-            } else {
-                $request->session()->put('account.rsa.login.status','failure');
-                $request->session()->put('account.rsa.login.token',$accessToken);
-                $request->session()->put('account.rsa.login.access',$access);
-                return response()->json(['status'=>'failure']);
-            }
-            */
         } catch (\Exception $e) {
             //var_dump($e);
             $request->session()->put('account.rsa.login.status','failure');
