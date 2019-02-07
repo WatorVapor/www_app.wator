@@ -1,7 +1,7 @@
-@extends('rsaauth.app')
+@extends('secauth.app')
 
 @section('appnavbar')
-  @include('rsaauth.navbar')
+  @include('secauth.navbar')
 @endsection
 
 
@@ -14,7 +14,7 @@
     <div class="card mt-5 text-center text-white bg-dark bg-success">
       <div class="card-header">{{trans('rsaauth_login.title')}}</div>
       <div class="card-body">
-        <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/rsaauth/login">
+        <form  id="rsaauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
           <button type="submit" class="btn btn-success">
             <spam>{{trans('rsaauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
           </button>
@@ -36,5 +36,5 @@
     </div>
   </div>
 </div>
-@include('rsaauth.js.login')
+@include('secauth.js.login')
 @endsection
