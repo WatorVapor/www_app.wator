@@ -17,23 +17,23 @@ Route::get('/', 'Home\WelcomeController@index');
 Route::get('/search/link', 'Home\SearchLinkController@index');
 
 
-Route::get('/rsaauth/signup', 'RsaAuth\SignUpController@index');
-Route::post('/rsaauth/signup', 'RsaAuth\SignUpController@store');
-Route::get('/rsaauth/import', 'RsaAuth\ImportController@index');
-Route::post('/rsaauth/import', 'RsaAuth\ImportController@store');
-Route::get('/rsaauth/profile', 'RsaAuth\ProfileController@index');
-Route::post('/rsaauth/profile', 'RsaAuth\ProfileController@store');
-Route::get('/rsaauth/login', 'RsaAuth\LoginController@index');
-Route::post('/rsaauth/login', 'RsaAuth\LoginController@store');
-Route::get('/rsaauth/logout', 'RsaAuth\LogoutController@index');
-Route::post('/rsaauth/logout', 'RsaAuth\LogoutController@store');
-Route::get('/rsaauth/fix', 'RsaAuth\FixController@index');
-Route::post('/rsaauth/fix', 'RsaAuth\FixController@store');
-Route::get('/rsaauth/access', 'RsaAuth\AccessController@index');
-Route::post('/rsaauth/access', 'RsaAuth\AccessController@store');
-Route::get('/rsaauth/language', 'RsaAuth\LanguageController@index');
-Route::post('/rsaauth/language', 'RsaAuth\LanguageController@store');
-Route::get('/rsaauth', 'RsaAuth\LoginController@index');
+Route::get('/secauth/signup', 'SecAuth\SignUpController@index');
+Route::post('/secauth/signup', 'SecAuth\SignUpController@store');
+Route::get('/secauth/import', 'SecAuth\ImportController@index');
+Route::post('/secauth/import', 'SecAuth\ImportController@store');
+Route::get('/secauth/profile', 'SecAuth\ProfileController@index');
+Route::post('/secauth/profile', 'SecAuth\ProfileController@store');
+Route::get('/secauth/login', 'SecAuth\LoginController@index');
+Route::post('/secauth/login', 'SecAuth\LoginController@store');
+Route::get('/secauth/logout', 'SecAuth\LogoutController@index');
+Route::post('/secauth/logout', 'SecAuth\LogoutController@store');
+Route::get('/secauth/fix', 'SecAuth\FixController@index');
+Route::post('/secauth/fix', 'SecAuth\FixController@store');
+Route::get('/secauth/access', 'SecAuth\AccessController@index');
+Route::post('/secauth/access', 'SecAuth\AccessController@store');
+Route::get('/secauth/language', 'SecAuth\LanguageController@index');
+Route::post('/secauth/language', 'SecAuth\LanguageController@store');
+Route::get('/secauth', 'SecAuth\LoginController@index');
 
 
 
