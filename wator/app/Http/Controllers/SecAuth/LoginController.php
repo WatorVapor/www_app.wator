@@ -40,7 +40,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function auto_login(Request $request)
+    public function auto_index(Request $request)
     {
         //var_dump($auto);
         //
@@ -78,11 +78,7 @@ class LoginController extends Controller
             //var_dump($keyPath);
             if (file_exists($keyPath)) {
                 //var_dump($keyPath);
-                $ecdsaURI = 'http://127.0.0.1:17263/' . $accessToken . '/' . $access . '/' . $signature;
-                //var_dump($ecdsaURI);
-                $ecdsaVerifyStr = file_get_contents($ecdsaURI);
-                //var_dump($ecdsaVerifyStr);
-                $ecdsaVerify = json_decode($ecdsaVerifyStr);
+                $ecdsaVerify = parent::verify($accessToken,$access,$signature);
                 //var_dump($ecdsaVerify);
                 if($ecdsaVerify && $ecdsaVerify->good) {
                     //var_dump($ecdsaVerify->good);
@@ -105,9 +101,8 @@ class LoginController extends Controller
                     $request->session()->put('account.sec.login.status','failure');
                     $request->session()->put('account.sec.login.token',$accessToken);
                     $request->session()->put('account.sec.login.access',$access);
-                    //return response()->json(['status'=>'failure']);
                     $request->session()->put('account.sec.login.redirecting','yes');
-                    return redirect()->back();
+                    return redirect()->secure('/secauth/failure');
                 }
             }
         } catch (\Exception $e) {
@@ -117,13 +112,10 @@ class LoginController extends Controller
             $request->session()->forget('account.sec.login.access');
             $request->session()->forget('account.sec.login.name');
             $request->session()->put('account.sec.login.redirecting','yes');
-            //return response()->json(['status'=>'failure']);
-            return redirect()->back()->back();
-            //return redirect()->secure('/logi');
+            return redirect()->secure('/secauth/failure');
        }
-       //return response()->json(['status'=>'success']);
-       //return redirect()->back();
-       return redirect()->secure('/');
+       $prevPath = $request->session()->get('account.sec.login.previou.path');
+       return redirect()->secure($prevPath);
      }
 
 
@@ -155,25 +147,11 @@ class LoginController extends Controller
             //var_dump($access);
             $signature = $request->input('signature');
             //var_dump($signature);
-            if(!isset($accessToken) || !isset($access) || !isset($signature)) {
-                $bodyContent = $request->getContent();
-                $bodyJson = json_decode($bodyContent);
-                $accessToken = $bodyJson->accessToken;
-                $access = $bodyJson->access;
-                $signature = $bodyJson->signature;
-            }
-            //var_dump($accessToken);
-            //var_dump($access);
-            //var_dump($signature);
             $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.b58';
             //var_dump($keyPath);
             if (file_exists($keyPath)) {
                 //var_dump($keyPath);
-                $ecdsaURI = 'http://127.0.0.1:17263/' . $accessToken . '/' . $access . '/' . $signature;
-                //var_dump($ecdsaURI);
-                $ecdsaVerifyStr = file_get_contents($ecdsaURI);
-                //var_dump($ecdsaVerifyStr);
-                $ecdsaVerify = json_decode($ecdsaVerifyStr);
+                $ecdsaVerify = parent::verify($accessToken,$access,$signature);
                 //var_dump($ecdsaVerify);
                 if($ecdsaVerify && $ecdsaVerify->good) {
                     //var_dump($ecdsaVerify->good);
@@ -196,8 +174,7 @@ class LoginController extends Controller
                     $request->session()->put('account.sec.login.status','failure');
                     $request->session()->put('account.sec.login.token',$accessToken);
                     $request->session()->put('account.sec.login.access',$access);
-                    //return response()->json(['status'=>'failure']);
-                    //return redirect()->back()->back();
+                    return redirect()->secure('/secauth/failure');
                 }
             }
         } catch (\Exception $e) {
@@ -206,11 +183,10 @@ class LoginController extends Controller
             $request->session()->forget('account.sec.login.token');
             $request->session()->forget('account.sec.login.access');
             $request->session()->forget('account.sec.login.name');
-            //return response()->json(['status'=>'failure']);
-            //return redirect()->back()->back();
-       }
-       //return response()->json(['status'=>'success']);
-       //return redirect()->back()->back();
+            return redirect()->secure('/secauth/failure');
+        }
+       $prevPath = $request->session()->get('account.sec.login.previou.path');
+       return redirect()->secure($prevPath);
      }
 
     /**

@@ -25,7 +25,7 @@ class LogoutController extends Controller
         $request->session()->forget('account.sec.login.token');
         $request->session()->forget('account.sec.login.access');
         $request->session()->forget('account.sec.login.redirecting');
-        //return redirect()->back();
+        return view('secauth.logout');
     }
     /**
      * Show the form for creating a new resource.

@@ -1,7 +1,7 @@
-@extends('rsaauth.app')
+@extends('secauth.app')
 
 @section('appnavbar')
-  @include('rsaauth.navbar')
+  @include('secauth.navbar')
 @endsection
 
 
@@ -10,13 +10,13 @@
 <div class="row justify-content-md-center">
   <div class="col-8">
     <div class="card mt-5 text-center text-white bg-dark bg-success">
-      <div class="card-header">{{trans('rsaauth_profile.title')}}</div>
+      <div class="card-header">{{trans('secauth_profile.title')}}</div>
       <div class="card-body">
-        <form  class="mt-2 mb-2" method="POST" action="/rsaauth/profile">
+        <form  class="mt-2 mb-2" method="POST" action="/secauth/profile">
           {{ csrf_field() }}
           <div class="input-group mb-3">
             <div class="input-group-prepend align-middle">
-              <span>{{trans('rsaauth_profile.apply_name')}}:</span>
+              <span>{{trans('secauth_profile.apply_name')}}:</span>
             </div>
             <div class="input-group-prepend">
               <button type="submit" class="btn btn-outline-primary">

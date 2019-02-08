@@ -6,12 +6,15 @@ use Closure;
 
 class SecAuth
 {
-    const LOGIN_URL_ = 'http://www.wator.xyz/secauth/login/auto';
-    
     const LOGIN_URL_SSL_ = 'https://www.wator.xyz/secauth/login/auto';
-    
-    const LOGOUT_URL_ = 'http://www.wator.xyz/secauth/logout';
-    const LOGSIGNUP_URL_ = 'http://www.wator.xyz/secauth/signup';
+    const LOGIN_PATH_ = 'secauth/login';
+    const LOGIN_PATH_AUTO_ = 'secauth/login/auto';
+    const EXECEPTION_ = [
+        'secauth/login',
+        'secauth/login/auto',
+        'secauth/logout',
+        'secauth/signup'
+    ];
     /**
      * Handle an incoming request.
      *
@@ -21,24 +24,20 @@ class SecAuth
      */
     public function handle($request, Closure $next)
     {
+        view()->share('SecAuth_Passed', false);
         //var_dump($request->url());
         //var_dump($request->fullUrl());
-        if($request->fullUrl() == self::LOGOUT_URL_) {
-          view()->share('SecAuth_Passed', false);
+        $path = $request->path();
+        //var_dump($path);
+        $isExecept = in_array($path, self::EXECEPTION_);
+        //var_dump($isExecept);
+        if ($isExecept) {
           return $next($request);
         }        
-        if($request->fullUrl() == self::LOGSIGNUP_URL_) {
-          view()->share('SecAuth_Passed', false);
-          return $next($request);
-        }        
-        if ($request->isMethod('post')) {
-          return $next($request);
-        }
-        
-        
        $status = $request->session()->get('account.sec.login.status');
         //var_dump($status);
         if (isset($status)) {
+            $request->session()->put('account.sec.login.previou.path',$path);
             if ( $status === 'success') {
                 $name = $request->session()->get('account.sec.login.name');
                 if (isset($name)) {
@@ -51,24 +50,24 @@ class SecAuth
             } else {
                 view()->share('nav_login_show_name', 'navbar.fix');
                 view()->share('nav_login_url', '/secauth/fix');
-                view()->share('SecAuth_Passed', false);
             }
             //view()->share('SecAuth_AutoLogin', 'false');
         } else {
-            view()->share('SecAuth_Passed', false);
             //view()->share('SecAuth_AutoLogin', 'true');
-            if($request->fullUrl() != self::LOGIN_URL_) {
+            if($path != self::LOGIN_PATH_ && $path != self::LOGIN_PATH_AUTO_) {
                 $redirecting = $request->session()->get('account.sec.login.redirecting');
                 //var_dump($redirecting);
                 if (!isset($redirecting)) {
                   $request->session()->put('account.sec.login.redirecting','yes');
+                  $request->session()->put('account.sec.login.previou.path',$path);
                   return redirect(self::LOGIN_URL_SSL_);
                 }
+            } else  {
+              if($request->isMethod('post')) {
+                  return $next($request);
+              }
             }
         }
-        $strRequest = uniqid();
-        $accessID  = hash('sha256',$strRequest);
-        view()->share('SecAuth_Access', $accessID);
         return $next($request);
     }
 }

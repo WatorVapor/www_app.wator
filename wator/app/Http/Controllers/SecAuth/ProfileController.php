@@ -27,16 +27,16 @@ class ProfileController extends Controller
         $data['user_type'] = 'meat';
         $data['user_free'] = 'I am a good man!';
         
-        $accessToken = $request->session()->get('account.rsa.login.token');
+        $accessToken = $request->session()->get('account.sec.login.token');
         $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
         //var_dump($profilePath);
         if (file_exists($profilePath)) {
             $profileStr = file_get_contents($profilePath);
             $profileJson = json_decode($profileStr, true);
             //var_dump($profileJson);
-            return view('rsaauth.profile',$profileJson);
+            return view('secauth.profile',$profileJson);
         }
-        return view('rsaauth.profile',$data);
+        return view('secauth.profile',$data);
     }
 
     /**
@@ -57,16 +57,14 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
-        $accessToken = $request->session()->get('account.rsa.login.token');
+        $accessToken = $request->session()->get('account.sec.login.token');
         //var_dump($accessToken);
         $user_name = $request->input('user-name');
         //var_dump($user_name);
         $profilePath = $this->keyRoot_ . $accessToken . '/profile';
         file_put_contents($profilePath, json_encode(['user_name'=>$user_name]));
-        $request->session()->put('account.rsa.login.name',$user_name);
+        $request->session()->put('account.sec.login.name',$user_name);
         return redirect()->back();
-        //return redirect('/rsaauth/profile');
-        //return redirect()->action('RsaAuth\ProfileController@index');
     }
 
     /**

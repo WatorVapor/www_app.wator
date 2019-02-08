@@ -26,9 +26,10 @@ Route::post('/secauth/import', 'SecAuth\ImportController@store');
 Route::get('/secauth/profile', 'SecAuth\ProfileController@index');
 Route::post('/secauth/profile', 'SecAuth\ProfileController@store');
 
-Route::get('/secauth/login', 'SecAuth\LoginController@index');
-Route::get('/secauth/login/auto', 'SecAuth\LoginController@auto_login');
+Route::get('/secauth/login/auto', 'SecAuth\LoginController@auto_index');
 Route::post('/secauth/login/auto', 'SecAuth\LoginController@auto_store');
+Route::get('/secauth/login', 'SecAuth\LoginController@index');
+Route::post('/secauth/login', 'SecAuth\LoginController@store');
 
 Route::get('/secauth/logout', 'SecAuth\LogoutController@index');
 Route::post('/secauth/logout', 'SecAuth\LogoutController@store');

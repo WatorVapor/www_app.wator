@@ -21,15 +21,15 @@
           {{ csrf_field() }}
           <div class="form-group text-left">
             <span class="input-group-text" for="sec.login.accessToken">{{trans('secauth_login.accessToken')}}</span>
-            <textarea type="text" id="sec.login.accessToken" name="accessToken" class="form-control" cols="40" rows="3" readonly></textarea>
+            <textarea type="text" id="sec.login.accessToken" name="accessToken" class="form-control" cols="40" rows="1" readonly></textarea>
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="sec.login.access">{{trans('secauth_login.access')}}</span>
-             <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="3" readonly>{{ $SecLoginAccessKey }}</textarea>
+             <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="1" readonly>{{ $SecLoginAccessKey }}</textarea>
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="sec.login.signature">{{trans('secauth_login.signature')}}</span>
-            <textarea type="text" id="sec.login.signature" name="signature" class="form-control" cols="40" rows="14" readonly>{{ $SecLoginAccessKey }}</textarea>
+            <textarea type="text" id="sec.login.signature" name="signature" class="form-control" cols="40" rows="4" readonly>{{ $SecLoginAccessKey }}</textarea>
           </div>
         </form>
       </div>
