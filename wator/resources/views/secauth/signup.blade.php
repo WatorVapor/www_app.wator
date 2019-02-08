@@ -1,10 +1,7 @@
-@extends('secauth.app')
-
+@extends('wator.app')
 @section('appnavbar')
   @include('secauth.navbar')
 @endsection
-
-
 @section('content')
 
 <div class="row justify-content-md-center mt-md-5">
@@ -65,10 +62,9 @@
 
 <script src="/wator/secauth/js/create.js" type="text/javascript"></script>
 <script src="/wator/secauth/js/upload.js" type="text/javascript"></script>
-<script src="/wator/js/clipboard.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-  new Clipboard('.btn-clipboard');
+  new ClipboardJS('.btn-clipboard');
 </script>
 
 <script>

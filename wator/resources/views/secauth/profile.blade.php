@@ -1,10 +1,7 @@
-@extends('secauth.app')
-
+@extends('wator.app')
 @section('appnavbar')
   @include('secauth.navbar')
 @endsection
-
-
 @section('content')
 
 <div class="row justify-content-md-center">
