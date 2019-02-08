@@ -64,7 +64,6 @@ $(document).ready(function(){
       }
     }
   }
-
 });
 function doAutoLogin() {
   document.forms['secauth_login_form'].submit();

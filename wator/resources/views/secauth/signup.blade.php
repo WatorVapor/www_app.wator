@@ -45,12 +45,31 @@
       <!--
       <button id="sendmail" type="button" class="btn btn-info">{{trans('secauth_signup.key_send_mail')}}</button>
       -->
-      <a href="/secauth/profile" id="next_step" class="btn btn-info" role="button">{{trans('secauth_signup.key_next')}}</a>
     </div>
   </div>
 </div>
 <br/>
 <br/>
+
+
+<div class="row justify-content-md-center">
+  <div class="col-lg-8">
+    <form  id="secauth_upload_form" class="mt-2 mb-2" method="POST" action="#">
+      {{ csrf_field() }}     
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">{{trans('secauth_login.accessToken')}}</span>
+        </div>
+        <textarea type="text" id="sec.signup.accessToken" name="accessToken" class="form-control" rows="2" readonly></textarea>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success">
+            <span>{{ trans('secauth_signup.key_next') }}</span><i class="material-icons " style="color:green;">done</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 <div class="row justify-content-md-center">
   <div class="col-md-8 bg-info">
@@ -60,6 +79,7 @@
 </div>
 
 
+<script src="/wator/secauth/js/auth.js" type="text/javascript"></script>
 <script src="/wator/secauth/js/create.js" type="text/javascript"></script>
 <script src="/wator/secauth/js/upload.js" type="text/javascript"></script>
 
@@ -71,18 +91,25 @@
   $(document).ready(function() {
     $("#btn_yes").click(function(){
       $("#progressBox").children().show();
-      RSAAuth.createKey(function(){
-        RSAAuth.clearAccess();
-        var priKey = RSAAuth.getPriKey();
-        var pubKey = RSAAuth.getPubKey();
-        $("#privateKey").text(priKey+'\n\r'+pubKey);
-        $("#progressBox").children().hide();
-        $("#operate_key").children().show();
-        $("#savefile").show();
-        $("#sendmail").show();
-        $("#next_step").show();
-        RSAAuth.upPubKey();
-      });
+      const token = SecAuth.createKey();
+      console.log('token=<',token,'>');
+      SecAuth.clearAccess();
+      $("#sec.signup.accessToken").val(token);
+      let elemToken = document.getElementById("sec.signup.accessToken");
+      console.log('elemToken=<',elemToken,'>');
+      if(elemToken) {
+        elemToken.value = token;
+        console.log('elemToken.value=<',elemToken.value,'>');
+      }
+     
+      let priKey = SecAuth.getPriKey();
+      $("#privateKey").text(priKey);
+      $("#progressBox").children().hide();
+      $("#operate_key").children().show();
+      $("#savefile").show();
+      $("#sendmail").show();
+      $("#next_step").show();
+      doUploadToken();
     });
     $("#btn_no").click(function(){
       window.location.href = '/';
@@ -94,15 +121,19 @@
     $("#next_step").hide();
     
     $("#savefile").click(function(){
-      var priKey = RSAAuth.getPriKey();
-      var pubKey = RSAAuth.getPubKey();
-      var blob = new Blob([ priKey+'\n\r'+pubKey ], { "type" : "text/plain" });
+      let priKey = SecAuth.getPriKey();
+      let pubKey = SecAuth.getPubKey();
+      let blob = new Blob([ priKey], { "type" : "text/plain" });
       //console.log(blob);
       document.getElementById("savefile").href = window.URL.createObjectURL(blob);
     });
     $("#sendmail").click(function(){
     });
   });
+  function doUploadToken() {
+    //document.forms['secauth_upload_form'].submit();
+  }
+  
 </script>
 
 

@@ -1,3 +1,4 @@
+/*
 var RSAAuth = RSAAuth || {};
 RSAAuth.LS_AUTH_KEY_PRV = 'wator.auth.ecdsa.key.private';
 RSAAuth.LS_AUTH_KEY_PUB = 'wator.auth.ecdsa.key.public';
@@ -48,4 +49,6 @@ RSAAuth.upPubKey = function(cb) {
     // error.
   }
 }
+*/
+
 

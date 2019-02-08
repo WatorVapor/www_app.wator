@@ -43,16 +43,13 @@ class SignUpController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $bodyContent = $request->getContent();
-        //var_dump($bodyContent);
-        $bodyJson = json_decode($bodyContent);
-        //var_dump($bodyJson);
-        $keyPath = $this->keyRoot_ . $bodyJson->token . '/';
+        $accessToken = $request->input('accessToken');
+        var_dump($accessToken);
+        $keyPath = $this->keyRoot_ . $accessToken . '/';
         File::makeDirectory($keyPath, 0777, true, true);
         //var_dump($keyPath);
-        file_put_contents($keyPath . '/pubKey.b58', $bodyJson->token);
-        return response()->json(['status'=>'success']);
+        file_put_contents($keyPath . '/pubKey.b58', $accessToken);
+        return redirect()->secure('/secauth/profile');
     }
 
     /**
