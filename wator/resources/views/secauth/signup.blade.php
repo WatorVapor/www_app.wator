@@ -81,7 +81,6 @@
 
 <script src="/wator/secauth/js/auth.js" type="text/javascript"></script>
 <script src="/wator/secauth/js/create.js" type="text/javascript"></script>
-<script src="/wator/secauth/js/upload.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   new ClipboardJS('.btn-clipboard');

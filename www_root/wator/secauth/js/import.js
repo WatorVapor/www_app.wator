@@ -15,7 +15,7 @@ RSAAuth.getToken = function() {
 }
 
 /*
-* createKey
+* importKey
 */
 RSAAuth.importKey = function(keys,cb) {
   if (RSAAuth.debug) {
