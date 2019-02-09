@@ -12,8 +12,9 @@
       <div class="card-header">{{trans('secauth_login.title')}}</div>
       <div class="card-body">
         <form  id="secauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
-          <button type="submit" class="btn btn-success">
-            <spam>{{trans('secauth_login.login')}}</span><i class="material-icons " style="color:green;">done</i>
+          <button type="submit" class="btn btn-success btn-block mb-3">
+            <spam>{{trans('secauth_login.login')}}</span>
+            <i class="material-icons " style="color:green;">done</i>
           </button>
           {{ csrf_field() }}
           <div class="form-group text-left">

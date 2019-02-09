@@ -14,7 +14,8 @@ class SecAuth
         'secauth/login/auto',
         'secauth/login/failure',
         'secauth/logout',
-        'secauth/signup'
+        'secauth/signup',
+        'secauth/import'
     ];
     /**
      * Handle an incoming request.

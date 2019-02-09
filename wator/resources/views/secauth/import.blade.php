@@ -4,13 +4,43 @@
 @endsection
 @section('content')
 
-<div class="row justify-content-center" style="height:20px;">
+@php
+$placement_tips = <<<EOT
+{
+  "kty": "EC",
+  "crv": "P-256",
+  "x": "...",
+  "y": "...",
+  "d": "..."
+}
+EOT;
+
+@endphp
+
+
+<div class="row justify-content-md-center">
+  <div class="col-lg-8">
+    <form  id="secauth_upload_form" class="mt-2 mb-2" method="POST" action="/secauth/signup#">
+      {{ csrf_field() }}     
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">{{trans('secauth_login.accessToken')}}</span>
+        </div>
+        <textarea type="text" id="sec.signup.accessToken" name="accessToken" class="form-control" rows="2" readonly></textarea>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success d-none">
+            <span>{{trans('secauth_import.apply')}}</span><i class="material-icons " style="color:green;">done</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
+
 <div class="row justify-content-center">
-  <div class="col-8">
-    <textarea id="import-key-value" class="w-100 text-left small" rows="10" data-toggle="tooltip" data-placement="top" title="paste -----BEGIN PRIVATE KEY----- -----BEGIN PUBLIC KEY-----">
-    </textarea>
+  <div class="col-4">
+    <textarea id="import-key-value" class="w-100 text-left small" rows="8" placeholder="{{ $placement_tips }}"></textarea>
   </div>
 </div>
 
@@ -21,7 +51,6 @@
     </button>
   </div>
 </div>
-
 
 <div class="row justify-content-center d-none" id="import-key-save">
   <div class="col-2">
@@ -40,6 +69,9 @@
 </div>
 
 
+
+
+
 <div class="alert alert-success d-none" id="import-key-success" role="alert">
   Success!!
 </div>
@@ -48,6 +80,7 @@
   Fatal Error!!,Do Again.
 </div>
 
+<script src="/wator/secauth/js/auth.js" type="text/javascript"></script>
 
 <script>
   $(document).ready(function() {

@@ -9,44 +9,43 @@ function onImportKey(elem) {
   console.log('onImportKey:elemKey=<',elemKey,'>');
   let keyStr = elemKey.value;
   console.log('onImportKey:keyStr=<',keyStr,'>');
-  let keys = getKeys(keyStr)
-  console.log('onImportKey:keys=<',keys,'>');
-  let prvKey = KEYUTIL.getKey(keys.prv);
-  console.log('prvKey=<',prvKey,'>');
-  let pubKey = KEYUTIL.getKey(keys.pub);
-  console.log('pubKey=<',pubKey,'>');
-  let msg = 'wator';
-  let sign = prvKey.sign(msg,'sha1');
-  console.log('sign=<',sign,'>');
-  let verified = pubKey.verify(msg,sign);
-  console.log('verified=<',verified,'>');
-  if(verified) {
-    keyImportPub = pubKey;
-    keyImportPrv = prvKey;
-    markAsGoodKeyPair();
-  } else {
+  try {
+    let keyJson = JSON.parse(keyStr)
+    console.log('onImportKey:keyJson=<',keyJson,'>');
+    let prvKey = KEYUTIL.getKey(keyJson);
+    console.log('prvKey=<',prvKey,'>');
+
+    let keyPubJson = JSON.parse(keyStr);
+    delete keyPubJson.d;
+    let pubKey = KEYUTIL.getKey(keyPubJson);
+    console.log('pubKey=<',pubKey,'>');
+    if(prvKey && pubKey) {
+      keyImportPub = pubKey;
+      keyImportPrv = prvKey;
+
+      const pubHex = keyImportPub.pubKeyHex;
+      console.log('SecAuth.createKeyPair_:: pubHex=<',pubHex,'>');
+      const pubBuff = fromHexString(pubHex);
+      console.log('SecAuth.createKeyPair_:: pubBuff=<',pubBuff,'>');
+      const pubB58 = Base58.encode(pubBuff);
+      console.log('SecAuth.createKeyPair_:: pubB58=<',pubB58,'>');     
+      let elemToken = document.getElementById("sec.signup.accessToken");
+      console.log('elemToken=<',elemToken,'>');
+      if(elemToken) {
+        elemToken.value = pubB58;
+        console.log('elemToken.value=<',elemToken.value,'>');
+      }
+      
+      markAsGoodKeyPair();
+    }
+  } catch(e) {
     keyImportPub = false;
     keyImportPrv = false;
-    markAsBadKeyPair();
+    markAsBadKeyPair();    
   }
 }
 
-function getKeys( keyStr) {
-  let startPrv = keyStr.indexOf('-----BEGIN PRIVATE KEY-----')
-  console.log('getKeys:startPrv=<',startPrv,'>');
-  let endPrv = keyStr.indexOf('-----END PRIVATE KEY-----')
-  console.log('getKeys:endPrv=<',endPrv,'>');
-  let prvKey = keyStr.substr(startPrv,endPrv-startPrv) + '-----END PRIVATE KEY-----'
-  console.log('getKeys:prvKey=<',prvKey,'>');
 
-  let startPub = keyStr.indexOf('-----BEGIN PUBLIC KEY-----')
-  console.log('getKeys:startPub=<',startPub,'>');
-  let endPub = keyStr.indexOf('-----END PUBLIC KEY-----')
-  console.log('getKeys:endPub=<',endPub,'>');
-  let pubKey = keyStr.substr(startPub,endPub-startPub) + '-----END PUBLIC KEY-----'
-  console.log('getKeys:pubKey=<',pubKey,'>');
-  return {pub:pubKey,prv:prvKey};
-}
 
 function markAsGoodKeyPair() {
   $( '#import-key-verify').addClass('d-none');
@@ -62,24 +61,37 @@ function markAsBadKeyPair() {
 function onSaveKey(elem) {
   console.log('onSaveKey:elem=<',elem,'>');
   if(keyImportPub && keyImportPrv){
-    let pemPriv = KEYUTIL.getPEM(keyImportPrv,"PKCS8PRV");
-    localStorage.setItem('auth.rsa.key.private',pemPriv);
-  }
-  if(keyImportPub && keyImportPrv) {
-    let pemPub = KEYUTIL.getPEM(keyImportPub);
-    localStorage.setItem('auth.rsa.key.public',pemPub);
-    let token = KJUR.crypto.Util.sha512(pemPub);
-    localStorage.setItem('auth.rsa.token',token);
-    RSAAuth.upPubKey(function(status){
-      console.log('onSaveKey:status=<',status,'>');
-      if(status.status === 'success') {
-        $( '#import-key-success').removeClass('d-none');
-      } else {
-        $( '#import-key-failure').removeClass('d-none');
-      }
-    });
+    let jwkPrv = KEYUTIL.getJWKFromKey(keyImportPrv);
+    console.log('onSaveKey:jwkPrv=<',jwkPrv,'>');
+    localStorage.setItem(SecAuth.LS_AUTH_KEY_PRV,JSON.stringify(jwkPrv,undefined,2));
+
+    let jwkPub = KEYUTIL.getJWKFromKey(keyImportPub);
+    console.log('onSaveKey:jwkPub=<',jwkPub,'>');
+    localStorage.setItem(SecAuth.LS_AUTH_KEY_PUB,JSON.stringify(jwkPub,undefined,2));
+    
+    const pubHex = keyImportPub.pubKeyHex;
+    console.log('SecAuth.createKeyPair_:: pubHex=<',pubHex,'>');
+    const pubBuff = fromHexString(pubHex);
+    console.log('SecAuth.createKeyPair_:: pubBuff=<',pubBuff,'>');
+    const pubB58 = Base58.encode(pubBuff);
+    console.log('SecAuth.createKeyPair_:: pubB58=<',pubB58,'>');
+    localStorage.setItem(SecAuth.LS_AUTH_KEY_TOKEN,pubB58);
+    doUploadToken();
   }
 }
+
+function doUploadToken() {
+  document.forms['secauth_upload_form'].submit();
+}
+
+
+const fromHexString = hexString =>
+  new Uint8Array(hexString.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+
+const toHexString = bytes =>
+  bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
+
+
 
 </script>
 
