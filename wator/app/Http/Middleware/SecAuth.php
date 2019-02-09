@@ -12,6 +12,7 @@ class SecAuth
     const EXECEPTION_ = [
         'secauth/login',
         'secauth/login/auto',
+        'secauth/login/failure',
         'secauth/logout',
         'secauth/signup'
     ];
