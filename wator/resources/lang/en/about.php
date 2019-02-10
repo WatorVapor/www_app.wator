@@ -1,7 +1,6 @@
 <?php
 return [
   'content' => '
-"making"
 WatorVapor Terms of Service:
 The following three roles are defined to facilitate the description of the Terms of Service:
   1. The owner. The domain name registration. Earth people, robots, AI programs, or organizations.
