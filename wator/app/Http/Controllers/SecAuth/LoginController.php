@@ -5,6 +5,7 @@ use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use File;
+use App;
 
 class LoginController extends Controller
 {
@@ -54,6 +55,11 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         try {
+            $lang = $request->input('lang');
+            if($lang) {
+                App::setLocale($lang);
+                $request->session()->put('user.operation.lang',$lang);
+            }
             $accessToken = $request->input('accessToken');
             //var_dump($accessToken);
             $access = $request->input('access');

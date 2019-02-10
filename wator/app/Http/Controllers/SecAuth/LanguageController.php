@@ -1,9 +1,12 @@
 <?php
 
 namespace Wator\Http\Controllers\SecAuth;
+//namespace Wator\Http\Controllers;
 use Wator\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App;
+
 
 class LanguageController extends Controller
 {
@@ -35,18 +38,15 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $bodyContent = $request->getContent();
-        //var_dump($bodyContent);
-        $bodyJson = json_decode($bodyContent);
-        //var_dump($bodyJson);
-        if(!isset($bodyJson->lang)) {
-            App::setLocale($bodyJson->lang);
-            return response()->json(['status'=>'failure']);
-        } else {
-            $request->session()->put('user.operation.lang', $bodyJson->lang);
+        $lang = $request->input('lang');
+        //var_dump($lang);
+        if($lang) {
+            //var_dump($lang);
+            $request->session()->put('user.operation.lang',$lang);
+            App::setLocale($lang);
         }
-        return response()->json(['status'=>'success']);
+        //return;
+        return redirect()->back();
     }
 
     /**

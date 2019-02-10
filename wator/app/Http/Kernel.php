@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \Wator\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Wator\Http\Middleware\SecAuth::class,
-            //\Wator\Http\Middleware\Lang::class,
+            \Wator\Http\Middleware\Lang::class,
         ],
 
         'api' => [

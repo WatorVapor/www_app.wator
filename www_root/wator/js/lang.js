@@ -1,21 +1,3 @@
-$(function () {
-  $('.language_button').click(function(){
-    let lang = this.value;
-    console.log('lang=<' + lang + '>');
-    if(lang) {
-      localStorage.setItem('operation.lang',lang);
-      updateLanguage();
-    }
-  });
-});
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-
 function onClickLanguage(lang) {
   console.log('lang=<' + lang + '>');
   if(lang) {
@@ -24,8 +6,17 @@ function onClickLanguage(lang) {
   }
 }
 function updateLanguage() {
-  var lang = localStorage.getItem('operation.lang')
+  let lang = localStorage.getItem('operation.lang')
   if(lang && typeof lang === 'string') {
+    let elemLang = document.getElementById("nav.sec.login.lang");
+    console.log('elemLang=<',elemLang,'>');
+    if(elemLang) {
+      elemLang.value = lang;
+      console.log('elemLang.value=<',elemLang.value,'>');
+    }
+    document.forms['secauth_navi_lang_form'].submit();
+
+/*    
     var url = '/secauth/language';
     var JSONdata ={lang:lang};
     $.ajax({
@@ -47,6 +38,7 @@ function updateLanguage() {
         sessionStorage.setItem('operation.lang.run.error',JSON.stringify(data));
       }
     });
+*/
   }
 }
 

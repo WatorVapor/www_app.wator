@@ -55,6 +55,9 @@
 
 <ul class="navbar-nav nav justify-content-end">
   <li class="nav-item active mr-lg-5">
+  {{ app()->getLocale() }}
+  </li>
+  <li class="nav-item active mr-lg-5">
     <a tabindex="1" href="#" class="btn btn-lg btn-success nav-btn" data-container="body" data-html="true" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="{{ $apps }}">
       <i class="material-icons md-48">apps</i>
     </a>
@@ -84,3 +87,16 @@
   </li>
   @endif
 </ul>
+
+<form  id="secauth_navi_lang_form" class="mt-2 mb-2 d-none" method="POST" action="/secauth/language">
+  <button type="submit" class="btn btn-success btn-block mb-3">
+    <spam>{{trans('secauth_login.login')}}</span>
+    <i class="material-icons " style="color:green;">done</i>
+  </button>
+  {{ csrf_field() }}
+  <div class="form-group text-left">
+    <span class="input-group-text">{{trans('secauth_login.lang')}}</span>
+    <textarea type="text" id="nav.sec.login.lang" name="lang" class="form-control" cols="40" rows="1"></textarea>
+  </div>
+</form>
+
