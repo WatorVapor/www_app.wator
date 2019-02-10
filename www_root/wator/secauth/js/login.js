@@ -1,32 +1,9 @@
-<script type="text/javascript">
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-var RSAAuth = RSAAuth || {};
-RSAAuth.LS_AUTH_KEY_PRV = 'wator.auth.ecdsa.key.private';
-RSAAuth.LS_AUTH_KEY_PUB = 'wator.auth.ecdsa.key.public';
-RSAAuth.LS_AUTH_KEY_TOKEN = 'wator.auth.ecdsa.key.token';
-RSAAuth.getPubKey = function() {
-  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_PUB);
-}
-RSAAuth.getPriKey = function() {
-  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_PRV);
-}
-RSAAuth.getToken = function() {
-  return localStorage.getItem(RSAAuth.LS_AUTH_KEY_TOKEN);
-}
-
-
-
 $(document).ready(function(){
-  let privateKey = RSAAuth.getPriKey();
+  let privateKey = SecAuth.getPriKey();
   if(!privateKey) {
     return;
   }
-  let token = RSAAuth.getToken();
+  let token = SecAuth.getToken();
   console.log('token=<',token,'>');
   if(!token) {
     return;
@@ -68,5 +45,3 @@ $(document).ready(function(){
 function doAutoLogin() {
   document.forms['secauth_login_form'].submit();
 }
-
-</script>

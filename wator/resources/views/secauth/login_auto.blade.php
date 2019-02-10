@@ -33,5 +33,6 @@
     </div>
   </div>
 </div>
-@include('secauth.js.login')
+<script src="/wator/secauth/js/auth.js" type="text/javascript"></script>
+<script src="/wator/secauth/js/login.js" type="text/javascript"></script>
 @endsection

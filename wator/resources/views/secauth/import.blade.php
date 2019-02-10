@@ -81,12 +81,12 @@ EOT;
 </div>
 
 <script src="/wator/secauth/js/auth.js" type="text/javascript"></script>
+<script src="/wator/secauth/js/import.js" type="text/javascript"></script>
 
 <script>
   $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
-@include('secauth.js.import')
 
 @endsection

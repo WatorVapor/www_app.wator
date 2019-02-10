@@ -1,7 +1,5 @@
-<script type="text/javascript">
 let keyImportPub = false;
 let keyImportPrv = false;
-
 
 function onImportKey(elem) {
   console.log('onImportKey:elem=<',elem,'>');
@@ -90,8 +88,3 @@ const fromHexString = hexString =>
 
 const toHexString = bytes =>
   bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-
-
-
-</script>
-
