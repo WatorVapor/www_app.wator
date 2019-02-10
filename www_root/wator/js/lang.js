@@ -50,10 +50,3 @@ function updateLanguage() {
   }
 }
 
-/*
-check language at boot.
-*/
-var run = sessionStorage.getItem('operation.lang.run')
-if(! run) {
-  updateLanguage();
-}

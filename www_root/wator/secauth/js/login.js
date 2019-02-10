@@ -14,6 +14,14 @@ $(document).ready(function(){
     elemToken.value = token;
     console.log('elemToken.value=<',elemToken.value,'>');
   }
+  let lang = localStorage.getItem('operation.lang');
+  let elemLang = document.getElementById("sec.login.lang");
+  console.log('elemLang=<',elemLang,'>');
+  if(elemLang) {
+    elemLang.value = lang;
+    console.log('elemLang.value=<',elemLang.value,'>');
+  }
+  
   const jwkPrv = JSON.parse(privateKey);
   if(!jwkPrv) {
     return;
