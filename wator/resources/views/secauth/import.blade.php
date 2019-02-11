@@ -24,9 +24,9 @@ EOT;
       {{ csrf_field() }}     
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">{{trans('secauth_login.accessToken')}}</span>
+          <span class="input-group-text">{{trans('secauth_login.accountToken')}}</span>
         </div>
-        <textarea type="text" id="sec.signup.accessToken" name="accessToken" class="form-control" rows="2" readonly></textarea>
+        <textarea type="text" id="sec.signup.accountToken" name="accountToken" class="form-control" rows="2" readonly></textarea>
         <div class="input-group-append">
           <button type="submit" class="btn btn-success d-none">
             <span>{{trans('secauth_import.apply')}}</span><i class="material-icons " style="color:green;">done</i>

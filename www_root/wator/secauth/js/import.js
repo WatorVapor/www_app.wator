@@ -27,13 +27,12 @@ function onImportKey(elem) {
       console.log('SecAuth.createKeyPair_:: pubBuff=<',pubBuff,'>');
       const pubB58 = Base58.encode(pubBuff);
       console.log('SecAuth.createKeyPair_:: pubB58=<',pubB58,'>');     
-      let elemToken = document.getElementById("sec.signup.accessToken");
+      let elemToken = document.getElementById("sec.signup.accountToken");
       console.log('elemToken=<',elemToken,'>');
       if(elemToken) {
         elemToken.value = pubB58;
         console.log('elemToken.value=<',elemToken.value,'>');
       }
-      
       markAsGoodKeyPair();
     }
   } catch(e) {
