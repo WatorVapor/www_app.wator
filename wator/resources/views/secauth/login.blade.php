@@ -18,20 +18,20 @@
           </button>
           {{ csrf_field() }}
           <div class="form-group text-left">
-            <span class="input-group-text" for="sec.login.accessToken">{{trans('secauth_login.accessToken')}}</span>
-            <textarea type="text" id="sec.login.accessToken" name="accessToken" class="form-control" cols="40" rows="1"></textarea>
+            <span class="input-group-text" for="sec.login.accountToken">{{trans('secauth_login.accountToken')}}</span>
+            <textarea type="text" id="sec.login.accountToken" name="accountToken" class="form-control" cols="40" rows="2" readonly></textarea>
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="sec.login.access">{{trans('secauth_login.access')}}</span>
-             <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="1">{{ $SecLoginAccessKey }}</textarea>
+             <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="1" readonly>{{ $SecLoginAccessKey }}</textarea>
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="sec.login.signature">{{trans('secauth_login.signature')}}</span>
-            <textarea type="text" id="sec.login.signature" name="signature" class="form-control" cols="40" rows="2"></textarea>
+            <textarea type="text" id="sec.login.signature" name="signature" class="form-control" cols="40" rows="2" readonly></textarea>
           </div>
           <div class="form-group text-left">
             <span class="input-group-text"for="sec.login.lang">{{trans('secauth_login.lang')}}</span>
-            <textarea type="text" id="sec.login.lang" name="lang" class="form-control" cols="40" rows="1"></textarea>
+            <textarea type="text" id="sec.login.lang" name="lang" class="form-control" cols="40" rows="1" readonly></textarea>
           </div>
         </form>
       </div>

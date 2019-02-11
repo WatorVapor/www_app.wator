@@ -10,6 +10,7 @@ use App;
 class LoginController extends Controller
 {
     const FAILUREPATH_ = '/secauth/login/failure';
+    const LOGIN_SUCCESS_JUMP_PATH_ = '/';
     protected $keyRoot_;
     public function __construct() {
         $this->keyRoot_ = '/opt/secauth/pubKeys/';
@@ -54,24 +55,25 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+       $prevPath = $request->session()->get('account.sec.login.previou.path');
         try {
             $lang = $request->input('lang');
             if($lang) {
                 App::setLocale($lang);
                 $request->session()->put('user.operation.lang',$lang);
             }
-            $accessToken = $request->input('accessToken');
-            //var_dump($accessToken);
+            $accountToken = $request->input('accountToken');
+            //var_dump($accountToken);
             $access = $request->input('access');
             //var_dump($access);
             $signature = $request->input('signature');
             //var_dump($signature);
-            $keyPath = $this->keyRoot_ . $accessToken . ''. '/pubKey.b58';
+            $keyPath = $this->keyRoot_ . $accountToken . ''. '/pubKey.b58';
             $myAccess = $request->session()->get('account.sec.login.access');
             //var_dump($myAccess);
             if($access != $myAccess) {
                 $request->session()->put('account.sec.login.status','failure');
-                $request->session()->put('account.sec.login.token',$accessToken);
+                $request->session()->put('account.sec.login.token',$accountToken);
                 $request->session()->put('account.sec.login.access',$access);
                 $request->session()->put('account.sec.login.failure.details','wator.ecdsa.auth.access.wrong');
                 return redirect()->secure(self::FAILUREPATH_);              
@@ -79,14 +81,14 @@ class LoginController extends Controller
             //var_dump($keyPath);
             if (file_exists($keyPath)) {
                 //var_dump($keyPath);
-                $ecdsaVerify = parent::verify($accessToken,$access,$signature);
+                $ecdsaVerify = parent::verify($accountToken,$access,$signature);
                 //var_dump($ecdsaVerify);
                 if($ecdsaVerify && $ecdsaVerify->good) {
                     //var_dump($ecdsaVerify->good);
                     $request->session()->put('account.sec.login.status','success');
-                    $request->session()->put('account.sec.login.token',$accessToken);
+                    $request->session()->put('account.sec.login.token',$accountToken);
                     $request->session()->put('account.sec.login.access',$access);
-                    $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
+                    $profilePath = $this->keyRoot_ . $accountToken . ''. '/profile';
                     if (file_exists($profilePath)) {
                         $profileStr = file_get_contents($profilePath);
                         $profileJson = json_decode($profileStr, true);
@@ -100,14 +102,14 @@ class LoginController extends Controller
                     } 
                 } else {
                     $request->session()->put('account.sec.login.status','failure');
-                    $request->session()->put('account.sec.login.token',$accessToken);
+                    $request->session()->put('account.sec.login.token',$accountToken);
                     $request->session()->put('account.sec.login.access',$access);
                     $request->session()->put('account.sec.login.failure.details','wator.ecdsa.auth.keyerror');
                     return redirect()->secure(self::FAILUREPATH_);
                 }
             } else {
                 $request->session()->put('account.sec.login.status','failure');
-                $request->session()->put('account.sec.login.token',$accessToken);
+                $request->session()->put('account.sec.login.token',$accountToken);
                 $request->session()->put('account.sec.login.access',$access);
                 $request->session()->put('account.sec.login.failure.details','wator.ecdsa.auth.notsignup');
                 return redirect()->secure(self::FAILUREPATH_);              
@@ -121,8 +123,7 @@ class LoginController extends Controller
             $request->session()->put('account.sec.login.failure.details',$e->getMessage());
             return redirect()->secure(self::FAILUREPATH_);
         }
-       $prevPath = $request->session()->get('account.sec.login.previou.path');
-       return redirect()->secure($prevPath);
+        return redirect()->secure(self::LOGIN_SUCCESS_JUMP_PATH_);
      }
 
     /**

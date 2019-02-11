@@ -17,8 +17,8 @@
           </button>
           {{ csrf_field() }}
           <div class="form-group text-left">
-            <span class="input-group-text" for="sec.login.accessToken">{{trans('secauth_login.accessToken')}}</span>
-            <textarea type="text" id="sec.login.accessToken" name="accessToken" class="form-control" cols="40" rows="1" readonly></textarea>
+            <span class="input-group-text" for="sec.login.accountToken">{{trans('secauth_login.accountToken')}}</span>
+            <textarea type="text" id="sec.login.accountToken" name="accountToken" class="form-control" cols="40" rows="2" readonly></textarea>
           </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="sec.login.access">{{trans('secauth_login.access')}}</span>

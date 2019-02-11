@@ -10,9 +10,10 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-    'title' => 'Login by Private key Saved on Your Machine localstorage.',
-    'accessToken' => 'Access Token',
-    'access' => 'Access',
-    'signature' => 'Signature',
-    'login' => 'login',
+    'title' => 'вход в систему, используемый локальным ключом',
+    'accountToken' => 'счетная карта',
+    'access' => 'Доступ к случайной случайности',
+    'signature' => 'цифровая подпись',
+    'login' => 'вход в систему',
+    'lang' => 'язык',
 ];

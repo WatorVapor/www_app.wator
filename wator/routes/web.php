@@ -19,6 +19,8 @@ Route::get('/search/link', 'Home\SearchLinkController@index');
 
 Route::get('/secauth/signup', 'SecAuth\SignUpController@index');
 Route::post('/secauth/signup', 'SecAuth\SignUpController@store');
+Route::get('/secauth/signup/auto_create', 'SecAuth\SignUpController@index_auto_create');
+
 
 Route::get('/secauth/import', 'SecAuth\ImportController@index');
 Route::post('/secauth/import', 'SecAuth\ImportController@store');

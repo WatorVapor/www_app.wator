@@ -59,9 +59,9 @@
       {{ csrf_field() }}     
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">{{trans('secauth_login.accessToken')}}</span>
+          <span class="input-group-text">{{trans('secauth_login.accountToken')}}</span>
         </div>
-        <textarea type="text" id="sec.signup.accessToken" name="accessToken" class="form-control" rows="2" readonly></textarea>
+        <textarea type="text" id="sec.signup.accountToken" name="accountToken" class="form-control" rows="2" readonly></textarea>
         <div class="input-group-append">
           <button type="submit" class="btn btn-success">
             <span>{{ trans('secauth_signup.key_next') }}</span><i class="material-icons " style="color:green;">done</i>
@@ -94,8 +94,8 @@
       const token = SecAuth.createKey();
       console.log('token=<',token,'>');
       SecAuth.clearAccess();
-      $("#sec.signup.accessToken").val(token);
-      let elemToken = document.getElementById("sec.signup.accessToken");
+      $("#sec.signup.accountToken").val(token);
+      let elemToken = document.getElementById("sec.signup.accountToken");
       console.log('elemToken=<',elemToken,'>');
       if(elemToken) {
         elemToken.value = token;
@@ -109,12 +109,14 @@
       $("#savefile").show();
       $("#sendmail").show();
       $("#next_step").show();
-      doUploadToken();
     });
     $("#btn_no").click(function(){
       window.location.href = '/';
     });
-    $("#progressBox").children().hide();
+     $("#next_step").click(function(){
+      doUploadToken();
+    });
+   $("#progressBox").children().hide();
     $("#operate_key").children().hide();
     $("#savefile").hide();
     $("#sendmail").hide();

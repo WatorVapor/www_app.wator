@@ -15,6 +15,7 @@ class SecAuth
         'secauth/login/failure',
         'secauth/logout',
         'secauth/signup',
+        'secauth/signup/auto_create',
         'secauth/import'
     ];
     /**
@@ -55,6 +56,7 @@ class SecAuth
             }
             //view()->share('SecAuth_AutoLogin', 'false');
         } else {
+          /*
             //view()->share('SecAuth_AutoLogin', 'true');
             if($path != self::LOGIN_PATH_ && $path != self::LOGIN_PATH_AUTO_) {
                 $redirecting = $request->session()->get('account.sec.login.redirecting');
@@ -69,6 +71,7 @@ class SecAuth
                   return $next($request);
               }
             }
+          */
         }
         return $next($request);
     }

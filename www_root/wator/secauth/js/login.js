@@ -8,7 +8,7 @@ $(document).ready(function(){
   if(!token) {
     return;
   }
-  let elemToken = document.getElementById("sec.login.accessToken");
+  let elemToken = document.getElementById("sec.login.accountToken");
   console.log('elemToken=<',elemToken,'>');
   if(elemToken) {
     elemToken.value = token;

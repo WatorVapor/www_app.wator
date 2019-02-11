@@ -10,9 +10,10 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-    'title' => 'Login by Private key Saved on Your Machine localstorage.',
-    'accessToken' => 'Access Token',
-    'access' => 'Access',
-    'signature' => 'Signature',
-    'login' => 'login',
+    'title' => '用本地存储的密钥登录',
+    'accountToken' => '账户令牌',
+    'access' => '访问随机数',
+    'signature' => '数字签名',
+    'login' => '登录',
+    'lang' => '语言',
 ];

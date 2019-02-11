@@ -43,12 +43,12 @@ class SignUpController extends Controller
      */
     public function store(Request $request)
     {
-        $accessToken = $request->input('accessToken');
-        var_dump($accessToken);
-        $keyPath = $this->keyRoot_ . $accessToken . '/';
+        $accountToken = $request->input('accountToken');
+        //var_dump($accountToken);
+        $keyPath = $this->keyRoot_ . $accountToken . '/';
         File::makeDirectory($keyPath, 0777, true, true);
         //var_dump($keyPath);
-        file_put_contents($keyPath . '/pubKey.b58', $accessToken);
+        file_put_contents($keyPath . '/pubKey.b58', $accountToken);
         return redirect()->secure('/secauth/profile');
     }
 
@@ -96,4 +96,17 @@ class SignUpController extends Controller
     {
         //
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_auto_create()
+    {
+        //
+        //var_dump($this->keyRoot_);
+        return view('secauth.signup_auto_create');
+    }
+
 }

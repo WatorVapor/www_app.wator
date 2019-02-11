@@ -11,8 +11,9 @@ return [
     |
     */
     'title' => 'Login by Private key Saved on Your Machine localstorage.',
-    'accessToken' => 'Access Token',
+    'accountToken' => 'Account Token',
     'access' => 'Access',
     'signature' => 'Signature',
     'login' => 'login',
+    'lang' => 'language',
 ];
