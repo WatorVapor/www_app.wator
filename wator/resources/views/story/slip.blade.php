@@ -45,9 +45,19 @@ pre {
   </div>
 </div>
 <div class="row justify-content-center">
+  <div class="col-6">
+    <div class="row justify-content-between">
+      <div class="col-2">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-plus-zoom">+</button>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-warning btn-lg btn-block" id="btn-minus-zoom">-</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
   <div class="col-11">
-    <button type="button" class="btn btn-primary btn-lg" id="btn-plus-zoom">+</button>
-    <button type="button" class="btn btn-warning btn-lg pull-right" id="btn-minus-zoom">-</button>
     <pre class="text-story text-left bg-info">{{ $content }}</pre>
   </div>
 </div>
