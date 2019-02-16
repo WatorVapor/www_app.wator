@@ -10,10 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', 'Home\WelcomeController@index');
 Route::get('/about', 'Home\AboutController@index');
 Route::get('/welcome', 'Home\WelcomeController@index');
-Route::get('/', 'Home\WelcomeController@index');
 Route::get('/search/link', 'Home\SearchLinkController@index');
 
 
@@ -36,12 +35,6 @@ Route::get('/secauth/login/failure', 'SecAuth\LoginController@failure');
 
 Route::get('/secauth/logout', 'SecAuth\LogoutController@index');
 Route::post('/secauth/logout', 'SecAuth\LogoutController@store');
-
-Route::get('/secauth/fix', 'SecAuth\FixController@index');
-Route::post('/secauth/fix', 'SecAuth\FixController@store');
-
-Route::get('/secauth/access', 'SecAuth\AccessController@index');
-Route::post('/secauth/access', 'SecAuth\AccessController@store');
 
 Route::get('/secauth/language', 'SecAuth\LanguageController@index');
 Route::post('/secauth/language', 'SecAuth\LanguageController@store');
