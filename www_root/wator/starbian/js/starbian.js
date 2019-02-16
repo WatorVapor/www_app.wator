@@ -63,8 +63,17 @@ StarBian.Peer = class StarBianPeer {
   constructor(channelKey) {
     this.ipfsProxy = new StarBianIpfsProxy(channelKey);
     this.ipfsProxy.onReady = () => {
+      console.log('StarBian.Peer ipfsProxy:: this=<',this,'>');
       if(typeof this.onReady === 'function') {
         this.onReady();
+      }
+    }
+    let self = this;
+    this.ipfsProxy.onopen = () => {
+      console.log('StarBian.Peer ipfsProxy:: typeof this.onopen=<',typeof this.onopen,'>');
+      console.log('StarBian.Peer ipfsProxy:: this.onopen=<',this.onopen,'>');
+      if(typeof this.onopen === 'function') {
+        this.onopen();
       }
     }
   }
@@ -86,6 +95,12 @@ StarBian.Peer = class StarBianPeer {
   getPubKey() {
     return _insideCrypto.getPubKey();
   }
+  
+  /**
+  */
+  onopen() {
+  }
+  
   
   // private..
   static InitCrypto_(evt) {
@@ -935,6 +950,7 @@ class StarBianIpfsProxy {
     this.ws_.onerror = (evt) => { 
       self.onNotifyError_(evt);
     };
+    console.log('connectWS_:this.ws_=<',this.ws_,'>');
   }
   reconnect_() {
     window.location.reload(true);
@@ -973,6 +989,13 @@ class StarBianIpfsProxy {
     //console.log('onGoodECDH_:ecdh=<',ecdh,'>');
     if(ecdh.type === 'request') {
       this.tryExchangeKey_('response');
+    }
+    if(ecdh.type === 'response') {
+      console.log('onGoodECDH_:ecdh=<',ecdh,'>');
+      //console.log('onGoodECDH_:this.onopen =<',this.onopen,'>');
+      if(typeof this.onopen === 'function') {
+        this.onopen();
+      }
     }
     this.exchangeKeyDone_ = true;
     let self = this;
@@ -1038,6 +1061,7 @@ class StarBianIpfsProxy {
         ecdh:ecdh
       };
       //console.log('tryExchangeKey:self.ws_=<',self.ws_,'>');
+      console.log('tryExchangeKey:sentMsg=<',sentMsg,'>');
       if(self.ws_.readyState) {
         self.ws_.send(JSON.stringify(sentMsg));
       }
