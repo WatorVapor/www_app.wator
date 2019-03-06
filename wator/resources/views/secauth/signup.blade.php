@@ -61,7 +61,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text">{{trans('secauth_login.accountToken')}}</span>
         </div>
-        <textarea type="text" id="sec.signup.accountToken" name="accountToken" class="form-control" rows="2" readonly></textarea>
+        <textarea type="text" id="sec.signup.accountToken" name="accountToken" class="form-control" rows="3" readonly></textarea>
+        <textarea type="text" id="sec.signup.accountKeyId" name="accountKeyId" class="form-control" rows="3" readonly></textarea>
         <div class="input-group-append">
           <button type="submit" class="btn btn-success">
             <span>{{ trans('secauth_signup.key_next') }}</span><i class="material-icons " style="color:green;">done</i>
@@ -100,6 +101,14 @@
       if(elemToken) {
         elemToken.value = token;
         console.log('elemToken.value=<',elemToken.value,'>');
+      }
+
+      const keyID = SecAuth.getKeyID();
+      let elemKeyId = document.getElementById("sec.signup.accountKeyId");
+      console.log('elemKeyId=<',elemKeyId,'>');
+      if(elemKeyId) {
+        elemKeyId.value = keyID;
+        console.log('elemKeyId.value=<',elemKeyId.value,'>');
       }
      
       let priKey = SecAuth.getPriKey();

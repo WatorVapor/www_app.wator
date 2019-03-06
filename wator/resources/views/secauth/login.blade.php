@@ -21,6 +21,10 @@
             <span class="input-group-text" for="sec.login.accountToken">{{trans('secauth_login.accountToken')}}</span>
             <textarea type="text" id="sec.login.accountToken" name="accountToken" class="form-control" cols="40" rows="2" readonly></textarea>
           </div>
+         <div class="form-group text-left">
+            <span class="input-group-text" for="sec.login.accountKeyId">{{trans('secauth_login.accountKeyId')}}</span>
+            <textarea type="text" id="sec.login.accountKeyId" name="accountKeyId" class="form-control" cols="40" rows="2" readonly></textarea>
+          </div>
           <div class="form-group text-left">
              <span class="input-group-text" for="sec.login.access">{{trans('secauth_login.access')}}</span>
              <textarea type="text" id="sec.login.access" name="access" class="form-control" cols="40" rows="1" readonly>{{ $SecLoginAccessKey }}</textarea>

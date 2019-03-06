@@ -14,7 +14,7 @@ SecAuth.getPriKey = function() {
 SecAuth.getToken = function() {
   return localStorage.getItem(SecAuth.LS_AUTH_KEY_TOKEN);
 }
-SecAuth.getID = function() {
+SecAuth.getKeyID = function() {
   return localStorage.getItem(SecAuth.LS_AUTH_KEY_ID);
 }
 

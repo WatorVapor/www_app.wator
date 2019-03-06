@@ -14,6 +14,17 @@ $(document).ready(function(){
     elemToken.value = token;
     console.log('elemToken.value=<',elemToken.value,'>');
   }
+  let keyId = SecAuth.getKeyID();
+  console.log('keyId=<',keyId,'>');
+  if(!keyId) {
+    return;
+  }
+  let elemKeyId = document.getElementById("sec.login.accountKeyId");
+  console.log('elemKeyId=<',elemKeyId,'>');
+  if(elemKeyId) {
+    elemKeyId.value = keyId;
+    console.log('elemKeyId.value=<',elemKeyId.value,'>');
+  }
   let lang = localStorage.getItem('operation.lang');
   let elemLang = document.getElementById("sec.login.lang");
   console.log('elemLang=<',elemLang,'>');

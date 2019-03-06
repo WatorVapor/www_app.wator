@@ -12,6 +12,7 @@ return [
     */
     'title' => '用本地存储的密钥登录',
     'accountToken' => '账户令牌',
+    'accountKeyId' => '账户编号',
     'access' => '访问随机数',
     'signature' => '数字签名',
     'login' => '登录',

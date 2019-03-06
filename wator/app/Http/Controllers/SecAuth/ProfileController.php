@@ -22,18 +22,20 @@ class ProfileController extends Controller
     {
         //
         $data = array();
-        $data['user_name'] = 'Nick Name';
         $data['user_icon'] = 'https://';
         $data['user_type'] = 'meat';
         $data['user_free'] = 'I am a good man!';
+        $data['user_name'] = 'Nick Name';
         
-        $accessToken = $request->session()->get('account.sec.login.token');
-        $profilePath = $this->keyRoot_ . $accessToken . ''. '/profile';
+        $accessId = $request->session()->get('account.sec.login.id');
+        $data['user_id'] = $accessId;
+        $profilePath = $this->keyRoot_ . $accessId . ''. '/profile';
         //var_dump($profilePath);
         if (file_exists($profilePath)) {
             $profileStr = file_get_contents($profilePath);
             $profileJson = json_decode($profileStr, true);
             //var_dump($profileJson);
+            $profileJson['user_id'] = $accessId;
             return view('secauth.profile',$profileJson);
         }
         return view('secauth.profile',$data);
@@ -57,11 +59,11 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
-        $accessToken = $request->session()->get('account.sec.login.token');
-        //var_dump($accessToken);
+        $accessId = $request->session()->get('account.sec.login.id');
+        //var_dump($accessId);
         $user_name = $request->input('user-name');
         //var_dump($user_name);
-        $profilePath = $this->keyRoot_ . $accessToken . '/profile';
+        $profilePath = $this->keyRoot_ . $accessId . '/profile';
         file_put_contents($profilePath, json_encode(['user_name'=>$user_name]));
         $request->session()->put('account.sec.login.name',$user_name);
         return redirect()->back();

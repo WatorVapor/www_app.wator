@@ -20,7 +20,11 @@
 <div class="row justify-content-md-center mt-1">
   <div class="col-8">
     <div class="card text-center text-white bg-dark bg-success">
-      <div class="card-header">{{trans('secauth_profile.title')}}</div>
+      <div class="card-header">
+        {{trans('secauth_profile.title')}}
+        <br/>
+        <span class="badge badge-success">{{ $user_id }}</span>
+      </div>
       <div class="card-body">
         <form  class="mt-2 mb-2" method="POST" action="#">
           {{ csrf_field() }}

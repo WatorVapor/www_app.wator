@@ -43,12 +43,16 @@ class SignUpController extends Controller
      */
     public function store(Request $request)
     {
+        $accountKeyId = $request->input('accountKeyId');
+        var_dump($accountKeyId);
         $accountToken = $request->input('accountToken');
-        //var_dump($accountToken);
-        $keyPath = $this->keyRoot_ . $accountToken . '/';
-        File::makeDirectory($keyPath, 0777, true, true);
-        //var_dump($keyPath);
-        file_put_contents($keyPath . '/pubKey.b58', $accountToken);
+        var_dump($accountToken);
+        if($accountKeyId && $accountToken) {
+          $keyPath = $this->keyRoot_ . $accountKeyId . '/';
+          File::makeDirectory($keyPath, 0777, true, true);
+          var_dump($keyPath);
+          file_put_contents($keyPath . '/pubKey.b58', $accountToken);
+        }
         return redirect()->secure('/secauth/profile');
     }
 
