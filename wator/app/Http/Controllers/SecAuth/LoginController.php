@@ -84,7 +84,7 @@ class LoginController extends Controller
             //var_dump($keyPath);
             if (file_exists($keyPath)) {
                 //var_dump($keyPath);
-                $ecdsaVerify = parent::verify($accountToken,$access,$signature);
+                $ecdsaVerify = parent::verify($accountToken,$access,$signature,$accountKeyId);
                 //var_dump($ecdsaVerify);
                 if($ecdsaVerify && $ecdsaVerify->good) {
                     //var_dump($ecdsaVerify->good);
