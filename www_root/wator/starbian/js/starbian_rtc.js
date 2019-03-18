@@ -285,6 +285,9 @@ class StarBianRtc {
 $(document).ready(function(){
   setTimeout(function(){
     StarBianRtc.createRTCStreaming_();
+    DeviceSetting.getDevice( (devices) => {
+      console.log('getDevice:devices=<',devices,'>');
+    });
   },0);
 });
 let localStreamCache = false;
