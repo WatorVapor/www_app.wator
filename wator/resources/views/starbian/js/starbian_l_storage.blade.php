@@ -45,6 +45,7 @@ readAllSettings = () => {
 
 onSettingRead = (jsonMsg) => {
   console.log('onSettingRead:jsonMsg=<',jsonMsg,'>');
+  /*
   for(let i = 0;i < jsonMsg.length ;i++) {
     let storage = jsonMsg[i];
     console.log('onSettingRead:storage=<',storage,'>');
@@ -54,6 +55,7 @@ onSettingRead = (jsonMsg) => {
     console.log('onSettingRead:value=<',value,'>');
     localStorage.setItem(key,value);
   }
+  */
 }
 
 setMyKey = () => {
