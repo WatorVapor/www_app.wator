@@ -51,8 +51,8 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" integrity="sha256-UH0Npcih7yj1s23pQK0UCrCSxx7AkT91CCMsUGnZ9Ew=" crossorigin="anonymous"></script>
-<script src="/wator/starbian/js/starbian.js" type="text/javascript"></script>
-<script src="/wator/starbian/js/starbian_rtc.js" type="text/javascript"></script>
+<script src="/wator/starbian/js/starbian.js?v={{ time() }}" type="text/javascript"></script>
+<script src="/wator/starbian/js/starbian_rtc.js?v={{ time() }}" type="text/javascript"></script>
 
 
 @include('starbian.js.videocam_cast_cv')
