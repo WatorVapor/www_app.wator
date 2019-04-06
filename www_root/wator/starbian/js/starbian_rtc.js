@@ -114,6 +114,8 @@ class StarBianRtc {
     if(!config.video && !config.audio ) {
       return;
     }
+    console.log('_createRTCStreaming:gCameraWidth=<',gCameraWidth,'>');
+    console.log('_createRTCStreaming:gCameraHeight=<',gCameraHeight,'>');
     if(typeof gCameraWidth === 'number' && typeof gCameraHeight === 'number' ) {
       config.video.width = {exact: gCameraWidth} ;
       config.video.height = {exact: gCameraHeight} ;
