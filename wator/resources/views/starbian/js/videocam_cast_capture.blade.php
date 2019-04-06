@@ -47,6 +47,7 @@
   }
 
   let rtcConnectionList = [];
+  let timerCapture = false;
   createWebRTCConnection = (keyChannel) => {
     let rtc = new StarBianRtc(keyChannel,'offer');
     rtc.subscribeMedia( (event) => {
@@ -57,7 +58,9 @@
       console.log('subscribeMedia localStream=<',localStream,'>');
       let cvVideo = document.getElementById("video-face");
       cvVideo.srcObject = localStream;
-      setInterval(GotCapture,1000);
+      if(!timerCapture) {
+        timerCapture = setInterval(GotCapture,1000);
+      }
     });
     rtc.subscribeMsg( (msg,channel) => {
       console.log('subscribeMsg msg=<',msg,'>');

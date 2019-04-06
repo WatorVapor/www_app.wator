@@ -2,6 +2,9 @@
 let gWS = false;
 let gLinuxTTS = false;
 let gLinuxPicture = false;
+let gCameraWidth = 320;
+let gCameraHeight = 240;
+
 
 try {    
   let uri = "ws://127.0.0.1:18080";
