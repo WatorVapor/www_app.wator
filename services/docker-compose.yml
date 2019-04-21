@@ -101,7 +101,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-ecdsa:
-    image: node:10
+    image: node:lts
     volumes:
       - ../ecdsa:/opt/wc
     working_dir: "/opt/wc"
@@ -117,7 +117,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-ws-notify:
-    image: node:10
+    image: node:lts
     volumes:
       - ../ws_service:/opt/wc
     working_dir: "/opt/wc"
@@ -149,7 +149,7 @@ services:
           cpus: '0.1'
           memory: 16M
   wator-sns-bot:
-    image: node:10
+    image: node:lts
     volumes:
       - ../bot_service:/opt/wc
     working_dir: "/opt/wc"
