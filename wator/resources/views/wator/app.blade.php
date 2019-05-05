@@ -10,7 +10,7 @@
   </head>
   <body>
     @include('wator.app_js')
-    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
       <div class="container-fluid">
         @include('wator.navbar_l')
         @yield('appnavbar')
