@@ -90,6 +90,13 @@
 </div>
 
 
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <h1>不幸程序崩溃，正在维护中。。。</h1>
+  </div>
+</div>
+
+
 
 <div class="d-none" id="ui-update-opengraph">{{ trans('wai_participle.opengraph') }}</div>
 <div class="d-none" id="ui-update-facebook">{{ trans('wai_participle.facebook') }}</div>

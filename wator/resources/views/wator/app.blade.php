@@ -20,7 +20,7 @@
         $('[data-toggle="popover"]').popover({container: 'body' });
       </script>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5 pt-3">
       @yield('content')
     </div>
     <a class="d-none" href="/search/link"/>;
