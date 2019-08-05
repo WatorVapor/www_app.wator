@@ -14,7 +14,7 @@ function updateLanguage() {
       elemLang.value = lang;
       console.log('elemLang.value=<',elemLang.value,'>');
     }
-    document.forms['secauth_navi_lang_form'].submit();
+    //document.forms['secauth_navi_lang_form'].submit();
   }
 }
 

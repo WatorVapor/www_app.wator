@@ -93,4 +93,23 @@ class LanguageController extends Controller
     {
         //
     }
+
+    /**
+     * lang .
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function lang(Request $request,$lang)
+    {
+        var_dump($lang);
+        if($lang) {
+            //var_dump($lang);
+            $request->session()->put('user.operation.lang',$lang);
+            App::setLocale($lang);
+        }
+       return redirect()->back();
+    }
+
+
 }

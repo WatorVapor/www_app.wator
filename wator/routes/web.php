@@ -41,6 +41,9 @@ Route::post('/secauth/language', 'SecAuth\LanguageController@store');
 
 Route::get('/secauth', 'SecAuth\LoginController@index');
 
+Route::get('/clicklang/{lang}', 'SecAuth\LanguageController@lang');
+
+
 
 
 Route::get('/wai/', 'Wai\WelcomeController@index');

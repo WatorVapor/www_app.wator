@@ -1,18 +1,18 @@
 <?php
   $langs = '';
   $langs .= '<div class="row justify-content-around mt-lg-3 ml-lg-3 mr-lg-3">';
-  $langs .= '<a class="btn btn-success mr-lg-5" onclick="onClickLanguage(\'zh\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-5" href="/clicklang/zh" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-cn"></span>';
   $langs .= '</a>';
-  $langs .= '<a class="btn btn-success " onclick="onClickLanguage(\'ja\')" role="button">';
+  $langs .= '<a class="btn btn-success " href="/clicklang/ja" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-jp"></span>';
   $langs .= '</a>';
   $langs .= '</div>';
   $langs .= '<div class="row justify-content-around mt-lg-5 ml-lg-3 mr-lg-3 mb-lg-3">';
-  $langs .= '<a class="btn btn-success mr-lg-5" onclick="onClickLanguage(\'en\')" role="button">';
+  $langs .= '<a class="btn btn-success mr-lg-5" href="/clicklang/en" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-us"></span>';
   $langs .= '</a>';
-  $langs .= '<a class="btn btn-success " onclick="onClickLanguage(\'ru\')" role="button">';
+  $langs .= '<a class="btn btn-success " href="/clicklang/ru" role="button">';
   $langs .= '<span class="flag-icon flag-icon-background flag-icon-ru"></span>';
   $langs .= '</a>';
   $langs .= '</div>';
