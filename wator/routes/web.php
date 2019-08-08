@@ -78,6 +78,10 @@ Route::get('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@fetch')
 Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update');
 
 
+
+Route::get('/wai/puzzle', 'Wai\PuzzleController@index');
+
+
 Route::get('/aibot/twitter', 'AIBot\TwitterController@index');
 Route::get('/aibot/weibo', 'AIBot\WeiboController@index');
 Route::get('/aibot/weibo/auth', 'AIBot\WeiboController@auth');

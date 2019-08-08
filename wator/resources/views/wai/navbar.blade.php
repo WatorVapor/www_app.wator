@@ -5,6 +5,12 @@
     </a>
   </li>
   <li class="nav-item active ml-lg-3">
+    <a class="btn btn-lg btn-danger " href="/wai/puzzle" role="button">
+      <i class="material-icons md-48">text_fields</i>
+      <i class="material-icons md-48">all_inclusive</i>
+    </a>
+  </li>
+  <li class="nav-item active ml-lg-3">
     <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/participle" role="button">
       <i class="material-icons md-48">text_fields</i>
     </a>

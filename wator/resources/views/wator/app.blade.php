@@ -21,8 +21,9 @@
       </script>
     </nav>
     <div class="container-fluid mt-5">
+      <br>
     </div>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid">
       @yield('content')
     </div>
     <a class="d-none" href="/search/link"/>;
