@@ -15,6 +15,7 @@ class PuzzleController extends Controller
     public function index()
     {
         //
-        return view('wai.puzzle.top');
+        $data = [];
+        return view('wai.puzzle.top',$data);
     }
 }
