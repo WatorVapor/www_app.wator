@@ -1,24 +1,20 @@
 @extends('wator.app')
-
-
 @section('appnavbar')
   @include('wai.navbar')
 @endsection
-
-
 @section('content')
-<div class="row">
-  <div class="col-lg-12 text-center">
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
     <h1> {{ trans('wai_about.title') }} </h1>
   </div>
 </div>
-<div class="row  justify-content-center">
-  <div class="col-lg-9">
+<div class="row justify-content-center">
+  <div class="col-10">
     <h4> {{ trans('wai_about.stage1') }} </h4>
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-lg-8 bg-warning">
+  <div class="col-9 bg-warning">
     <code>蜗鸢</code>是在沼泽地群居和游牧的<code>鸟类</code>。
     在干旱期间要离开<code>自己的</code>巢区去寻找适合<code>自己的</code>生活方式和<code>栖息地</code>的水产品产区。
     有时在<code>栖息地</code>和觅食地来往要飞行相当大的距离。
@@ -31,13 +27,13 @@
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-lg-8 bg-warning">
+  <div class="col-9 bg-warning">
     <small>http://baike.baidu.com/item/蜗鸢<small>
   </div>
 </div>
 <hr/>
 <div class="row justify-content-center">
-  <div class="col-lg-8">
+  <div class="col-9">
     <table class="table table-striped">
       <thead><tr><th> {{ trans('wai_about.rank_word') }} </th><th>{{ trans('wai_about.rank_times') }}</th></tr></thead>
       <tbody>
