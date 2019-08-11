@@ -2,7 +2,6 @@
 @section('appnavbar')
   @include('home.navbar')
 @endsection
-
 @section('content')
 <style type="text/css">
 .tales {
@@ -13,11 +12,6 @@
   height:300px !important;
   max-height: 400px !important;
 }
-/*
-.carousel-item.img {
-  height:100%;
-}
-*/
 </style>
 
 <div class="row justify-content-center" >

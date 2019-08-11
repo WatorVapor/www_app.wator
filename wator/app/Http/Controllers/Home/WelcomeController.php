@@ -4,6 +4,7 @@ namespace Wator\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use Wator\Http\Controllers\Controller;
+use App;
 
 class WelcomeController extends Controller
 {
@@ -14,7 +15,6 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        //
         return view('home.welcome',['watorapp'=>'home']);
     }
 
