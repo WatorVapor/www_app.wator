@@ -1,4 +1,3 @@
-
 const wss = 'wss://www.wator.xyz/wai/wss'
 const sock = new WebSocket(wss);
 sock.onopen = (e) => {
@@ -24,6 +23,7 @@ sock.onmessage = (e) => {
 const gKeyId = SecAuth.getKeyID();
 const requestWords = (sock) => {
   const msg = {
+    request:true,
     id:gKeyId,
     teach:'word',
     stage:'yesno'
@@ -37,3 +37,34 @@ const onTeachWordYesNo = (words) => {
     onUITeachWordsYesNo(words);
   }
 }
+
+const teachWordYes = (word) => {
+  console.log('teachWordYes word=<',word,'>');
+  try {
+    const msg = {
+      response:true,
+      teach:'word',
+      stage:'yesno',
+    };
+    msg[word] = {human:true,id:gKeyId};
+    sock.send(JSON.stringify(msg));   
+  } catch(e) {
+    
+  }
+}
+
+const teachWordNo = (word) => {
+  console.log('teachWordNo word=<',word,'>');
+  try {
+    const msg = {
+      response:true,
+      teach:'word',
+      stage:'yesno',
+    };
+    msg[word] = {human:false,id:gKeyId};
+    sock.send(JSON.stringify(msg));   
+  } catch(e) {
+    
+  }
+}
+

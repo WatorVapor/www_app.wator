@@ -14,8 +14,8 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-5">
-    正在制作当中。。。
+  <div class="col-5 text-center">
+    <h1>正在制作当中。。。</h1>
   </div>
 </div>
 

@@ -42,9 +42,14 @@ onWSSData = (data,ws) => {
   //console.log('onWSSData data=<',data,'>');
   try {
     const msgJson = JSON.parse(data);
-    if(msgJson && msgJson.teach && msgJson.teach === 'word') {
+    if(msgJson && msgJson.request && msgJson.teach && msgJson.teach === 'word') {
       if(msgJson.stage && msgJson.stage === 'yesno') {
         onRequestTeachWordYesNo(msgJson,ws);
+      }
+    }
+    if(msgJson && msgJson.response && msgJson.teach && msgJson.teach === 'word') {
+      if(msgJson.stage && msgJson.stage === 'yesno') {
+        onResponseTeachWordYesNo(msgJson,ws);
       }
     }
   } catch(e) {
@@ -71,24 +76,29 @@ console.log(':: cnPhraseCursor=<',cnPhraseCursor,'>');
 const onRequestTeachWordYesNo = (msgJson,ws) => {
   console.log('onRequestTeachWordYesNo:: msgJson=<',msgJson,'>');
   const res = {teach:'word',stage:'yesno',words:[]};
-  for(let i = 0;i < 9;i++) {
+  for(let i = 0;i < 8;i++) {
     const word = onRequestTeachWordOne(msgJson.id);
     res.words.push(word);
   }
   console.log('onRequestTeachWordYesNo:: res=<',res,'>');
   ws.send(JSON.stringify(res));
 }
+
 const onRequestTeachWordOne =(id) => {
   if(!cnPhraseCursor[id]) {
     cnPhraseCursor[id] = {cursor:0};
   }
   const index = cnPhraseCursor[id].cursor;
-  console.log('onRequestTeachWordYesNo:: index=<',index,'>');
+  console.log('onRequestTeachWordOne:: index=<',index,'>');
   const indexWord = cnPhraseKeys[index];
-  console.log('onRequestTeachWordYesNo:: indexWord=<',indexWord,'>');
+  console.log('onRequestTeachWordOne:: indexWord=<',indexWord,'>');
   cnPhraseCursor[id].cursor++;
   cnPhraseCursor[id].cursor %= cnPhraseKeys.length;
   const rank = cnPhrase[indexWord];
-  console.log('onRequestTeachWordYesNo:: rank=<',rank,'>');
+  console.log('onRequestTeachWordOne:: rank=<',rank,'>');
   return {word:indexWord,rank:rank}
+}
+
+const onResponseTeachWordYesNo =(msgJson,ws) => {
+  console.log('onResponseTeachWordYesNo:: msgJson=<',msgJson,'>');
 }
