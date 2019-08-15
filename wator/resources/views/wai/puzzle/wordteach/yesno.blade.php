@@ -9,12 +9,7 @@
         <div class="card-body">
           <div class="row justify-content-center">
             <div class="col-6">
-              <button class="btn btn-success" type="button" onclick="onUIClickWordYes(this)">
-                是中文单词<span class="badge badge-primary d-none" >@{{wordCell.word}}</span>
-              </button>
-            </div>
-            <div class="col-6">
-              <button class="btn btn-danger" type="button" onclick="onUIClickWordNo(this)">
+              <button class="btn btn-danger btn-block" type="button" onclick="onUIClickWordNo(this)">
                 非中文单词<span class="badge badge-primary d-none">@{{wordCell.word}}</span>
               </button>
             </div>
@@ -50,13 +45,6 @@
         teachRows: teachRows
       }
     })
-  }
-  const onUIClickWordYes = (elem) => {
-    console.log('onUIClickWordYes elem=<',elem,'>');
-    elem.setAttribute('disabled','disabled');
-    let word = getWordInsideBtn(elem);
-    console.log('onUIClickWordYes word=<',word,'>');
-    teachWordYes(word);
   }
   const getWordInsideBtn = (elem) => {
     let wordElem = elem.getElementsByTagName('span')[0];

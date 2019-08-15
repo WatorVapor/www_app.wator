@@ -58,7 +58,7 @@ onWSSData = (data,ws) => {
 }
 
 const fs = require('fs');
-let cnPhraseContent = fs.readFileSync('./wai.phrase.cn.json', 'utf8');
+let cnPhraseContent = fs.readFileSync('/watorvapor/ldfs/ljson/wai/phrase/stage1/wai.stage1.phrase.cn.json', 'utf8');
 console.log(':: cnPhraseContent.length=<',cnPhraseContent.length,'>');
 const cnPhrase = JSON.parse(cnPhraseContent);
 const cnPhraseKeys = Object.keys(cnPhrase);
@@ -78,7 +78,9 @@ const onRequestTeachWordYesNo = (msgJson,ws) => {
   const res = {teach:'word',stage:'yesno',words:[]};
   for(let i = 0;i < 8;i++) {
     const word = onRequestTeachWordOne(msgJson.id);
-    res.words.push(word);
+    if(word.word.length > 1) {
+      res.words.push(word);
+    }
   }
   console.log('onRequestTeachWordYesNo:: res=<',res,'>');
   ws.send(JSON.stringify(res));
@@ -99,6 +101,12 @@ const onRequestTeachWordOne =(id) => {
   return {word:indexWord,rank:rank}
 }
 
+const HumanJudgeWrongWords = {
+  
+}
+
 const onResponseTeachWordYesNo =(msgJson,ws) => {
   console.log('onResponseTeachWordYesNo:: msgJson=<',msgJson,'>');
+  HumanJudgeWrongWords[msgJson.word] = {id:[msgJson.id]};
+  console.log('onResponseTeachWordYesNo:: HumanJudgeWrongWords=<',HumanJudgeWrongWords,'>');
 }

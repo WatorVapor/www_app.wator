@@ -60,8 +60,10 @@ const teachWordNo = (word) => {
       response:true,
       teach:'word',
       stage:'yesno',
+      word:word,
+      human:false,
+      id:gKeyId
     };
-    msg[word] = {human:false,id:gKeyId};
     sock.send(JSON.stringify(msg));   
   } catch(e) {
     
