@@ -164,6 +164,23 @@ services:
         reservations:
           cpus: '0.1'
           memory: 16M
+  wai-teach-yesno:
+    image: node:lts
+    volumes:
+      - /watorvapor/ldfs/ljson/wai:/watorvapor/ldfs/ljson/wai
+      - ../teachword:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./teach.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
 networks:
   outside:
     external:
