@@ -63,18 +63,22 @@ console.log(':: cnPhraseContent.length=<',cnPhraseContent.length,'>');
 const cnPhrase = JSON.parse(cnPhraseContent);
 const cnPhraseKeys = Object.keys(cnPhrase);
 
-let cnPhraseCursor = {}
-try {
-  let cnPhraseCursorContent = fs.readFileSync('./wai.phrase.cn.cursor.json', 'utf8');
-  console.log(':: cnPhraseCursorContent.length=<',cnPhraseCursorContent.length,'>');
-  cnPhraseCursor = JSON.parse(cnPhraseCursorContent);
-} catch (e) {
-  
-}
-console.log(':: cnPhraseCursor=<',cnPhraseCursor,'>');
+
+const LevelDFS = require('./LevelDFS.js');
+const cnPhraseCusorPath = '/watorvapor/ldfs/ljson/wai/phrase/stage1/wai.cursor.phrase.cn';
+const cnCusorDB = new LevelDFS(cnPhraseCusorPath);
+
+
+const cnPhraseCursor = {}
 
 const onRequestTeachWordYesNo = (msgJson,ws) => {
   console.log('onRequestTeachWordYesNo:: msgJson=<',msgJson,'>');
+  const cusorStr = cnCusorDB.getSync(msgJson.id);
+  if(cusorStr) {
+    cnPhraseCursor[msgJson.id] = JSON.parse(cusorStr);
+  } else {
+    cnPhraseCursor[msgJson.id] = {cursor:0};
+  }
   const res = {teach:'word',stage:'yesno',words:[]};
   for(let i = 0;i < 8;i++) {
     const word = onRequestTeachWordOne(msgJson.id);
@@ -84,12 +88,10 @@ const onRequestTeachWordYesNo = (msgJson,ws) => {
   }
   console.log('onRequestTeachWordYesNo:: res=<',res,'>');
   ws.send(JSON.stringify(res));
+  cnCusorDB.putSync(msgJson.id,JSON.stringify(cnPhraseCursor[msgJson.id],undefined,2));
 }
 
 const onRequestTeachWordOne =(id) => {
-  if(!cnPhraseCursor[id]) {
-    cnPhraseCursor[id] = {cursor:0};
-  }
   const index = cnPhraseCursor[id].cursor;
   console.log('onRequestTeachWordOne:: index=<',index,'>');
   const indexWord = cnPhraseKeys[index];
@@ -101,12 +103,20 @@ const onRequestTeachWordOne =(id) => {
   return {word:indexWord,rank:rank}
 }
 
-const HumanJudgeWrongWords = {
-  
-}
+
+const humanJudegePath = '/watorvapor/ldfs/ljson/wai/phrase/stage1/wai.human.judege.ng.phrase.cn'
+const humanJudegeDB = new LevelDFS(humanJudegePath);
 
 const onResponseTeachWordYesNo =(msgJson,ws) => {
   console.log('onResponseTeachWordYesNo:: msgJson=<',msgJson,'>');
-  HumanJudgeWrongWords[msgJson.word] = {id:[msgJson.id]};
-  console.log('onResponseTeachWordYesNo:: HumanJudgeWrongWords=<',HumanJudgeWrongWords,'>');
+  const humanJudgeStr = humanJudegeDB.getSync(msgJson.word);
+  let humanJudgeJson = {}
+  if(humanJudgeStr) {
+    humanJudgeJson = JSON.parse(humanJudgeStr);
+    //humanJudgeJson = Object.assign({}, oldJson);
+    humanJudgeJson.id.push(msgJson.id);
+  } else {
+    humanJudgeJson = msgJson;
+  }
+  humanJudegeDB.putSync(msgJson.word,JSON.stringify(humanJudgeJson,undefined,2));
 }

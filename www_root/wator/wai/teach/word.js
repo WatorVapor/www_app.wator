@@ -62,7 +62,7 @@ const teachWordNo = (word) => {
       stage:'yesno',
       word:word,
       human:false,
-      id:gKeyId
+      id:[gKeyId]
     };
     sock.send(JSON.stringify(msg));   
   } catch(e) {
