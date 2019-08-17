@@ -1,5 +1,10 @@
 
 <div class="col-12" id="vue-ui-word-yes-no">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-4 text-center">
+      <span class="badge badge-success"><h1>@{{current}} / @{{total}} </h1></span>
+    </div>
+  </div>
   <div class="row justify-content-center mt-5 mb-5" v-for="wordRow in teachRows">
     <div class="col-5" v-for="wordCell in wordRow">
       <div class="card text-center" style="width:100%;">
@@ -27,8 +32,9 @@
 <script src="/wator/wai/teach/word.js" type="text/javascript"></script>
 
 <script>
-  const onUITeachWordsYesNo = (words) => {
-    console.log('onUITeachWordsYesNo words=<',words,'>');
+  const onUITeachWordsYesNo = (msgJson) => {
+    console.log('onUITeachWordsYesNo msgJson=<',msgJson,'>');
+    const words = msgJson.words;
     const teachRows = [];
     let teachRow = [];
     for(let index = 0;index < words.length;index++) {
@@ -45,7 +51,9 @@
     const app = new Vue({
       el: '#vue-ui-word-yes-no',
       data: {
-        teachRows: teachRows
+        teachRows: teachRows,
+        total:msgJson.total,
+        current:msgJson.current
       }
     })
   }

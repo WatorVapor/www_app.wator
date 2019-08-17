@@ -13,7 +13,7 @@ sock.onmessage = (e) => {
     const msgJson = JSON.parse(e.data);
     //console.log('onmessage msgJson=<',msgJson,'>');
     if(msgJson.teach && msgJson.teach === 'word' && msgJson.stage && msgJson.stage === 'yesno') {
-      onTeachWordYesNo(msgJson.words);
+      onTeachWordYesNo(msgJson);
     }
   } catch(error) {
     console.error('onmessage error=<',error,'>');
@@ -31,10 +31,10 @@ const requestWords = (sock) => {
   sock.send(JSON.stringify(msg));  
 }
 
-const onTeachWordYesNo = (words) => {
-  //console.log('onTeachWordYesNo words=<',words,'>');
+const onTeachWordYesNo = (msgJson) => {
+  //console.log('onTeachWordYesNo msgJson=<',msgJson,'>');
   if(typeof onUITeachWordsYesNo === 'function') {
-    onUITeachWordsYesNo(words);
+    onUITeachWordsYesNo(msgJson);
   }
 }
 
