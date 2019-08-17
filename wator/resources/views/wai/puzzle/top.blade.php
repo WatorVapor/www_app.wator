@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-10 text-center">
+  <div class="col-10 text-center mt-5">
     <h1>大家一起来帮助人工智能学习语言</h1>
   </div>
 </div>

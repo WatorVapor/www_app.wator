@@ -4,13 +4,16 @@
     <div class="col-5" v-for="wordCell in wordRow">
       <div class="card text-center" style="width:100%;">
         <div class="card-header">
-          <h2><span class="badge badge-primary">@{{wordCell.word}}</span></h2>
+            <span class="badge badge-primary">
+              <h1>@{{wordCell.word}}</h1>
+            </span>
         </div>      
         <div class="card-body">
           <div class="row justify-content-center">
             <div class="col-6">
               <button class="btn btn-danger btn-block" type="button" onclick="onUIClickWordNo(this)">
-                非中文单词<span class="badge badge-primary d-none">@{{wordCell.word}}</span>
+                <h3>非中文单词<h3>
+                <span class="badge badge-primary d-none">@{{wordCell.word}}</span>
               </button>
             </div>
           </div>

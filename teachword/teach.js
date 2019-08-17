@@ -87,6 +87,8 @@ const onRequestTeachWordYesNo = (msgJson,ws) => {
     }
   }
   console.log('onRequestTeachWordYesNo:: res=<',res,'>');
+  res.current = cnPhraseCursor[msgJson.id].cursor;
+  res.total = cnPhraseKeys.length;
   ws.send(JSON.stringify(res));
   cnCusorDB.putSync(msgJson.id,JSON.stringify(cnPhraseCursor[msgJson.id],undefined,2));
 }
