@@ -70,3 +70,7 @@ const teachWordNo = (word) => {
   }
 }
 
+const teachNextWords = () => {
+  requestWords(sock);
+}
+

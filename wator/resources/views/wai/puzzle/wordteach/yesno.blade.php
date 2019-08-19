@@ -55,7 +55,8 @@
         total:msgJson.total,
         current:msgJson.current
       }
-    })
+    });
+    app.$forceUpdate();
   }
   const getWordInsideBtn = (elem) => {
     let wordElem = elem.getElementsByTagName('span')[0];
