@@ -10,6 +10,13 @@
       <i class="material-icons md-48">all_inclusive</i>
     </a>
   </li>
+  <li class="nav-item active ml-lg-3">
+    <a class="btn btn-lg btn-danger " href="/wai/pronounce/ja50on" role="button">
+      <i class="material-icons md-48">hearing</i>
+      <i class="material-icons md-48">mic</i>
+    </a>
+  </li>
+  
   <li class="nav-item active ml-lg-3 d-none">
     <a class="btn btn-lg btn-danger nav-btn" href="/wai/text/participle" role="button">
       <i class="material-icons md-48">text_fields</i>
