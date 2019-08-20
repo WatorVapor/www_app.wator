@@ -103,4 +103,15 @@
     </div>
   </div>
 </div>
+<hr/>
+<div class="row justify-content-center" >
+  <div class="col-3">
+    <a class="btn  border border-success" href="/wai/pronounce/ja50on" role="button">
+      <span class="flag-icon flag-icon-jp"></span>
+      <img src="wator/images/icon/pronunciation-icon-28.jpg" class="rounded">
+      <h3>日语发音练习</h3>
+    </a>
+  </div>
+</div>
+
 @endsection

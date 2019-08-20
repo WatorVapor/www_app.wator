@@ -9,12 +9,11 @@
 <div class="row justify-content-md-center">
   <div class="col-lg-8">
     <div class="card mt-5 text-center text-white bg-dark bg-success">
-      <div class="card-header">{{trans('secauth_login.title')}}</div>
+      <div class="card-header"><h1>{{trans('secauth_login.title')}}</h1></div>
       <div class="card-body">
         <form  id="secauth_login_form" class="mt-2 mb-2" method="POST" action="/secauth/login">
-          <button type="submit" class="btn btn-success btn-block mb-3">
-            <spam>{{trans('secauth_login.login')}}</span>
-            <i class="material-icons " style="color:green;">done</i>
+          <button type="submit" class="btn btn-success btn-block mb-5">
+            <h3>{{trans('secauth_login.login')}}</h3>
           </button>
           {{ csrf_field() }}
           <div class="form-group text-left">
