@@ -81,7 +81,7 @@ Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update
 
 Route::get('/wai/puzzle', 'Wai\PuzzleController@index');
 
-Route::get('/wai/pronounce/ja50on', 'Wai\PronounceController@ja50on');
+Route::get('/wai/pronounce/ja50on/{yinjie?}', 'Wai\PronounceController@ja50on');
 
 
 Route::get('/aibot/twitter', 'AIBot\TwitterController@index');

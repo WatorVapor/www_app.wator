@@ -12,10 +12,15 @@ class PronounceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ja50on()
+    public function ja50on($yinjie = null)
     {
         //
         $data = [];
+        if(isset($yinjie)) {
+          $data['yinjie'] = $yinjie;
+        } else {
+          $data['yinjie'] = 'あ';
+        }
         return view('wai.pronouce.ja50on',$data);
     }
 }
