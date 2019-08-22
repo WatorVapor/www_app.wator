@@ -6,121 +6,21 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/videojs-wavesurfer/2.9.0/css/videojs.wavesurfer.min.css" integrity="sha256-Jolz/7jUfpSE0SDb35iI7w0FGDW9s8wK8eiiPa5qyOk=" crossorigin="anonymous" />
 
-
-
 <div class="row justify-content-center">
-  <div class="col-10 text-center mt-5">
+  <div class="col-10 text-center mt-1">
     <h1>日语发音练习</h1>
   </div>
 </div>
-
 <hr/>
-<div class="row justify-content-center">
-  <div class="col-5 bg-secondary">
-    
-    <div class="row justify-content-center">
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/あ">あ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/い">い</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/う">う</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/え">え</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/お">お</a>
-      </div>
-    </div>
-
-    <div class="row justify-content-center mt-5">
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/か">か</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/き">き</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/く">く</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/け">け</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/こ">こ</a>
-      </div>
-    </div>
-
-    <div class="row justify-content-center mt-5">
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/が">が</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ぎ">ぎ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ぐ">ぐ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/げ">げ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ご">ご</a>
-      </div>
-    </div>
-  
-
-    <div class="row justify-content-center mt-5">
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/さ">さ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/し">し</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/す">す</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/せ">せ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/そ">そ</a>
-      </div>
-    </div>
-
-
-    <div class="row justify-content-center mt-5">
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ざ">ざ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/じ">じ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ず">ず</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ぜ">ぜ</a>
-      </div>
-      <div class="col-2">
-        <a class="btn btn-success btn-lg" href="/wai/pronounce/ja50on/ぞ">ぞ</a>
-      </div>
-    </div>
-
-  
-  </div>
-  
+<div class="row justify-content-center"> 
   <div class="col-2">
     <div class="row justify-content-start">
-      <div class="col-1 text-center mt-1 ml-3">
+      <div class="col-1 text-center mt-1">
         <h1>{{ $yinjie }}</h1>
       </div>
     </div>
     <div class="row justify-content-start">
-      <div class="col-1 text-center mt-1 ml-3">
+      <div class="col-1 text-center mt-1">
         <audio class="d-none">
           <source id="ui-audio-standard-source" src="/wator/audio/ja50on/{{ $yinjie }}.wav" type="audio/wav">
         </audio>
@@ -144,7 +44,7 @@
     </div>    
   </div>
   
-  <div class="col-5">
+  <div class="col-10">
     <div class="row justify-content-center mt-1">
       <div class="col text-center mt-1">
         <h5>标准波形</h5>
@@ -160,6 +60,11 @@
 
   </div>
 </div>
+<hr/>
+<div class="row justify-content-center">
+  @include('wai.pronouce.hiragana')
+</div>
+
 
 <script src="https://unpkg.com/wavesurfer.js/dist/wavesurfer.js"></script>
 <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.js"></script>
