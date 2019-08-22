@@ -15,12 +15,12 @@
 <div class="row justify-content-center"> 
   <div class="col-2">
     <div class="row justify-content-start">
-      <div class="col-1 text-center mt-1">
+      <div class="col-6 text-center mt-1">
         <h1>{{ $yinjie }}</h1>
       </div>
     </div>
     <div class="row justify-content-start">
-      <div class="col-1 text-center mt-1">
+      <div class="col-6 text-center mt-1">
         <audio class="d-none">
           <source id="ui-audio-standard-source" src="/wator/audio/ja50on/{{ $yinjie }}.wav" type="audio/wav">
         </audio>
