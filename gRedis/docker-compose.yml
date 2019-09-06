@@ -3,8 +3,8 @@ services:
   redis:
     image: redis
     volumes:
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
-      - ./redis/data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./data:/data
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
       - outside
