@@ -30,12 +30,10 @@
           {{ csrf_field() }}
           <div class="input-group mb-3">
             <div class="input-group-prepend align-middle">
-              <span>{{trans('secauth_profile.apply_name')}}:</span>
-            </div>
-            <div class="input-group-prepend">
               <button type="submit" class="btn btn-outline-primary">
                 <i class="material-icons " style="color:green;">done</i>
               </button>
+              <span>{{trans('secauth_profile.apply_name')}}:</span>
             </div>
             <input type="text" name="user-name" class="form-control" value="{{ $user_name }}" aria-describedby="basic-addon1">
           </div>
