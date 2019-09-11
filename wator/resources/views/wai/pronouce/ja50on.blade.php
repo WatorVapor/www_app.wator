@@ -63,12 +63,10 @@
 </div>
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/videojs-wavesurfer/2.9.0/css/videojs.wavesurfer.min.css" integrity="sha256-Jolz/7jUfpSE0SDb35iI7w0FGDW9s8wK8eiiPa5qyOk=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/7.3.0/adapter.min.js" integrity="sha256-2qQheewaqnZlXJ3RJRghVUwD/3fD9HNqxh4C+zvgmF4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-wavesurfer/2.9.0/videojs.wavesurfer.min.js" integrity="sha256-95C7247GFFadZmTORh2IQiu80obJmYXwxHYBSZ4b3aw=" crossorigin="anonymous"></script>
 
-<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.js"></script>
-<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.microphone.js"></script>
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
 
 <script>
   let wavesurfer = false;  
