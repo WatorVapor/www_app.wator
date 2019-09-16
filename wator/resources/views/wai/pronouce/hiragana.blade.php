@@ -1,6 +1,6 @@
 
 <div class="col-12 bg-secondary" id="vue-ui-hiragana-table">
-  <div id="carouselHiraganaIndicators" class="carousel" data-ride="carousel">
+  <div id="carouselHiraganaIndicators" class="carousel" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
       <div class="row justify-content-center">
         <div class="col-8">
