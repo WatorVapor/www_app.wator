@@ -69,7 +69,8 @@
 <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
 
 <script>
-  let wavesurfer = false;  
+  let wavesurfer = false;
+  let sourceDuation = false;
   const onLoaded50On = () =>{
     wavesurfer = WaveSurfer.create({
       container: document.querySelector('#standarddWaveform'),
@@ -82,6 +83,8 @@
     wavesurfer.load(audioSourceElem.src);
     wavesurfer.once('ready', () => {
       console.log('onLoaded50On:: WaveSurfer.VERSION=<', WaveSurfer.VERSION,'>');
+      sourceDuation = wavesurfer.getDuration();
+      console.log('onLoaded50On:: sourceDuation=<', sourceDuation,'>');
     });
     wavesurfer.on('error', (e) =>{
       console.warn('onLoaded50On:: e=<', e,'>');
@@ -99,7 +102,8 @@
 
 
 <script>
-  let wavesurferMine = false;  
+  let wavesurferMine = false;
+  let durationMine = false;  
   const onLoaded50OnRec = (evt) =>{
     console.log('onLoaded50OnRec::evt=<',evt,'>');
     wavesurferMine = WaveSurfer.create({
@@ -111,6 +115,8 @@
     });
     wavesurferMine.once('ready', () => {
       console.log('onLoaded50OnRec:: WaveSurfer.VERSION=<', WaveSurfer.VERSION,'>');
+      durationMine = wavesurferMine.getDuration();
+      console.log('onLoaded50OnRec:: durationMine=<', durationMine,'>');
     });
     wavesurferMine.on('error', (e) =>{
       console.warn('onLoaded50OnRec:: e=<', e,'>');
