@@ -5,8 +5,6 @@ services:
     volumes:
       - ../www_root:/www_root
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/tcp.conf.d:/etc/nginx/tcp.conf.d
       - /watorvapor/cert:/etc/cert
       - /watorvapor/autogen:/autogen
       - /watorvapor/log/nginx:/log
@@ -113,71 +111,6 @@ services:
         limits:
           cpus: '0.5'
           memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-ws-notify:
-    image: node:lts
-    volumes:
-      - ../ws_service:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./notify.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  redis:
-    image: redis
-    volumes:
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
-      - ./redis/data:/data
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-sns-bot:
-    image: node:lts
-    volumes:
-      - ../bot_service:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./wai.twitter.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wai-teach-yesno:
-    image: node:lts
-    volumes:
-      - /watorvapor/ldfs/ljson/wai:/watorvapor/ldfs/ljson/wai
-      - ../teachword:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./teach.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 512M
         reservations:
           cpus: '0.1'
           memory: 16M
