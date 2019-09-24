@@ -1,0 +1,187 @@
+version: '3'
+services:
+  wator-nginx:
+    image: nginx:stable
+    volumes:
+      - ../www_root:/www_root
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/tcp.conf.d:/etc/nginx/tcp.conf.d
+      - /watorvapor/cert:/etc/cert
+      - /watorvapor/autogen:/autogen
+      - /watorvapor/log/nginx:/log
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-laravel:
+    image: watorvapor/laravel
+    volumes:
+      - ../wator:/opt/laravel
+      - /watorvapor/secauth/wator:/opt/secauth
+      - /watorvapor/wai.storage:/watorvapor/wai.storage
+      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
+    working_dir: "/opt/laravel"
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18080
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-laravel-shadow:
+    image: watorvapor/laravel
+    volumes:
+      - ../wator:/opt/laravel
+      - /watorvapor/secauth/wator:/opt/secauth
+      - /watorvapor/wai.storage:/watorvapor/wai.storage
+      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
+    working_dir: "/opt/laravel"
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18081
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-laravel-ghost:
+    image: watorvapor/laravel
+    volumes:
+      - ../wator:/opt/laravel
+      - /watorvapor/secauth/wator:/opt/secauth
+      - /watorvapor/wai.storage:/watorvapor/wai.storage
+      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
+    working_dir: "/opt/laravel"
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18082
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-laravel-clone:
+    image: watorvapor/laravel
+    volumes:
+      - ../wator:/opt/laravel
+      - /watorvapor/secauth/wator:/opt/secauth
+      - /watorvapor/wai.storage:/watorvapor/wai.storage
+      - /watorvapor/autogen:/autogen
+      - /watorvapor/story.storage/repository.wator:/repository
+    working_dir: "/opt/laravel"
+    command: php artisan serve -vvv --host=127.0.0.1 --port=18083
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-ecdsa:
+    image: node:lts
+    volumes:
+      - ../ecdsa:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./ecdsa.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-ws-notify:
+    image: node:lts
+    volumes:
+      - ../ws_service:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./notify.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  redis:
+    image: redis
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./redis/data:/data
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wator-sns-bot:
+    image: node:lts
+    volumes:
+      - ../bot_service:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./wai.twitter.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+  wai-teach-yesno:
+    image: node:lts
+    volumes:
+      - /watorvapor/ldfs/ljson/wai:/watorvapor/ldfs/ljson/wai
+      - ../teachword:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./teach.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
+networks:
+  outside:
+    external:
+      name: "host"
