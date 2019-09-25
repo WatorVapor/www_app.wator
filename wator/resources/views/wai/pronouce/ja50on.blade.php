@@ -102,6 +102,8 @@
 
 
 <script>
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
   let wavesurferMine = false;
   let durationMine = false;  
   const onLoaded50OnRec = (evt) =>{
@@ -133,8 +135,6 @@
   const options = {mimeType: 'audio/webm'};
   const recordedChunks = [];
   const mediaRecorder = new MediaRecorder(stream, options);
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
 
   mediaRecorder.addEventListener('dataavailable', function(e) {
     if (e.data.size > 0) {
@@ -164,7 +164,8 @@
           const maxEnergyWindow = Math.floor(sourceDuation * decodedData.sampleRate);
           //console.log('onUIClickRecordPronounce maxEnergyWindow=<',maxEnergyWindow,'>');
           const maxEnergyBuffer = calcMaxEnergyInDuration(data,maxEnergyWindow);
-          console.log('onUIClickRecordPronounce maxEnergyBuffer=<',maxEnergyBuffer,'>');
+          //console.log('onUIClickRecordPronounce maxEnergyBuffer=<',maxEnergyBuffer,'>');
+          createAudioMaxEnergyAudio(maxEnergyBuffer,decodedData.sampleRate);
         }
       });
     };
@@ -207,6 +208,44 @@
       end = data.length;
     }
     return data.slice(maxEnergyIndex, end);
+  }
+  
+  const createAudioMaxEnergyAudio = (data,sampleRate) =>{
+    //console.log('createAudioMaxEnergyAudio data=<',data,'>');
+    /*
+    const maxBlob = new Blob([data], {type: "audio/wav"});
+    console.log('createAudioMaxEnergyAudio maxBlob=<',maxBlob,'>');
+    let audio = new Audio();
+    audio.src = URL.createObjectURL(maxBlob);
+    wavesurferMine.load(audio);
+    */
+    const offlineAudioCtx = new OfflineAudioContext(1,data.length,sampleRate);
+    const frameCount = data.length;
+    const myArrayBuffer = offlineAudioCtx.createBuffer(1, frameCount, offlineAudioCtx.sampleRate);
+    console.log('createAudioMaxEnergyAudio myArrayBuffer=<',myArrayBuffer,'>');
+    for (let channel = 0; channel < myArrayBuffer.numberOfChannels; channel++) {
+      const nowBuffering = myArrayBuffer.getChannelData(channel);
+      for (let i = 0; i < frameCount; i++) {
+        nowBuffering[i] = data[i];
+      }
+    }
+    const soundSource = offlineAudioCtx.createBufferSource();
+    soundSource.buffer = myArrayBuffer;
+    const compressor = offlineAudioCtx.createDynamicsCompressor();
+    soundSource.connect(compressor);
+    compressor.connect(offlineAudioCtx.destination);
+    soundSource.start();
+    /*
+    OfflineAudioContext.oncomplete = function(e) {
+    export(e.renderedBuffer)
+    };
+    */
+    offlineAudioCtx.startRendering().then(function(renderedBuffer) {
+      console.log('createAudioMaxEnergyAudio renderedBuffer=<',renderedBuffer,'>');
+    }).catch(function(err) {
+      console.log('createAudioMaxEnergyAudio err=<',err,'>');
+    });
+
   }
 
 </script>
