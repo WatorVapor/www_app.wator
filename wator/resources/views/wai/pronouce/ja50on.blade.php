@@ -133,6 +133,9 @@
   const options = {mimeType: 'audio/webm'};
   const recordedChunks = [];
   const mediaRecorder = new MediaRecorder(stream, options);
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+
   mediaRecorder.addEventListener('dataavailable', function(e) {
     if (e.data.size > 0) {
       recordedChunks.push(e.data);
@@ -146,6 +149,27 @@
     audio.src = URL.createObjectURL(recBlob);
     wavesurferMine.load(audio);
     $('#ui-audio-record-play').removeClass('d-none');
+
+    const reader = new FileReader();
+    reader.onload = function() {
+      audioCtx.decodeAudioData(reader.result, function(decodedData) {
+        console.log('onUIClickRecordPronounce decodedData=<',decodedData,'>');
+        // channel 1 only.
+        if(decodedData.numberOfChannels > 0){
+          const data = decodedData.getChannelData(0);
+          const sample = decodedData.sampleRate;
+          //console.log('onUIClickRecordPronounce sample=<',sample,'>');
+          //console.log('onUIClickRecordPronounce decodedData.duration=<',decodedData.duration,'>');
+          //console.log('onUIClickRecordPronounce sourceDuation=<',sourceDuation,'>');
+          const maxEnergyWindow = Math.floor(sourceDuation * decodedData.sampleRate);
+          //console.log('onUIClickRecordPronounce maxEnergyWindow=<',maxEnergyWindow,'>');
+          const maxEnergyBuffer = calcMaxEnergyInDuration(data,maxEnergyWindow);
+          console.log('onUIClickRecordPronounce maxEnergyBuffer=<',maxEnergyBuffer,'>');
+        }
+      });
+    };
+    reader.readAsArrayBuffer(recBlob);
+  
   });    
   setTimeout(()=>{
     mediaRecorder.stop();
@@ -156,6 +180,33 @@
   const onUIClickPlayRecordPronounce = (elem) => {
     console.log('onUIClickPlayRecordPronounce::elem=<',elem,'>');
     wavesurferMine.playPause();
+  }
+  
+  const calcMaxEnergyInDuration = (data,windowSize) =>{
+    //console.log('calcMaxEnergyDuration windowSize=<',windowSize,'>');
+    //console.log('calcMaxEnergyDuration data=<',data,'>');
+    let sumEnergy = 0;
+    let maxEnergy = 0;
+    let maxEnergyIndex = 0;
+    for(let index = 0;index < data.length;index++) {
+      sumEnergy += Math.abs(data[index]);
+      if(index > windowSize) {
+        const leftIndex = index - windowSize;
+        sumEnergy -= Math.abs(data[leftIndex]);
+        if(sumEnergy > maxEnergy) {
+          maxEnergy = sumEnergy;
+          maxEnergyIndex = leftIndex;
+        }
+      }
+    }
+    console.log('calcMaxEnergyDuration sumEnergy=<',sumEnergy,'>');
+    console.log('calcMaxEnergyDuration maxEnergy=<',maxEnergy,'>');
+    console.log('calcMaxEnergyDuration maxEnergyIndex=<',maxEnergyIndex,'>');
+    let end = maxEnergyIndex + windowSize;
+    if(end > data.length) {
+      end = data.length;
+    }
+    return data.slice(maxEnergyIndex, end);
   }
 
 </script>
