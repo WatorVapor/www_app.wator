@@ -48,10 +48,16 @@
         <div id="standarddWaveform"></div>
       </div>
     </div>
-    <div class="row justify-content-center mt-1">      
+    <div class="row justify-content-center mt-1 d-none">      
      <div class="col text-center mt-1">
         <div id="mineWaveform"></div>
         <h5>我的波形</h5>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-1">      
+     <div class="col text-center mt-1">
+        <div id="clipWaveform"></div>
+        <h5>我的波形Clip</h5>
       </div>
     </div>
 
@@ -101,11 +107,15 @@
 </script>
 
 
+
 <script>
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioCtx = new AudioContext();
+  const iConstRecorderSlice = 50;
+  const iConstRecorderTotal = 1500;
   let wavesurferMine = false;
   let durationMine = false;  
+  let wavesurferMineClip = false;
   const onLoaded50OnRec = (evt) =>{
     console.log('onLoaded50OnRec::evt=<',evt,'>');
     wavesurferMine = WaveSurfer.create({
@@ -123,6 +133,22 @@
     wavesurferMine.on('error', (e) =>{
       console.warn('onLoaded50OnRec:: e=<', e,'>');
     });
+
+    wavesurferMineClip = WaveSurfer.create({
+      container:document.querySelector('#clipWaveform'),
+      waveColor:'red',
+      progressColor: 'orange',
+      backend: 'MediaElement',
+      mediaControls: false
+    });
+    wavesurferMineClip.once('ready', () => {
+      console.log('onLoaded50OnRec:: WaveSurfer.VERSION=<', WaveSurfer.VERSION,'>');
+      durationMine = wavesurferMineClip.getDuration();
+      console.log('onLoaded50OnRec:: durationMine=<', durationMine,'>');
+    });
+    wavesurferMineClip.on('error', (e) =>{
+      console.warn('onLoaded50OnRec:: e=<', e,'>');
+    });
   };
   document.addEventListener('DOMContentLoaded', onLoaded50OnRec);
   
@@ -132,55 +158,55 @@
     $('#ui-audio-record-play').addClass('d-none');
   }
   const handleSuccess = (stream) => {
-  const options = {mimeType: 'audio/webm'};
-  const recordedChunks = [];
-  const mediaRecorder = new MediaRecorder(stream, options);
+    const options = {mimeType: 'audio/webm'};
+    const recordedChunks = [];
+    const mediaRecorder = new MediaRecorder(stream, options);
 
-  mediaRecorder.addEventListener('dataavailable', function(e) {
-    if (e.data.size > 0) {
-      recordedChunks.push(e.data);
-    }       
-  });
-  mediaRecorder.addEventListener('stop', function() {
-    //console.log('handleSuccess::recordedChunks=<',recordedChunks,'>');
-    const recBlob = new Blob(recordedChunks);
-    //console.log('handleSuccess::recBlob=<',recBlob,'>');
-    let audio = new Audio();
-    audio.src = URL.createObjectURL(recBlob);
-    wavesurferMine.load(audio);
-    $('#ui-audio-record-play').removeClass('d-none');
+    mediaRecorder.addEventListener('dataavailable', function(e) {
+      if (e.data.size > 0) {
+        recordedChunks.push(e.data);
+      }       
+    });
+    mediaRecorder.addEventListener('stop', function() {
+      //console.log('handleSuccess::recordedChunks=<',recordedChunks,'>');
+      const recBlob = new Blob(recordedChunks);
+      //console.log('handleSuccess::recBlob=<',recBlob,'>');
+      let audio = new Audio();
+      audio.src = URL.createObjectURL(recBlob);
+      wavesurferMine.load(audio);
+      $('#ui-audio-record-play').removeClass('d-none');
 
-    const reader = new FileReader();
-    reader.onload = function() {
-      audioCtx.decodeAudioData(reader.result, function(decodedData) {
-        console.log('onUIClickRecordPronounce decodedData=<',decodedData,'>');
-        // channel 1 only.
-        if(decodedData.numberOfChannels > 0){
-          const data = decodedData.getChannelData(0);
-          const sample = decodedData.sampleRate;
-          //console.log('onUIClickRecordPronounce sample=<',sample,'>');
-          //console.log('onUIClickRecordPronounce decodedData.duration=<',decodedData.duration,'>');
-          //console.log('onUIClickRecordPronounce sourceDuation=<',sourceDuation,'>');
-          const maxEnergyWindow = Math.floor(sourceDuation * decodedData.sampleRate);
-          //console.log('onUIClickRecordPronounce maxEnergyWindow=<',maxEnergyWindow,'>');
-          const maxEnergyBuffer = calcMaxEnergyInDuration(data,maxEnergyWindow);
-          //console.log('onUIClickRecordPronounce maxEnergyBuffer=<',maxEnergyBuffer,'>');
-          createAudioMaxEnergyAudio(maxEnergyBuffer,decodedData.sampleRate);
-        }
-      });
-    };
-    reader.readAsArrayBuffer(recBlob);
-  
-  });    
-  setTimeout(()=>{
-    mediaRecorder.stop();
-  },1500);
-  mediaRecorder.start();
+      const reader = new FileReader();
+      reader.onload = function() {
+        audioCtx.decodeAudioData(reader.result, function(decodedData) {
+          console.log('onUIClickRecordPronounce decodedData=<',decodedData,'>');
+          // channel 1 only.
+          if(decodedData.numberOfChannels > 0){
+            const data = decodedData.getChannelData(0);
+            const sample = decodedData.sampleRate;
+            //console.log('onUIClickRecordPronounce sample=<',sample,'>');
+            //console.log('onUIClickRecordPronounce decodedData.duration=<',decodedData.duration,'>');
+            //console.log('onUIClickRecordPronounce sourceDuation=<',sourceDuation,'>');
+            const maxEnergyWindow = Math.floor(sourceDuation * decodedData.sampleRate);
+            //console.log('onUIClickRecordPronounce maxEnergyWindow=<',maxEnergyWindow,'>');
+            const maxEnergyBuffer = calcMaxEnergyInDuration(data,maxEnergyWindow);
+            console.log('onUIClickRecordPronounce maxEnergyBuffer=<',maxEnergyBuffer,'>');
+            createAudioMaxEnergyAudio(maxEnergyBuffer,decodedData.sampleRate);
+          }
+        });
+      };
+      reader.readAsArrayBuffer(recBlob);
+    
+    });    
+    setTimeout(()=>{
+      mediaRecorder.stop();
+    },iConstRecorderTotal);
+    mediaRecorder.start(iConstRecorderSlice);
   }
 
   const onUIClickPlayRecordPronounce = (elem) => {
     console.log('onUIClickPlayRecordPronounce::elem=<',elem,'>');
-    wavesurferMine.playPause();
+    wavesurferMineClip.playPause();
   }
   
   const calcMaxEnergyInDuration = (data,windowSize) =>{
@@ -207,45 +233,49 @@
     if(end > data.length) {
       end = data.length;
     }
-    return data.slice(maxEnergyIndex, end);
+    return {data:data.slice(maxEnergyIndex, end),start:maxEnergyIndex,end:end};
   }
   
-  const createAudioMaxEnergyAudio = (data,sampleRate) =>{
-    //console.log('createAudioMaxEnergyAudio data=<',data,'>');
-    /*
-    const maxBlob = new Blob([data], {type: "audio/wav"});
-    console.log('createAudioMaxEnergyAudio maxBlob=<',maxBlob,'>');
-    let audio = new Audio();
-    audio.src = URL.createObjectURL(maxBlob);
-    wavesurferMine.load(audio);
-    */
-    const offlineAudioCtx = new OfflineAudioContext(1,data.length,sampleRate);
-    const frameCount = data.length;
-    const myArrayBuffer = offlineAudioCtx.createBuffer(1, frameCount, offlineAudioCtx.sampleRate);
+  const createAudioMaxEnergyAudio = (clipData,sampleRate) =>{
+    console.log('createAudioMaxEnergyAudio clipData=<',clipData,'>');
+    const recAudioCtx = new AudioContext();
+    const frameCount = clipData.data.length;
+    const myArrayBuffer = recAudioCtx.createBuffer(1, frameCount, recAudioCtx.sampleRate);
     console.log('createAudioMaxEnergyAudio myArrayBuffer=<',myArrayBuffer,'>');
     for (let channel = 0; channel < myArrayBuffer.numberOfChannels; channel++) {
       const nowBuffering = myArrayBuffer.getChannelData(channel);
       for (let i = 0; i < frameCount; i++) {
-        nowBuffering[i] = data[i];
+        nowBuffering[i] = clipData.data[i];
       }
     }
-    const soundSource = offlineAudioCtx.createBufferSource();
+    const soundSource = recAudioCtx.createBufferSource();
     soundSource.buffer = myArrayBuffer;
-    const compressor = offlineAudioCtx.createDynamicsCompressor();
-    soundSource.connect(compressor);
-    compressor.connect(offlineAudioCtx.destination);
-    soundSource.start();
-    /*
-    OfflineAudioContext.oncomplete = function(e) {
-    export(e.renderedBuffer)
-    };
-    */
-    offlineAudioCtx.startRendering().then(function(renderedBuffer) {
-      console.log('createAudioMaxEnergyAudio renderedBuffer=<',renderedBuffer,'>');
-    }).catch(function(err) {
-      console.log('createAudioMaxEnergyAudio err=<',err,'>');
-    });
-
+    let dest = recAudioCtx.createMediaStreamDestination();
+    let clipRecorder = new MediaRecorder(dest.stream);
+    clipRecorder.mimeType = 'audio/webm';
+    const clipChunks = []
+    clipRecorder.ondataavailable = function(evt) {
+      console.log('createAudioMaxEnergyAudio evt=<',evt,'>');
+      clipChunks.push(evt.data);
+    }
+    clipRecorder.onstop = function(evt) {
+      console.log('createAudioMaxEnergyAudio evt=<',evt,'>');
+      console.log('createAudioMaxEnergyAudio clipChunks=<',clipChunks,'>');
+      
+      const clipBlob = new Blob(clipChunks);
+      let audioClip = new Audio();
+      audioClip.src = URL.createObjectURL(clipBlob);
+      wavesurferMineClip.load(audioClip);
+      $('#ui-audio-record-play').removeClass('d-none');
+    }
+    
+    soundSource.connect(dest);
+    soundSource.connect(recAudioCtx.destination);
+    soundSource.start(0);
+    clipRecorder.start();
+    setTimeout(()=>{
+      clipRecorder.stop();
+    },myArrayBuffer.duration * 1000)
   }
 
 </script>
