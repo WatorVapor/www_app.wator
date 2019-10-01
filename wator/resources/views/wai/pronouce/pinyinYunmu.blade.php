@@ -5,7 +5,7 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-10 text-center mt-1">
-    <h1>日语发音练习</h1>
+    <h1>汉语标准拼音韵母</h1>
   </div>
 </div>
 <hr/>
@@ -19,7 +19,7 @@
     <div class="row justify-content-start">
       <div class="col-6 text-center mt-1">
         <audio class="d-none">
-          <source id="ui-audio-standard-source" src="/wator/audio/ja50on/{{ $yinjie }}.wav" type="audio/wav">
+          <source id="ui-audio-standard-source" src="/wator/audio/zhpinyin/yunmu/{{ $yinjie }}.mp3" type="audio/mp3">
         </audio>
         <button type="button" class="btn btn-primary btn-lg" onclick="onUIClickPlayStandardPronounce(this)">
           <i class="material-icons md-48">hearing</i>
@@ -65,7 +65,7 @@
 </div>
 <hr/>
 <div class="row justify-content-center">
-  @include('wai.pronouce.hiragana')
+  @include('wai.pronouce.pinyin.yunmu')
 </div>
 @include('wai.pronouce.script')
 @endsection

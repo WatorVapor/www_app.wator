@@ -82,6 +82,8 @@ Route::post('/wai/text/train/phoenix/{task}', 'Wai\PhoenixTrainController@update
 Route::get('/wai/puzzle', 'Wai\PuzzleController@index');
 
 Route::get('/wai/pronounce/ja50on/{yinjie?}', 'Wai\PronounceController@ja50on');
+Route::get('/wai/pronounce/zhpinyin/yunmu/{pinyin?}', 'Wai\PronounceController@pinyinYunmu');
+Route::get('/wai/pronounce/zhpinyin/shengmu/{pinyin?}', 'Wai\PronounceController@pinyinShengmu');
 
 
 Route::get('/aibot/twitter', 'AIBot\TwitterController@index');

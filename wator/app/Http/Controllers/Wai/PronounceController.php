@@ -23,4 +23,37 @@ class PronounceController extends Controller
         }
         return view('wai.pronouce.ja50on',$data);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pinyinYunmu($yinjie = null)
+    {
+        //
+        $data = [];
+        if(isset($yinjie)) {
+          $data['yinjie'] = $yinjie;
+        } else {
+          $data['yinjie'] = 'a';
+        }
+        return view('wai.pronouce.pinyinYunmu',$data);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pinyinShengmu($yinjie = null)
+    {
+        //
+        $data = [];
+        if(isset($yinjie)) {
+          $data['yinjie'] = $yinjie;
+        } else {
+          $data['yinjie'] = 'b';
+        }
+        return view('wai.pronouce.pinyinShengmu',$data);
+    }
+
 }
