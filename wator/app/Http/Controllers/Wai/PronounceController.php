@@ -55,5 +55,20 @@ class PronounceController extends Controller
         }
         return view('wai.pronouce.pinyinShengmu',$data);
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pinyinYinJie($yinjie = null)
+    {
+        //
+        $data = [];
+        if(isset($yinjie)) {
+          $data['yinjie'] = $yinjie;
+        } else {
+          $data['yinjie'] = 'ā';
+        }
+        return view('wai.pronouce.pinyinYinJie',$data);
+    }
 }

@@ -84,6 +84,7 @@ Route::get('/wai/puzzle', 'Wai\PuzzleController@index');
 Route::get('/wai/pronounce/ja50on/{yinjie?}', 'Wai\PronounceController@ja50on');
 Route::get('/wai/pronounce/zhpinyin/yunmu/{pinyin?}', 'Wai\PronounceController@pinyinYunmu');
 Route::get('/wai/pronounce/zhpinyin/shengmu/{pinyin?}', 'Wai\PronounceController@pinyinShengmu');
+Route::get('/wai/pronounce/zhpinyin/yinjie/{pinyin?}', 'Wai\PronounceController@pinyinYinJie');
 
 
 Route::get('/aibot/twitter', 'AIBot\TwitterController@index');
