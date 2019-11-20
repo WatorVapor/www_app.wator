@@ -134,4 +134,5 @@ Route::get('/story/', 'Story\HomeController@index');
 Route::get('/ethereum/', 'Ethereum\EthereumController@index');
 
  
+//Route::get('/ermu', 'Ermu\AboutController@index');
 
