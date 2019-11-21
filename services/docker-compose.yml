@@ -165,6 +165,22 @@ services:
         reservations:
           cpus: '0.1'
           memory: 16M
+  ermu-ws:
+    image: node:lts
+    volumes:
+      - ../ermu_ws_service:/opt/wc
+    working_dir: "/opt/wc"
+    command: node ./ws.dht.js
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+        reservations:
+          cpus: '0.1'
+          memory: 16M
   wai-teach-yesno:
     image: node:lts
     volumes:
