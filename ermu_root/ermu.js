@@ -1,4 +1,5 @@
-const uri = 'wss://www.wator.xyz/ermu/wss';
+//console.log(':: location=<', location,'');
+const uri = 'wss://' + location.hostname + '/ermu/wss';
 const socket = new WebSocket(uri);
 socket.addEventListener('open', (event) => {
   onOpenWSS(event);
@@ -14,4 +15,10 @@ const onOpenWSS = (event)=> {
 
 const onMessageWSS = (event)=> {
   console.log('onMessageWSS:: event.data=<', event.data,'');
+};
+
+uiOnClickSearch = (evt) => {
+  console.log('onMessageWSS::uiOnClickSearch evt=<', evt,'');
+  const text = evt.parentElement.parentElement.getElementsByTagName('input')[0].value.trim();
+  console.log('onMessageWSS::uiOnClickSearch text=<', text,'');
 };
