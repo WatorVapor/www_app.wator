@@ -57,7 +57,7 @@ sub.on('message', function(channel, message) {
     }
   })
 });
-sub.subscribe('enum.dht.query.response');
+sub.subscribe('enum.dht.search.response');
 
 const pub  = redis.createClient(redisOption);
 
