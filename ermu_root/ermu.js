@@ -30,7 +30,7 @@ const LocalStorageHistory = 'wator/ermu/history';
 const startSearchText = (words) => {
   localStorage.setItem(LocalStorageHistory,words);
   //console.log('onMessageWSS::startSearchText words=<', words,'');
-  const msg = {words:words,channel:'enum.dht.search.request'};
+  const msg = {words:words};
   if(socket) {
     socket.send(JSON.stringify(msg));
   }
