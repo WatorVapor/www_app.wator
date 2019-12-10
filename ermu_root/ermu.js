@@ -4,13 +4,25 @@ const socket = new WebSocket(uri);
 socket.addEventListener('open', (event) => {
   onOpenWSS(event);
 });
-
+socket.addEventListener('close', (event) => {
+  onCloseWSS(event);
+});
+socket.addEventListener('error', (event) => {
+  onErrorWSS(event);
+});
 socket.addEventListener('message', (event) => {
   onMessageWSS(event);
 });
 
+
 const onOpenWSS = (event)=> {
   console.log('onMessageWSS:: event=<', event,'');
+};
+const onCloseWSS = (event)=> {
+  console.log('onCloseWSS:: event=<', event,'');
+};
+const onErrorWSS = (event)=> {
+  console.log('onErrorWSS:: event=<', event,'');
 };
 
 const onMessageWSS = (event)=> {
