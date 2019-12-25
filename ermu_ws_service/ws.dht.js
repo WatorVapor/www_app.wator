@@ -1,4 +1,5 @@
 const WebSocket = require('ws');
+const crypto = require('crypto');
 const config = {host:'127.0.0.1', port: 20081 }
 const wss = new WebSocket.Server(config);
 const channelWS2DHT = 'enum.www.search.ws2dht';
@@ -10,7 +11,7 @@ wss.on('connection', (ws) => {
 
 const onConnected = (ws) => {
   ws.on('message', (message) => {
-    onWSmsg(message);
+    onWSMsg(message,ws);
   });
   ws.on('error', (evt) => {
     console.log('error: evt=<', evt,'>');
@@ -18,9 +19,20 @@ const onConnected = (ws) => {
   ws.isAlive = true;
   ws.on('pong', heartBeatWS);  
 }
-const onWSmsg = (message) => {
-  console.log('onWSmsg: message=<', message,'>');
-  pubRedis.publish(channelWS2DHT,message);
+const gCallBack = {};
+const onWSMsg = (message,ws) => {
+  console.log('onWSMsg: message=<', message,'>');
+  try {
+    const jsonMsg = JSON.parse(message);
+    if(jsonMsg) {
+      const buf = crypto.randomBytes(16);
+      jsonMsg.cbtag = buf.toString('hex');
+      pubRedis.publish(channelWS2DHT,JSON.stringify(jsonMsg));
+      gCallBack[jsonMsg.cbtag] = ws;
+    }
+  } catch(e) {
+    
+  }
 };
 
 const redis = require("redis");
@@ -35,27 +47,35 @@ subRedis.on('message', (channel, message) => {
 });
 subRedis.subscribe(channelDHT2WS);
 
-const onRedisMsg = () => {
-  //console.log('onRedisMsg::channel=<',channel,'>');
-  //console.log('onRedisMsg::message=<',message,'>');
-  //console.log('onRedisMsg::wss=<',wss,'>');
-  wss.clients.forEach( (client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(message);
+const onRedisMsg = (channel, message) => {
+  try {
+    const jsonMsg = JSON.parse(message);
+    if(jsonMsg && jsonMsg.cbtag) {
+      const client = gCallBack[jsonMsg.cbtag];
+      if(client) {
+        client.send(JSON.stringify(jsonMsg));
+      }
+      delete jsonMsg.cbtag;
     }
-  });
+  } catch(e) {
+    
+  }
 }
 
 
 const noop = () => {};
 const heartBeatWS = () => {
+  console.log('heartBeatWS::this=<',this,'>');
   this.isAlive = true;
 }
 const doPingWS = () => {
   wss.clients.forEach((ws) => {
+    /*
     if (ws.isAlive === false) {
+      console.log('heartBeatWS::ws.isAlive=<',ws.isAlive,'>');
       return ws.terminate();
     }
+    */
     ws.isAlive = false;
     ws.ping(noop);
   });  
