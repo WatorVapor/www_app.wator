@@ -19,7 +19,7 @@
     
     <div class="container mt-5 mb-2 pt-5" id="vue-ui-app-top-search">
       <div class="row justify-content-center align-items-center">
-        <div class="col-10">
+        <div class="col-8">
           <div class="input-group input-group-lg mb-3">
             <input type="text" class="form-control" value="航母" v-bind:placeholder="history" ></input>
             <div class="input-group-append">
@@ -28,6 +28,14 @@
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container d-none" id="vue-ui-app-top-result">
+      <div class="row justify-content-center align-items-center" v-for="row in rows">
+        <div class="col-10">
+          <a v-bind:href="row.url">{{row.summary}}</a>
         </div>
       </div>
     </div>

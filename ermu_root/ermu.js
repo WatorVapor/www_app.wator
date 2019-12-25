@@ -58,7 +58,21 @@ const uiOnClickSearch = (evt) => {
 };
 
 const wsOnNewSearchResult = (msg) => {
-  console.log('wsOnNewSearchResult:: msg=<', msg,'>');
+  //console.log('wsOnNewSearchResult:: msg=<', msg,'>');
+  try {
+    const jMsg = JSON.parse(msg.data);
+    if(jMsg) {
+      console.log('wsOnNewSearchResult:: jMsg=<', jMsg,'>');
+      console.log('wsOnNewSearchResult:: typeof jMsg=<', typeof(jMsg),'>');
+      const jMsg2 = JSON.parse(jMsg);
+      console.log('wsOnNewSearchResult:: jMsg2=<', jMsg2,'>');
+      onShowTopResultApp(jMsg2);
+    } else {
+      //console.log('wsOnNewSearchResult:: msg.data=<', msg.data,'>');
+    }
+  } catch (e) {
+    console.log('wsOnNewSearchResult:: e=<', e,'>');
+  }
 }
 
 const LocalStorageHistory = 'wator/ermu/history';
