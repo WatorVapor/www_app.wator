@@ -54,6 +54,7 @@ const uiOnClickSearch = (evt) => {
   //console.log('onMessageWSS::uiOnClickSearch text=<', text,'>');
   if(text) {
     startSearchText(text);
+    onClearTopResultApp();
   }
 };
 

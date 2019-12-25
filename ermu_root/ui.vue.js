@@ -42,3 +42,7 @@ const onShowTopResultApp = (result) =>{
   }
   $("#vue-ui-app-top-result").removeClass("d-none");
 };
+
+const onClearTopResultApp = () =>{
+  gResultRows.length = 0;
+};
