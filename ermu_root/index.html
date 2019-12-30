@@ -23,7 +23,7 @@
           <div class="input-group input-group-lg mb-3">
             <input type="text" class="form-control" value="航母" v-bind:placeholder="history" ></input>
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" onclick="uiOnClickSearch(this)">
+              <button class="btn btn-outline-secondary" type="button" onclick="uiOnClickSearchIndex(this)">
                 <i class="material-icons">search</i>
               </button>
             </div>
@@ -31,16 +31,6 @@
         </div>
       </div>
     </div>
-    
-    
-    <div class="container d-none" id="vue-ui-app-top-result">
-      <div class="row justify-content-center align-items-center" v-for="row in rows">
-        <div class="col-10">
-          <a v-bind:href="row.url">{{row.summary}}</a>
-        </div>
-      </div>
-    </div>
-
       
     <div class="container">
       <div class="row justify-content-center align-items-center">

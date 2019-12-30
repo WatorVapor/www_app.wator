@@ -2,7 +2,9 @@
 const uri = 'wss://' + location.hostname + '/ermu/wss';
 const socket = new WebSocket(uri);
 socket.addEventListener('open', (event) => {
-  onOpenWSS(event);
+  setTimeout(() => {
+    onOpenWSS(event)
+  },1);
 });
 socket.addEventListener('close', (event) => {
   onCloseWSS(event);
@@ -16,7 +18,10 @@ socket.addEventListener('message', (event) => {
 
 
 const onOpenWSS = (event)=> {
-  console.log('onMessageWSS:: event=<', event,'>');
+  //console.log('onOpenWSS:: event=<', event,'>');
+  const searchMsg = parseURLParam();
+  console.log('onOpenWSS:: searchMsg=<', searchMsg,'>');
+  startSearchText(searchMsg);
 };
 const onCloseWSS = (event)=> {
   console.log('onCloseWSS:: event=<', event,'>');
@@ -24,6 +29,19 @@ const onCloseWSS = (event)=> {
 const onErrorWSS = (event)=> {
   console.log('onErrorWSS:: event=<', event,'>');
 };
+
+const parseURLParam =() => {
+  //console.log('parseURLParam:: window.location.search=<', window.location.search,'>');
+  const urlParams = new URLSearchParams(window.location.search);
+  //console.log('parseURLParam:: urlParams=<', urlParams,'>');
+  let words = urlParams.get('words');
+  //console.log('parseURLParam:: words=<', words,'>');
+  let start = parseInt(urlParams.get('start'));
+  //console.log('parseURLParam:: start=<', start,'>');
+  let end = parseInt(urlParams.get('end'));
+  //console.log('parseURLParam:: end=<', end,'>');
+  return { words:words,start:start,end:end};
+}
 
 let allMessageRecievedOfOneSearch = {};
 
@@ -48,12 +66,29 @@ const onMessageWSS = (event)=> {
   }
 };
 
+
+const LocalStorageSearchKeyWordFromIndex = 'wator/ermu/search/keyword4index';
+
+const uiOnClickSearchIndex = (evt) => {
+  //console.log('onMessageWSS::uiOnClickSearchIndex evt=<', evt,'>');
+  //console.log('onMessageWSS::uiOnClickSearchIndex location.href=<', location.href,'>');
+  const text = evt.parentElement.parentElement.getElementsByTagName('input')[0].value.trim();
+  if(text) {
+    const searchHref = location.href + 'search.html?words=' + text + '&start=0&end=20';
+    console.log('onMessageWSS::uiOnClickSearchIndex searchHref=<', searchHref,'>');
+    localStorage.setItem(LocalStorageSearchKeyWordFromIndex,text);
+    location.assign(searchHref);
+  }
+};
+
+
 const uiOnClickSearch = (evt) => {
   //console.log('onMessageWSS::uiOnClickSearch evt=<', evt,'>');
   const text = evt.parentElement.parentElement.getElementsByTagName('input')[0].value.trim();
   //console.log('onMessageWSS::uiOnClickSearch text=<', text,'>');
   if(text) {
-    startSearchText(text);
+    const searchMsg = { words:text,start:0,end:20};
+    startSearchText(searchMsg);
     onClearTopResultApp();
   }
 };
@@ -77,12 +112,11 @@ const wsOnNewSearchResult = (msg) => {
 }
 
 const LocalStorageHistory = 'wator/ermu/history';
-const startSearchText = (words) => {
-  localStorage.setItem(LocalStorageHistory,words);
-  //console.log('onMessageWSS::startSearchText words=<', words,'>');
-  const msg = {words:words};
+const startSearchText = (searchMsg) => {
+  localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
+  //console.log('onMessageWSS::startSearchText searchMsg=<', searchMsg,'>');
   if(socket) {
-    socket.send(JSON.stringify(msg));
+    socket.send(JSON.stringify(searchMsg));
     allMessageRecievedOfOneSearch = {};
   }
 };

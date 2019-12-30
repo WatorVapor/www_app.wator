@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>千耳目</title>
+    <style>
+      body {
+        font-family: 'Noto Sans SC', sans-serif;
+      }
+    </style>  
+  </head>
+  <body>
+
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <form class="form-inline" id="vue-ui-app-list-search">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <a class="navbar-brand" href="https://w2.wator.xyz/ermu">千耳目</a>
+          </div>
+          <input type="text" class="form-control" value="航母" v-bind:placeholder="history" ></input>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" onclick="uiOnClickSearch(this)">
+              <i class="material-icons">search</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </nav>
+    
+    
+    
+    <div class="container d-none" id="vue-ui-app-top-result">
+      <div class="row justify-content-center align-items-center" v-for="row in rows">
+        <div class="col-10">
+          <div class="row justify-content-start align-items-left">
+            <a v-bind:href="row.href"><h5>{{row.title}}</h5></a>
+          </div>          
+          <div class="row justify-content-start align-items-left">
+            <p class="text-success font-weight-bold">{{row.href}}</p>
+          </div> 
+          <div class="row justify-content-start align-items-left">
+            <p>{{row.summary}}...</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="vue-ui-app-page-nav">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6">
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </button>
+
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">looks_one</i>
+          </button>
+
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">looks_two</i>
+          </button>
+
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">looks_3</i>
+          </button>
+
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">looks_4</i>
+          </button>
+
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">looks_5</i>
+          </button>
+
+          
+          <button class="btn btn-outline-primary" type="button" onclick="uiOnClickSearch(this)">
+            <i class="material-icons">keyboard_arrow_right</i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr/>  
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-left">
+          <h6>千穷目,百顺耳</h6>
+        </div>
+      </div>
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js" integrity="sha256-chlNFSVx3TdcQ2Xlw7SvnbLAavAQLO0Y/LBiWX04viY=" crossorigin="anonymous"></script>
+    <script src="/wator/js/ga.js" type="text/javascript"></script>
+    <script src="./ermu.js" type="text/javascript"></script>
+    <script src="./ui.vue.js" type="text/javascript"></script>
+  </body>
+</html>

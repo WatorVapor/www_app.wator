@@ -44,5 +44,8 @@ const onShowTopResultApp = (result) =>{
 };
 
 const onClearTopResultApp = () =>{
-  gResultRows.length = 0;
+  while(gResultRows.length > 0) {
+      gResultRows.pop();
+  }
+  //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
 };
