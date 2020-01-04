@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded',(evt) =>{
+  onDocumentReadyUI(evt);
+});
+
+
+const onDocumentReadyUI = (evt) =>{
+  console.log('ui.evt::onDocumentReadyUI evt=<', evt,'>');
+  onShowSearchLastHistory();
+};
+
+
+const onShowSearchLastHistory = ()=> {
+  let historyText = getHistoryKeywords();
+  if(!historyText) {
+    historyText = '搜索';
+  }
+  const keywordsElement = document.getElementById('search-keywords-input-text');
+  keywordsElement.value = historyText;
+
+};
+
+
 const LocalStorageSearchKeyWordFromIndex = 'wator/ermu/search/keyword4index';
 const uiOnClickSearchIndex = (evt) => {
   //console.log('onMessageWSS::uiOnClickSearchIndex evt=<', evt,'>');
@@ -7,6 +29,8 @@ const uiOnClickSearchIndex = (evt) => {
     const searchHref = location.href + 'search.html?words=' + text + '&start=0&end=20';
     console.log('onMessageWSS::uiOnClickSearchIndex searchHref=<', searchHref,'>');
     localStorage.setItem(LocalStorageSearchKeyWordFromIndex,text);
+    const searchMsg = { words:text,start:0,end:20};
+    localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
     location.assign(searchHref);
   }
 };
@@ -19,6 +43,8 @@ const uiOnClickSearch = (evt) => {
     const searchHref = replaceLocationSearchParams() + '?words=' + text + '&start=0&end=20';
     console.log('onMessageWSS::uiOnClickSearchIndex searchHref=<', searchHref,'>');
     localStorage.setItem(LocalStorageSearchKeyWordFromIndex,text);
+    const searchMsg = { words:text,start:0,end:20};
+    localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
     location.assign(searchHref);
   }
 };

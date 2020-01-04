@@ -1,31 +1,3 @@
-$( document ).ready(function() {
-  onDocumentReadyUI();
-});
-
-document.addEventListener('DOMContentLoaded',(evt) =>{
-  onDocumentReadyUI(evt);
-});
-
-
-const onDocumentReadyUI = (evt) =>{
-  console.log('ui.vue::onDocumentReadyUI evt=<', evt,'>');
-  onShowTopSearchApp();
-};
-
-const onShowTopSearchApp = () =>{
-  console.log('ui.vue::onShowTopSearchApp');
-  let historyText = getHistory();
-  if(!historyText) {
-    historyText = '搜索';
-  }
-  const app = new Vue({
-    el: '#vue-ui-app-search-keywords-input',
-    data: {
-      history: historyText
-    }
-  });  
-};
-
 const gResultRows = [];
 let gResultRowsApp = false;
 
@@ -33,9 +5,20 @@ const gResultPages = [];
 let gResultPagesApp = false;
 
 const onShowTopResultApp = (result) =>{
-  console.log('ui.vue::onShowTopResultApp result=<', result,'>');
+  //console.log('ui.vue::onShowTopResultApp result=<', result,'>');
+  const summaryArray = result.summary.split(result.word);
+  //console.log('ui.vue::onShowTopResultApp summaryArray=<', summaryArray,'>');
+  let summaryColor = '';
+  for(const sumClip of summaryArray) {
+    summaryColor += sumClip;
+    summaryColor += '<span class="text-danger">';
+    summaryColor += result.word;
+    summaryColor += '</span>';
+  }
+  //console.log('ui.vue::onShowTopResultApp summaryColor=<', summaryColor,'>');
+  result.summary = summaryColor;
   gResultRows.push(result);
-  console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
+  //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
   if(gResultRowsApp === false) {
     gResultRowsApp = new Vue({
       el: '#vue-ui-app-rows-result',

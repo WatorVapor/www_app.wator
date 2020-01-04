@@ -19,9 +19,11 @@ socket.addEventListener('message', (event) => {
 
 const onOpenWSS = (event)=> {
   //console.log('onOpenWSS:: event=<', event,'>');
-  const searchMsg = parseURLParam();
+  const searchMsg = getHistory();
   console.log('onOpenWSS:: searchMsg=<', searchMsg,'>');
-  startSearchText(searchMsg);
+  if(searchMsg.words) {
+    startSearchText(searchMsg);
+  }
 };
 const onCloseWSS = (event)=> {
   console.log('onCloseWSS:: event=<', event,'>');
@@ -97,8 +99,28 @@ const startSearchText = (searchMsg) => {
   }
 };
 
+const getHistoryKeywords = () => {
+  const historyStr = localStorage.getItem(LocalStorageHistory);
+  try {
+    const historyJson = JSON.parse(historyStr);
+    console.log('onMessageWSS::getHistoryKeywords historyJson=<', historyJson,'>');
+    return historyJson.words;
+  } catch(e) {
+    console.log('onMessageWSS::getHistoryKeywords e=<', e,'>');
+  }
+  return null;
+};
+
 const getHistory = () => {
-  return localStorage.getItem(LocalStorageHistory);
+  const historyStr = localStorage.getItem(LocalStorageHistory);
+  try {
+    const historyJson = JSON.parse(historyStr);
+    console.log('onMessageWSS::getHistory historyJson=<', historyJson,'>');
+    return historyJson;
+  } catch(e) {
+    console.log('onMessageWSS::getHistory e=<', e,'>');
+  }
+  return {};
 };
 
 
