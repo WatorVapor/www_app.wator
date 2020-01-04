@@ -19,7 +19,7 @@ const onShowTopSearchApp = () =>{
     historyText = '搜索';
   }
   const app = new Vue({
-    el: '#vue-ui-app-top-search',
+    el: '#vue-ui-app-search-keywords-input',
     data: {
       history: historyText
     }
@@ -27,20 +27,35 @@ const onShowTopSearchApp = () =>{
 };
 
 const gResultRows = [];
-let gResultApp = false;
+let gResultRowsApp = false;
+
+const gResultPages = [];
+let gResultPagesApp = false;
+
 const onShowTopResultApp = (result) =>{
   console.log('ui.vue::onShowTopResultApp result=<', result,'>');
   gResultRows.push(result);
   console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
-  if(gResultApp === false) {
-    gResultApp = new Vue({
-      el: '#vue-ui-app-top-result',
+  if(gResultRowsApp === false) {
+    gResultRowsApp = new Vue({
+      el: '#vue-ui-app-rows-result',
       data: {
         rows: gResultRows
       }
     });    
   }
-  $("#vue-ui-app-top-result").removeClass("d-none");
+  $('#vue-ui-app-rows-result').removeClass("d-none");
+
+  if(gResultPagesApp === false) {
+    gResultPagesApp = new Vue({
+      el: '#vue-ui-app-pages-nav-result',
+      data: {
+        pages: gResultPages
+      }
+    });    
+  }
+  $('#vue-ui-app-pages-nav-result').removeClass("d-none");
+
 };
 
 const onClearTopResultApp = () =>{
@@ -49,3 +64,4 @@ const onClearTopResultApp = () =>{
   }
   //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
 };
+
