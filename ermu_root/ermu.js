@@ -1,3 +1,5 @@
+const iConstOnePageResult = 20;
+
 //console.log(':: location=<', location,'');
 const uri = 'wss://' + location.hostname + '/ermu/wss';
 const socket = new WebSocket(uri);

@@ -29,6 +29,15 @@ const onShowTopResultApp = (result) =>{
   }
   $('#vue-ui-app-rows-result').removeClass("d-none");
 
+  while(gResultPages.length > 0) {
+      gResultPages.pop();
+  }
+  //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
+  const totalPage = Math.ceil(gResultRows.length/iConstOnePageResult);
+  for(let page = 1;page <= totalPage;page++) {
+    gResultPages.push({number:page});
+  }
+  console.log('ui.vue::onShowTopResultApp totalPage=<', totalPage,'>');
   if(gResultPagesApp === false) {
     gResultPagesApp = new Vue({
       el: '#vue-ui-app-pages-nav-result',
