@@ -5,7 +5,7 @@ const gResultPages = [];
 let gResultPagesApp = false;
 
 const onShowTopResultApp = (result) =>{
-  //console.log('ui.vue::onShowTopResultApp result=<', result,'>');
+  console.log('ui.vue::onShowTopResultApp result=<', result,'>');
   const summaryArray = result.summary.split(result.word);
   //console.log('ui.vue::onShowTopResultApp summaryArray=<', summaryArray,'>');
   let summaryColor = '';
@@ -17,6 +17,9 @@ const onShowTopResultApp = (result) =>{
   }
   //console.log('ui.vue::onShowTopResultApp summaryColor=<', summaryColor,'>');
   result.summary = summaryColor;
+  if(!result.title) {
+    result.title = result.href;
+  }
   gResultRows.push(result);
   //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
   if(gResultRowsApp === false) {
