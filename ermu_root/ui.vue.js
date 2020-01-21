@@ -23,7 +23,7 @@ const onShowTopResultApp = (result) =>{
     gResultRowsApp = new Vue({
       el: '#vue-ui-app-rows-result',
       data: {
-        rows: gResultRows
+        searchResultRows: gResultRows
       }
     });    
   }

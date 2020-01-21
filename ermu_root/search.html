@@ -34,22 +34,22 @@
     </nav>
     
     
-    
     <div class="container d-none" id="vue-ui-app-rows-result">
-      <div class="row justify-content-center align-items-center" v-for="row in rows">
+      <div class="row justify-content-center align-items-center" v-for="rowResult in searchResultRows">
         <div class="col-10">
           <div class="row justify-content-start align-items-left">
-            <a v-bind:href="row.href"><h5>{{row.title}}</h5></a>
+            <a v-bind:href="rowResult.href"><h5>{{rowResult.title}}</h5></a>
+            <p class="text-success font-weight-bold">{{rowResult.href}}</p>
           </div>          
           <div class="row justify-content-start align-items-left">
-            <p class="text-success font-weight-bold">{{row.href}}</p>
-          </div> 
-          <div class="row justify-content-start align-items-left">
-            <div v-html="row.summary"></div>
-          </div>          
+            <div v-html="rowResult.summary"></div>
+          </div>
+          <hr/>
         </div>
       </div>
     </div>
+
+    
 
     <div class="container d-none" id="vue-ui-app-pages-nav-result">
       <div class="row justify-content-center align-items-center">
