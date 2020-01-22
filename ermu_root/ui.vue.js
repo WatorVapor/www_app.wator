@@ -1,8 +1,10 @@
 const gResultRows = [];
 let gResultRowsApp = false;
+let gResultTotalRowCounter = 0;
 
 const gResultPages = [];
 let gResultPagesApp = false;
+
 
 const onShowTopResultApp = (result) =>{
   console.log('ui.vue::onShowTopResultApp result=<', result,'>');
@@ -31,21 +33,25 @@ const onShowTopResultApp = (result) =>{
     });    
   }
   $('#vue-ui-app-rows-result').removeClass("d-none");
+  $('#search-progress-spinner').addClass("d-none");
 
   while(gResultPages.length > 0) {
       gResultPages.pop();
   }
-  //console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
+  console.log('ui.vue::onShowTopResultApp gResultRows=<', gResultRows,'>');
   const totalPage = Math.ceil(gResultRows.length/iConstOnePageResult);
   for(let page = 1;page <= totalPage;page++) {
     gResultPages.push({number:page});
   }
   console.log('ui.vue::onShowTopResultApp totalPage=<', totalPage,'>');
+  gResultTotalRowCounter = gResultRows.length;
+  console.log('ui.vue::onShowTopResultApp gResultTotalRowCounter=<', gResultTotalRowCounter,'>');
   if(gResultPagesApp === false) {
     gResultPagesApp = new Vue({
       el: '#vue-ui-app-pages-nav-result',
       data: {
-        pages: gResultPages
+        pages: gResultPages,
+        searchResultRows:gResultRows
       }
     });    
   }
