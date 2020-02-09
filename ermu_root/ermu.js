@@ -154,57 +154,12 @@ const fetchIpfsResource = async (cids,words) => {
 */
 
 
-let allMessageRecievedOfOneSearch = {};
-
-/*
-const onMessageWSS = (event)=> {
-  //console.log('onMessageWSS:: event.data=<', event.data,'>');
-  try {
-    const jMsg = JSON.parse(event.data);
-    //console.log('onMessageWSS:: jMsg=<', jMsg,'>');
-    if(jMsg && jMsg.keyAddress && jMsg.address) {
-      const indexKey = `${jMsg.keyAddress}-_- ${jMsg.address}`;
-      if(allMessageRecievedOfOneSearch[indexKey]) {
-        //console.log('onMessageWSS:: jMsg=<', jMsg,'>');
-      } else {
-        allMessageRecievedOfOneSearch[indexKey] = jMsg;
-        wsOnNewSearchResult(jMsg);
-      }
-    } else {
-      console.log('onMessageWSS:: jMsg=<', jMsg,'>');
-    }
-  } catch (e) {
-    console.log('onMessageWSS:: e=<', e,'>');
-  }
-};
-
-const wsOnNewSearchResult = (msg) => {
-  //console.log('wsOnNewSearchResult:: msg=<', msg,'>');
-  try {
-    const jMsg = JSON.parse(msg.data);
-    if(jMsg) {
-      console.log('wsOnNewSearchResult:: jMsg=<', jMsg,'>');
-      console.log('wsOnNewSearchResult:: typeof jMsg=<', typeof(jMsg),'>');
-      const jMsg2 = JSON.parse(jMsg);
-      console.log('wsOnNewSearchResult:: jMsg2=<', jMsg2,'>');
-      onShowTopResultApp(jMsg2);
-    } else {
-      //console.log('wsOnNewSearchResult:: msg.data=<', msg.data,'>');
-    }
-  } catch (e) {
-    console.log('wsOnNewSearchResult:: e=<', e,'>');
-  }
-}
-*/
-
-
 const LocalStorageHistory = 'wator/ermu/history';
 const startSearchText = (searchMsg) => {
   localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
   //console.log('onMessageWSS::startSearchText searchMsg=<', searchMsg,'>');
   if(socket) {
     socket.send(JSON.stringify(searchMsg));
-    allMessageRecievedOfOneSearch = {};
   }
 };
 
