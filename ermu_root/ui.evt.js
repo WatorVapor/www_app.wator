@@ -26,10 +26,10 @@ const uiOnClickSearchIndex = (evt) => {
   //console.log('onMessageWSS::uiOnClickSearchIndex location.href=<', location.href,'>');
   const text = evt.parentElement.parentElement.getElementsByTagName('input')[0].value.trim();
   if(text) {
-    const searchHref = location.href + 'search.html?words=' + text + '&start=0&end=' + iConstOnePageResult;
+    const searchHref = location.href + 'search.html?words=' + text + '&begin=0&end=' + iConstOnePageResult;
     console.log('onMessageWSS::uiOnClickSearchIndex searchHref=<', searchHref,'>');
     localStorage.setItem(LocalStorageSearchKeyWordFromIndex,text);
-    const searchMsg = { words:text,start:0,end:iConstOnePageResult};
+    const searchMsg = { words:text,begin:0,end:iConstOnePageResult};
     localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
     location.assign(searchHref);
   }
@@ -40,10 +40,10 @@ const uiOnClickSearch = (evt) => {
   const text = evt.parentElement.parentElement.getElementsByTagName('input')[0].value.trim();
   //console.log('onMessageWSS::uiOnClickSearch text=<', text,'>');
   if(text) {
-    const searchHref = replaceLocationSearchParams() + '?words=' + text + '&start=0&end=' + iConstOnePageResult;
+    const searchHref = replaceLocationSearchParams() + '?words=' + text + '&begin=0&end=' + iConstOnePageResult;
     console.log('onMessageWSS::uiOnClickSearchIndex searchHref=<', searchHref,'>');
     localStorage.setItem(LocalStorageSearchKeyWordFromIndex,text);
-    const searchMsg = { words:text,start:0,end:iConstOnePageResult};
+    const searchMsg = { words:text,begin:0,end:iConstOnePageResult};
     localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
     location.assign(searchHref);
   }
