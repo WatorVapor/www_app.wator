@@ -92,13 +92,21 @@ const wsOnStatsResult = (msg) => {
   }
 }
 
+const gAllResultsByCID = {}
+
 const wsOnSearchResult = async(msg,words) => {
-  console.log('wsOnSearchResult:: msg=<', msg,'>');
+  //console.log('wsOnSearchResult:: msg=<', msg,'>');
+  for(const cid of msg) {
+    if(!gAllResultsByCID[cid]){
+      gAllResultsByCID[cid] = true
+      console.log('wsOnSearchResult:: cid=<', cid,'>');
+    }
+  }
 }
 
 const gAllSummaryByCID = {}
 const wsOnSearchSummaryResult = async(msg) => {
-  console.log('wsOnSearchSummaryResult:: msg=<', msg,'>');
+  //console.log('wsOnSearchSummaryResult:: msg=<', msg,'>');
   for(const cid in msg) {
     if(!gAllSummaryByCID[cid]){
       gAllSummaryByCID[cid] = true
