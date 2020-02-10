@@ -96,13 +96,17 @@ const wsOnSearchResult = async(msg,words) => {
   console.log('wsOnSearchResult:: msg=<', msg,'>');
 }
 
+const gAllSummaryByCID = {}
 const wsOnSearchSummaryResult = async(msg) => {
   console.log('wsOnSearchSummaryResult:: msg=<', msg,'>');
   for(const cid in msg) {
-    console.log('wsOnSearchSummaryResult:: cid=<', cid,'>');
-    const searchSummary = msg[cid];
-    console.log('wsOnSearchSummaryResult:: searchSummary=<', searchSummary,'>');
-    onShowSearchResultOneRow(cid,searchSummary);
+    if(!gAllSummaryByCID[cid]){
+      gAllSummaryByCID[cid] = true
+      console.log('wsOnSearchSummaryResult:: cid=<', cid,'>');
+      const searchSummary = msg[cid];
+      console.log('wsOnSearchSummaryResult:: searchSummary=<', searchSummary,'>');
+      onShowSearchResultOneRow(cid,searchSummary);
+    }
   }
 }
 
