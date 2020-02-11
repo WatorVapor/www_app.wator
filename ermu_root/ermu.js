@@ -179,7 +179,7 @@ const getHistoryKeywords = () => {
   const historyStr = localStorage.getItem(LocalStorageHistory);
   try {
     const historyJson = JSON.parse(historyStr);
-    console.log('onMessageWSS::getHistoryKeywords historyJson=<', historyJson,'>');
+    //console.log('onMessageWSS::getHistoryKeywords historyJson=<', historyJson,'>');
     return historyJson.words;
   } catch(e) {
     console.log('onMessageWSS::getHistoryKeywords e=<', e,'>');
@@ -191,7 +191,7 @@ const getHistory = () => {
   const historyStr = localStorage.getItem(LocalStorageHistory);
   try {
     const historyJson = JSON.parse(historyStr);
-    console.log('onMessageWSS::getHistory historyJson=<', historyJson,'>');
+    //console.log('onMessageWSS::getHistory historyJson=<', historyJson,'>');
     return historyJson;
   } catch(e) {
     console.log('onMessageWSS::getHistory e=<', e,'>');
