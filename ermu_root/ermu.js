@@ -99,7 +99,8 @@ const wsOnSearchResult = async(msg,words) => {
   for(const cid of msg) {
     if(!gAllResultsByCID[cid]){
       gAllResultsByCID[cid] = true
-      console.log('wsOnSearchResult:: cid=<', cid,'>');
+      //console.log('wsOnSearchResult:: cid=<', cid,'>');
+      onShowSearchResultFrameRow(cid);
     }
   }
 }

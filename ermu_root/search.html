@@ -38,16 +38,23 @@
       </form>
     </nav>
     
-    
-    <div class="container d-none" id="vue-ui-app-rows-result">
-      <div class="row justify-content-center align-items-center" v-for="rowResult in searchResultRows">
-        <div class="col-10">
+
+
+    <div class="container d-none" id="vue-ui-app-rows-result-frame">
+      <div class="row justify-content-center align-items-center" v-for="rowResultIpfs in searchResultIpfsRows">
+        <div class="col-1 text-success" v-bind:id="rowResultIpfs.spinner">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+          <hr/>
+        </div>
+        <div class="col-10 d-none" v-bind:id="rowResultIpfs.frame">
           <div class="row justify-content-start align-items-left">
-            <a v-bind:href="rowResult.href"><h5>{{rowResult.title}}</h5></a>
-            <p class="text-success font-weight-bold">{{rowResult.href}}</p>
+            <a v-bind:id="rowResultIpfs.href"><h5 v-bind:id="rowResultIpfs.title"></h5></a>
+            <p class="text-success font-weight-bold"></p>
           </div>          
           <div class="row justify-content-start align-items-left">
-            <div v-html="rowResult.summary"></div>
+            <div v-bind:id="rowResultIpfs.summary"></div>
           </div>
           <hr/>
         </div>
@@ -58,8 +65,8 @@
 
     <div class="container d-none" id="vue-ui-app-pages-nav-result">
       <div class="row d-flex justify-content-center">
-        <div class="col-2">
-          <h4>找到网页<span class="badge badge-secondary">{{total}}</span></h4>
+        <div class="col-3">
+          <h5>找到网页<span class="badge badge-secondary">{{total}}</span></h5>
         </div>
         <div class="col-6">
           <div class="btn-group" role="group">
