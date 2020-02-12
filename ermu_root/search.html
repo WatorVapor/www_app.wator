@@ -41,6 +41,7 @@
 
 
     <div class="container d-none" id="vue-ui-app-rows-result-frame">
+      
       <div class="row justify-content-center align-items-center" v-for="rowResultIpfs in searchResultIpfsRows">
         <div class="col-1 text-success" v-bind:id="rowResultIpfs.spinner">
           <div class="spinner-border" role="status">
@@ -48,12 +49,19 @@
           </div>
           <hr/>
         </div>
+        
         <div class="col-10 d-none" v-bind:id="rowResultIpfs.frame">
           <div class="row justify-content-start align-items-left">
-            <a v-bind:id="rowResultIpfs.href"><h5 v-bind:id="rowResultIpfs.title"></h5></a>
-            <p class="text-success font-weight-bold"></p>
+            <p class="text-success font-weight-bold">
+              <span class="badge badge-light" v-bind:id="rowResultIpfs.freq"></span>
+            </p>
+            <a v-bind:id="rowResultIpfs.href">
+              <h6 class="overflow-hidden" v-bind:id="rowResultIpfs.title"></h6>
+            </a>
+<!--
           </div>          
           <div class="row justify-content-start align-items-left">
+-->
             <div v-bind:id="rowResultIpfs.summary"></div>
           </div>
           <hr/>
@@ -64,11 +72,11 @@
     
 
     <div class="container d-none" id="vue-ui-app-pages-nav-result">
-      <div class="row d-flex justify-content-center">
-        <div class="col-3">
-          <h5>找到网页<span class="badge badge-secondary">{{total}}</span></h5>
+      <div class="row d-flex align-content-center">
+        <div class="col-4 text-right pt-2">
+          <h5 class="align-baseline">找到网页<span class="badge badge-secondary">{{total}}</span></h5>
         </div>
-        <div class="col-6">
+        <div class="col-8 text-left align-baseline">
           <div class="btn-group" role="group">
             <div class="btn-group mr-2" role="group">
               <button type="button" class="btn btn-outline-primary" onclick="uiOnClickSearchNextPage(this)">
@@ -91,7 +99,7 @@
     </div>
 
     <hr/>
-    <div class="container">
+    <div class="container fixed-bottom">
       <div class="row justify-content-center">
         <div class="col-12 text-left">
           <h6>千穷目,百顺耳</h6>

@@ -81,6 +81,7 @@ const onShowSearchResultFrameRow = (cid) => {
     spinner:'spinner-' + cid,
     frame:'frame-' + cid,
     title:'title-' + cid,
+    freq:'freq-' + cid,
     href:'href-' + cid,
     summary:'summary-' + cid
   };
@@ -117,6 +118,11 @@ const onShowSearchResultOneRow = (cid,result) => {
   const spinnerid = '#spinner-' + cid;
   console.log('ui.vue::onShowSearchResultOneRow spinnerid=<', spinnerid,'>');
   $(spinnerid).addClass("d-none");
+  
+  const freqid = '#freq-' + cid;
+  console.log('ui.vue::onShowSearchResultOneRow freqid=<', freqid,'>');
+  $(freqid).text(result.freq);
+  
   const titleid = '#title-' + cid;
   console.log('ui.vue::onShowSearchResultOneRow titleid=<', titleid,'>');
   let tiltle = result.title;
