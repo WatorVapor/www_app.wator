@@ -122,20 +122,24 @@ const wsOnSearchSummaryResult = async(msg) => {
 /*
 const ipfs = window.IpfsHttpClient({ host: 'gateway.ipfs.io', port: 5001 });
 console.log(':: ipfs=<', ipfs,'>');
+*/
 
+/*
 const ipfs = {ready:false};
 const gSearchCache = [];
 
 async function mainIpfsCreate () {
   ipfs.node = await window.Ipfs.create();
-  //console.log('mainIpfsCreate:: ipfs=<', ipfs,'>');
+  console.log('mainIpfsCreate:: ipfs=<', ipfs,'>');
   for(const cache of gSearchCache) {
-    //console.log('mainIpfsCreate:: cache=<', cache,'>');
+    console.log('mainIpfsCreate:: cache=<', cache,'>');
     await fetchIpfsResource(cache.cid,cache.words);
   }
 }
 mainIpfsCreate();
+*/
 
+/*
 const wsOnSearchResult = async(msg,words) => {
   //console.log('wsOnSearchResult:: msg=<', msg,'>');
   //console.log('wsOnSearchResult:: ipfs.ready=<', ipfs.ready,'>');
