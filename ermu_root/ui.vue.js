@@ -76,7 +76,7 @@ const gResultFrameRows = [];
 let gResultFrameRowsApp = false;
 
 const onShowSearchResultFrameRow = (cid) => {
-  console.log('ui.vue::onShowSearchResultFrameRow cid=<', cid,'>');
+  //console.log('ui.vue::onShowSearchResultFrameRow cid=<', cid,'>');
   const idElem = {
     spinner:'spinner-' + cid,
     frame:'frame-' + cid,
@@ -103,39 +103,40 @@ const onShowSearchResultFrameRow = (cid) => {
 const onShowSearchResultOneRow = (cid,result) => {
   //console.log('ui.vue::onShowSearchResultOneRow cid=<', cid,'>');
   //console.log('ui.vue::onShowSearchResultOneRow result=<', result,'>');
-  const summaryArray = result.summary.split(result.word);
+  const contentJ = JSON.parse(result.content);
+  const summaryArray = contentJ.summary.split(contentJ.word);
   //console.log('ui.vue::onShowTopResultApp summaryArray=<', summaryArray,'>');
   let summaryColor = '';
   for(const sumClip of summaryArray) {
     summaryColor += sumClip;
     summaryColor += '<span class="text-danger">';
-    summaryColor += result.word;
+    summaryColor += contentJ.word;
     summaryColor += '</span>';
   }
   const frameid = '#frame-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow frameid=<', frameid,'>');
+  //console.log('ui.vue::onShowSearchResultOneRow frameid=<', frameid,'>');
   $(frameid).removeClass("d-none");
   const spinnerid = '#spinner-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow spinnerid=<', spinnerid,'>');
+  //console.log('ui.vue::onShowSearchResultOneRow spinnerid=<', spinnerid,'>');
   $(spinnerid).addClass("d-none");
   
   const freqid = '#freq-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow freqid=<', freqid,'>');
-  $(freqid).text(result.freq);
+  //console.log('ui.vue::onShowSearchResultOneRow freqid=<', freqid,'>');
+  $(freqid).text(contentJ.freq);
   
   const titleid = '#title-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow titleid=<', titleid,'>');
-  let tiltle = result.title;
+  //console.log('ui.vue::onShowSearchResultOneRow titleid=<', titleid,'>');
+  let tiltle = contentJ.title;
   if(!tiltle) {
-    tiltle = result.href;
+    tiltle = contentJ.href;
   }
   $(titleid).text(tiltle);
   
   const hrefid = '#href-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow hrefid=<', hrefid,'>');
-  $(hrefid).attr('href',result.href);
+  //console.log('ui.vue::onShowSearchResultOneRow hrefid=<', hrefid,'>');
+  $(hrefid).attr('href',contentJ.href);
   
   const summaryid = '#summary-' + cid;
-  console.log('ui.vue::onShowSearchResultOneRow summaryid=<', summaryid,'>');
+  //console.log('ui.vue::onShowSearchResultOneRow summaryid=<', summaryid,'>');
   $(summaryid).html(summaryColor);  
 }
