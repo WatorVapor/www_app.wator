@@ -6,12 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/body.css">
     <title>千耳目</title>
-    <style>
-      body {
-        font-family: 'Noto Sans SC', sans-serif;
-      }
-    </style>  
   </head>
   <body>
 
@@ -38,32 +34,32 @@
       </form>
     </nav>
     
-
-
     <div class="container d-none" id="vue-ui-app-rows-result-frame">      
-      <div class="row justify-content-center align-items-center mt-3 mb-3 border-bottom border-info" v-for="rowResultCID in searchResultCIDRows">
-        <div class="col-1 text-success" v-bind:id="rowResultCID.spinner">
-          <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
-          </div>
-        </div>       
-        <div class="col-12 d-none" v-bind:id="rowResultCID.frame">
-          <div class="row justify-content-start align-items-left">
-            <p class="text-success font-weight-bold">
-              <span class="badge badge-light" v-bind:id="rowResultCID.freq"></span>
-            </p>
-            <a v-bind:id="rowResultCID.href">
-              <h6 class="overflow-hidden" v-bind:id="rowResultCID.title"></h6>
-            </a>
-          </div>
-          <div class="row justify-content-start align-items-left">
-            <div v-bind:id="rowResultCID.summary"></div>
-          </div>
-        </div> 
-        <hr/>
-      </div>
+      <table class="col-12 table table-striped table-borderless">
+        <tbody>
+          <tr v-for="rowResultCID in searchResultCIDRows">
+            <td class="text-success" v-bind:id="rowResultCID.spinner">
+              <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </td>
+            <td class="d-none" v-bind:id="rowResultCID.frame">
+              <div class="row justify-content-start align-items-left">
+                <a v-bind:id="rowResultCID.href">
+                  <h5 class="overflow-hidden" v-bind:id="rowResultCID.title"></h5>
+                </a>
+                <p class="text-success font-weight-bold">
+                  <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
+                </p>
+              </div>
+              <div class="row justify-content-start align-items-left">
+                <p v-bind:id="rowResultCID.summary" class="font-weight-light"></p>
+              </div>              
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
 
     
 
