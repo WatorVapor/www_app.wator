@@ -119,58 +119,6 @@ const wsOnSearchSummaryResult = async(msg) => {
   }
 }
 
-/*
-const ipfs = window.IpfsHttpClient({ host: 'gateway.ipfs.io', port: 5001 });
-console.log(':: ipfs=<', ipfs,'>');
-*/
-
-/*
-const ipfs = {ready:false};
-const gSearchCache = [];
-
-async function mainIpfsCreate () {
-  ipfs.node = await window.Ipfs.create();
-  console.log('mainIpfsCreate:: ipfs=<', ipfs,'>');
-  for(const cache of gSearchCache) {
-    console.log('mainIpfsCreate:: cache=<', cache,'>');
-    await fetchIpfsResource(cache.cid,cache.words);
-  }
-}
-mainIpfsCreate();
-*/
-
-/*
-const wsOnSearchResult = async(msg,words) => {
-  //console.log('wsOnSearchResult:: msg=<', msg,'>');
-  //console.log('wsOnSearchResult:: ipfs.ready=<', ipfs.ready,'>');
-  
-  if(!ipfs.node) {
-    gSearchCache.push({cid:msg,words:words});
-  } else {
-    await fetchIpfsResource(msg,words);
-  }
-}
-
-const fetchIpfsResource = async (cids,words) => {
-  //console.log('fetchIpfsResource:: cids=<', cids,'>');  
-  //console.log('fetchIpfsResource:: words=<', words,'>');  
-  for(const cid of cids) {
-    //console.log('fetchIpfsResource:: cid=<', cid,'>');
-    //console.log('fetchIpfsResource:: ipfs.node=<', ipfs.node,'>');
-    const files = await ipfs.node.get(cid);
-    //console.log('fetchIpfsResource:: files=<', files,'>');
-    for(const file of files) {
-      console.log('fetchIpfsResource:: file=<', file,'>');
-      for await (const chunk of file.content) {
-      }
-      const contents = file.content;
-      console.log('fetchIpfsResource:: contents=<', contents,'>');
-    }
-  }
-}
-*/
-
-
 const LocalStorageHistory = 'wator/ermu/history';
 const startSearchText = (searchMsg) => {
   localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
