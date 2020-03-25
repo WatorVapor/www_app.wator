@@ -152,5 +152,9 @@ const getHistory = () => {
   return {};
 };
 
+/*
+const hashMsg = CryptoJS.RIPEMD160("Message");
+console.log(':: hashMsg=<', hashMsg.toString(CryptoJS.enc.Base64),'>');
+*/
 
 
