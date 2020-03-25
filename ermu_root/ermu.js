@@ -153,10 +153,7 @@ const getHistory = () => {
   return {};
 };
 
-/*
-const hashMsg = CryptoJS.RIPEMD160("Message");
-console.log(':: hashMsg=<', hashMsg.toString(CryptoJS.enc.Base64),'>');
-*/
+
 
 const LOCAL_STORAGE_ACCESS_KEY = 'wator/ermu/ed25519/key';
 const onPrepareKey = () => {
@@ -186,12 +183,16 @@ const createKey = () => {
 const loadKey = () => {
   const saveKeyStr = localStorage.getItem(LOCAL_STORAGE_ACCESS_KEY);
   const saveKeyJson = JSON.parse(saveKeyStr);
-  console.log('loadKey::saveKeyJson=<', saveKeyJson,'>');
+  //console.log('loadKey::saveKeyJson=<', saveKeyJson,'>');
   const keyId = calcKeyID(saveKeyJson.publicKey);
-  console.log('loadKey::keyId=<', keyId,'>');
+  //console.log('loadKey::keyId=<', keyId,'>');
   if(keyId === saveKeyJson.keyId) {
     const newPair = nacl.sign.keyPair.fromSecretKey(nacl.util.decodeBase64(saveKeyJson.secretKey));
-    console.log('loadKey::newPair=<', newPair,'>');
+    //console.log('loadKey::newPair=<', newPair,'>');
+    const pubKeyB64 = nacl.util.encodeBase64(newPair.publicKey);
+    if(pubKeyB64 === saveKeyJson.publicKey) {
+      return true;
+    }
   }
   return false;
 };
