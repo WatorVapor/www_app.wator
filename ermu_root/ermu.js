@@ -5,7 +5,8 @@ const uri = 'wss://' + location.hostname + '/ermu/wss';
 const socket = new WebSocket(uri);
 socket.addEventListener('open', (event) => {
   setTimeout(() => {
-    onOpenWSS(event)
+    onOpenWSS(event);
+    onPrepareKey();
   },1);
 });
 socket.addEventListener('close', (event) => {
@@ -157,4 +158,24 @@ const hashMsg = CryptoJS.RIPEMD160("Message");
 console.log(':: hashMsg=<', hashMsg.toString(CryptoJS.enc.Base64),'>');
 */
 
+const onPrepareKey = () => {
+  createKey();
+};
 
+const createKey = () => {
+  const keyPair = nacl.sign.keyPair();
+  console.log('createKey::keyPair=<', keyPair,'>');
+  const pubKeyB64 = nacl.util.encodeBase64(keyPair.publicKey);
+  console.log('createKey::pubKeyB64=<', pubKeyB64,'>');
+  const keyHash512 =  CryptoJS.SHA512(pubKeyB64);
+  console.log('createKey::keyHash512=<', keyHash512,'>');
+  const hash160 = CryptoJS.RIPEMD160(keyHash512.toString(CryptoJS.enc.Base64));
+  console.log('createKey::hash160=<', hash160,'>');
+  const keyB64 = hash160.toString(CryptoJS.enc.Base64);
+  console.log('createKey::keyB64=<', keyB64,'>');
+  const keyB58 = Base58.encode(nacl.util.decodeBase64(keyB64));
+  console.log('createKey::keyB58=<', keyB58,'>');
+  const secKeyB64 = nacl.util.encodeBase64(keyPair.secretKey);
+  console.log('createKey::secKeyB64=<', secKeyB64,'>');
+
+};
