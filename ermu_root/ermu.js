@@ -83,10 +83,12 @@ const onMessageWSS = (event)=> {
   }
 };
 
+let gTotalPageNumber = false;
 
 const wsOnStatsResult = (msg) => {
   console.log('wsOnStatsResult:: msg=<', msg,'>');
   try {
+    gTotalPageNumber = Math.ceil(parseInt(msg.totalResult)/iConstOnePageResult);
     onShowStatsResultApp(msg);
   } catch (e) {
     console.log('wsOnStatsResult:: e=<', e,'>');

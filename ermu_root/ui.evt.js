@@ -57,14 +57,62 @@ const replaceLocationSearchParams = () =>{
   return hrefArray[0] + location.pathname;
 };
 
-const uiOnClickSearchNextPage = (evt) => {
-  console.log('onMessageWSS::uiOnClickSearchNextPage evt=<', evt,'>');
+const openSearchURL = (word,pageIndex) => {
+  const beginIndex = (pageIndex -1)* iConstOnePageResult;
+  const endIndex = pageIndex * iConstOnePageResult;  
+  //console.log('onMessageWSS::openSearchURL location.pathname=<', location.pathname,'>');
+  //console.log('onMessageWSS::openSearchURL location.origin=<', location.origin,'>');
+  const searchHref = `${location.origin}${location.pathname}?words=${word}&begin=${beginIndex}&end=${endIndex}`;
+  //console.log('onMessageWSS::openSearchURL searchHref=<', searchHref,'>');
+  localStorage.setItem(LocalStorageSearchKeyWordFromIndex,word);
+  const searchMsg = { words:word,begin:beginIndex,end:endIndex};
+  localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
+  location.assign(searchHref);  
+}
+
+
+const uiOnClickSearchNextPage = (elem) => {
+  console.log(':uiOnClickSearchNextPage elem=<', elem,'>');
+  const historyText = localStorage.getItem(LocalStorageHistory);
+  const historyJson = JSON.parse(historyText);
+  if(historyJson) {
+    let pageIndex = parseInt(historyJson.begin) / iConstOnePageResult + 2;
+    console.log('uiOnClickSearchNextPage pageIndex=<', pageIndex,'>');
+    const text = localStorage.getItem(LocalStorageSearchKeyWordFromIndex);
+    if(pageIndex > gTotalPageNumber) {
+      pageIndex = gTotalPageNumber;
+    }
+    if(text && pageIndex) {
+      openSearchURL(text,pageIndex);
+    }
+  }
 };
 
-const uiOnClickSearchPrevPage = (evt) => {
-  console.log('onMessageWSS::uiOnClickSearchPrevPage evt=<', evt,'>');
+const uiOnClickSearchPrevPage = (elem) => {
+  console.log('uiOnClickSearchPrevPage elem=<', elem,'>');
+  const historyText = localStorage.getItem(LocalStorageHistory);
+  const historyJson = JSON.parse(historyText);
+  if(historyJson) {
+    let pageIndex = parseInt(historyJson.begin) / iConstOnePageResult;
+    console.log('uiOnClickSearchPrevPage pageIndex=<', pageIndex,'>');
+    const text = localStorage.getItem(LocalStorageSearchKeyWordFromIndex);
+    if(pageIndex < 1) {
+      pageIndex = 1;
+    }
+    if(text && pageIndex) {
+      openSearchURL(text,pageIndex);
+    }
+  }
 };
 
-const uiOnClickSearchGoToPage = (evt) => {
-  console.log('onMessageWSS::uiOnClickSearchGoToPage evt=<', evt,'>');
+const uiOnClickSearchGoToPage = (elem) => {
+  //console.log('uiOnClickSearchGoToPage elem=<', elem,'>');
+  const pageNumText = elem.getElementsByTagName('span')[0].textContent;
+  //console.log('uiOnClickSearchGoToPage pageNumText=<', pageNumText,'>');
+  const pageNum = parseInt(pageNumText);
+  //console.log('uiOnClickSearchGoToPage pageNum=<', pageNum,'>');
+  const text = localStorage.getItem(LocalStorageSearchKeyWordFromIndex);
+  if(text && pageNum) {
+    openSearchURL(text,pageNum);
+  }
 };
