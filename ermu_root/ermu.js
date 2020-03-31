@@ -185,15 +185,20 @@ const createKey = () => {
 const loadKey = () => {
   const saveKeyStr = localStorage.getItem(LOCAL_STORAGE_ACCESS_KEY);
   const saveKeyJson = JSON.parse(saveKeyStr);
+  if(!saveKeyJson) {
+    return false;
+  }
   //console.log('loadKey::saveKeyJson=<', saveKeyJson,'>');
-  const keyId = calcKeyID(saveKeyJson.publicKey);
-  //console.log('loadKey::keyId=<', keyId,'>');
-  if(keyId === saveKeyJson.keyId) {
-    const newPair = nacl.sign.keyPair.fromSecretKey(nacl.util.decodeBase64(saveKeyJson.secretKey));
-    //console.log('loadKey::newPair=<', newPair,'>');
-    const pubKeyB64 = nacl.util.encodeBase64(newPair.publicKey);
-    if(pubKeyB64 === saveKeyJson.publicKey) {
-      return true;
+  if(saveKeyJson && saveKeyJson.publicKey && saveKeyJson.keyId && saveKeyJson.secretKey) {
+    const keyId = calcKeyID(saveKeyJson.publicKey);
+    //console.log('loadKey::keyId=<', keyId,'>');
+    if(keyId === saveKeyJson.keyId) {
+      const newPair = nacl.sign.keyPair.fromSecretKey(nacl.util.decodeBase64(saveKeyJson.secretKey));
+      //console.log('loadKey::newPair=<', newPair,'>');
+      const pubKeyB64 = nacl.util.encodeBase64(newPair.publicKey);
+      if(pubKeyB64 === saveKeyJson.publicKey) {
+        return true;
+      }
     }
   }
   return false;
