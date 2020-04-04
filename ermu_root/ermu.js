@@ -123,6 +123,7 @@ const wsOnSearchSummaryResult = async(msg) => {
 }
 
 const LocalStorageHistory = 'wator/ermu/history';
+
 const startSearchText = (searchMsg) => {
   localStorage.setItem(LocalStorageHistory,JSON.stringify(searchMsg));
   //console.log('onMessageWSS::startSearchText searchMsg=<', searchMsg,'>');

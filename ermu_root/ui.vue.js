@@ -2,6 +2,20 @@ const gResultPages = [];
 let gResultPagesApp = false;
 let gTotalPage = 0;
 
+let gShowResultsPages = [];
+
+let gCurrentViewPageInext = 0;
+const searchMsg = getHistory();
+if(searchMsg) {
+  gCurrentViewPageIndex = searchMsg.begin /iConstOnePageResult;
+}
+if(gCurrentViewPageIndex < 0) {
+  gCurrentViewPageIndex  = 0;
+}
+
+let gResultTotalApp = false;
+
+
 const onShowStatsResultApp = (msg) =>{
   console.log('ui.vue::onShowStatsResultApp msg=<', msg,'>');
   while(gResultPages.length > 0) {
@@ -9,24 +23,46 @@ const onShowStatsResultApp = (msg) =>{
   }
   const totalPage = Math.ceil(parseInt(msg.totalResult)/iConstOnePageResult);
   for(let page = 1;page <= totalPage;page++) {
-    gResultPages.push({number:page});
+    gResultPages.push({number:page,isView:false});
   }
+  gResultPages[gCurrentViewPageIndex].isView = true;
+  
+  console.log('ui.vue::onShowStatsResultApp gCurrentViewPageIndex=<', gCurrentViewPageIndex,'>');
+  let startOffset = gCurrentViewPageIndex-5;
+  if(startOffset < 0) {
+    startOffset = 0;
+  }
+  gShowResultsPages = gResultPages.slice(startOffset, startOffset + 10);
+  console.log('ui.vue::onShowStatsResultApp gShowResultsPages=<', gShowResultsPages,'>');
+  
   gTotalPage = parseInt(msg.totalResult);
   console.log('ui.vue::onShowStatsResultApp gTotalPage=<', gTotalPage,'>');
   if(gResultPagesApp === false) {
     gResultPagesApp = new Vue({
       el: '#vue-ui-app-pages-nav-result',
       data: {
-        pages: gResultPages,
-        total:gTotalPage
+        pages: gShowResultsPages
       }
     });    
   } else {
     console.log('ui.vue::onShowStatsResultApp gResultPagesApp=<', gResultPagesApp,'>');
-    if(gTotalPage > gResultPagesApp.total) {
-      gResultPagesApp.total = gTotalPage;
-    }
   }
+
+  if(gResultTotalApp === false) {
+    gResultTotalApp = new Vue({
+      el: '#vue-ui-app-pages-total-result',
+      data: {
+        total:gTotalPage
+      }
+    });    
+  } else {
+    console.log('ui.vue::onShowStatsResultApp gResultTotalApp=<', gResultTotalApp,'>');
+    if(gTotalPage > gResultTotalApp.total) {
+      gResultTotalApp.total = gTotalPage;
+    }
+  }  
+  $('#vue-ui-app-pages-total-result').removeClass("d-none");
+
   $('#vue-ui-app-pages-nav-result').removeClass("d-none");
 }
 
