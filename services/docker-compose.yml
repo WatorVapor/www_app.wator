@@ -134,7 +134,7 @@ services:
           cpus: '0.1'
           memory: 16M
   redis:
-    image: redis
+    image: redis:5
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
       - ./redis/data:/data
