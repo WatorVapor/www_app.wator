@@ -41,66 +41,6 @@ services:
         reservations:
           cpus: '0.1'
           memory: 16M
-  wator-laravel-shadow:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18081
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-laravel-ghost:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18082
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-laravel-clone:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18083
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
   wator-ecdsa:
     image: node:lts
     volumes:
@@ -146,55 +86,6 @@ services:
         limits:
           cpus: '0.5'
           memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-sns-bot:
-    image: node:lts
-    volumes:
-      - ../bot_service:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./wai.twitter.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  ermu-ws:
-    image: node:lts
-    volumes:
-      - ../ermu_ws_service:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./ws.dht.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wai-teach-yesno:
-    image: node:lts
-    volumes:
-      - /watorvapor/ldfs/ljson/wai:/watorvapor/ldfs/ljson/wai
-      - ../teachword:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./teach.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 512M
         reservations:
           cpus: '0.1'
           memory: 16M
