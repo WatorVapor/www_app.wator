@@ -38,66 +38,6 @@ services:
         reservations:
           cpus: '0.1'
           memory: 16M
-  wator-laravel-shadow:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18081
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-laravel-ghost:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18082
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
-  wator-laravel-clone:
-    image: watorvapor/laravel
-    volumes:
-      - ../wator:/opt/laravel
-      - /watorvapor/secauth/wator:/opt/secauth
-      - /watorvapor/wai.storage:/watorvapor/wai.storage
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/story.storage/repository.wator:/repository
-    working_dir: "/opt/laravel"
-    command: php artisan serve -vvv --host=127.0.0.1 --port=18083
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
   wator-ecdsa:
     image: node:lts
     volumes:
