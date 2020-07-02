@@ -74,7 +74,7 @@ services:
           cpus: '0.1'
           memory: 16M
   redis:
-    image: redis:5
+    image: redis:6
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
       - ./redis/data:/data
@@ -85,10 +85,10 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 32M
+          memory: 256M
         reservations:
           cpus: '0.1'
-          memory: 16M
+          memory: 128M
 networks:
   outside:
     external:
