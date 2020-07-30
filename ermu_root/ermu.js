@@ -75,6 +75,8 @@ const onMessageWSS = (event)=> {
       wsOnSearchResult(jMsg.results,jMsg.words);
     } else if (jMsg.summaryResult) {
       wsOnSearchSummaryResult(jMsg.summaryResult);
+    } else if (jMsg.kword) {
+      wsOnSearchResult(jMsg.kword);
     } else {
       console.log('onMessageWSS:: jMsg=<', jMsg,'>');
     }
