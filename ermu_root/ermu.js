@@ -1,4 +1,4 @@
-const iConstOnePageResult = 20;
+const iConstOnePageResult = 16;
 
 //console.log(':: location=<', location,'');
 const uri = 'wss://' + location.hostname + '/ermu/wss';
@@ -68,15 +68,11 @@ const onMessageWSS = (event)=> {
   //console.log('onMessageWSS:: event.data=<', event.data,'>');
   try {
     const jMsg = JSON.parse(event.data);
-    //console.log('onMessageWSS:: jMsg=<', jMsg,'>');
-    if(jMsg.stats) {
-      wsOnStatsResult(jMsg.stats);
-    } else if (jMsg.results) {
-      wsOnSearchResult(jMsg.results,jMsg.words);
-    } else if (jMsg.summaryResult) {
-      wsOnSearchSummaryResult(jMsg.summaryResult);
-    } else if (jMsg.kword) {
-      wsOnSearchResult(jMsg.kword);
+    console.log('onMessageWSS:: jMsg=<', jMsg,'>');
+    if (jMsg.kword) {
+      onKWordResult(jMsg.kword);
+    } else if (jMsg.kvalue) {
+      onKValueResult(jMsg.kvalue);
     } else {
       console.log('onMessageWSS:: jMsg=<', jMsg,'>');
     }
@@ -85,7 +81,35 @@ const onMessageWSS = (event)=> {
   }
 };
 
+const onKWordResult = (msg) => {
+  //console.log('onKWordResult:: msg=<', msg,'>');
+  if(msg.total > -1) {
+    try {
+      gTotalPageNumber = Math.ceil(parseInt(msg.total)/iConstOnePageResult);
+      onShowStatsResultApp(msg);
+      for(const cid of msg.content) {
+        if(!gAllResultsByCID[cid]){
+          gAllResultsByCID[cid] = true
+          //console.log('wsOnStatsResult:: cid=<', cid,'>');
+          onShowSearchResultFrameRow(cid);
+        }
+      }
+    } catch (e) {
+      console.log('wsOnStatsResult:: e=<', e,'>');
+    }    
+  }
+}
+
+const onKValueResult = (msg) => {
+  console.log('onKValueResult:: msg=<', msg,'>');
+  if(msg.address && msg.content) {
+    onShowSearchResultOneRow(msg.address,msg.content);
+  }
+}
+
+
 let gTotalPageNumber = false;
+const gAllResultsByCID = {}
 
 const wsOnStatsResult = (msg) => {
   console.log('wsOnStatsResult:: msg=<', msg,'>');
@@ -97,7 +121,6 @@ const wsOnStatsResult = (msg) => {
   }
 }
 
-const gAllResultsByCID = {}
 
 const wsOnSearchResult = async(msg,words) => {
   //console.log('wsOnSearchResult:: msg=<', msg,'>');

@@ -57,22 +57,6 @@ services:
         reservations:
           cpus: '0.1'
           memory: 16M
-  wator-ws-notify:
-    image: node:lts
-    volumes:
-      - ../ws_service:/opt/wc
-    working_dir: "/opt/wc"
-    command: node ./notify.js
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 32M
-        reservations:
-          cpus: '0.1'
-          memory: 16M
   redis:
     image: redis:6
     volumes:

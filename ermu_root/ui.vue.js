@@ -17,26 +17,24 @@ let gResultTotalApp = false;
 
 
 const onShowStatsResultApp = (msg) =>{
-  console.log('ui.vue::onShowStatsResultApp msg=<', msg,'>');
+  //console.log('ui.vue::onShowStatsResultApp msg=<', msg,'>');
   while(gResultPages.length > 0) {
       gResultPages.pop();
   }
-  const totalPage = Math.ceil(parseInt(msg.totalResult)/iConstOnePageResult);
+  const totalPage = Math.ceil(parseInt(msg.total)/iConstOnePageResult);
   for(let page = 1;page <= totalPage;page++) {
     gResultPages.push({number:page,isView:false});
   }
   gResultPages[gCurrentViewPageIndex].isView = true;
-  
-  console.log('ui.vue::onShowStatsResultApp gCurrentViewPageIndex=<', gCurrentViewPageIndex,'>');
+  //console.log('ui.vue::onShowStatsResultApp gCurrentViewPageIndex=<', gCurrentViewPageIndex,'>');
   let startOffset = gCurrentViewPageIndex-5;
   if(startOffset < 0) {
     startOffset = 0;
   }
   gShowResultsPages = gResultPages.slice(startOffset, startOffset + 10);
-  console.log('ui.vue::onShowStatsResultApp gShowResultsPages=<', gShowResultsPages,'>');
-  
-  gTotalPage = parseInt(msg.totalResult);
-  console.log('ui.vue::onShowStatsResultApp gTotalPage=<', gTotalPage,'>');
+  //console.log('ui.vue::onShowStatsResultApp gShowResultsPages=<', gShowResultsPages,'>');
+  gTotalPage = parseInt(msg.total);
+  //console.log('ui.vue::onShowStatsResultApp gTotalPage=<', gTotalPage,'>');
   if(gResultPagesApp === false) {
     gResultPagesApp = new Vue({
       el: '#vue-ui-app-pages-nav-result',
@@ -56,7 +54,7 @@ const onShowStatsResultApp = (msg) =>{
       }
     });    
   } else {
-    console.log('ui.vue::onShowStatsResultApp gResultTotalApp=<', gResultTotalApp,'>');
+    //console.log('ui.vue::onShowStatsResultApp gResultTotalApp=<', gResultTotalApp,'>');
     if(gTotalPage > gResultTotalApp.total) {
       gResultTotalApp.total = gTotalPage;
     }
@@ -102,7 +100,7 @@ const onShowSearchResultFrameRow = (cid) => {
 const onShowSearchResultOneRow = (cid,result) => {
   //console.log('ui.vue::onShowSearchResultOneRow cid=<', cid,'>');
   //console.log('ui.vue::onShowSearchResultOneRow result=<', result,'>');
-  const contentJ = JSON.parse(result.content);
+  const contentJ = result;
   const summaryArray = contentJ.summary.split(contentJ.word);
   //console.log('ui.vue::onShowTopResultApp summaryArray=<', summaryArray,'>');
   let summaryColor = '';
