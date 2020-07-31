@@ -81,6 +81,9 @@ const onMessageWSS = (event)=> {
   }
 };
 
+let gTotalPageNumber = false;
+const gAllResultsByCID = {}
+
 const onKWordResult = (msg) => {
   //console.log('onKWordResult:: msg=<', msg,'>');
   if(msg.total > -1) {
@@ -90,12 +93,12 @@ const onKWordResult = (msg) => {
       for(const cid of msg.content) {
         if(!gAllResultsByCID[cid]){
           gAllResultsByCID[cid] = true
-          //console.log('wsOnStatsResult:: cid=<', cid,'>');
+          //console.log('onKWordResult:: cid=<', cid,'>');
           onShowSearchResultFrameRow(cid);
         }
       }
     } catch (e) {
-      console.log('wsOnStatsResult:: e=<', e,'>');
+      console.log('onKWordResult:: e=<', e,'>');
     }    
   }
 }
@@ -108,44 +111,8 @@ const onKValueResult = (msg) => {
 }
 
 
-let gTotalPageNumber = false;
-const gAllResultsByCID = {}
-
-const wsOnStatsResult = (msg) => {
-  console.log('wsOnStatsResult:: msg=<', msg,'>');
-  try {
-    gTotalPageNumber = Math.ceil(parseInt(msg.totalResult)/iConstOnePageResult);
-    onShowStatsResultApp(msg);
-  } catch (e) {
-    console.log('wsOnStatsResult:: e=<', e,'>');
-  }
-}
 
 
-const wsOnSearchResult = async(msg,words) => {
-  //console.log('wsOnSearchResult:: msg=<', msg,'>');
-  for(const cid of msg) {
-    if(!gAllResultsByCID[cid]){
-      gAllResultsByCID[cid] = true
-      //console.log('wsOnSearchResult:: cid=<', cid,'>');
-      onShowSearchResultFrameRow(cid);
-    }
-  }
-}
-
-const gAllSummaryByCID = {}
-const wsOnSearchSummaryResult = async(msg) => {
-  //console.log('wsOnSearchSummaryResult:: msg=<', msg,'>');
-  for(const cid in msg) {
-    if(!gAllSummaryByCID[cid]){
-      gAllSummaryByCID[cid] = true
-      console.log('wsOnSearchSummaryResult:: cid=<', cid,'>');
-      const searchSummary = msg[cid];
-      console.log('wsOnSearchSummaryResult:: searchSummary=<', searchSummary,'>');
-      onShowSearchResultOneRow(cid,searchSummary);
-    }
-  }
-}
 
 const LocalStorageHistory = 'wator/ermu/history';
 

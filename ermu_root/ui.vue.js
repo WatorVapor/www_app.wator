@@ -25,7 +25,10 @@ const onShowStatsResultApp = (msg) =>{
   for(let page = 1;page <= totalPage;page++) {
     gResultPages.push({number:page,isView:false});
   }
-  gResultPages[gCurrentViewPageIndex].isView = true;
+  console.log('ui.vue::onShowStatsResultApp gResultPages=<', gResultPages,'>');
+  if(gResultPages[gCurrentViewPageIndex]) {
+    gResultPages[gCurrentViewPageIndex].isView = true;
+  }
   //console.log('ui.vue::onShowStatsResultApp gCurrentViewPageIndex=<', gCurrentViewPageIndex,'>');
   let startOffset = gCurrentViewPageIndex-5;
   if(startOffset < 0) {
@@ -60,14 +63,11 @@ const onShowStatsResultApp = (msg) =>{
     }
   }  
   $('#vue-ui-app-pages-total-result').removeClass("d-none");
-
   $('#vue-ui-app-pages-nav-result').removeClass("d-none");
+  $('#search-progress-spinner').addClass("d-none");  
 }
 
-const onShowSearchResultApp = (msg,words) =>{
-  console.log('ui.vue::onShowSearchResultApp msg=<', msg,'>');
-  console.log('ui.vue::onShowSearchResultApp words=<', words,'>');
-}
+
 
 const gResultFrameRows = [];
 let gResultFrameRowsApp = false;
@@ -92,8 +92,6 @@ const onShowSearchResultFrameRow = (cid) => {
     });    
   }
   $('#vue-ui-app-rows-result-frame').removeClass("d-none");
-  $('#search-progress-spinner').addClass("d-none");
-
 }
 
 

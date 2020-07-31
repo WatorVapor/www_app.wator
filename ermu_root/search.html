@@ -42,10 +42,11 @@
       </div>
     </div>
     <hr/>
+    
     <div class="container d-none" id="vue-ui-app-rows-result-frame">      
       <table class="col-12 table table-striped table-borderless">
         <tbody>
-          <tr v-for="rowResultCID in searchResultCIDRows">
+          <tr v-for="rowResultCID in searchResultCIDRows" class="">
             <td class="text-success" v-bind:id="rowResultCID.spinner">
               <div class="spinner-border" role="status">
                 <span class="sr-only"></span>
@@ -53,12 +54,12 @@
             </td>
             <td class="d-none" v-bind:id="rowResultCID.frame">
               <div class="row justify-content-start align-items-left">
+                <p class="text-success font-weight-bold ml-1 mr-1">
+                  <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
+                </p>
                 <a v-bind:id="rowResultCID.href">
                   <h5 class="overflow-hidden" v-bind:id="rowResultCID.title"></h5>
                 </a>
-                <p class="text-success font-weight-bold">
-                  <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
-                </p>
               </div>
               <div class="row justify-content-start align-items-left">
                 <p v-bind:id="rowResultCID.summary" class="font-weight-light"></p>
@@ -68,6 +69,7 @@
         </tbody>
       </table>
     </div>    
+    
     <hr/>
     <div class="container d-none mb-3" id="vue-ui-app-pages-nav-result">
       <div class="row justify-content-center">
