@@ -68,9 +68,9 @@ const onMessageWSS = (event)=> {
   //console.log('onMessageWSS:: event.data=<', event.data,'>');
   try {
     const jMsg = JSON.parse(event.data);
-    console.log('onMessageWSS:: jMsg=<', jMsg,'>');
+    //console.log('onMessageWSS:: jMsg=<', jMsg,'>');
     if (jMsg.kword) {
-      onKWordResult(jMsg.kword);
+      onKWordResult(jMsg.kword,jMsg.cbtag);
     } else if (jMsg.kvalue) {
       onKValueResult(jMsg.kvalue);
     } else {
@@ -82,10 +82,21 @@ const onMessageWSS = (event)=> {
 };
 
 let gTotalPageNumber = false;
-const gAllResultsByCID = {}
+const gAllResultsByCID = {};
 
-const onKWordResult = (msg) => {
-  //console.log('onKWordResult:: msg=<', msg,'>');
+const gResultMemoByCBTag = {};
+
+const onKWordResult = (msg,cbtag) => {
+  console.log('onKWordResult:: msg=<', msg,'>');
+  if(!gResultMemoByCBTag[cbtag]) {
+    gResultMemoByCBTag[cbtag] = msg.total;
+  } else {
+    if(gResultMemoByCBTag[cbtag] > msg.total) {
+      return;
+    } else {
+      gResultMemoByCBTag[cbtag] = msg.total;
+    }
+  }
   if(msg.total > -1) {
     try {
       gTotalPageNumber = Math.ceil(parseInt(msg.total)/iConstOnePageResult);
