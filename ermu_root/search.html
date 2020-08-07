@@ -34,6 +34,7 @@
         </form>
       </div>
     </nav>
+    
     <div class="container d-none" id="vue-ui-app-pages-total-result">
       <div class="row d-flex align-content-start">
         <div class="col-12 text-left pt-2">
@@ -42,33 +43,30 @@
       </div>
     </div>
     <hr/>
-    
-    <div class="container d-none" id="vue-ui-app-rows-result-frame">      
-      <table class="col-12 table table-striped table-borderless">
-        <tbody>
-          <tr v-for="rowResultCID in searchResultCIDRows" class="">
-            <td class="text-success" v-bind:id="rowResultCID.spinner">
-              <div class="spinner-border" role="status">
-                <span class="sr-only"></span>
-              </div>
-            </td>
-            <td class="d-none" v-bind:id="rowResultCID.frame">
-              <div class="row justify-content-start align-items-left">
-                <p class="text-success font-weight-bold ml-1 mr-1">
-                  <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
-                </p>
-                <a v-bind:id="rowResultCID.href">
-                  <h5 class="overflow-hidden" v-bind:id="rowResultCID.title"></h5>
-                </a>
-              </div>
-              <div class="row justify-content-start align-items-left">
-                <p v-bind:id="rowResultCID.summary" class="font-weight-light"></p>
-              </div>              
-            </td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div class="container d-none" id="vue-ui-app-rows-result-frame">
+      <div class="row justify-content-center border border-light rounded mb-2" v-for="rowResultCID in searchResultCIDRows">
+        <div class="col-1" v-bind:id="rowResultCID.spinner">
+          <div class="spinner-grow text-primary" role="status">
+            <span class="sr-only"></span>
+          </div>
+        </div>
+        <div class="col-9" v-bind:id="rowResultCID.frame">
+          <div class="row justify-content-start align-items-left">
+            <p class="text-success font-weight-bold ml-1 mr-1">
+              <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
+            </p>
+            <a v-bind:id="rowResultCID.href">
+              <h5 class="overflow-hidden" v-bind:id="rowResultCID.title"></h5>
+            </a>
+          </div>
+          <div class="row justify-content-start align-items-left">
+            <p v-bind:id="rowResultCID.summary" class="font-weight-light"></p>
+          </div>              
+        </div>
+      </div>
     </div>    
+
     
     <hr/>
     <div class="container d-none mb-3" id="vue-ui-app-pages-nav-result">
@@ -96,6 +94,7 @@
       </div>
     </div>
     <hr/>
+    
     <div class="container-fluid fixed-bottom">
       <div class="row justify-content-center">
         <div class="col-6 text-left pl-5">
@@ -106,6 +105,7 @@
         </div>
       </div>
     </div>    
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
