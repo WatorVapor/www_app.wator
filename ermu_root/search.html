@@ -45,13 +45,13 @@
     <hr/>
 
     <div class="container d-none" id="vue-ui-app-rows-result-frame">
-      <div class="row justify-content-center border border-light rounded mb-2" v-for="rowResultCID in searchResultCIDRows">
+      <div class="row justify-content-center border border-secondary rounded rounded-lg mb-3" v-for="rowResultCID in searchResultCIDRows">
         <div class="col-1" v-bind:id="rowResultCID.spinner">
           <div class="spinner-grow text-primary" role="status">
             <span class="sr-only"></span>
           </div>
         </div>
-        <div class="col-9" v-bind:id="rowResultCID.frame">
+        <div class="col-11" v-bind:id="rowResultCID.frame">
           <div class="row justify-content-start align-items-left">
             <p class="text-success font-weight-bold ml-1 mr-1">
               <span class="badge badge-info" v-bind:id="rowResultCID.freq"></span>
